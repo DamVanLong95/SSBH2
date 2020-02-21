@@ -43,6 +43,7 @@
     <script src="{{ url('assets/lib/swiper/js/swiper.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/eclipsis/js/ellipsis.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/eclipsis/js/jquery.ellipsis.min.js?'.config('custom.version')) }}"></script>
+    <script src="{{ url('assets/lib/eclipsis/js/site.js?'.config('custom.version')) }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 {!! config('custom.embed_header') !!}
@@ -55,105 +56,43 @@
 
 <!-- Menu -->
 {{--sticky-top--}}
-<div id="menu-main" class="block-main-menu">
-    <div class="container flex-display">
-        <!-- Menu -->
-        <div class="logo-desktop">
-            <a href="{{ url('/') }}">
-                <img class="img-fluid" src="{{ url('/') }}/assets/images/section1/detox-icon.png?{{ config('custom.version') }}" alt="">
-            </a>
-        </div>
-        <nav id="sidenav" class="main-menu">
-            <div id="logo-mobile" class="d-lg-none mb-3 mt-4">
-                <a href="{{ url('/') }}">
-                    <img class="img-fluid" src="{{ url('/') }}/assets/images/section1/detox-icon-mb.png?{{ config('custom.version') }}" alt="">
-                </a>
+<div class="block-main-menu">
+    <nav id="sidenav" class="main-menu navbar navbar-expand-lg ">
+            <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                <li @if(request()->is('/')) class="active" @endif>
-                    <a href="{{ url('/') }}">Trang chủ</a>
-                </li>
-                <li @if(request()->is('pages/contest_create')) class="active" @endif>
-                    <a href="{{ url('pages/intro') }}">Giới thiệu</a>
-                </li>
-                <li @if(request()->is('pages/contest_list')) class="active" @endif>
-                    <a href="{{ url('pages/compare') }}">So sánh </a>
-                </li>
-                <li @if(request()->is('pages/rules')) class="active" @endif>
-                    <a href="{{ url('pages/preferential') }}">Ưu đãi </a>
-                </li>
-                <li @if(request()->is('news')) class="active" @endif>
-                    <a href="{{ url('pages/question') }}">Câu hỏi </a>
-                </li>
-                <li @if(request()->is('bui-min-25')) class="active" @endif>
-                    <a href="{{ url('pages/contact') }}">Liên hệ</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="navbar navbar-default" role="navigation">
-    	  <div class="container">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <div class="navbar-brand navbar-brand-centered">Brand</div>
-		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
-		      <ul class="nav navbar-nav">
-		        <li><a href="#">Link</a></li>
-		        <li><a href="#">Link</a></li>
-		        <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Link</a></li>
-		        <li><a href="#">Link</a></li>
-		        <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>		        
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-        <!-- /.Menu -->
-
-        <!-- overlay -->
-        <div class="block-overlay"></div>
-        <!-- /.overlay -->
-
-        <!-- icon bar -->
-        <div class="open-sidemenu">
-            <div class="icon-bar"></div>
-            <div class="icon-bar"></div>
-            <div class="icon-bar"></div>
-        </div>
-        <!-- /.icon bar -->
-    </div>
+            <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+                <a class="mx-auto" href="#">
+                    <img src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" class="logo-desktop">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+                <ul class="navbar-nav mr-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
 </div>
 <!-- Menu -->
 <div class="body-page">
@@ -167,24 +106,44 @@
     <div class="footer-cnt">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mt-5">
+                <div class="col-lg-4 mt-5">
                     <div class="sponsor-box">
-                        <h3 >Đơn vị đồng hành</h3>
+                        <h5>Về chúng tôi</h5>
                     </div>
                 
-                    <div class="footer-left">
-                        <a href="https://www.lifebuoy.vn/" target="_blank">
-                            <img src="{{url('assets/images/section1/lifebuoy-icon.png')}}" alt="">
-                        </a>
-                        <!-- <a href="http://kenh14.vn/" target="_blank">
-                            <img src="{{url('assets/images/section1/k14.png')}}" alt="" style="padding-left:20px;">
-                        </a> -->
-
+                    <div class="footer-content">
+                        <ul class="footer-nav">
+                            <li>Giới thiệu về VICS-CORP</li>
+                            <li>Ưu đãi</li>
+                            <li>Câu hỏi thường gặp</li>
+                            <li>Liên hệ</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-6 mt-5">
+                <div class="col-lg-4 mt-5">
                     <div class="contact-box">
-                        <h3>Thông tin liên hệ</h3>
+                        <h5>Liên hệ với chúng tôi</h5>
+                    </div>
+                    <div class="footer-content">
+                        <ul class="footer-nav">
+                            <li>
+                                <img src="{{ url('assets/images/default/phone.png?'.config('custom.version')) }}" alt="">
+                                <a href="tel:0906060784">0906.060.784</a><span> | <a href="tel:0383590784">0383.590.784</a></span>
+                            </li>
+                            <li>
+                                <img src="{{ url('assets/images/default/address.png?'.config('custom.version')) }}" alt="">
+                                Phòng 520, toà nhà 142 Lê Duẩn, Khâm Thiên, Đống Đa, Hà Nội
+                            </li>
+                            <li>
+                                <img src="{{ url('assets/images/default/mail.png?'.config('custom.version')) }}" alt="">
+                                <a href="mailto:contact@vics-corp.com">contact@vics-corp.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-5">
+                    <div class="contact-box">
+                        <h5>Khác</h5>
                     </div>
                     <div class="footer-right">
                         <p>Hotline:<a href="tel:02854135686">(028) 54135686</a></p>

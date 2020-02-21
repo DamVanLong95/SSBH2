@@ -671,81 +671,8 @@
             });
         }
     }
-    // Video
-    $.ui.video = new function () {
-        this.init = function () {
-            $(window).scroll(function() {
-                var myVideo = document.getElementById("video1"); 
-                var top_of_element = $("#video1").offset().top;
-                var bottom_of_element = $("#video1").offset().top + $("#video1").outerHeight();
-                var bottom_of_screen = $(window).scrollTop() + $(window).height();
-                var top_of_screen = $(window).scrollTop();
+  
     
-                if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
-                    // The element is visible, trigger play click event
-                    myVideo.play();
-                    $( ".overlay-video" ).css("visibility","hidden");
-                }
-                else {
-                    // The element is not visible, trigger pause click event
-                    myVideo.pause();
-                    $( ".overlay-video" ).css("visibility","visible");
-                }
-            });
-    
-            // fake pause video
-            var vi = document.getElementById("video1");
-            var check = true;
-            var status_sound = vi.muted;
-            console.log(status_sound);
-            $( ".control-video" ).click(function() {
-                if(check){
-                    vi.pause();
-                    $( ".overlay-video" ).css("visibility","visible");
-                    check = false;
-                }else{
-                    vi.play();
-                    $( ".overlay-video" ).css("visibility","hidden");
-                    check = true;
-                }
-            });
-            $( ".sound" ).click(function() {
-                if(status_sound){
-                    vi.muted = false;
-                    status_sound = false;
-                    $( ".sound" ).removeClass('muted');
-                }else{
-                    vi.muted = true;
-                    status_sound = true;
-                    $( ".sound" ).addClass('muted');
-                }
-            });
-        }
-    }
-    $.ui.parallax = new function(){
-        this.init = function(){
-            var scene = document.getElementById('footer-bg-leafs');
-            if(!scene) return;
-
-            var parallax = new Parallax(scene, {
-                relativeInput: true,
-                clipRelativeInput: true,
-                hoverOnly: true
-            });
-            parallax.friction(0.2, 0.2);
-
-            var scene2 = document.getElementById('footer-bg-leafs1');
-            if(!scene2) return;
-
-            var parallax2 = new Parallax(scene2, {
-                relativeInput: true,
-                clipRelativeInput: true,
-                hoverOnly: true
-            });
-            parallax2.friction(0.2, 0.2);
-        }
-
-    }
     $.ui.slick = new function(){
         this.init = function(){
             $(".kol-slick").slick({
