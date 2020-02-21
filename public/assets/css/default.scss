@@ -1,0 +1,50 @@
+.navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 160px;
+    text-align: center;
+    background-color: transparent;
+}
+.navbar>.container .navbar-brand-centered, 
+.navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+}
+
+.main-menu{
+    display: flex;
+    align-items: center;
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      margin-top: -8px;
+      li{
+        margin-left: 35px;
+        a{
+          display: block;
+          white-space: nowrap;
+          font-family: SVN-Gilroy-Light;
+          text-decoration: none;
+          font-size: 16px;
+          color: #000000;
+          transition: all 0.23s;
+          text-transform: uppercase;
+          color: #fff;
+        }
+        &:hover{
+          a{
+            font-family: SVN-Gilroy-Bold;
+            //color: #166938;
+          }
+        }
+      }
+      .active{
+        a{
+          font-family: SVN-Gilroy-Bold;
+          //color: #166938 !important;
+        }
+      }
+    }
+  }
