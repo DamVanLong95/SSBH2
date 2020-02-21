@@ -5,55 +5,40 @@
     <meta charset="UTF-8">
     <meta name="author" content="{{ config('custom.seo_author') }}">
     <meta property="fb:app_id" content="{{ config('custom.facebook_appid') }}" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="{{ url('uploads/others/favicon.ico?'.config('custom.version')) }}" />
-
+    <link rel="shortcut icon" href="{{ url('uploads/others/favicon.png?'.config('custom.version')) }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Link bootstrap -->
     <link rel="stylesheet"
           href="{{ url('assets/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css?'.config('custom.version')) }}">
-    <!-- Link aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Link font-awesome -->
     <link rel="stylesheet" href="{{ url('assets/bootstrap/css/font-awesome.min.css?'.config('custom.version')) }}"
           type="text/css" />
-    <!-- Link media-elm -->
-    <link rel="stylesheet" href="{{ url('assets/lib/mediaplayer/mediaelementplayer.min.css') }}" type="text/css" />
-    <!-- Link slick -->
-    <link type="text/css" href="{{ url('assets/lib/slick/slick.css?'.config('custom.version')) }}" rel="stylesheet">
-    <link type="text/css" href="{{ url('assets/lib/slick/slick-theme.css?'.config('custom.version')) }}"
-          rel="stylesheet">
     <!-- Link CSS default -->
-    <link type="text/css" href="{{ url('/') }}/assets/css/base.css?{{ config('custom.version') }}" rel="stylesheet">
+
     <link type="text/css" href="{{ url('/') }}/assets/css/system.css?{{ config('custom.version') }}" rel="stylesheet">
-    <!-- Link page css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <link type="text/css" href="{{ url('assets/css/animate.css?'.config('custom.version')) }}" rel="stylesheet" />
-    <link type="text/css" href="{{ url('assets/css/styles.css?'.config('custom.version')) }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url('assets/lib/swiper/css/swiper.min.css?'.config('custom.version')) }}">
+    <link rel="stylesheet" href="{{ url('assets/lib/jqueryModal/css/jquery.modal.min.css?'.config('custom.version')) }}" />
+    <link type="text/css" href="{{ url('assets/css/styles.css?18022020') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="{{ url('/') }}/assets/js/jquery-3.3.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-    <script src="{{ url('assets/lib/slick/slick.min.js?'.config('custom.version')) }}"></script>
-    <script src="{{ url('assets/lib/mediaplayer/mediaelement-and-player.js') }}"></script>
+    <script src="{{ url('assets/lib/popper/js/popper.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('assets/lib/swiper/js/swiper.min.js?'.config('custom.version')) }}"></script>
-    <script src="{{ url('assets/lib/eclipsis/js/ellipsis.min.js?'.config('custom.version')) }}"></script>
-    <script src="{{ url('assets/lib/eclipsis/js/jquery.ellipsis.min.js?'.config('custom.version')) }}"></script>
-    <script src="{{ url('assets/lib/eclipsis/js/site.js?'.config('custom.version')) }}"></script>
+    {!! config('custom.embed_header') !!}
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-{!! config('custom.embed_header') !!}
 
-@yield('header')
+    @yield('header')
+<script>
 
+    
+</script>
 </head>
 
 <body class="">
-
 <!-- Menu -->
 {{--sticky-top--}}
 <div class="block-main-menu">
@@ -155,79 +140,63 @@
         </div>
     </div>
 </footer>
-<a class="scrollup"><img src="{{url('assets/images/section1/bottom-to-top.png')}}" alt=""></a>
-@include('layouts.default_script')
-{!! config('custom.embed_footer') !!}
+    @include('layouts.default_script')
+    {!! config('custom.embed_footer') !!}
 
-@yield('footer')
-<script src="{{ url('assets/js/jquery.matchHeight.js') }}"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $.ui.menu.init();
-        $.ui.parallax.init();
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                $('.scrollup').fadeIn();
-            } else {
-                $('.scrollup').fadeOut();
-            }
+    @yield('footer')
+    <script src="{{ url('assets/lib/jqueryModal/js/jquery.modal.min.js?'.config('custom.version')) }}"></script>
+
+    <script>
+        $(document).ready(function(){
+            // $.ui.menu.init();
         });
+    </script>
+    <script src="{{ url('assets/js/common.js?'.config('custom.version')) }}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src='https://foliotek.github.io/Croppie/croppie.js'></script>
+    <script>
+        (function( $ ) {
+            $.fn.attachmentUploader = function() {
+                const uploadControl = $(this).find('.js-form-upload-control');
+                const btnClear = $(this).find('.btn-clear');
+                $(uploadControl).on('change', function(e) {
+                const preview = $(this).closest('.form-upload').children('.form-upload__preview');
+                const files   = e.target.files;
 
-        $('.scrollup').click(function () {
-            $("html, body").animate({
-                scrollTop: 0
-            }, 600);
-            return false;
-        });
-        $('.scroll-news a').click(function (e) {
-            e.preventDefault();
-            $("html, body").animate({
-                scrollTop: ($('.wrapper-news-list').offset().top -50)
-            }, 500);
-            return false;
-        });
-
-        AOS.init();
-
-        // Init click news details
-        $('a.news-link').unbind('click').click(function () {
-            var $href = $(this).attr('href');
-            var $id = $(this).data('id');
-
-            // Show modal
-            var _cb = function (res) {
-                if (res.code) {
-                    if(!res.data.refer_link){
-                        $('#ex2').modal();
-                        $('#ex2 .modal-heading').html( res.data.title );
-                        $('#ex2 .modal-content').html( res.data.fulltext );
+                function previewUpload(file) {
+                    if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+                    var reader = new FileReader();
+                    reader.addEventListener('load', function () {
+                        const html =
+                            '<div class=\"form-upload__item\">' +
+                            '<div class="form-upload__item-thumbnail" style="background-image: url(' + this.result + ')"></div>' +
+                            '<p class="form-upload__item-name">' + file.name + '</p>' +
+                            '</div>';
+                        preview.append( html );
+                        btnClear.show()
+                    }, false);
+                    reader.readAsDataURL(file);
+                    } else {
+                    alert('Please upload image only');
+                    uploadControl.val('');
                     }
                 }
-            };
 
-            $.app.ajax(null, 'news/' + $id, {}, _cb, 'GET', '.alert-form');
-        });
-    });
-
-    $(window).scroll(function () {
-        $(".slideanim").each(function () {
-            var pos = $(this).offset().top;
-
-            var winTop = $(window).scrollTop();
-            if (pos < winTop + 600) {
-                $(this).addClass("slide");
+                [].forEach.call(files, previewUpload);
+                
+                btnClear.on('click', function() {
+                    $('.form-upload__item').remove();
+                    uploadControl.val('');
+                    $(this).hide()
+                })
+                })
             }
-        });
-    });
+            })( jQuery )
 
-    function _cbShare() {
-        alert('Bạn đã chia sẻ thành công!');
-    }
-</script>
-
-
+            $('.form-upload').attachmentUploader();
+    </script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

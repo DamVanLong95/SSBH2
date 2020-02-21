@@ -3,13 +3,17 @@
     width: 16px;
     height: 16px;
 }
-.tt-cursor { background-color: #e2e2e2; }
+
+.tt-cursor {
+    background-color: #e2e2e2;
+}
+
 .bootstrap-tagsinput {
     width: 100%;
 }
 
 .accordion {
-    margin-bottom:-3px;
+    margin-bottom: -3px;
 }
 
 .accordion-group {
@@ -21,8 +25,7 @@
     margin-bottom: 0;
 }
 
-.twitter-typeahead .tt-hint
-{
+.twitter-typeahead .tt-hint {
     display: none;
 }
 
@@ -60,8 +63,8 @@
 
 .tt-suggestion:hover,
 .tt-suggestion:focus {
-  color: #ffffff;
-  text-decoration: none;
-  outline: 0;
-  background-color: #428bca;
+    color: #ffffff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428bca;
 }
