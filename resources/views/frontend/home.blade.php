@@ -17,20 +17,26 @@
 @section('content')
 <div id="section1" class="section1">
     <div class="sec1-wrapper text-center">
-        <div class="">
-            <div id="slideBanner" class="swiper-container swiper-banner">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide slide-item">
-                        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner1.jpg?{{ config('custom.version') }}" alt="">
-                    </div>
-                    <div class="swiper-slide slide-item">
-                        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner2.jpg?{{ config('custom.version') }}" alt="">
-                    </div>
-                    <div class="swiper-slide slide-item">
-                        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner3.jpg?{{ config('custom.version') }}" alt="">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="slideBanner" class="swiper-container swiper-banner">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide slide-item">
+                            <div class="overlay-bg"></div>
+                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner1.jpg?{{ config('custom.version') }}" alt="">
+                        </div>
+                        <div class="swiper-slide slide-item">
+                            <div class="overlay-bg"></div>
+                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner2.jpg?{{ config('custom.version') }}" alt="">
+                        </div>
+                        <div class="swiper-slide slide-item">
+                            <div class="overlay-bg"></div>
+                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner3.jpg?{{ config('custom.version') }}" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
@@ -62,8 +68,8 @@
         </div>
     </div>
 </div>
-<div id="section3" class="section7">
-    <div class="sec3-wrapper text-center">
+<div id="section3" class="section3">
+    <div class="sec3-wrapper ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -71,44 +77,49 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <h4>So sánh bảo hiểm vật chất ô tô</h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
                                     </div>
+                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-item ">
+                                <div class="item center-item">
+                                    <h4>So sánh bảo hiểm Nhân thọ</h4>
+                                    <div class="description-ctn">
+                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                    </div>
+                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <h4>So sánh bảo hiểm Sức khỏe</h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
                                     </div>
+                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <div class="item">
+                                    <h4>So sánh bảo hiểm Sức khỏe</h4>
+                                    <div class="description-ctn">
+                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                    </div>
                                     <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                    <div class="description-ctn">
-                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-item">
-                                <div class="item">
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/blog1.png?{{ config('custom.version') }}" alt=""></a>
-                                    <div class="description-ctn">
-                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                         <!-- Add Arrows -->
                         <div class="arrow-ctn ">
                             <div class="swiper-button-prev">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/section3/left.png?{{ config('custom.version') }}" alt="">
+                               
                             </div>
                             <div class="swiper-button-next">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/section3/right.png?{{ config('custom.version') }}" alt="">
+                               
                             </div>
                         </div>
                     </div>
@@ -268,14 +279,13 @@
                             </div>
                         </div>
                         <!-- Add Arrows -->
-                        <!-- <div class="arrow-ctn ">
+                        <div class="arrow-ctn ">
                             <div class="swiper-button-prev">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/section3/left.png?{{ config('custom.version') }}" alt="">
                             </div>
                             <div class="swiper-button-next">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/section3/right.png?{{ config('custom.version') }}" alt="">
+                               
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

@@ -46,13 +46,13 @@
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">TRANG CHỦ </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">SO SÁNH</a>
                     </li>
                 </ul>
             </div>
@@ -67,13 +67,13 @@
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
                 <ul class="navbar-nav mr-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">ƯU ĐÃI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">CÂU HỎI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>
@@ -88,12 +88,12 @@
     <a class="scrollup"></a>
 </div>
 <footer>
-    <div class="footer-cnt">
+    <div class="footer-ctn">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mt-5">
-                    <div class="sponsor-box">
-                        <h5>Về chúng tôi</h5>
+                    <div class="foot-title">
+                        <h5>Liên hệ với chúng tôi</h5>
                     </div>
                 
                     <div class="footer-content">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mt-5">
-                    <div class="contact-box">
+                    <div class="foot-title">
                         <h5>Liên hệ với chúng tôi</h5>
                     </div>
                     <div class="footer-content">
@@ -126,14 +126,20 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-5">
-                    <div class="contact-box">
+                <div class="col-lg-4 mt-5 text-right">
+                    <div class="foot-title">
                         <h5>Khác</h5>
                     </div>
-                    <div class="footer-right">
-                        <p>Hotline:<a href="tel:02854135686">(028) 54135686</a></p>
-                        <!-- <a href="http://m.me/"><img src="{{url('assets/images/section1/mess-icon.png')}}" alt=""></a> -->
-                        <a href="https://www.facebook.com/DetoxBuiPM2.5/" target="_blank"><img src="{{url('assets/images/section1/fb-icon.png')}}" alt=""></a>
+                    <div class="footer-content">
+                        <ul class="footer-nav">
+                            <li>
+                               Tin tức
+                            </li>
+                            <li>
+                                Phản hồi khách hàng
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

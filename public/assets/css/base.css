@@ -22,4 +22,14 @@
   margin: 0px;
   padding: 0px;
 }
+
+@media (min-width: 1360px) {
+  .container {
+    max-width: 1170px !important;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
 /*# sourceMappingURL=base.css.map */
