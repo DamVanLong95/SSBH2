@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
-            $table->datetime('posted_at');
+            $table->datetime('posted_at')->default(null);
+            $table->string('description');
             $table->timestamps();
         });
         Schema::table('posts', function(Blueprint $table){
