@@ -1,8 +1,8 @@
-.compare-section{
+.compare-section {
     background-color: #191919;
     height: 50px;
     position: relative;
-    .compare-nav{
+    .compare-nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -16,9 +16,9 @@
             border-left: 1px solid #fff;
             border-right: 1px solid #fff;
             z-index: 2;
-                .dropdown-list {
+            .dropdown-list {
                 padding: 12px;
-                background-color: rgba(0,0,0,0.8);
+                background-color: rgba(0, 0, 0, 0.8);
                 position: absolute;
                 top: 50px;
                 left: 0px;
@@ -29,15 +29,14 @@
                 transition: transform .15s ease-in-out .15s;
                 max-height: 66vh;
                 overflow-y: hidden;
-                }
-                .dropdown-option {
+            }
+            .dropdown-option {
                 display: block;
                 padding: 8px 12px;
                 opacity: 0;
                 transition: opacity .15s ease-in-out;
-                }
-            
-                .dropdown-label {
+            }
+            .dropdown-label {
                 display: block;
                 height: 42px;
                 background-color: #191919;
@@ -45,64 +44,60 @@
                 padding: 15px 10px;
                 line-height: 1;
                 cursor: pointer;
-                
                 &:before {
                     content: '▼';
                     float: right;
                 }
-                }
+            }
             &.on {
                 .dropdown-list {
                     transform: scale(1, 1);
                     transition-delay: 0s;
-                    
                     .dropdown-option {
-                    opacity: 1;
-                    transition-delay: .2s;
+                        opacity: 1;
+                        transition-delay: .2s;
                     }
                 }
-              
                 .dropdown-label:before {
                     content: '▲';
                 }
             }
             [type="checkbox"] {
-              position: relative;
-              top: -1px;
-              margin-right: 4px;
+                position: relative;
+                top: -1px;
+                margin-right: 4px;
             }
-            &:nth-of-type(1){
+            &:nth-of-type(1) {
                 border-left: none;
             }
-            &:nth-last-child(1){
+            &:nth-last-child(1) {
                 border-right: none;
             }
         }
     }
-    .data-compare{
-        table{
-            tr.hide-table-padding{
+    .data-compare {
+        table {
+            tr.hide-table-padding {
                 padding: 0;
             }
         }
         .expand-button {
             position: relative;
         }
-        .accordion-toggle .expand-button:after
-{
-  position: absolute;
-  left:.75rem;
-  top: 50%;
-  transform: translate(0, -50%);
-  content: '-';
-}
-.accordion-toggle.collapsed .expand-button:after
-{
-  content: '+';
-}
+        .accordion-toggle .expand-button:after {
+            position: absolute;
+            left: .75rem;
+            top: 50%;
+            transform: translate(0, -50%);
+            content: '-';
+        }
+        .accordion-toggle.collapsed .expand-button:after {
+            content: '+';
+        }
     }
 }
-.search-ctn{
+
+.search-ctn {
     background-color: #333333;
     height: 30px;
     position: relative;
@@ -110,8 +105,7 @@
     text-align: center;
 }
 
-
-.brand-section{
+.brand-section {
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
     transition: all 0.5s;
     .section-wrapper {
@@ -122,16 +116,14 @@
         // border: 1px solid black;
         overflow-x: hidden;
         overflow-y: hidden;
-        .section-list{
+        .section-list {
             height: 140px; // hide the scroll bar
             // background: #f3f3f3;
             box-sizing: border-box;
-            
             white-space: nowrap;
             overflow-x: auto;
             overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
-            
             .item {
                 display: inline-block;
                 text-align: center;
@@ -141,61 +133,59 @@
                 padding: 1em;
                 box-sizing: border-box;
                 input[type=checkbox] {
-                display: none;
+                    display: none;
                 }
                 input[type=checkbox]:checked+.toggle:after {
                     opacity: 1;
                 }
-                .brand-thumb{
+                .brand-thumb {
                     img {
                         // width: 100%;
                         height: 50px;
                     }
                 }
-              .toggle {
-                left: 0;
-                right: 0;
-                margin: auto;
-                display: block;
-                height: 35px;
-                width: 35px;
-                position: relative;
-                // top: 0px;
-                bottom: 0px;
-                // left: 0px;
-                text-indent: 100%;
-                overflow: visible;
-                cursor: pointer;
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: 12px;
-                    left: 12px;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    background:$main-color;
-                    opacity: 0;
-                }
-                &::before {
-                    content: '';
-                    width: 18px;
-                    height: 18px;
-                    background: rgba(0, 0, 0, 0);
-                    border: 1px solid #ccc;
-                    border-radius: 20px;
-                    position: absolute;
-                    top: 9px;
-                    left: 9px;
-                    -webkit-box-shadow: 0 1px 1px #dfecf4;
-                    -moz-box-shadow: 0 1px 1px #dfecf4;
-                    box-shadow: 0 1px 1px #dfecf4;
-                }
+                .toggle {
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    display: block;
+                    height: 35px;
+                    width: 35px;
+                    position: relative;
+                    // top: 0px;
+                    bottom: 0px;
+                    // left: 0px;
+                    text-indent: 100%;
+                    overflow: visible;
+                    cursor: pointer;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 12px;
+                        left: 12px;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background: $main-color;
+                        opacity: 0;
+                    }
+                    &::before {
+                        content: '';
+                        width: 18px;
+                        height: 18px;
+                        background: rgba(0, 0, 0, 0);
+                        border: 1px solid #ccc;
+                        border-radius: 20px;
+                        position: absolute;
+                        top: 9px;
+                        left: 9px;
+                        -webkit-box-shadow: 0 1px 1px #dfecf4;
+                        -moz-box-shadow: 0 1px 1px #dfecf4;
+                        box-shadow: 0 1px 1px #dfecf4;
+                    }
                 }
             }
-            
         }
-       
     }
     .paddle {
         position: absolute;
@@ -203,93 +193,153 @@
         bottom: 0;
         width: 3em;
     }
-    .paddles{
+    .paddles {
         position: relative;
-        button{
+        button {
             border: none;
             background: transparent;
         }
     }
     .left-paddle {
         left: 15%;
-
         transform: translate(30%, -85%);
         top: -30px;
         bottom: -60px;
+        @media (max-width: 1440px) {
+            left: 2%;
+        }
     }
     .right-paddle {
         right: 15%;
         transform: translate(30%, -85%);
         top: -30px;
         bottom: -60px;
+        @media (max-width: 1440px) {
+            right: 3%;
+        }
     }
     .hidden {
         display: none;
     }
 }
+
 // table
 // Table
+.table-section {
+    margin-bottom: 5%;
+}
+
 table {
     width: 100%;
-    th { text-align: left; border-bottom: 1px solid #000;}
-    th, td { padding: .4em; }
-  }
-  
-  // fold table 
-  table.fold-table {
-    > tbody {
-      // view segment
-      > tr.view {
-        td, th {cursor: pointer;}
-        td:first-child, 
-        th:first-child { 
-          position: relative;
-          padding-left:20px;
-          &:before {
-            position: absolute;
-            top:50%; left:5px;
-            width: 9px; height: 16px;
-            margin-top: -8px;
-            font: 16px fontawesome;
-            color: #000;
-            content: "\f0d7";
-            transition: all .3s ease;
-          }
-        }
-        &:nth-child(4n-1) { background: #eee; }
-        &:hover { background: #ddd; }
-        &.open {
-          background: tomato;
-          color: white;
-          td:first-child, th:first-child {
-            &:before {
-              transform: rotate(-180deg);
-              color: #000;
+    th {
+        text-align: left;
+        border-bottom: 1px solid #000;
+    }
+    th,
+    td {
+        padding: .4em;
+    }
+}
+
+table {}
+
+// fold table 
+table.fold-table {
+    // >thead {
+    //     position: relative;
+    //     display: block;
+    //     /*seperates the header from the body allowing it to be positioned*/
+    //     width: 700px;
+    //     overflow: visible;
+    //     th {
+    //         background-color: #99a;
+    //         min-width: 120px;
+    //         height: 32px;
+    //         border: 1px solid #222;
+    //         &:nth-child(1) {
+    //             position: relative;
+    //             display: block;
+    //             /*seperates the first cell in the header from the header*/
+    //             background-color: #88b;
+    //         }
+    //     }
+    // }
+    >tbody {
+        // view segment
+        >tr.view {
+            td,
+            th {
+                cursor: pointer;
             }
-          }
+            td:first-child,
+            th:first-child {
+                position: relative;
+                padding-left: 20px;
+                &:before {
+                    position: absolute;
+                    top: 50%;
+                    left: 5px;
+                    width: 9px;
+                    height: 16px;
+                    margin-top: -8px;
+                    font: 16px fontawesome;
+                    color: #000;
+                    content: "\f0d7";
+                    transition: all .3s ease;
+                }
+            }
+            &:nth-child(4n-1) {
+                background: $main-color;
+            }
+            &:hover {
+                background: #ddd;
+            }
+            &.open {
+                // background: tomato;
+                color: white;
+                td:first-child,
+                th:first-child {
+                    &:before {
+                        transform: rotate(-180deg);
+                        color: #000;
+                    }
+                }
+                // &:nth-child(2) {
+                background-image: url('../images/car/bg1.png');
+                background-repeat: no-repeat;
+                // }
+            }
+            td.first-col {
+                text-transform: uppercase;
+            }
         }
-      }
-    
-      // fold segment
-      > tr.fold {
-        display: none;
-        &.open { display:table-row; }
-      }
+        // fold segment
+        >tr.fold {
+            display: none;
+            &.open {
+                display: table-row;
+            }
+            th,
+            td {
+                border: 1px solid #ccc;
+            }
+        }
     }
-  }
-  
-  
-  
-  // fold content 
-  .fold-content {
+}
+
+// fold content 
+.fold-content {
     padding: .5em;
-    h3 { margin-top:0; }
-    > table {
-      border: 2px solid #ccc;
-      > tbody {
-        tr:nth-child(even) {
-          background: #000;
-        }
-      }
+    h3 {
+        margin-top: 0;
     }
-  }
+    >table {
+        border: 2px solid #ccc;
+        >tbody {
+            tr:nth-child(even) {
+                background: #000;
+            }
+            tr.td {}
+        }
+    }
+}
