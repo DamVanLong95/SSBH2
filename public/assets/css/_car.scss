@@ -109,104 +109,8 @@
     color: #fff;
     text-align: center;
 }
-.brand-section{
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
-    transition: all 0.5s;
-    .selection-list {
-        ul.brand-list {
-            // list-style: none;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            margin: 2% 0;
-            @media screen and (max-width: 768px) {
-                grid-template-columns: auto auto auto auto;
-            }
-            @media screen and (max-width: 480px) {
-                grid-template-columns: auto auto;
-            }
-            .brand-item {
-                text-align: center;
-                .brand-thumb {
-                    height: 100%;
-                    h3 {
-                        font-family: iCielBCLivory-Regular;
-                        font-size: 14px;
-                        margin-bottom: 25%;
-                        text-transform: uppercase;
-                        @media screen and (max-width: 767px) {
-                            font-size: 11px;
-                        }
-                    }
-                }
-            }
-            li {
-                position: relative;
-                padding: 7px 15px 7px 50px;
-                line-height: 21px;
-                font-size: 16px;
-                color: red;
-                margin-bottom: 8%;
-                text-transform: uppercase;
-                text-align: center;
-                display: block;
-                span {
-                    color: black;
-                }
-                input[type=checkbox] {
-                    display: none;
-                }
-                input[type=checkbox]:checked+.toggle:after {
-                    opacity: 1;
-                }
-            }
-            .toggle {
-                left: 0;
-                right: 0;
-                margin: auto;
-                display: block;
-                height: 35px;
-                width: 35px;
-                position: absolute;
-                // top: 0px;
-                bottom: 0px;
-                // left: 0px;
-                text-indent: 100%;
-                overflow: visible;
-                cursor: pointer;
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: 12px;
-                    left: 12px;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    background:$main-color;
-                    opacity: 0;
-                }
-                &::before {
-                    content: '';
-                    width: 18px;
-                    height: 18px;
-                    background: rgba(0, 0, 0, 0);
-                    border: 1px solid #ccc;
-                    border-radius: 20px;
-                    position: absolute;
-                    top: 9px;
-                    left: 9px;
-                    -webkit-box-shadow: 0 1px 1px #dfecf4;
-                    -moz-box-shadow: 0 1px 1px #dfecf4;
-                    box-shadow: 0 1px 1px #dfecf4;
-                }
-            }
-        }
-    }
-}
 
 
-
-// test
 .brand-section{
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
     transition: all 0.5s;
@@ -323,3 +227,69 @@
         display: none;
     }
 }
+// table
+// Table
+table {
+    width: 100%;
+    th { text-align: left; border-bottom: 1px solid #000;}
+    th, td { padding: .4em; }
+  }
+  
+  // fold table 
+  table.fold-table {
+    > tbody {
+      // view segment
+      > tr.view {
+        td, th {cursor: pointer;}
+        td:first-child, 
+        th:first-child { 
+          position: relative;
+          padding-left:20px;
+          &:before {
+            position: absolute;
+            top:50%; left:5px;
+            width: 9px; height: 16px;
+            margin-top: -8px;
+            font: 16px fontawesome;
+            color: #000;
+            content: "\f0d7";
+            transition: all .3s ease;
+          }
+        }
+        &:nth-child(4n-1) { background: #eee; }
+        &:hover { background: #ddd; }
+        &.open {
+          background: tomato;
+          color: white;
+          td:first-child, th:first-child {
+            &:before {
+              transform: rotate(-180deg);
+              color: #000;
+            }
+          }
+        }
+      }
+    
+      // fold segment
+      > tr.fold {
+        display: none;
+        &.open { display:table-row; }
+      }
+    }
+  }
+  
+  
+  
+  // fold content 
+  .fold-content {
+    padding: .5em;
+    h3 { margin-top:0; }
+    > table {
+      border: 2px solid #ccc;
+      > tbody {
+        tr:nth-child(even) {
+          background: #000;
+        }
+      }
+    }
+  }

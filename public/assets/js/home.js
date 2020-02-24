@@ -335,6 +335,11 @@
                 $('.section-list').animate( { scrollLeft: '0' }, scrollDuration);
             });
         //end scroll brand car page
+        // fold table 
+        $(".fold-table tr.view").on("click", function(){
+            $(this).toggleClass("open").next(".fold").toggleClass("open");
+          });
+        // end fold table
     };
 
 

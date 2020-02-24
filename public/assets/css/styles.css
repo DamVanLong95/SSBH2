@@ -844,126 +844,6 @@ footer .footer-ctn .footer-nav li a {
   transition: all 0.5s;
 }
 
-.brand-section .selection-list ul.brand-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin: 2% 0;
-}
-
-@media screen and (max-width: 768px) {
-  .brand-section .selection-list ul.brand-list {
-    -ms-grid-columns: auto auto auto auto;
-        grid-template-columns: auto auto auto auto;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .brand-section .selection-list ul.brand-list {
-    -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto;
-  }
-}
-
-.brand-section .selection-list ul.brand-list .brand-item {
-  text-align: center;
-}
-
-.brand-section .selection-list ul.brand-list .brand-item .brand-thumb {
-  height: 100%;
-}
-
-.brand-section .selection-list ul.brand-list .brand-item .brand-thumb h3 {
-  font-family: iCielBCLivory-Regular;
-  font-size: 14px;
-  margin-bottom: 25%;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 767px) {
-  .brand-section .selection-list ul.brand-list .brand-item .brand-thumb h3 {
-    font-size: 11px;
-  }
-}
-
-.brand-section .selection-list ul.brand-list li {
-  position: relative;
-  padding: 7px 15px 7px 50px;
-  line-height: 21px;
-  font-size: 16px;
-  color: red;
-  margin-bottom: 8%;
-  text-transform: uppercase;
-  text-align: center;
-  display: block;
-}
-
-.brand-section .selection-list ul.brand-list li span {
-  color: black;
-}
-
-.brand-section .selection-list ul.brand-list li input[type=checkbox] {
-  display: none;
-}
-
-.brand-section .selection-list ul.brand-list li input[type=checkbox]:checked + .toggle:after {
-  opacity: 1;
-}
-
-.brand-section .selection-list ul.brand-list .toggle {
-  left: 0;
-  right: 0;
-  margin: auto;
-  display: block;
-  height: 35px;
-  width: 35px;
-  position: absolute;
-  bottom: 0px;
-  text-indent: 100%;
-  overflow: visible;
-  cursor: pointer;
-}
-
-.brand-section .selection-list ul.brand-list .toggle::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #0d723b;
-  opacity: 0;
-}
-
-.brand-section .selection-list ul.brand-list .toggle::before {
-  content: '';
-  width: 18px;
-  height: 18px;
-  background: rgba(0, 0, 0, 0);
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  position: absolute;
-  top: 9px;
-  left: 9px;
-  -webkit-box-shadow: 0 1px 1px #dfecf4;
-  box-shadow: 0 1px 1px #dfecf4;
-}
-
-.brand-section {
-  -webkit-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
 .brand-section .section-wrapper {
   position: relative;
   max-width: 1170px;
@@ -1079,5 +959,86 @@ footer .footer-ctn .footer-nav li a {
 
 .brand-section .hidden {
   display: none;
+}
+
+table {
+  width: 100%;
+}
+
+table th {
+  text-align: left;
+  border-bottom: 1px solid #000;
+}
+
+table th, table td {
+  padding: .4em;
+}
+
+table.fold-table > tbody > tr.view td, table.fold-table > tbody > tr.view th {
+  cursor: pointer;
+}
+
+table.fold-table > tbody > tr.view td:first-child,
+table.fold-table > tbody > tr.view th:first-child {
+  position: relative;
+  padding-left: 20px;
+}
+
+table.fold-table > tbody > tr.view td:first-child:before,
+table.fold-table > tbody > tr.view th:first-child:before {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 9px;
+  height: 16px;
+  margin-top: -8px;
+  font: 16px fontawesome;
+  color: #000;
+  content: "\f0d7";
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+table.fold-table > tbody > tr.view:nth-child(4n-1) {
+  background: #eee;
+}
+
+table.fold-table > tbody > tr.view:hover {
+  background: #ddd;
+}
+
+table.fold-table > tbody > tr.view.open {
+  background: tomato;
+  color: white;
+}
+
+table.fold-table > tbody > tr.view.open td:first-child:before, table.fold-table > tbody > tr.view.open th:first-child:before {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  color: #000;
+}
+
+table.fold-table > tbody > tr.fold {
+  display: none;
+}
+
+table.fold-table > tbody > tr.fold.open {
+  display: table-row;
+}
+
+.fold-content {
+  padding: .5em;
+}
+
+.fold-content h3 {
+  margin-top: 0;
+}
+
+.fold-content > table {
+  border: 2px solid #ccc;
+}
+
+.fold-content > table > tbody tr:nth-child(even) {
+  background: #000;
 }
 /*# sourceMappingURL=styles.css.map */
