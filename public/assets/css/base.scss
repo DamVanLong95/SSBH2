@@ -19,6 +19,9 @@
     margin: 0px;
     padding: 0px;
 }
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
 @media (min-width: 1360px) {
     .container{
         max-width: 1170px !important;
