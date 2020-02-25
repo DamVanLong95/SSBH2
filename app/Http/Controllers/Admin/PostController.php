@@ -52,7 +52,7 @@ class PostController extends Controller
             ->editColumn('content',function($post){
                 return Str::words($post->content, 10, '...');
             })
-            ->rawColumns(['action', 'is_published','title','avatar'])
+            ->rawColumns(['action', 'is_published','title','avatar','checkbox'])
             ->make(true);
     }
     public function create(){
@@ -102,6 +102,10 @@ class PostController extends Controller
             );
         }
         $post = Post::find($request->get('id'));
+        $file_old ="public/". $post->avatar;
+        if(Storage::exists($file_old)) {
+            Storage::delete($file_old);
+        }
         $post->author_id    = $request->get('author_id');
         $post->title        = $request->get('title');
         $post->description  = $request->get('description');
@@ -111,7 +115,6 @@ class PostController extends Controller
         $post->posted_at    = now();
         $post->avatar       = isset($path) ? $path: $post->avatar;;
         $post->save();
-
         $notification = array(
             'message' => 'update successfully!',
             'alert-type' => 'success'
