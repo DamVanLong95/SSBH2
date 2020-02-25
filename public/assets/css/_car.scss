@@ -230,7 +230,14 @@
 }
 
 table {
+    table-layout:fixed;
     width: 100%;
+    tr{
+        
+            th:nth-child(1){
+                width: 40%;
+              }
+    }
     th {
         text-align: left;
         border-bottom: 1px solid #000;
@@ -340,6 +347,75 @@ table.fold-table {
                 background: #000;
             }
             tr.td {}
+        }
+    }
+    .filter-ctn{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        // border: 1px solid #ccc;
+        // border-radius: 40px;
+        // padding: 4px 10px;
+        .item{
+            width: 100%;
+            height: 100%;
+            select{
+                width: 100%;
+                padding: 8px 15px;
+            }
+            .first{
+                border-radius: 24px 0px 0px 24px;
+            }
+            .last{
+                border-radius: 0px 24px 24px 0px;
+            }
+            .dropdown2 {
+                position: relative;
+              }
+              
+              div.dropdown2 > div.caption {
+                background-color: #f1f2f2;
+                padding: 11px 24px;
+                color: #58595b;
+                font-family: UTM_Helve;
+                cursor: pointer;
+                border: 1px solid $main-color;
+                
+              }
+              
+              div.dropdown2 > div.list {
+                position: absolute;
+                background-color: #f2f2f2;
+                width: 100%;
+                border-radius: 0 0 3px 3px;
+                display: none;
+                z-index:4;
+              }
+              
+              div.dropdown2 > div.list > div.item {
+                padding: 11px 24px;
+                cursor: pointer;
+              }
+              
+              div.dropdown2 > div.list > div.item.selected {
+                font-weight: bold;
+              }
+              
+              div.dropdown2 > div.caption:hover,
+              div.dropdown2 > div.list > div.item:hover {
+                background-color: #677177;
+                color: #fff;
+              }
+              
+              div.dropdown2.open > div.caption {
+                border-radius: 3px 3px 0 0;
+                border-bottom: solid 1px #999;
+              }
+              
+              div.dropdown2.open > div.list {
+                display: block;
+              }
         }
     }
 }

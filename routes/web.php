@@ -17,3 +17,6 @@ Route::get('/home', function () {
 Route::get('/car', function () {
     return view('frontend.pages.car_compare');
 });
+Route::get('/test', function () {
+    return view('frontend.pages.test');
+});

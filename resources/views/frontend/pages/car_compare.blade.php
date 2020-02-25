@@ -11,7 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
 
     <!-- <script src="{{ url('assets/js/?'.config('custom.version')) }}"></script> -->
+<style>
 
+</style>
 @stop
 
 @section('content')
@@ -171,7 +173,7 @@
         </div>
     </div>
     <div class="brand-section">
-        <div class="section-wrapper">
+        <div id="thumbs" class="section-wrapper">
             <ul class="section-list">
                 <li class="item">
                     <div class="brand-thumb">
@@ -239,19 +241,19 @@
                 </button>
             </div>
     </div>
-    <div class="table-section">
+    <div  class="table-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="data-compare">
-                        <div class="table-responsive">
+                        <div  class="table-responsive">
                             <table class="fold-table">
                                 <thead>
                                     <tr>
                                         <th></th><th>Amount</th><th>Value</th><th>Premiums</th><th>Strategy A</th>
                                     </tr>
                                     <tr>
-                                        <th></th><th></th><th></th><th></th><th></th>
+                                        <th> </th><th> </th><th> </th><th> </th> <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -261,47 +263,57 @@
                                     <tr class="fold">
                                         <td colspan="7">
                                             <div class="fold-content">
-                                            <h3>Các điều khoản bổ sung</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
+                                                <div class="filter-ctn">
+                                                    <div class="item">
+                                                        <div class="dropdown2">
+                                                            <div class="caption first">Mục đích sử dụng</div>
+                                                            <div class="list">
+                                                            <div class="item">Option 1</div>
+                                                            <div class="item">Option 2</div>
+                                                            <div class="item">Option 3</div>
+                                                            <div class="item">Option 4</div>
+                                                            <div class="item">Option 5</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="dropdown2">
+                                                            <div class="caption">Hãng xe</div>
+                                                            <div class="list">
+                                                            <div class="item">Option 1</div>
+                                                            <div class="item">Option 2</div>
+                                                            <div class="item">Option 3</div>
+                                                            <div class="item">Option 4</div>
+                                                            <div class="item">Option 5</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="dropdown2">
+                                                            <div class="caption">Loại xe</div>
+                                                            <div class="list">
+                                                            <div class="item">Option 1</div>
+                                                            <div class="item">Option 2</div>
+                                                            <div class="item">Option 3</div>
+                                                            <div class="item">Option 4</div>
+                                                            <div class="item">Option 5</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="dropdown2 ">
+                                                            <div class="caption last">Năm sản xuất</div>
+                                                            <div class="list">
+                                                            <div class="item">Option 1</div>
+                                                            <div class="item">Option 2</div>
+                                                            <div class="item">Option 3</div>
+                                                            <div class="item">Option 4</div>
+                                                            <div class="item">Option 5</div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <button type="button" class="btn btn-success">Success</button> -->
+                                                </div>
+                                              
                                             </div>
                                         </td>
                                     </tr>
@@ -309,301 +321,53 @@
                                         <td colspan="5" class="first-col">Các điều khoản bổ sung</td>
                                     </tr>
                                     <tr class="fold">
-                                        <td colspan="7">
-                                            <div class="fold-content">
-                                            <h3>Company Name</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
-                                            </div>
-                                        </td>
+                                       <td colpan="1">Người điều khiển xe không có Giấy phép lái xe hoặc Giấy phép lái xe không phù hợp đối với </td>
+                                       <td>Không áp dụng loại trừ trách nhiệm bảo hiểm khi không có giấy phép lái xe đối với học viên học lái xe trên xe tập lái, thi tuyển lái xe trên xe sát hạch.</td>
+                                       <td>Không áp dụng loại trừ trách nhiệm bảo hiểm khi không có giấy phép lái xe đối với học viên học lái xe trên xe tập lái, thi tuyển lái xe trên xe sát hạch.</td>
+                                       <td>Không áp dụng loại trừ trách nhiệm bảo hiểm khi không có giấy phép lái xe đối với học viên học lái xe trên xe tập lái, thi tuyển lái xe trên xe sát hạch.</td>
+                                       <td>
+                                           Nồng độ cồn vượt quá 
+                                       </td>
                                     </tr>
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Mức khấu trừ</td>
                                     </tr>
                                     <tr class="fold">
-                                        <td colspan="7">
-                                            <div class="fold-content">
-                                            <h3>Company Name</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
-                                            </div>
-                                        </td>
+                                       
                                     </tr>
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Điều khoản loại trừ</td>
                                     </tr>
                                     <tr class="fold">
-                                        <td colspan="7">
-                                            <div class="fold-content">
-                                            <h3>Company Name</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
-                                            </div>
-                                        </td>
+                                        
                                     </tr>
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Chế tài trong các trường hợp</td>
                                     </tr>
                                     <tr class="fold">
-                                        <td colspan="7">
-                                            <div class="fold-content">
-                                            <h3>Company Name</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
-                                            </div>
-                                        </td>
+                                      
                                     </tr>
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Năng lực tài chính</td>
                                     </tr>
                                     <tr class="fold">
-                                        <td colspan="7">
-                                            <div class="fold-content">
-                                            <h3>Company Name</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
-                                            </div>
-                                        </td>
+                                        
                                     </tr>
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Mạng lưới hoạt động</td>
                                     </tr>
                                     <tr class="fold">
-                                        <td colspan="7">
-                                            <div class="fold-content">
-                                            <h3>Company Name</h3>
-                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th>Company name</th><th>Customer no</th><th>Customer name</th><th>Insurance no</th><th>Strategy</th><th>Start</th><th>Current</th><th>Diff</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13245</td>
-                                                    <td>John Doe</td>
-                                                    <td>064578</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">20000</td>
-                                                    <td class="cur">33000</td>
-                                                    <td class="cur">13000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>13288</td>
-                                                    <td>Claire Bennet</td>
-                                                    <td>064877</td>
-                                                    <td>B, 100%</td>
-                                                    <td class="cur">28000</td>
-                                                    <td class="cur">48000</td>
-                                                    <td class="cur">20000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sony</td>
-                                                    <td>12341</td>
-                                                    <td>Barry White</td>
-                                                    <td>064123</td>
-                                                    <td>A, 100%</td>
-                                                    <td class="cur">10000</td>
-                                                    <td class="cur">22000</td>
-                                                    <td class="cur">12000</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>          
-                                            </div>
+                                        <td colspan="1" class="text-center">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt="">
+                                            
                                         </td>
+                                        <td>
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                            <button class="open show">Expand accordeon</button>
+                                        </td>
+                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network3.png?{{ config('custom.version') }}" alt=""></td>
+                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network4.png?{{ config('custom.version') }}" alt=""></td>
+                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network5.png?{{ config('custom.version') }}" alt=""></td>
                                     </tr>
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Đánh giá uy tín</td>
@@ -658,20 +422,16 @@
                                     <tr class="view">
                                         <td colspan="5" class="first-col">Mô hình gqbt</td>
                                     </tr>
-                                    <tr class="fold">
-                                        <td colspan="1" class="text-center">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt="">
-                                            
-                                        </td>
-                                        <td>
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                        </td>
-                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network3.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network4.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network5.png?{{ config('custom.version') }}" alt=""></td>
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="accordeon">
+                     
+                        <div class="content hide">
+                        <span class="close">colapse</span>
+                        <p>Using CSS keyframes can make your site look better</p>
+
                         </div>
                     </div>
                 </div>

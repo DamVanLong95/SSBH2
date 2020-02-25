@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ url('assets/lib/jqueryModal/css/jquery.modal.min.css?'.config('custom.version')) }}" />
     <link type="text/css" href="{{ url('assets/css/styles.css?18022020') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js" />
     <script src="{{ url('/') }}/assets/js/jquery-3.3.1.js"></script>
     <script src="{{ url('assets/lib/popper/js/popper.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
