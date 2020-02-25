@@ -975,25 +975,305 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section {
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
-table {
-  table-layout: fixed;
+.table-section .table-bordered > tbody > tr > td,
+.table-section .table-bordered > tbody > tr > th,
+.table-section .table-bordered > tfoot > tr > td,
+.table-section .table-bordered > tfoot > tr > th,
+.table-section .table-bordered > thead > tr > td,
+.table-section .table-bordered > thead > tr > th {
+  border-color: #e4e5e7;
+}
+
+.table-section .table tr.header {
+  height: 50px;
+  font-weight: bold;
+  font-family: UTM_Helve;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
+}
+
+.table-section .table tr.header .choose-all {
+  position: absolute;
+}
+
+.table-section .table tr.header:nth-child(4n-1) {
+  background: #0d723b;
+  color: #fff;
+}
+
+.table-section .table tr.header.active {
+  color: white;
+  background-image: url("../images/car/bg1.png");
+  background-repeat: no-repeat;
+}
+
+.table-section .table tr.header.active td:first-child:before,
+.table-section .table tr.header.active th:first-child:before {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  color: #000;
+}
+
+.table-section .table tr.header:nth-child(4n-1) {
+  background: #0d723b;
+}
+
+.table-section .tool-ctn .select-ctn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.table-section .tool-ctn .select-ctn .item {
   width: 100%;
 }
 
-table tr th:nth-child(1) {
+.table-section .tool-ctn .select-ctn .item select {
+  width: 100%;
+}
+
+.table-section .tool-ctn .select-ctn input {
+  width: 60%;
+}
+
+.table-section .tool-ctn .select-ctn button {
+  background-color: #0d723b;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  float: right;
+  width: 50%;
+}
+
+.table-section .table .header td:after {
+  content: "▼";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  float: right;
+  color: #999;
+  text-align: center;
+  padding: 3px;
+  transition: -webkit-transform .25s linear;
+  transition: transform .25s linear;
+  transition: transform .25s linear, -webkit-transform .25s linear;
+  -webkit-transition: -webkit-transform .25s linear;
+}
+
+.table-section .table .header.active td:after {
+  content: "▲";
+}
+
+.table thead tr th {
+  border-bottom: 0px solid;
+  border-top: 0px solid;
+}
+
+.table td {
+  border-top: 0px solid;
+}
+
+.table {
+  table-layout: fixed;
+}
+
+.table .top-head {
+  border-top: 1px solid #000;
+  height: 100px;
+}
+
+.table .top-head th {
+  border: 1px solid #191919;
+}
+
+.table .top-head th.th-1 {
+  position: relative;
+}
+
+.table .top-head th.th-1 .left-ctn {
+  -webkit-transform: translate(0px, -37px);
+          transform: translate(0px, -37px);
+}
+
+.table .top-head th.th-1 .left-ctn .item {
+  margin-bottom: 40px;
+}
+
+.table .top-head th.th-1 .left-ctn .item a {
+  color: #fff;
+  font-family: UTM_Helve;
+  text-decoration: none;
+}
+
+.table .top-head th.th-1 .left-ctn .phone {
+  background-image: url("../images/home/cta-phone.png");
+  background-repeat: no-repeat;
+  padding: 12px 30px;
+  background-position: top center;
+  background-size: cover;
+  height: 50px;
+  width: 185px;
+}
+
+.table .top-head th.th-1 .left-ctn .phone a {
+  padding-left: 18px;
+}
+
+.table .top-head th.th-1 h4 {
+  position: absolute;
+  -webkit-transform: translate(-25%, 50%);
+          transform: translate(-25%, 50%);
+  top: 39%;
+  right: 30%;
+  color: #0d723b;
+  font-family: UTM_HelveBold_Italic;
+}
+
+.table .sub-head {
+  border: 1px solid #000;
+}
+
+.table .sub-head th {
+  border: 1px solid #000;
+}
+
+.table .sub-head th.th-2 .star-ctn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.table .sub-head th.th-2 .item p {
+  margin-bottom: 0;
+}
+
+.table .sub-head .star-ctn .item p span {
+  bottom: 2px;
+  position: relative;
+  right: 8px;
+}
+
+.table .sub-head .count-rank-ctn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.table .sub-head .count-rank-ctn .mark-num p span.first-span {
+  color: #f36f21;
+}
+
+.table .sub-head .count-rank-ctn p {
+  margin-bottom: 0;
+}
+
+.table tr th:nth-child(1) {
   width: 40%;
 }
 
-table th {
+.table tr td:nth-child(1) {
+  width: 40%;
+}
+
+.table td {
+  border-top: 1px solid #ccc;
+}
+
+.table th {
   text-align: left;
   border-bottom: 1px solid #000;
 }
 
-table th,
-table td {
+.table th,
+.table td {
   padding: .4em;
+}
+
+.table .green {
+  background-color: #0d723b;
+  color: #fff;
+}
+
+tr.data-detail td {
+  border-right: 1px solid #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tr.data-detail td p {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 135px;
+}
+
+tr.data-detail td span {
+  color: orange;
+  left: 46%;
+  right: 0;
+  position: relative;
+  margin: auto;
+}
+
+tr.data-detail td .tick-td {
+  text-align: center;
+  margin: 14px 0;
+  height: auto;
+}
+
+tr.data-detail td .star-td {
+  width: 20px;
+  right: 0;
+  float: right;
+  margin-top: 10px;
+}
+
+tr.data-detail td:last-child {
+  border-right: 0px;
 }
 
 table.fold-table > tbody > tr.view td,

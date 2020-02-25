@@ -9,134 +9,39 @@
     <meta property="og:title" content="{{ config('custom.seo_title') }}" />
     <meta property="og:description" content="{{ config('custom.seo_description') }}" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
     <!-- <script src="{{ url('assets/js/?'.config('custom.version')) }}"></script> -->
 <style>
-body {
-    margin: 2em auto;
-    max-width: 600px;
+#source{
+  width: 150px;
+  overflow: auto;
+  float: left;
+  padding: 20px;
+  border: 2px solid #000;
+  background: #555;
 }
-#thumbs {
-    text-align: center;
-    margin-bottom: 2em;
-    background: #ccc;
-    padding: 0.5em;
+#target{
+  width: 500px;
+  height: 500px;
+  border: 2px solid #000;
+  margin-left: 100px;
+  float: left;
+  background: #555;
+  position: relative;
+  z-index: 1;
 }
-#thumbs img {
-    width: 150px;
-    height: 140px;
-    margin: 0 1em;
-    cursor: move;
+#source img,
+#target img{
+  display: block;
+  width: 150px;
+  height: 100px;
+  margin-bottom: 20px;
 }
 #layout-area table {
     width: 100%;
     border-spacing: 2%;
     table-layout: fixed;
-}
-#target, #target2 {
-/*     display: none; */
-}
-#target td {
-    width: 30%;
-    height: 140px;
-    vertical-align: top;
-}
-textarea.caption {
-    display: block;
-    width: 95%;
-    margin: 10px auto;
-    height: 50px;
-    border: none;
-    background: #eee;
-}
-#layout-area .sized {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-}
-#layout-area .img-container {
-    width: 100%;
-    height: 150px;
-    background: #eee;
-    overflow: hidden;
-    position: relative;
-}
-#layout-area .img-inserted {
-/*     background: #fff; */
-}
-img.ui-draggable {
-    z-index: 100000;
-}
-#layout-area .remove {
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    background: #000;
-    color: #fff;
-    text-align: center;
-    line-height: 26px;
-    font-size: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-}
-#target td.header {
-    width: 100%;
-}
-#target td.header input, #target2 td.text input {
-    width: 100%;
-    margin-bottom: 0.5em;
-    display: block;
-    padding: 0.3em;
-    border: none;
-    text-align: center;
-    background: #eee;
-}
-#choose-layout {
-    width: 480px;
-    margin: 2em auto;
-    overflow: hidden;
-}
-#choose-layout div {
-    width: 230px;
-    text-align: center;
-}
-#choose-layout .layout {
-    height: 180px;
-    line-height: 180px;
-    background: #eee;
-}
-#layout-1 {
-    float: left;
-}
-#layout-2 {
-    float: right;
-}
-#choose-layout img {
-    display: block;
-    max-width: 100%;
-}
-#target2 td {
-    vertical-align: top;
-}
-#target2 td.logo {
-    width: 50%;
-}
-#target2 td.text {
-    width: 50%;
-}
-#target2 td[colspan] {
-    width: 100%;
-}
-#target2 td[colspan] input {
-    width: 100%;
-    margin-bottom: 0.5em;
-    display: block;
-    padding: 0.3em;
-    border: none;
-    background: #eee;
-    text-align: center;
 }
 </style>
 @stop
@@ -298,45 +203,52 @@ img.ui-draggable {
         </div>
     </div>
   
-    <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-  <div id="thumbs">
-      <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
-      <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
-      <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+    <div id="source">
+  <img id="img1" class="img-source" src="http://pic.desk.chinaz.com/file/06.07.13.1/1/20067138522625307.jpg">
+  <img id="img2" class="img-source" src="https://119.img.pp.sohu.com/images/blog/2008/1/26/10/14/1185126a45a.jpg">
+  <img id="img3" class="img-source" src="http://pic1.desk.chinaz.com/file/06.07.13.1/1/20067138522372953.jpg">
+  <img id="img4" class="img-source" src="http://pic2.desk.chinaz.com/file/06.07.13.1/1/20067138522565681.jpg">
 </div>
-  </div>
-</div>
-<div id="layout-area">
-<!--     <div id="choose-layout">
-        <h3>Choose a layout</h3>
-        <div id="layout-1">
-            <div class="layout">1</div>
-            <p>
-                <input type="radio" value="target2" id="l1" />
-            </p>
-        </div>
-    </div> -->
-    <table id="target2">
-        <tr>
-            <td class="">
-                <div class="img-container"></div>
-            </td>
-<!--             <td class="half">
-                <div class="img-container"></div>
-                <textarea class="caption"></textarea>
-            </td> -->
-        </tr>
-        <tr>
-            <td colspan="2" class="data">
-                <input type="text" id="dati" value="Data" />
-            </td>
-        </tr>
-    </table>
-    </div>
+<table id="target">
+  
+</table>
     
 <!-- <div id="output"></div> -->
+<script>
+   $(document).ready(function() {
+  var dragOpts = {
+    // containment: '#layout-area',
+    revert: 'invalid',
+    helper: 'clone',
+    zIndex: 10
+  },
+      dropOpts = {
+        tolerance: 'fit',
+        drop: function(e, ui) {
+          if(ui.draggable.hasClass('img-source')) {
+            var cloneImg = ui.draggable.clone(),
+                cloneDragOpts = {
+                  containment: 'parent'
+                };
+            cloneImg.removeAttr('id');
+            cloneImg.removeClass();
+            cloneImg.css({
+              position: 'absolute',
+              top: ui.offset.top - $(this).offset().top,
+              left: ui.offset.left - $(this).offset().left
+            }).draggable(cloneDragOpts);
+            $(this).append(cloneImg);
+          }
+        }
+      };
+  
+  $('#source img').each(function(index) {
+    $(this).draggable(dragOpts);
+  });
+  
+  $('#target').droppable(dropOpts);
+});
+</script>
 @stop
 
 @section('footer')
