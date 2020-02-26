@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use Illuminate\Support\Facades\Storage;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,10 +25,9 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('posts/edit/{id?}','Admin\PostController@edit')->name('post.edit');
     Route::post('posts/update','Admin\PostController@update')->name('post.update');
     Route::post('posts/destroy/{id?}','Admin\PostController@destroy')->name('posts.destroy');
-});
-Route::get('show', function(){
-    $files =  Storage::files('public/avatar');
-    dd($files);
-    Storage::delete($files);
-
+    Route::get('excel/{users}','Admin\ExcelController@importView')->name('excel.users');
+    Route::get('excel/{posts}','Admin\ExcelController@importView')->name('excel.posts');
+    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
+    Route::post('posts/import','Admin\ExcelController@importExcel')->name('posts.import');
+    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
 });

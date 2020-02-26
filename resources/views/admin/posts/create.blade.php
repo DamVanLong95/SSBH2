@@ -17,9 +17,6 @@
                                 <option value="{{$user['id']}}" >{{$user['name']}}</option>
                                 @endforeach
                             </select>
-                            @if($errors->has('author_id'))
-                                <div class="error" style="color: red">{{ $errors->first('author_id') }}</div>
-                            @endif
                         </div>
                     </div>
                     <div class="form-group row ">
