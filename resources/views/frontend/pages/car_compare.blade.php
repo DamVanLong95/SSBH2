@@ -233,13 +233,13 @@
             
         </div>
         <div class="paddles">
-                <button class="left-paddle paddle hidden">
-                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-                </button>
-                <button class="right-paddle paddle">
-                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-                </button>
-            </div>
+            <button class="left-paddle paddle hidden">
+                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
+            </button>
+            <button class="right-paddle paddle">
+            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
+            </button>
+        </div>
     </div>
     <div  class="table-section">
         <div class="container">
@@ -270,7 +270,7 @@
                                     <div class="star-ctn">
                                         <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
                                         <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Ttrung bình</p></div>
+                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                     </div>
                                 </th>
                                 <th>
@@ -322,40 +322,42 @@
                             <tr class="tool-ctn">
                                 <td colspan="5">
                                 <div class="select-ctn">
-                                    <div class=" item select">
-                                        <select aria-label="Select menu example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="item select">
-                                        <select aria-label="Select menu example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="item select">
-                                        <select aria-label="Select menu example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="item select">
-                                        <select aria-label="Select menu example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="item input-filter">
-                                       <span> Giá trị: </span> <input type="text" placeholder="CVC">
+                                    <div class="selection-box">
+                                        <div class=" item select">
+                                            <select aria-label="Select menu example">
+                                                <option selected>Mục đích sử dụng</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="item select">
+                                            <select aria-label="Select menu example">
+                                                <option selected>Hãng xe</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="item select">
+                                            <select aria-label="Select menu example">
+                                                <option selected>Loại xe</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="item select">
+                                            <select aria-label="Select menu example">
+                                                <option selected>Năm sản xuất</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="item input-filter">
+                                        <span> Giá trị: </span> <input type="text" placeholder="">
+                                        </div>
                                     </div>
                                     <div class="item button-filter">
                                         <button type="button" onclick="">Tính phí</button>
@@ -364,29 +366,35 @@
                                 </td>
                                
                             </tr>
-                            <tr class="data-detail">
-                                <td>Phí trước khuyến mại</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
+                            <tr class="data-detail price-discount">
+                            <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
+                                <td rowspan="2">data</td>
+                                <td rowspan="2">data</td>
+                                <td rowspan="2">data</td>
+                                <td rowspan="2">data</td> 
                             </tr>
-                            <tr class="data-detail">
-                                <td>Phí sau khuyến mại</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
+                            <tr class="data-detail price-discount">
+                                <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
                             </tr>
                             <tr class="header green">
                                 <td colspan="5">Các điều khoản bổ sung
-                                <div class="choose-all"><input type="checkbox" id="selectall">Chọn tất cả</input></div>
                                 </td>
                             </tr>
+                            <tr class="select-all" colspan="5">
+                                <td><div class="choose-all">
+                                    <input type="checkbox" id="selectall"></input>
+                                    <label class="toggle" for="selectall">Chọn tất cả</label>
+                                </div></td>
+                                
+                            </tr>
+                            
                             <tr class="data-detail">
-                                <td> <input type="checkbox" class="selectedId" name="selectedId" /> data</td>
+                                <td>
+                                    <input type="checkbox" class="selectedId" name="selectedId" />
+                                    <label class="toggle" for="selectedId" id="select1">data</label>
+                                </td>
                                 <td><p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span>...</span>
+                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
                                 
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
                                 </td>
@@ -396,7 +404,7 @@
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
                                 </td>
                                 <td><p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span>...</span>
+                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
                                 
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
                                 </td>
@@ -407,7 +415,11 @@
                                 </td> 
                             </tr>
                             <tr class="data-detail">
-                                <td><input type="checkbox" class="selectedId" name="selectedId" />data</td>
+                                <td>
+                                    <input type="checkbox" class="selectedId" name="selectedId" />
+                                    <label class="toggle" for="selectedId" id="select2">data</label>
+                                    
+                                </td>
                                 <td>data</td>
                                 <td>data</td>
                                 <td>data</td>
@@ -544,17 +556,15 @@
                                 <td colspan="5">Mạng lưới hoạt động </td>
                             </tr>
                             <tr class="data-detail">
-                            <td colspan="1" class="text-center">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt="">
-                                            
-                                        </td>
-                                        <td>
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                            <button class="open show">Expand accordeon</button>
-                                        </td>
-                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network3.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network4.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network5.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td colspan="1" class="text-center">
+                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""> 
+                                    </td>
+                                    <td>
+                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                    </td>
+                                    <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network3.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network4.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network5.png?{{ config('custom.version') }}" alt=""></td>
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
@@ -626,6 +636,13 @@
        
     </div>
 </div>
+<div id="detail-td" class="modal">
+    <div class="content-ctn">
+        <p>Thanks for clicking. That felt good.</p>
+    </div>
+  <a href="#">Mua ngay</a>
+ 
+</div>
 @stop
 <script>
  
@@ -633,5 +650,5 @@
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
 
-    <script src="{{ url('assets/js/contest.js?'.config('custom.version')) }}"></script>
+    <!-- <script src="{{ url('assets/js/contest.js?'.config('custom.version')) }}"></script> -->
 @stop

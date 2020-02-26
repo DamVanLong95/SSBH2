@@ -332,4 +332,37 @@ footer .footer-ctn .footer-nav li a {
   color: #fff;
   text-decoration: none;
 }
+
+.modal {
+  height: auto;
+  background-color: #0d723b;
+  color: #fff;
+}
+
+.modal a {
+  color: #f36f21;
+  float: right;
+  font-family: UTM_HelveBold;
+  text-transform: uppercase;
+}
+
+.modal a::after {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../images/default/line.png");
+}
+
+.modal a.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../images/default/close.png");
+}
 /*# sourceMappingURL=default.css.map */

@@ -24,8 +24,6 @@
     <link rel="stylesheet" href="{{ url('assets/lib/jqueryModal/css/jquery.modal.min.css?'.config('custom.version')) }}" />
     <link type="text/css" href="{{ url('assets/css/styles.css?18022020') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" /> -->
-    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js" /> -->
     <script src="{{ url('/') }}/assets/js/jquery-3.3.1.js"></script>
     <script src="{{ url('assets/lib/popper/js/popper.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
@@ -173,6 +171,7 @@
         </div>
     </div>
 </footer>
+
     @include('layouts.default_script')
     {!! config('custom.embed_footer') !!}
 
@@ -187,47 +186,7 @@
     <script src="{{ url('assets/js/common.js?'.config('custom.version')) }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src='https://foliotek.github.io/Croppie/croppie.js'></script>
-    <script>
-        (function( $ ) {
-            $.fn.attachmentUploader = function() {
-                const uploadControl = $(this).find('.js-form-upload-control');
-                const btnClear = $(this).find('.btn-clear');
-                $(uploadControl).on('change', function(e) {
-                const preview = $(this).closest('.form-upload').children('.form-upload__preview');
-                const files   = e.target.files;
-
-                function previewUpload(file) {
-                    if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
-                    var reader = new FileReader();
-                    reader.addEventListener('load', function () {
-                        const html =
-                            '<div class=\"form-upload__item\">' +
-                            '<div class="form-upload__item-thumbnail" style="background-image: url(' + this.result + ')"></div>' +
-                            '<p class="form-upload__item-name">' + file.name + '</p>' +
-                            '</div>';
-                        preview.append( html );
-                        btnClear.show()
-                    }, false);
-                    reader.readAsDataURL(file);
-                    } else {
-                    alert('Please upload image only');
-                    uploadControl.val('');
-                    }
-                }
-
-                [].forEach.call(files, previewUpload);
-                
-                btnClear.on('click', function() {
-                    $('.form-upload__item').remove();
-                    uploadControl.val('');
-                    $(this).hide()
-                })
-                })
-            }
-            })( jQuery )
-
-            $('.form-upload').attachmentUploader();
-    </script>
+    
   <script>
     AOS.init();
   </script>
