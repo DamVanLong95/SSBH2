@@ -242,85 +242,84 @@ footer {
             }
         }
     }
-    .footer-ctn{
+    .footer-ctn {
         .foot-title {
-          font-size: 18px;
-          color: #fff;
-          margin-bottom: 30px;
-          font-family: UTM_Helve;
-          text-transform: uppercase;
-          @media(max-width: 991px) {
-              font-size: 18px;
-          }
-          @media(max-width: 480px) {
-              font-size: 14px;
-          }
-      }
-      .footer-nav {
-        font-family: UTM_Helve;
-          padding: 0;
-          margin: 0;
-          @media(max-width: 991px) {
-              margin-bottom: 30px;
-          }
-          li {
-              list-style: none;
-              position: relative;
-              color: #fff;
-              font-size: 18px;
-              margin-bottom: 12px;
-              line-height: 30px;
-              @media(max-width: 320px) {
-                  font-size: 14px;
-              }
-              @media(max-width: 991px) {
-                  font-size: 16px;
-              }
-              .img {
-                  position: absolute;
-                  top: 4px;
-                  left: 0;
-                  width: 25px;
-                  text-align: center;
-              }
-              a {
-                  color: #fff;
-                  text-decoration: none;
-              }
-          }
-      }
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 30px;
+            font-family: UTM_Helve;
+            text-transform: uppercase;
+            @media(max-width: 991px) {
+                font-size: 18px;
+            }
+            @media(max-width: 480px) {
+                font-size: 14px;
+            }
+        }
+        .footer-nav {
+            font-family: UTM_Helve;
+            padding: 0;
+            margin: 0;
+            @media(max-width: 991px) {
+                margin-bottom: 30px;
+            }
+            li {
+                list-style: none;
+                position: relative;
+                color: #fff;
+                font-size: 18px;
+                margin-bottom: 12px;
+                line-height: 30px;
+                @media(max-width: 320px) {
+                    font-size: 14px;
+                }
+                @media(max-width: 991px) {
+                    font-size: 16px;
+                }
+                .img {
+                    position: absolute;
+                    top: 4px;
+                    left: 0;
+                    width: 25px;
+                    text-align: center;
+                }
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
     }
-    
 }
 
 // modal
-.modal{
-  height: auto;
-  background-color: $main-color;
-  color: #fff;
-  
-    a{
-      color: #f36f21;
-      float:right;
-      font-family: UTM_HelveBold;
-      text-transform: uppercase;
-      &::after{
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-image: url('../images/default/line.png');
-      }
+.modal {
+    height: 280px;
+    background-color: #0d723b;
+    color: #fff;
+    overflow-y: auto;
+    a {
+        color: #f36f21;
+        float: right;
+        font-family: UTM_HelveBold;
+        text-transform: uppercase;
+        &::after {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url('../images/default/line.png');
+        }
     }
     a.close-modal {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: block;
-      width: 30px;
-      height: 30px;
-      text-indent: -9999px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-image: url('../images/default/close.png');
-  }
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: block;
+        width: 30px;
+        height: 30px;
+        text-indent: -9999px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('../images/default/close.png');
+    }
 }

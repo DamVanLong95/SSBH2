@@ -32,9 +32,9 @@
 </script>
 <script>
   $(document).ready(function() {
-    $('div.img-container').each(function () {
-      var div = $(this);
-      $('<span class="remove"/>').text('X').appendTo(div);
+    $('td.img-container').each(function () {
+      var td = $(this);
+      $('<span class="remove"/>').text('X').appendTo(td);
     });
 
   $('img.thumb').draggable({
@@ -43,15 +43,15 @@
     helper: 'clone'
   });
 
-  $('div.img-container').droppable({
+  $('td.img-container').droppable({
     accept: 'img.thumb',
     drop: function (event, ui) {
-      var div = $(this);
+      var td = $(this);
       var img = ui.draggable;
       var copy = img.clone();
-      $(copy).addClass('sized').appendTo(div);
-      div.addClass('img-inserted');
-      $('span.remove', div).show();
+      $(copy).addClass('sized').appendTo(td);
+      td.addClass('img-inserted');
+      $('span.remove', td).show();
     }
   });
    $('span.remove').on('click', function () {
@@ -76,5 +76,9 @@
   });
 </script>
 <script>
- 
+$('.dropdown').hover(function() {
+        $(this).find('.dropdown-ctn').stop(true, true).delay(200).fadeIn(500);
+      }, function() {
+        $(this).find('.dropdown-ctn').stop(true, true).delay(200).fadeOut(500);
+});
 </script>

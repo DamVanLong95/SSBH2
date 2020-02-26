@@ -13,106 +13,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
-#thumbs {
-    text-align: center;
-    margin-bottom: 2em;
-    background: #ccc;
-    padding: 0.5em;
-}
-#thumbs img {
-    width: 150px;
-    height: 140px;
-    margin: 0 1em;
-    cursor: move;
-}
-#layout-area table {
-    width: 100%;
-    border-spacing: 2%;
-    table-layout: fixed;
-}
 
 
-#layout-area .sized {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-}
-#layout-area .img-container {
-    width: 100%;
-    height: 150px;
-    background: #eee;
-    overflow: hidden;
-    position: relative;
-}
-#layout-area .img-inserted {
-/*     background: #fff; */
-}
-img.ui-draggable {
-    z-index: 100000;
-}
-#layout-area .remove {
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    background: #000;
-    color: #fff;
-    text-align: center;
-    line-height: 26px;
-    font-size: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-}
 
-#target2 td {
-    vertical-align: top;
-}
-#target2 td.logo {
-    width: 50%;
-}
-#target2 td.text {
-    width: 50%;
-}
-#target2 td[colspan] {
-    width: 100%;
-}
-#target2 td[colspan] input {
-    width: 100%;
-    margin-bottom: 0.5em;
-    display: block;
-    padding: 0.3em;
-    border: none;
-    background: #eee;
-    text-align: center;
-}
+
 </style>
 @stop
 
 @section('content')
-<div id="app">
 
-    <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-  <div id="thumbs">
-      <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
-      <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
-      <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
-</div>
-  </div>
-</div>
-<div id="layout-area">
-    <table id="target2">
-        <tr>
-            <td class="">
-                <div class="img-container"></div>
-            </td>
-        </tr>
-    </table>
- </div>
-    
-<!-- <div id="output"></div> -->
 <div id="app">
     <div class="compare-section">
         <div class="container">
@@ -269,12 +178,12 @@ img.ui-draggable {
         </div>
     </div>
     <div class="brand-section">
-        <div id="thumbs" class="section-wrapper">
-            <ul class="section-list">
+        <div  class="section-wrapper">
+            <ul id="thumbs" class="section-list">
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="1">
-                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="1"/>
@@ -283,7 +192,7 @@ img.ui-draggable {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="2">
-                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="2"/>
@@ -292,7 +201,7 @@ img.ui-draggable {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="3">
-                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="3"/>
@@ -301,7 +210,7 @@ img.ui-draggable {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="4">
-                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner3.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner3.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="4"/>
@@ -310,7 +219,7 @@ img.ui-draggable {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="5">
-                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner4.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner4.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="5"/>
@@ -319,7 +228,7 @@ img.ui-draggable {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="6">
-                            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner5.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner5.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="6"/>
@@ -337,86 +246,65 @@ img.ui-draggable {
             </button>
         </div>
     </div>
-    <div  class="table-section">
+    <div id="layout-area" class="table-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                 <!-- <input type="button" value="Add New Column" onclick="addColumn();" id="columnButton" /> -->
                     <table id="main" class="table">
-                        <thead>
-                            <tr class="top-head" >
-                                <th class='th-1'> 
-                                    <div class="left-ctn">
-                                        <div class="item phone">
-                                            <a class="" href="#" target="_blank">1900 9889 65</a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="#" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
-                                        </div>
+                        <tr class="top-head" >
+                            <td class='th-1'> 
+                                <div class="left-ctn">
+                                    <div class="item phone">
+                                        <a class="" href="#" target="_blank">1900 9889 65</a>
                                     </div>
-                                    <h4>SANBAOHIEM</h4>
-                                </th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr class="sub-head">
-                                <th class="th-2">
-                                    <div class="star-ctn">
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
+                                    <div class="item">
+                                        <a href="#" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
                                     </div>
-                                </th>
-                                <th>
-                                    <div class="count-rank-ctn">
-                                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                                        <div class="service">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
-                                        </div>
+                                </div>
+                                <h4>SANBAOHIEM</h4>
+                            </td>
+                            <td class="img-container"></td>
+                            <td class="img-container"></td>
+                            
+                        </tr>
+                        <tr class="sub-head">
+                            <td class="th-2">
+                                <div class="star-ctn">
+                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
+                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
+                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="count-rank-ctn">
+                                    <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                    <div class="service">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
                                     </div>
-                                </th>
-                                <th>
-                                    <div class="count-rank-ctn">
-                                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                                        <div class="service">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
-                                        </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="count-rank-ctn">
+                                    <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                    <div class="service">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
                                     </div>
-                                </th>
-                                <th>
-                                    <div class="count-rank-ctn">
-                                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                                        <div class="service">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
-                                        </div>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="count-rank-ctn">
-                                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                                        <div class="service">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
-                                        </div>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="header green">
-                                <td colspan="5">Tính phí</td>
-                            </tr>
-                            <tr class="tool-ctn">
-                                <td colspan="5">
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr class="header green">
+                            <td>Tính phí</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="tool-ctn">
+                            <td >
                                 <div class="select-ctn">
                                     <div class="selection-box">
                                         <div class=" item select">
@@ -459,280 +347,114 @@ img.ui-draggable {
                                         <button type="button" onclick="">Tính phí</button>
                                     </div>
                                 </div>
-                                </td>
-                               
-                            </tr>
-                            <tr class="data-detail price-discount">
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="data-detail price-discount">
                             <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
-                                <td rowspan="2">data</td>
-                                <td rowspan="2">data</td>
-                                <td rowspan="2">data</td>
-                                <td rowspan="2">data</td> 
-                            </tr>
-                            <tr class="data-detail price-discount">
-                                <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Các điều khoản bổ sung
-                                </td>
-                            </tr>
-                            <tr class="select-all" colspan="5">
-                                <td><div class="choose-all">
+                            <td rowspan="2">data</td>
+                            <td rowspan="2">data</td>
+                        </tr>
+                        <tr class="data-detail price-discount">
+                            <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
+                        </tr>
+                        <tr class="header green">
+                            <td colspan="">Các điều khoản bổ sung
+                            </td>
+                        </tr>
+                        <tr class="select-all" colspan="">
+                            <td>
+                                <div class="choose-all">
                                     <input type="checkbox" id="selectall"></input>
                                     <label class="toggle" for="selectall">Chọn tất cả</label>
-                                </div></td>
-                                
-                            </tr>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="data-detail">
+                            <td>
+                                <input type="checkbox" class="selectedId" name="selectedId" />
+                                <label class="toggle" for="selectedId" id="select1">data</label>
+                            </td>
+                            <td><p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
+                                <span><a href="#detail-td" rel="modal:open">...</a></span>
                             
-                            <tr class="data-detail">
-                                <td>
-                                    <input type="checkbox" class="selectedId" name="selectedId" />
-                                    <label class="toggle" for="selectedId" id="select1">data</label>
-                                </td>
-                                <td><p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
-                                
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
-                                </td>
-                                <td>
-                                
-                                   <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
-                                </td>
-                                <td><p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
-                                
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
-                                </td>
-                                <td>
-                                
-                                   <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></div>
-                                </td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>
-                                    <input type="checkbox" class="selectedId" name="selectedId" />
-                                    <label class="toggle" for="selectedId" id="select2">data</label>
-                                    
-                                </td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td><input type="checkbox" class="selectedId" name="selectedId" />data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Mức khấu trừ</td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Điều khoản loại trừ </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Chế tài trong các trường hợp </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Quyền và nghĩa vụ của chủ xe/lái xe</td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Năng lực tài chính </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Mạng lưới hoạt động </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td colspan="1" class="text-center">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""> 
-                                </td>
-                                <td>
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                </td>
-                                <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network3.png?{{ config('custom.version') }}" alt=""></td>
-                                <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network4.png?{{ config('custom.version') }}" alt=""></td>
-                                <td><img class="img-fluid" src="{{ url('/') }}/assets/images/car/network5.png?{{ config('custom.version') }}" alt=""></td>
-                            </tr>
+                                <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
+                            </td>
+                            <td>
                             
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Đánh giá uy tín </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Mô hình gqbt</td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td>
-                                <td>data</td> 
-                            </tr>
-                        </tbody>
+                                <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
+                                <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
+                            </td>
+                        </tr>
+                        
                     </table>
                 </div>
             </div>
         </div>
        
     </div>
+    <div class="network-ctn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="net-item">
+                        <h5>Trụ sở chính</h5>
+                        <div class="address"><p>Tòa nhà ABC số 12345 Hai Bà Trưng Hà Nội  |  12345678910</p></div>
+                        <div class="address-ctn">
+                            <select aria-label="Select menu example">
+                                <option selected>Tỉnh/Thành phố</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="net-item address-detail">
+                        <h5><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/address.png?{{ config('custom.version') }}" alt=""></span>Hà Nội <span>(8)</span></h5>
+                        <hr class="line">
+                        <div class="address-list">
+                            <ul>
+                                <li class="address-item">
+                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
+                                    <div class="detail-location"></div>
+                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                </li>
+                                <li class="address-item">
+                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                    <div class="detail-location"></div>
+                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                </li>
+                                <li class="address-item">
+                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                    <div class="detail-location"></div>
+                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                </li>
+                                <li class="address-item">
+                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                    <div class="detail-location"></div>
+                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                </li>
+                                <li class="address-item">
+                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                    <div class="detail-location"></div>
+                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <div id="detail-td" class="modal">
     <div class="content-ctn">
         <p>Thanks for clicking. That felt good.</p>

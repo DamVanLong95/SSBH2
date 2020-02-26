@@ -334,9 +334,10 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .modal {
-  height: auto;
+  height: 280px;
   background-color: #0d723b;
   color: #fff;
+  overflow-y: auto;
 }
 
 .modal a {
