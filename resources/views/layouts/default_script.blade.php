@@ -18,23 +18,40 @@
 })
 </script>
 <script>
-    function addColumn() {
-    var table = document.getElementById("main");
-    var rws = table.rows;
-    console.log("hhh",sws);
-	var cols = table.rows[0].cells.length;
-	var cell;
-	for(var i=0;i<rws.length;i++){
-		cell = rws[i].insertCell(cols-1);
-		// 
-	}
-}
+      function addColumn(tblId) {
+        var myTable = document.getElementById('main-tbl');
+        var tblHeadObj = document.getElementById(tblId).tHead;
+        var tableLength = document.getElementById('main-tbl').rows[0].cells.length
+        console.log("huhuhu", tableLength);
+        for (var h = 0; h < tblHeadObj.rows.length; h++) {
+          if (tableLength < 5) {
+              var newTH = document.createElement('th');
+              tblHeadObj.rows[h].appendChild(newTH);
+              // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+              var tblBodyObj = document.getElementById(tblId).tBodies[0];
+              for (var i = 0; i < tblBodyObj.rows.length; i++) {
+
+                  var newCell = tblBodyObj.rows[i].insertCell(-1);
+                  // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+              }
+          }
+        }
+      }
+     
+      function deleteColumn(tblId) {
+          var allRows = document.getElementById(tblId).rows;
+          for (var i = 0; i < allRows.length; i++) {
+              if (allRows[i].cells.length > 1) {
+                  allRows[i].deleteCell(-1);
+              }
+          }
+      }
 </script>
 <script>
   $(document).ready(function() {
-    $('td.img-container').each(function () {
-      var td = $(this);
-      $('<span class="remove"/>').text('X').appendTo(td);
+    $('th.img-container').each(function () {
+      var th = $(this);
+      $('<span class="remove"/>').text('X').appendTo(th);
     });
 
   $('img.thumb').draggable({
@@ -43,15 +60,15 @@
     helper: 'clone'
   });
 
-  $('td.img-container').droppable({
+  $('th.img-container').droppable({
     accept: 'img.thumb',
     drop: function (event, ui) {
-      var td = $(this);
+      var th = $(this);
       var img = ui.draggable;
       var copy = img.clone();
-      $(copy).addClass('sized').appendTo(td);
-      td.addClass('img-inserted');
-      $('span.remove', td).show();
+      $(copy).addClass('sized').appendTo(th);
+      th.addClass('img-inserted');
+      $('span.remove', th).show();
     }
   });
    $('span.remove').on('click', function () {
@@ -62,7 +79,17 @@
    });
 });
 </script>
-
+<script>
+  var hidden = false;
+    function action() {
+        hidden = !hidden;
+        if(hidden) {
+            document.getElementById('btn-add').style.visibility = 'hidden';
+        } else {
+            document.getElementById('btn-del').style.visibility = 'visible';
+        }
+    }
+</script>
 <script>
   $(document).ready(function () {
     $('#selectall').click(function () {

@@ -23,7 +23,9 @@
   padding: 0px;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -36,5 +38,9 @@
 
 .text-right {
   text-align: right;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=base.css.map */

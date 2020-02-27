@@ -246,14 +246,15 @@
             </button>
         </div>
     </div>
-    <div id="layout-area" class="table-section">
+    <div class="table-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <!-- <input type="button" value="Add New Column" onclick="addColumn();" id="columnButton" /> -->
-                <table id="main-tbl" class="table">
-                    <input type="button" value="add column" onclick="addColumn('main-tbl')" />
-                        <thead>
+                    <input id="btn-del" type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
+                    <div id="layout-area" class="table-ctn">
+                        <table id="main-tbl" class="table">
+                            <input id="btn-add" type="button" value="add column" onclick="addColumn('main-tbl')" />
+                            <thead>
                             <tr class="top-head" >
                                 <th class='th-1'> 
                                     <div class="left-ctn">
@@ -266,283 +267,258 @@
                                     </div>
                                     <h4>SANBAOHIEM</h4>
                                 </th>
-                                <th></th>
+                                <th class="img-container"></th>
                                 
                             </tr>
-                            <tr class="sub-head">
-                                <th class="th-2">
-                                    <div class="star-ctn">
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                        <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="count-rank-ctn">
-                                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                                        <div class="service">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                           
+                            </thead>
+                            <tbody>
+                                <tr class="sub-head">
+                                    <td class="th-2">
+                                        <div class="star-ctn">
+                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
+                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
+                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                         </div>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="header green">
-                                <td colspan="5">Tính phí</td>
-                            </tr>
-                            <tr class="tool-ctn">
-                                <td colspan="5">
-                                <div class="select-ctn">
-                                    <div class="selection-box">
-                                        <div class=" item select">
-                                            <select aria-label="Select menu example">
-                                                <option selected>Mục đích sử dụng</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="item select">
-                                            <select aria-label="Select menu example">
-                                                <option selected>Hãng xe</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="item select">
-                                            <select aria-label="Select menu example">
-                                                <option selected>Loại xe</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="item select">
-                                            <select aria-label="Select menu example">
-                                                <option selected>Năm sản xuất</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="item input-filter">
-                                        <span> Giá trị: </span> <input type="text" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="item button-filter">
-                                        <button type="button" onclick="">Tính phí</button>
-                                    </div>
-                                </div>
-                                </td>
-                               
-                            </tr>
-                            <tr class="data-detail price-discount">
-                            <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
-                                <td rowspan="2">data</td>
-                            </tr>
-                            <tr class="data-detail price-discount">
-                                <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Các điều khoản bổ sung
-                                </td>
-                            </tr>
-                            <tr class="select-all" colspan="5">
-                                <td><div class="choose-all">
-                                    <input type="checkbox" id="selectall"></input>
-                                    <label class="toggle" for="selectall">Chọn tất cả</label>
-                                </div></td>
-                                
-                            </tr>
-                            
-                            <tr class="data-detail">
-                                <td>
-                                    <input type="checkbox" class="selectedId" name="selectedId" />
-                                    <label class="toggle" for="selectedId" id="select1">data</label>
-                                </td>
-                                <td><p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
-                                
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
-                                </td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>
-                                    <input type="checkbox" class="selectedId" name="selectedId" />
-                                    <label class="toggle" for="selectedId" id="select2">data</label>
-                                    
-                                </td>
-                                <td>
-                                
-                                    <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></div>
-                                </td> 
-                               
-                            </tr>
-                            <tr class="data-detail">
-                                <td><input type="checkbox" class="selectedId" name="selectedId" />data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Mức khấu trừ</td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                               
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Điều khoản loại trừ </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                               
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Chế tài trong các trường hợp </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                               
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Quyền và nghĩa vụ của chủ xe/lái xe</td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Năng lực tài chính </td>
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                              
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                                
-                            </tr>
-                            <tr class="header green">
-                                <td colspan="5">Mạng lưới hoạt động </td>
-                            </tr>
-                            <tr class="data-detail">
-                                    <td colspan="1" class="text-center">
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""> 
                                     </td>
                                     <td>
-                                        <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                        <div class="count-rank-ctn">
+                                            <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                            <div class="service">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                            </div>
+                                        </div>
                                     </td>
-                                    
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
+                                </tr>
+                                <tr class="header green">
+                                    <td colspan="">Tính phí</td>
+                                </tr>
+                                <tr class="tool-ctn">
+                                    <td colspan="">
+                                    <div class="select-ctn">
+                                        <div class="selection-box">
+                                            <div class=" item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Mục đích sử dụng</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Hãng xe</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Loại xe</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Năm sản xuất</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item input-filter">
+                                            <span> Giá trị: </span> <input type="text" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="item button-filter">
+                                            <button type="button" onclick="">Tính phí</button>
+                                        </div>
+                                    </div>
+                                    </td>
                                 
+                                </tr>
+                                <tr class="data-detail price-discount">
+                                    <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
+                                    <td rowspan="2">data</td>
+                                     
+                                </tr>
+                                <tr class="data-detail price-discount">
+                                    <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
+                                </tr>
+                                <tr class="header green">
+                                    <td colspan="">Các điều khoản bổ sung
+                                    </td>
+                                </tr>
+                                <tr class="select-all" colspan="0">
+                                    <td><div class="choose-all">
+                                        <input type="checkbox" id="selectall"></input>
+                                        <label class="toggle" for="selectall">Chọn tất cả</label>
+                                    </div></td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>
+                                        <input type="checkbox" class="selectedId" name="selectedId" />
+                                        <label class="toggle" for="selectedId" id="select1">data</label>
+                                    </td>
+                                    <td>
+                                        <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
+                                        <span><a href="#detail-td" rel="modal:open">...</a></span>
+                                        
+                                        <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
+                                    </td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>
+                                        <input type="checkbox" class="selectedId" name="selectedId" />
+                                        <label class="toggle" for="selectedId" id="select2">data</label>
+                                        
+                                    </td>
+                                    <td>
+                                        <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
+                                        <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></div>
+                                    </td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>
+                                        <input type="checkbox" class="selectedId" name="selectedId" />data
+                                    </td>
+                                    <td>data</td>
+                                </tr>
+                                <tr class="header">
+                                <td colspan="">Mức khấu trừ</td>
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
                                 <td>data</td>
-                               
-                            </tr>
-                            <tr class="header">
-                                <td colspan="5">Đánh giá uy tín </td>
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
                                 <td>data</td>
-                               
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
                                 <td>data</td>
-                                 
-                            </tr>
-                            <tr class="data-detail">
-                                <td>data</td>
-                                <td>data</td>
-                               
                             </tr>
                             <tr class="header green">
-                                <td colspan="5">Mô hình gqbt</td>
+                                <td colspan="">Điều khoản loại trừ </td>
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
                                 <td>data</td>
-                               
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
                                 <td>data</td>
-                                
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
                                 <td>data</td>
-                               
                             </tr>
-                        </tbody>
-                    </table>
+                            <tr class="header">
+                                <td colspan="">Chế tài trong các trường hợp </td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="header green">
+                                <td colspan="">Quyền và nghĩa vụ của chủ xe/lái xe</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="header">
+                                <td colspan="">Năng lực tài chính </td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="header green">
+                                <td colspan="">Mạng lưới hoạt động </td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td colspan="1" class="text-center">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""> 
+                                </td>
+                                <td>
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                </td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="header">
+                                <td colspan="">Đánh giá uy tín </td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td> 
+                            </tr>
+                            <tr class="header green">
+                                <td colspan="">Mô hình gqbt</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            <tr class="data-detail">
+                                <td>data</td>
+                                <td>data</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-       
     </div>
     <div class="network-ctn">
         <div class="container">

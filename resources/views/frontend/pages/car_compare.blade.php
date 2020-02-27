@@ -246,7 +246,8 @@
             <div class="row">
                 <div class="col-lg-12">
                 <!-- <input type="button" value="Add New Column" onclick="addColumn();" id="columnButton" /> -->
-                    <table id="main" class="table">
+                    <table id="main-tbl" class="table">
+                    <input type="button" value="add column" onclick="addColumn('main-tbl')" />
                         <thead>
                             <tr class="top-head" >
                                 <th class='th-1'> 

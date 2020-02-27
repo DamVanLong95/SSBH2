@@ -2,14 +2,17 @@
     font-family: UTM_Helve;
     src: url('../fonts/UTM_Helve.ttf');
 }
+
 @font-face {
-  font-family: UTM_Helve_Italic;
-  src: url('../fonts/UTM_Helve_Italic.otf');
+    font-family: UTM_Helve_Italic;
+    src: url('../fonts/UTM_Helve_Italic.otf');
 }
+
 @font-face {
-  font-family: UTM_HelveBold;
-  src: url('../fonts/UTM_HelveBold.ttf');
+    font-family: UTM_HelveBold;
+    src: url('../fonts/UTM_HelveBold.ttf');
 }
+
 @font-face {
     font-family: UTM_HelveBold_Italic;
     src: url('../fonts/UTM_HelveBold_Italic.ttf');
@@ -19,14 +22,23 @@
     margin: 0px;
     padding: 0px;
 }
-*, *::after, *::before {
+
+*,
+*::after,
+*::before {
     box-sizing: border-box;
-  }
+}
+
 @media (min-width: 1360px) {
-    .container{
+    .container {
         max-width: 1170px !important;
     }
 }
-.text-right{
+
+.text-right {
     text-align: right;
+}
+
+.hidden {
+    display: none;
 }

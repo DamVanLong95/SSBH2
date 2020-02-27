@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 14px;
+            text-align: center;
+        }
+        
+        .table-ctn {
+            background-color: red;
+            max-width: 1070px;
+            overflowX: hidden;
+        }
+        
+        table {
+            width: 100%;
+            margin: 20px auto;
+            table-layout: auto;
+        }
+        
+        table .fixed {
+            table-layout: fixed;
+        }
+        
+        table,
+        td,
+        th {
+            border-collapse: collapse;
+        }
+        
+        td {
+            background-color: green;
+        }
+        
+        th,
+        td {
+            padding: 10px;
+            border: solid 1px;
+            text-align: center;
+        }
+        
+        th:nth-child(1) {
+            width: 40%;
+        }
+        
+        td:nth-child(1) {
+            width: 40%;
+        }
+        
+        .w {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Using the <code>table-layout</code> property</h2>
+                <input type="button" value="delete column" onclick="deleteColumn('tblSample')" />
+                <div class="table-ctn">
+                    <table id="tblSample">
+                        <input type="button" value="add column" onclick="addColumn('tblSample')" />
+                        <thead>
+                            <tr>
+                                <th>Example text</th>
+                                <th>Example text</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A much longer piece of content for demo purposes. More goes here.</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                            <tr>
+                                <td>Example text</td>
+                                <td>Example text</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <button class="tl"><b>Toggle table-layout: fixed</b></button>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function addColumn(tblId) {
+            var tblHeadObj = document.getElementById(tblId).tHead;
+            var tableLength = document.getElementById('tblSample').rows[0].cells.length
+            console.log("huhuhu", tableLength);
+            for (var h = 0; h < tblHeadObj.rows.length; h++) {
+
+                if (tableLength < 5) {
+                    var newTH = document.createElement('th');
+                    tblHeadObj.rows[h].appendChild(newTH);
+                    // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+                    var tblBodyObj = document.getElementById(tblId).tBodies[0];
+                    for (var i = 0; i < tblBodyObj.rows.length; i++) {
+
+                        var newCell = tblBodyObj.rows[i].insertCell(-1);
+                        // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                    }
+                }
+
+
+
+            }
+
+            // 	var tblBodyObj = document.getElementById(tblId).tBodies[0];
+            // 	for (var i=0; i<tblBodyObj.rows.length; i++) {
+
+            // 		var newCell = tblBodyObj.rows[i].insertCell(-1);
+            // 		newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+            // 	}
+
+        }
+
+        function deleteColumn(tblId) {
+            var allRows = document.getElementById(tblId).rows;
+            for (var i = 0; i < allRows.length; i++) {
+                if (allRows[i].cells.length > 1) {
+                    allRows[i].deleteCell(-1);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
