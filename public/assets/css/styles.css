@@ -24,7 +24,9 @@
   padding: 0px;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -37,6 +39,10 @@
 
 .text-right {
   text-align: right;
+}
+
+.hidden {
+  display: none;
 }
 
 .block-main-menu {
@@ -1032,6 +1038,10 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section #layout-area .table td {
+  border-top: 1px solid #ccc;
+}
+
+.table-section #layout-area .table td {
   text-align: left;
 }
 
@@ -1288,6 +1298,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section #layout-area .table tbody tr.data-detail td {
+  border-right: 1px solid #ccc;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

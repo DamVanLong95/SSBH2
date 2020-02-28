@@ -17,36 +17,7 @@
 // });
 })
 </script>
-<script>
-      function addColumn(tblId) {
-        var myTable = document.getElementById('main-tbl');
-        var tblHeadObj = document.getElementById(tblId).tHead;
-        var tableLength = document.getElementById('main-tbl').rows[0].cells.length
-        console.log("huhuhu", tableLength);
-        for (var h = 0; h < tblHeadObj.rows.length; h++) {
-          if (tableLength < 5) {
-              var newTH = document.createElement('th');
-              tblHeadObj.rows[h].appendChild(newTH);
-              // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
-              var tblBodyObj = document.getElementById(tblId).tBodies[0];
-              for (var i = 0; i < tblBodyObj.rows.length; i++) {
 
-                  var newCell = tblBodyObj.rows[i].insertCell(-1);
-                  // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
-              }
-          }
-        }
-      }
-     
-      function deleteColumn(tblId) {
-          var allRows = document.getElementById(tblId).rows;
-          for (var i = 0; i < allRows.length; i++) {
-              if (allRows[i].cells.length > 1) {
-                  allRows[i].deleteCell(-1);
-              }
-          }
-      }
-</script>
 <script>
   $(document).ready(function() {
     $('th.img-container').each(function () {
@@ -78,6 +49,38 @@
      span.hide();
    });
 });
+</script>
+<script>
+      function addColumn(tblId) {
+        var myTable = document.getElementById('main-tbl');
+        var tblHeadObj = document.getElementById(tblId).tHead;
+        var tableLength = document.getElementById('main-tbl').rows[0].cells.length
+        console.log("huhuhu", tableLength);
+        for (var h = 0; h < tblHeadObj.rows.length; h++) {
+          if (tableLength < 5) {
+              var newTH = document.createElement('TH');
+              // newTH.setAttribute("class", "img-container");
+              // newTH.className= "img-container";
+              tblHeadObj.rows[h].appendChild(newTH);
+              // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+              var tblBodyObj = document.getElementById(tblId).tBodies[0];
+              for (var i = 0; i < tblBodyObj.rows.length; i++) {
+
+                  var newCell = tblBodyObj.rows[i].insertCell(-1);
+                  // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+              }
+          }
+        }
+      }
+     
+      function deleteColumn(tblId) {
+          var allRows = document.getElementById(tblId).rows;
+          for (var i = 0; i < allRows.length; i++) {
+              if (allRows[i].cells.length > 1) {
+                  allRows[i].deleteCell(-1);
+              }
+          }
+      }
 </script>
 <script>
   var hidden = false;

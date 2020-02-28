@@ -296,7 +296,7 @@
                                     <td colspan="">Tính phí</td>
                                 </tr>
                                 <tr class="tool-ctn">
-                                    <td colspan="">
+                                    <td colspan="100">
                                     <div class="select-ctn">
                                         <div class="selection-box">
                                             <div class=" item select">
