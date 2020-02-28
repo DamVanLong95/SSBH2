@@ -250,10 +250,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <input id="btn-del" type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                     <div id="layout-area" class="table-ctn">
                         <table id="main-tbl" class="table">
-                            <input id="btn-add" type="button" value="add column" onclick="addColumn('main-tbl')" />
+                            <div class="add-del-ctn">
+                                <input id="btn-del" type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
+                                <input id="btn-add" type="button" value="add column" onclick="addColumn('main-tbl')" />
+                            </div>
+                            
                             <thead>
                             <tr class="top-head" >
                                 <th class='th-1'> 
@@ -267,7 +270,9 @@
                                     </div>
                                     <h4>SANBAOHIEM</h4>
                                 </th>
-                                <th class="img-container"></th>
+                                <th>
+
+                                </th>
                                 
                             </tr>
                            
@@ -296,7 +301,7 @@
                                     <td colspan="">Tính phí</td>
                                 </tr>
                                 <tr class="tool-ctn">
-                                    <td colspan="100">
+                                    <td colspan="">
                                     <div class="select-ctn">
                                         <div class="selection-box">
                                             <div class=" item select">
@@ -467,13 +472,83 @@
                             <tr class="header green">
                                 <td colspan="">Mạng lưới hoạt động </td>
                             </tr>
-                            <tr class="data-detail">
+                            <tr class="data-detail" id="network-map">
                                 <td colspan="1" class="text-center">
                                     <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""> 
+                                    
                                 </td>
+
                                 <td>
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid open show" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                    <span>(108)</span> Chi nhánh
+                                    <div class="accordeon">
+                                        <!-- <button class="">Expand accordeon</button> -->
+                                        <div class="content hide">
+                                            <span class="close">Đóng</span>
+                                            <div class="network-ctn" id="net-address">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="net-item">
+                                                                <h5>Trụ sở chính</h5>
+                                                                <div class="address"><p>Tòa nhà ABC số 12345 Hai Bà Trưng Hà Nội  |  12345678910</p></div>
+                                                                <div class="address-ctn">
+                                                                    <select aria-label="Select menu example">
+                                                                        <option selected>Tỉnh/Thành phố</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="net-item address-detail">
+                                                                <h5><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/address.png?{{ config('custom.version') }}" alt=""></span>Hà Nội <span>(8)</span></h5>
+                                                                <hr class="line">
+                                                                <div class="address-list">
+                                                                    <ul>
+                                                                        <li class="address-item">
+                                                                            <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                            <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
+                                                                            <div class="detail-location"></div>
+                                                                            <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                        </li>
+                                                                        <li class="address-item">
+                                                                            <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                            <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                            <div class="detail-location"></div>
+                                                                            <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                        </li>
+                                                                        <li class="address-item">
+                                                                            <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                            <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                            <div class="detail-location"></div>
+                                                                            <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                        </li>
+                                                                        <li class="address-item">
+                                                                            <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                            <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                            <div class="detail-location"></div>
+                                                                            <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                        </li>
+                                                                        <li class="address-item">
+                                                                            <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                            <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                            <div class="detail-location"></div>
+                                                                            <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
                                 </td>
+                                
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
@@ -520,7 +595,7 @@
             </div>
         </div>
     </div>
-    <div class="network-ctn">
+    <!-- <div class="network-ctn" id="net-address">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -578,7 +653,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <div id="detail-td" class="modal">
@@ -588,6 +663,17 @@
   <a href="#">Mua ngay</a>
  
 </div>
+<script>
+    $('.open').click(function(){
+  $(this).toggleClass("show hide");
+  $('.content').toggleClass("show hide");
+});
+
+$('.close').click(function(){
+  $('.content').toggleClass("show hide");
+  $('.open').toggleClass("show hide");
+});
+</script>
 @stop
 
 @section('footer')

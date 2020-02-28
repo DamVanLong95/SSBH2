@@ -235,11 +235,20 @@
             margin-bottom: 5%;
             margin-top: 2%;
             table {
-                table-layout: auto;
+                table-layout: fixed;
                 width: 100%;
                 border-spacing: 2%;
             }
             #layout-area {
+                .add-del-ctn{
+                    float: right;
+                    right: 0;
+                    display: flex;
+                    input{
+                        background-color: green;
+                        padding: 5px 10px ;
+                    }
+                }
                 .table {
                     tr {
                         td:nth-child(1) {
@@ -252,6 +261,10 @@
                     td {
                         text-align: left;
                         // border-bottom: 1px solid #000;
+                        span{
+                            color:#0d723b;
+                            font-family: UTM_HelveBold;
+                        }
                     }
                     th,
                     td {
@@ -261,6 +274,7 @@
                         background-color: $main-color;
                         color: #fff;
                     }
+                    
                     thead {
                         .top-head {
                             // border-top: 1px solid #000;
@@ -316,6 +330,7 @@
                             td {
                                 border-bottom: 1px solid $main-color;
                                 border-right: 1px solid $main-color;
+                                
                             }
                             td:first-child {
                                 border-left: 0px;
@@ -364,13 +379,14 @@
                             }
                         }
                         tr.header {
-                            height: 50px;
+                            height: 65px;
                             font-weight: bold;
+                            border-top: 1px solid #ccc;
                             // color: #fff;
                             // background-color: $main-color;
                             // color: #000;
                             font-family: UTM_Helve;
-                            // background-color: #fff;
+                            // background-color: #f2f2f3;
                             text-transform: uppercase;
                             cursor: pointer;
                             -webkit-user-select: none;
@@ -384,11 +400,11 @@
                             .choose-all {
                                 position: absolute;
                             }
-                            &:nth-child(4n-1) {
-                                background: $main-color;
-                                color: #fff;
-                                // border-right: 0px solid #ccc;
-                            }
+                            // &:nth-child(2n-1) {
+                            //     background: $main-color;
+                            //     color: #fff;
+                            //     // border-right: 0px solid #ccc;
+                            // }
                             &.active {
                                 // background: tomato;
                                 color: white;
@@ -403,8 +419,8 @@
                                 background-repeat: no-repeat;
                                 // }
                             }
-                            &:nth-child(4n-1) {
-                                background: $main-color;
+                            &:nth-child(2n-1) {
+                                // background: $main-color;
                             }
                             &:hover {
                                 // background: #ddd;
@@ -525,13 +541,14 @@
                             }
                         }
                         tr.data-detail:not(.header) {
-                            // display: none;
+                            display: none;
                         }
                         tr.select-all {
                             position: absolute;
+                            transform: translate(0, -44px);
                             td {
                                 border: none;
-                                transform: translateY(-30px);
+                                // transform: translateY(-48px);
                                 color: #fff;
                                 .choose-all {
                                     width: fit-content;
@@ -570,7 +587,7 @@
                                 .address-list {
                                     height: 100px;
                                     overflow: auto;
-                                    width: 65%;
+                                    width: 100%;
                                     ul {
                                         list-style: none;
                                         li.address-item {
@@ -640,8 +657,8 @@
                                 transition: transform .25s linear;
                                 -webkit-transition: -webkit-transform .25s linear;
                             }
-                            &:nth-child(4n-1) {
-                                background: $main-color;
+                            &:nth-child(2n-1) {
+                                // background: $main-color;
                             }
                         }
                         .active {

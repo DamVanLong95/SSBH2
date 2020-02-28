@@ -58,7 +58,7 @@
         console.log("huhuhu", tableLength);
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
           if (tableLength < 5) {
-              var newTH = document.createElement('TH');
+              var newTH = document.createElement('th');
               // newTH.setAttribute("class", "img-container");
               // newTH.className= "img-container";
               tblHeadObj.rows[h].appendChild(newTH);
@@ -106,9 +106,13 @@
   });
 </script>
 <script>
-$('.dropdown').hover(function() {
-        $(this).find('.dropdown-ctn').stop(true, true).delay(200).fadeIn(500);
-      }, function() {
-        $(this).find('.dropdown-ctn').stop(true, true).delay(200).fadeOut(500);
+ $('.open').click(function(){
+  $(this).toggleClass("show ");
+  $('.content').toggleClass("show hide");
+});
+
+$('.close').click(function(){
+  $('.content').toggleClass("show ");
+  $('.open').toggleClass("show hide");
 });
 </script>
