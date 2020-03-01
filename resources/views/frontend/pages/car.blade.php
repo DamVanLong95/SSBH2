@@ -14,8 +14,33 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
 
-
-
+     #layout-area .img-container {
+        width: 100%;
+        position: relative;
+    }
+    #layout-area .remove {
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        line-height: 26px;
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        /*display: block;*/
+    }
+    img.ui-draggable {
+        z-index: 100000;
+    }
+    #thumbs img {
+        width: auto;
+        height: auto;
+        margin: 0 1em;
+        cursor: move;
+    }
 
 </style>
 @stop

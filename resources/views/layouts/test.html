@@ -1,42 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form>
-        <p>
-        <input type="button" value="add column" onclick="addColumn('tblSample')" />
-        <input type="button" value="delete column" onclick="deleteColumn('tblSample')" />
-        </p>
-        <table id="tblSample" border="1">
-        <thead>
+@extends('layouts.default')
+@section('header')
+<title>{{ config('custom.seo_title') }}</title>
+<meta name="description" content="{{ config('custom.seo_description') }}">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="{{ url('/')  }}" />
+<meta property="og:url" content="{{ Request::url()  }}" />
+<meta property="og:image" content="{{ url('uploads/others/fbimage.jpg?'.config('custom.version'))  }}" />
+<meta property="og:title" content="{{ config('custom.seo_title') }}" />
+<meta property="og:description" content="{{ config('custom.seo_description') }}" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+    body {
+        margin: 2em auto;
+        max-width: 600px;
+    }
+    #thumbs {
+        text-align: center;
+        margin-bottom: 2em;
+        background: #ccc;
+        padding: 0.5em;
+    }
+    #thumbs img {
+        width: 150px;
+        height: 140px;
+        margin: 0 1em;
+        cursor: move;
+    }
+    #layout-area table {
+        width: 100%;
+        border-spacing: 2%;
+        table-layout: fixed;
+    }
+
+
+    #layout-area .sized {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    #layout-area .img-container {
+        width: 100%;
+        height: 150px;
+        background: #eee;
+        overflow: hidden;
+        position: relative;
+    }
+    #layout-area .img-inserted {
+        /*     background: #fff; */
+    }
+    /*img.ui-draggable {*/
+    /*    z-index: 100000;*/
+    /*}*/
+    #layout-area .remove {
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        line-height: 26px;
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+    }
+
+</style>
+@stop
+
+@section('content')
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <div id="thumbs">
+            <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+            <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+            <img src="https://lh4.googleusercontent.com/-MP6drmKHpmc/T1Mrj1mAsDI/AAAAAAAAA3o/nqv3fXcyOCw/w387-h310/mac.jpg" class="thumb" />
+        </div>
+    </div>
+</div>
+<div id="layout-area">
+    <table id="target2">
         <tr>
-          <th>[th] row:0, cell: 0</th>
-          <th>[th] row:0, cell: 1</th>
-          <th>[th] row:0, cell: 2</th>
+            <td class="">
+                <div class="img-container"></div>
+            </td>
         </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>[td] row:0, cell: 0</td>
-          <td>[td] row:0, cell: 1</td>
-          <td>[td] row:0, cell: 2</td>
-        </tr>
-        <tr>
-          <td>[td] row:1, cell: 0</td>
-          <td>[td] row:1, cell: 1</td>
-          <td>[td] row:1, cell: 2</td>
-        </tr>
-        <tr>
-          <td>[td] row:2, cell: 0</td>
-          <td>[td] row:2, cell: 1</td>
-          <td>[td] row:2, cell: 2</td>
-        </tr>
-        </tbody>
-        </table>
-        </form>
-</body>
-</html>
+    </table>
+</div>
+@endsection
+<script>
+    $(document).ready(function() {
+        $('div.img-container').each(function () {
+            var div = $(this);
+            $('<span class="remove"/>').text('X').appendTo(div);
+        });
+
+        $('img.thumb').draggable({
+            containment: '#layout-area',
+            revert: 'invalid',
+            helper: 'clone'
+        });
+
+        $('div.img-container').droppable({
+            accept: 'img.thumb',
+            drop: function (event, ui) {
+                var div = $(this);
+                var img = ui.draggable;
+                var copy = img.clone();
+                $(copy).addClass('sized').appendTo(div);
+                div.addClass('img-inserted');
+                $('span.remove', div).show();
+            }
+        });
+        $('span.remove').on('click', function () {
+            var span = $(this);
+            span.parent().find('img').remove();
+            span.parent().removeClass('img-inserted');
+            span.hide();
+        });
+    });
+
+</script>
