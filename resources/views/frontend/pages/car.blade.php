@@ -32,138 +32,138 @@
                             <label class="dropdown-label">Doanh nghiệp phí rẻ</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
-                                Check All  
+                                Check All
                                 </a>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 2" />
                                 Selection Two
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 3" />
                                 Selection Three
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 4" />
                                 Selection Four
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 5" />
                                 Selection Five
-                                </label>      
+                                </label>
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
                             <label class="dropdown-label">Bồi thường tốt</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
-                                Check All  
+                                Check All
                                 </a>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 2" />
                                 Selection Two
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 3" />
                                 Selection Three
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 4" />
                                 Selection Four
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 5" />
                                 Selection Five
-                                </label>      
+                                </label>
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
                             <label class="dropdown-label">Tiêu chí khác</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
-                                Check All  
+                                Check All
                                 </a>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 2" />
                                 Selection Two
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 3" />
                                 Selection Three
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 4" />
                                 Selection Four
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 5" />
                                 Selection Five
-                                </label>      
+                                </label>
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
                             <label class="dropdown-label">Điều khoản bảo hiểm mở rộng</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
-                                Check All  
+                                Check All
                                 </a>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 2" />
                                 Selection Two
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 3" />
                                 Selection Three
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 4" />
                                 Selection Four
                                 </label>
-                                
+
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 5" />
                                 Selection Five
-                                </label>      
+                                </label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </div>
     <div class="search-ctn">
@@ -235,7 +235,7 @@
                     <label class="toggle" for="6"></label>
                 </li>
             </ul>
-            
+
         </div>
         <div class="paddles">
             <button class="left-paddle paddle hidden">
@@ -256,10 +256,10 @@
                                 <input id="btn-del" type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                                 <input id="btn-add" type="button" value="add column" onclick="addColumn('main-tbl')" />
                             </div>
-                            
+
                             <thead>
                             <tr class="top-head" >
-                                <th class='th-1'> 
+                                <th class='th-1'>
                                     <div class="left-ctn">
                                         <div class="item phone">
                                             <a class="" href="#" target="_blank">1900 9889 65</a>
@@ -273,9 +273,9 @@
                                 <th>
 
                                 </th>
-                                
+
                             </tr>
-                           
+
                             </thead>
                             <tbody>
                                 <tr class="sub-head">
@@ -301,7 +301,7 @@
                                     <td colspan="">Tính phí</td>
                                 </tr>
                                 <tr class="tool-ctn">
-                                    <td colspan="">
+                                    <td colspan="2" id="select_box">
                                     <div class="select-ctn">
                                         <div class="selection-box">
                                             <div class=" item select">
@@ -345,12 +345,12 @@
                                         </div>
                                     </div>
                                     </td>
-                                
+
                                 </tr>
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
                                     <td rowspan="2">data</td>
-                                     
+
                                 </tr>
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
@@ -373,7 +373,7 @@
                                     <td>
                                         <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
                                         <span><a href="#detail-td" rel="modal:open">...</a></span>
-                                        
+
                                         <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
                                     </td>
                                 </tr>
@@ -381,7 +381,7 @@
                                     <td>
                                         <input type="checkbox" class="selectedId" name="selectedId" />
                                         <label class="toggle" for="selectedId" id="select2">data</label>
-                                        
+
                                     </td>
                                     <td>
                                         <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
@@ -474,8 +474,8 @@
                             </tr>
                             <tr class="data-detail" id="network-map">
                                 <td colspan="1" class="text-center">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""> 
-                                    
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt="">
+
                                 </td>
 
                                 <td>
@@ -544,11 +544,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                         </div>
                                 </td>
-                                
+
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
@@ -571,7 +571,7 @@
                             </tr>
                             <tr class="data-detail">
                                 <td>data</td>
-                                <td>data</td> 
+                                <td>data</td>
                             </tr>
                             <tr class="header green">
                                 <td colspan="">Mô hình gqbt</td>
@@ -661,7 +661,7 @@
         <p>Thanks for clicking. That felt good.</p>
     </div>
   <a href="#">Mua ngay</a>
- 
+
 </div>
 <script>
     $('.open').click(function(){

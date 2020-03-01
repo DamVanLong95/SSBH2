@@ -59,20 +59,21 @@
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
           if (tableLength < 5) {
               var newTH = document.createElement('th');
-              // newTH.setAttribute("class", "img-container");
+              $('#select_box').attr("colspan", tableLength +1)
               // newTH.className= "img-container";
               tblHeadObj.rows[h].appendChild(newTH);
-              // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+              newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
               var tblBodyObj = document.getElementById(tblId).tBodies[0];
               for (var i = 0; i < tblBodyObj.rows.length; i++) {
 
                   var newCell = tblBodyObj.rows[i].insertCell(-1);
-                  // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                  newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
               }
+              $('#select_box').next("td").remove()
           }
         }
       }
-     
+
       function deleteColumn(tblId) {
           var allRows = document.getElementById(tblId).rows;
           for (var i = 0; i < allRows.length; i++) {
