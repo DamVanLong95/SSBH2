@@ -59,32 +59,64 @@
               helper: 'clone'
           });
 
-          $('div.img-container').droppable({
-              accept: 'img.thumb',
-              drop: function (event, ui) {
-                  var th = $(this);
+          $( "div.img-container" ).droppable({
+            classes: {
+                "ui-droppable-active": "ui-state-active",
+                "ui-droppable-hover": "ui-state-hover"
+            },
+            accept: function( draggable ){
+                if (!$(this).hasClass('dropped') || draggable.hasClass('dropped')){
+                    return true;
+                }
+                return false;
+            },
+            drop: function( event, ui ) {
+              var th = $(this);
+                  maxItemsCount = 1;
                   var img = ui.draggable;
                   var copy = img.clone();
+                $(this).addClass('dropped');
+                ui.draggable.addClass('dropped');
+                
                   $(copy).addClass('sized').appendTo(th);
-                  th.addClass('img-inserted');
+                  $(this).addClass('img-inserted');
                   $('span.remove', th).show();
-              }
-          });
+            },
+            out: function( event, ui ){
+                $(this).removeClass('dropped');
+                ui.draggable.removeClass('dropped');
+            }
+        });
+
+          // $('div.img-container').droppable({
+          //     accept: 'img.thumb',
+          //     drop: function (event, ui) {
+          //         var th = $(this);
+          //         maxItemsCount = 1;
+          //         var img = ui.draggable;
+          //         var copy = img.clone();
+          //         $(copy).addClass('sized').appendTo(th);
+          //         th.addClass('img-inserted');
+          //         $('span.remove', th).show();
+          //     }
+          // });
           $('span.remove').on('click', function () {
               var span = $(this);
               span.parent().find('img').remove();
               span.parent().removeClass('img-inserted');
+              $(this).removeClass('dropped');
+              // ui.draggable.removeClass('dropped');
               span.hide();
           });
       }
 
       function deleteColumn(tblId) {
-          var allRows = document.getElementById(tblId).rows;
-          for (var i = 0; i < allRows.length; i++) {
-              if (allRows[i].cells.length > 1) {
-                  allRows[i].deleteCell(-1);
-              }
-          }
+        var allRows = document.getElementById(tblId).rows;
+        for (var i = 0; i < allRows.length; i++) {
+            if (allRows[i].cells.length > 1) {
+                allRows[i].deleteCell(-1);
+            }
+        }
       }
 </script>
 <script>

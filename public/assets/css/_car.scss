@@ -240,13 +240,13 @@
                 border-spacing: 2%;
             }
             #layout-area {
-                .add-del-ctn{
+                .add-del-ctn {
                     float: right;
                     right: 0;
                     display: flex;
-                    input{
+                    input {
                         background-color: green;
-                        padding: 5px 10px ;
+                        padding: 5px 10px;
                     }
                 }
                 .table {
@@ -261,8 +261,8 @@
                     td {
                         text-align: left;
                         // border-bottom: 1px solid #000;
-                        span{
-                            color:#0d723b;
+                        span {
+                            color: #0d723b;
                             font-family: UTM_HelveBold;
                         }
                     }
@@ -274,7 +274,6 @@
                         background-color: $main-color;
                         color: #fff;
                     }
-                    
                     thead {
                         .top-head {
                             // border-top: 1px solid #000;
@@ -330,7 +329,6 @@
                             td {
                                 border-bottom: 1px solid $main-color;
                                 border-right: 1px solid $main-color;
-                                
                             }
                             td:first-child {
                                 border-left: 0px;
@@ -551,7 +549,7 @@
                                 // transform: translateY(-48px);
                                 color: #fff;
                                 .choose-all {
-                                    width: fit-content;
+                                    width: max-content;
                                 }
                             }
                         }
