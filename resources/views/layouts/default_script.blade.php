@@ -23,6 +23,7 @@
 
 <script>
 
+
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl');
         var tblHeadObj = document.getElementById(tblId).tHead;
@@ -39,14 +40,31 @@
               // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
               var tblBodyObj = document.getElementById(tblId).tBodies[0];
               for (var i = 0; i < tblBodyObj.rows.length; i++) {
-                  var rank_data="aaa";
                   var newCell = tblBodyObj.rows[i].insertCell(-1);
                   newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                  var div = document.createElement('div');
+                  div.setAttribute('class', 'count-rank-ctn');
+                  var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
+                  var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
+                  var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                  div.innerHTML = `
+                    <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                     <div class="service">
+                        <img src="`+path_camera+`"alt="">
+                        <img src="`+path_phone+`"alt="">
+                        <img src="`+path_mess+`"alt="">
+                    </div>
+
+                `;
+
+
+                  newCell.appendChild(div);
               }
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
           }
         }
+          GetCellValues(myTable);
         $('div.img-container').each(function () {
             var div = $(this);
             $('<span class="remove"/>').text('X').appendTo(div);
@@ -74,7 +92,7 @@
                 var copy = img.clone();
               $(this).addClass('dropped');
               // ui.draggable.addClass('dropped');
-              
+
                 $(copy).addClass('sized').appendTo(th);
                 $(this).addClass('img-inserted');
                 $('span.remove', th).show();
@@ -91,7 +109,7 @@
             span.hide();
             span.parent().removeClass('dropped');
             ui.draggable.removeClass('dropped');
-            
+
         });
       }
 
