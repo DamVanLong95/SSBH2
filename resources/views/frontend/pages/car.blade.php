@@ -14,36 +14,6 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
 
-.table-ctn{
-  /* background-color:red; */
-  max-width:1070px;
-  overflowX:hidden;
-  input{
-    position: absolute;
-    right: -5%;
-    float: right;
-  }
-}
-table {
-  width: 100%;
-  margin: 20px auto;
-  table-layout: fixed;
-  
-  
-}
-table
-.fixed {
-  table-layout: fixed;
-}
-
-table,
-td,
-th {
-  border-collapse: collapse;
-}
-td{
-  /* background-color:green; */
-}
 th,
 td {
   padding: 10px;
@@ -220,7 +190,7 @@ td {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="1">
-                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="1"/>
@@ -229,7 +199,7 @@ td {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="2">
-                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="2"/>
@@ -238,7 +208,7 @@ td {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="3">
-                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="3"/>
@@ -247,7 +217,7 @@ td {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="4">
-                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner3.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner3.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="4"/>
@@ -256,7 +226,7 @@ td {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="5">
-                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner4.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner4.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="5"/>
@@ -265,7 +235,7 @@ td {
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="6">
-                            <img class="thumb img-fluid" src="{{ url('/') }}/assets/images/home/partner5.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner5.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="6"/>
@@ -315,8 +285,8 @@ td {
                                             <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                         </div>
                                     </td>
-                                    <!-- <td>
-                                        <div class="count-rank-ctn">
+                                    <!-- <td id="rank_box">
+                                        <div class="count-rank-ctn" >
                                             <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
                                             <div class="service">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
@@ -375,7 +345,7 @@ td {
                                 </tr>
                                 <tr>
                                 <td>A much longer piece of content for demo purposes. More goes here.</td>
-                                
+                              
                                 
                                 </tr>
                                 <tr>

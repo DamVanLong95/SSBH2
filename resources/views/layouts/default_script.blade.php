@@ -47,6 +47,7 @@
                   // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
               }
               $('#select_box').next("td").remove()
+              $('#rank_box').next("td").remove()
           }
         }
           $('div.img-container').each(function () {
@@ -72,19 +73,18 @@
             },
             drop: function( event, ui ) {
               var th = $(this);
-                  maxItemsCount = 1;
                   var img = ui.draggable;
                   var copy = img.clone();
                 $(this).addClass('dropped');
-                ui.draggable.addClass('dropped');
+                // ui.draggable.addClass('dropped');
                 
                   $(copy).addClass('sized').appendTo(th);
                   $(this).addClass('img-inserted');
                   $('span.remove', th).show();
             },
             out: function( event, ui ){
-                // $(this).removeClass('dropped');
-                // ui.draggable.removeClass('dropped');
+                $(this).removeClass('dropped');
+                ui.draggable.removeClass('dropped');
             }
         });
 
@@ -100,13 +100,14 @@
           //         $('span.remove', th).show();
           //     }
           // });
-          $('span.remove').on('click', function () {
-              var span = $(this);
+          $('span.remove').on('click', function (event, ui ) {
+            var span = $(this);
               span.parent().find('img').remove();
               span.parent().removeClass('img-inserted');
-              $(this).removeClass('dropped');
-              ui.draggable.removeClass('dropped');
               span.hide();
+              span.parent().removeClass('dropped');
+              ui.draggable.removeClass('dropped');
+             
           });
       }
 

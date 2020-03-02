@@ -1152,9 +1152,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section table {
-  table-layout: fixed;
   table-layout: auto;
-  width: 100%;
   border-spacing: 2%;
 }
 
@@ -1219,6 +1217,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section #layout-area .table thead .top-head th.th-1 .left-ctn {
   -webkit-transform: translate(0px, -37px);
           transform: translate(0px, -37px);
+  text-align: left;
 }
 
 .table-section #layout-area .table thead .top-head th.th-1 .left-ctn .item a {
@@ -1245,8 +1244,8 @@ footer .footer-ctn .footer-nav li a {
   position: absolute;
   -webkit-transform: translate(-25%, 50%);
           transform: translate(-25%, 50%);
-  top: 20%;
-  right: 30%;
+  top: 61%;
+  left: 30%;
   color: #0d723b;
   font-family: UTM_HelveBold_Italic;
 }
@@ -1629,14 +1628,8 @@ footer .footer-ctn .footer-nav li a {
   color: #000;
 }
 
-.table-section #layout-area .sized {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-}
-
 .table-section #layout-area .img-container {
-  width: 100%;
+  width: 240px;
   height: 150px;
   display: block;
   background: #eee;
