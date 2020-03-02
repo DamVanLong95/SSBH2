@@ -83,8 +83,8 @@
                   $('span.remove', th).show();
             },
             out: function( event, ui ){
-                $(this).removeClass('dropped');
-                ui.draggable.removeClass('dropped');
+                // $(this).removeClass('dropped');
+                // ui.draggable.removeClass('dropped');
             }
         });
 
@@ -105,7 +105,7 @@
               span.parent().find('img').remove();
               span.parent().removeClass('img-inserted');
               $(this).removeClass('dropped');
-              // ui.draggable.removeClass('dropped');
+              ui.draggable.removeClass('dropped');
               span.hide();
           });
       }

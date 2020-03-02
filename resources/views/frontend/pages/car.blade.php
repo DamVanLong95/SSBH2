@@ -142,27 +142,22 @@ td {
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 2" />
                                 Selection Two
                                 </label>
-
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 3" />
                                 Selection Three
                                 </label>
-
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 4" />
                                 Selection Four
                                 </label>
-
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 5" />
                                 Selection Five
@@ -330,6 +325,53 @@ td {
                                             </div>
                                         </div>
                                     </td> -->
+                                </tr>
+                                <tr class="tool-ctn">
+                                <td colspan="" id="select_box">
+                                    <div class="select-ctn">
+                                        <div class="selection-box">
+                                            <div class=" item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Mục đích sử dụng</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Hãng xe</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Loại xe</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item select">
+                                                <select aria-label="Select menu example">
+                                                    <option selected>Năm sản xuất</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="item input-filter">
+                                            <span> Giá trị: </span> <input type="text" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="item button-filter">
+                                            <button type="button" onclick="">Tính phí</button>
+                                        </div>
+                                    </div>
+                                    </td>
+                                
                                 </tr>
                                 <tr>
                                 <td>A much longer piece of content for demo purposes. More goes here.</td>
