@@ -1,0 +1,129 @@
+@font-face {
+    font-family: UTM_Helve;
+    src: url('../fonts/UTM_Helve.ttf');
+}
+
+@font-face {
+    font-family: UTM_Helve_Italic;
+    src: url('../fonts/UTM_Helve_Italic.otf');
+}
+
+@font-face {
+    font-family: UTM_HelveBold;
+    src: url('../fonts/UTM_HelveBold.ttf');
+}
+
+@font-face {
+    font-family: UTM_HelveBold_Italic;
+    src: url('../fonts/UTM_HelveBold_Italic.ttf');
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+@media (min-width: 1360px) {
+    .container {
+        max-width: 1170px !important;
+    }
+}
+
+.text-right {
+    text-align: right;
+}
+
+.hidden {
+    display: none;
+}
+@keyframes grow {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+  
+    1% {
+      display: flex;
+      flex-wrap: wrap;
+      transform: scale(0,0);
+      opacity: 0;
+    }
+  
+    100% {
+      scale: 1;
+      transform: scale(1,1);
+    }
+  }
+  .open{
+    cursor: pointer;
+    
+  }
+.show {
+    animation: grow .4s ease-in-out;
+    transform: scale(1,1);
+    display: flex;
+    opacity: 1;
+    cursor: pointer;
+    .accordeon{
+    border-top: 2px solid #ddd;
+    }
+    p{
+        width: 100%;
+    }
+  }
+
+.hide {
+display: none;
+}
+.accordeon{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 63%;
+    z-index: 44;
+    left: 34%;
+    height: auto;
+    /* margin-left: 10%; */
+    /* margin-right: 10%; */
+    margin: auto;
+    position: absolute;
+    -webkit-transform: translate(0px, 18px);
+    transform: translate(0px, 18px);
+  
+    
+    img{
+        cursor: pointer;
+    }
+    .content{
+      width: 100%;
+      background-color: #f1eeec;
+      padding: 20px;
+      flex-direction: column;
+      p{
+        overflow: hidden;
+        white-space: nowrap;
+        width: fit-content !important;
+      }
+      .close{
+        font-size: 1rem;
+        background-color: #ded8d3;
+        color: white;
+        padding: 8px 10px;
+        border-radius: 3px;
+        font-weight: lighter;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
