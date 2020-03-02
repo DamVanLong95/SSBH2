@@ -257,10 +257,13 @@ td {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
+                
                     <div id="layout-area" class="table-ctn">
                         <table id="main-tbl" class="table">
-                            <input type="button" value="add column" onclick="addColumn('main-tbl')" />
+                            <div class="add-del-ctn">
+                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
+                                <input type="button" value="add column" onclick="addColumn('main-tbl')" />
+                            </div>
                             <thead>
                                 <tr class="top-head" >
                                     <th class='th-1'>
