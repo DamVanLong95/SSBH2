@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b934cf5-1808-437f-99a9-b4776918a18a" name="Default Changelist" comment="js html show rank count">
+    <list default="true" id="3b934cf5-1808-437f-99a9-b4776918a18a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default_script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default_script.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583137393728</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="js html show rank count">
+      <created>1583157885687</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583157885687</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,16 +243,16 @@
     </state>
     <state x="620" y="199" width="737" height="707" key="#phpunit.xml/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1583136162500" />
     <state x="620" y="199" width="737" height="707" key="#phpunit.xml/67.27.1853.1053@67.27.1853.1053" timestamp="1582255204844" />
-    <state x="67" y="83" width="1849" height="916" key="CommitChangelistDialog2" timestamp="1583157816366">
+    <state x="67" y="83" width="1849" height="916" key="CommitChangelistDialog2" timestamp="1583157885573">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="556" y="94" width="865" height="916" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1583141409373" />
-    <state x="67" y="83" width="1849" height="916" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583157816366" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583137009920">
+    <state x="67" y="83" width="1849" height="916" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583157885573" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583159500878">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1583137009920" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582277325790" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1583159500878" />
     <state x="242" y="116" width="1482" height="872" key="MergeDialog" timestamp="1583137354910">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -259,11 +265,11 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="716" y="366" width="545" height="373" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582642198322" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1583136811817">
+    <state x="482" y="187" key="SettingsEditor" timestamp="1583162665938">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1583136811817" />
-    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1582341004675" />
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1583162665938" />
     <state x="588" y="277" width="800" height="551" key="Vcs.Push.Dialog.v2" timestamp="1583137397309">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
