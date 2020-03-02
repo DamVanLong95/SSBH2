@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b934cf5-1808-437f-99a9-b4776918a18a" name="Default Changelist" comment="">
+    <list default="true" id="3b934cf5-1808-437f-99a9-b4776918a18a" name="Default Changelist" comment="js html show rank count">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default_script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default_script.blade.php" afterDir="false" />
     </list>
@@ -206,7 +206,7 @@
       <workItem from="1582681427010" duration="526000" />
       <workItem from="1582682932912" duration="21924000" />
       <workItem from="1582722688628" duration="785000" />
-      <workItem from="1583122528588" duration="10379000" />
+      <workItem from="1583122528588" duration="14238000" />
     </task>
     <task id="LOCAL-00001" summary="login first commit">
       <created>1583137393728</created>
@@ -224,7 +224,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
     <MESSAGE value="login first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="login first commit" />
+    <MESSAGE value="js html show rank count" />
+    <option name="LAST_COMMIT_MESSAGE" value="js html show rank count" />
   </component>
   <component name="WindowStateProjectService">
     <state x="703" y="358" width="559" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582471280807">
@@ -236,11 +237,11 @@
     </state>
     <state x="620" y="199" width="737" height="707" key="#phpunit.xml/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1583136162500" />
     <state x="620" y="199" width="737" height="707" key="#phpunit.xml/67.27.1853.1053@67.27.1853.1053" timestamp="1582255204844" />
-    <state x="556" y="94" width="865" height="916" key="CommitChangelistDialog2" timestamp="1583141409373">
+    <state x="67" y="83" width="1849" height="916" key="CommitChangelistDialog2" timestamp="1583157816366">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="556" y="94" width="865" height="916" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1583141409373" />
-    <state x="556" y="94" width="865" height="916" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1582276344612" />
+    <state x="67" y="83" width="1849" height="916" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583157816366" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583137009920">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -304,5 +305,16 @@
     </state>
     <state x="718" y="465" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582601170094" />
     <state x="718" y="465" width="540" height="175" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582642708545" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/default_script.blade.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
