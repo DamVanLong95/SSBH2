@@ -61,10 +61,10 @@
               $('#rank_box').next("td").remove()
           }
         }
-        $('div.img-container').each(function () {
-            var div = $(this);
-            $('<span class="remove"/>').text('X').appendTo(div);
-        });
+        // $('div.img-container').each(function () {
+        //     var div = $(this);
+        //     $('<span class="remove"/>').text('X').appendTo(div);
+        // });
         $('img.thumb').draggable({
             containment: '#layout-area',
             revert: 'invalid',
@@ -72,6 +72,7 @@
         });
 
         $( "div.img-container" ).droppable({
+
           classes: {
               "ui-droppable-active": "ui-state-active",
               "ui-droppable-hover": "ui-state-hover"
@@ -87,26 +88,28 @@
                 var img = ui.draggable;
                 var copy = img.clone();
               $(this).addClass('dropped');
-              // ui.draggable.addClass('dropped');
-
                 $(copy).addClass('sized').appendTo(th);
                 $(this).addClass('img-inserted');
-                $('span.remove', th).show();
+              $('<span class="remove"/>').text('X').appendTo(th);
+              $('span.remove', th).show();
+              $('span.remove').on('click', function (event, ui ) {
+                  var span = $(this);
+                  console.log(span);
+                  span.parent().find('img').remove();
+                  span.parent().removeClass('dropped');
+                  span.parent().removeClass('img-inserted');
+                  span.remove();
+
+                  // ui.draggable.removeClass('dropped');
+
+              });
           },
           out: function( event, ui ){
               $(this).removeClass('dropped');
-              ui.draggable.removeClass('dropped');
+              // ui.draggable.removeClass('dropped');
           }
         });
-        $('span.remove').on('click', function (event, ui ) {
-          var span = $(this);
-            span.parent().find('img').remove();
-            span.parent().removeClass('img-inserted');
-            span.hide();
-            span.parent().removeClass('dropped');
-            ui.draggable.removeClass('dropped');
 
-        });
       }
 
       function deleteColumn(tblId) {
@@ -117,16 +120,6 @@
             }
         }
       }
-</script>
-<script>
-    $(document).ready(function() {
-        $('span.remove').on('click', function () {
-            var span = $(this);
-            span.parent().find('img').remove();
-            span.parent().removeClass('img-inserted');
-            span.hide();
-        });
-    });
 </script>
 <script>
   var hidden = false;
