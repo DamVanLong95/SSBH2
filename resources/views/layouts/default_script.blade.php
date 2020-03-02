@@ -64,7 +64,7 @@
               $('#rank_box').next("td").remove()
           }
         }
-          GetCellValues(myTable);
+        
         $('div.img-container').each(function () {
             var div = $(this);
             $('<span class="remove"/>').text('X').appendTo(div);
