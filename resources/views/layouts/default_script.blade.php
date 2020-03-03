@@ -5,18 +5,18 @@
 <script>
     $(document).ready(function() {
   //Fixing jQuery Click Events for the iPad
-  var ua = navigator.userAgent,
-    event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-  if ($('.table').length > 0) {
-    $('.table .header').on(event, function() {
-      $(this).toggleClass("active", "").nextUntil('.header').css('display', function(i, v) {
-        return this.style.display === 'table-row' ? 'none' : 'table-row';
-      });
-    });
-  }
-// $('.header').click(function(){
-//      $(this).toggleClass('expand').nextUntil('tr.header').slideToggle(100);
-// });
+  // var ua = navigator.userAgent,
+  //   event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+  // if ($('.table').length > 0) {
+  //   $('.table .header').on(event, function() {
+  //     $(this).toggleClass("active", "").nextUntil('.header').css('display', function(i, v) {
+  //       return this.style.display === 'table-row' ? 'none' : 'table-row';
+  //     });
+  //   });
+  // }
+$('.header').click(function(){
+     $(this).toggleClass('expand').nextUntil('tr.header').slideToggle(100);
+});
 })
 </script>
 
@@ -33,6 +33,7 @@
               var creatediv = document.createElement('div');
               var newTH = document.createElement('th');
               $('#select_box').attr("colspan", tableLength +1)
+              $('#green_header').attr("colspan", tableLength +1)
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -43,6 +44,10 @@
                   var newCell = tblBodyObj.rows[i].insertCell(-1);
 
                   var divs =  myTable.rows[1].cells[tblBodyObj.rows[0].cells.length-1];
+                  var rowspan1 =  myTable.rows[4].cells[tblBodyObj.rows[2].cells.length-1];
+                  var rowspan2 =  myTable.rows[5].cells[tblBodyObj.rows[2].cells.length-1];
+                  console.log('ggg',rowspan1);
+                  console.log('hhh',rowspan2);
                   var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                   var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                   var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
@@ -59,6 +64,7 @@
               }
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
+              $('#green_header').next("td").remove()
           }
         }
         // $('div.img-container').each(function () {

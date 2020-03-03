@@ -253,25 +253,8 @@
                     }
                 }
                 .table {
-                    tr {
-                        td:nth-child(1) {
-                            width: 40%;
-                        }
-                    }
-                    td {
-                        border-top: 1px solid #ccc;
-                    }
-                    td {
-                        text-align: left;
-                        // border-bottom: 1px solid #000;
-                        span {
-                            color: #0d723b;
-                            font-family: UTM_HelveBold;
-                        }
-                    }
-                    th,
-                    td {
-                        padding: .4em;
+                    td{
+                        border: 1px solid #ccc;
                     }
                     .green {
                         background-color: $main-color;
@@ -546,7 +529,7 @@
                             }
                         }
                         tr.data-detail:not(.header) {
-                            display: none;
+                            // display: none;
                         }
                         tr.select-all {
                             position: absolute;

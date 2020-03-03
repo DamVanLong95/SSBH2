@@ -263,6 +263,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                               
                                 <tr class="sub-head">
                                     <td class="th-2">
                                         <div class="star-ctn">
@@ -271,68 +272,65 @@
                                             <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                         </div>
                                     </td>
-                                    <!-- <td id="rank_box">
-                                        <div class="count-rank-ctn" >
-                                            <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                                            <div class="service">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </td> -->
+                                </tr>
+                                <tr class="green">
+                                    <td  colspan="" id="green_header">Tính phí</td>                         
                                 </tr>
                                 <tr class="tool-ctn">
-                                <td colspan="" id="select_box">
-                                    <div class="select-ctn">
-                                        <div class="selection-box">
-                                            <div class=" item select">
-                                                <select aria-label="Select menu example">
-                                                    <option selected>Mục đích sử dụng</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
+                                    <td colspan="" id="select_box">
+                                        <div class="select-ctn">
+                                            <div class="selection-box">
+                                                <div class=" item select">
+                                                    <select aria-label="Select menu example">
+                                                        <option selected>Mục đích sử dụng</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="item select">
+                                                    <select aria-label="Select menu example">
+                                                        <option selected>Hãng xe</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="item select">
+                                                    <select aria-label="Select menu example">
+                                                        <option selected>Loại xe</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="item select">
+                                                    <select aria-label="Select menu example">
+                                                        <option selected>Năm sản xuất</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="item input-filter">
+                                                <span> Giá trị: </span> <input type="text" placeholder="">
+                                                </div>
                                             </div>
-                                            <div class="item select">
-                                                <select aria-label="Select menu example">
-                                                    <option selected>Hãng xe</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="item select">
-                                                <select aria-label="Select menu example">
-                                                    <option selected>Loại xe</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="item select">
-                                                <select aria-label="Select menu example">
-                                                    <option selected>Năm sản xuất</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="item input-filter">
-                                            <span> Giá trị: </span> <input type="text" placeholder="">
+                                            <div class="item button-filter">
+                                                <button type="button" onclick="">Tính phí</button>
                                             </div>
                                         </div>
-                                        <div class="item button-filter">
-                                            <button type="button" onclick="">Tính phí</button>
-                                        </div>
-                                    </div>
                                     </td>
-                                
+                                </tr>
+                                <tr class="data-detail price-discount">
+                                    <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
+                                    
+                                </tr>
+                                <tr class="data-detail price-discount">
+                                    <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
                                 </tr>
                                 <tr>
-                                <td>A much longer piece of content for demo purposes. More goes here.</td>
-                              
-                                
+                                    <td>A much longer piece of content for demo purposes. More goes here.</td>                         
                                 </tr>
                                 <tr>
                                 <td>Example text</td>
