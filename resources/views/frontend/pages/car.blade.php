@@ -273,8 +273,8 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="green">
-                                    <td  colspan="" id="green_header">Tính phí</td>                         
+                                <tr class="green1">
+                                    <td  colspan="" class="green_header">Tính phí</td>                         
                                 </tr>
                                 <tr class="tool-ctn">
                                     <td colspan="" id="select_box">
@@ -329,62 +329,59 @@
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
                                 </tr>
-                                <tr>
+                                <tr class="header green">
+                                    <td  colspan="" class="green_header">Điều khoản bổ sung</td>                         
+                                </tr>
+                                <tr class="data-detail">
                                     <td>A much longer piece of content for demo purposes. More goes here.</td>                         
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="header">
+                                    <td  colspan="" class="green_header">Mức khấu trừ</td>                         
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="data-detail">
+                                    <td>Example text</td>
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="header green">
+                                    <td  colspan="" class="green_header">Điều khoản loại trừ</td>                         
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                            
-                                
+                                <tr class="data-detail">
+                                    <td>Example text</td>
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                            
+                                <tr class="header">
+                                    <td  colspan="" class="green_header">Chế tài trong các trường hợp</td>                         
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="data-detail">
+                                    <td>Example text</td>
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="header green">
+                                    <td  colspan="" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>                         
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="data-detail">
+                                    <td>Example text</td>
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="header">
+                                    <td  colspan="" class="green_header">Năng lực tài chính</td>                         
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                            
-                                
+                                <tr class="data-detail">
+                                    <td>Example text</td>
                                 </tr>
-                                <tr>
-                                <td>Example text</td>
-                                
-                                
+                                <tr class="header green">
+                                    <td  colspan="" class="green_header">Mạng lưới hoạt động</td>                         
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>Example text</td>
+                                </tr>
+                                <tr class="header">
+                                    <td  colspan="" class="green_header">Đánh giá uy tín</td>                         
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>Example text</td>
+                                </tr>
+                                <tr class="header green">
+                                    <td  colspan="" class="green_header">Mô hình GQPT</td>                         
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>Example text</td>
                                 </tr>
                             </tbody>
                         </table>
