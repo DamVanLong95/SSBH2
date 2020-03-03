@@ -43,11 +43,8 @@ $('.header').click(function(){
               for (var i = 0; i < tblBodyObj.rows.length; i++) {
                   var newCell = tblBodyObj.rows[i].insertCell(-1);
 
-                  var divs =  myTable.rows[1].cells[tblBodyObj.rows[0].cells.length-1];
-                  var rowspan1 =  myTable.rows[4].cells[tblBodyObj.rows[2].cells.length-1];
-                  var rowspan2 =  myTable.rows[5].cells[tblBodyObj.rows[2].cells.length-1];
-                  console.log('ggg',rowspan1);
-                  console.log('hhh',rowspan2);
+                  // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                  var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
                   var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                   var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                   var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
@@ -62,15 +59,15 @@ $('.header').click(function(){
                     </div>
                 `;
               }
+              var x =  myTable.rows[4].cells;
+              x[tableLength].setAttribute('rowspan',2);
+              $('#green_header').next("td").remove()
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
-              $('#green_header').next("td").remove()
           }
+
+
         }
-        // $('div.img-container').each(function () {
-        //     var div = $(this);
-        //     $('<span class="remove"/>').text('X').appendTo(div);
-        // });
         $('img.thumb').draggable({
             containment: '#layout-area',
             revert: 'invalid',
