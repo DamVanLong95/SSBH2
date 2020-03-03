@@ -26,6 +26,12 @@ $main-color: #0d723b;
         display: flex;
         align-items: center;
         border-bottom: 3px solid $main-color;
+        .left-nav{
+            margin-right: 10%;
+        }
+        .right-nav{
+            margin-left: 10%;
+        }
         ul {
             margin: 0;
             padding: 0;
@@ -34,6 +40,7 @@ $main-color: #0d723b;
             margin-top: -8px;
             li {
                 margin-left: 35px;
+                position: relative;
                 a {
                     display: block;
                     white-space: nowrap;
@@ -49,6 +56,37 @@ $main-color: #0d723b;
                         font-family: UTM_HelveBold;
                         color: $main-color;
                     }
+                }
+                ul{
+                    visibility: hidden;
+                    display: inline-block;
+                    z-index: 12;
+                    text-align: left;
+                    width: auto;
+                    position:absolute;
+                    top: 84px;
+                    left: -143px;
+                    background: rgba(0, 0, 0, 0.5);
+                    padding:0;
+                    li{
+                        padding: 10px 0;
+                        margin: 0;
+                        padding: 10px 35px;
+                        a{
+                            color: #fff !important;
+                            text-transform: none;
+                        }
+                        &:hover{
+                            background-color:  rgba(255, 255, 255, 0.7);
+                            a{
+                                color: $main-color !important;
+                            }
+                        }
+                    }
+                    
+                }
+                &:hover>ul{
+                    visibility: visible;
                 }
             }
             .active {

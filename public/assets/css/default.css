@@ -20,6 +20,10 @@
     display: flex;
     align-items: center;
     border-bottom: 3px solid #0d723b; }
+    .block-main-menu .main-menu .left-nav {
+      margin-right: 10%; }
+    .block-main-menu .main-menu .right-nav {
+      margin-left: 10%; }
     .block-main-menu .main-menu ul {
       margin: 0;
       padding: 0;
@@ -27,7 +31,8 @@
       display: flex;
       margin-top: -8px; }
       .block-main-menu .main-menu ul li {
-        margin-left: 35px; }
+        margin-left: 35px;
+        position: relative; }
         .block-main-menu .main-menu ul li a {
           display: block;
           white-space: nowrap;
@@ -40,6 +45,30 @@
         .block-main-menu .main-menu ul li:hover a {
           font-family: UTM_HelveBold;
           color: #0d723b; }
+        .block-main-menu .main-menu ul li ul {
+          visibility: hidden;
+          display: inline-block;
+          z-index: 12;
+          text-align: left;
+          width: auto;
+          position: absolute;
+          top: 84px;
+          left: -143px;
+          background: rgba(0, 0, 0, 0.5);
+          padding: 0; }
+          .block-main-menu .main-menu ul li ul li {
+            padding: 10px 0;
+            margin: 0;
+            padding: 10px 35px; }
+            .block-main-menu .main-menu ul li ul li a {
+              color: #fff !important;
+              text-transform: none; }
+            .block-main-menu .main-menu ul li ul li:hover {
+              background-color: rgba(255, 255, 255, 0.7); }
+              .block-main-menu .main-menu ul li ul li:hover a {
+                color: #0d723b !important; }
+        .block-main-menu .main-menu ul li:hover > ul {
+          visibility: visible; }
       .block-main-menu .main-menu ul .active a {
         font-family: UTM_HelveBold;
         color: #0d723b !important; }

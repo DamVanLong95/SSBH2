@@ -44,7 +44,7 @@
 <div class="block-main-menu">
     <nav id="sidenav" class="main-menu navbar navbar-expand-lg ">
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-                <ul class="navbar-nav ml-auto text-center">
+                <ul class="left-nav navbar-nav ml-auto text-center">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">TRANG CHỦ </a>
                     </li>
@@ -53,6 +53,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('pages/car_compare') }}">SO SÁNH</a>
+                        <ul>
+                            <li><a href="#">So sánh bảo hiểm vật chất ô tô</a></li>
+                            <li><a href="#">So sánh bảo hiểm nhân thọ</a></li>
+                            <li><a href="#">So sánh bảo hiểm sức khỏe</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -65,7 +70,7 @@
                 </button>
             </div>
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-                <ul class="navbar-nav mr-auto text-center">
+                <ul class="right-nav navbar-nav mr-auto text-center">
                     <li class="nav-item">
                         <a class="nav-link" href="#">ƯU ĐÃI</a>
                     </li>

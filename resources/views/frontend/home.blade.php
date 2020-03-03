@@ -234,7 +234,7 @@
                         <h4>Đối tác chính</h4>
                     </div>
                     <div id="slidePartner" class="swiper-container swiper-partner">
-                        <div class="swiper-wrapper">
+                        <div class="swiper-wrapper parner-slide">
                             <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
                             </div>
