@@ -34,7 +34,7 @@
     @yield('header')
 <script>
 
-    
+
 </script>
 </head>
 
@@ -46,15 +46,15 @@
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
                 <ul class="left-nav navbar-nav ml-auto text-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">TRANG CHỦ </a>
+                        <a class="nav-link" href="{{ url('/home') }}">TRANG CHỦ </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('pages/car_compare') }}">SO SÁNH</a>
+                        <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
                         <ul>
-                            <li><a href="#">So sánh bảo hiểm vật chất ô tô</a></li>
+                            <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
                             <li><a href="#">So sánh bảo hiểm nhân thọ</a></li>
                             <li><a href="#">So sánh bảo hiểm sức khỏe</a></li>
                         </ul>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                     <div class="foot-title">
                         <h5>Liên hệ với chúng tôi</h5>
                     </div>
-                
+
                     <div class="footer-content">
                         <ul class="footer-nav">
                             <li>Giới thiệu về VICS-CORP</li>
@@ -168,7 +168,7 @@
                             <li>
                                 Phản hồi khách hàng
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     <script src="{{ url('assets/js/common.js?'.config('custom.version')) }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src='https://foliotek.github.io/Croppie/croppie.js'></script>
-    
+
   <script>
     AOS.init();
   </script>

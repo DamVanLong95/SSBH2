@@ -60,7 +60,9 @@ $('.header').click(function(){
                 `;
               }
               var x =  myTable.rows[4].cells;
+              var y =  myTable.rows[5].cells;
               x[tableLength].setAttribute('rowspan',2);
+              y[1].remove();
               $('#green_header').next("td").remove()
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
