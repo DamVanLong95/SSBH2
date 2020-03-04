@@ -15,7 +15,7 @@
   //   });
   // }
 $('.header').click(function(){
-     $(this).toggleClass('expand').nextUntil('tr.header').slideToggle(100);
+     $(this).toggleClass('active','').nextUntil('tr.header').slideToggle(100);
 });
 })
 </script>
@@ -33,7 +33,7 @@ $('.header').click(function(){
               var creatediv = document.createElement('div');
               var newTH = document.createElement('th');
               $('#select_box').attr("colspan", tableLength +1)
-              $('#green_header').attr("colspan", tableLength +1)
+              $('.green_header').attr("colspan", tableLength +1)
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -64,6 +64,7 @@ $('.header').click(function(){
               $('#green_header').next("td").remove()
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
+              $('.green_header').next("td").remove()
           }
 
 
@@ -125,15 +126,15 @@ $('.header').click(function(){
       }
 </script>
 <script>
-  var hidden = false;
-    function action() {
-        hidden = !hidden;
-        if(hidden) {
-            document.getElementById('btn-add').style.visibility = 'hidden';
-        } else {
-            document.getElementById('btn-del').style.visibility = 'visible';
-        }
-    }
+  // var hidden = false;
+  //   function action() {
+  //       hidden = !hidden;
+  //       if(hidden) {
+  //           document.getElementById('btn-add').style.visibility = 'hidden';
+  //       } else {
+  //           document.getElementById('btn-del').style.visibility = 'visible';
+  //       }
+  //   }
 </script>
 <script>
   $(document).ready(function () {
