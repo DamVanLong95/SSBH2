@@ -22,6 +22,99 @@ $('.header').click(function(){
 
 
 <script>
+    dropImage();
+    function dropImage(){
+        $('img.thumb').draggable({
+            containment: '#layout-area',
+            revert: 'invalid',
+            helper: 'clone',
+            stop: function(event, ui) {
+                if($('input[type="checkbox"]').prop("checked") == false){
+                    console.log("Checkbox is checked.");
+                    $(this).draggable({ disabled: true });
+                }
+            }
+        });
+        $( "div.img-container" ).droppable({
+            classes: {
+                "ui-droppable-active": "ui-state-active",
+                "ui-droppable-hover": "ui-state-hover"
+            },
+            accept: function( draggable ){
+
+                if (!$(this).hasClass('dropped') || draggable.hasClass('dropped')){
+                    return true;
+                }
+                return false;
+                // if($(input[type="checkbox"]).prop("checked") ){
+                //     alert("Checkbox is checked.");
+                // }
+                // // $('#'+idImg+'').draggable({ disabled: false });
+            },
+
+            drop: function( event, ui ) {
+                var idImg = ui.draggable.attr('id');
+                var th = $(this);
+                var img = ui.draggable;
+                var copy = img.clone();
+                $('#checkbox'+idImg+'').prop("checked", true);
+                $(this).addClass('dropped');
+                $(copy).addClass('sized').appendTo(th);
+                $(this).addClass('img-inserted');
+                $('<span class="remove" />').text('X').appendTo(th);
+                $('span.remove', th).show();
+                $('table th').on('click', function (e ) {
+                    var index = ($(this).index()+1);
+                    $('#checkbox'+idImg+'').prop("checked", false);
+                        if( index ==2 ){
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                        }else if(index==2 || index ==0 && !$('div.img-container').is(":not(.dropped)")){
+                            console.log("hi");
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                            addColumn('main-tbl');
+                            dropImage();
+                        }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                            addColumn('main-tbl');
+                            dropImage();
+                        }else if(index ==4){
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                        }else if(index == 5 ){
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                            addColumn('main-tbl');
+                            dropImage();
+                        }else if(index ==3 && !$('div.img-container').is(":not(.dropped)")){
+
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                            addColumn('main-tbl');
+                            dropImage();
+                        }else if(index ==3 ){
+                            $('th:nth-child('+index+')').remove()
+                            $('td:nth-child('+index+')').remove()
+                        }
+                    // span.parent().find('img').remove();
+                    // span.parent().removeClass('dropped');
+                    // span.parent().removeClass('img-inserted');
+                    // span.remove();
+                    // $('table tr').find('td:eq(n),th:eq(n)').remove();
+                    // $("table tr").find("th:eq("+index+"), td:eq("+(index-1)+")").remove();
+                });
+                addColumn('main-tbl');
+                dropImage();
+            },
+            out: function( event, ui ){
+                $(this).removeClass('dropped');
+                // ui.draggable.removeClass('dropped');
+            }
+
+        });
+    }
 
 
       function addColumn(tblId) {
@@ -67,57 +160,11 @@ $('.header').click(function(){
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
               $('.green_header').next("td").remove()
+
           }
-
-
         }
-        $('img.thumb').draggable({
-            containment: '#layout-area',
-            revert: 'invalid',
-            helper: 'clone'
-        });
-
-        $( "div.img-container" ).droppable({
-
-          classes: {
-              "ui-droppable-active": "ui-state-active",
-              "ui-droppable-hover": "ui-state-hover"
-          },
-          accept: function( draggable ){
-              if (!$(this).hasClass('dropped') || draggable.hasClass('dropped')){
-                  return true;
-              }
-              return false;
-          },
-          drop: function( event, ui ) {
-            var th = $(this);
-                var img = ui.draggable;
-                var copy = img.clone();
-              $(this).addClass('dropped');
-                $(copy).addClass('sized').appendTo(th);
-                $(this).addClass('img-inserted');
-              $('<span class="remove"/>').text('X').appendTo(th);
-              $('span.remove', th).show();
-              $('span.remove').on('click', function (event, ui ) {
-                  var span = $(this);
-                  console.log(span);
-                  span.parent().find('img').remove();
-                  span.parent().removeClass('dropped');
-                  span.parent().removeClass('img-inserted');
-                  span.remove();
-
-                  // ui.draggable.removeClass('dropped');
-
-              });
-          },
-          out: function( event, ui ){
-              $(this).removeClass('dropped');
-              // ui.draggable.removeClass('dropped');
-          }
-        });
 
       }
-
       function deleteColumn(tblId) {
         var allRows = document.getElementById(tblId).rows;
         for (var i = 0; i < allRows.length; i++) {

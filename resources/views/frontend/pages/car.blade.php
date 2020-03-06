@@ -173,25 +173,25 @@
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="1">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/bv-insurance.png?{{ config('custom.version') }}" alt="" id="1">
                         </label>
                     </div>
-                    <input name="type" value="" type="checkbox" id="1"/>
+                    <input name="type" value="" type="checkbox" id="checkbox1"/>
                     <label class="toggle" for="1"></label>
                 </li>
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="2">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/bv-life.png?{{ config('custom.version') }}" alt="" id="2">
                         </label>
                     </div>
-                    <input name="type" value="" type="checkbox" id="2"/>
+                    <input name="type" value="" type="checkbox" id="checkbox2"/>
                     <label class="toggle" for="2"></label>
                 </li>
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="3">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/prudential.png?{{ config('custom.version') }}" alt="" id="3">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="3"/>
@@ -200,7 +200,7 @@
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="4">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner3.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/manulife.svg?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="4"/>
@@ -209,7 +209,7 @@
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="5">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner4.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/aia.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="5"/>
@@ -218,7 +218,133 @@
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/home/partner5.png?{{ config('custom.version') }}" alt="">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/chubb.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/mirae.png?{{ config('custom.version') }}" alt="" id="'">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/daichi.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/cathay.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/fwd.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/generali.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" width="100px" src="{{ url('/') }}/assets/images/logo/phuhung.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/fubon.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/hanwha.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/aviva.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/sunlife.svg?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/meltlife.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/vcli.png?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/mb.svg?{{ config('custom.version') }}" alt="">
+                        </label>
+                    </div>
+                    <input name="type" value="" type="checkbox" id="6"/>
+                    <label class="toggle" for="6"></label>
+                </li>
+                <li class="item">
+                    <div class="brand-thumb">
+                        <label for="6">
+                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/ebaohiem.png?{{ config('custom.version') }}" alt="">
                         </label>
                     </div>
                     <input name="type" value="" type="checkbox" id="6"/>
@@ -240,10 +366,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                
+
                     <div id="layout-area" class="table-ctn">
                         <table id="main-tbl" class="table">
-                            <div class="add-del-ctn">
+                            <div class="add-del-ctn d-none">
                                 <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                                 <input type="button" value="add column" onclick="addColumn('main-tbl')" />
                             </div>
@@ -260,10 +386,13 @@
                                         </div>
                                         <h4>SANBAOHIEM</h4>
                                     </th>
+                                    <th class="col2">
+                                        <div class="img-container"></div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                               
+
                                 <tr class="sub-head">
                                     <td class="th-2">
                                         <div class="star-ctn">
@@ -272,12 +401,22 @@
                                             <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                         </div>
                                     </td>
+                                    <td>
+                                        <div class="count-rank-ctn">
+                                            <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                            <div class="service">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr class="green1">
-                                    <td  colspan="" class="green_header">Tính phí</td>                         
+                                    <td  colspan="2" class="green_header">Tính phí</td>
                                 </tr>
                                 <tr class="tool-ctn">
-                                    <td colspan="" id="select_box">
+                                    <td colspan="2" id="select_box">
                                         <div class="select-ctn">
                                             <div class="selection-box">
                                                 <div class=" item select">
@@ -324,64 +463,73 @@
                                 </tr>
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
-                                    
+                                    <td rowspan="2"></td>
                                 </tr>
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="" class="green_header">Điều khoản bổ sung</td>                         
+                                    <td  colspan="2" class="green_header">Điều khoản bổ sung</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>A much longer piece of content for demo purposes. More goes here.</td>                         
+                                    <td>A much longer piece of content for demo purposes. More goes here.</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header">
-                                    <td  colspan="" class="green_header">Mức khấu trừ</td>                         
+                                    <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="" class="green_header">Điều khoản loại trừ</td>                         
+                                    <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header">
-                                    <td  colspan="" class="green_header">Chế tài trong các trường hợp</td>                         
+                                    <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>                         
+                                    <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header">
-                                    <td  colspan="" class="green_header">Năng lực tài chính</td>                         
+                                    <td  colspan="2" class="green_header">Năng lực tài chính</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="" class="green_header">Mạng lưới hoạt động</td>                         
+                                    <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header">
-                                    <td  colspan="" class="green_header">Đánh giá uy tín</td>                         
+                                    <td  colspan="2" class="green_header">Đánh giá uy tín</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="" class="green_header">Mô hình GQPT</td>                         
+                                    <td  colspan="2" class="green_header">Mô hình GQPT</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>

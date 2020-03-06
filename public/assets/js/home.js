@@ -350,28 +350,28 @@
         // select dropdown
         $('.dropdown2 > .caption').on('click', function() {
             $(this).parent().toggleClass('open');
-          });
-          
-          $('.dropdown2 > .list > .item').on('click', function() {
+        });
+
+        $('.dropdown2 > .list > .item').on('click', function() {
             $('.dropdown2 > .list > .item').removeClass('selected');
-            $(this).addClass('selected').parent().parent().removeClass('open').children('.caption').text( $(this).text() );
-          });
-          
-          $(document).on('keyup', function(evt) {
-            if ( (evt.keyCode || evt.which) === 27 ) {
-              $('.dropdown2').removeClass('open');
+            $(this).addClass('selected').parent().parent().removeClass('open').children('.caption').text($(this).text());
+        });
+
+        $(document).on('keyup', function(evt) {
+            if ((evt.keyCode || evt.which) === 27) {
+                $('.dropdown2').removeClass('open');
             }
-          });
-          
-          $(document).on('click', function(evt) {
-            if ( $(evt.target).closest(".dropdown2 > .caption").length === 0 ) {
-              $('.dropdown2').removeClass('open');
+        });
+
+        $(document).on('click', function(evt) {
+            if ($(evt.target).closest(".dropdown2 > .caption").length === 0) {
+                $('.dropdown2').removeClass('open');
             }
-          });
+        });
         // select dropdown
         // drag image header
 
-       
+
         // end drag image header 
     };
 
@@ -386,7 +386,7 @@
     });
 
 
-   
-    
-    
+
+
+
 }(jQuery, $.app));
