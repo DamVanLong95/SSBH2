@@ -53,9 +53,9 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <h4>So sánh bảo hiểm vật chất ô tô</h4>
+                                    <h4>So sánh bảo hiểm vật chất xe ô tô</h4>
                                     <div class="description-ctn">
-                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                        <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
                                     </div>
                                     <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
@@ -64,28 +64,18 @@
                                 <div class="item center-item">
                                     <h4>So sánh bảo hiểm Nhân thọ</h4>
                                     <div class="description-ctn">
-                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                        <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
                                     </div>
                                     <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <h4>So sánh bảo hiểm Sức khỏe</h4>
+                                    <h4>So sánh Bảo hiểm sức khoẻ</h4>
                                     <div class="description-ctn">
-                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                        <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
                                     </div>
                                     <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-item">
-                                <div class="item">
-                                    <h4>So sánh bảo hiểm Sức khỏe</h4>
-                                    <div class="description-ctn">
-                                        <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
-                                    </div>
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -110,7 +100,7 @@
             <div class="col-lg-12">
                 <div class="section4-ctn">
                     <div class="title-ctn">
-                        <h4>Bạn đã biết cách sử dụng <span>sanbaohiem</span> chưa?</h4>
+                        <h4>Bạn đã biết sử dụng Web <span>V-Bảo hiểm</span> chưa?</h4>
                         <p>Rất đơn giản. Hãy làm như sau</p>
                     </div>
                     <div class="sec4-container">
@@ -118,17 +108,17 @@
                             <div class="item">
                                 <p>Bước 1</p>
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/know1.png?{{ config('custom.version') }}" alt="">
-                                <h6>Tìm kiếm</h6>
+                                <h6>Chọn danh mục sản phẩm bạn muốn tìm kiếm và điền thông tin để nhận gợi ý những sản phẩm phù hợp nhất cho bạn</h6>
                             </div>
                             <div class="item center">
                                 <p>Bước 2</p>
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/know2.png?{{ config('custom.version') }}" alt="">
-                                <h6>So sánh</h6>
+                                <h6>Chọn sản phẩm từ các doanh nghiệp bảo hiểm, so sánh đánh giá các sản phẩm với nhau và cân nhắc để có sản phẩm ưng ý nhất.</h6>
                             </div>
                             <div class="item">
                                 <p>Bước 3</p>
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/know3.png?{{ config('custom.version') }}" alt="">
-                                <h6>Chọn lựa</h6>
+                                <h6>Chọn sản phẩm bạn muốn, liên hệ trực tuyến và kết nối với các tư vấn viên để được tư vấn cụ thể.</h6>
                             </div>
                         
                         </div>
@@ -192,31 +182,32 @@
 <div class="section6">
     <div class="container">
         <div class="row">
+            
             <div class="col-lg-12">
                 <div class="blog-container">
                     <div class="blog-title-ctn">
                         <div class="title-ctn">
                                 <h4>Kiến thức bảo hiểm</h4>
-                                <p>VICS CORP mang đến cho bạn những thông tin ưu đãi và tin tức mới nhất</p>
+                                <p>“V- Bảo hiểm” mang đến cho bạn những thông tin ưu đãi và tin tức mới nhất.</p>
                             </div>
                         </div>
                     <div class="blog-ctn">
                         <div class="item">
-                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/blog1.png?{{ config('custom.version') }}" alt=""></a>
+                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
                             <div class="description-ctn">
-                                <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                <a href="javascript:void(0)">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
                             </div>
                         </div>
                         <div class="item center">
-                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/blog1.png?{{ config('custom.version') }}" alt=""></a>
+                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
                             <div class="description-ctn">
-                                <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                <a href="javascript:void(0)">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh</a>
                             </div>
                         </div>
                         <div class="item">
-                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/blog1.png?{{ config('custom.version') }}" alt=""></a>
+                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
                             <div class="description-ctn">
-                                <p>So sánh các công ty tài chính cho vay tín chấp tiêu dùng có uy tín nhất</p>
+                                <a href="javascript:void(0)">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
                             </div>
                         </div>
                     </div>
@@ -255,12 +246,12 @@
                             </div>
                         </div>
                         <!-- Add Arrows -->
-                        <div class="arrow-ctn ">
-                            <div class="swiper-button-prev">
-                            </div>
-                            <div class="swiper-button-next">
-                               
-                            </div>
+                       
+                    </div>
+                    <div class="arrow-ctn ">
+                        <div class="swiper-button-prev">
+                        </div>
+                        <div class="swiper-button-next">
                         </div>
                     </div>
                 </div>
