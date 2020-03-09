@@ -257,7 +257,7 @@
         }
         // End Dropdown check
 
-        // scroll brand car page
+        // =====================scroll brand car page==================
         // duration of scroll animation
         var scrollDuration = 300;
         // paddles
@@ -266,8 +266,7 @@
         // get items dimensions
         var itemsLength = $('.item').length;
         var itemSize = $('.item').outerWidth(true);
-        // get some relevant size for the paddle triggering point
-        var paddleMargin = 20;
+        
 
         // get wrapper width
         var getMenuWrapperSize = function() {
@@ -301,9 +300,11 @@
             menuInvisibleSize = menuSize - menuWrapperSize;
             // get how much have we scrolled so far
             var menuPosition = getMenuPosition();
-
+            // get some relevant size for the paddle triggering point
+            var paddleMargin = 20;
+            // console.log("menuPosition", menuPosition);
             var menuEndOffset = menuInvisibleSize - paddleMargin;
-
+            // console.log("menuPositiontrtsrtsrtwr", menuEndOffset);
             // show & hide the paddles 
             // depending on scroll position
             if (menuPosition <= paddleMargin) {
@@ -314,6 +315,7 @@
                 $(leftPaddle).removeClass('hidden');
                 $(rightPaddle).removeClass('hidden');
             } else if (menuPosition >= menuEndOffset) {
+               
                 $(leftPaddle).removeClass('hidden');
                 $(rightPaddle).addClass('hidden');
             }
@@ -322,14 +324,18 @@
 
         // scroll to left
         $(rightPaddle).on('click', function() {
-            $('.section-list').animate({ scrollLeft: menuInvisibleSize }, scrollDuration);
+            $('.section-list').animate({
+                 scrollLeft: "+=300px" 
+                },"slow");
         });
 
         // scroll to right
         $(leftPaddle).on('click', function() {
-            $('.section-list').animate({ scrollLeft: '0' }, scrollDuration);
+            $('.section-list').animate({ 
+                scrollLeft: "-=300px" 
+            }, "slow");
         });
-        //end scroll brand car page
+        //===============end scroll brand car page=====================
 
         // fold table 
         $(".fold-table tr.view").on("click", function() {
