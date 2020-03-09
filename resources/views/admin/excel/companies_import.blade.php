@@ -171,7 +171,8 @@
                             setTimeout(function(){
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
-                            }, 100)
+                            }, 100);
+                            toastr.success(data.message);
 
                         }
                     });
@@ -190,8 +191,8 @@
                             setTimeout(function(){
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
-                            }, 100)
-
+                            }, 100);
+                        toastr.success(data.message);
                     }
                 });
             });

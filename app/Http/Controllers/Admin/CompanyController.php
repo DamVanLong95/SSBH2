@@ -96,7 +96,7 @@ class CompanyController extends Controller
             }
         }
         $company->name = $request->get('name');
-        $company->logo =  $path;
+        $company->logo =  isset($path) ? $path: null;
         $company->save();
         $notification = array(
             'message' => 'update successfully!',
