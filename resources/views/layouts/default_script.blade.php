@@ -29,10 +29,10 @@ $('.header').click(function(){
             revert: 'invalid',
             helper: 'clone',
             stop: function(event, ui) {
-                if($('input[type="checkbox"]').prop("checked") == false){
-                    console.log("Checkbox is checked.");
-                    $(this).draggable({ disabled: true });
-                }
+                // if($('input[type="checkbox"]').prop("checked") == false){
+                //     console.log("Checkbox is checked.");
+                //     $(this).draggable({ disabled: true });
+                // }
             }
         });
         $( "div.img-container" ).droppable({

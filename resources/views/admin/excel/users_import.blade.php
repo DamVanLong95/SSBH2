@@ -24,7 +24,7 @@
                     <tr>
                         <td><a href=""><h3>{{$table}}</h3></a></td>
                         <td>
-                            <form action="{{route($table.'.import')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('users.import')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <input type="file" name="import_file" class="form-control col-sm-3">
@@ -45,11 +45,11 @@
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th >Created_at</th>
-                            </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th >Created_at</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $user)
@@ -61,6 +61,7 @@
                         @endforeach
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

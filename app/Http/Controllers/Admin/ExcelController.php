@@ -10,13 +10,13 @@ use App\Imports\ValidateExcel;
 use App\Http\Controllers\Controller;
 use App\User;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\Request;
 
 class ExcelController extends Controller
 {
-    //
     public function importView($table){
-        $users = User::orderBy('created_at', 'desc')->get();;
-        return view('admin.excel.import',compact('table','users'));
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('admin.excel.users_import',compact('users','table'));
     }
     public function importExcel(ExcelRequest $request)
     {
