@@ -330,7 +330,7 @@ footer {
     }
 }
 
-// modal
+// ===========================modal==============================
 .modal {
     height: 280px;
     background-color: #0d723b;
@@ -359,5 +359,87 @@ footer {
         background-repeat: no-repeat;
         background-position: center center;
         background-image: url('../images/default/close.png');
+    }
+}
+// ================================network==============================
+#net-address{
+    display: none;
+    position: absolute;
+    transform: translate(18%, 36%);
+    bottom: 6%;
+    width: 82%;
+}
+.network-ctn {
+    // position: absolute;
+    background-color: #fff;
+    border: 1px solid #f36f21;
+    h5 {
+        color: $main-color;
+        font-family: UTM_HelveBold;
+        text-transform: uppercase;
+    }
+    .address-detail{
+        h5{ 
+            cursor: pointer;
+            span{
+                img{
+                    width: 15px;
+                    margin-right: 10px;
+                }
+            }
+            
+            &:after {
+                font-family:Fontawesome;
+                content:'\f0d7';
+                float: right;
+            }
+        }
+        h5.collapsed{
+            cursor: pointer;
+            &::after{
+                font-family:Fontawesome;
+                content:'\f0d7';
+                float: right;
+            }
+        }
+    }
+    .net-item {
+        .address-ctn {
+            width: 36%;
+            margin-bottom: 2%;
+            background-color: #e6e7e8;
+            padding: 8px 20px;
+            border: 1px solid #ccc4;
+            border-radius: 20px;
+            outline: none;
+            select {
+                width: 100%;
+                border: none;
+                border-right: solid 1px;
+                outline: none;
+                color: #6b6c6e;
+                background-color: #e6e7e8;
+            }
+        }
+        hr.line {
+            border: 1px solid $main-color;
+        }
+        .address-list {
+            // height: 100px;
+            overflow: auto;
+            // width: 100%;
+            ul {
+                list-style: none;
+                li.address-item {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    .no span {
+                        color: $main-color;
+                        padding-right: 20px;
+                    }
+                }
+            }
+        }
     }
 }

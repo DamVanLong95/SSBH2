@@ -34,7 +34,6 @@
         max-width: 1170px !important;
     }
 }
-
 .text-right {
     text-align: right;
 }
@@ -64,19 +63,7 @@
     cursor: pointer;
     
   }
-.show {
-    animation: grow .4s ease-in-out;
-    transform: scale(1,1);
-    display: flex;
-    opacity: 1;
-    cursor: pointer;
-    .accordeon{
-    border-top: 2px solid #ddd;
-    }
-    p{
-        width: 100%;
-    }
-  }
+
 
 .hide {
 display: none;
@@ -240,3 +227,4 @@ display: none;
     transform-origin: 0 0;
     transition: transform .2s ease-in-out, background-color .2s ease-in-out;
   }
+  
