@@ -169,7 +169,7 @@
                 });
             });
         };
-        // Dropdown check
+        // ===============Dropdown check====================
         var CheckboxDropdown = function(el) {
             var _this = this;
             this.isOpen = false;
@@ -255,7 +255,7 @@
         for (var i = 0, length = checkboxesDropdowns.length; i < length; i++) {
             new CheckboxDropdown(checkboxesDropdowns[i]);
         }
-        // End Dropdown check
+        //================= End Dropdown check=====================
 
         // =====================scroll brand car page==================
         // duration of scroll animation
@@ -269,53 +269,52 @@
         
 
         // get wrapper width
-        var getMenuWrapperSize = function() {
+        var getBrandWrapperSize = function() {
             return $('.section-wrapper').outerWidth();
         }
-        var menuWrapperSize = getMenuWrapperSize();
+        var brandWrapperSize = getBrandWrapperSize();
         // the wrapper is responsive
         $(window).on('resize', function() {
-            menuWrapperSize = getMenuWrapperSize();
+            brandWrapperSize = getBrandWrapperSize();
         });
-        // size of the visible part of the menu is equal as the wrapper size 
-        var menuVisibleSize = menuWrapperSize;
+        // size of the visible part of the brand is equal as the wrapper size 
+        var brandVisibleSize = brandWrapperSize;
 
-        // get total width of all menu items
-        var getMenuSize = function() {
+        // get total width of all brand items
+        var getBrandSize = function() {
             return itemsLength * itemSize;
         };
-        var menuSize = getMenuSize();
-        // get how much of menu is invisible
-        var menuInvisibleSize = menuSize - menuWrapperSize;
+        var brandSize = getBrandSize();
+        // get how much of brand is invisible
+        var brandInvisibleSize = brandSize - brandWrapperSize;
 
         // get how much have we scrolled to the left
-        var getMenuPosition = function() {
+        var getBrandPosition = function() {
             return $('.section-list').scrollLeft();
         };
 
-        // finally, what happens when we are actually scrolling the menu
+        // finally, what happens when we are actually scrolling the brand
         $('.section-list').on('scroll', function() {
 
-            // get how much of menu is invisible
-            menuInvisibleSize = menuSize - menuWrapperSize;
+            // get how much of brand is invisible
+            brandInvisibleSize = brandSize - brandWrapperSize;
             // get how much have we scrolled so far
-            var menuPosition = getMenuPosition();
+            var brandPosition = getBrandPosition();
             // get some relevant size for the paddle triggering point
             var paddleMargin = 20;
-            // console.log("menuPosition", menuPosition);
-            var menuEndOffset = menuInvisibleSize - paddleMargin;
-            // console.log("menuPositiontrtsrtsrtwr", menuEndOffset);
+            // console.log("brandPosition", brandPosition);
+            var brandEndOffset = brandInvisibleSize - paddleMargin;
+            // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
             // show & hide the paddles 
             // depending on scroll position
-            if (menuPosition <= paddleMargin) {
+            if (brandPosition <= paddleMargin) {
                 $(leftPaddle).addClass('hidden');
                 $(rightPaddle).removeClass('hidden');
-            } else if (menuPosition < menuEndOffset) {
+            } else if (brandPosition < brandEndOffset) {
                 // show both paddles in the middle
                 $(leftPaddle).removeClass('hidden');
                 $(rightPaddle).removeClass('hidden');
-            } else if (menuPosition >= menuEndOffset) {
-               
+            } else if (brandPosition >= brandEndOffset) {
                 $(leftPaddle).removeClass('hidden');
                 $(rightPaddle).addClass('hidden');
             }
@@ -342,7 +341,7 @@
             $(this).toggleClass("open").next(".fold").toggleClass("open");
         });
         // end fold table
-        // mega drop down
+        // =========================mega drop down======================
         $('.open').click(function() {
             $(this).toggleClass("show hide");
             $('.content').toggleClass("show hide");
@@ -352,8 +351,8 @@
             $('.content').toggleClass("show hide");
             $('.open').toggleClass("show hide");
         });
-        // end mega dropdown
-        // select dropdown
+        // ========================end mega dropdown======================
+        // =======================select dropdown=========================
         $('.dropdown2 > .caption').on('click', function() {
             $(this).parent().toggleClass('open');
         });
@@ -374,11 +373,7 @@
                 $('.dropdown2').removeClass('open');
             }
         });
-        // select dropdown
-        // drag image header
-
-
-        // end drag image header 
+        // =========================end select dropdown=====================
     };
 
 
