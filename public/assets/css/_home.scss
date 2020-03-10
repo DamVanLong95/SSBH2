@@ -145,16 +145,19 @@
                 margin: 4% 0;
                 border-bottom: 1px solid $main-color;
                 .item {
-                    padding: 3% 10%;
+                    padding: 3% 4%;
                     text-align: center;
                     p {
                         font-family: UTM_Helve;
                         margin-bottom: 30px;
+                        
                     }
                     h6 {
                         font-family: UTM_HelveBold;
                         font-size: 1.25rem;
                         margin-top: 35px;
+                        text-align: justify !important;
+                        width: 280px;
                     }
                     &:hover {
                         h6 {
@@ -251,6 +254,12 @@
                 .description-ctn {
                     margin-top: 20px;
                     height: 50px;
+                    width: 300px;
+                    a{
+                        font-family: UTM_Helve;
+                        color: #000;
+                       text-decoration: none;
+                    }
                 }
             }
             .center {
@@ -294,7 +303,9 @@
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
+            
           }
+         
         .swiper-button-prev {
             transform: translate(-46%, 10px);
             top: 20%;

@@ -98,6 +98,97 @@
       cursor: pointer;
       text-align: center; }
 
+.pn-ProductNav_Wrapper {
+  position: relative;
+  padding: 0 11px;
+  box-sizing: border-box; }
+
+.pn-ProductNav {
+  /* Make this scrollable when needed */
+  overflow-x: auto;
+  /* We don't want vertical scrolling */
+  overflow-y: hidden;
+  /* For WebKit implementations, provide inertia scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* We don't want internal inline elements to wrap */
+  white-space: nowrap;
+  /* If JS present, let's hide the default scrollbar */
+  /* positioning context for advancers */
+  position: relative;
+  font-size: 0; }
+  .js .pn-ProductNav {
+    /* Make an auto-hiding scroller for the 3 people using a IE */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    /* Remove the default scrollbar for WebKit implementations */ }
+    .js .pn-ProductNav::-webkit-scrollbar {
+      display: none; }
+
+.pn-ProductNav_Contents {
+  float: left;
+  transition: transform .2s ease-in-out;
+  position: relative; }
+
+.pn-ProductNav_Contents-no-transition {
+  transition: none; }
+
+.pn-ProductNav_Link {
+  text-decoration: none;
+  color: #888;
+  font-size: 1.2rem;
+  font-family: -apple-system, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid transparent;
+  padding: 0 11px; }
+  .pn-ProductNav_Link + .pn-ProductNav_Link {
+    border-left-color: #eee; }
+  .pn-ProductNav_Link[aria-selected="true"] {
+    color: #111; }
+
+.pn-Advancer {
+  /* Reset the button */
+  appearance: none;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  /* Now style it as needed */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* Set the buttons invisible by default */
+  opacity: 0;
+  transition: opacity .3s; }
+  .pn-Advancer:focus {
+    outline: 0; }
+  .pn-Advancer:hover {
+    cursor: pointer; }
+
+.pn-Advancer_Left {
+  left: 0; }
+  [data-overflowing="both"] ~ .pn-Advancer_Left, [data-overflowing="left"] ~ .pn-Advancer_Left {
+    opacity: 1; }
+
+.pn-Advancer_Right {
+  right: 0; }
+  [data-overflowing="both"] ~ .pn-Advancer_Right, [data-overflowing="right"] ~ .pn-Advancer_Right {
+    opacity: 1; }
+
+.pn-Advancer_Icon {
+  width: 20px;
+  height: 44px;
+  fill: #bbb; }
+
+.pn-ProductNav_Indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100px;
+  background-color: transparent;
+  transform-origin: 0 0;
+  transition: transform .2s ease-in-out, background-color .2s ease-in-out; }
+
 .block-main-menu {
   top: 0;
   left: 0;
@@ -475,7 +566,7 @@ footer {
     margin: 4% 0;
     border-bottom: 1px solid #0d723b; }
     .section4 .section4-ctn .sec4-container .section4-content .item {
-      padding: 3% 10%;
+      padding: 3% 4%;
       text-align: center; }
       .section4 .section4-ctn .sec4-container .section4-content .item p {
         font-family: UTM_Helve;
@@ -483,7 +574,9 @@ footer {
       .section4 .section4-ctn .sec4-container .section4-content .item h6 {
         font-family: UTM_HelveBold;
         font-size: 1.25rem;
-        margin-top: 35px; }
+        margin-top: 35px;
+        text-align: justify !important;
+        width: 280px; }
       .section4 .section4-ctn .sec4-container .section4-content .item:hover h6 {
         color: #0d723b; }
     .section4 .section4-ctn .sec4-container .section4-content .center {
@@ -547,7 +640,12 @@ footer {
       width: 100%; }
     .section6 .blog-container .blog-ctn .item .description-ctn {
       margin-top: 20px;
-      height: 50px; }
+      height: 50px;
+      width: 300px; }
+      .section6 .blog-container .blog-ctn .item .description-ctn a {
+        font-family: UTM_Helve;
+        color: #000;
+        text-decoration: none; }
   .section6 .blog-container .blog-ctn .center {
     border-left: 1px solid #000;
     border-right: 1px solid #000; }
@@ -661,8 +759,6 @@ footer {
         margin-right: 4px; }
       .compare-section .compare-nav .dropdown:nth-of-type(1) {
         border-left: none; }
-      .compare-section .compare-nav .dropdown:nth-last-child(1) {
-        border-right: none; }
   .compare-section .data-compare table tr.hide-table-padding {
     padding: 0; }
   .compare-section .data-compare .expand-button {
@@ -685,7 +781,8 @@ footer {
 
 .brand-section {
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  background-color: rgba(0, 0, 0, 0.05); }
   .brand-section .section-wrapper {
     position: relative;
     max-width: 1170px;
@@ -712,7 +809,7 @@ footer {
         .brand-section .section-wrapper .section-list .item input[type=checkbox]:checked + .toggle:after {
           opacity: 1; }
         .brand-section .section-wrapper .section-list .item .brand-thumb img {
-          height: 50px; }
+          height: 35px; }
         .brand-section .section-wrapper .section-list .item .brand-thumb img.ui-draggable {
           z-index: 100000; }
         .brand-section .section-wrapper .section-list .item .toggle {
@@ -806,8 +903,6 @@ footer {
       border-top: 2px solid #0d723b;
       border-bottom: 1px solid #0d723b;
       border-right: 1px solid #0d723b; }
-    .table-section #layout-area .table thead .top-head th:last-child {
-      border-right: 0px; }
     .table-section #layout-area .table thead .top-head th.th-1 {
       position: relative; }
       .table-section #layout-area .table thead .top-head th.th-1 .left-ctn {
@@ -841,10 +936,6 @@ footer {
   .table-section #layout-area .table tbody .sub-head td {
     border-bottom: 1px solid #0d723b;
     border-right: 1px solid #0d723b; }
-  .table-section #layout-area .table tbody .sub-head td:first-child {
-    border-left: 0px; }
-  .table-section #layout-area .table tbody .sub-head td:last-child {
-    border-right: 0px; }
   .table-section #layout-area .table tbody .sub-head td.th-2 .star-ctn {
     display: flex;
     justify-content: space-around;
@@ -984,8 +1075,6 @@ footer {
       display: block; }
   .table-section #layout-area .table tr.data-detail td.first-col {
     text-transform: uppercase; }
-  .table-section #layout-area .table tr.data-detail td:last-child {
-    border-right: 0px; }
   .table-section #layout-area .table tr.select-all {
     position: absolute;
     transform: translate(0, -44px); }
