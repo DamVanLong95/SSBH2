@@ -18,7 +18,7 @@ Route::get('/car1', function () {
     return view('frontend.pages.car_compare');
 });
 Route::get('/car','Car\CarController@index');
-Route::post('droppImage','Car\CarController');
+Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
 
 Route::get('/test', function () {
     return view('frontend.pages.test');
@@ -36,7 +36,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('posts/update','Admin\PostController@update')->name('post.update');
     Route::post('posts/destroy/{id?}','Admin\PostController@destroy')->name('posts.destroy');
 
-//   ============View excel======================
+//   ============View ======================
 
     Route::get('company','Admin\CompanyController@index')->name('excel.company');
     Route::get('datatables','Admin\CompanyController@getData')->name('excel.getData');
@@ -44,8 +44,12 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('company/update/{id?}','Admin\CompanyController@update')->name('company.update');
     Route::post('company/destroy/{id?}','Admin\CompanyController@destroy')->name('company.destroy');
     Route::post('company/store','Admin\CompanyController@store')->name('company.store');
+
     Route::get('excel/{users}','Admin\ExcelController@importView')->name('excel.users');
     Route::get('summary','Admin\SummaryController@index')->name('excel.summary');
+
+
+//    Route::resource('insurance', 'Admin\InsuranceController');
 
 
 //   ============Import excel======================
@@ -56,6 +60,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
 //   ============Export excel======================
 
     Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
+    Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
 
 
 });

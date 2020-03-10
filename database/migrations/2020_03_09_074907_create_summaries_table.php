@@ -15,14 +15,14 @@ class CreateSummariesTable extends Migration
     {
         Schema::create('summaries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('dvbaohiem');
-            $table->string('mdsudung');
-            $table->string('hxe');
-            $table->string('loaixe');
-            $table->string('namsx');
-            $table->text('dkloaitru');
-            $table->string('ghchu');
-            $table->decimal('giaxe');
+            $table->integer('company_id');
+            $table->string('brand_car');//hang xe
+            $table->string('cate_car');//loai xe
+            $table->string('uses');//muc dich su dung
+            $table->string('year_sx');//nam sx
+            $table->text('exception');//dieu khoan loai tru
+            $table->string('note_more');//ghi chu
+            $table->decimal('price_car');//gia
             $table->timestamps();
         });
     }

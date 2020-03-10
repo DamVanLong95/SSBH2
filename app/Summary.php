@@ -9,4 +9,5 @@ class Summary extends Model
     //
     protected $guarded = ['id'];
     protected  $table = 'summaries';
+
 }

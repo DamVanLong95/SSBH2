@@ -27,6 +27,7 @@
                                 <div class="form-group row ">
                                     <div class="col-md-9 row" >
                                         <button type="" name="add_new" id="add_new" class="btn btn-primary">Add new</button>
+                                        <a class="btn btn-warning" href="{{ route('companies.export') }}">Export data</a>
                                     </div>
                                 </div>
                                 <table class="table table-bordered" id="table">
@@ -178,8 +179,8 @@
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
                             }, 100);
-                            location.reload();
                             toastr.success(data.message);
+                            location.reload();
 
                         }
                     });

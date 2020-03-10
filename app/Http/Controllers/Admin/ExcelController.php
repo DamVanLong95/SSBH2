@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Exports\CompaniesExport;
 use App\Exports\UsersExport;
 use App\Http\Requests\ExcelRequest;
 use App\Imports\UsersImport;
@@ -32,5 +33,8 @@ class ExcelController extends Controller
     }
     public function exportExcel(){
         return Excel::download(new UsersExport, 'users.xlsx');
+    }
+    public function exportCompany(){
+        return Excel::download(new CompaniesExport, 'companies.xlsx' );
     }
 }

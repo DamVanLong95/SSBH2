@@ -57,11 +57,20 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
-
-                $.post('ds',function(data){
-
-                });
-
+                var url = '{{route('droppImage')}}';
+                $.post(url,
+                    {
+                        "_token": "{{ csrf_token() }}",
+                        id: idImg
+                    },
+                    function(data, status, xhr) {
+                        if(data.success == true) {
+                            console.log(data.html);
+                            $('#tbl-main').html(data.html);
+                        }
+                    }).done(function() {
+                        // alert('Request done!');
+                    });
                 $('table th').on('click', function (e ) {
                     var index = ($(this).index()+1);
                         if( index ==2 ){
