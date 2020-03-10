@@ -23,6 +23,10 @@ class CompanyController extends Controller
         $companies = Company::all();
         return DataTables::of($companies)
 
+
+            ->addColumn('url', function ($company) {
+                return $company->logo;
+            })
             ->editColumn('logo', function ($company) {
                 $path = asset('storage/'.$company->logo);
                 return '<img src="' .$path . '" alt="" class="avatar ">';
@@ -32,7 +36,7 @@ class CompanyController extends Controller
                         <a href="javascript:void(0)" data-id="' . $company->id . '" class="delete btn btn btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
 
             })
-            ->rawColumns(['action','logo'])
+            ->rawColumns(['action','logo','url'])
             ->make(true);
     }
     public function store(Request $request)
@@ -96,7 +100,7 @@ class CompanyController extends Controller
             }
         }
         $company->name = $request->get('name');
-        $company->logo =  isset($path) ? $path: null;
+        $company->logo =  isset($path) ? $path: $company->logo;
         $company->save();
         $notification = array(
             'message' => 'update successfully!',

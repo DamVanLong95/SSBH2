@@ -33,8 +33,9 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
                                         <th>Logo</th>
+                                        <th>Name</th>
+                                        <th>Url</th>
                                         <th >Created At</th>
                                         <th >Action</th>
                                     </tr>
@@ -86,6 +87,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Select Profile Image : </label>
                                     <div class="col-md-8">
+                                        <img src="" alt="" id="logo" name="logo">
                                         <input type="file" name="file" id="file" />
                                         <span id="store_image"></span>
                                     </div>
@@ -112,8 +114,9 @@
                     },
                     columns: [
                         {data: 'id', name: 'id'},
-                        {data: 'name', name: 'name'},
                         {data: 'logo', name: 'logo'},
+                        {data: 'name', name: 'name'},
+                        {data: 'url', name: 'url'},
                         {data: 'created_at', name: 'created_at'},
                         {data:'action', name:'action',orderable: false, searchable: false},
                     ],
@@ -141,6 +144,7 @@
                                 $('#formModal').modal('hide');
                                 $('#table').DataTable().ajax.reload();
                             }, 100);
+                            toastr.success(data.message);
                         }
 
                     });
@@ -151,6 +155,8 @@
                 var url = "{{route('company.edit')}}"+ '/' + company_id;
                 $.get(url , function (data) {
                     //success data
+                    $path = "{{asset('storage/')}}"+ '/'+data.logo;
+                    $("#logo").attr("src", $path);
                     $('#name').val(data.name);
                     $('#action').val(data.id);
                 })
@@ -172,6 +178,7 @@
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
                             }, 100);
+                            location.reload();
                             toastr.success(data.message);
 
                         }

@@ -17,9 +17,9 @@ Route::get('/home', function () {
 Route::get('/car1', function () {
     return view('frontend.pages.car_compare');
 });
-Route::get('/car', function () {
-    return view('frontend.pages.car');
-});
+Route::get('/car','Car\CarController@index');
+Route::post('droppImage','Car\CarController');
+
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });
@@ -45,15 +45,17 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('company/destroy/{id?}','Admin\CompanyController@destroy')->name('company.destroy');
     Route::post('company/store','Admin\CompanyController@store')->name('company.store');
     Route::get('excel/{users}','Admin\ExcelController@importView')->name('excel.users');
+    Route::get('summary','Admin\SummaryController@index')->name('excel.summary');
+
 
 //   ============Import excel======================
 
     Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
+    Route::post('summary/import','Admin\SummaryController@import')->name('summary.import');
 
 //   ============Export excel======================
 
     Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
-    Route::get('company/export','Admin\ExcelController@exportExcel')->name('company.export');
 
 
 });
