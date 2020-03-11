@@ -179,7 +179,7 @@
     window.onscroll = function() {fixedTop()};
 
     var tblHeader = document.getElementById("tableHeader");
-    var sticky = tblHeader.offsetTop;
+    var sticky = tblHeader.offsetTop();
     var menuHeight = $(".block-main-menu").outerHeight();
     var sec1Height = $(".sec1-wrapper").height();
     var searchHeight = $(".search-ctn").outerHeight();

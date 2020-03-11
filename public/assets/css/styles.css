@@ -1985,74 +1985,74 @@ footer .footer-ctn .footer-nav li a {
   -o-border-radius: 22px;
 }
 
-.intro-container {
+.intro-detail-container {
   margin: 5% 0;
 }
 
-.intro-container .intro-ctn .title {
+.intro-detail-container .intro-ctn .title {
   margin-bottom: 35px;
 }
 
-.intro-container .intro-ctn .title h4 {
+.intro-detail-container .intro-ctn .title h4 {
   text-transform: uppercase;
   font-family: UTM_Helve;
   color: #0d723b;
 }
 
-.intro-container .intro-ctn .top-intro .content {
+.intro-detail-container .intro-ctn .top-intro .content {
   margin-bottom: 40px;
 }
 
-.intro-container .intro-ctn .top-intro .content p {
+.intro-detail-container .intro-ctn .top-intro .content p {
   font-family: UTM_Helve;
   line-height: 26px;
   color: #58595b;
 }
 
-.intro-container .intro-ctn .second-wrapper {
+.intro-detail-container .intro-ctn .second-wrapper {
   position: relative;
 }
 
-.intro-container .intro-ctn .second-wrapper .second-ctn {
+.intro-detail-container .intro-ctn .second-wrapper .second-ctn {
   background-color: #f1f2f2;
   width: 85%;
   padding: 50px 30px;
 }
 
-.intro-container .intro-ctn .second-wrapper .second-ctn .content {
+.intro-detail-container .intro-ctn .second-wrapper .second-ctn .content {
   width: 61%;
 }
 
-.intro-container .intro-ctn .second-wrapper .second-ctn .content p {
+.intro-detail-container .intro-ctn .second-wrapper .second-ctn .content p {
   font-family: UTM_Helve;
   line-height: 26px;
   color: #58595b;
 }
 
-.intro-container .intro-ctn .second-wrapper .second-ctn .content a {
+.intro-detail-container .intro-ctn .second-wrapper .second-ctn .content a {
   font-family: UTM_HelveBold;
   line-height: 26px;
   color: #0d723b;
   text-decoration: none;
 }
 
-.intro-container .intro-ctn .second-wrapper .img-intro {
+.intro-detail-container .intro-ctn .second-wrapper .img-intro {
   position: absolute;
   top: -7%;
   right: 0;
 }
 
-.intro-container .intro-ctn .img-intro2 {
+.intro-detail-container .intro-ctn .img-intro2 {
   margin-bottom: 6%;
 }
 
-.intro-container .intro-ctn .content-bottom p {
+.intro-detail-container .intro-ctn .content-bottom p {
   font-family: UTM_Helve;
   line-height: 26px;
   color: #58595b;
 }
 
-.intro-container .intro-ctn .content-bottom a {
+.intro-detail-container .intro-ctn .content-bottom a {
   font-family: UTM_HelveBold;
   line-height: 26px;
   color: #0d723b;
