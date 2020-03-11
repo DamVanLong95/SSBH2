@@ -1,8 +1,7 @@
-
-<p>{{$summaries[$i]['note_more']}}</p>
-
-{{--            <span><a href="#detail-td" rel="modal:open">...</a></span>--}}
-
-{{--            <div class="star-td"><img class="img-fluid"--}}
-{{--                                      src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}"--}}
-{{--                                      alt=""></div>--}}
+<div id="detail-td" class="modal">
+    <div class="content-ctn">
+        <p>Thanks for clicking. That felt good.</p>
+        <div id="notes">{{$notes}}</div>
+    </div>
+    <a href="#">Mua ngay</a>
+</div>

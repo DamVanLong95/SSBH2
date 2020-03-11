@@ -18,13 +18,17 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
-//        $notes  = Summary::select('note_more')->where('company_id', '=', $company_id)->get();
         $summaries  = Summary::select('company_id','exception','note_more')->where('company_id', '=', $company_id)->get();
 //        $html   =  view('frontend.pages.car_notes')->with(['summaries'=>$summaries])->render();
         return response()->json([
             'success' => true,
             'summaries'    => $summaries
         ]);
+
+    }
+    public function showInfo( Request $request,$note)
+    {
+//        dd($note);
 
     }
 }
