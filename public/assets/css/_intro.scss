@@ -1,3 +1,6 @@
+$lineheight:20px;
+$height: $lineheight * 3;
+$ellipsiswidth: 3em !default;
 .intro-detail-container {
     margin: 5% 0;
     .intro-ctn {
@@ -61,6 +64,89 @@
                 color: $main-color;
                 text-decoration: none;
             }
+        }
+    }
+}
+
+.intro-container {
+    margin: 5% 0;
+    .intro-ctn {
+        .left-ctn {}
+        .right-ctn {
+            // padding: 10% 0 10% 10%;
+            .title {
+                margin-bottom: 35px;
+                h4 {
+                    text-transform: uppercase;
+                    font-family: UTM_Helve;
+                    color: $main-color;
+                }
+            }
+            p {
+                font-family: UTM_Helve;
+                line-height: 26px;
+                color: #58595b;
+            }
+            .ellipsis {
+                overflow: hidden;
+                height: $height;
+                line-height: $lineheight;
+            }
+            .ellipsis:before {
+                content: "";
+                float: left;
+                width: 5px;
+                height: $height;
+            }
+            .ellipsis>*:first-child {
+                float: right;
+                width: 100%;
+                margin-left: -5px;
+            }
+            .ellipsis:after {
+                content: "\02026";
+                float: right;
+                position: relative;
+                top: -$lineheight;
+                left: 100%;
+                width: $ellipsiswidth;
+                margin-left: -$ellipsiswidth;
+                padding-right: 5px;
+                text-align: right;
+                background: white;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
+            }
+            .watch-more {
+                a {
+                    font-family: UTM_HelveBold;
+                    line-height: 26px;
+                    color: $main-color;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .box-1,
+    .box-3 {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        flex-direction: row;
+        .right-ctn {
+            padding: 0 0 10% 10%;
+        }
+    }
+    .box-3 {
+        .right-ctn {
+            padding-top: 10%;
+        }
+    }
+    .box-2,
+    .box-4 {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        flex-direction: row;
+        .right-ctn {
+            padding: 10% 10% 10% 0;
         }
     }
 }
