@@ -272,6 +272,9 @@
             }
             thead {
                 .top-head {
+                    position: sticky;
+                    top: 0;
+                    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
                     // border-top: 1px solid #000;
                     height: 100px;
                     th {
@@ -617,6 +620,13 @@
                         -moz-box-shadow: 0 1px 1px #dfecf4;
                         box-shadow: 0 1px 1px #dfecf4;
                     }
+                    label.drop{
+                        position: absolute;
+                        left: 22px;
+                        margin-top: 20px;
+                        width: 32px;
+                        font-size: 13px;
+                    }
                 }
                 td.first-col {
                     text-transform: uppercase;
@@ -698,8 +708,6 @@
                             -moz-box-shadow: 0 1px 1px #dfecf4;
                             box-shadow: 0 1px 1px #dfecf4;
                         }
-                        
-                        
                     }
                 }
             }
