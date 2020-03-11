@@ -282,4 +282,9 @@
   transition: transform .2s ease-in-out, background-color .2s ease-in-out;
   transition: transform .2s ease-in-out, background-color .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
 /*# sourceMappingURL=base.css.map */

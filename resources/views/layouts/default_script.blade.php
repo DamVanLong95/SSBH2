@@ -176,15 +176,28 @@
       }
 </script>
 <script>
-  // var hidden = false;
-  //   function action() {
-  //       hidden = !hidden;
-  //       if(hidden) {
-  //           document.getElementById('btn-add').style.visibility = 'hidden';
-  //       } else {
-  //           document.getElementById('btn-del').style.visibility = 'visible';
-  //       }
-  //   }
+    window.onscroll = function() {fixedTop()};
+
+    var tblHeader = document.getElementById("tableHeader");
+    var sticky = tblHeader.offsetTop;
+    var menuHeight = $(".block-main-menu").outerHeight();
+    var sec1Height = $(".sec1-wrapper").height();
+    var searchHeight = $(".search-ctn").outerHeight();
+    var compareHeight = $(".compare-section").outerHeight();
+    var brandHeight = $(".brand-section").outerHeight();
+    console.log("menu",menuHeight);
+    console.log("sec1",sec1Height);
+    console.log("search ctn",searchHeight);
+    console.log("compare ctn",compareHeight);
+    console.log("branch ctn",brandHeight);
+
+    function fixedTop() {
+        // if (window.pageYOffset > sticky) {
+        //     tblHeader.classList.add("sticky");
+        // } else {
+        //     tblHeader.classList.remove("sticky");
+        // }
+    }
 </script>
 <script>
   $(document).ready(function () {

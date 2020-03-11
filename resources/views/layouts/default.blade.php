@@ -49,7 +49,7 @@
                         <a class="nav-link" href="{{ url('/home') }}">TRANG CHỦ </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">GIỚI THIỆU</a>
+                        <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>

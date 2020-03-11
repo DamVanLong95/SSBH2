@@ -20,6 +20,9 @@ Route::get('/car1', function () {
 Route::get('/car', function () {
     return view('frontend.pages.car');
 });
+Route::get('/intro', function () {
+    return view('frontend.pages.intro');
+});
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });
