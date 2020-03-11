@@ -498,28 +498,31 @@
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
 
                                     </td>
-                                    <tr class="select-all">
-                                        <td >
-                                            <div class="choose-all">
-                                                <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                                <label class="toggle" for="selectall">Chọn tất cả</label>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tr>
+                                <tr class="select-all">
+                                    <td>
+                                        <div class="choose-all">
+                                            <input type="checkbox" id="selectall" class="selectedAll"></input>
+                                            <label class="toggle" for="selectall">Chọn tất cả</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @foreach($summaries as $summary)
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
-                                        <label for="chk">Tick me</label>
+                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1"/>
+                                        <label for="chk">{{$summary['exception']}} </label>
                                     </td>
-
                                     <td>
-                                    <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
+{{--                                        <p></p>--}}
+{{--                                        <span><a href="#detail-td" rel="modal:open">...</a></span>--}}
 
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
+{{--                                        <div class="star-td"><img class="img-fluid"--}}
+{{--                                                                  src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}"--}}
+{{--                                                                  alt=""></div>--}}
                                     </td>
                                 </tr>
+                                @endforeach
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
@@ -665,6 +668,7 @@
 <div id="detail-td" class="modal">
     <div class="content-ctn">
         <p>Thanks for clicking. That felt good.</p>
+        <div id="notes"></div>
     </div>
   <a href="#">Mua ngay</a>
 

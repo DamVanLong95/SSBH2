@@ -65,8 +65,37 @@
                     },
                     function(data, status, xhr) {
                         if(data.success == true) {
-                            console.log(data.html);
-                            $('#tbl-main').html(data.html);
+                            var myTable = document.getElementById('main-tbl');
+                            var tblBodyObj = document.getElementById('main-tbl').tBodies[0];
+                            var tblHeadObj = document.getElementById('main-tbl').tHead;
+                            var indexCol = tblHeadObj.rows[0].cells.length - 2;
+                            // console.log(data);
+
+                            for (var i = 7; i < tblBodyObj.rows.length-16; i++) {
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                // console.log(data.summaries[i-7]['note_more']);
+                                var imgUrl = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
+                                console.log(data.summaries[i-7]['note_more']);
+                                if(data.summaries[i-7]['note_more']=='x') {
+
+                                    data.summaries[i - 7]['note_more'] =
+                                        `<div class="tick-td">
+                                             <img class="img-fluid" src="http://localhost/assets/images/car/tick.png?" alt="">
+                                        </div>`;
+                                    tds.innerHTML =  `<p>`+data.summaries[i-7]['note_more']+`</p>
+                                                       <div class="star-td"><img class="img-fluid"   src="`+imgUrl+`" alt=""></div>`
+                                }else if(data.summaries[i-7]['note_more']=='-----'){
+                                    tds.innerHTML = `<p>`+data.summaries[i-7]['note_more']+`</p>`;
+                                }
+                                else{
+                                    tds.innerHTML =`<p>`+data.summaries[i-7]['note_more']+`</p>
+                                                    <span><a href="#detail-td"  rel="modal:open"  class="detail">...</a></span>
+                                                    <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgUrl+`"  alt="">
+                                                     </div>
+                                    `;
+                                }
+                            }
                         }
                     }).done(function() {
                         // alert('Request done!');
@@ -218,11 +247,11 @@
 </script>
 <script>
 
-  
+
 
 $('.toggle').click(function() {
     $('#net-address').toggle('slow');
 });
 
-  
+
 </script>
