@@ -568,7 +568,7 @@
                                 <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                                 <input type="button" value="add column" onclick="addColumn('main-tbl')" />
                             </div>
-                            <thead>
+                            <thead class="fixedHeader">
                                 <tr class="top-head" >
                                     <th class='th-1'>
                                         <div class="left-ctn">
@@ -679,7 +679,9 @@
                                 <tr class="data-detail">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
-                                        <label for="chk">Tick me</label>
+                                      
+                                        <label for="chk"> Tick me</label>
+                                        <label class="drop" for="">0.01% phí</label>
                                     </td>
 
                                     <td>
