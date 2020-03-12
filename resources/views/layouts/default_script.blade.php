@@ -76,31 +76,29 @@
                             var tblHeadObj = document.getElementById('main-tbl').tHead;
                             var indexCol = tblHeadObj.rows[0].cells.length - 2;
                             console.log(data);
-
-
                             for (var i = 7; i < tblBodyObj.rows.length-16; i++) {
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 // console.log(data.summaries[i-7]['note_more']);
-                                var imgUrl = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
+                                var imgOrange = ` {{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}`;
+                                var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                 if(data.summaries[i-7]['note_more']=='x') {
                                     data.summaries[i - 7]['note_more'] =
                                         `<div class="tick-td">
                                              <img class="img-fluid" src="http://localhost/assets/images/car/tick.png?" alt="">
                                         </div>`;
                                     tds.innerHTML =  `<p>`+data.summaries[i-7]['note_more']+`</p>
-                                                       <div class="star-td"><img class="img-fluid"   src="`+imgUrl+`" alt=""></div>`
+                                                       <div class="star-td"><img class="img-fluid"   src="`+imgOrange+`" alt=""></div>`
                                 }else if(data.summaries[i-7]['note_more']=='-----'){
                                     tds.innerHTML = `<p>`+data.summaries[i-7]['note_more']+`</p>`;
                                 }
                                 else{
-
                                     // console.log(notes[i-7]['note_more']);
                                     var url  = `{{route('show_info')}}`+'/'+ notes[i-7]['note_more'];
                                     tds.innerHTML =`<p>`+data.summaries[i-7]['note_more']+`</p>
 
                                                     <span><button class="btn-primary" value="`+data.summaries[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
-                                                    <div class="star-td">
-                                                        <img class="img-fluid"   src="`+imgUrl+`"  alt="">
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                      </div>
 
                                     `;
@@ -235,20 +233,21 @@
 </script>
 <script>
     function showNote(val){
-        console.log(val);
+        // console.log(val);
         $.ajax({
-            url: 'ajaxfile.php',
+            url: "{{route('show_info')}}",
             type: 'post',
-            data: {note: val},
-            success: function(response){
+            data: {
+                "_token": "{{ csrf_token() }}",
+                note: val
+            },
+            success: function(data) {
                 // Add response in Modal body
-                // $('.content-ctn').html(response);
-
+                $('#note').html(data.note);
                 // Display Modal
-                $( '#detail-td').modal('show');
+                $('#detail-td').modal('show');
+            }
         });
-
-
     }
 
 </script>

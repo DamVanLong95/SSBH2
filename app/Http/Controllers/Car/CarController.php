@@ -24,10 +24,14 @@ class CarController extends Controller
             'success' => true,
             'summaries'    => $summaries
         ]);
-
     }
-    public function showInfo( Request $request,$note)
+    public function showInfo(Request $request)
     {
-
+//        dd($request->all());
+        $notes = $request->all();
+        return response()->json([
+            'success' => true,
+            'note'    => $notes['note']
+        ]);
     }
 }
