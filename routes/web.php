@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('frontend.home');
 });
 Route::get('/car1', function () {
