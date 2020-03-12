@@ -322,10 +322,7 @@
                                         <label class="drop" for="">0.01% phí</label> -->
                                     </td>
                                     <td>
-                                    <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
-
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
+                                    
                                     </td>
                                 </tr>
                                 @endforeach
