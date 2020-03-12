@@ -46,7 +46,7 @@
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
                 <ul class="left-nav navbar-nav ml-auto text-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/home') }}">TRANG CHỦ </a>
+                        <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>

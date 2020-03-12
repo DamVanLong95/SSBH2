@@ -2058,4 +2058,118 @@ footer .footer-ctn .footer-nav li a {
   color: #0d723b;
   text-decoration: none;
 }
+
+.intro-container {
+  margin: 5% 0;
+}
+
+.intro-container .intro-ctn .right-ctn .title {
+  margin-bottom: 35px;
+}
+
+.intro-container .intro-ctn .right-ctn .title h4 {
+  text-transform: uppercase;
+  font-family: UTM_Helve;
+  color: #0d723b;
+}
+
+.intro-container .intro-ctn .right-ctn p {
+  font-family: UTM_Helve;
+  line-height: 26px;
+  color: #58595b;
+}
+
+.intro-container .intro-ctn .right-ctn .ellipsis {
+  overflow: hidden;
+  height: 60px;
+  line-height: 20px;
+}
+
+.intro-container .intro-ctn .right-ctn .ellipsis:before {
+  content: "";
+  float: left;
+  width: 5px;
+  height: 60px;
+}
+
+.intro-container .intro-ctn .right-ctn .ellipsis > *:first-child {
+  float: right;
+  width: 100%;
+  margin-left: -5px;
+}
+
+.intro-container .intro-ctn .right-ctn .ellipsis:after {
+  content: "\02026";
+  float: right;
+  position: relative;
+  top: -20px;
+  left: 100%;
+  width: 3em;
+  margin-left: -3em;
+  padding-right: 5px;
+  text-align: right;
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(50%, white), to(white));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+}
+
+.intro-container .intro-ctn .right-ctn .watch-more a {
+  font-family: UTM_Helve;
+  line-height: 26px;
+  color: #58595b;
+  text-decoration: none;
+}
+
+.intro-container .intro-ctn .right-ctn:hover {
+  cursor: pointer;
+}
+
+.intro-container .intro-ctn .right-ctn:hover h4 {
+  font-family: UTM_HelveBold;
+}
+
+.intro-container .intro-ctn .right-ctn:hover a {
+  font-family: UTM_HelveBold;
+  line-height: 26px;
+  color: #0d723b;
+  text-decoration: none;
+}
+
+.intro-container .box-1,
+.intro-container .box-3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.intro-container .box-1 .right-ctn,
+.intro-container .box-3 .right-ctn {
+  padding: 0 0 10% 10%;
+}
+
+.intro-container .box-3 .right-ctn {
+  padding-top: 10%;
+}
+
+.intro-container .box-2,
+.intro-container .box-4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 45% 55%;
+      grid-template-columns: 45% 55%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.intro-container .box-2 .right-ctn,
+.intro-container .box-4 .right-ctn {
+  padding: 10% 10% 10% 0;
+}
 /*# sourceMappingURL=styles.css.map */
