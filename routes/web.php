@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('frontend.home');
 });
 Route::get('/car1', function () {
@@ -26,6 +26,9 @@ Route::get('/test', function () {
 });
 Route::get('/detail', function () {
     return view('frontend.pages.intro_detail');
+});
+Route::get('/intro', function () {
+    return view('frontend.pages.intro');
 });
 Auth::routes();
 
