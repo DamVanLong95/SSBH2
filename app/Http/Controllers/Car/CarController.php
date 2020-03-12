@@ -28,7 +28,6 @@ class CarController extends Controller
     }
     public function showInfo( Request $request,$note)
     {
-//        dd($note);
 
     }
 }

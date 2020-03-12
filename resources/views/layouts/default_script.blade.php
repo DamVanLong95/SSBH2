@@ -98,14 +98,12 @@
                                     var url  = `{{route('show_info')}}`+'/'+ notes[i-7]['note_more'];
                                     tds.innerHTML =`<p>`+data.summaries[i-7]['note_more']+`</p>
 
-                                                    <span><a href="`+url+`"  rel="modal:open" id="detail" class="detail" >...</a></span>
+                                                    <span><button class="btn-primary" value="`+data.summaries[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgUrl+`"  alt="">
                                                      </div>
 
                                     `;
-
-                                    $('#detail-td').html(data.html);
                                 }
                             }
 
@@ -236,7 +234,27 @@
       }
 </script>
 <script>
-    window.onscroll = function() {fixedTop()};
+    function showNote(val){
+        console.log(val);
+        $.ajax({
+            url: 'ajaxfile.php',
+            type: 'post',
+            data: {note: val},
+            success: function(response){
+                // Add response in Modal body
+                // $('.content-ctn').html(response);
+
+                // Display Modal
+                $( '#detail-td').modal('show');
+        });
+
+
+    }
+
+</script>
+
+<script>
+   /* window.onscroll = function() {fixedTop()};
 
     var tblHeader = document.getElementById("tableHeader");
     var sticky = tblHeader.offsetTop();
@@ -249,7 +267,7 @@
     console.log("sec1",sec1Height);
     console.log("search ctn",searchHeight);
     console.log("compare ctn",compareHeight);
-    console.log("branch ctn",brandHeight);
+    console.log("branch ctn",brandHeight);*/
 
     function fixedTop() {
         // if (window.pageYOffset > sticky) {
