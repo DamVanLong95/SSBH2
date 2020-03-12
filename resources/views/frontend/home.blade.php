@@ -137,7 +137,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-ctn">
-                        <h4>Truyền thông nói về <span>sanbaohiem</span></h4>
+                        <h4>Truyền thông nói về <span>V-Bảo hiểm</span></h4>
                     </div>
                     <div id="slideCus" class="swiper-container swiper-customer">
                         <div class="swiper-wrapper">

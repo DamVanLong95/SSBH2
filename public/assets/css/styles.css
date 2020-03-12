@@ -797,6 +797,13 @@ footer .footer-ctn .footer-nav li a {
   padding-right: 20px;
 }
 
+.contact-floating {
+  display: block;
+  width: 50px;
+  position: fixed;
+  left: 7%;
+}
+
 .section1 .swiper-banner .swiper-slide img {
   width: 100%;
 }

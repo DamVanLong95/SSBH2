@@ -505,4 +505,11 @@ footer .footer-ctn .footer-nav li a {
   color: #0d723b;
   padding-right: 20px;
 }
+
+.contact-floating {
+  display: block;
+  width: 50px;
+  position: fixed;
+  left: 7%;
+}
 /*# sourceMappingURL=default.css.map */
