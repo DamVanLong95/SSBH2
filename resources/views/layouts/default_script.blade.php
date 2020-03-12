@@ -224,14 +224,7 @@
         }
 
       }
-      function deleteColumn(tblId) {
-        var allRows = document.getElementById(tblId).rows;
-        for (var i = 0; i < allRows.length; i++) {
-            if (allRows[i].cells.length > 1) {
-                allRows[i].deleteCell(-1);
-            }
-        }
-      }
+     
 </script>
 <script>
     function showNote(val){
@@ -246,6 +239,7 @@
 
                 // Display Modal
                 $( '#detail-td').modal('show');
+            }
         });
 
 

@@ -604,8 +604,8 @@
                         background: $main-color;
                         opacity: 1;
                     }
-                    .selectedId:checked + label::after,
-                    .lt-ie9 .selectedId.checked + label::after {
+                    .selectedId:checked + label::after
+                     {
                         content: '';
                         width: 18px;
                         height: 18px;
@@ -641,6 +641,14 @@
                         color: $main-color;
                         font-family: UTM_HelveBold;
                     }
+                }
+                
+                button{
+                    color:#f36f21;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
                 }
             }
             tr.data-detail:not(.header) {
