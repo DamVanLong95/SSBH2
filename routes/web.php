@@ -26,7 +26,9 @@ Route::get('/intro', function () {
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });
-
+Route::get('/detail', function () {
+    return view('frontend.pages.intro_detail');
+});
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

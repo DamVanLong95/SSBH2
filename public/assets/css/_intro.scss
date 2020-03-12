@@ -118,6 +118,18 @@ $ellipsiswidth: 3em !default;
             }
             .watch-more {
                 a {
+                    font-family: UTM_Helve;
+                    line-height: 26px;
+                    color: #58595b;
+                    text-decoration: none;
+                }
+            }
+            &:hover{
+                cursor: pointer;
+                h4{
+                    font-family: UTM_HelveBold;
+                }
+                a{
                     font-family: UTM_HelveBold;
                     line-height: 26px;
                     color: $main-color;
@@ -125,6 +137,7 @@ $ellipsiswidth: 3em !default;
                 }
             }
         }
+        
     }
     .box-1,
     .box-3 {
@@ -134,6 +147,7 @@ $ellipsiswidth: 3em !default;
         .right-ctn {
             padding: 0 0 10% 10%;
         }
+        
     }
     .box-3 {
         .right-ctn {

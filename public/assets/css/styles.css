@@ -2114,6 +2114,21 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .intro-container .intro-ctn .right-ctn .watch-more a {
+  font-family: UTM_Helve;
+  line-height: 26px;
+  color: #58595b;
+  text-decoration: none;
+}
+
+.intro-container .intro-ctn .right-ctn:hover {
+  cursor: pointer;
+}
+
+.intro-container .intro-ctn .right-ctn:hover h4 {
+  font-family: UTM_HelveBold;
+}
+
+.intro-container .intro-ctn .right-ctn:hover a {
   font-family: UTM_HelveBold;
   line-height: 26px;
   color: #0d723b;
