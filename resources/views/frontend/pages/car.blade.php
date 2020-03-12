@@ -316,10 +316,10 @@
                                     <td>
                                         <input class="selectedId" type="checkbox" id="chk" name="chk" value="1"/>
                                         <label for="chk">{{$summary['exception']}} </label>
-                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
+                                        <!-- <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
 
                                         <label for="chk"> Tick me</label>
-                                        <label class="drop" for="">0.01% phí</label>
+                                        <label class="drop" for="">0.01% phí</label> -->
                                     </td>
                                     <td>
                                     <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>

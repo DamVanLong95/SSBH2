@@ -1810,8 +1810,7 @@ footer .footer-ctn .footer-nav li a {
   opacity: 1;
 }
 
-.table-section #layout-area .table tr.data-detail td .selectedId:checked + label::after,
-.table-section #layout-area .table tr.data-detail td .lt-ie9 .selectedId.checked + label::after {
+.table-section #layout-area .table tr.data-detail td .selectedId:checked + label::after {
   content: '';
   width: 18px;
   height: 18px;
@@ -1846,6 +1845,15 @@ footer .footer-ctn .footer-nav li a {
 .table-section #layout-area .table tr.data-detail .toggle span {
   color: #0d723b;
   font-family: UTM_HelveBold;
+}
+
+.table-section #layout-area .table tr.data-detail button {
+  color: #f36f21;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .table-section #layout-area .table tr.select-all {

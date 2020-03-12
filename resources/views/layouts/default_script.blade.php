@@ -92,6 +92,7 @@
                                     tds.innerHTML = `<p>`+data.summaries[i-7]['note_more']+`</p>`;
                                 }
                                 else{
+
                                     // console.log(notes[i-7]['note_more']);
                                     var url  = `{{route('show_info')}}`+'/'+ notes[i-7]['note_more'];
                                     tds.innerHTML =`<p>`+data.summaries[i-7]['note_more']+`</p>
@@ -233,7 +234,7 @@
 </script>
 <script>
     function showNote(val){
-        // console.log(val);
+        console.log(val);
         $.ajax({
             url: "{{route('show_info')}}",
             type: 'post',
