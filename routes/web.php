@@ -24,7 +24,9 @@ Route::get('car/detail/{note?}','Car\CarController@showInfo')->name('show_info')
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });
-
+Route::get('/detail', function () {
+    return view('frontend.pages.intro_detail');
+});
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
