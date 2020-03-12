@@ -13,7 +13,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Import Data </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="{{route('excel.users',['name' => 'users'])}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Users </span></a></li>
-                        <li class="sidebar-item"><a href="{{route('excel.posts',['name' => 'posts'])}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Posts </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('excel.company')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Company </span></a></li>
                     </ul>
                 </li>
             </ul>

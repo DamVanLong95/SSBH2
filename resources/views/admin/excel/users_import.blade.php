@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"><h3>Import data into table <a href="">{{$table}}</a></h3></h5>
+            <h5 class="card-title"><h3>Import data into table <a href="">users</a></h3></h5>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -22,9 +22,9 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td><a href=""><h3>{{$table}}</h3></a></td>
+                        <td><a href=""><h3>Users</h3></a></td>
                         <td>
-                            <form action="{{route($table.'.import')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('users.import')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <input type="file" name="import_file" class="form-control col-sm-3">
@@ -45,11 +45,11 @@
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th >Created_at</th>
-                            </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th >Created_at</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $user)
@@ -61,6 +61,7 @@
                         @endforeach
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

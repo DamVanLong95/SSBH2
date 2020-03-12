@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Exports\CompaniesExport;
 use App\Exports\UsersExport;
 use App\Http\Requests\ExcelRequest;
 use App\Imports\UsersImport;
@@ -10,13 +11,13 @@ use App\Imports\ValidateExcel;
 use App\Http\Controllers\Controller;
 use App\User;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\Request;
 
 class ExcelController extends Controller
 {
-    //
     public function importView($table){
-        $users = User::orderBy('created_at', 'desc')->get();;
-        return view('admin.excel.import',compact('table','users'));
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('admin.excel.users_import',compact('users','table'));
     }
     public function importExcel(ExcelRequest $request)
     {
@@ -32,5 +33,8 @@ class ExcelController extends Controller
     }
     public function exportExcel(){
         return Excel::download(new UsersExport, 'users.xlsx');
+    }
+    public function exportCompany(){
+        return Excel::download(new CompaniesExport, 'companies.xlsx' );
     }
 }

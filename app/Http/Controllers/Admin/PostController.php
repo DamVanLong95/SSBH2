@@ -25,7 +25,7 @@ class PostController extends Controller
         return Datatables::of($posts)
             ->editColumn('avatar', function ($post) {
                 $path = asset('storage/'.$post->avatar);
-                return '<img src="' .$path . '" alt="" class="img-circle img-avatar-list">';
+                return '<img src="' .$path . '" alt="" class="img-circle ">';
             })
             ->editColumn('author_id', function($post){
                 $post = Post::find($post->id);

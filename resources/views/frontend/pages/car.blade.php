@@ -170,186 +170,17 @@
     <div class="brand-section">
         <div  class="section-wrapper">
             <ul id="thumbs" class="section-list">
+                @foreach($companies as $key => $company)
                 <li class="item">
                     <div class="brand-thumb">
                         <label for="1">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/bv-insurance.png?{{ config('custom.version') }}" alt="" id="1">
+                            <img class="thumb" src="{{asset('storage').'/'}}{{$company['logo']}}" alt="" id="{{$company['id']}}">
                         </label>
                     </div>
-                    <input name="type" value="" type="checkbox" id="checkbox1"/>
+                    <input name="type" value="" type="checkbox" id="checkbox_{{$company['id']}}"/>
                     <label class="toggle" for="1"></label>
                 </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="2">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/bv-life.png?{{ config('custom.version') }}" alt="" id="2">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="checkbox2"/>
-                    <label class="toggle" for="2"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="3">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/prudential.png?{{ config('custom.version') }}" alt="" id="3">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="3"/>
-                    <label class="toggle" for="3"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="4">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/manulife.svg?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="4"/>
-                    <label class="toggle" for="4"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="5">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/aia.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="5"/>
-                    <label class="toggle" for="5"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/chubb.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/mirae.png?{{ config('custom.version') }}" alt="" id="'">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/daichi.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/cathay.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/fwd.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/generali.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" width="100px" src="{{ url('/') }}/assets/images/logo/phuhung.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/fubon.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/hanwha.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/aviva.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/sunlife.svg?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/meltlife.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/vcli.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/mb.svg?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="6">
-                            <img class="thumb" src="{{ url('/') }}/assets/images/logo/ebaohiem.png?{{ config('custom.version') }}" alt="">
-                        </label>
-                    </div>
-                    <input name="type" value="" type="checkbox" id="6"/>
-                    <label class="toggle" for="6"></label>
-                </li>
+                @endforeach
             </ul>
 
         </div>
@@ -372,7 +203,7 @@
                                 <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                                 <input type="button" value="add column" onclick="addColumn('main-tbl')" />
                             </div>
-                            <thead class="fixedHeader" id="tableHeader">
+                            <thead>
                                 <tr class="top-head" >
                                     <th class='th-1'>
                                         <div class="left-ctn">
@@ -469,39 +300,42 @@
                                 </tr>
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
-                                    
+
                                     </td>
-                                    <tr class="select-all">
-                                        <td >
-                                            <div class="choose-all">
-                                                <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                                <label class="toggle" for="selectall">Chọn tất cả</label>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tr>
+                                <tr class="select-all">
+                                    <td>
+                                        <div class="choose-all">
+                                            <input type="checkbox" id="selectall" class="selectedAll"></input>
+                                            <label class="toggle" for="selectall">Chọn tất cả</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @foreach($summaries as $summary)
                                 <tr class="data-detail">
                                     <td>
+                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1"/>
+                                        <label for="chk">{{$summary['exception']}} </label>
                                         <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
-                                      
+
                                         <label for="chk"> Tick me</label>
                                         <label class="drop" for="">0.01% phí</label>
                                     </td>
-
                                     <td>
                                     <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
                                    <span><a href="#detail-td" rel="modal:open">...</a></span>
-                                
+
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
                                     </td>
                                 </tr>
+                                @endforeach
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
                                     <td>
-                                        
+
                                    <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
                                     </td>
@@ -623,7 +457,7 @@
                                                 </div>
                                             </div>
                                             </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -633,8 +467,8 @@
             </div>
         </div>
     </div>
-   
-    
+
+
 </div>
 
 <div id="detail-td" class="modal">
@@ -659,4 +493,6 @@ $('.close').click(function(){
 
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
+
+    <script src="{{ url('assets/js/contest.js?'.config('custom.version')) }}"></script>
 @stop

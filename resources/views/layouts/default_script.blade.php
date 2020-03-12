@@ -22,18 +22,16 @@
 
 
 <script>
+    $('a[data-modal]').click(function(event) {
+        $(this).modal();
+        return false;
+    });
     dropImage();
     function dropImage(){
         $('img.thumb').draggable({
             containment: '#layout-area',
             revert: 'invalid',
             helper: 'clone',
-            stop: function(event, ui) {
-                if($('input[type="checkbox"]').prop("checked") == false){
-                    console.log("Checkbox is checked.");
-                    $(this).draggable({ disabled: true });
-                }
-            }
         });
         $( "div.img-container" ).droppable({
             classes: {
@@ -46,10 +44,6 @@
                     return true;
                 }
                 return false;
-                // if($(input[type="checkbox"]).prop("checked") ){
-                //     alert("Checkbox is checked.");
-                // }
-                // // $('#'+idImg+'').draggable({ disabled: false });
             },
 
             drop: function( event, ui ) {
@@ -57,37 +51,99 @@
                 var th = $(this);
                 var img = ui.draggable;
                 var copy = img.clone();
-                $('#checkbox'+idImg+'').prop("checked", true);
                 $(this).addClass('dropped');
                 $(copy).addClass('sized').appendTo(th);
                 $(this).addClass('img-inserted');
                 $('<span class="remove" />').text('X').appendTo(th);
                 $('span.remove', th).show();
+
+                $('#checkbox_'+idImg+'').prop("checked", true);
+                if($('#checkbox_'+idImg+'').prop("checked") == true){
+                    $('#'+idImg+'').draggable({ disabled: true });
+                }
+                var url = '{{route('droppImage')}}';
+                $.post(url,
+                    {
+                        "_token": "{{ csrf_token() }}",
+                        id: idImg
+                    },
+                    function(data, status, xhr) {
+                        var notes = data.summaries;
+                        console.log(data.html);
+                        if(data.success == true) {
+                            var myTable = document.getElementById('main-tbl');
+                            var tblBodyObj = document.getElementById('main-tbl').tBodies[0];
+                            var tblHeadObj = document.getElementById('main-tbl').tHead;
+                            var indexCol = tblHeadObj.rows[0].cells.length - 2;
+                            console.log(data);
+
+
+                            for (var i = 7; i < tblBodyObj.rows.length-16; i++) {
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                // console.log(data.summaries[i-7]['note_more']);
+                                var imgUrl = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
+                                if(data.summaries[i-7]['note_more']=='x') {
+                                    data.summaries[i - 7]['note_more'] =
+                                        `<div class="tick-td">
+                                             <img class="img-fluid" src="http://localhost/assets/images/car/tick.png?" alt="">
+                                        </div>`;
+                                    tds.innerHTML =  `<p>`+data.summaries[i-7]['note_more']+`</p>
+                                                       <div class="star-td"><img class="img-fluid"   src="`+imgUrl+`" alt=""></div>`
+                                }else if(data.summaries[i-7]['note_more']=='-----'){
+                                    tds.innerHTML = `<p>`+data.summaries[i-7]['note_more']+`</p>`;
+                                }
+                                else{
+
+                                    // console.log(notes[i-7]['note_more']);
+                                    var url  = `{{route('show_info')}}`+'/'+ notes[i-7]['note_more'];
+                                    tds.innerHTML =`<p>`+data.summaries[i-7]['note_more']+`</p>
+
+                                                    <span><button class="btn-primary" value="`+data.summaries[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                                    <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgUrl+`"  alt="">
+                                                     </div>
+
+                                    `;
+                                }
+                            }
+
+                        }
+                    }).done(function() {
+                        // alert('Request done!');
+                    });
                 $('table th').on('click', function (e ) {
                     var index = ($(this).index()+1);
-                    $('#checkbox'+idImg+'').prop("checked", false);
                         if( index ==2 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
+                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index==2 || index ==0 && !$('div.img-container').is(":not(.dropped)")){
                             console.log("hi");
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl');
                             dropImage();
+                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl');
                             dropImage();
+                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index ==4){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
+                            $('#checkbox_'+idImg+'').prop("checked", false);
                         }else if(index == 5 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl');
                             dropImage();
+                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index ==3 && !$('div.img-container').is(":not(.dropped)")){
 
                             $('th:nth-child('+index+')').remove()
@@ -97,6 +153,8 @@
                         }else if(index ==3 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
+                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#'+idImg+'').draggable({ disabled: false });
                         }
                     // span.parent().find('img').remove();
                     // span.parent().removeClass('dropped');
@@ -176,7 +234,27 @@
       }
 </script>
 <script>
-    window.onscroll = function() {fixedTop()};
+    function showNote(val){
+        console.log(val);
+        $.ajax({
+            url: 'ajaxfile.php',
+            type: 'post',
+            data: {note: val},
+            success: function(response){
+                // Add response in Modal body
+                // $('.content-ctn').html(response);
+
+                // Display Modal
+                $( '#detail-td').modal('show');
+        });
+
+
+    }
+
+</script>
+
+<script>
+   /* window.onscroll = function() {fixedTop()};
 
     var tblHeader = document.getElementById("tableHeader");
     var sticky = tblHeader.offsetTop();
@@ -189,7 +267,7 @@
     console.log("sec1",sec1Height);
     console.log("search ctn",searchHeight);
     console.log("compare ctn",compareHeight);
-    console.log("branch ctn",brandHeight);
+    console.log("branch ctn",brandHeight);*/
 
     function fixedTop() {
         // if (window.pageYOffset > sticky) {
@@ -213,11 +291,11 @@
 </script>
 <script>
 
-  
+
 
 $('.toggle').click(function() {
     $('#net-address').toggle('slow');
 });
 
-  
+
 </script>
