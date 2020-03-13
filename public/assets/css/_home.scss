@@ -79,10 +79,24 @@
                         width: 100%;
                     }
                 }
-                // &:nth-child(2n){
-                //     border-left: 1px solid #000;
-                //     border-right: 1px solid  #000;
-                // }
+                &:nth-child(2n){
+                    border-left: 1px solid #000;
+                    border-right: 1px solid  #000;
+                }
+                .center-item{
+                    &::before{
+                        border-left: 1px solid #000;
+                        width: 2px;
+                        height: auto;
+                        background: transparent;
+                    }
+                    &:after{
+                        border-right: 1px solid #000;
+                        width: 2px;
+                        height: auto;
+                        background: transparent;
+                    }
+                }
             }
             .center-item{
                 &::before{
@@ -121,6 +135,9 @@
             
         }
     }
+    .description-ctn{
+        height: 88px;
+    }
 }
 
 .section4 {
@@ -156,7 +173,7 @@
                         font-family: UTM_HelveBold;
                         font-size: 1.25rem;
                         margin-top: 35px;
-                        text-align: justify !important;
+                        text-align: center;
                         width: 280px;
                     }
                     &:hover {
@@ -174,7 +191,42 @@
                 text-align: center;
                 width: 40%;
                 margin: auto;
+                #descript1{
+                    display: none;
+                }
+                #descript2{
+                    display: none;
+                }
+                #descript3{
+                    display: none;
+                }
             }
+            
+        }
+        .show1:hover ~ #descript1{
+            display: block;
+            cursor: grab;
+        }
+        .show2:hover ~ #descript2{
+            display: block;
+            cursor: grab;
+        }
+        .show3:hover ~ #descript3{
+            display: block;
+            cursor: grab;
+        }
+        #descript1, #descript2, #descript3{
+            display: none;
+            position: absolute;
+            bottom: -15%;
+            left: 0;
+            width: 42%;
+            right: 0;
+            margin: auto;
+            font-family: UTM_Helve;
+        }
+        .show1:hover ~ #descript1{
+            display: block;
         }
     }
 }

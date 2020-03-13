@@ -1,0 +1,28 @@
+.blog-container{
+    margin: 5% 0;
+    .blog-ctn{
+        .title{
+            text-align: center;
+            margin-bottom: 4%;
+            h4{
+                text-transform: uppercase;
+                font-family: UTM_Helve;
+                color: $main-color;
+                color: $main-color;
+            }
+        }
+        .blog-content{
+            p{
+                font-family: UTM_Helve;
+                line-height: 26px;
+                color: #58595b;
+            }
+            .image-ctn{
+                text-align: center;
+                img{
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+}

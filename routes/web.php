@@ -24,11 +24,17 @@ Route::get('car/detail/{note?}','Car\CarController@showInfo')->name('show_info')
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });
+// =============================introduction============================
+
 Route::get('/detail', function () {
     return view('frontend.pages.intro_detail');
 });
 Route::get('/intro', function () {
     return view('frontend.pages.intro');
+});
+// =====================================blog=================================
+Route::get('/blog', function () {
+    return view('frontend.pages.blog');
 });
 Auth::routes();
 
