@@ -1,7 +1,6 @@
-<div id="detail-td" class="modal">
-    <div class="content-ctn">
-        <p>Thanks for clicking. That felt good.</p>
-        <div id="notes">{{$notes}}</div>
-    </div>
-    <a href="#">Mua ngay</a>
-</div>
+notes[i - 7]['note_more'] =
+                                        `<div class="tick-td">
+                                             <img class="img-fluid" src="http://localhost/assets/images/car/tick.png?" alt="">
+                                        </div>`;
+                                    tds.innerHTML =  `<p>`+notes[i-7]['note_more']+`</p>
+                                                       <div class="star-td"><img class="img-fluid"   src="`+imgOrange+`" alt=""></div>`

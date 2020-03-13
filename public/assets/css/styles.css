@@ -1163,7 +1163,7 @@ footer .footer-ctn .footer-nav li a {
   color: #fff;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
-  z-index: 2;
+  z-index: 3;
   height: 35px;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
