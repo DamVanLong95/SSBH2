@@ -78,7 +78,7 @@
                         <a class="nav-link" href="#">CÂU HỎI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">LIÊN HỆ</a>
+                        <a class="nav-link" href="{{ url('/contact') }}">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>

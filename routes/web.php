@@ -36,6 +36,10 @@ Route::get('/intro', function () {
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
+// =====================================contact=================================
+Route::get('/contact', function () {
+    return view('frontend.pages.contact');
+});
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

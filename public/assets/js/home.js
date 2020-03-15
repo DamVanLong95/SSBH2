@@ -18,6 +18,7 @@
             ele.timeStartEvent = "Sep 16, 2019 00:00:00";
             ele.slideCustomer = '.swiper-customer';
             ele.slidePartner = '.swiper-partner';
+            ele.slideContact = '.swiper-contact';
             ele.slideBanner = '.swiper-banner';
             ele.slideKnow = '.swiper-know';
         };
@@ -66,7 +67,7 @@
                     }
                 });
                 var swiper2 = new Swiper(ele.slidePartner, {
-                    slidesPerView: 6,
+                    slidesPerView: 3,
                     spaceBetween: 30,
                     // autoplay: {
                     //     delay: 3000,
@@ -135,6 +136,40 @@
                 });
                 var swiper4 = new Swiper(ele.slideKnow, {
                     slidesPerView: 3,
+                    spaceBetween: 30,
+                    // autoplay: {
+                    //     delay: 3000,
+                    // },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    //     clickable: true,
+                    // },
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        991: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+
+                        },
+                        767: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        }
+                    }
+                });
+                var swiper5 = new Swiper(ele.slideContact, {
+                    slidesPerView: 1,
                     spaceBetween: 30,
                     // autoplay: {
                     //     delay: 3000,
@@ -266,7 +301,7 @@
         // get items dimensions
         var itemsLength = $('.item').length;
         var itemSize = $('.item').outerWidth(true);
-        
+
 
         // get wrapper width
         var getBrandWrapperSize = function() {
@@ -324,14 +359,14 @@
         // scroll to left
         $(rightPaddle).on('click', function() {
             $('.section-list').animate({
-                 scrollLeft: "+=300px" 
-                },"slow");
+                scrollLeft: "+=300px"
+            }, "slow");
         });
 
         // scroll to right
         $(leftPaddle).on('click', function() {
-            $('.section-list').animate({ 
-                scrollLeft: "-=300px" 
+            $('.section-list').animate({
+                scrollLeft: "-=300px"
             }, "slow");
         });
         //===============end scroll brand car page=====================

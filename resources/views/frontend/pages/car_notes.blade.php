@@ -3,5 +3,5 @@
         <p>Thanks for clicking. That felt good.</p>
         <div id="notes">{{$notes}}</div>
     </div>
-    <a href="#">Mua ngay</a>
+    <a href="#">Liên hệ ngay</a>
 </div>
