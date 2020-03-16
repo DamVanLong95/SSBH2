@@ -576,6 +576,7 @@
                     }
                     .selectedId + label {
                         position: relative;
+                        padding-left: 35px;
                     }
                     .selectedId + label:before,
                     .lt-ie8 .checkbox-replacement {
@@ -623,7 +624,7 @@
                     label.drop{
                         position: absolute;
                         left: 22px;
-                        margin-top: 20px;
+                        margin-top: 0px;
                         width: 32px;
                         font-size: 13px;
                     }

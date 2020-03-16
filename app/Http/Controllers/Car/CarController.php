@@ -25,7 +25,7 @@ class CarController extends Controller
         $punishment = Punishment::select('company_id','sanction','content')->take(19)->get();
                        
         return  view('frontend.pages.car',compact([
-                'companies','summaries','terms_data','dedutible_data','exception_data','punishment'
+                'companies','terms_data','dedutible_data','exception_data','punishment'
                  ]));
     }
     public function droppImage( Request $request)
