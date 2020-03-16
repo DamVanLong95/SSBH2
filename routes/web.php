@@ -40,6 +40,10 @@ Route::get('/blog', function () {
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
+// =====================================ưu đãi=================================
+Route::get('/treatment', function () {
+    return view('frontend.pages.treatment');
+});
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

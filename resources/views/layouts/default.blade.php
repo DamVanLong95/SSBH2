@@ -72,7 +72,7 @@
             <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
                 <ul class="right-nav navbar-nav mr-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ƯU ĐÃI</a>
+                        <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">CÂU HỎI</a>
@@ -176,7 +176,7 @@
         </div>
     </div>
 </footer>
-
+<a class="scrollup"><img src="{{url('assets/images/default/bottom-to-top.png')}}" alt=""></a>
     @include('layouts.default_script')
     {!! config('custom.embed_footer') !!}
 
@@ -186,8 +186,31 @@
     <script>
         $(document).ready(function(){
             // $.ui.menu.init();
+            $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+               
+            } else {
+                $('.scrollup').fadeOut();
+                
+            }
+        });
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 600) {
+                $('.contact-floating').fadeIn();
+            } else {
+                $('.contact-floating').fadeOut();
+            }
+        });
+        $('.scrollup').click(function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        });
         });
     </script>
+    
     <script src="{{ url('assets/js/common.js?'.config('custom.version')) }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src='https://foliotek.github.io/Croppie/croppie.js'></script>

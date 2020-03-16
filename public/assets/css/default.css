@@ -507,9 +507,20 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .contact-floating {
-  display: block;
-  width: 50px;
   position: fixed;
-  left: 7%;
+  left: 20px;
+  top: 125px;
+  display: none;
+  z-index: 1024;
+  cursor: pointer;
+}
+
+.scrollup {
+  position: fixed;
+  right: 20px;
+  bottom: 125px;
+  display: none;
+  z-index: 1024;
+  cursor: pointer;
 }
 /*# sourceMappingURL=default.css.map */
