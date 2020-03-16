@@ -22,10 +22,6 @@
 
 
 <script>
-    $('a[data-modal]').click(function(event) {
-        $(this).modal();
-        return false;
-    });
     dropImage();
     function dropImage(){
         $('img.thumb').draggable({
@@ -77,6 +73,7 @@
                             var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                             var notes       = data.summaries;
                             var deductible  = data.deductible;           
+                            var exception  = data.exception;           
 
                             // console.log(notes);
                             for (var i = 7; i < 30; i++) {
@@ -117,7 +114,28 @@
                             }
                             for(var j=34 ;j<64;j++){
                                 var tds =  tblBodyObj.rows[j].cells[indexCol];
-                                console.log(tds);
+                                if(exception[j-34]['note_dklt']=== "x")
+                                {
+                                tds.innerHTML = 
+                                    `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                    <div class="star-td">
+                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                    </div>
+                                    `;
+                                }else if(exception[j-34]['note_dklt']=== "-----"){
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
+                                    `;
+                                }else{
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
+                                    <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                    <div class="star-td">
+                                    <img class="img-fluid" src="`+imgGreen+`" alt="">
+                                </div>
+                                    `;
+                                }
+                            }
+                            for(j=66;j<94;j++){
+                                
                             }
                             
                         }

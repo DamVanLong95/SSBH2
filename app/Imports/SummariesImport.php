@@ -18,7 +18,6 @@ class SummariesImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
         DB::beginTransaction();
-    //    dd($row['cac_dieu_khoan_bo_sung']);
         try {
             Summary::create([
                 'company_id'    => $row['id_cong_ty'],

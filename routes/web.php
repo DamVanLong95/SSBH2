@@ -54,18 +54,17 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('excel/{users}','Admin\ExcelController@importView')->name('excel.users');
     Route::get('summary','Admin\SummaryController@index')->name('excel.summary');
 
-
-//    Route::resource('insurance', 'Admin\InsuranceController');
-
+    Route::get('permission','Admin\ExcelController@indexPermission')->name('indexPermission.import');
+    Route::get('finance','Admin\ExcelController@indexFinance')->name('indexFinance.import');
+   
 
 //   ============Import excel======================
 
-    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
     Route::post('summary/import','Admin\SummaryController@import')->name('summary.import');
+    Route::post('permission','Admin\ExcelController@importPermission')->name('permission.import');
+    Route::post('finance','Admin\ExcelController@importFinance')->name('finance.import');
 
 //   ============Export excel======================
-
-    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
 
 
