@@ -19,7 +19,7 @@ Route::get('/car1', function () {
 });
 Route::get('/car','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
-Route::get('car/detail/{note?}','Car\CarController@showInfo')->name('show_info');
+Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
 
 Route::get('/test', function () {
     return view('frontend.pages.test');
@@ -46,7 +46,7 @@ Route::get('/treatment', function () {
 });
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('posts','Admin\PostController@index')->name('posts.index');
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
@@ -68,19 +68,20 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('excel/{users}','Admin\ExcelController@importView')->name('excel.users');
     Route::get('summary','Admin\SummaryController@index')->name('excel.summary');
 
-
-//    Route::resource('insurance', 'Admin\InsuranceController');
-
+    Route::get('permission','Admin\ExcelController@indexPermission')->name('indexPermission.import');
+    Route::get('finance','Admin\ExcelController@indexFinance')->name('indexFinance.import');
+    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
+   
 
 //   ============Import excel======================
 
-    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
     Route::post('summary/import','Admin\SummaryController@import')->name('summary.import');
+    Route::post('permission','Admin\ExcelController@importPermission')->name('permission.import');
+    Route::post('finance','Admin\ExcelController@importFinance')->name('finance.import');
 
 //   ============Export excel======================
-
-    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
+    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
 
 
 });

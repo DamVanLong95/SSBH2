@@ -311,46 +311,53 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @foreach($summaries as $summary)
+                               @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1"/>
-                                        <label for="chk">{{$summary['exception']}} </label>
-                                        <!-- <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
-
-                                        <label for="chk"> Tick me</label>
+                                        <input class="selectedId" type="checkbox" id="checkbox_{{$value['id']}}" name="checkbox_{{$value['id']}}" value="1" />
+                                        <label for="checkbox_{{$value['id']}}">{{$value['terms']}} </label>
+                                        <!-- <label for="chk"> Tick me</label>
                                         <label class="drop" for="">0.01% phí</label> -->
                                     </td>
                                     <td>
-                                    
+
                                     </td>
                                 </tr>
-                                @endforeach
+                             @endforeach  
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td>
+                                    <td>{{$dedutible_data[0]['deductible']}}</td>
+                                    <td></td>
+                                    <!-- <td>
 
                                    <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
                                 </tr>
+                                @foreach($exception_data as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td>
+                                         <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                         <label for="checkbox2_{{$value['id']}}">{{$value['exception']}} </label>
+                                         <label class="drop" for="">0.01% phí</label> 
+                                    </td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
+                                @foreach($punishment as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td>{{$value['sanction']}}</td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header green">
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
@@ -471,6 +478,7 @@
 <div id="detail-td" class="modal">
     <div class="content-ctn">
         <p>Thanks for clicking. That felt good.</p>
+        <div id="note"></div>
     </div>
   <a href="#">Mua ngay</a>
 

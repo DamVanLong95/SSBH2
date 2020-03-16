@@ -16,7 +16,7 @@ class UsersImport implements ToModel,WithValidation
 
     {
         DB::beginTransaction();
-
+            // dd($row);
             try {
                 User::create([
                     'name' => $row[1],

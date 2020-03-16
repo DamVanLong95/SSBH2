@@ -22,8 +22,6 @@ class CompanyController extends Controller
     public function  getData(){
         $companies = Company::all();
         return DataTables::of($companies)
-
-
             ->addColumn('url', function ($company) {
                 return $company->logo;
             })

@@ -20,8 +20,8 @@ class CreateSummariesTable extends Migration
             $table->string('cate_car');//loai xe
             $table->string('uses');//muc dich su dung
             $table->string('year_sx');//nam sx
-            $table->text('exception');//dieu khoan loai tru
-            $table->string('note_more');//ghi chu
+            $table->text('exception')->nullable();//dieu khoan loai tru
+            $table->text('note_more')->nullable();//ghi chu
             $table->decimal('price_car');//gia
             $table->timestamps();
         });
