@@ -56,6 +56,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
 
     Route::get('permission','Admin\ExcelController@indexPermission')->name('indexPermission.import');
     Route::get('finance','Admin\ExcelController@indexFinance')->name('indexFinance.import');
+    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
    
 
 //   ============Import excel======================
@@ -66,6 +67,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
 
 //   ============Export excel======================
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
+    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
 
 
 });

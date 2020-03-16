@@ -73,9 +73,9 @@
                             var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                             var notes       = data.summaries;
                             var deductible  = data.deductible;           
-                            var exception  = data.exception;           
+                            var exception  = data.exception;  
+                            var punishment  = data.punishment;
 
-                            // console.log(notes);
                             for (var i = 7; i < 30; i++) {
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
@@ -85,7 +85,7 @@
                                 if(notes[i-7]['note_more']==="-----") {
                                     tds.innerHTML = `<p>`+notes[i-7]['note_more']+`</p>`;
                                 }else{
-                                    tds.innerHTML =`<p>`+notes[i-7].note_more+`</p>
+                                    tds.innerHTML =`<p>`+notes[i-7].note_more+`</p>`+`
                                                     <span><button value="`+notes[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -126,7 +126,7 @@
                                     tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
                                     `;
                                 }else{
-                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>`+`
                                     <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                     <div class="star-td">
                                     <img class="img-fluid" src="`+imgGreen+`" alt="">
@@ -134,8 +134,10 @@
                                     `;
                                 }
                             }
-                            for(j=66;j<94;j++){
-                                
+                            for(var i=65;i<84;i++){
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
+                                console.log("line 144",tds);
                             }
                             
                         }

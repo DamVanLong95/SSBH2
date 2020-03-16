@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Car;
 
 use App\Company;
 use App\Summary;
+use App\Permission;
+use App\Punishment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,8 +22,10 @@ class CarController extends Controller
         $exception_data =  Summary::select('company_id','exception','note_dklt','id')
                         ->take(30)
                         ->get();//Du lieu dieu khoan loai tru
+        $punishment = Punishment::select('company_id','sanction','content')->take(19)->get();
+                       
         return  view('frontend.pages.car',compact([
-                'companies','summaries','terms_data','dedutible_data','exception_data'
+                'companies','summaries','terms_data','dedutible_data','exception_data','punishment'
                  ]));
     }
     public function droppImage( Request $request)
@@ -38,11 +42,20 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(1)
                     ->get();
+        $permissions = Permission::select('company_id','rules_owner','note_rule')
+                    ->where('company_id' ,'=', $company_id)
+                    ->get();
+        $punishment = Punishment::select('company_id','sanction','content')
+                    ->where('company_id' ,'=', $company_id)
+                    ->get();
+                    // dd($punishment);
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
             'exception'    => $exception,
-            'deductible'    => $deductible
+            'deductible'    => $deductible,
+            'permissions'   => $permissions,
+            'punishment'    => $punishment
         ]);
     }
     public function showInfo(Request $request)

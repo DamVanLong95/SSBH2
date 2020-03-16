@@ -341,17 +341,23 @@
                                 </tr>
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
-                                    <td>{{$value['exception']}}</td>
+                                    <td>
+                                         <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                         <label for="checkbox2_{{$value['id']}}">{{$value['exception']}} </label>
+                                         <label class="drop" for="">0.01% phí</label> 
+                                    </td>
                                     <td></td>
                                 </tr>
                                 @endforeach
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
+                                @foreach($punishment as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td>{{$value['sanction']}}</td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header green">
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
