@@ -21,6 +21,7 @@
                             <div class="col-md-9 row" >
                                 <input type="file" name="import_file" class="form-control col-sm-3">
                                 <button type="submit" class="btn btn-primary">Import data</button>
+                                <a class="btn btn-warning" href="{{ route('permission.export') }}">Export data</a>
                             </div>
                         </div>
                     </form>

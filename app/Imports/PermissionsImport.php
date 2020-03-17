@@ -4,8 +4,10 @@ namespace App\Imports;
 
 use App\Permission;
 use Maatwebsite\Excel\Concerns\ToModel;
+use DB;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class PermissionsImport implements ToModel
+class PermissionsImport implements ToModel ,WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,9 +17,12 @@ class PermissionsImport implements ToModel
     public function model(array $row)
     {
         DB::beginTransaction();
+        // dd($row['id_cong_ty']);
         try {
             Permission::create([
-                vdsfs
+                'company_id'         => $row['id_cong_ty'],
+                'rules_owner'        => $row['quyen_va_nghia_vu'],
+                'note_rule'          => $row['ghi_chu_ve_quyen']
             ]);
 
             DB::commit();
@@ -25,5 +30,10 @@ class PermissionsImport implements ToModel
             DB::rollBack();
             Log::debug($e);
         }
+    }
+    public function headingRow(): int
+
+    {
+        return 1;
     }
 }

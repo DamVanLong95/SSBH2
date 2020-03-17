@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Car;
-
+use App\Summation;
 use App\Company;
 use App\Summary;
 use App\Permission;
 use App\Punishment;
+use App\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,10 +23,16 @@ class CarController extends Controller
         $exception_data =  Summary::select('company_id','exception','note_dklt','id')
                         ->take(30)
                         ->get();//Du lieu dieu khoan loai tru
-        $punishment = Punishment::select('company_id','sanction','content')->take(19)->get();
+        $punishment = Punishment::select('company_id','sanction','content')
+                    ->take(19)
+                    ->get();
+        $brands      = Brand::select('id','name','status')
+                    ->where('status','=',1)
+                    ->get();
+        // dd($brand);
                        
         return  view('frontend.pages.car',compact([
-                'companies','terms_data','dedutible_data','exception_data','punishment'
+                'companies','terms_data','dedutible_data','exception_data','punishment','brands'
                  ]));
     }
     public function droppImage( Request $request)
@@ -65,5 +72,18 @@ class CarController extends Controller
             'success' => true,
             'note'    => $notes['note']
         ]);
+    }
+    public function onChange(Request $request){
+        $brand_id = $request->get('brand_id');
+        $brand_cate = Summation::select('brand_id','cate_car')
+                    ->where('brand_id','=',$brand_id)
+                    ->get();
+        $html = view('frontend.pages.car_notes')->with('brand_cate', $brand_cate)->render();
+        // dd($html);
+        return response()->json([
+            'success' =>true,
+            'html' => $html
+        ]);
+
     }
 }
