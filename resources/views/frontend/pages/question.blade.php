@@ -78,7 +78,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Bạn sẽ nhận được ứng dụng Android (tệp .apk) và ứng dụng iOS (tệp .ipa) đã được ký và sẵn sàng để xuất bản trong Play Store và App Store.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -89,7 +90,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse3" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Chúng tôi làm. Khi ứng dụng của bạn được xuất bản trên Play Store và App Store, chúng tôi sẽ hỗ trợ miễn phí trong thời gian giới hạn để đảm bảo người dùng cuối của bạn không gặp phải bất kỳ sự cố nào. Sau đó, chúng tôi cung cấp hỗ trợ trả phí với chi phí cố định.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -100,7 +102,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -111,7 +114,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -122,7 +126,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse6" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -133,7 +138,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse7" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -144,7 +150,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse8" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -155,7 +162,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse9" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -166,7 +174,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse10" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -177,7 +186,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
-                                                    <div class="panel-body">Có - Nếu yêu cầu của bạn là độc đáo hoặc cụ thể hơn, chúng tôi cung cấp dịch vụ phát triển ứng dụng di động tùy chỉnh, giúp bạn đạt được mục tiêu đổi mới và kinh doanh hiệu quả. Giá cả phụ thuộc vào yêu cầu của bạn.</div>
+                                                    <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                    Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,4 +1,3 @@
-
 .intro-detail-container {
     margin: 5% 0;
     .intro-ctn {
@@ -84,7 +83,6 @@
                 font-family: UTM_Helve;
                 color: #58595b;
             }
-           
             .watch-more {
                 a {
                     font-family: UTM_Helve;
@@ -228,7 +226,7 @@
                 font-family: UTM_HelveBold;
             }
         }
-        .detail-ctn{
+        .detail-ctn {
             display: flex;
             justify-content: space-around;
             .ava-ctn {
@@ -266,8 +264,9 @@
 }
 
 // ======================question page=======================
-.question-container{
-    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+.question-container {
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
         color: #f3f3f3;
         font-family: UTM_HelveBold;
         background-color: transparent;
@@ -284,10 +283,10 @@
         color: #eee;
         font-size: 20px;
     }
-    .nav-tabs{
+    .nav-tabs {
         background-color: $main-color;
     }
-    .question-term-ctn{
+    .question-term-ctn {
         /* Tabs*/
         section {
             padding: 60px 0;
@@ -298,14 +297,13 @@
                 text-transform: uppercase;
             }
         }
-        #tabs{
+        #tabs {
             color: #58595b;
-            h6.section-title{
+            h6.section-title {
                 color: #eee;
             }
-            
         }
-        .question-ctn{
+        .question-ctn {
             .question-part {
                 .panel-heading {
                     .panel-title {
@@ -352,8 +350,7 @@
                             }
                         }
                         .collapsed {
-                            color:#58595b;
-                            
+                            color: #58595b;
                             &::after {
                                 position: absolute;
                                 content: "\f0d8";
@@ -384,6 +381,11 @@
                             color: #000;
                         }
                     }
+                }
+                .panel-body {
+                    margin: 3% 0;
+                    font-family: UTM_Helve;
+                    color: #58595b;
                 }
             }
         }
