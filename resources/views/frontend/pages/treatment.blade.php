@@ -36,8 +36,8 @@
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
                                                 @for($i=1;$i<=6;$i++)
-                                                    <div class="swiper-slide slide-item">
-                                                        <a href="{{ url('/treatment_detail') }}">
+                                                    <div class="swiper-slide slide-item parent">
+                                                        <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
                                                                     Manulife
@@ -52,13 +52,23 @@
                                                 @endfor
                                             </div>
                                             <!-- Add Arrows -->
-                                        
                                         </div>
                                         <div class="arrow-ctn ">
                                             <div class="swiper-button-prev">
                                             </div>
                                             <div class="swiper-button-next">
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="child">
+                                    <div class="detail-content ">
+                                        <div class="child-content">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                        </div>
+                                        <div class="contact-btn-ctn">
+                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
+                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
                                         </div>
                                     </div>
                                 </div>
@@ -78,8 +88,8 @@
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
                                                 @for($i=1;$i<=6;$i++)
-                                                    <div class="swiper-slide slide-item">
-                                                        <a href="{{ url('/treatment_detail') }}">
+                                                    <div class="swiper-slide slide-item parent2">
+                                                        <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
                                                                     Manulife
@@ -94,13 +104,23 @@
                                                 @endfor
                                             </div>
                                             <!-- Add Arrows -->
-                                        
                                         </div>
                                         <div class="arrow-ctn ">
                                             <div class="swiper-button-prev">
                                             </div>
                                             <div class="swiper-button-next">
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="child2">
+                                    <div class="detail-content ">
+                                        <div class="child-content">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                        </div>
+                                        <div class="contact-btn-ctn">
+                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
+                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
                                         </div>
                                     </div>
                                 </div>
@@ -120,8 +140,8 @@
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
                                                 @for($i=1;$i<=6;$i++)
-                                                    <div class="swiper-slide slide-item">
-                                                        <a href="{{ url('/treatment_detail') }}">
+                                                    <div class="swiper-slide slide-item parent3">
+                                                        <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
                                                                     Manulife
@@ -136,13 +156,23 @@
                                                 @endfor
                                             </div>
                                             <!-- Add Arrows -->
-                                        
                                         </div>
                                         <div class="arrow-ctn ">
                                             <div class="swiper-button-prev">
                                             </div>
                                             <div class="swiper-button-next">
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="child3">
+                                    <div class="detail-content ">
+                                        <div class="child-content">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                        </div>
+                                        <div class="contact-btn-ctn">
+                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
+                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
                                         </div>
                                     </div>
                                 </div>

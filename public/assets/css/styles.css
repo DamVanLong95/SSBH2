@@ -815,6 +815,45 @@ footer .footer-ctn .footer-nav li a {
   cursor: pointer;
 }
 
+.ellipsis {
+  overflow: hidden;
+  height: 60px;
+  line-height: 20px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+
+.ellipsis:before {
+  content: "";
+  float: left;
+  width: 5px;
+  height: 60px;
+}
+
+.ellipsis > *:first-child {
+  float: right;
+  width: 100%;
+  margin-left: -5px;
+}
+
+.ellipsis:after {
+  content: "";
+  float: right;
+  position: initial;
+  top: -20px;
+  left: 100%;
+  width: 3em;
+  margin-left: -3em;
+  padding-right: 5px;
+  text-align: right;
+  background: white;
+  color: #f36f21;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(50%, white), to(white));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+}
+
 .section1 .swiper-banner .swiper-slide img {
   width: 100%;
 }
@@ -1820,12 +1859,6 @@ footer .footer-ctn .footer-nav li a {
   text-overflow: ellipsis;
 }
 
-.table-section #layout-area .table tr.data-detail td p {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 135px;
-}
-
 .table-section #layout-area .table tr.data-detail td span a {
   color: orange;
   left: 46%;
@@ -1864,6 +1897,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section #layout-area .table tr.data-detail td .selectedId + label {
   position: relative;
   margin-left: 35px;
+  display: inherit;
 }
 
 .table-section #layout-area .table tr.data-detail td .selectedId + label:before,
@@ -1918,6 +1952,22 @@ footer .footer-ctn .footer-nav li a {
   margin-top: 0px;
   width: 32px;
   font-size: 13px;
+}
+
+.table-section #layout-area .table tr.data-detail td span.first-td {
+  position: relative;
+  display: inline-block;
+  transform: translate(32px, -27px);
+  width: 90%;
+  -webkit-transform: translate(32px, -27px);
+  -moz-transform: translate(32px, -27px);
+  -ms-transform: translate(32px, -27px);
+  -o-transform: translate(32px, -27px);
+}
+
+.table-section #layout-area .table tr.data-detail td span.show-detail {
+  right: 0;
+  float: right;
 }
 
 .table-section #layout-area .table tr.data-detail td.first-col {
@@ -2170,42 +2220,7 @@ footer .footer-ctn .footer-nav li a {
 
 .intro-container .intro-ctn .right-ctn p {
   font-family: UTM_Helve;
-  line-height: 26px;
   color: #58595b;
-}
-
-.intro-container .intro-ctn .right-ctn .ellipsis {
-  overflow: hidden;
-  height: 60px;
-  line-height: 20px;
-}
-
-.intro-container .intro-ctn .right-ctn .ellipsis:before {
-  content: "";
-  float: left;
-  width: 5px;
-  height: 60px;
-}
-
-.intro-container .intro-ctn .right-ctn .ellipsis > *:first-child {
-  float: right;
-  width: 100%;
-  margin-left: -5px;
-}
-
-.intro-container .intro-ctn .right-ctn .ellipsis:after {
-  content: "\02026";
-  float: right;
-  position: relative;
-  top: -20px;
-  left: 100%;
-  width: 3em;
-  margin-left: -3em;
-  padding-right: 5px;
-  text-align: right;
-  background: white;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(50%, white), to(white));
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
 }
 
 .intro-container .intro-ctn .right-ctn .watch-more a {
@@ -2651,5 +2666,39 @@ footer .footer-ctn .footer-nav li a {
 
 .section-treatment-slide .section-wrapper .uudai-slide {
   padding: 5% 0;
+}
+
+.section-treatment-slide .section-wrapper .detail-content .contact-btn-ctn {
+  right: 0;
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  float: right;
+  padding-top: 20px;
+}
+
+.section-treatment-slide .section-wrapper .detail-content .contact-btn-ctn button {
+  background-color: #0d723b;
+  font-family: UTM_Helve;
+  color: #fff;
+  padding: 5px 20px;
+  outline: none;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  float: right;
+}
+
+.section-treatment-slide .section-wrapper .child, .section-treatment-slide .section-wrapper .child2, .section-treatment-slide .section-wrapper .child3 {
+  border-top: 2px solid #0d723b;
+  padding-top: 15px;
+  margin-bottom: 8%;
+  display: none;
 }
 /*# sourceMappingURL=styles.css.map */

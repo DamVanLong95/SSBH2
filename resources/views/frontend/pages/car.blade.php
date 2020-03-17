@@ -318,9 +318,10 @@
                                @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="1" />
-                                        <label for="checkbox_bs{{$value['id']}}">{{$value['terms']}} </label>
-                                        <label class="drop" for="">0.01% phí</label> 
+                                        <input class="selectedId" type="checkbox" id="checkbox_{{$value['id']}}" name="checkbox_{{$value['id']}}" value="1" />
+                                        <label for="checkbox_{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
+                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
+                                        <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td>
 
@@ -345,9 +346,10 @@
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
                                     <td>
-                                         <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
-                                         <label for="checkbox2_{{$value['id']}}">{{$value['exception']}} </label>
-                                         <label class="drop" for="">0.01% phí</label> 
+                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                        <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
+                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
+                                        <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td></td>
                                 </tr>

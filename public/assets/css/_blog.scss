@@ -183,5 +183,37 @@
        .uudai-slide{
            padding: 5% 0;
        }
+       .detail-content{
+           .contact-btn-ctn{
+               right: 0;
+               width: 25%;
+               display: flex;
+               justify-content: space-between;
+               float: right;
+               padding-top: 20px;
+                button{
+                    background-color: $main-color;
+                    font-family: UTM_Helve;
+                    color: #fff;
+                    // text-transform: uppercase;
+                    padding: 5px 20px;
+                    outline: none;
+                    border-radius: 20px;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    -ms-border-radius: 20px;
+                    -o-border-radius: 20px;
+                    float: right;
+                    // width: 50%;
+                }
+           }
+           
+       }
+       .child, .child2, .child3{
+        border-top: 2px solid $main-color;
+        padding-top: 15px;
+        margin-bottom: 8%;
+        display: none;
+       }
     }
 }
