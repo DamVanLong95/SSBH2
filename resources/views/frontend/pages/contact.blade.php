@@ -17,6 +17,10 @@
 
 @section('content')
 <div class="contact-container">
+    <div class="contact-floating">
+        <div class="contact-email"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/phone-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+        <div class="contact-phone"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-xl-10 offset-xl-1">
@@ -68,52 +72,33 @@
                             @endfor
                         </div>
                     </div>
-                    <div class="detail-contact">
-                    
-                    </div>
-                   
                 </div>
-                
             </div>
         </div>
     </div>
-    <div id="section-contact" class="section-contact-slide">
+    <div id="sec-contact-detail" class="sec-contact-detail">
         <div class="section-wrapper ">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div id="slideContact" class="swiper-container swiper-contact">
-                            <div class="swiper-wrapper parner-slide">
-                                @for($i=1;$i<=6;$i++)
-                                    <div class="swiper-slide slide-item">
-                                        <div class="ava-ctn">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/ava.jpg?{{ config('custom.version') }}" alt="">
-                                        </div>
-                                       <div class="detail-contact">
-                                           <div class="name">
-                                               John Doe
-                                           </div>
-                                           <div class="time-work">
-                                               <p class="job-title"><strong>Quá trình công tác</strong></p>
-                                               <p>Báo cáo Viên về Hội nhập kinh tế quốc tế, Bộ Công thương	</p>
-                                               <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
-                                               <p>Bảo hiểm nhân thọ: Đầu tư, tích luỹ, </p>
-                                               <p class="job-title"><strong>Khu vực</strong></p>
-                                               <p>Hà Nội </p>
-                                               <p class="job-title"><strong>Liên hệ</strong></p>
-                                               <p><a href="tel:0906060784">0906.060.784</a><span> | <a href="mailto:contact@vics-corp.com">contact@vics-corp.com</a></span></p>
-                                           </div>
-                                       </div>
-                                    </div>
-                                @endfor
+                        <div class="detail-ctn">
+                            <div class="ava-ctn">
+                                <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/ava.jpg?{{ config('custom.version') }}" alt="">
                             </div>
-                            <!-- Add Arrows -->
-                        
-                        </div>
-                        <div class="arrow-ctn ">
-                            <div class="swiper-button-prev">
-                            </div>
-                            <div class="swiper-button-next">
+                            <div class="detail-contact">
+                                <div class="name">
+                                    John Doe
+                                </div>
+                                <div class="time-work">
+                                    <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                    <p>Báo cáo Viên về Hội nhập kinh tế quốc tế, Bộ Công thương	</p>
+                                    <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                    <p>Bảo hiểm nhân thọ: Đầu tư, tích luỹ, </p>
+                                    <p class="job-title"><strong>Khu vực</strong></p>
+                                    <p>Hà Nội </p>
+                                    <p class="job-title"><strong>Liên hệ</strong></p>
+                                    <p><a href="tel:0906060784">0906.060.784</a><span> | <a href="mailto:contact@vics-corp.com">contact@vics-corp.com</a></span></p>
+                                </div>
                             </div>
                         </div>
                     </div>

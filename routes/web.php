@@ -41,9 +41,13 @@ Route::get('/blog', function () {
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
-// =====================================ưu đãi preferential=================================
+// =====================================ưu đãi preferential treatment=================================
 Route::get('/treatment', function () {
     return view('frontend.pages.treatment');
+});
+// =====================================Question=================================
+Route::get('/question', function () {
+    return view('frontend.pages.question');
 });
 Auth::routes();
 
