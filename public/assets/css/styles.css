@@ -1212,7 +1212,7 @@ footer {
       filter: alpha(opacity=0); }
     .table-section #layout-area .table tr.data-detail td .selectedId + label {
       position: relative;
-      padding-left: 35px; }
+      margin-left: 35px; }
     .table-section #layout-area .table tr.data-detail td .selectedId + label:before,
     .table-section #layout-area .table tr.data-detail td .lt-ie8 .checkbox-replacement {
       content: '';
