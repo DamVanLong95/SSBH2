@@ -194,20 +194,35 @@
                 $('.scrollup').fadeOut();
                 
             }
-        });
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 600) {
-                $('.contact-floating').fadeIn();
-            } else {
-                $('.contact-floating').fadeOut();
-            }
-        });
-        $('.scrollup').click(function () {
-            $("html, body").animate({
-                scrollTop: 0
-            }, 600);
-            return false;
-        });
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 600) {
+                    $('.contact-floating').fadeIn();
+                } else {
+                    $('.contact-floating').fadeOut();
+                }
+            });
+            $('.scrollup').click(function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+            $('.parent .item').on("click", function() {
+                $('.child').slideToggle( 500, function() {
+                    $('.child .detail-content').show( 100 );
+                });
+            });
+            $('.parent2 .item').on("click", function() {
+                $('.child2').slideToggle( 500, function() {
+                    $('.child2 .detail-content').show( 100 );
+                });
+            });
+            $('.parent3 .item').on("click", function() {
+                $('.child3').slideToggle( 500, function() {
+                    $('.child3 .detail-content').show( 100 );
+                });
+            });
         });
     </script>
     

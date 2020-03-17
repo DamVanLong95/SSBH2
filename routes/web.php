@@ -40,7 +40,7 @@ Route::get('/blog', function () {
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
-// =====================================ưu đãi=================================
+// =====================================ưu đãi preferential=================================
 Route::get('/treatment', function () {
     return view('frontend.pages.treatment');
 });
