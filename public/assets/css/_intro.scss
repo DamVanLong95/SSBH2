@@ -1,6 +1,4 @@
-$lineheight:20px;
-$height: $lineheight * 3;
-$ellipsiswidth: 3em !default;
+
 .intro-detail-container {
     margin: 5% 0;
     .intro-ctn {
@@ -84,38 +82,9 @@ $ellipsiswidth: 3em !default;
             }
             p {
                 font-family: UTM_Helve;
-                line-height: 26px;
                 color: #58595b;
             }
-            .ellipsis {
-                overflow: hidden;
-                height: $height;
-                line-height: $lineheight;
-            }
-            .ellipsis:before {
-                content: "";
-                float: left;
-                width: 5px;
-                height: $height;
-            }
-            .ellipsis>*:first-child {
-                float: right;
-                width: 100%;
-                margin-left: -5px;
-            }
-            .ellipsis:after {
-                content: "\02026";
-                float: right;
-                position: relative;
-                top: -$lineheight;
-                left: 100%;
-                width: $ellipsiswidth;
-                margin-left: -$ellipsiswidth;
-                padding-right: 5px;
-                text-align: right;
-                background: white;
-                background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
-            }
+           
             .watch-more {
                 a {
                     font-family: UTM_Helve;

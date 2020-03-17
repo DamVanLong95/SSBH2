@@ -188,14 +188,15 @@
                right: 0;
                width: 25%;
                display: flex;
+               justify-content: space-between;
                float: right;
                padding-top: 20px;
                 button{
                     background-color: $main-color;
                     font-family: UTM_Helve;
                     color: #fff;
-                    text-transform: uppercase;
-                    padding: 9px 15px;
+                    // text-transform: uppercase;
+                    padding: 5px 20px;
                     outline: none;
                     border-radius: 20px;
                     -webkit-border-radius: 20px;

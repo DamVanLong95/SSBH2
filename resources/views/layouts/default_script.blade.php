@@ -4,16 +4,6 @@
 
 <script>
     $(document).ready(function() {
-  //Fixing jQuery Click Events for the iPad
-  // var ua = navigator.userAgent,
-  //   event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-  // if ($('.table').length > 0) {
-  //   $('.table .header').on(event, function() {
-  //     $(this).toggleClass("active", "").nextUntil('.header').css('display', function(i, v) {
-  //       return this.style.display === 'table-row' ? 'none' : 'table-row';
-  //     });
-  //   });
-  // }
     $('.header').click(function(){
         $(this).toggleClass('colapse-head','').nextUntil('tr.header').slideToggle(100);
     });
@@ -207,7 +197,6 @@
         });
     }
 
-
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl');
         var tblHeadObj = document.getElementById(tblId).tHead;
@@ -268,22 +257,21 @@
 </script>
 <script>
    function showNote(val){
-    $.ajax({
-        url: "{{route('show_info')}}",
-        type: 'post',
-        data: {
-            "_token": "{{ csrf_token() }}",
-            note: val
-        },
-        success: function(data) {
-            // Add response in Modal body
-            $('#note').html(data.note);
-            // Display Modal
-            $('#detail-td').modal('show');
-        }
-    });
-}
-
+        $.ajax({
+            url: "{{route('show_info')}}",
+            type: 'post',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                note: val
+            },
+            success: function(data) {
+                // Add response in Modal body
+                $('#note').html(data.note);
+                // Display Modal
+                $('#detail-td').modal('show');
+            }
+        });
+    }
 </script>
 
 <script>
@@ -312,6 +300,7 @@
 </script>
 <script>
   $(document).ready(function () {
+    //   sellect All checkbox
     $('#selectall').click(function () {
         $('.selectedId').prop('checked', this.checked);
     });
@@ -320,15 +309,10 @@
         var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);
         $('#selectall').prop("checked", check);
     });
+    //   toogle Net address
+    $('.toggle').click(function() {
+        $('#net-address').toggle('slow');
+    });
   });
 </script>
-<script>
 
-
-
-$('.toggle').click(function() {
-    $('#net-address').toggle('slow');
-});
-
-
-</script>

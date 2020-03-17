@@ -535,9 +535,9 @@
                 td {
                     border-right: 1px solid #ccc;
                     p {
-                        overflow: hidden;
-                        white-space: nowrap;
-                        width: 135px;
+                        // overflow: hidden;
+                        // white-space: nowrap;
+                        // width: 135px;
                     }
                     span {
                         a {
@@ -577,6 +577,7 @@
                     .selectedId + label {
                         position: relative;
                         margin-left: 35px;
+                        display: inherit;
                     }
                     .selectedId + label:before,
                     .lt-ie8 .checkbox-replacement {
@@ -627,6 +628,20 @@
                         margin-top: 0px;
                         width: 32px;
                         font-size: 13px;
+                    }
+                    span.first-td{
+                        position: relative;
+                        display: inline-block;
+                        transform: translate(32px, -27px);
+                        width: 90%;
+                        -webkit-transform: translate(32px, -27px);
+                        -moz-transform: translate(32px, -27px);
+                        -ms-transform: translate(32px, -27px);
+                        -o-transform: translate(32px, -27px);
+                    }
+                    span.show-detail{
+                        right: 0;
+                        float: right;
                     }
                 }
                 td.first-col {
