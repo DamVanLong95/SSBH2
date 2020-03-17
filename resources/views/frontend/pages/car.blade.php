@@ -271,7 +271,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="item select">
-                                                    <select aria-label="Select menu example">
+                                                    <select aria-label="Select menu example" id="prd_date">
                                                         <option selected>Năm sản xuất</option>
                                                         <option value="2010">2010</option>
                                                         <option value="2011">2011</option>
@@ -286,7 +286,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
-                                                <span> Giá trị: </span> <input type="text" placeholder="">
+                                                <span> Giá trị: </span> <input type="text" placeholder=""id="price_car" name="price_car">
                                                 </div>
                                             </div>
                                             <div class="item button-filter">
@@ -490,25 +490,44 @@
 </div>
 <script>
     $(function(){
-    $('#brand').change(function() {
-        var id = $(this).val();
-        $.ajax({
-            url: "{{route('onchange')}}",
-            type: 'post',
-            data: {
-                "_token": "{{ csrf_token() }}",
-                brand_id: id
-            },
-            success: function(data) {
-                console.log(data);
-                $('#cate').html(data.html);
-                // $('#detail-td').modal('show');
-            }
+        $('#brand').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                url: "{{route('onchange')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    brand_id: id
+                },
+                success: function(data) {
+                    $('#cate').html(data.html);
+                }
+            });
+
+        });
+        $('#prd_date').change(function(){
+            var year = $(this).val();
+            var cate = $('#cate').val();
+            var brand_id= $('#brand').val();
+            $.ajax({
+                url: "{{route('reference')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    brand_id: brand_id,
+                    year_sx : year,
+                    cate_id:cate,
+                },
+                success: function(data) {
+                    // console.log(data);
+                    $('#price_car').val(data.price_car);
+                }
+            });
+
         });
 
-    });
    
-});
+    });
 
     $('.open').click(function(){
   $(this).toggleClass("show hide");

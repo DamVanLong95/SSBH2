@@ -75,14 +75,49 @@ class CarController extends Controller
     }
     public function onChange(Request $request){
         $brand_id = $request->get('brand_id');
-        $brand_cate = Summation::select('brand_id','cate_car')
+        $brand_cate = Summation::select('brand_id','cate_car','id')
                     ->where('brand_id','=',$brand_id)
                     ->get();
+        if(! $brand_cate) {
+            return response()->json( array('success' => false, 'html'=>'No job ') );
+        }
         $html = view('frontend.pages.car_notes')->with('brand_cate', $brand_cate)->render();
-        // dd($html);
         return response()->json([
             'success' =>true,
             'html' => $html
+        ]);
+
+    }
+    public function reference(Request $request){
+        $brand_id = $request->get('brand_id');
+        $year_sx  = $request->get('year_sx');
+        $summation_id = $request->get('cate_id');
+        $objec_price = [ 
+            2010 =>"price_ten",
+            2011 =>"price_eleven",
+            2012 =>"price_twelve",
+            2013  => "price_thirt", 
+            2014=>"price_four",
+            2015=>"price_five", 
+            2016 => "price_six", 
+            2017=>"price_seven",
+            2018=>"price_eight",
+            2019=>"price_night"
+        ];
+        $field = $objec_price[$year_sx];
+        $summation= Summation::select($field)
+                ->where('brand_id','=',$brand_id)
+                ->where('id','=',$summation_id)
+                ->take(1)
+                ->get();
+            
+        if(! $summation) {
+            return response()->json( array('success' => false, 'html'=>'No job ') );
+        }
+        $price_car = $summation[0][$field];
+        return response()->json([
+            'success' =>true,
+            'price_car' => $price_car
         ]);
 
     }
