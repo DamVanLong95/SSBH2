@@ -67,7 +67,8 @@
                             var exception   = data.exception;  
                             var punishment  = data.punishment;
                             var promotion   = data.promotion;
-                            var term       = data.terms
+                            var terms_data        = data.terms;
+                            console.log(terms_data);
 
                             var tds =  tblBodyObj.rows[3].cells[indexCol];
                             var creatediv = document.createElement('div');
@@ -114,23 +115,43 @@
                                 $('#price_'+indexCol+'').html((price_car));
                                     
                             });
-                            for (var i = 7; i < 30; i++) {
+                            for (var i = 7; i <= 30; i++) {
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
                                 var imgOrange = ` {{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}`;
                                 var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                 var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                                if(notes[i-7]['note_more']==="-----") {
-                                    tds.innerHTML = `<p>`+notes[i-7]['note_more']+`</p>`;
-                                }else{
-                                    tds.innerHTML =`<p class="ellipsis">`+notes[i-7].note_more+`</p>`+`
-                                                    <span><button value="`+notes[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                if(terms_data[i-7]['note_more']==="-----") {
+                                    tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                }
+                                if(terms_data[i-7]['rate_star_dkbs']==5){
+                                    tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                     </div>
 
                                     `;
+                                }else if(terms_data[i-7]['rate_star_dkbs']==3){
+                                    tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+
+                                    `;
+                                }else if(terms_data[i-7]['rate_star_dkbs']==2){
+                                    tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                    </div>
+
+                                    `;
+                                }else{
+                                    tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
                                 }
+                                
                             }
                             var i=32;
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
@@ -270,9 +291,11 @@
                   var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                   var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                   var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                //   console.log();
+
                  divs.innerHTML = `
                      <div class="count-rank-ctn" >
-                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                        <div class="mark-num"><p><span class="first-span"></span>/<span>10</span></p></div>
                          <div class="service">
                             <img src="`+path_camera+`"alt="">
                             <img src="`+path_phone+`"alt="">

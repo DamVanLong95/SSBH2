@@ -56,7 +56,8 @@ class CarController extends Controller
                     ->where('company_id' ,'=', $company_id)
                     ->get();
         $promotion  = $summaries->first();//KHUYEN MAI
-        $terms = Summary::select('company_id','terms','note_more','id')
+        $terms = Summary::select('company_id','terms','note_more','id','rate_star_dkbs')
+                    ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();//DIEU KHOAN BO SUNG
         return response()->json([

@@ -33,7 +33,9 @@ class SummariesImport implements ToModel,WithHeadingRow
                 'terms'         => $row['cac_dieu_khoan_bo_sung'],
                 'note_more'     => $row['ghi_chu_dkbs'],
                 'promotion'     => $row['khuyen_mai'],
-                'rate_fee'      => $row['ty_le_phi']
+                'rate_fee'      => $row['ty_le_phi'],
+                'rate_star_dkbs' => $row['danh_gia_dkbs'],
+                'rate_star_dklt' => $row['danh_gia_dklt']
             ]);
 
             DB::commit();
