@@ -18,7 +18,7 @@ class SummariesImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
         DB::beginTransaction();
-//        dd($row);
+        // dd($row);
         try {
             Summary::create([
                 'company_id'    => $row['id_cong_ty'],
@@ -27,8 +27,12 @@ class SummariesImport implements ToModel,WithHeadingRow
                 'cate_car'      =>$row['loai_xe'] ,
                 'year_sx'       =>$row['nam_san_xuat'],
                 'exception'     =>$row['dieu_khoan_loai_tru'],
-                'note_more'     =>$row['ghi_chu'],
-                'price_car'     =>$row['gia_tri_xe']
+                'note_dklt'     => $row['ghi_chu_dklt'],
+                'deductible'    => $row['muc_khau_tru'],
+                'note_dkkt'     => $row['ghi_chu_dkkt'],
+                'terms'         => $row['cac_dieu_khoan_bo_sung'],
+                'price_car'     =>  $row['gia_tri_xe'],
+                'note_more'      =>  $row['ghi_chu_dkbs'],
             ]);
 
             DB::commit();

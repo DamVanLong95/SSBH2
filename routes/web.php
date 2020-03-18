@@ -19,17 +19,39 @@ Route::get('/car1', function () {
 });
 Route::get('/car','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
-Route::get('car/detail/{note?}','Car\CarController@showInfo')->name('show_info');
+Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
+Route::post('onchange','Car\CarController@onChange')->name('onchange');
 
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });
+// =============================introduction============================
+
 Route::get('/detail', function () {
     return view('frontend.pages.intro_detail');
 });
+Route::get('/intro', function () {
+    return view('frontend.pages.intro');
+});
+// =====================================blog=================================
+Route::get('/blog', function () {
+    return view('frontend.pages.blog');
+});
+// =====================================contact=================================
+Route::get('/contact', function () {
+    return view('frontend.pages.contact');
+});
+// =====================================ưu đãi preferential treatment=================================
+Route::get('/treatment', function () {
+    return view('frontend.pages.treatment');
+});
+// =====================================Question=================================
+Route::get('/question', function () {
+    return view('frontend.pages.question');
+});
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('posts','Admin\PostController@index')->name('posts.index');
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
@@ -51,19 +73,29 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('excel/{users}','Admin\ExcelController@importView')->name('excel.users');
     Route::get('summary','Admin\SummaryController@index')->name('excel.summary');
 
-
-//    Route::resource('insurance', 'Admin\InsuranceController');
-
+    Route::get('permission','Admin\ExcelController@indexPermission')->name('indexPermission.import');
+    Route::get('finance','Admin\ExcelController@indexFinance')->name('indexFinance.import');
+    Route::get('brand','Admin\ExcelController@indexBrand')->name('indexBrand.import');
+    Route::get('brand_cate','Admin\ExcelController@indexBrandCate')->name('indexBrandCate.import');
+ 
+   
+   
 
 //   ============Import excel======================
 
-    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
+    Route::post('brand_cate/import','Admin\ExcelController@importBrandCate')->name('brand_cate.import');
     Route::post('summary/import','Admin\SummaryController@import')->name('summary.import');
+    Route::post('permission','Admin\ExcelController@importPermission')->name('permission.import');
+    Route::post('finance','Admin\ExcelController@importFinance')->name('finance.import');
+    Route::post('brand','Admin\ExcelController@importBrand')->name('brand.import');
+    Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
 
 //   ============Export excel======================
-
-    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
+    Route::get('users/export','Admin\ExcelController@exportExcel')->name('users.export');
+    Route::get('permission/export','Admin\ExcelController@exportPermission')->name('permission.export');
+    Route::get('finance/export','Admin\ExcelController@exportFinance')->name('finance.export');
+    Route::get('brand/export','Admin\ExcelController@exportBrand')->name('brand.export');
 
 
 });

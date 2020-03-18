@@ -104,27 +104,33 @@
                         <p>Rất đơn giản. Hãy làm như sau</p>
                     </div>
                     <div class="sec4-container">
-                        <div class="section4-content">
-                            <div class="item">
+                        <div class="section4-content ">
+                            <div class="item show1">
                                 <p>Bước 1</p>
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/know1.png?{{ config('custom.version') }}" alt="">
-                                <h6>Chọn danh mục sản phẩm bạn muốn tìm kiếm và điền thông tin để nhận gợi ý những sản phẩm phù hợp nhất cho bạn</h6>
+                                <h6 >Tìm kiếm</h6>
                             </div>
-                            <div class="item center">
+                            <div class="descript-p" id="descript1">
+                                <p >Chọn danh mục sản phẩm bạn muốn tìm kiếm và điền thông tin để nhận gợi ý những sản phẩm phù hợp nhất cho bạn</p>
+                            </div>
+                            <div class="item center show2">
                                 <p>Bước 2</p>
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/know2.png?{{ config('custom.version') }}" alt="">
-                                <h6>Chọn sản phẩm từ các doanh nghiệp bảo hiểm, so sánh đánh giá các sản phẩm với nhau và cân nhắc để có sản phẩm ưng ý nhất.</h6>
+                                <h6>So sánh</h6>
                             </div>
-                            <div class="item">
+                            <div class="descript-p" id="descript2">
+                                <p>Chọn sản phẩm từ các doanh nghiệp bảo hiểm, so sánh đánh giá các sản phẩm với nhau và cân nhắc để có sản phẩm ưng ý nhất.</p>
+                            </div>
+                            <div class="item show3">
                                 <p>Bước 3</p>
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/know3.png?{{ config('custom.version') }}" alt="">
-                                <h6>Chọn sản phẩm bạn muốn, liên hệ trực tuyến và kết nối với các tư vấn viên để được tư vấn cụ thể.</h6>
+                                <h6>Chọn lựa</h6>
                             </div>
-                        
+                            <div class="descript-p" id="descript3">
+                                <p>Chọn sản phẩm bạn muốn, liên hệ trực tuyến và kết nối với các tư vấn viên để được tư vấn cụ thể.</p>
+                            </div>
                         </div>
-                        <div class="descript-p">
-                            <p>Chọn sản phẩm từ các tổ chức bạn tin tưởng, so sánh các sản phẩm với nhau và cân nhắc để có sản phẩm ưng ý nhất.</p>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -137,7 +143,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-ctn">
-                        <h4>Truyền thông nói về <span>sanbaohiem</span></h4>
+                        <h4>Truyền thông nói về <span>V-Bảo hiểm</span></h4>
                     </div>
                     <div id="slideCus" class="swiper-container swiper-customer">
                         <div class="swiper-wrapper">
@@ -149,26 +155,14 @@
                             </div>
                             <div class="swiper-slide slide-item">
                                 <p>
-                                W2A đã là một công cụ tạo ứng dụng tuyệt vời. Khách hàng của chúng tôi đã tỏ ra ngạc nhiên và vô cùng thích thú với ứng dụng mới cùng những tính năng mới. Ứng dụng đã giúp chúng tôi gắn kết và chăm sóc khách hàng dễ dàng hơn.
-                                    <br><i></i>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, temporibus minus. Mollitia quidem amet voluptatum veniam doloremque labore harum illum quaerat asperiores omnis ut a, magnam unde dolorem tempora ullam!
+                                    <br><i>John Doe</i>
                                 </p>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <p>
-                                Thông qua ứng dụng di động tôi đã thu được số lượng lớn độc giả cho blog của mình. Nhờ trình xây dựng ứng dụng di động - w2a, bây giờ, một số lượng độc giả có thể biết đến các blog của tôi.  
-                                    <br><i></i>
-                                </p>
-                            </div>
-                            <div class="swiper-slide slide-item">
-                                <p>
-                                Tôi đang tìm kiếm một nhà phát triển ứng dụng cho doanh nghiệp, khi đó tôi tình cờ thấy W2A. Không chỉ giá cả phải chăng mà nó còn biến trang web của tôi thành một ứng dụng hiệu quả thu hút khách hàng hiệu quả hơn.  
-                                    <br><i></i>
-                                </p>
-                            </div>
-                            <div class="swiper-slide slide-item">
-                                <p>
-                                Tôi chưa bao giờ nghĩ rằng việc khởi tạo một ứng dụng lại vô cùng đơn giản và dễ dàng đến như thế. Nền tảng W2A rất dễ sửu dụng và các tính năng cũng như dịch vụ được cung cấp rất tuyệt vời. Tất cả những gì tôi cần đó là vài bước thao tác đơn giản, vậy là tôi đã hoàn toàn làm chủ được việc tạo ứng dụng trên nền tảng di động.  
-                                    <br><i></i>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla perferendis nemo amet optio quidem, quam exercitationem? Excepturi sapiente, omnis voluptatum at nemo ex laboriosam repellendus non enim voluptate iusto ipsa.
+                                    <br><i>Quincy</i>
                                 </p>
                             </div>
                         </div>
@@ -193,21 +187,21 @@
                         </div>
                     <div class="blog-ctn">
                         <div class="item">
-                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
+                            <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
                             <div class="description-ctn">
-                                <a href="javascript:void(0)">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
+                                <a href="{{ url('/blog') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
                             </div>
                         </div>
                         <div class="item center">
-                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
+                            <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
                             <div class="description-ctn">
-                                <a href="javascript:void(0)">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh</a>
+                                <a href="{{ url('/blog') }}">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh</a>
                             </div>
                         </div>
                         <div class="item">
-                            <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
+                            <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
                             <div class="description-ctn">
-                                <a href="javascript:void(0)">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
+                                <a href="{{ url('/blog') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
                             </div>
                         </div>
                     </div>

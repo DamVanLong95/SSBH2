@@ -1,4 +1,7 @@
 $main-color: #0d723b;
+$lineheight:20px;
+$height: $lineheight * 3;
+$ellipsiswidth: 3em !default;
 .block-main-menu {
     // position: fixed;
     top: 0;
@@ -26,10 +29,10 @@ $main-color: #0d723b;
         display: flex;
         align-items: center;
         border-bottom: 3px solid $main-color;
-        .left-nav{
+        .left-nav {
             margin-right: 10%;
         }
-        .right-nav{
+        .right-nav {
             margin-left: 10%;
         }
         ul {
@@ -57,35 +60,34 @@ $main-color: #0d723b;
                         color: $main-color;
                     }
                 }
-                ul{
+                ul {
                     visibility: hidden;
                     display: inline-block;
                     z-index: 12;
                     text-align: left;
                     width: auto;
-                    position:absolute;
+                    position: absolute;
                     top: 84px;
                     left: -143px;
                     background: rgba(0, 0, 0, 0.5);
-                    padding:0;
-                    li{
+                    padding: 0;
+                    li {
                         padding: 10px 0;
                         margin: 0;
                         padding: 10px 35px;
-                        a{
+                        a {
                             color: #fff !important;
                             text-transform: none;
                         }
-                        &:hover{
-                            background-color:  rgba(255, 255, 255, 0.7);
-                            a{
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.7);
+                            a {
                                 color: $main-color !important;
                             }
                         }
                     }
-                    
                 }
-                &:hover>ul{
+                &:hover>ul {
                     visibility: visible;
                 }
             }
@@ -361,14 +363,16 @@ footer {
         background-image: url('../images/default/close.png');
     }
 }
+
 // ================================network==============================
-#net-address{
+#net-address {
     display: none;
     position: absolute;
     transform: translate(18%, 36%);
     bottom: 6%;
     width: 82%;
 }
+
 .network-ctn {
     // position: absolute;
     background-color: #fff;
@@ -378,27 +382,26 @@ footer {
         font-family: UTM_HelveBold;
         text-transform: uppercase;
     }
-    .address-detail{
-        h5{ 
+    .address-detail {
+        h5 {
             cursor: pointer;
-            span{
-                img{
+            span {
+                img {
                     width: 15px;
                     margin-right: 10px;
                 }
             }
-            
             &:after {
-                font-family:Fontawesome;
-                content:'\f0d7';
+                font-family: Fontawesome;
+                content: '\f0d7';
                 float: right;
             }
         }
-        h5.collapsed{
+        h5.collapsed {
             cursor: pointer;
-            &::after{
-                font-family:Fontawesome;
-                content:'\f0d7';
+            &::after {
+                font-family: Fontawesome;
+                content: '\f0d7';
                 float: right;
             }
         }
@@ -442,4 +445,58 @@ footer {
             }
         }
     }
+}
+
+// ===============================sticky float left ==================================
+.contact-floating {
+    position: fixed;
+    left: 7%;
+    top: 125px;
+    display: none;
+    z-index: 1024;
+    cursor: pointer;
+}
+// ===============================scrollup=====================================
+.scrollup {
+    position: fixed;
+    right: 20px;
+    bottom: 125px;
+    display: none;
+    z-index: 1024;
+    cursor: pointer;
+}
+// ============================ellipsis=======================================
+.ellipsis {
+    overflow: hidden;
+    height: $height;
+    line-height: $lineheight;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+.ellipsis:before {
+    content: "";
+    float: left;
+    width: 5px;
+    height: $height;
+}
+.ellipsis>*:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+}
+.ellipsis:after {
+    content: "";
+    float: right;
+    position: initial;
+    top: -$lineheight;
+    left: 100%;
+    width: $ellipsiswidth;
+    margin-left: -$ellipsiswidth;
+    padding-right: 5px;
+    text-align: right;
+    background: white;
+    color: #f36f21;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
 }

@@ -252,33 +252,37 @@
                                                 <div class=" item select">
                                                     <select aria-label="Select menu example">
                                                         <option selected>Mục đích sử dụng</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        <option value="1">Xe kinh doanh không vận tải</option>
+                                                        <option value="1">Xe kinh doanh chở người</option>
                                                     </select>
                                                 </div>
                                                 <div class="item select">
-                                                    <select aria-label="Select menu example">
-                                                        <option selected>Hãng xe</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                
+                                                <select aria-label="Select menu example" id="brand">
+                                                    <option selected>Hãng xe</option>
+                                                    @foreach($brands as $brand)
+                                                        <option value="{{$brand['id']}}" id="brand_{{$brand['id']}}">{{$brand['name']}}</option>
+                                                    @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="item select">
-                                                    <select aria-label="Select menu example">
-                                                        <option selected>Loại xe</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <select aria-label="Select menu example" id="cate">
+                                                        <option selected="">Loại xe</option>
                                                     </select>
                                                 </div>
                                                 <div class="item select">
                                                     <select aria-label="Select menu example">
                                                         <option selected>Năm sản xuất</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        <option value="2010">2010</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2019">2019</option>
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
@@ -311,49 +315,54 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @foreach($summaries as $summary)
+                               @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1"/>
-                                        <label for="chk">{{$summary['exception']}} </label>
-                                        <input class="selectedId" type="checkbox" id="chk" name="chk" value="1" />
-
-                                        <label for="chk"> Tick me</label>
+                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="1" />
+                                        <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
+                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
                                         <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td>
-                                    <p>(Trừ trường hợp xe mới chờ đăng kiểm và không kéo dài quá 30 ngàys</p>
-                                   <span><a href="#detail-td" rel="modal:open">...</a></span>
 
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></div>
                                     </td>
                                 </tr>
-                                @endforeach
+                             @endforeach  
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td>
+                                    <td>{{$dedutible_data[0]['deductible']}}</td>
+                                    <td></td>
+                                    <!-- <td>
 
                                    <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
-                                    </td>
+                                    </td> -->
                                 </tr>
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
                                 </tr>
+                                @foreach($exception_data as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                        <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
+                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
+                                        <label class="drop" for="">0.01% phí</label>
+                                    </td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
+                                @foreach($punishment as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td>{{$value['sanction']}}</td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header green">
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
@@ -474,11 +483,33 @@
 <div id="detail-td" class="modal">
     <div class="content-ctn">
         <p>Thanks for clicking. That felt good.</p>
+        <div id="note"></div>
     </div>
   <a href="#">Mua ngay</a>
 
 </div>
 <script>
+    $(function(){
+    $('#brand').change(function() {
+        var id = $(this).val();
+        $.ajax({
+            url: "{{route('onchange')}}",
+            type: 'post',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                brand_id: id
+            },
+            success: function(data) {
+                console.log(data);
+                $('#cate').html(data.html);
+                // $('#detail-td').modal('show');
+            }
+        });
+
+    });
+   
+});
+
     $('.open').click(function(){
   $(this).toggleClass("show hide");
   $('.content').toggleClass("show hide");

@@ -4,16 +4,6 @@
 
 <script>
     $(document).ready(function() {
-  //Fixing jQuery Click Events for the iPad
-  // var ua = navigator.userAgent,
-  //   event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-  // if ($('.table').length > 0) {
-  //   $('.table .header').on(event, function() {
-  //     $(this).toggleClass("active", "").nextUntil('.header').css('display', function(i, v) {
-  //       return this.style.display === 'table-row' ? 'none' : 'table-row';
-  //     });
-  //   });
-  // }
     $('.header').click(function(){
         $(this).toggleClass('colapse-head','').nextUntil('tr.header').slideToggle(100);
     });
@@ -22,10 +12,6 @@
 
 
 <script>
-    $('a[data-modal]').click(function(event) {
-        $(this).modal();
-        return false;
-    });
     dropImage();
     function dropImage(){
         $('img.thumb').draggable({
@@ -69,44 +55,81 @@
                     },
                     function(data, status, xhr) {
                         var notes = data.summaries;
-                        console.log(data.html);
+                      
                         if(data.success == true) {
                             var myTable = document.getElementById('main-tbl');
-                            var tblBodyObj = document.getElementById('main-tbl').tBodies[0];
-                            var tblHeadObj = document.getElementById('main-tbl').tHead;
-                            var indexCol = tblHeadObj.rows[0].cells.length - 2;
-                            console.log(data);
+                            var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
+                            var tblHeadObj  = document.getElementById('main-tbl').tHead;
+                            var indexCol    = tblHeadObj.rows[0].cells.length - 2;
+                            var notes       = data.summaries;
+                            var deductible  = data.deductible;           
+                            var exception  = data.exception;  
+                            var punishment  = data.punishment;
 
-
-                            for (var i = 7; i < tblBodyObj.rows.length-16; i++) {
+                            for (var i = 7; i < 30; i++) {
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                // console.log(data.summaries[i-7]['note_more']);
-                                var imgUrl = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
-                                if(data.summaries[i-7]['note_more']=='x') {
-                                    data.summaries[i - 7]['note_more'] =
-                                        `<div class="tick-td">
-                                             <img class="img-fluid" src="http://localhost/assets/images/car/tick.png?" alt="">
-                                        </div>`;
-                                    tds.innerHTML =  `<p>`+data.summaries[i-7]['note_more']+`</p>
-                                                       <div class="star-td"><img class="img-fluid"   src="`+imgUrl+`" alt=""></div>`
-                                }else if(data.summaries[i-7]['note_more']=='-----'){
-                                    tds.innerHTML = `<p>`+data.summaries[i-7]['note_more']+`</p>`;
-                                }
-                                else{
-
-                                    // console.log(notes[i-7]['note_more']);
-                                    var url  = `{{route('show_info')}}`+'/'+ notes[i-7]['note_more'];
-                                    tds.innerHTML =`<p>`+data.summaries[i-7]['note_more']+`</p>
-
-                                                    <span><button class="btn-primary" value="`+data.summaries[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
-                                                    <div class="star-td">
-                                                        <img class="img-fluid"   src="`+imgUrl+`"  alt="">
-                                                     </div>
+                                var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
+                                var imgOrange = ` {{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}`;
+                                var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
+                                var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
+                                if(notes[i-7]['note_more']==="-----") {
+                                    tds.innerHTML = `<p>`+notes[i-7]['note_more']+`</p>`;
+                                }else{
+                                    tds.innerHTML =`<p>`+notes[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+notes[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                    </div>
 
                                     `;
                                 }
                             }
-
+                            var i=32;
+                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            if(deductible[0]['note_dkkt']=== "x")
+                            {
+                             tds.innerHTML = 
+                                `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                <div class="star-td">
+                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                </div>
+                                `;
+                            }else{
+                                tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
+                                <div class="star-td">
+                                    <img class="img-fluid" src="`+imgGray+`" alt="">
+                                </div>
+                                `;
+                            }
+                            for(var j=34 ;j<64;j++){
+                                var tds =  tblBodyObj.rows[j].cells[indexCol];
+                                if(exception[j-34]['note_dklt']=== "x")
+                                {
+                                tds.innerHTML = 
+                                    `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                    <div class="star-td">
+                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                    </div>
+                                    `;
+                                }else if(exception[j-34]['note_dklt']=== "-----"){
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
+                                    `;
+                                }else{
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>`+`
+                                    <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                    <div class="star-td">
+                                    <img class="img-fluid" src="`+imgGreen+`" alt="">
+                                </div>
+                                    `;
+                                }
+                            }
+                            for(var i=65;i<84;i++){
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
+                                console.log("line 144",tds);
+                            }
+                            
                         }
                     }).done(function() {
                         // alert('Request done!');
@@ -118,7 +141,7 @@
                             $('td:nth-child('+index+')').remove()
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
-                        }else if(index==2 || index ==0 && !$('div.img-container').is(":not(.dropped)")){
+                        }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                             console.log("hi");
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
@@ -133,7 +156,7 @@
                             dropImage();
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
-                        }else if(index ==4){
+                        }else if(index == 4){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             $('#checkbox_'+idImg+'').prop("checked", false);
@@ -144,13 +167,13 @@
                             dropImage();
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
-                        }else if(index ==3 && !$('div.img-container').is(":not(.dropped)")){
+                        }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
 
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            addColumn('main-tbl');
+                            // addColumn('main-tbl');
                             dropImage();
-                        }else if(index ==3 ){
+                        }else if(index == 3 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             $('#checkbox_'+idImg+'').prop("checked", false);
@@ -173,7 +196,6 @@
 
         });
     }
-
 
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl');
@@ -234,23 +256,22 @@
       }
 </script>
 <script>
-    function showNote(val){
-        console.log(val);
+   function showNote(val){
         $.ajax({
-            url: 'ajaxfile.php',
+            url: "{{route('show_info')}}",
             type: 'post',
-            data: {note: val},
-            success: function(response){
+            data: {
+                "_token": "{{ csrf_token() }}",
+                note: val
+            },
+            success: function(data) {
                 // Add response in Modal body
-                // $('.content-ctn').html(response);
-
+                $('#note').html(data.note);
                 // Display Modal
-                $( '#detail-td').modal('show');
+                $('#detail-td').modal('show');
+            }
         });
-
-
     }
-
 </script>
 
 <script>
@@ -279,6 +300,7 @@
 </script>
 <script>
   $(document).ready(function () {
+    //   sellect All checkbox
     $('#selectall').click(function () {
         $('.selectedId').prop('checked', this.checked);
     });
@@ -287,15 +309,10 @@
         var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);
         $('#selectall').prop("checked", check);
     });
+    //   toogle Net address
+    $('.toggle').click(function() {
+        $('#net-address').toggle('slow');
+    });
   });
 </script>
-<script>
 
-
-
-$('.toggle').click(function() {
-    $('#net-address').toggle('slow');
-});
-
-
-</script>
