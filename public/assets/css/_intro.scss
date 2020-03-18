@@ -458,6 +458,7 @@
                     .alpha-index{
                         display: grid;
                         grid-template-columns: 20% 80%;
+                        border-bottom: 1px solid $main-color;
                         .alpha-left{
                             a{
                                 text-transform: uppercase;

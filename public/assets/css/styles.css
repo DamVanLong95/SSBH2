@@ -1761,7 +1761,8 @@ footer {
     box-shadow: 0px 0px 7px #0d723b; }
   .question-container .question-term-ctn .term-ctn .alpha-ctn .alpha-left .alpha-index {
     display: grid;
-    grid-template-columns: 20% 80%; }
+    grid-template-columns: 20% 80%;
+    border-bottom: 1px solid #0d723b; }
     .question-container .question-term-ctn .term-ctn .alpha-ctn .alpha-left .alpha-index .alpha-left a {
       text-transform: uppercase;
       font-family: UTM_HelveBold;
