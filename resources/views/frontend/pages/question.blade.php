@@ -195,7 +195,265 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-term" role="tabpanel" aria-labelledby="nav-term-tab">
-                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                <div class="term-ctn">
+                                    <div class="searchinput">
+                                        <input type="text" name="q" placeholder=" search..." class="text" required>
+                                        <button type="submit" class="submit">Tìm</button>
+                                    </div>
+                                    <div class="alpha-ctn">
+                                        <div class="alpha-left">
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a href="#A">A</a>
+                                                </div>
+                                                <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse_x" class="collapsed" aria-expanded="false">
+                                                                NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse_x" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                            Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_a" class="collapsed" aria-expanded="false">
+                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse_a" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_b" class="collapsed" aria-expanded="false">
+                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse_b" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a href="#B">B</a>
+                                                </div>
+                                                <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse_x2" class="collapsed" aria-expanded="false">
+                                                                NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse_x2" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                            Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_a2" class="collapsed" aria-expanded="false">
+                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse_a2" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_b2" class="collapsed" aria-expanded="false">
+                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse_b2" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
+                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#C">C</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#D">D</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#E">E</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#F">F</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#J">J</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#H">H</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#I">I</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#J">J</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#K">K</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#L">L</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#M">M</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#N">N</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#O">O</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#P">P</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#Q">Q</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#R">R</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#S">S</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#T">T</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#U">U</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#V">V</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#X">X</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#Y">Y</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a class="disable" href="#Z">Z</a>
+                                                </div>
+                                                <div class="index-content">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
