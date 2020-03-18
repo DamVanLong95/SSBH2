@@ -42,7 +42,7 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();
-        $exception  = Summary::select('company_id','exception','note_dklt')
+        $exception  = Summary::select('company_id','exception','note_dklt','rate_star_dklt')
                      ->where('company_id', '=', $company_id)
                      ->get();
         $deductible = Summary::select('company_id','deductible','note_dkkt')   
