@@ -250,7 +250,7 @@
                                         <div class="select-ctn">
                                             <div class="selection-box">
                                                 <div class=" item select">
-                                                    <select aria-label="Select menu example">
+                                                    <select aria-label="Select menu example" id="purpose">
                                                         <option selected>Mục đích sử dụng</option>
                                                         <option value="1">Xe kinh doanh không vận tải</option>
                                                         <option value="1">Xe kinh doanh chở người</option>
@@ -273,34 +273,36 @@
                                                 <div class="item select">
                                                     <select aria-label="Select menu example" id="prd_date">
                                                         <option selected>Năm sản xuất</option>
-                                                        <option value="2010">2010</option>
-                                                        <option value="2011">2011</option>
-                                                        <option value="2012">2012</option>
-                                                        <option value="2013">2013</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2018">2018</option>
                                                         <option value="2019">2019</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2010">2010</option>
+
+                                                      
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
-                                                <span> Giá trị: </span> <input type="text" placeholder=""id="price_car" name="price_car">
+                                                <span> Giá trị: </span> <input type="text" placeholder="VND"id="price_car" name="price_car" value="">
                                                 </div>
                                             </div>
-                                            <div class="item button-filter">
-                                                <button type="button" onclick="">Tính phí</button>
+                                            <div class="item button-filter" >
+                                                <button type="button" id="calculate">Tính phí</button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="data-detail price-discount">
-                                    <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
+                                    <td><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
                                     <td rowspan="2"></td>
                                 </tr>
                                 <tr class="data-detail price-discount">
-                                    <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
+                                    <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                 </tr>
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
@@ -318,10 +320,10 @@
                                @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="1" />
+                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['id']}}" onclick='handleOncick(this.value);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
+                                        <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">0.01% phí</label>
                                     </td>
                                     <td>
 
@@ -332,7 +334,7 @@
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>{{$dedutible_data[0]['deductible']}}</td>
+                                    <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
 
@@ -346,9 +348,9 @@
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
                                         <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
-                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
+                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
                                         <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td></td>
@@ -482,15 +484,36 @@
 
 <div id="detail-td" class="modal">
     <div class="content-ctn">
-        <p>Thanks for clicking. That felt good.</p>
         <div id="note"></div>
     </div>
-  <a href="#">Mua ngay</a>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
 
 </div>
 <script>
+    function showMore(val){
+     $('#note').html(val);
+     $('#detail-td').modal('show');
+    }
+</script>
+<script>
+    
+    function handleOncick(cb){
+        var checkBox = document.getElementById('checkbox_bs'+cb+'');
+        var text = document.getElementById('dkbs'+cb+'');
+        // console.log(text);
+        if(checkBox.checked==true){
+           text.style.display = "block";
+        }else{
+           text.style.display = "none";
+        }
+       
+    }
     $(function(){
         $('#brand').change(function() {
+           
+            if($("#purpose").is(':selected')){
+                alert(1);
+            }else{
             var id = $(this).val();
             $.ajax({
                 url: "{{route('onchange')}}",
@@ -504,6 +527,8 @@
                 }
             });
 
+            }
+          
         });
         $('#prd_date').change(function(){
             var year = $(this).val();

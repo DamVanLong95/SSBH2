@@ -13,6 +13,7 @@
 
 <script>
     dropImage();
+    
     function dropImage(){
         $('img.thumb').draggable({
             containment: '#layout-area',
@@ -48,14 +49,14 @@
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
                 var url = '{{route('droppImage')}}';
+                
                 $.post(url,
                     {
                         "_token": "{{ csrf_token() }}",
                         id: idImg
                     },
                     function(data, status, xhr) {
-                        var notes = data.summaries;
-                      
+                        var term       = data.terms;
                         if(data.success == true) {
                             var myTable = document.getElementById('main-tbl');
                             var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
@@ -63,9 +64,56 @@
                             var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                             var notes       = data.summaries;
                             var deductible  = data.deductible;           
-                            var exception  = data.exception;  
+                            var exception   = data.exception;  
                             var punishment  = data.punishment;
+                            var promotion   = data.promotion;
+                            var term       = data.terms
 
+                            var tds =  tblBodyObj.rows[3].cells[indexCol];
+                            var creatediv = document.createElement('div');
+                            var name ='price_'+indexCol+'';
+                            creatediv.setAttribute('id', name);
+                            tds.appendChild(creatediv);
+                            $('#calculate').click(function(){
+                                var price = $('#price_car').val();
+                                var count = 0;
+                                for(var i =0; i<term.length;i++){
+                                    var checkBox = document.getElementById('checkbox_bs'+term[i]['id']+'');
+                                    if(checkBox.checked==true){
+                                        count++;
+                                    }
+                                }
+                                var rate = 1.5;
+                                if(price !=''){
+                                    if(count==0){
+                                        price = price.replace(/\./g,'').replace(',','.');
+                                        var price_car = (price * rate)/100;
+                                        $('#price_'+indexCol+'').html((formatMoney(price_car)));
+                                    }else{
+                                        console.log(count);
+                                       var rate = rate+count * 0.1;
+                                       var price_car = (price * rate)/100;
+                                     $('#price_'+indexCol+'').html((formatMoney(price_car)));
+                                    }
+                                }else{
+                                    alert("Please enter price car !");
+                                }
+                            });
+                            $('#discount').click(function(){
+                                var price_old = $('#price_car').val();
+                                var price_old = price_old.replace(/\./g,'').replace(',','.')
+                                var price_old = (price_old * 1.5)/100;
+                                var rate      = promotion['promotion']
+                                var price_new = price_old * (1-rate/100);
+                                $('#price_'+indexCol+'').html((price_new));
+                            });
+                            $('#before_discount').click(function(){
+                                var price = $('#price_car').val();
+                                var price = price.replace(/\./g,'').replace(',','.');
+                                var  price_car = (price * 1.5)/100;
+                                $('#price_'+indexCol+'').html((price_car));
+                                    
+                            });
                             for (var i = 7; i < 30; i++) {
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
@@ -75,7 +123,7 @@
                                 if(notes[i-7]['note_more']==="-----") {
                                     tds.innerHTML = `<p>`+notes[i-7]['note_more']+`</p>`;
                                 }else{
-                                    tds.innerHTML =`<p>`+notes[i-7].note_more+`</p>`+`
+                                    tds.innerHTML =`<p class="ellipsis">`+notes[i-7].note_more+`</p>`+`
                                                     <span><button value="`+notes[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -124,11 +172,11 @@
                                     `;
                                 }
                             }
-                            for(var i=65;i<84;i++){
-                                var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
-                                console.log("line 144",tds);
-                            }
+                            // for(var i=65;i<84;i++){
+                            //     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            //     tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
+                            //     console.log("line 144",tds);
+                            // }
                             
                         }
                     }).done(function() {
@@ -272,9 +320,32 @@
             }
         });
     }
+    $(function(){
+        // $('#calculate').click(function(){
+        //    var price = $('#price_car').val();
+        //    $('#price').html(price);
+            
+        // })
+        
+    });
 </script>
 
 <script>
+    function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+        try {
+            decimalCount = Math.abs(decimalCount);
+            decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+            const negativeSign = amount < 0 ? "-" : "";
+
+            let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+            let j = (i.length > 3) ? i.length % 3 : 0;
+
+            return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+        } catch (e) {
+            console.log(e)
+        }
+    };
    /* window.onscroll = function() {fixedTop()};
 
     var tblHeader = document.getElementById("tableHeader");

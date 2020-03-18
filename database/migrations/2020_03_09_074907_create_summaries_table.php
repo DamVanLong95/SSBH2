@@ -22,7 +22,6 @@ class CreateSummariesTable extends Migration
             $table->string('year_sx');//nam sx
             $table->text('exception')->nullable();//dieu khoan loai tru
             $table->text('note_more')->nullable();//ghi chu
-            $table->decimal('price_car');//gia
             $table->timestamps();
         });
     }

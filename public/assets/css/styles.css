@@ -1952,12 +1952,15 @@ footer .footer-ctn .footer-nav li a {
   margin-top: 0px;
   width: 32px;
   font-size: 13px;
+  -webkit-transform: translate(10px, -91px);
+          transform: translate(10px, -91px);
 }
 
 .table-section #layout-area .table tr.data-detail td span.first-td {
   position: relative;
   display: inline-block;
-  transform: translate(32px, -27px);
+  -webkit-transform: translate(41px, -27px);
+          transform: translate(41px, -27px);
   width: 90%;
   -webkit-transform: translate(32px, -27px);
   -moz-transform: translate(32px, -27px);

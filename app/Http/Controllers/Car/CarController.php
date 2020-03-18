@@ -38,7 +38,7 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
-        $summaries  = Summary::select('company_id','terms','note_more')
+        $summaries  = Summary::select('company_id','terms','note_more','promotion')
                     ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();
@@ -55,14 +55,19 @@ class CarController extends Controller
         $punishment = Punishment::select('company_id','sanction','content')
                     ->where('company_id' ,'=', $company_id)
                     ->get();
-                    // dd($punishment);
+        $promotion  = $summaries->first();//KHUYEN MAI
+        $terms = Summary::select('company_id','terms','note_more','id')
+                    ->take(24)
+                    ->get();//DIEU KHOAN BO SUNG
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
             'exception'    => $exception,
             'deductible'    => $deductible,
             'permissions'   => $permissions,
-            'punishment'    => $punishment
+            'punishment'    => $punishment,
+            'promotion'     => $promotion,
+            'terms'         => $terms,
         ]);
     }
     public function showInfo(Request $request)
