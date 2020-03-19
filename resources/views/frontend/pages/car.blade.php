@@ -208,10 +208,10 @@
                                     <th class='th-1'>
                                         <div class="left-ctn">
                                             <div class="item phone">
-                                                <a class="" href="#" target="_blank">1900 9889 65</a>
+                                                <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
                                             </div>
                                             <div class="item">
-                                                <a href="#" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
+                                                <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
                                             </div>
                                         </div>
                                         <h4>SANBAOHIEM</h4>

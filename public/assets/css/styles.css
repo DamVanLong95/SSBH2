@@ -621,6 +621,10 @@ footer {
       font-size: 30px;
       line-height: 40px;
       color: #0d723b; }
+      @media screen and (max-width: 1024px) {
+        .section3 .sec3-wrapper .swiper-know .swiper-slide .item h4 {
+          font-size: 23px;
+          line-height: 33px; } }
     .section3 .sec3-wrapper .swiper-know .swiper-slide .item img {
       width: 100%; }
   .section3 .sec3-wrapper .swiper-know .swiper-slide:nth-child(2n) {
@@ -684,6 +688,12 @@ footer {
     .section4 .section4-ctn .sec4-container .section4-content .item {
       padding: 3% 4%;
       text-align: center; }
+      @media screen and (max-width: 1200px) {
+        .section4 .section4-ctn .sec4-container .section4-content .item {
+          padding: 3% 2%; } }
+      @media screen and (max-width: 1024px) {
+        .section4 .section4-ctn .sec4-container .section4-content .item {
+          padding: 3% 0; } }
       .section4 .section4-ctn .sec4-container .section4-content .item p {
         font-family: UTM_Helve;
         margin-bottom: 30px; }
@@ -778,6 +788,12 @@ footer {
   margin-bottom: 5%; }
   .section6 .blog-container .blog-ctn .item {
     padding: 0 35px; }
+    @media screen and (max-width: 1200px) {
+      .section6 .blog-container .blog-ctn .item {
+        padding: 0 25px; } }
+    @media screen and (max-width: 1024px) {
+      .section6 .blog-container .blog-ctn .item {
+        padding: 0 5px; } }
     .section6 .blog-container .blog-ctn .item img {
       width: 100%; }
     .section6 .blog-container .blog-ctn .item .description-ctn {
