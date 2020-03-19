@@ -318,10 +318,10 @@
                                @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="1" />
+                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
+                                        <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">{{$value['rate_fee']}}% phí</label>
                                     </td>
                                     <td>
 
@@ -425,6 +425,25 @@
 
 </div>
 <script>
+    function showMore(val){
+     $('#note').html(val);
+     $('#detail-td').modal('show');
+    }
+</script>
+<script>
+    
+    function handleOncick(cb){
+        var index = $(cb).data("id");
+        var checkBox = document.getElementById('checkbox_bs'+index+'');
+        var text = document.getElementById('dkbs'+index+'');
+        if(checkBox.checked==true){
+           text.style.display = "block";
+
+        }else{
+           text.style.display = "none";
+        }
+       
+    }
     $(function(){
     $('#brand').change(function() {
         var id = $(this).val();

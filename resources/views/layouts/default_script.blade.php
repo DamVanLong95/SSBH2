@@ -56,8 +56,6 @@
                         id: idImg
                     },
                     function(data, status, xhr) {
-                        var term = data.terms
-                        console.log(term);
                         if(data.success == true) {
                             var myTable = document.getElementById('main-tbl');
                             var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
@@ -69,6 +67,7 @@
                             var punishment  = data.punishment;
                             var promotion   = data.promotion;
                             var terms_data        = data.terms;
+                            var term       = data.terms
 
                             //calculate star
                             var count_star_green = 0;
@@ -92,7 +91,6 @@
                                     count_star_gray++;
                                 }
                             }
-                            // console.log(count_star_green);
                             var total_star = count_star_gray + count_star_green +count_star_orange;
                             var point = 1/(total_star)*(count_star_green + 3/4*count_star_orange + 1/2*count_star_gray)*10;
                             var tdsss =  myTable.rows[1].cells[indexCol];
@@ -109,36 +107,41 @@
                                     </div>
                                 </div>
                             `;
-                            var tds =  tblBodyObj.rows[3].cells[indexCol];
-                            var creatediv = document.createElement('div');
-                            var name ='price_'+indexCol+'';
+                            
+                            //set id for column have price car
+                            var tds         =  tblBodyObj.rows[3].cells[indexCol];
+                            var creatediv   = document.createElement('div');
+                            var name        ='price_'+indexCol+'';
                             creatediv.setAttribute('id', name);
                             tds.appendChild(creatediv);
                             $('#calculate').click(function(){
                                 var price = $('#price_car').val();
-                                var count = 0;
-                                // for(var i =0; i<term.length;i++){
-                                //     var checkBox = document.getElementById('checkbox_bs'+term[i]['id']+'');
-                                //     console.log(checkBox);
-                                //     if(checkBox.checked==true){
-                                //         count++;
-                                //     }
-                                // }
                                 var rate = 1.5;
-                                if(price !=''){
-                                    if(count==0){
-                                        price = price.replace(/\./g,'').replace(',','.');
-                                        var price_car = (price * rate)/100;
-                                        $('#price_'+indexCol+'').html((formatMoney(price_car)));
-                                    }else{
-                                        console.log(count);
-                                       var rate = rate+count * 0.1;
-                                       var price_car = (price * rate)/100;
-                                     $('#price_'+indexCol+'').html((formatMoney(price_car)));
+                                var checked =0;
+                                var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
+                                var chks = tblBodyObj.getElementsByTagName("INPUT");
+                                var total =0;
+                               
+                                for(var i=2; i<=25; i++){
+                                    if (chks[i].checked) {
+                                        checked++;
+                                        // console.log(chks[i].value);
+                                        total =(Number(total) + Number(chks[i].value));
                                     }
-                                }else{
-                                    alert("Please enter price car !");
                                 }
+                                console.log(checked);
+                                if(checked > 0){
+                                    price = price.replace(/\./g,'').replace(',','.');
+                                    var price_car = price * (rate+total)/100;
+                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));
+                                }
+                                if(price !='' && checked==0){
+                                    price = price.replace(/\./g,'').replace(',','.');
+                                    var price_car = (price * rate)/100;
+                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));
+                                   
+                                }
+                                
                             });
                             $('#discount').click(function(){
                                 var price_old = $('#price_car').val();
@@ -164,7 +167,7 @@
                                 if(terms_data[i-7]['note_more']==="-----") {
                                     tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
                                 }
-                                if(terms_data[i-7]['rate_star_dkbs']==5){
+                                if(terms_data[i-7]['rate_star_dkbs'] == 5){
                                     tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
                                                     <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                    <div class="star-td">

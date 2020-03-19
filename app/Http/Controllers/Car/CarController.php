@@ -14,9 +14,10 @@ class CarController extends Controller
 {
     public function index(){
         $companies  = Company::orderBy('created_at','asc')->get();
-        $terms_data = Summary::select('company_id','terms','note_more','id')
+        $terms_data = Summary::select('company_id','terms','note_more','id','rate_fee')
                     ->take(24)
                     ->get();//Du lieu dieu khoan bo sung
+                    // dd($terms_data);
         $dedutible_data  = Summary::select('company_id','deductible','note_dkkt','id')
                         ->take(24)
                         ->get();//Du lieu  khau tru
@@ -56,10 +57,11 @@ class CarController extends Controller
                     ->where('company_id' ,'=', $company_id)
                     ->get();
         $promotion  = $summaries->first();//KHUYEN MAI
-        $terms = Summary::select('company_id','terms','note_more','id','rate_star_dkbs')
+        $terms = Summary::select('company_id','terms','note_more','id','rate_star_dkbs','rate_fee')
                     ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();//DIEU KHOAN BO SUNG
+                    // dd($terms);
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
