@@ -75,7 +75,7 @@
                         <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CÂU HỎI</a>
+                        <a class="nav-link" href="{{ url('/question') }}">CÂU HỎI</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/contact') }}">LIÊN HỆ</a>

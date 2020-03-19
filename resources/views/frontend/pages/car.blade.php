@@ -233,7 +233,7 @@
                                     </td>
                                     <td>
                                         <div class="count-rank-ctn">
-                                            <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                            <div class="mark-num"><p><span class="first-span"></span>/<span></span></p></div>
                                             <div class="service">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">

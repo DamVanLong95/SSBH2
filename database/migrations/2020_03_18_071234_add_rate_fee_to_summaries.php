@@ -15,7 +15,9 @@ class AddRateFeeToSummaries extends Migration
     {
         Schema::table('summaries', function (Blueprint $table) {
             //
-            $table->float('rate_fee');
+            $table->float('rate_fee')->nullable();
+            $table->tinyInteger('rate_star_dklt')->nullable();
+            $table->tinyInteger('rate_star_dkbs')->nullable();
         });
     }
 
