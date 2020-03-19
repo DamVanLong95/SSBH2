@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/testt', function () {
+return 111;
+});
 Route::get('/', function () {
     return view('frontend.home');
 });

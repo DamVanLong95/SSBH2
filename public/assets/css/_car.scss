@@ -106,6 +106,16 @@
     position: relative;
     color: #fff;
     text-align: center;
+    .search-section{
+        button{
+            width: 100%;
+            background-color: #333333;
+            border: none;
+            outline: none;
+            color: #fff;
+            margin-top: 3px;
+        }
+    }
 }
 
 .brand-section {
@@ -534,6 +544,7 @@
             tr.data-detail {
                 td {
                     border-right: 1px solid #ccc;
+                    text-align: center;
                     p {
                         // overflow: hidden;
                         // white-space: nowrap;
@@ -628,12 +639,11 @@
                         margin-top: 0px;
                         width: 32px;
                         font-size: 13px;
-                        transform: translate(10px, -91px);
                     }
                     span.first-td{
                         position: relative;
                         display: inline-block;
-                        transform: translate(41px, -27px);
+                        transform: translate(32px, -27px);
                         width: 90%;
                         -webkit-transform: translate(32px, -27px);
                         -moz-transform: translate(32px, -27px);
@@ -644,7 +654,12 @@
                         right: 0;
                         float: right;
                     }
+                    img.net-img{
+                        position: relative;
+                        top: 50px;
+                    }
                 }
+                
                 td.first-col {
                     text-transform: uppercase;
                 }

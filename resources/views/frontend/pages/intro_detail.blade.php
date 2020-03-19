@@ -18,12 +18,12 @@
 @section('content')
 
 <div class="intro-detail-container">
-  <div class="contact-floating">
-        <div class="contact-email"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/phone-intro.png?{{ config('custom.version') }}" alt=""></a></div>
-        <div class="contact-phone"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+    <div class="contact-floating">
+        <div class="contact-email"><a href="tel:0906060784" target="_blank"><img src="{{ url('/') }}/assets/images/default/phone-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+        <div class="contact-phone"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
     </div>
   <div class="container">
-    <div class="col-lg-8 offset-lg-2 col-xl-10 offset-xl-1">
+    <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
       <div class="intro-ctn">
         <div class="top-intro">
           <div class="title">

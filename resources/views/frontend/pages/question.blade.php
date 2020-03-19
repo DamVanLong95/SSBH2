@@ -18,8 +18,8 @@
 @section('content')
 <div class="question-container">
     <div class="contact-floating">
-        <div class="contact-email"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/phone-intro.png?{{ config('custom.version') }}" alt=""></a></div>
-        <div class="contact-phone"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+        <div class="contact-email"><a href="tel:0906060784" target="_blank"><img src="{{ url('/') }}/assets/images/default/phone-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+        <div class="contact-phone"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -204,97 +204,50 @@
                                         <div class="alpha-left">
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a href="#A">A</a>
+                                                    <a class="disable" href="#A">A</a>
                                                 </div>
                                                 <div class="index-content">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse_x" class="collapsed" aria-expanded="false">
-                                                                NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapse_x" class="panel-collapse collapse" aria-expanded="false">
-                                                            <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
-                                                            Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_a" class="collapsed" aria-expanded="false">
-                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapse_a" class="panel-collapse collapse" aria-expanded="false">
-                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
-                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_b" class="collapsed" aria-expanded="false">
-                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapse_b" class="panel-collapse collapse" aria-expanded="false">
-                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
-                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
-                                                    </div>
-                                                </div>
+                                                    
                                                 </div>
                                             
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a href="#B">B</a>
+                                                    <a class="disable" href="#B">B</a>
+                                                </div>
+                                                <div class="index-content">
+
+                                                </div>
+                                            </div>
+                                            <div class="alpha-index">
+                                                <div class="alpha-left">
+                                                    <a href="#C">C</a>
                                                 </div>
                                                 <div class="index-content">
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse_x2" class="collapsed" aria-expanded="false">
-                                                                NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                CÁC BÊN THAM GIA BẢO HIỂM</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse_x2" class="panel-collapse collapse" aria-expanded="false">
-                                                            <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
-                                                            Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_a2" class="collapsed" aria-expanded="false">
-                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapse_a2" class="panel-collapse collapse" aria-expanded="false">
-                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
-                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse_b2" class="collapsed" aria-expanded="false">
-                                                            NẾU CÔNG TY BỊ PHÁ SẢN THÌ TIỀN CỦA TÔI SẼ NHƯ THẾ NÀO?</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapse_b2" class="panel-collapse collapse" aria-expanded="false">
-                                                        <div class="panel-body">Thưa anh/chị, anh/chị có thể hoàn toàn yên tâm khi tham gia bảo hiểm với Bảo Việt Nhân thọ. Là doanh nghiệp bảo hiểm nhân thọ đầu tiên và có uy tín trên thị trường, đến nay, sau 17 năm hoạt động, Bảo Việt Nhân thọ đã và đang phục vụ hơn 5 triệu lượt khách hàng trên toàn quốc. Bảo Việt Nhân thọ cũng đã giải quyết đền bù bảo hiểm cho hàng chục ngàn trường hợp yêu cầu thanh toán quyền lợi bảo hiểm, với tổng số tiền đền bù hàng trăm tỷ đồng; trong đó có trường hợp có số tiền đền bù rất lớn (10 tỷ đồng).
-                                                        Ngoài uy tín và thương hiệu của Bảo Việt, Hợp đồng bảo hiểm còn chính là cam kết có giá trị pháp lý trên cơ sở đã được Bộ Tài Chính phê duyệt. Hợp đồng bảo hiểm là sự thỏa thuận giữa Bên mua bảo hiểm và Doanh nghiệp bảo hiểm, theo đó, nếu Bên mua bảo hiểm đóng đầy đủ phí bảo hiểm, thì Doanh nghiệp bảo hiểm phải thực hiện việc chi trả quyền lợi bảo hiểm cho khách hàng theo đúng Điều khoản Hợp đồng.</div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            
-                                            </div>
-                                            <div class="alpha-index">
-                                                <div class="alpha-left">
-                                                    <a class="disable" href="#C">C</a>
-                                                </div>
-                                                <div class="index-content">
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
@@ -320,16 +273,88 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#J">J</a>
+                                                    <a class="disable" href="#G">G</a>
                                                 </div>
                                                 <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                GIẤY YÊU CẦU BẢO HIỂM</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                GIÁ TRỊ GIẢI ƯỚC</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#H">H</a>
+                                                    <a href="#H">H</a>
                                                 </div>
                                                 <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                HỢP ĐỒNG BẢO HIỂM</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
@@ -355,9 +380,33 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#L">L</a>
+                                                    <a href="#L">L</a>
                                                 </div>
                                                 <div class="index-content">
+                                                <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                LÃI CHIA</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
@@ -369,9 +418,57 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#N">N</a>
+                                                    <a href="#N">N</a>
                                                 </div>
                                                 <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                NIÊN KIM (ĐỐI VỚI CÁC HỢP ĐỒNG NIÊN KIM NHÂN THỌ)</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                NGÀY KỶ NIỆM HỢP ĐỒNG, NĂM HỢP ĐỒNG</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
@@ -383,9 +480,33 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#P">P</a>
+                                                    <a href="#P">P</a>
                                                 </div>
                                                 <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                PHỤ LỤC HỢP ĐỒNG</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
@@ -404,16 +525,184 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#S">S</a>
+                                                    <a href="#S">S</a>
                                                 </div>
                                                 <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                SẢN PHẨM HỖ TRỢ</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                SỐ TIỀN BẢO HIỂM</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#T">T</a>
+                                                    <a href="#T">T</a>
                                                 </div>
                                                 <div class="index-content">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                TAI NẠN</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                THƯƠNG TẬT BỘ PHẬN VĨNH VIỄN</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                THƯƠNG TẬT TOÀN BỘ VĨNH VIỄN</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                TUỔI CỦA NGƯỜI ĐƯỢC BẢO HIỂM, BÊN MUA BẢO HIỂM</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                THỜI GIAN CÂN NHẮC</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
+
+                                                                <strong>Người được bảo hiểm:</strong> là người được Bảo Việt Nhân thọ chấp nhận bảo hiểm theo quy định của Bảo Việt Nhân thọ và phù hợp với các quy định của pháp luật. Thông tin cần thiết về Người được bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+                                                                Người được bảo hiểm có thể là công dân Việt Nam, công dân nước ngoài sinh sống tại Việt Nam. Trường hợp Người được bảo hiểm là người nước ngoài, thời hạn bảo hiểm của Hợp đồng phải nhỏ hơn thời hạn Người được bảo hiểm cư trú tại Việt Nam
+
+                                                                <strong>Người thụ hưởng:</strong> là cá nhân hoặc tổ chức do Bên mua bảo hiểm chỉ định để nhận quyền lợi bảo hiểm trong trường hợp Người được bảo hiểm tử vong. Thông tin cần thiết về Người thụ hưởng được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng.
+
+                                                                <strong>Bảo Việt Nhân thọ:</strong> là thành viên của Tập đoàn Bảo Việt, bao gồm Tổng Công ty Bảo Việt Nhân thọ và các Công ty thành viên trực thuộc, được Bộ Tài chính cấp phép thành lập và hoạt động. Bảo Việt Nhân thọ hiện có Trụ sở chính tại số tầng 37, Keangnam Landmark 72, đường Phạm Hùng, Quận Nam Từ Liêm, Hà Nội.
+
+                                                                <strong>Tư vấn viên:</strong> là tổ chức, cá nhân được Bảo Việt Nhân thọ ủy quyền trên cơ sở "Hợp đồng đại lý bảo hiểm" để thực hiện hoạt động đại lý bảo hiểm theo quy định của Luật kinh doanh bảo hiểm và các quy định khác của pháp luật có liên quan.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="alpha-index">
