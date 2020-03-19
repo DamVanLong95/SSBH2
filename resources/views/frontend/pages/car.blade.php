@@ -161,7 +161,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-section">
-                        Tìm kiếm doanh nghiệp bảo hiểm
+                        <button type="button" onclick=""> Tìm kiếm doanh nghiệp bảo hiểm</button>
                     </div>
                 </div>
             </div>

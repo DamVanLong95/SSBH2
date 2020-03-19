@@ -938,6 +938,13 @@ footer {
   position: relative;
   color: #fff;
   text-align: center; }
+  .search-ctn .search-section button {
+    width: 100%;
+    background-color: #333333;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin-top: 3px; }
 
 .brand-section {
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
