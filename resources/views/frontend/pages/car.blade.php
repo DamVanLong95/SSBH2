@@ -320,10 +320,10 @@
                                @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['id']}}" onclick='handleOncick(this.value);' />
+                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">0.01% phí</label>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">{{$value['rate_fee']}}% phí</label>
                                     </td>
                                     <td>
 
@@ -498,11 +498,12 @@
 <script>
     
     function handleOncick(cb){
-        var checkBox = document.getElementById('checkbox_bs'+cb+'');
-        var text = document.getElementById('dkbs'+cb+'');
-        // console.log(text);
+        var index = $(cb).data("id");
+        var checkBox = document.getElementById('checkbox_bs'+index+'');
+        var text = document.getElementById('dkbs'+index+'');
         if(checkBox.checked==true){
            text.style.display = "block";
+
         }else{
            text.style.display = "none";
         }
