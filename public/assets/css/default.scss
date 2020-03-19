@@ -369,7 +369,8 @@ footer {
     display: none;
     position: absolute;
     transform: translate(18%, 36%);
-    bottom: 6%;
+    bottom: 120px;
+    z-index: 3;
     width: 82%;
 }
 
@@ -468,12 +469,13 @@ footer {
 // ============================ellipsis=======================================
 .ellipsis {
     overflow: hidden;
+    text-align: left;
     height: $height;
     line-height: $lineheight;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  margin-bottom: 0;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
 }
 .ellipsis:before {
     content: "";

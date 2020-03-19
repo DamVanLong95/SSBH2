@@ -469,7 +469,8 @@ footer {
   display: none;
   position: absolute;
   transform: translate(18%, 36%);
-  bottom: 6%;
+  bottom: 120px;
+  z-index: 3;
   width: 82%; }
 
 .network-ctn {
@@ -541,6 +542,7 @@ footer {
 
 .ellipsis {
   overflow: hidden;
+  text-align: left;
   height: 60px;
   line-height: 20px;
   -webkit-line-clamp: 3;
@@ -1231,6 +1233,7 @@ footer {
         width: 50%; }
   .table-section #layout-area .table tr.data-detail td {
     border-right: 1px solid #ccc;
+    text-align: center;
     overflow: hidden;
     text-overflow: ellipsis; }
     .table-section #layout-area .table tr.data-detail td span a {
@@ -1317,6 +1320,9 @@ footer {
     .table-section #layout-area .table tr.data-detail td span.show-detail {
       right: 0;
       float: right; }
+    .table-section #layout-area .table tr.data-detail td img.net-img {
+      position: relative;
+      top: 50px; }
   .table-section #layout-area .table tr.data-detail td.first-col {
     text-transform: uppercase; }
   .table-section #layout-area .table tr.data-detail .toggle {

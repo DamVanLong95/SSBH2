@@ -285,7 +285,8 @@ footer {
   display: none;
   position: absolute;
   transform: translate(18%, 36%);
-  bottom: 6%;
+  bottom: 120px;
+  z-index: 3;
   width: 82%; }
 
 .network-ctn {
@@ -357,6 +358,7 @@ footer {
 
 .ellipsis {
   overflow: hidden;
+  text-align: left;
   height: 60px;
   line-height: 20px;
   -webkit-line-clamp: 3;

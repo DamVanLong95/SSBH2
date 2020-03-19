@@ -534,6 +534,7 @@
             tr.data-detail {
                 td {
                     border-right: 1px solid #ccc;
+                    text-align: center;
                     p {
                         // overflow: hidden;
                         // white-space: nowrap;
@@ -643,7 +644,12 @@
                         right: 0;
                         float: right;
                     }
+                    img.net-img{
+                        position: relative;
+                        top: 50px;
+                    }
                 }
+                
                 td.first-col {
                     text-transform: uppercase;
                 }

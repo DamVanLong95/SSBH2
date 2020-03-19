@@ -221,7 +221,7 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#C">C</a>
+                                                    <a href="#C">C</a>
                                                 </div>
                                                 <div class="index-content">
                                                     <div class="panel panel-default">
@@ -380,7 +380,7 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#L">L</a>
+                                                    <a href="#L">L</a>
                                                 </div>
                                                 <div class="index-content">
                                                 <div class="panel panel-default">
@@ -418,7 +418,7 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#N">N</a>
+                                                    <a href="#N">N</a>
                                                 </div>
                                                 <div class="index-content">
                                                     <div class="panel panel-default">
@@ -480,7 +480,7 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#P">P</a>
+                                                    <a href="#P">P</a>
                                                 </div>
                                                 <div class="index-content">
                                                     <div class="panel panel-default">
@@ -525,7 +525,7 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#S">S</a>
+                                                    <a href="#S">S</a>
                                                 </div>
                                                 <div class="index-content">
                                                     <div class="panel panel-default">
@@ -580,7 +580,7 @@
                                             </div>
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
-                                                    <a class="disable" href="#T">T</a>
+                                                    <a href="#T">T</a>
                                                 </div>
                                                 <div class="index-content">
                                                     <div class="panel panel-default">
