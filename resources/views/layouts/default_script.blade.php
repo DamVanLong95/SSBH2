@@ -115,56 +115,47 @@
                             creatediv.setAttribute('id', name);
                             tds.appendChild(creatediv);
                             $('#calculate').click(function(){
-                                var price = $('#price_car').val();//gia goc
+                                var price = $('#price_car').val();
                                 var rate = 1.5;
                                 var checked =0;
                                 var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                 var chks = tblBodyObj.getElementsByTagName("INPUT");
                                 var total =0;
+                               
                                 for(var i=2; i<=25; i++){
                                     if (chks[i].checked) {
                                         checked++;
+                                        // console.log(chks[i].value);
                                         total =(Number(total) + Number(chks[i].value));
                                     }
                                 }
-                               
-                                 if(checked >0){
-                                        var price     = $('#price_car').val();
-                                        var price_root = (price * 1.5)/100;
-                                        var rate      = promotion['promotion'];
-                                        var price_promotion = price_root * (1-rate/100);
-                                        var price_new = Number(price_promotion)+ Number(price_promotion*total/100);
-                                        price_new = Math.round(price_new * 100) / 100 ;
-                                        var div_price = document.getElementById('price_'+indexCol+'');
-                                        div_price.setAttribute('value',(price_new));
-                                        $('#price_'+indexCol+'').html((price_new));
-                                }
-                                var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai
-                                if(checked > 0 && price_discount!=''){
-                                    // console.log(price);
-                                    var price_car = Number(price_discount)+ Number(price_discount*total/100) ;
+                                console.log(checked);
+                                if(checked > 0){
+                                    price = price.replace(/\./g,'').replace(',','.');
+                                    var price_car = price * (rate+total)/100;
                                     $('#price_'+indexCol+'').html((formatMoney(price_car)));
                                 }
-                                else if(price !='' && checked==0){
+                                if(price !='' && checked==0){
+                                    price = price.replace(/\./g,'').replace(',','.');
                                     var price_car = (price * rate)/100;
                                     $('#price_'+indexCol+'').html((formatMoney(price_car)));
                                    
                                 }
+                                
                             });
                             $('#discount').click(function(){
                                 var price_old = $('#price_car').val();
+                                var price_old = price_old.replace(/\./g,'').replace(',','.')
                                 var price_old = (price_old * 1.5)/100;
-                                var rate      = promotion['promotion'];
+                                var rate      = promotion['promotion']
                                 var price_new = price_old * (1-rate/100);
-                                price_new = Math.round(price_new * 100) / 100 ;
-                                var div_price = document.getElementById('price_'+indexCol+'');
-                                div_price.setAttribute('value',(price_new));
                                 $('#price_'+indexCol+'').html((price_new));
                             });
                             $('#before_discount').click(function(){
                                 var price = $('#price_car').val();
+                                var price = price.replace(/\./g,'').replace(',','.');
                                 var  price_car = (price * 1.5)/100;
-                                $('#price_'+indexCol+'').text((price_car));
+                                $('#price_'+indexCol+'').html((price_car));
                                     
                             });
                             for (var i = 7; i <= 30; i++) {
@@ -448,4 +439,3 @@
     });
   });
 </script>
-

@@ -161,7 +161,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-section">
-                        <button type="button" onclick=""> Tìm kiếm doanh nghiệp bảo hiểm</button>
+                        Tìm kiếm doanh nghiệp bảo hiểm
                     </div>
                 </div>
             </div>
@@ -208,10 +208,10 @@
                                     <th class='th-1'>
                                         <div class="left-ctn">
                                             <div class="item phone">
-                                                <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
+                                                <a class="" href="#" target="_blank">1900 9889 65</a>
                                             </div>
                                             <div class="item">
-                                                <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
+                                                <a href="#" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
                                             </div>
                                         </div>
                                         <h4>SANBAOHIEM</h4>
@@ -233,7 +233,7 @@
                                     </td>
                                     <td>
                                         <div class="count-rank-ctn">
-                                            <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                            <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
                                             <div class="service">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
@@ -250,7 +250,7 @@
                                         <div class="select-ctn">
                                             <div class="selection-box">
                                                 <div class=" item select">
-                                                    <select aria-label="Select menu example">
+                                                    <select aria-label="Select menu example" id="purpose">
                                                         <option selected>Mục đích sử dụng</option>
                                                         <option value="1">Xe kinh doanh không vận tải</option>
                                                         <option value="1">Xe kinh doanh chở người</option>
@@ -271,36 +271,38 @@
                                                     </select>
                                                 </div>
                                                 <div class="item select">
-                                                    <select aria-label="Select menu example">
+                                                    <select aria-label="Select menu example" id="prd_date">
                                                         <option selected>Năm sản xuất</option>
-                                                        <option value="2010">2010</option>
-                                                        <option value="2011">2011</option>
-                                                        <option value="2012">2012</option>
-                                                        <option value="2013">2013</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2018">2018</option>
                                                         <option value="2019">2019</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2010">2010</option>
+
+                                                      
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
-                                                <span> Giá trị: </span> <input type="text" placeholder="">
+                                                <span> Giá trị: </span> <input type="text" placeholder="VND"id="price_car" name="price_car" value="">
                                                 </div>
                                             </div>
-                                            <div class="item button-filter">
-                                                <button type="button" onclick="">Tính phí</button>
+                                            <div class="item button-filter" >
+                                                <button type="button" id="calculate">Tính phí</button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="data-detail price-discount">
-                                    <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
+                                    <td><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
                                     <td rowspan="2"></td>
                                 </tr>
                                 <tr class="data-detail price-discount">
-                                    <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
+                                    <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                 </tr>
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
@@ -332,7 +334,7 @@
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>{{$dedutible_data[0]['deductible']}}</td>
+                                    <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
 
@@ -346,9 +348,9 @@
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
                                         <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
-                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
+                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
                                         <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td></td>
@@ -381,14 +383,11 @@
                                     <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td>Example text</td>
                                     <td>
                                         <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
                                         <p class="toggle"><span>(108)</span> Chi nhánh</p>
                                     </td>
-                                    <div id="net-address">
-                                        @include('frontend/pages/network')
-                                    </div>
                                 </tr>
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Đánh giá uy tín</td>
@@ -407,7 +406,74 @@
                             </tbody>
                         </table>
                     </div>
-                    
+                    <div class="network-ctn" id="net-address">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="net-item">
+                                        <h5>Trụ sở chính</h5>
+                                        <div class="address"><p>Tòa nhà ABC số 12345 Hai Bà Trưng Hà Nội  |  12345678910</p></div>
+                                        <div class="address-ctn">
+                                            <select aria-label="Select menu example">
+                                                <option selected>Tỉnh/Thành phố</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="net-item address-detail">
+                                        <h5 data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/address.png?{{ config('custom.version') }}" alt=""></span>Hà Nội <span>(8)</span></h5>
+                                        <hr class="line">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel">
+                                                <div id="collapseOne" class="panel-collapse collapse">
+                                                    <div class="cont">
+                                                        <div class="address-list">
+                                                            <ul>
+                                                                <li class="address-item">
+                                                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
+                                                                    <div class="detail-location"></div>
+                                                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                </li>
+                                                                <li class="address-item">
+                                                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                    <div class="detail-location"></div>
+                                                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                </li>
+                                                                <li class="address-item">
+                                                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                    <div class="detail-location"></div>
+                                                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                </li>
+                                                                <li class="address-item">
+                                                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                    <div class="detail-location"></div>
+                                                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                </li>
+                                                                <li class="address-item">
+                                                                    <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
+                                                                    <div class="detail-location"></div>
+                                                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -418,10 +484,9 @@
 
 <div id="detail-td" class="modal">
     <div class="content-ctn">
-        <p>Thanks for clicking. That felt good.</p>
         <div id="note"></div>
     </div>
-  <a href="#">Mua ngay</a>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
 
 </div>
 <script>
@@ -437,7 +502,7 @@
         var checkBox = document.getElementById('checkbox_bs'+index+'');
         var text = document.getElementById('dkbs'+index+'');
         if(checkBox.checked==true){
-           text.style.display = "block";
+           text.style.display = "inline-flex";
 
         }else{
            text.style.display = "none";
@@ -445,25 +510,50 @@
        
     }
     $(function(){
-    $('#brand').change(function() {
-        var id = $(this).val();
-        $.ajax({
-            url: "{{route('onchange')}}",
-            type: 'post',
-            data: {
-                "_token": "{{ csrf_token() }}",
-                brand_id: id
-            },
-            success: function(data) {
-                console.log(data);
-                $('#cate').html(data.html);
-                // $('#detail-td').modal('show');
+        $('#brand').change(function() {
+           
+            if($("#purpose").is(':selected')){
+                alert(1);
+            }else{
+            var id = $(this).val();
+            $.ajax({
+                url: "{{route('onchange')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    brand_id: id
+                },
+                success: function(data) {
+                    $('#cate').html(data.html);
+                }
+            });
+
             }
+          
+        });
+        $('#prd_date').change(function(){
+            var year = $(this).val();
+            var cate = $('#cate').val();
+            var brand_id= $('#brand').val();
+            $.ajax({
+                url: "{{route('reference')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    brand_id: brand_id,
+                    year_sx : year,
+                    cate_id:cate,
+                },
+                success: function(data) {
+                    // console.log(data);
+                    $('#price_car').val(data.price_car);
+                }
+            });
+
         });
 
-    });
    
-});
+    });
 
     $('.open').click(function(){
   $(this).toggleClass("show hide");
