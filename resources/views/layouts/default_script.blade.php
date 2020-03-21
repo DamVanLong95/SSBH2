@@ -129,7 +129,6 @@
                                         total =(Number(total) + Number(chks[i].value));
                                     }
                                 }
-                                console.log(checked);
                                 if(checked >0){	
                                         var price     = $('#price_car').val();	
                                         var price_root = (price * 1.5)/100;	
@@ -435,9 +434,22 @@
 </script>
 <script>
   $(document).ready(function () {
-    //   sellect All checkbox
-    $('#selectall').click(function () {
-        $('.selectedId').prop('checked', this.checked);
+    $('#selectall_bs').click(function () {
+        var data= <?php echo ($terms_data);?>;
+        var length =<?php  echo count($terms_data);?>;
+       if(this.checked == true){
+           for(var i=0; i< length ;i++){
+            var text= document.getElementById('dkbs'+data[i]['id']+'');
+            text.style.display = "inline-flex";
+           }
+         $('.selectedId').prop('checked', this.checked);
+       }else{
+            for(var i=0; i< length ;i++){
+                    var text= document.getElementById('dkbs'+data[i]['id']+'');
+                    text.style.display = "none";
+            }
+            $('.selectedId').prop('checked', false);
+       }
     });
 
     $('.selectedId').change(function () {

@@ -581,16 +581,16 @@
                         display: none;
                     }
 
-                    .selectedId {
+                    .selectedId,.selectedId2 {
                         opacity: 0;
                         filter: alpha(opacity=0);
                     }
-                    .selectedId + label {
+                    .selectedId+ label,.selectedId2 +label {
                         position: relative;
                         margin-left: 35px;
                         display: inherit;
                     }
-                    .selectedId + label:before,
+                    .selectedId + label:before,.selectedId2 + label:before,
                     .lt-ie8 .checkbox-replacement {
                         content: '';
                         display: inline-flex;
@@ -605,8 +605,8 @@
                         border: 1px solid #ccc;
                         border-radius: 100%;
                     }
-                    .selectedId:checked + label:before,
-                    .lt-ie9 .selectedId.checked + label:before {
+                    .selectedId:checked + label:before, .selectedId2:checked + label:before,
+                    .lt-ie9 .selectedId.checked + label:before,.selectedId2.checked + label:before {
                         content: '';
                         position: relative;
                         top: 0px;
@@ -617,7 +617,7 @@
                         background: $main-color;
                         opacity: 1;
                     }
-                    .selectedId:checked + label::after
+                    .selectedId:checked + label::after,  .selectedId2:checked + label::after
                      {
                         content: '';
                         width: 18px;

@@ -272,19 +272,11 @@
                                                 </div>
                                                 <div class="item select">
                                                     <select aria-label="Select menu example" id="prd_date">
-                                                        <option selected>Năm sản xuất</option>
-                                                        <option value="2019">2019</option>
-                                                        <option value="2018">2018</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2013">2013</option>
-                                                        <option value="2012">2012</option>
-                                                        <option value="2011">2011</option>
-                                                        <option value="2010">2010</option>
-
-                                                      
+                                                    <option selected>Năm sản xuất</option>
+                                                    {{$now = date('Y')}}  
+                                                    @for ($i = $now; $i >=2010 ; $i--)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
@@ -312,8 +304,8 @@
                                 <tr class="select-all">
                                     <td>
                                         <div class="choose-all">
-                                            <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                            <label class="toggle" for="selectall">Chọn tất cả</label>
+                                            <input type="checkbox" id="selectall_bs" class="selectedAll"  ></input>
+                                            <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                         </div>
                                     </td>
                                 </tr>
@@ -323,7 +315,7 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">{{$value['rate_fee']}}% phí</label>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{$value['rate_fee']}}% phí</label>
                                     </td>
                                     <td>
 
@@ -344,11 +336,19 @@
                                 </tr>
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
+                                    <tr class="select-all">
+                                    <td>
+                                        <div class="choose-all">
+                                            <input type="checkbox" id="selectall_lt" class="selectedAll"  ></input>
+                                            <label class="toggle" for="selectall_lt">Chọn tất cả</label>
+                                        </div>
+                                    </td>
+                                </tr>
                                 </tr>
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
+                                        <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
                                         <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
                                         <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
                                         <label class="drop" for="">0.01% phí</label>
