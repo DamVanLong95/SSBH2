@@ -177,7 +177,6 @@
     </div>
 </footer>
 <a class="scrollup"><img src="{{url('assets/images/default/bottom-to-top.png')}}" alt=""></a>
-    @include('layouts.default_script')
     {!! config('custom.embed_footer') !!}
 
     @yield('footer')
