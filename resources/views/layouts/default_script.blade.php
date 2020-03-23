@@ -121,7 +121,6 @@
                                 var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                 var chks = tblBodyObj.getElementsByTagName("INPUT");
                                 var total =0;
-                               
                                 for(var i=2; i<=25; i++){
                                     if (chks[i].checked) {
                                         checked++;
@@ -129,9 +128,19 @@
                                         total =(Number(total) + Number(chks[i].value));
                                     }
                                 }
+                                console.log(total);
+                                for(var i=27; i<chks.length; i++){
+                                    if (chks[i].checked) {
+                                        checked++;
+                                        // console.log(chks[i].value);
+                                        total =(Number(total) + Number(chks[i].value));
+                                    }
+                                }
+                                console.log(total);
+                               
                                 if(checked >0){	
                                         var price     = $('#price_car').val();	
-                                        var price_root = (price * 1.5)/100;	
+                                        var price_root= (price * 1.5)/100;	
                                         var rate      = promotion['promotion'];	
                                         var price_promotion = price_root * (1-rate/100);	
                                         var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
@@ -157,7 +166,7 @@
                                 var price_old = (price_old * 1.5)/100;	
                                 var rate      = promotion['promotion'];	
                                 var price_new = price_old * (1-rate/100);	
-                                price_new = Math.round(price_new * 100) / 100 ;	
+                                price_new = Math.round(price_new * 100) / 100 ;	//lam tron den phan thap phan thu 2
                                 var div_price = document.getElementById('price_'+indexCol+'');	
                                 div_price.setAttribute('value',(price_new));	
                                 $('#price_'+indexCol+'').html((price_new));
@@ -225,9 +234,10 @@
                                 </div>
                                 `;
                             }
-                            for(var j=34 ;j<64;j++){
+                            for(var j=35 ;j<65;j++){
                                 var tds =  tblBodyObj.rows[j].cells[indexCol];
-                                if(exception[j-34]['note_dklt']=== "x" && exception[j-34]['rate_star_dklt']==3)
+                               
+                                if(exception[j-35]['note_dklt']=== "x" && exception[j-35]['rate_star_dklt']==3)
                                 {
                                 tds.innerHTML = 
                                     `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -236,22 +246,22 @@
                                     </div>
                                     `;
                               
-                                }else if(exception[j-34]['rate_star_dklt']=== 5){
-                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>`+`
-                                    <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                }else if(exception[j-35]['rate_star_dklt']=== 5){
+                                    tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>`+`
+                                    <span><button value="`+exception[j-35]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                     <div class="star-td">
                                     <img class="img-fluid" src="`+imgGreen+`" alt="">
                                 </div>
                                     `;
-                                }else if(exception[j-34]['rate_star_dklt']=== 2){
-                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>`+`
-                                    <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                }else if(exception[j-35]['rate_star_dklt']=== 2){
+                                    tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>`+`
+                                    <span><button value="`+exception[j-35]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                     <div class="star-td">
                                     <img class="img-fluid" src="`+imgGray+`" alt="">
                                 </div>
                                     `;
                                 } else{
-                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
+                                    tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>
                                     `;
                                 }
                             }
@@ -433,24 +443,73 @@
     }
 </script>
 <script>
-  $(document).ready(function () {
-    $('#selectall_bs').click(function () {
-        var data= <?php echo ($terms_data);?>;
-        var length =<?php  echo count($terms_data);?>;
-       if(this.checked == true){
-           for(var i=0; i< length ;i++){
-            var text= document.getElementById('dkbs'+data[i]['id']+'');
-            text.style.display = "inline-flex";
-           }
-         $('.selectedId').prop('checked', this.checked);
-       }else{
+    function handleAll(el,length){
+        var terms_data = <?php echo $terms_data?>;
+        var length_terms = terms_data.length;
+        var exception_data  = <?php echo $exception_data?>;
+        var length_exception = exception_data.length;
+        // console.log(terms_data);
+       
+       if(el.checked == true){
+            if(length==length_terms){
+                length=length_terms;
             for(var i=0; i< length ;i++){
-                    var text= document.getElementById('dkbs'+data[i]['id']+'');
-                    text.style.display = "none";
+                var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
+            
+                label_dkbs.style.display = "inline-flex";
+            }
+            $('.selectedId').prop('checked', el.checked);
+            } 
+            if(length==length_exception){
+                length=length_exception;
+                for(var i=0; i< length ;i++){
+                    var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
+                
+                    label_dklt.style.display = "inline-flex";
+                }
+                $('.selectedId2').prop('checked', el.checked);
+            }
+            
+       }else{
+        if(length==length_terms){
+            for(var i=0; i< length ;i++){
+                var text= document.getElementById('dkbs'+terms_data[i]['id']+'');
+                text.style.display = "none";
             }
             $('.selectedId').prop('checked', false);
+        }
+        if(length==length_exception){
+            for(var i=0; i< length ;i++){
+                var text= document.getElementById('dklt'+exception_data[i]['id']+'');
+                text.style.display = "none";
+            }
+            $('.selectedId2').prop('checked', false);
+        }
        }
-    });
+
+        
+
+
+    }
+  $(document).ready(function () {
+   
+    // $('#selectall_bs').click(function () {
+    //     var data = <?php echo ($terms_data);?>;
+    //     var length =<?php  echo count($terms_data);?>;
+    //    if(this.checked == true){
+    //        for(var i=0; i< length ;i++){
+    //         var text= document.getElementById('dkbs'+data[i]['id']+'');
+    //         text.style.display = "inline-flex";
+    //        }
+    //      $('.selectedId').prop('checked', this.checked);
+    //    }else{
+    //         for(var i=0; i< length ;i++){
+    //                 var text= document.getElementById('dkbs'+data[i]['id']+'');
+    //                 text.style.display = "none";
+    //         }
+    //         $('.selectedId').prop('checked', false);
+    //    }
+    // });
 
     $('.selectedId').change(function () {
         var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);

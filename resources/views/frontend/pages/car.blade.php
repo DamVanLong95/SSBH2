@@ -304,7 +304,7 @@
                                 <tr class="select-all">
                                     <td>
                                         <div class="choose-all">
-                                            <input type="checkbox" id="selectall_bs" class="selectedAll"  ></input>
+                                            <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="handleAll(this,{{count($terms_data)}})" >
                                             <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                         </div>
                                     </td>
@@ -315,7 +315,7 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{$value['rate_fee']}}% phí</label>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                     </td>
                                     <td>
 
@@ -339,7 +339,8 @@
                                     <tr class="select-all">
                                     <td>
                                         <div class="choose-all">
-                                            <input type="checkbox" id="selectall_lt" class="selectedAll"  ></input>
+                                            
+                                            <input type="checkbox" id="selectall_lt" name="selectall_lt" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
                                             <label class="toggle" for="selectall_lt">Chọn tất cả</label>
                                         </div>
                                     </td>
@@ -348,10 +349,11 @@
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
+                                        <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
+                                                name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
                                         <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
-                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
+                                        <span class="show-detail"><button value="{{$value['exception']}}" onclick="showMore(this.value)">...</button></span></span>
+                                        <label class="drop" for="" style="display:none" id="dklt{{$value['id']}}">{{isset($value['rate_fee_dklt'])?$value['rate_fee_dklt']:0}}% phí</label>
                                     </td>
                                     <td></td>
                                 </tr>
@@ -496,18 +498,17 @@
     }
 </script>
 <script>
-    
+    function handleCheck(el){
+        var index = $(el).data("id");
+        var checkBox_lt = document.getElementById('checkbox2_'+index+'');
+        var label_lt = document.getElementById('dklt'+index+'');
+        (checkBox_lt.checked==true)  ?  label_lt.style.display = "inline-flex":  label_lt.style.display = "none";;
+    }
     function handleOncick(cb){
         var index = $(cb).data("id");
-        var checkBox = document.getElementById('checkbox_bs'+index+'');
-        var text = document.getElementById('dkbs'+index+'');
-        if(checkBox.checked==true){
-           text.style.display = "inline-flex";
-
-        }else{
-           text.style.display = "none";
-        }
-       
+        var checkBox_bs = document.getElementById('checkbox_bs'+index+'');
+        var label_bs = document.getElementById('dkbs'+index+'');
+        (checkBox_bs.checked==true)  ?  label_bs.style.display = "inline-flex":  label_bs.style.display = "none";;
     }
     $(function(){
         $('#brand').change(function() {

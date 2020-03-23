@@ -21,7 +21,7 @@ class CarController extends Controller
         $dedutible_data  = Summary::select('company_id','deductible','note_dkkt','id')
                         ->take(24)
                         ->get();//Du lieu  khau tru
-        $exception_data =  Summary::select('company_id','exception','note_dklt','id')
+        $exception_data =  Summary::select('company_id','exception','note_dklt','id','rate_fee_dklt')
                         ->take(30)
                         ->get();//Du lieu dieu khoan loai tru
         $punishment = Punishment::select('company_id','sanction','content')
