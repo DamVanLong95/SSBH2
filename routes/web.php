@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/testt', function () {
+return 111;
+});
 Route::get('/', function () {
     return view('frontend.home');
 });
@@ -21,6 +24,7 @@ Route::get('/car','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
 Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
 Route::post('onchange','Car\CarController@onChange')->name('onchange');
+Route::post('reference','Car\CarController@reference')->name('reference');
 
 Route::get('/test', function () {
     return view('frontend.pages.test');
