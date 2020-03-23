@@ -57,9 +57,9 @@
                     },
                     function(data, status, xhr) {
                         if(data.success == true) {
-                            var myTable = document.getElementById('main-tbl');
-                            var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
-                            var tblHeadObj  = document.getElementById('main-tbl').tHead;
+                            var myTable = document.getElementById('main-tbl-sk');
+                            var tblBodyObj  = document.getElementById('main-tbl-sk').tBodies[0];
+                            var tblHeadObj  = document.getElementById('main-tbl-sk').tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                             var notes       = data.summaries;
                             var deductible  = data.deductible;           
@@ -118,7 +118,7 @@
                                 var price = $('#price_car').val();
                                 var rate = 1.5;
                                 var checked =0;
-                                var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
+                                var tblBodyObj  = document.getElementById('main-tbl-sk').tBodies[0];
                                 var chks = tblBodyObj.getElementsByTagName("INPUT");
                                 var total =0;
                                
@@ -130,32 +130,43 @@
                                     }
                                 }
                                 console.log(checked);
-                                if(checked > 0){
-                                    price = price.replace(/\./g,'').replace(',','.');
-                                    var price_car = price * (rate+total)/100;
-                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));
+                                if(checked >0){	
+                                        var price     = $('#price_car').val();	
+                                        var price_root = (price * 1.5)/100;	
+                                        var rate      = promotion['promotion'];	
+                                        var price_promotion = price_root * (1-rate/100);	
+                                        var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
+                                        price_new = Math.round(price_new * 100) / 100 ;	
+                                        var div_price = document.getElementById('price_'+indexCol+'');	
+                                        div_price.setAttribute('value',(price_new));	
+                                        $('#price_'+indexCol+'').html((price_new));	
+                                }	
+                                var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai	
+                                if(checked > 0 && price_discount!=''){	
+                                    // console.log(price);	
+                                    var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
+                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));	
+                                }	
+                                else if(price !='' && checked==0){	
+                                    var price_car = (price * rate)/100;	
+                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));	
+                                   	
                                 }
-                                if(price !='' && checked==0){
-                                    price = price.replace(/\./g,'').replace(',','.');
-                                    var price_car = (price * rate)/100;
-                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));
-                                   
-                                }
-                                
                             });
                             $('#discount').click(function(){
-                                var price_old = $('#price_car').val();
-                                var price_old = price_old.replace(/\./g,'').replace(',','.')
-                                var price_old = (price_old * 1.5)/100;
-                                var rate      = promotion['promotion']
-                                var price_new = price_old * (1-rate/100);
+                                var price_old = $('#price_car').val();	
+                                var price_old = (price_old * 1.5)/100;	
+                                var rate      = promotion['promotion'];	
+                                var price_new = price_old * (1-rate/100);	
+                                price_new = Math.round(price_new * 100) / 100 ;	
+                                var div_price = document.getElementById('price_'+indexCol+'');	
+                                div_price.setAttribute('value',(price_new));	
                                 $('#price_'+indexCol+'').html((price_new));
                             });
                             $('#before_discount').click(function(){
-                                var price = $('#price_car').val();
-                                var price = price.replace(/\./g,'').replace(',','.');
-                                var  price_car = (price * 1.5)/100;
-                                $('#price_'+indexCol+'').html((price_car));
+                                var price = $('#price_car').val();	
+                                var  price_car = (price * 1.5)/100;	
+                                $('#price_'+indexCol+'').text((price_car));
                                     
                             });
                             for (var i = 7; i <= 30; i++) {
@@ -266,14 +277,14 @@
                             console.log("hi");
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            addColumn('main-tbl');
+                            addColumn('main-tbl-sk');
                             dropImage();
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            addColumn('main-tbl');
+                            addColumn('main-tbl-sk');
                             dropImage();
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
@@ -284,7 +295,7 @@
                         }else if(index == 5 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            addColumn('main-tbl');
+                            addColumn('main-tbl-sk');
                             dropImage();
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
@@ -292,7 +303,7 @@
 
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            // addColumn('main-tbl');
+                            // addColumn('main-tbl-sk');
                             dropImage();
                         }else if(index == 3 ){
                             $('th:nth-child('+index+')').remove()
@@ -301,7 +312,7 @@
                             $('#'+idImg+'').draggable({ disabled: false });
                         }
                 });
-                addColumn('main-tbl');
+                addColumn('main-tbl-sk');
                 dropImage();
             },
             out: function( event, ui ){
@@ -312,9 +323,9 @@
     }
 
       function addColumn(tblId) {
-        var myTable = document.getElementById('main-tbl');
+        var myTable = document.getElementById('main-tbl-sk');
         var tblHeadObj = document.getElementById(tblId).tHead;
-        var tableLength = document.getElementById('main-tbl').rows[0].cells.length
+        var tableLength = document.getElementById('main-tbl-sk').rows[0].cells.length
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
           if (tableLength < 5) {
               var creatediv = document.createElement('div');
@@ -333,10 +344,10 @@
                   // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
                   var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
               }
-              var x =  myTable.rows[4].cells;
-              var y =  myTable.rows[5].cells;
-              x[tableLength].setAttribute('rowspan',2);
-              y[1].remove();
+            //   var x =  myTable.rows[4].cells;
+            //   var y =  myTable.rows[5].cells;
+            //   x[tableLength].setAttribute('rowspan',2);
+            //   y[1].remove();
               $('#green_header').next("td").remove()
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
@@ -439,4 +450,3 @@
     });
   });
 </script>
-
