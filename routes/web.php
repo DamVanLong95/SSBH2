@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/testt', function () {
-return 111;
-});
 Route::get('/', function () {
     return view('frontend.home');
 });
@@ -52,6 +49,9 @@ Route::get('/treatment', function () {
 // =====================================Question=================================
 Route::get('/question', function () {
     return view('frontend.pages.question');
+});
+Route::get('/health', function () {
+    return view('frontend.pages.health');
 });
 Auth::routes();
 
