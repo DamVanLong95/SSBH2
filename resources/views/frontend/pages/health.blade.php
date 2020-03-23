@@ -169,42 +169,97 @@
         </div>
     </div>
     <div class="pack-section">
-        <div  class="section-wrapper">
-            <ul id="thumbs" class="section-list">
-                @for($i=1;$i<=10;$i++)
-                <li class="item">
-                    <div class="brand-thumb">
-                        <label for="1">
-                            <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                        </label>
-                        <div class="input-pack">
-                            <input name="type" value="" type="checkbox" id="ala_1"/>
-                            <label class="toggle" for="ala_1"></label>
-                        </div>
-                    </div>
-                </li>
-                @endfor
-            </ul>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="pack-title">
+                    <h4>Tích lũy, tiết kiệm <span>(5)</span></h4>
+                </div>
+                <div  class="section-wrapper">
+                    <ul id="thumbs" class="section-list">
+                        @for($i=1;$i<=10;$i++)
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="1">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_1"/>
+                                    <label class="toggle" for="ala_1"></label>
+                                </div>
+                            </div>
+                        </li>
+                        @endfor
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="paddles">
+                <button class="left-paddle paddle hidden">
+                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
+                </button>
+                <button class="right-paddle paddle">
+                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
+                </button>
+            </div>
         </div>
-        <div class="paddles">
-            <button class="left-paddle paddle hidden">
-                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-            </button>
-            <button class="right-paddle paddle">
-            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-            </button>
+        
+    </div>
+    <div class="pack-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="pack-title">
+                    <h4>Bảo vệ <span>(2)</span></h4>
+                </div>
+                <div  class="section-wrapper">
+                    <ul id="thumbs" class="section-list">
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="1">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_1"/>
+                                    <label class="toggle" for="ala_1"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="2">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_2"/>
+                                    <label class="toggle" for="ala_2"></label>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="paddles">
+                <button class="left-paddle paddle hidden">
+                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
+                </button>
+                <button class="right-paddle paddle">
+                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
+                </button>
+            </div>
         </div>
+        
     </div>
     <div class="table-section-sk">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
-                        <table id="main-tbl2" class="table">
+                        <table id="main-tbl-sk" class="table">
                             <div class="add-del-ctn d-none">
-                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
-                                <input type="button" value="add column" onclick="addColumn('main-tbl')" />
+                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl-sk')" />
+                                <input type="button" value="add column" onclick="addColumn('main-tbl-sks')" />
                             </div>
                             <thead>
                                 <tr class="top-head" >
@@ -358,7 +413,56 @@
         </div>
     </div>
 
-
+    <div id="sk-section3" class="sk-section3">
+        <div class="sec3-wrapper ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="slideKnow" class="swiper-container swiper-sk">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slide-item">
+                                    <div class="item">
+                                        <h4>So sánh bảo hiểm vật chất xe ô tô</h4>
+                                        <div class="description-ctn">
+                                            <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
+                                        </div>
+                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide-item ">
+                                    <div class="item center-item">
+                                        <h4>So sánh bảo hiểm Nhân thọ</h4>
+                                        <div class="description-ctn">
+                                            <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
+                                        </div>
+                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide-item">
+                                    <div class="item">
+                                        <h4>So sánh Bảo hiểm sức khoẻ</h4>
+                                        <div class="description-ctn">
+                                            <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
+                                        </div>
+                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="arrow-ctn ">
+                                <div class="swiper-button-prev">
+                                
+                                </div>
+                                <div class="swiper-button-next">
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="detail-td" class="modal">
