@@ -447,6 +447,23 @@
         (checkBox_bs.checked==true)  ?  label_bs.style.display = "inline-flex":  label_bs.style.display = "none";;
     }
     $(function(){
+        var numShown = 5;
+        var numMore = 19;  
+        var table  = document.getElementById('main-tbl');
+        var  rows   = table.tBodies[0].rows;
+        var length = <?php echo count($terms_data)?>;
+        for( var i=7+numShown; i<= length+6 ;i++)
+            $( rows[i] ).hide();
+        $( rows[length+6] ).after('<tr id="more"><td colspan="2"><div style="color:blue">Show <span>' +
+               numMore + '</span> More</div</td></tr>');
+        $('#more').click(function() {
+            $('#more').remove();
+            for(var i=7+numShown;i<=length+6;i++)
+            $( rows[i]) .show();
+         });
+
+    });
+    $(function(){
         $('#brand').change(function() {
            
             if($("#purpose").is(':selected')){

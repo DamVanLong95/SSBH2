@@ -59,8 +59,8 @@
                     function(data, status, xhr) {
                         if(data.success == true) {
                             var myTable = document.getElementById('main-tbl');
-                            var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
-                            var tblHeadObj  = document.getElementById('main-tbl').tHead;
+                            var tblBodyObj  = myTable.tBodies[0];
+                            var tblHeadObj  = myTable.tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                             var notes       = data.summaries;
                             var deductible  = data.deductible;           
@@ -135,8 +135,6 @@
                                         total =(Number(total) + Number(chks[i].value));
                                     }
                                 }
-                                console.log(total);
-                               
                                 if(checked >0){	
                                         var price     = $('#price_car').val();	
                                         var price_root= (price * 1.5)/100;	
@@ -176,9 +174,9 @@
                                 $('#price_'+indexCol+'').text((price_car));
                                     
                             });
-                            var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
-                            
-                            for (var i = 7; i <= 30; i++) {
+                            var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
+                                max_rows_terms  =terms_data.length+7;
+                            for (var i = 7; i < max_rows_terms; i++) {
                                 tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
@@ -218,7 +216,7 @@
                                 }
                                 
                             }
-                            var i=32;
+                            var i=max_rows_terms+2;
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(deductible[0]['note_dkkt']=== "x")
                             {
@@ -236,11 +234,11 @@
                                 </div>
                                 `;
                             }
-                          
-                            for(var j=35 ;j<35+exception.length;j++){
+                            var max_rows_exception = (i+3) + exception.length;
+                            for(var j=i+3 ;j<max_rows_exception;j++){
 
                                 var tds =  tblBodyObj.rows[j].cells[indexCol];
-                                if(exception[j-35]['note_dklt']=== "x" && exception[j-35]['rate_star_dklt']==3)
+                                if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                 {
                                 tds.innerHTML = 
                                     `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -249,49 +247,50 @@
                                     </div>
                                     `;
                               
-                                }else if(exception[j-35]['rate_star_dklt']=== 5){
-                                    tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>`+`
-                                    <span><button value="`+exception[j-35]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                }else if(exception[j-36]['rate_star_dklt']=== 5){
+                                    tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
+                                    <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                     <div class="star-td">
                                     <img class="img-fluid" src="`+imgGreen+`" alt="">
                                 </div>
                                     `;
-                                }else if(exception[j-35]['rate_star_dklt']=== 2){
-                                    tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>`+`
-                                    <span><button value="`+exception[j-35]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                }else if(exception[j-36]['rate_star_dklt']=== 2){
+                                    tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
+                                    <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                     <div class="star-td">
                                     <img class="img-fluid" src="`+imgGray+`" alt="">
                                 </div>
                                     `;
                                 }else{
-                                    tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>
+                                    tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>
                                     `;
                                 }
                             }
-                            for(var i=66;i<85;i++){
+                            var max_rows_punishment = max_rows_exception + punishment.length
+                            for(var i=max_rows_exception+1;i<max_rows_punishment ;i++){
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                // console.log("line 272",tds);
-                                console.log(punishment);
-                                if(punishment[i-66]['rate_star_ct']== 3)
+                                console.log(tds);
+
+                                if(punishment[i-67]['rate_star_ct']== 3)
                                 {
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`+`
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`+`
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                     </div> `;
-                                }else if(punishment[i-66]['rate_star_ct']== 5){
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`+`
+                                }else if(punishment[i-67]['rate_star_ct']== 5){
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`+`
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                     </div> `;
                                    
-                                }else if(punishment[i-66]['rate_star_ct']== 2){
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`+`
+                                }else if(punishment[i-67]['rate_star_ct']== 2){
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`+`
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                     </div> `;
                                 }
                                 else{
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`;
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`;
                                 }
                             }
                           
