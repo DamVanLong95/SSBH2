@@ -212,9 +212,9 @@
                 <div class="pack-title">
                     <h4>Bảo vệ <span>(2)</span></h4>
                 </div>
-                <div  class="section-wrapper">
-                    <ul id="thumbs" class="section-list">
-                        <li class="item">
+                <div  class="section-wrapper2">
+                    <ul id="thumbs" class="section-list2">
+                        <li class="item2">
                             <div class="brand-thumb">
                                 <label for="1">
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
@@ -225,7 +225,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
+                        <li class="item2">
                             <div class="brand-thumb">
                                 <label for="2">
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
@@ -236,7 +236,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
+                        <li class="item2">
                             <div class="brand-thumb">
                                 <label for="3">
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
@@ -247,7 +247,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
+                        <li class="item2">
                             <div class="brand-thumb">
                                 <label for="4">
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
+                        <li class="item2">
                             <div class="brand-thumb">
                                 <label for="5">
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
@@ -269,7 +269,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
+                        <li class="item2">
                             <div class="brand-thumb">
                                 <label for="6">
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
@@ -284,7 +284,7 @@
                 </div>
                 </div>
             </div>
-            <div class="paddles">
+            <div class="paddles2">
                 <button class="left-paddle2 paddle hidden">
                     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
                 </button>
@@ -349,7 +349,7 @@
                                 </tr>
                           
                                 <tr class="header bg-head-1">
-                                    <td  colspan="2" class="green_header">Điều khoản bổ sung
+                                    <td  colspan="2" class="green_header">Đối tượng bảo hiểm
 
                                     </td>
                                 </tr>
@@ -375,7 +375,7 @@
                                 </tr>
                            
                                 <tr class="header">
-                                    <td  colspan="2" class="green_header">Mức khấu trừ</td>
+                                    <td  colspan="2" class="green_header">Phạm vi lãnh thổ</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>aloha</td>
@@ -387,7 +387,7 @@
                                     </td> -->
                                 </tr>
                                 <tr class="header bg-head-2">
-                                    <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
+                                    <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>
@@ -400,7 +400,7 @@
                                 </tr>
                                 
                                 <tr class="header">
-                                    <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
+                                    <td  colspan="2" class="green_header">Thời gian chờ</td>
                                 </tr>
                                 
                                 <tr class="data-detail">
@@ -408,41 +408,31 @@
                                     <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
+                                    <td  colspan="2" class="green_header">Phí bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
                                     <td></td>
+                                </tr>
+                                
+                                <tr class="header bg-head-4">
+                                    <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td>
+                                        <!-- <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt=""> -->
+                                        <p class="toggle"><span>(108)</span> Chi nhánh</p>
+                                        <tr ><td ></td><td colspan="3">@include('frontend/pages/network')</td></tr>
+                                    </td>
+                                    <!-- <tr >
+                                        <div id="hospital-address">
+                                            @include('frontend/pages/network')
+                                        </div>
+                                    </tr> -->
                                 </tr>
                                 <tr class="header bg-head-3">
-                                    <td  colspan="2" class="green_header">Năng lực tài chính</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
-                                <tr class="header bg-head-4">
-                                    <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
-                                    <td>
-                                        <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                        <p class="toggle"><span>(108)</span> Chi nhánh</p>
-                                    </td>
-                                    <div id="net-address">
-                                        @include('frontend/pages/network')
-                                    </div>
-                                </tr>
-                                <tr class="header">
-                                    <td  colspan="2" class="green_header">Đánh giá uy tín</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
-                                <tr class="header green">
-                                    <td  colspan="2" class="green_header">Mô hình GQPT</td>
+                                    <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
@@ -466,7 +456,6 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
-                                        <h4>So sánh bảo hiểm vật chất xe ô tô</h4>
                                         <div class="description-ctn">
                                             <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
                                         </div>
@@ -475,7 +464,6 @@
                                 </div>
                                 <div class="swiper-slide slide-item ">
                                     <div class="item center-item">
-                                        <h4>So sánh bảo hiểm Nhân thọ</h4>
                                         <div class="description-ctn">
                                             <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
                                         </div>
@@ -484,7 +472,6 @@
                                 </div>
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
-                                        <h4>So sánh Bảo hiểm sức khoẻ</h4>
                                         <div class="description-ctn">
                                             <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
                                         </div>

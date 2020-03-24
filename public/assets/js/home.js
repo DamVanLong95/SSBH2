@@ -22,6 +22,7 @@
             ele.slideTreatment = '.swiper-treatment';
             ele.slideBanner = '.swiper-banner';
             ele.slideKnow = '.swiper-know';
+            ele.slideSk = '.swiper-sk';
         };
 
         this.bindEvents = function() {
@@ -246,6 +247,40 @@
                         }
                     }
                 });
+                var swiper7 = new Swiper(ele.slideSk, {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    // autoplay: {
+                    //     delay: 3000,
+                    // },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    //     clickable: true,
+                    // },
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        991: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+
+                        },
+                        767: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        }
+                    }
+                });
             });
         };
         // ===============Dropdown check====================
@@ -414,7 +449,85 @@
             }, "slow");
         });
         //===============end scroll brand car page=====================
+// =====================scroll health page==================
+        // duration of scroll animation
+        var scrollDuration = 300;
+        // paddles
+        var leftPaddle2 = document.getElementsByClassName('left-paddle2');
+        var rightPaddle2 = document.getElementsByClassName('right-paddle2');
+        // get items dimensions
+        var itemsLength2 = $('.item2').length;
+        var itemSize2 = $('.item2').outerWidth(true);
+        console.log("huhu", leftPaddle2)
 
+        // get wrapper width
+        var getBrandWrapperSize = function() {
+            return $('.section-wrapper2').outerWidth();
+        }
+        var brandWrapperSize2 = getBrandWrapperSize();
+        // the wrapper is responsive
+        $(window).on('resize', function() {
+            brandWrapperSize2 = getBrandWrapperSize();
+        });
+        // size of the visible part of the brand is equal as the wrapper size 
+        var brandVisibleSize2 = brandWrapperSize2;
+
+        // get total width of all brand items
+        var getBrandSize = function() {
+            return itemsLength2 * itemSize2;
+        };
+        var brandSize2 = getBrandSize();
+        // get how much of brand is invisible
+        var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+
+        // get how much have we scrolled to the left
+        var getBrandPosition = function() {
+            return $('.section-list2').scrollLeft();
+        };
+
+        // finally, what happens when we are actually scrolling the brand
+        $('.section-list2').on('scroll', function() {
+
+            // get how much of brand is invisible
+            brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+            // get how much have we scrolled so far
+            var brandPosition2 = getBrandPosition();
+            // get some relevant size for the paddle triggering point
+            var paddleMargin = 20;
+            // console.log("brandPosition", brandPosition);
+            var brandEndOffset2 = brandInvisibleSize2 - paddleMargin;
+            // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
+            // show & hide the paddles 
+            // depending on scroll position
+            if (brandPosition2 <= paddleMargin) {
+                $(leftPaddle2).addClass('hidden');
+                $(rightPaddle2).removeClass('hidden');
+            } else if (brandPosition2 < brandEndOffset2) {
+                // show both paddles in the middle
+                $(leftPaddle2).removeClass('hidden');
+                $(rightPaddle2).removeClass('hidden');
+            } else if (brandPosition2 >= brandEndOffset2) {
+                $(leftPaddle2).removeClass('hidden');
+                $(rightPaddle2).addClass('hidden');
+            }
+
+        });
+
+        // scroll to left
+        $(rightPaddle2).on('click', function() {
+            $('.section-list2').animate({
+                scrollLeft: "+=300px"
+            }, "slow");
+        });
+
+        // scroll to right
+        $(leftPaddle2).on('click', function() {
+            $('.section-list2').animate({
+                scrollLeft: "-=300px"
+            }, "slow");
+        });
+        //===============end scroll health page=====================
+        
         // fold table 
         $(".fold-table tr.view").on("click", function() {
             $(this).toggleClass("open").next(".fold").toggleClass("open");

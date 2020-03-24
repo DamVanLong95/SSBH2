@@ -229,9 +229,9 @@
         var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);
         $('#selectall').prop("checked", check);
     });
-    //   toogle Net address
+    //   toogle hospital address
     $('.toggle').click(function() {
-        $('#net-address').toggle('slow');
+        $('#hospital-address').toggle('slow');
     });
   });
 </script>
