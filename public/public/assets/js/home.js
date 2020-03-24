@@ -449,6 +449,7 @@
             }, "slow");
         });
         //===============end scroll brand car page=====================
+        
 
         // fold table 
         $(".fold-table tr.view").on("click", function() {

@@ -236,15 +236,59 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="3">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_3"/>
+                                    <label class="toggle" for="ala_3"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="4">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_4"/>
+                                    <label class="toggle" for="ala_4"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="5">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_5"/>
+                                    <label class="toggle" for="ala_5"></label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="brand-thumb">
+                                <label for="6">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                    <input name="type" value="" type="checkbox" id="ala_6"/>
+                                    <label class="toggle" for="ala_6"></label>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 </div>
             </div>
             <div class="paddles">
-                <button class="left-paddle paddle hidden">
+                <button class="left-paddle2 paddle hidden">
                     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
                 </button>
-                <button class="right-paddle paddle">
+                <button class="right-paddle2 paddle">
                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
                 </button>
             </div>
