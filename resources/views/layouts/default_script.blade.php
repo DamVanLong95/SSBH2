@@ -48,8 +48,9 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
+               
+
                 var url = '{{route('droppImage')}}';
-                
                 $.post(url,
                     {
                         "_token": "{{ csrf_token() }}",
@@ -124,11 +125,9 @@
                                 for(var i=2; i<=25; i++){
                                     if (chks[i].checked) {
                                         checked++;
-                                        // console.log(chks[i].value);
                                         total =(Number(total) + Number(chks[i].value));
                                     }
                                 }
-                                console.log(total);
                                 for(var i=27; i<chks.length; i++){
                                     if (chks[i].checked) {
                                         checked++;
@@ -177,7 +176,10 @@
                                 $('#price_'+indexCol+'').text((price_car));
                                     
                             });
+                            var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
+                            
                             for (var i = 7; i <= 30; i++) {
+                                tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
                                 var imgOrange = ` {{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}`;

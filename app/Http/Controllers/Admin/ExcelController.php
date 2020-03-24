@@ -16,6 +16,7 @@ use App\Exports\UsersExport;
 use App\Exports\PermissionsExport;
 use App\Exports\FinancesExport;
 use App\Exports\BrandsExport;
+use App\Exports\PunishmentsExport;
 use App\User;
 
 use Maatwebsite\Excel\Facades\Excel;
@@ -39,6 +40,9 @@ class ExcelController extends Controller
     public function indexBrand()
     {
         return view('admin.excel.brand_import');
+    }
+    public function indexPunishment(){
+        return view('admin.excel.punishment_import');
     }
     public function importBrand(Request $request){
         if ($request->hasFile('import_file'))
@@ -93,6 +97,18 @@ class ExcelController extends Controller
         
         return redirect()->back()->with($notification);
     }
+    public function importPunishment(Request $request){
+
+        if ($request->hasFile('import_file'))
+        {
+            Excel::import(new PunishmentsImport, $request->file('import_file'));
+            $notification = array(
+                'message' => 'add successfully!',
+                'alert-type' => 'success'
+            );
+
+        }
+    }
     public function exportCompany(){
         return Excel::download(new CompaniesExport, 'companies.xlsx' );
     }
@@ -123,6 +139,10 @@ class ExcelController extends Controller
     }
     public function exportBrand(){
         return Excel::download(new BrandsExport,'brands.xlsx');
+    }
+    public function exportPunishment()
+    {
+        return Excel::download(new PunishmentsExport,'punishment.xlsx' );
     }
 
 }

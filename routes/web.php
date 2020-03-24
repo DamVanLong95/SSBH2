@@ -81,6 +81,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('finance','Admin\ExcelController@indexFinance')->name('indexFinance.import');
     Route::get('brand','Admin\ExcelController@indexBrand')->name('indexBrand.import');
     Route::get('brand_cate','Admin\ExcelController@indexBrandCate')->name('indexBrandCate.import');
+    Route::get('punishment','Admin\ExcelController@indexPunishment')->name('indexPunishment.import');
  
    
    
@@ -93,6 +94,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('finance','Admin\ExcelController@importFinance')->name('finance.import');
     Route::post('brand','Admin\ExcelController@importBrand')->name('brand.import');
     Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
+    Route::post('punishment','Admin\ExcelController@importPunishment')->name('punishment.import');
 
 //   ============Export excel======================
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
@@ -100,6 +102,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('permission/export','Admin\ExcelController@exportPermission')->name('permission.export');
     Route::get('finance/export','Admin\ExcelController@exportFinance')->name('finance.export');
     Route::get('brand/export','Admin\ExcelController@exportBrand')->name('brand.export');
+    Route::get('punishment/export','Admin\ExcelController@exportPunishment')->name('punishment.export');
 
 
 });

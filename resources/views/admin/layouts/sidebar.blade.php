@@ -12,11 +12,12 @@
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Import Data </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="{{route('excel.company')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Company Table </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexBrand.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Brand(hang xe) </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexBrandCate.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Brand Cate </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexPermission.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Permission </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexFinance.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Finance </span></a></li>
-                        <li class="sidebar-item"><a href="{{route('excel.company')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Company Table </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexPunishment.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Pubnishment </span></a></li>
                     </ul>
                 </li>
             </ul>
