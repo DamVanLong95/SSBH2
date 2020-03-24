@@ -233,7 +233,7 @@
                                     </td>
                                     <td>
                                         <div class="count-rank-ctn">
-                                            <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
+                                            <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
                                             <div class="service">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
@@ -250,7 +250,7 @@
                                         <div class="select-ctn">
                                             <div class="selection-box">
                                                 <div class=" item select">
-                                                    <select aria-label="Select menu example">
+                                                    <select aria-label="Select menu example" id="purpose">
                                                         <option selected>Mục đích sử dụng</option>
                                                         <option value="1">Xe kinh doanh không vận tải</option>
                                                         <option value="1">Xe kinh doanh chở người</option>
@@ -271,36 +271,38 @@
                                                     </select>
                                                 </div>
                                                 <div class="item select">
-                                                    <select aria-label="Select menu example">
+                                                    <select aria-label="Select menu example" id="prd_date">
                                                         <option selected>Năm sản xuất</option>
-                                                        <option value="2010">2010</option>
-                                                        <option value="2011">2011</option>
-                                                        <option value="2012">2012</option>
-                                                        <option value="2013">2013</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2018">2018</option>
                                                         <option value="2019">2019</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2010">2010</option>
+
+                                                      
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
-                                                <span> Giá trị: </span> <input type="text" placeholder="">
+                                                <span> Giá trị: </span> <input type="text" placeholder="VND"id="price_car" name="price_car" value="">
                                                 </div>
                                             </div>
-                                            <div class="item button-filter">
-                                                <button type="button" onclick="">Tính phí</button>
+                                            <div class="item button-filter" >
+                                                <button type="button" id="calculate">Tính phí</button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="data-detail price-discount">
-                                    <td><button type="button" class="btn btn-discount">Phí trước khuyến mại</button></td>
+                                    <td><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
                                     <td rowspan="2"></td>
                                 </tr>
                                 <tr class="data-detail price-discount">
-                                    <td><button type="button" class="btn btn-discount">Phí sau khuyến mại</button></td>
+                                    <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                 </tr>
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
@@ -318,10 +320,10 @@
                                @foreach($terms_data as $key=>$value)  
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="1" />
+                                        <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
+                                        <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">{{$value['rate_fee']}}% phí</label>
                                     </td>
                                     <td>
 
@@ -332,7 +334,7 @@
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>{{$dedutible_data[0]['deductible']}}</td>
+                                    <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
 
@@ -346,9 +348,9 @@
                                 @foreach($exception_data as $value)
                                 <tr class="data-detail">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}" value="1" />
+                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
                                         <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
-                                        <span class="show-detail"><a href="#detail-td" rel="modal:open">...</a></span></span>
+                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
                                         <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td></td>
@@ -418,33 +420,76 @@
 
 <div id="detail-td" class="modal">
     <div class="content-ctn">
-        <p>Thanks for clicking. That felt good.</p>
         <div id="note"></div>
     </div>
-  <a href="#">Mua ngay</a>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
 
 </div>
 <script>
+    function showMore(val){
+     $('#note').html(val);
+     $('#detail-td').modal('show');
+    }
+</script>
+<script>
+    
+    function handleOncick(cb){
+        var index = $(cb).data("id");
+        var checkBox = document.getElementById('checkbox_bs'+index+'');
+        var text = document.getElementById('dkbs'+index+'');
+        if(checkBox.checked==true){
+           text.style.display = "inline-flex";
+
+        }else{
+           text.style.display = "none";
+        }
+       
+    }
     $(function(){
-    $('#brand').change(function() {
-        var id = $(this).val();
-        $.ajax({
-            url: "{{route('onchange')}}",
-            type: 'post',
-            data: {
-                "_token": "{{ csrf_token() }}",
-                brand_id: id
-            },
-            success: function(data) {
-                console.log(data);
-                $('#cate').html(data.html);
-                // $('#detail-td').modal('show');
+        $('#brand').change(function() {
+           
+            if($("#purpose").is(':selected')){
+                alert(1);
+            }else{
+            var id = $(this).val();
+            $.ajax({
+                url: "{{route('onchange')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    brand_id: id
+                },
+                success: function(data) {
+                    $('#cate').html(data.html);
+                }
+            });
+
             }
+          
+        });
+        $('#prd_date').change(function(){
+            var year = $(this).val();
+            var cate = $('#cate').val();
+            var brand_id= $('#brand').val();
+            $.ajax({
+                url: "{{route('reference')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    brand_id: brand_id,
+                    year_sx : year,
+                    cate_id:cate,
+                },
+                success: function(data) {
+                    // console.log(data);
+                    $('#price_car').val(data.price_car);
+                }
+            });
+
         });
 
-    });
    
-});
+    });
 
     $('.open').click(function(){
   $(this).toggleClass("show hide");
@@ -461,5 +506,5 @@ $('.close').click(function(){
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
 
-    <script src="{{ url('assets/js/contest.js?'.config('custom.version')) }}"></script>
+    @include('layouts.default_script')
 @stop

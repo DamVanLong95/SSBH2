@@ -13,6 +13,7 @@
 
 <script>
     dropImage();
+    
     function dropImage(){
         $('img.thumb').draggable({
             containment: '#layout-area',
@@ -48,14 +49,13 @@
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
                 var url = '{{route('droppImage')}}';
+                
                 $.post(url,
                     {
                         "_token": "{{ csrf_token() }}",
                         id: idImg
                     },
                     function(data, status, xhr) {
-                        var notes = data.summaries;
-                      
                         if(data.success == true) {
                             var myTable = document.getElementById('main-tbl');
                             var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
@@ -63,26 +63,150 @@
                             var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                             var notes       = data.summaries;
                             var deductible  = data.deductible;           
-                            var exception  = data.exception;  
+                            var exception   = data.exception;  
                             var punishment  = data.punishment;
+                            var promotion   = data.promotion;
+                            var terms_data        = data.terms;
+                            var term       = data.terms
 
-                            for (var i = 7; i < 30; i++) {
+                            //calculate star
+                            var count_star_green = 0;
+                            var count_star_orange = 0;
+                            var count_star_gray = 0;
+                            for(var j=0;j<terms_data.length;j++){
+                                if(terms_data[j]['rate_star_dkbs'] == 5){
+                                    count_star_green++;
+                                }else if(terms_data[j]['rate_star_dkbs'] == 3){
+                                    count_star_orange++;
+                                }else if(terms_data[j]['rate_star_dkbs'] == 2){
+                                    count_star_gray++;
+                                }
+                            }
+                            for(var k=0;k < exception.length;k++){
+                                if(exception[k]['rate_star_dklt'] == 5){
+                                    count_star_green++;
+                                }else if(exception[k]['rate_star_dklt'] == 3){
+                                    count_star_orange++;
+                                }else if(exception[k]['rate_star_dklt'] == 2){
+                                    count_star_gray++;
+                                }
+                            }
+                            var total_star = count_star_gray + count_star_green +count_star_orange;
+                            var point = 1/(total_star)*(count_star_green + 3/4*count_star_orange + 1/2*count_star_gray)*10;
+                            var tdsss =  myTable.rows[1].cells[indexCol];
+                            var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
+                            var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
+                            var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                            tdsss.innerHTML = `
+                                <div class="count-rank-ctn" >
+                                    <div class="mark-num"><p><span class="first-span" >`+Math.round(point)+`</span>/<span>10</span></p></div>
+                                    <div class="service">
+                                        <img src="`+path_camera+`"alt="">
+                                        <img src="`+path_phone+`"alt="">
+                                        <img src="`+path_mess+`"alt="">
+                                    </div>
+                                </div>
+                            `;
+                            
+                            //set id for column have price car
+                            var tds         =  tblBodyObj.rows[3].cells[indexCol];
+                            var creatediv   = document.createElement('div');
+                            var name        ='price_'+indexCol+'';
+                            creatediv.setAttribute('id', name);
+                            tds.appendChild(creatediv);
+                            $('#calculate').click(function(){
+                                var price = $('#price_car').val();
+                                var rate = 1.5;
+                                var checked =0;
+                                var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
+                                var chks = tblBodyObj.getElementsByTagName("INPUT");
+                                var total =0;
+                               
+                                for(var i=2; i<=25; i++){
+                                    if (chks[i].checked) {
+                                        checked++;
+                                        // console.log(chks[i].value);
+                                        total =(Number(total) + Number(chks[i].value));
+                                    }
+                                }
+                                console.log(checked);
+                                if(checked >0){	
+                                        var price     = $('#price_car').val();	
+                                        var price_root = (price * 1.5)/100;	
+                                        var rate      = promotion['promotion'];	
+                                        var price_promotion = price_root * (1-rate/100);	
+                                        var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
+                                        price_new = Math.round(price_new * 100) / 100 ;	
+                                        var div_price = document.getElementById('price_'+indexCol+'');	
+                                        div_price.setAttribute('value',(price_new));	
+                                        $('#price_'+indexCol+'').html((price_new));	
+                                }	
+                                var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai	
+                                if(checked > 0 && price_discount!=''){	
+                                    // console.log(price);	
+                                    var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
+                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));	
+                                }	
+                                else if(price !='' && checked==0){	
+                                    var price_car = (price * rate)/100;	
+                                    $('#price_'+indexCol+'').html((formatMoney(price_car)));	
+                                   	
+                                }
+                            });
+                            $('#discount').click(function(){
+                                var price_old = $('#price_car').val();	
+                                var price_old = (price_old * 1.5)/100;	
+                                var rate      = promotion['promotion'];	
+                                var price_new = price_old * (1-rate/100);	
+                                price_new = Math.round(price_new * 100) / 100 ;	
+                                var div_price = document.getElementById('price_'+indexCol+'');	
+                                div_price.setAttribute('value',(price_new));	
+                                $('#price_'+indexCol+'').html((price_new));
+                            });
+                            $('#before_discount').click(function(){
+                                var price = $('#price_car').val();	
+                                var  price_car = (price * 1.5)/100;	
+                                $('#price_'+indexCol+'').text((price_car));
+                                    
+                            });
+                            for (var i = 7; i <= 30; i++) {
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
                                 var imgOrange = ` {{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}`;
                                 var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                 var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                                if(notes[i-7]['note_more']==="-----") {
-                                    tds.innerHTML = `<p>`+notes[i-7]['note_more']+`</p>`;
-                                }else{
-                                    tds.innerHTML =`<p>`+notes[i-7].note_more+`</p>`+`
-                                                    <span><button value="`+notes[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                if(terms_data[i-7]['note_more']==="-----") {
+                                    tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                }
+                                if(terms_data[i-7]['rate_star_dkbs'] == 5){
+                                    tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                     </div>
 
                                     `;
+                                }else if(terms_data[i-7]['rate_star_dkbs']==3){
+                                    tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+
+                                    `;
+                                }else if(terms_data[i-7]['rate_star_dkbs']==2){
+                                    tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                                    <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                    </div>
+
+                                    `;
+                                }else{
+                                    tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
+                                    `;
                                 }
+                                
                             }
                             var i=32;
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
@@ -104,7 +228,7 @@
                             }
                             for(var j=34 ;j<64;j++){
                                 var tds =  tblBodyObj.rows[j].cells[indexCol];
-                                if(exception[j-34]['note_dklt']=== "x")
+                                if(exception[j-34]['note_dklt']=== "x" && exception[j-34]['rate_star_dklt']==3)
                                 {
                                 tds.innerHTML = 
                                     `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -112,24 +236,32 @@
                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                     </div>
                                     `;
-                                }else if(exception[j-34]['note_dklt']=== "-----"){
-                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
-                                    `;
-                                }else{
+                              
+                                }else if(exception[j-34]['rate_star_dklt']=== 5){
                                     tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>`+`
                                     <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                     <div class="star-td">
                                     <img class="img-fluid" src="`+imgGreen+`" alt="">
                                 </div>
                                     `;
+                                }else if(exception[j-34]['rate_star_dklt']=== 2){
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>`+`
+                                    <span><button value="`+exception[j-34]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                    <div class="star-td">
+                                    <img class="img-fluid" src="`+imgGray+`" alt="">
+                                </div>
+                                    `;
+                                } else{
+                                    tds.innerHTML =`<p>`+exception[j-34]['note_dklt']+`</p>
+                                    `;
                                 }
                             }
-                            for(var i=65;i<84;i++){
-                                var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
-                                console.log("line 144",tds);
-                            }
-                            
+                            // for(var i=65;i<84;i++){
+                            //     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            //     tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
+                            //     console.log("line 144",tds);
+                            // }
+                          
                         }
                     }).done(function() {
                         // alert('Request done!');
@@ -179,19 +311,12 @@
                             $('#checkbox_'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }
-                    // span.parent().find('img').remove();
-                    // span.parent().removeClass('dropped');
-                    // span.parent().removeClass('img-inserted');
-                    // span.remove();
-                    // $('table tr').find('td:eq(n),th:eq(n)').remove();
-                    // $("table tr").find("th:eq("+index+"), td:eq("+(index-1)+")").remove();
                 });
                 addColumn('main-tbl');
                 dropImage();
             },
             out: function( event, ui ){
                 $(this).removeClass('dropped');
-                // ui.draggable.removeClass('dropped');
             }
 
         });
@@ -216,22 +341,8 @@
               var tblBodyObj = document.getElementById(tblId).tBodies[0];
               for (var i = 0; i < tblBodyObj.rows.length; i++) {
                   var newCell = tblBodyObj.rows[i].insertCell(-1);
-
                   // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
                   var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
-                  var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
-                  var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
-                  var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
-                 divs.innerHTML = `
-                     <div class="count-rank-ctn" >
-                        <div class="mark-num"><p><span class="first-span">08</span>/<span>10</span></p></div>
-                         <div class="service">
-                            <img src="`+path_camera+`"alt="">
-                            <img src="`+path_phone+`"alt="">
-                            <img src="`+path_mess+`"alt="">
-                        </div>
-                    </div>
-                `;
               }
               var x =  myTable.rows[4].cells;
               var y =  myTable.rows[5].cells;
@@ -272,9 +383,33 @@
             }
         });
     }
+    $(function(){
+       
+        // $('#calculate').click(function(){
+        //    var price = $('#price_car').val();
+        //    $('#price').html(price);
+            
+        // })
+        
+    });
 </script>
 
 <script>
+    function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+        try {
+            decimalCount = Math.abs(decimalCount);
+            decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+            const negativeSign = amount < 0 ? "-" : "";
+
+            let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+            let j = (i.length > 3) ? i.length % 3 : 0;
+
+            return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+        } catch (e) {
+            console.log(e)
+        }
+    };
    /* window.onscroll = function() {fixedTop()};
 
     var tblHeader = document.getElementById("tableHeader");
@@ -315,4 +450,3 @@
     });
   });
 </script>
-

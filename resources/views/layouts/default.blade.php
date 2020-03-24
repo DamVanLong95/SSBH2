@@ -55,8 +55,9 @@
                         <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
                         <ul>
                             <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
+                            <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
                             <li><a href="#">So sánh bảo hiểm nhân thọ</a></li>
-                            <li><a href="#">So sánh bảo hiểm sức khỏe</a></li>
+                           
                         </ul>
                     </li>
                 </ul>
@@ -177,7 +178,6 @@
     </div>
 </footer>
 <a class="scrollup"><img src="{{url('assets/images/default/bottom-to-top.png')}}" alt=""></a>
-    @include('layouts.default_script')
     {!! config('custom.embed_footer') !!}
 
     @yield('footer')
