@@ -36,12 +36,16 @@
     }
     .section-wrapper {
         position: relative;
+        
         max-width: 990px;
         height: 120px; // hide the scroll bar
         margin: auto;
         // border: 1px solid black;
         overflow-x: hidden;
         overflow-y: hidden;
+        @media(max-width: 1440px) {
+            max-width: 990px;
+        }
         .section-list {
             height: 240px; // hide the scroll bar
             // background: #f3f3f3;
@@ -130,8 +134,8 @@
             background: transparent;
         }
     }
-    .left-paddle {
-        left: 13%;
+    .left-paddle, .left-paddle2 {
+        left: 0%;
         transform: translate(30%, -85%);
         top: -30px;
         bottom: -60px;
@@ -139,8 +143,8 @@
             left: 2%;
         }
     }
-    .right-paddle {
-        right: 15%;
+    .right-paddle,.right-paddle2 {
+        right: 4%;
         transform: translate(30%, -85%);
         top: -30px;
         bottom: -60px;
