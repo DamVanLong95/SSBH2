@@ -457,25 +457,40 @@
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
                                         <div class="description-ctn">
-                                            <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
+                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
                                         <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                        <div class="modal-popup-ctn">
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide slide-item ">
                                     <div class="item center-item">
                                         <div class="description-ctn">
-                                            <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
+                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
                                         <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
+                                        <div class="modal-popup-ctn">
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
                                         <div class="description-ctn">
-                                            <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
+                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
                                         <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
+                                        <div class="modal-popup-ctn">
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
