@@ -363,7 +363,7 @@
                                 </tr>
                                 @foreach($punishment as $value)
                                 <tr class="data-detail">
-                                    <td>{{$value['sanction']}}</td>
+                                    <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                     <td></td>
                                 </tr>
                                 @endforeach

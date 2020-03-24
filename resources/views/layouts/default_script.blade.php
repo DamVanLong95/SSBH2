@@ -68,7 +68,7 @@
                             var punishment  = data.punishment;
                             var promotion   = data.promotion;
                             var terms_data        = data.terms;
-                            var term       = data.terms
+                            // var term       = data.terms
 
                             //calculate star
                             var count_star_green = 0;
@@ -236,9 +236,10 @@
                                 </div>
                                 `;
                             }
-                            for(var j=35 ;j<65;j++){
+                          
+                            for(var j=35 ;j<35+exception.length;j++){
+
                                 var tds =  tblBodyObj.rows[j].cells[indexCol];
-                               
                                 if(exception[j-35]['note_dklt']=== "x" && exception[j-35]['rate_star_dklt']==3)
                                 {
                                 tds.innerHTML = 
@@ -262,16 +263,37 @@
                                     <img class="img-fluid" src="`+imgGray+`" alt="">
                                 </div>
                                     `;
-                                } else{
+                                }else{
                                     tds.innerHTML =`<p>`+exception[j-35]['note_dklt']+`</p>
                                     `;
                                 }
                             }
-                            // for(var i=65;i<84;i++){
-                            //     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            //     tds.innerHTML =`<button type="btn btn-primary">`+punishment[i-65]['content']+`</a>`; 
-                            //     console.log("line 144",tds);
-                            // }
+                            for(var i=66;i<85;i++){
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                // console.log("line 272",tds);
+                                console.log(punishment);
+                                if(punishment[i-66]['rate_star_ct']== 3)
+                                {
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`+`
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div> `;
+                                }else if(punishment[i-66]['rate_star_ct']== 5){
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`+`
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                    </div> `;
+                                   
+                                }else if(punishment[i-66]['rate_star_ct']== 2){
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`+`
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                    </div> `;
+                                }
+                                else{
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-66]['content']+`</p>`;
+                                }
+                            }
                           
                         }
                     }).done(function() {
@@ -396,11 +418,9 @@
     }
     $(function(){
        
-        // $('#calculate').click(function(){
-        //    var price = $('#price_car').val();
-        //    $('#price').html(price);
-            
-        // })
+        $("#expand").click(function() {
+            $("[data-rows='togglerow']").show();
+        })
         
     });
 </script>

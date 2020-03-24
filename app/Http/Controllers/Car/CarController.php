@@ -53,7 +53,7 @@ class CarController extends Controller
         $permissions = Permission::select('company_id','rules_owner','note_rule')
                     ->where('company_id' ,'=', $company_id)
                     ->get();
-        $punishment = Punishment::select('company_id','sanction','content')
+        $punishment = Punishment::select('company_id','sanction','content','rate_star_ct')
                     ->where('company_id' ,'=', $company_id)
                     ->get();
         $promotion  = $summaries->first();//KHUYEN MAI

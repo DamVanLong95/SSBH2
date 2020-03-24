@@ -10,6 +10,7 @@ use App\Imports\FinancesImport;
 use App\Imports\BrandsImport;
 use App\Imports\SummationsImport;
 use App\Imports\ValidateExcel;
+use App\Imports\PunishmentsImport;
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
 use App\Exports\UsersExport;
@@ -94,6 +95,7 @@ class ExcelController extends Controller
             );
 
         }
+        return redirect()->back()->with($notification);
         
         return redirect()->back()->with($notification);
     }
@@ -108,6 +110,7 @@ class ExcelController extends Controller
             );
 
         }
+        return redirect()->back()->with($notification);
     }
     public function exportCompany(){
         return Excel::download(new CompaniesExport, 'companies.xlsx' );

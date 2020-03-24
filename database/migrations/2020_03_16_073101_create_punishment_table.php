@@ -16,8 +16,9 @@ class CreatePunishmentTable extends Migration
         Schema::create('punishment', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('company_id');
-            $table->text('sanction');//che tai
-            $table->text('content');//ghi chu
+            $table->text('sanction')->nullable();//che tai
+            $table->text('content')->nullable();//ghi chu
+            $table->float('rate_star_ct')->nullable();
             $table->timestamps();
         });
     }
