@@ -216,7 +216,7 @@
                                 }
                                 
                             }
-                            var i=max_rows_terms+2;
+                            var i= max_rows_terms+2;
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(deductible[0]['note_dkkt']=== "x")
                             {
@@ -266,31 +266,28 @@
                                     `;
                                 }
                             }
-                            var max_rows_punishment = max_rows_exception + punishment.length
-                            for(var i=max_rows_exception+1;i<max_rows_punishment ;i++){
+                            for(var i=68;i <= 86 ;i++){
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                console.log(tds);
-
-                                if(punishment[i-67]['rate_star_ct']== 3)
+                                if(punishment[i-68]['rate_star_ct']== 3)
                                 {
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`+`
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                     </div> `;
-                                }else if(punishment[i-67]['rate_star_ct']== 5){
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`+`
+                                }else if(punishment[i-68]['rate_star_ct']== 5){
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                     </div> `;
                                    
-                                }else if(punishment[i-67]['rate_star_ct']== 2){
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`+`
+                                }else if(punishment[i-68]['rate_star_ct']== 2){
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
                                                    <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                     </div> `;
                                 }
                                 else{
-                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-67]['content']+`</p>`;
+                                    tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
                                 }
                             }
                           
