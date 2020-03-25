@@ -502,8 +502,14 @@
                     }
                     img.net-img {
                         position: relative;
-                        top: 50px;
+                        // top: 50px;
                     }
+                }
+                td.empty-first{
+                    border-top: 0px solid !important;
+                }
+                td.empty-first2{
+                    border-bottom: 0px solid !important;
                 }
                 td.first-col {
                     text-transform: uppercase;
@@ -633,14 +639,14 @@
         }
     }
     .sized {
-        width: 125px;
+        width: 100px;
         border-radius: 50%;
         margin: auto;
         left: 0;
         right: 0;
         position: absolute;
         top: 0;
-        bottom: 0;
+        bottom: 45px;
     }
     .img-container {
         // width: 100%;
@@ -680,6 +686,7 @@
                 // margin-right: 15px !important;
                 .item {
                     padding: 0 25px;
+                    margin: 15% 0;
                     h4 {
                         font-family: UTM_Helve;
                         text-transform: uppercase;
@@ -694,10 +701,32 @@
                     img {
                         width: 100%;
                     }
+                    .description-ctn{
+
+                    }
+                    .modal-popup-ctn{
+                        margin: 15px 0;
+                        p{
+                            margin-bottom: 8px;
+                            a{
+                                color: #58595b;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                    &:hover{
+                        box-shadow: -4px 3px 50px 0px rgba(0, 0, 0, 0.5);
+                        .description-ctn{
+                            p{
+                                color: $main-color;
+                                font-family: UTM_HelveBold;
+                            }
+                        }
+                    }
                 }
                 &:nth-child(2n) {
-                    border-left: 1px solid #000;
-                    border-right: 1px solid #000;
+                    // border-left: 1px solid #000;
+                    // border-right: 1px solid #000;
                 }
                 .center-item {
                     &::before {
@@ -747,13 +776,20 @@
                 margin: auto;
             }
         }
+        .sec3-title{
+            margin: 5% 0;
+            h3{
+                font-family: UTM_Helve;
+                color: $main-color;
+            }
+        }
     }
     .description-ctn {
         height: 88px;
     }
 }
 // ================================network==============================
-#hospital-address {
+#hospital-tr {
     display: none;
     position: relative;
     // transform: translate(18%, 36%);
@@ -774,6 +810,7 @@
     .address-detail {
         h5 {
             cursor: pointer;
+            text-align: left;
             span {
                 img {
                     width: 15px;
@@ -796,6 +833,10 @@
         }
     }
     .net-item {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 3% 0;
         .address-ctn {
             width: 36%;
             margin-bottom: 2%;
@@ -816,20 +857,21 @@
         hr.line {
             border: 1px solid $main-color;
         }
-        .address-list {
-            // height: 100px;
-            overflow: auto;
-            // width: 100%;
-            ul {
-                list-style: none;
-                li.address-item {
-                    display: flex;
-                    justify-content: space-between;
-                    flex-direction: row;
-                    .no span {
-                        color: $main-color;
-                        padding-right: 20px;
-                    }
+        
+    }
+    .address-list {
+        // height: 100px;
+        overflow: auto;
+        // width: 100%;
+        ul {
+            list-style: none;
+            li.address-item {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                .no span {
+                    color: $main-color;
+                    padding-right: 20px;
                 }
             }
         }

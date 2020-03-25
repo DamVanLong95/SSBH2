@@ -533,17 +533,43 @@
             $(this).toggleClass("open").next(".fold").toggleClass("open");
         });
         // end fold table
-        // =========================mega drop down======================
-        $('.open').click(function() {
-            $(this).toggleClass("show hide");
-            $('.content').toggleClass("show hide");
-        });
-
-        $('.close').click(function() {
-            $('.content').toggleClass("show hide");
-            $('.open').toggleClass("show hide");
-        });
-        // ========================end mega dropdown======================
+        // =========================health drop down======================
+        $(".custom-select-fix").each(function() {
+            var classes = $(this).attr("class"),
+            id      = $(this).attr("id"),
+            name    = $(this).attr("name");
+            var template =  '<div class="' + classes + '">';
+            template += '<span class="custom-select-fix-trigger">' + $(this).attr("placeholder") + '</span>';
+            template += '<div class="custom-options">';
+            $(this).find("option").each(function() {
+                template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+            });
+            template += '</div></div>';
+            
+            $(this).wrap('<div class="custom-select-fix-wrapper"></div>');
+            $(this).hide();
+            $(this).after(template);
+          });
+          $(".custom-option:first-of-type").hover(function() {
+            $(this).parents(".custom-options").addClass("option-hover");
+          }, function() {
+            $(this).parents(".custom-options").removeClass("option-hover");
+          });
+          $(".custom-select-fix-trigger").on("click", function() {
+            $('html').one('click',function() {
+              $(".custom-select-fix").removeClass("opened");
+            });
+            $(this).parents(".custom-select-fix").toggleClass("opened");
+            event.stopPropagation();
+          });
+          $(".custom-option").on("click", function() {
+            $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+            $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+            $(this).addClass("selection");
+            $(this).parents(".custom-select-fix").removeClass("opened");
+            $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
+          });
+        // ========================end health dropdown======================
         // =======================select dropdown=========================
         $('.dropdown2 > .caption').on('click', function() {
             $(this).parent().toggleClass('open');

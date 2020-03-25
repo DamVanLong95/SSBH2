@@ -319,7 +319,15 @@
                                         <h4>SANBAOHIEM</h4>
                                     </th>
                                     <th class="col2">
-                                        <div class="img-container"></div>
+                                        <div class="img-container">
+                                            <div class="select-ctn">
+                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
+                                                    <option value="1">Chương trình vàng</option>
+                                                    <option value="2">Chương trình bạc</option>
+                                                    <option value="3">Chương trình đồng</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </th>
                                 </tr>
                             </thead>
@@ -342,6 +350,7 @@
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
                                             </div>
                                         </div>
+
                                     </td>
                                 </tr>
                                 <tr class="green1">
@@ -419,12 +428,16 @@
                                     <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td class="text-center empty-first2"></td>
                                     <td>
-                                        <!-- <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt=""> -->
-                                        <p class="toggle"><span>(108)</span> Chi nhánh</p>
-                                        <tr ><td ></td><td colspan="3">@include('frontend/pages/network')</td></tr>
+                                        <p class="toggle"><span>(108)</span> Bệnh viện</p>
+                                        
                                     </td>
+                                    <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
+                                        <td class="hospital_header" colspan="1">
+                                            @include('frontend/pages/hospital')
+                                        </td>
+                                    </tr>
                                     <!-- <tr >
                                         <div id="hospital-address">
                                             @include('frontend/pages/network')
@@ -452,6 +465,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        <div class="sec3-title">
+                            <h3>Sản phẩm bảo hiểm mới</h3>
+                        </div>
                         <div id="slideKnow" class="swiper-container swiper-sk">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide slide-item">
@@ -459,7 +475,7 @@
                                         <div class="description-ctn">
                                             <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
-                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
                                         <div class="modal-popup-ctn">
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
@@ -472,7 +488,7 @@
                                         <div class="description-ctn">
                                             <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
-                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
                                         <div class="modal-popup-ctn">
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
@@ -485,7 +501,7 @@
                                         <div class="description-ctn">
                                             <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
-                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
                                         <div class="modal-popup-ctn">
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>

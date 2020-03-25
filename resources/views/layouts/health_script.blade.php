@@ -118,6 +118,7 @@
               $('#select_box').attr("colspan", tableLength +1)
               $('#select_all').attr("colspan", tableLength +1)
               $('.green_header').attr("colspan", tableLength +1)
+              $('.hospital_header').attr("colspan", tableLength )
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -137,6 +138,7 @@
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
               $('.green_header').next("td").remove()
+              $('.hospital_header').next("td").remove()
 
           }
         }
@@ -231,7 +233,7 @@
     });
     //   toogle hospital address
     $('.toggle').click(function() {
-        $('#hospital-address').toggle('slow');
+        $('#hospital-tr').toggle('slow');
     });
   });
 </script>
