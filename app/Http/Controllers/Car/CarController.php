@@ -7,6 +7,7 @@ use App\Summary;
 use App\Permission;
 use App\Punishment;
 use App\Brand;
+use App\Finance;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,10 +31,14 @@ class CarController extends Controller
         $brands      = Brand::select('id','name','status')
                     ->where('status','=',1)
                     ->get();
-        // dd($brand);
-                       
+        $permission  = Permission::select('company_id','note_rule','rules_owner')
+                    ->take(24)
+                    ->get();
+        $finances   = Finance::select('company_id','finance','money')
+                    ->take(17)
+                    ->get();
         return  view('frontend.pages.car',compact([
-                'companies','terms_data','dedutible_data','exception_data','punishment','brands'
+                'companies','terms_data','dedutible_data','exception_data','punishment','brands','permission','finances'
                  ]));
     }
     public function droppImage( Request $request)
@@ -50,7 +55,7 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(1)
                     ->get();
-        $permissions = Permission::select('company_id','rules_owner','note_rule')
+        $permissions = Permission::select('company_id','rules_owner','note_rule','rate_star_nv')
                     ->where('company_id' ,'=', $company_id)
                     ->get();
         $punishment = Punishment::select('company_id','sanction','content','rate_star_ct')
@@ -61,7 +66,9 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();//DIEU KHOAN BO SUNG
-                    // dd($terms);
+        $finances   = Finance::select('company_id','finance','money')
+                    ->where('company_id', '=', $company_id)
+                    ->get();
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
@@ -71,6 +78,7 @@ class CarController extends Controller
             'punishment'    => $punishment,
             'promotion'     => $promotion,
             'terms'         => $terms,
+            'finances'      =>$finances  
         ]);
     }
     public function showInfo(Request $request)

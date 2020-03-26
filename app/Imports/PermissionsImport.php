@@ -17,12 +17,13 @@ class PermissionsImport implements ToModel ,WithHeadingRow
     public function model(array $row)
     {
         DB::beginTransaction();
-        // dd($row['id_cong_ty']);
+        // dd($row);
         try {
             Permission::create([
                 'company_id'         => $row['id_cong_ty'],
                 'rules_owner'        => $row['quyen_va_nghia_vu'],
-                'note_rule'          => $row['ghi_chu_ve_quyen']
+                'note_rule'          => $row['ghi_chu_ve_quyen'],
+                'rate_star_nv'       => $row['danh_gia']
             ]);
 
             DB::commit();

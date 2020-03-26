@@ -68,7 +68,9 @@
                             var punishment  = data.punishment;
                             var promotion   = data.promotion;
                             var terms_data        = data.terms;
-                            // var term       = data.terms
+                            var permissions       = data.permissions;
+                            var finances    = data.finances;
+                            // console.log(finances);
 
                             //calculate star
                             var count_star_green = 0;
@@ -290,6 +292,36 @@
                                     tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
                                 }
                             }
+                            for(var i=88;i<88+permissions.length;i++){
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                
+                                if(permissions[i-88]['rate_star_nv']== 3)
+                                {
+                                    tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`+`
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div> `;
+                                }else if(permissions[i-88]['rate_star_nv']== 5){
+                                    tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`+`
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                    </div> `;
+                                   
+                                }else if(permissions[i-88]['rate_star_nv']== 2){
+                                    tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`+`
+                                                   <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                    </div> `;
+                                }
+                                else{
+                                    tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`;
+                                }
+                            }
+                            for(var i =113; i<113+finances.length;i++){
+                                var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-113]['money'],0)+`</p>`
+                            }
+
                           
                         }
                     }).done(function() {

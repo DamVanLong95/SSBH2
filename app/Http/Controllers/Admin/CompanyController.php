@@ -82,6 +82,7 @@ class CompanyController extends Controller
     public function update(Request $request)
 
     {
+        dd($request->all());
         if($request->hasFile('file')) {
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();

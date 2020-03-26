@@ -57,16 +57,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
-    Route::get('posts','Admin\PostController@index')->name('posts.index');
+    Route::resource('posts','Admin\PostController',['except'=>'show']);
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
-    Route::get('posts/create','Admin\PostController@create')->name('post.create');
-    Route::post('posts/store','Admin\PostController@store')->name('post.store');
-    Route::get('posts/edit/{id?}','Admin\PostController@edit')->name('post.edit');
-    Route::post('posts/update','Admin\PostController@update')->name('post.update');
-    Route::post('posts/destroy/{id?}','Admin\PostController@destroy')->name('posts.destroy');
 
 //   ============View ======================
-
+    // Route::resource('company','Admin\CompanyController',['except' =>'show']);
     Route::get('company','Admin\CompanyController@index')->name('excel.company');
     Route::get('datatables','Admin\CompanyController@getData')->name('excel.getData');
     Route::get('company/edit/{id?}','Admin\CompanyController@edit')->name('company.edit');

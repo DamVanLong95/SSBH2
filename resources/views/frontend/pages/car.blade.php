@@ -310,7 +310,7 @@
                                     </td>
                                 </tr>
                                @foreach($terms_data as $key=>$value)  
-                                <tr class="data-detail">
+                                <tr class="data-detail d-none">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
@@ -325,7 +325,7 @@
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail d-none">
                                     <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
@@ -347,7 +347,7 @@
                                 </tr>
                                 </tr>
                                 @foreach($exception_data as $value)
-                                <tr class="data-detail">
+                                <tr class="data-detail d-none">
                                     <td>
                                         <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
                                                 name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
@@ -362,7 +362,7 @@
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
                                 @foreach($punishment as $value)
-                                <tr class="data-detail">
+                                <tr class="data-detail d-none">
                                     <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -370,21 +370,25 @@
                                 <tr class="header green">
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
+                                @foreach($permission as $value)
+                                <tr class="data-detail d-none">
+                                    <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header bg-head-3">
                                     <td  colspan="2" class="green_header">Năng lực tài chính</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
+                                @foreach($finances as $value)
+                                <tr class="data-detail d-none" >
+                                    <td><p class="ellipsis">{{$value['finance']}}</p></td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header bg-head-4">
                                     <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                     <td>
                                         <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
@@ -402,7 +406,7 @@
                                     <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="2" class="green_header">Mô hình GQPT</td>
+                                    <td  colspan="2" class="green_header">Mô hình GQBT</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
@@ -450,6 +454,7 @@
         var table  = document.getElementById('main-tbl');
         var  rows   = table.tBodies[0].rows;
         var length = <?php echo count($terms_data)?>;
+        var length_permission = <?php echo count($permission)?>;
         for( var i=7+numShown; i<= length+6 ;i++)
             $(rows[i]).hide();
         $(rows[length+6]).after('<tr id="more"><td colspan="2"><div style="color:blue">Show <span>' +
@@ -468,8 +473,11 @@
             for(var i=40;i<=66;i++)
                 $( rows[i]) .show();
          });
-
-
+        //  console.log("line 476",rows[88]);
+        //  for(var i=85; i<68+24;i++ )
+        //  $(rows[i]).hide();
+        //  $(rows[111]).after('<tr id="more_3"><td colspan="2"><div style="color:blue">Show <span>' +
+        //        numMore + '</span> More</div</td></tr>');
     });
     $(function(){
         $('#brand').change(function() {

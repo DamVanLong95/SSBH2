@@ -4,7 +4,7 @@
 @section('content')
     <div class="col-lg-9">
         <div class="card">
-            <form class="form-horizontal" action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <h4 class="card-title">Create posts</h4>

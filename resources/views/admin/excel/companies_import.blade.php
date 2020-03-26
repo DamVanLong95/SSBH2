@@ -187,7 +187,6 @@
                 }
                 var id = $('#action').val();
                 var formdata = new FormData($(this)[0]);
-                console.log(formdata);
                 $.ajax({
                     type: 'POST',
                     url: "{{route('company.update')}}"+ '/' + id,
