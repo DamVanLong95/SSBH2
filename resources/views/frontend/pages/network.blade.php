@@ -22,7 +22,7 @@
                             <div id="collapseOne" class="panel-collapse collapse">
                                 <div class="cont">
                                     <div class="address-list">
-                                        <ul>
+                                        <ul class="car-address">
                                             <li class="address-item">
                                                 <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>

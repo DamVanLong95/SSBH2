@@ -433,8 +433,8 @@
                                 </tr>
                                 <tr class="data-detail">
                                     <td class="text-center empty-first2 "></td>
-                                    <td class="active-td">
-                                        <p class="toggle"><span>(108)</span> Bệnh viện</p>
+                                    <td class="hospital-td active-td">
+                                        <p class="toggle active"><span>(108)</span> Bệnh viện</p>
                                         
                                     </td>
                                     <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>

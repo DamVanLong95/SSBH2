@@ -505,8 +505,28 @@
                         // top: 50px;
                     }
                 }
+                .hospital-td{
+                    position: relative;
+                    border-bottom: 3px solid #bcbec0;
+                    &:after {
+                        position: absolute;
+                        top: 50%;
+                        right: 5px;
+                        width: 9px;
+                        height: 16px;
+                        margin-top: -8px;
+                        font: 16px fontawesome;
+                        color: #bcbec0;
+                        content: "\f0d7";
+                        transition: all .3s ease;
+                    }
+                    p.active{
+                        color: $main-color;
+                    }
+                }
                 .active-td{
                     border-bottom: 3px solid $main-color;
+                   
                 }
                 td.empty-first{
                     border-top: 0px solid !important;
@@ -863,8 +883,6 @@
         
     }
     .address-list {
-        // height: 100px;
-        overflow: auto;
         // width: 100%;
         ul {
             list-style: none;
@@ -877,6 +895,29 @@
                     padding-right: 20px;
                 }
             }
+        }
+        ul.hospi-item{
+            overflow: auto;
+            height: 100px;
+        }
+        .hospi-item::-webkit-scrollbar-track
+        {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #c2c3c7;
+        }
+    
+        .hospi-item::-webkit-scrollbar
+        {
+        width: 5px;
+        background-color: #c2c3c7;
+        }
+    
+        .hospi-item::-webkit-scrollbar-thumb
+        {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: $main-color;
         }
     }
 }
