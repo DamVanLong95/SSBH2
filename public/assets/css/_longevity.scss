@@ -157,7 +157,7 @@
     }
 }
 
-.table-section-sk {
+.table-section-nt {
     margin-bottom: 5%;
     margin-top: 2%;
     .table-ctn {}
@@ -384,6 +384,66 @@
                             &:after {
                                 transform: rotate(-180deg);
                                 color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+            tr.container-selection{
+                td{
+                    .select-ctn-nt{
+                        .selection-box{
+                            display: flex;
+                            justify-content: space-between;
+                            .right-sec{
+                                .button-filter{
+                                    button{
+                                        background-color: #0d723b;
+                                        font-family: UTM_Helve;
+                                        color: #fff;
+                                        text-transform: uppercase;
+                                        padding: 9px 15px;
+                                        outline: none;
+                                        border-radius: 20px;
+                                        -webkit-border-radius: 20px;
+                                        -moz-border-radius: 20px;
+                                        -ms-border-radius: 20px;
+                                        -o-border-radius: 20px;
+                                        float: right;
+                                        width: 100%;
+                                    }
+                                }
+                                
+                            }
+                            .left-sec{
+                                .item-nt{
+                                    input{
+                                        width: 50%;
+                                        margin-bottom: 2%;
+                                        background-color: #e6e7e8;
+                                        padding: 5px 15px;
+                                        border: 1px solid #ccc4;
+                                        border-radius: 20px;
+                                        outline: none;
+                                    }
+                                }
+                                .select-nt{
+                                    width: 100%;
+                                    margin-bottom: 2%;
+                                    background-color: #e6e7e8;
+                                    padding: 5px 15px;
+                                    border: 1px solid #ccc4;
+                                    border-radius: 20px;
+                                    outline: none;
+                                    select{
+                                        width: 100%;
+                                        border: none;
+                                        border-right: solid 1px;
+                                        outline: none;
+                                        color: #6b6c6e;
+                                        background-color: #e6e7e8;
+                                    }
+                                }
                             }
                         }
                     }
@@ -701,223 +761,3 @@
     }
 }
 
-.sk-section3 {
-    margin: 5% 0;
-    .sec3-wrapper {
-        .swiper-sk {
-            .swiper-slide {
-                // margin-right: 15px !important;
-                .item {
-                    padding: 0 25px;
-                    margin: 15% 0;
-                    h4 {
-                        font-family: UTM_Helve;
-                        text-transform: uppercase;
-                        font-size: 30px;
-                        line-height: 40px;
-                        color: $main-color;
-                        @media screen and (max-width: 1024px) {
-                            font-size: 23px;
-                            line-height: 33px;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
-                    .description-ctn{
-
-                    }
-                    .modal-popup-ctn{
-                        margin: 15px 0;
-                        p{
-                            margin-bottom: 8px;
-                            a{
-                                color: #58595b;
-                                text-decoration: none;
-                            }
-                        }
-                    }
-                    &:hover{
-                        box-shadow: -4px 3px 50px 0px rgba(0, 0, 0, 0.5);
-                        .description-ctn{
-                            p{
-                                color: $main-color;
-                                font-family: UTM_HelveBold;
-                            }
-                        }
-                    }
-                }
-                &:nth-child(2n) {
-                    // border-left: 1px solid #000;
-                    // border-right: 1px solid #000;
-                }
-                .center-item {
-                    &::before {
-                        border-left: 1px solid #000;
-                        width: 2px;
-                        height: auto;
-                        background: transparent;
-                    }
-                    &:after {
-                        border-right: 1px solid #000;
-                        width: 2px;
-                        height: auto;
-                        background: transparent;
-                    }
-                }
-            }
-            .center-item {
-                &::before {
-                    border-left: 1px solid #000;
-                    width: 2px;
-                    height: auto;
-                    background: transparent;
-                }
-                &:after {
-                    border-right: 1px solid #000;
-                    width: 2px;
-                    height: auto;
-                    background: transparent;
-                }
-            }
-            .swiper-button-prev {
-                transform: translate(-46%, 10px);
-                top: 20%;
-                bottom: 0;
-                margin: auto;
-                background-image: url('../images/home/arrow-left-active.png') !important;
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            .swiper-button-next {
-                background-image: url('../images/home/arrow-right-active.png') !important;
-                background-size: contain;
-                background-repeat: no-repeat;
-                transform: translate(48%, 10px);
-                top: 20%;
-                bottom: 0;
-                margin: auto;
-            }
-        }
-        .sec3-title{
-            margin: 5% 0;
-            h3{
-                font-family: UTM_Helve;
-                color: $main-color;
-            }
-        }
-    }
-    .description-ctn {
-        height: 88px;
-    }
-}
-// ================================network==============================
-#hospital-tr {
-    // display: none;
-    position: relative;
-    // transform: translate(18%, 36%);
-    bottom: 120px;
-    z-index: 3;
-    // width: 82%;
-}
-
-.network-ctn {
-    // position: absolute;
-    background-color: #fff;
-    border: 1px solid #f36f21;
-    h5 {
-        color: $main-color;
-        font-family: UTM_HelveBold;
-        text-transform: uppercase;
-    }
-    .address-detail {
-        h5 {
-            cursor: pointer;
-            text-align: left;
-            span {
-                img {
-                    width: 15px;
-                    margin-right: 10px;
-                }
-            }
-            &:after {
-                font-family: Fontawesome;
-                content: '\f0d7';
-                float: right;
-            }
-        }
-        h5.collapsed {
-            cursor: pointer;
-            &::after {
-                font-family: Fontawesome;
-                content: '\f0d7';
-                float: right;
-            }
-        }
-    }
-    .net-hospital-item {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        margin: 3% 0;
-        .address-ctn {
-            width: 46%;
-            margin-bottom: 2%;
-            background-color: #e6e7e8;
-            padding: 8px 20px;
-            border: 1px solid #ccc4;
-            border-radius: 20px;
-            outline: none;
-            select {
-                width: 100%;
-                border: none;
-                border-right: solid 1px;
-                outline: none;
-                color: #6b6c6e;
-                background-color: #e6e7e8;
-            }
-        }
-        hr.line {
-            border: 1px solid $main-color;
-        }
-        
-    }
-    .address-list {
-        // width: 100%;
-        ul {
-            list-style: none;
-            li.address-item {
-                display: flex;
-                justify-content: space-between;
-                flex-direction: row;
-                .no span {
-                    color: $main-color;
-                    padding-right: 20px;
-                }
-            }
-        }
-        ul.hospi-item{
-            overflow: auto;
-            height: 100px;
-        }
-        .hospi-item::-webkit-scrollbar-track
-        {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        border-radius: 10px;
-        background-color: #c2c3c7;
-        }
-    
-        .hospi-item::-webkit-scrollbar
-        {
-        width: 5px;
-        background-color: #c2c3c7;
-        }
-    
-        .hospi-item::-webkit-scrollbar-thumb
-        {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-        background-color: $main-color;
-        }
-    }
-}

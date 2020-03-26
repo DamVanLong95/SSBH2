@@ -56,7 +56,7 @@
                         <ul>
                             <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
                             <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
-                            <li><a href="#">So sánh bảo hiểm nhân thọ</a></li>
+                            <li><a href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
                            
                         </ul>
                     </li>
