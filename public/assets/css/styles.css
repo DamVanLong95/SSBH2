@@ -4060,7 +4060,7 @@ footer .footer-ctn .footer-nav li a {
   float: right;
 }
 
-.network-ctn .net-item {
+.network-ctn .net-hospital-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4074,7 +4074,7 @@ footer .footer-ctn .footer-nav li a {
   margin: 3% 0;
 }
 
-.network-ctn .net-item .address-ctn {
+.network-ctn .net-hospital-item .address-ctn {
   width: 46%;
   margin-bottom: 2%;
   background-color: #e6e7e8;
@@ -4084,7 +4084,7 @@ footer .footer-ctn .footer-nav li a {
   outline: none;
 }
 
-.network-ctn .net-item .address-ctn select {
+.network-ctn .net-hospital-item .address-ctn select {
   width: 100%;
   border: none;
   border-right: solid 1px;
@@ -4093,7 +4093,7 @@ footer .footer-ctn .footer-nav li a {
   background-color: #e6e7e8;
 }
 
-.network-ctn .net-item hr.line {
+.network-ctn .net-hospital-item hr.line {
   border: 1px solid #0d723b;
 }
 

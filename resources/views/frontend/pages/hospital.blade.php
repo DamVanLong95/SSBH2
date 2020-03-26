@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="net-item">
+                <div class="net-hospital-item">
                     <div class="address-ctn">
                         <select aria-label="Select menu example">
                             <option selected>Tỉnh/Thành phố</option>
