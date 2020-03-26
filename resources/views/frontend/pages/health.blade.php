@@ -320,7 +320,7 @@
                                     </th>
                                     <th class="col2">
                                         <div class="img-container">
-                                            <div class="select-ctn">
+                                            <div class="select2-ctn">
                                                 <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
                                                     <option value="1">Chương trình vàng</option>
                                                     <option value="2">Chương trình bạc</option>

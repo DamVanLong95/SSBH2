@@ -233,7 +233,7 @@
     });
     //   toogle hospital address
     $('.toggle').click(function() {
-        $('#hospital-tr').toggle('slow');
+        // $('#hospital-tr').toggle('slow');
     });
   });
 </script>
