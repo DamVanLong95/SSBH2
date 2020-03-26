@@ -3724,6 +3724,10 @@ footer .footer-ctn .footer-nav li a {
   position: relative;
 }
 
+.table-section-sk #layout-area .table tr.data-detail .active-td {
+  border-bottom: 3px solid #0d723b;
+}
+
 .table-section-sk #layout-area .table tr.data-detail td.empty-first {
   border-top: 0px solid !important;
 }

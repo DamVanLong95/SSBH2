@@ -505,6 +505,9 @@
                         // top: 50px;
                     }
                 }
+                .active-td{
+                    border-bottom: 3px solid $main-color;
+                }
                 td.empty-first{
                     border-top: 0px solid !important;
                 }

@@ -432,8 +432,8 @@
                                     <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td class="text-center empty-first2"></td>
-                                    <td>
+                                    <td class="text-center empty-first2 "></td>
+                                    <td class="active-td">
                                         <p class="toggle"><span>(108)</span> Bệnh viện</p>
                                         
                                     </td>
