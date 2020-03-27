@@ -184,8 +184,8 @@
                                     <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_13"/>
-                                    <label class="toggle" for="ala_13"></label>
+                                    <input name="type" value="" type="checkbox" id="ala_14"/>
+                                    <label class="toggle" for="ala_14"></label>
                                 </div>
                             </div>
                         </li>
@@ -295,15 +295,15 @@
         </div>
         
     </div>
-    <div class="table-section-sk">
+    <div class="table-section-nt">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
-                        <table id="main-tbl-sk" class="table">
+                        <table id="main-tbl-nt" class="table">
                             <div class="add-del-ctn d-none">
-                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl-sk')" />
-                                <input type="button" value="add column" onclick="addColumn('main-tbl-sks')" />
+                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl-nt')" />
+                                <input type="button" value="add column" onclick="addColumn('main-tbl-nt')" />
                             </div>
                             <thead>
                                 <tr class="top-head" >
@@ -328,7 +328,7 @@
                                                     <option value="4">Chương trình diamond</option>
                                                     <option value="5">Chương trình gold</option>
                                                     <option value="6">Chương trình alumnium</option>
-                                                    <option value="6">Chương trình iron</option>
+                                                    <option value="7">Chương trình iron</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -336,7 +336,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <tr class="sub-head">
                                     <td class="th-2">
                                         <div class="star-ctn">
@@ -358,9 +357,39 @@
                                     </td>
                                 </tr>
                                 <tr class="green1">
-                                    <td  colspan="2" class="green_header">Tính phí</td>
+                                    <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                 </tr>
-                          
+                                <tr class="container-selection">
+                                    <td colspan="2" id="select_box_longevity">
+                                        <div class="select-ctn-nt">
+                                            <div class="selection-box">
+                                                <div class="left-sec">
+                                                    <div class="item-nt select-nt">
+                                                        <select aria-label="Select menu example" id="gender">
+                                                            <option selected>Giới tính</option>
+                                                            <option value="1">Nam</option>
+                                                            <option value="2">Nữ</option>
+                                                        </select>
+                                                       
+                                                    </div>
+                                                    <div class="item-nt">
+                                                        <form action="">
+                                                            <input type="text" id="nt_age" name="nt_age" placeholder="Tuổi">
+                                                        </form>
+                                                        <form action="">
+                                                            <input type="text" id="nt_contract" name="nt_contract" placeholder="Thời hạn hợp đồng">
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="right-sec">
+                                                    <div class="item button-filter" >
+                                                        <button type="button" id="calculate">Tính</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Đối tượng bảo hiểm
 
@@ -464,71 +493,7 @@
         </div>
     </div>
 
-    <div id="sk-section3" class="sk-section3">
-        <div class="sec3-wrapper ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="sec3-title">
-                            <h3>Sản phẩm bảo hiểm mới</h3>
-                        </div>
-                        <div id="slideKnow" class="swiper-container swiper-sk">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide slide-item">
-                                    <div class="item">
-                                        <div class="description-ctn">
-                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
-                                        </div>
-                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                        <div class="modal-popup-ctn">
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide slide-item ">
-                                    <div class="item center-item">
-                                        <div class="description-ctn">
-                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
-                                        </div>
-                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
-                                        <div class="modal-popup-ctn">
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide slide-item">
-                                    <div class="item">
-                                        <div class="description-ctn">
-                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
-                                        </div>
-                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
-                                        <div class="modal-popup-ctn">
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="arrow-ctn ">
-                                <div class="swiper-button-prev">
-                                
-                                </div>
-                                <div class="swiper-button-next">
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 <div id="detail-td" class="modal">

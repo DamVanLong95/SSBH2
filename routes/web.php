@@ -50,8 +50,13 @@ Route::get('/treatment', function () {
 Route::get('/question', function () {
     return view('frontend.pages.question');
 });
+// =====================================Health=================================
 Route::get('/health', function () {
     return view('frontend.pages.health');
+});
+// =====================================nhân thọ Longevity=================================
+Route::get('/longevity', function () {
+    return view('frontend.pages.longevity');
 });
 Auth::routes();
 

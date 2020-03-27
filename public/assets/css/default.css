@@ -379,10 +379,9 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .modal {
-  height: 280px;
+  height: 370px;
   background-color: #0d723b;
   color: #fff;
-  overflow-y: auto;
 }
 
 .modal a {
@@ -410,6 +409,30 @@ footer .footer-ctn .footer-nav li a {
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../images/default/close.png");
+}
+
+.modal #note {
+  overflow: auto;
+  height: 280px;
+  margin: 20px 10px;
+  text-align: justify;
+}
+
+.modal #note::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #c2c3c7;
+}
+
+.modal #note::-webkit-scrollbar {
+  width: 5px;
+  background-color: #c2c3c7;
+}
+
+.modal #note::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #0d723b;
 }
 
 #net-address {
@@ -505,6 +528,28 @@ footer .footer-ctn .footer-nav li a {
 .network-ctn .net-item .address-list ul li.address-item .no span {
   color: #0d723b;
   padding-right: 20px;
+}
+
+.network-ctn .net-item .address-list ul.car-address {
+  overflow: auto;
+  height: 100px;
+}
+
+.network-ctn .net-item .address-list .car-address::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #c2c3c7;
+}
+
+.network-ctn .net-item .address-list .car-address::-webkit-scrollbar {
+  width: 5px;
+  background-color: #c2c3c7;
+}
+
+.network-ctn .net-item .address-list .car-address::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #0d723b;
 }
 
 .contact-floating {
