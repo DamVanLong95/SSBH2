@@ -321,15 +321,17 @@
                                     <th class="col2">
                                         <div class="img-container">
                                             <div class="select2-ctn">
-                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
-                                                    <option value="1">Chương trình vàng</option>
-                                                    <option value="2">Chương trình bạc</option>
-                                                    <option value="3">Chương trình platinum</option>
-                                                    <option value="4">Chương trình diamond</option>
-                                                    <option value="5">Chương trình gold</option>
-                                                    <option value="6">Chương trình alumnium</option>
-                                                    <option value="7">Chương trình iron</option>
-                                                </select>
+                                                <form action="">
+                                                    <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
+                                                        <option value="1">Chương trình vàng</option>
+                                                        <option value="2">Chương trình bạc</option>
+                                                        <option value="3">Chương trình platinum</option>
+                                                        <option value="4">Chương trình diamond</option>
+                                                        <option value="5">Chương trình gold</option>
+                                                        <option value="6">Chương trình alumnium</option>
+                                                        <option value="6">Chương trình iron</option>
+                                                    </select>
+                                                </form>
                                             </div>
                                         </div>
                                     </th>
@@ -365,19 +367,65 @@
                                             <div class="selection-box">
                                                 <div class="left-sec">
                                                     <div class="item-nt select-nt">
-                                                        <select aria-label="Select menu example" id="gender">
-                                                            <option selected>Giới tính</option>
-                                                            <option value="1">Nam</option>
-                                                            <option value="2">Nữ</option>
-                                                        </select>
-                                                       
+                                                        <form action="">
+                                                            <select calss="nt_gender" aria-label="Select menu example" id="gender">
+                                                                <option selected>Giới tính</option>
+                                                                <option value="1">Nam</option>
+                                                                <option value="2">Nữ</option>
+                                                            </select>
+                                                        </form>
                                                     </div>
                                                     <div class="item-nt">
                                                         <form action="">
-                                                            <input type="text" id="nt_age" name="nt_age" placeholder="Tuổi">
+                                                            <input class="nt_age" type="text" id="nt_age" name="nt_age" placeholder="Tuổi">
                                                         </form>
+                                                    </div>
+                                                    <div class="item-nt">
                                                         <form action="">
-                                                            <input type="text" id="nt_contract" name="nt_contract" placeholder="Thời hạn hợp đồng">
+                                                            <input type="text" id="nt_contract_duration" name="nt_contract" placeholder="Thời hạn hợp đồng">
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt">
+                                                        <form action="">
+                                                            <input type="text" id="nt_contract_value" name="nt_contract" placeholder="Số tiền bảo hiểm">
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt select-nt">
+                                                        <form action="">
+                                                            <select aria-label="Select menu example" id="death_right">
+                                                                <option selected>Quyền lợi tử vong</option>
+                                                                <option value="1">Option1</option>
+                                                                <option value="2">Option2</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt">
+                                                        <form action="">
+                                                            <input type="text" id="nt_mature" name="nt_contract" placeholder="Lựa chọn đáo hạn(Tuổi)">
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt">
+                                                        <form action="">
+                                                            <input type="text" id="nt_choose_fee" name="nt_contract" placeholder="Lựa chọn đóng phí(Năm)">
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt select-nt">
+                                                        <form action="">
+                                                            <select aria-label="Select menu example" id="nt_period_fee">
+                                                                <option selected>Định kì đóng phí</option>
+                                                                <option value="1">Option1</option>
+                                                                <option value="2">Option2</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt">
+                                                        <form action="">
+                                                            <input type="text" id="nt_contract_fee" name="nt_contract" placeholder="Phí bảo hiểm định kì">
+                                                        </form>
+                                                    </div>
+                                                    <div class="item-nt">
+                                                        <form action="">
+                                                            <input type="text" id="nt_contract_more_fee" name="nt_contract" placeholder="Phí bảo hiểm đóng thêm">
                                                         </form>
                                                     </div>
                                                 </div>
@@ -391,7 +439,7 @@
                                     </td>
                                 </tr>
                                 <tr class="header bg-head-1">
-                                    <td  colspan="2" class="green_header">Đối tượng bảo hiểm
+                                    <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                     </td>
                                 </tr>
@@ -508,6 +556,14 @@
      $('#note').html(val);
      $('#detail-td').modal('show');
     }
+    $(document).ready(function(){
+        $('#gender').change(function () {
+        var gender =  $('#gender').val();
+        var x = document.getElementsByClassName("item-nt");
+        console.log("guug", x);
+        // x.style.borderColor = "blue";
+        })
+    })
 </script>
 <script>
 
