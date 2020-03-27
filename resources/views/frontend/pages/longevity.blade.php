@@ -438,6 +438,29 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <tr class="container-download">
+                                    <td></td>
+                                    <td class="data-detail download-td">
+                                        <button type="button" id="download-pru">Minh họa Pru
+                                            <span><p><i class="fa fa-download" aria-hidden="true"></i></p></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="header">
+                                    <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>Example text</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="header green">
+                                    <td  colspan="2" class="green_header">Phí</td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td>Example text</td>
+                                    <td></td>
+                                </tr>
+                                
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
@@ -463,21 +486,26 @@
 
                                     </td>
                                 </tr>
-                           
-                                <tr class="header">
-                                    <td  colspan="2" class="green_header">Phạm vi lãnh thổ</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>aloha</td>
-                                    <td></td>
-                                    <!-- <td>
-
-                                   <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
-                                    <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
-                                    </td> -->
-                                </tr>
                                 <tr class="header bg-head-2">
-                                    <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
+                                    <td  colspan="2" class="green_header">Quyền lợi bổ trợ</td>
+                                </tr>
+                                <tr class="data-detail gray-detail">
+                                    <td class="first-gray">Tai nạn</td>
+                                    <td>
+                                        <div class="gray-head">
+                                            <form action="">
+                                                <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
+                                                    <option value="1">Chương trình vàng</option>
+                                                    <option value="2">Chương trình bạc</option>
+                                                    <option value="3">Chương trình platinum</option>
+                                                    <option value="4">Chương trình diamond</option>
+                                                    <option value="5">Chương trình gold</option>
+                                                    <option value="6">Chương trình alumnium</option>
+                                                    <option value="6">Chương trình iron</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>
@@ -581,5 +609,5 @@ $('.close').click(function(){
 
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
-    @include('layouts.health_script')
+    @include('layouts.longevity_script')
 @stop

@@ -109,6 +109,7 @@
 
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl-nt');
+        console.log(myTable);
         var tblHeadObj = document.getElementById(tblId).tHead;
         var tableLength = document.getElementById('main-tbl-nt').rows[0].cells.length
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
@@ -119,7 +120,7 @@
               $('#select_all').attr("colspan", tableLength +1)
               $('.green_header').attr("colspan", tableLength +1)
               $('.hospital_header').attr("colspan", tableLength )
-              $('#select_box_longevity').attr("colspan", tableLength )
+              $('#select_box_longevity').attr("colspan", tableLength +1 )
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -199,10 +200,10 @@
             console.log(e)
         }
     };
-   /* window.onscroll = function() {fixedTop()};
+    window.onscroll = function() {fixedTop()};
 
     var tblHeader = document.getElementById("tableHeader");
-    var sticky = tblHeader.offsetTop();
+    // var sticky = tblHeader.offsetTop();
     var menuHeight = $(".block-main-menu").outerHeight();
     var sec1Height = $(".sec1-wrapper").height();
     var searchHeight = $(".search-ctn").outerHeight();
@@ -212,7 +213,7 @@
     console.log("sec1",sec1Height);
     console.log("search ctn",searchHeight);
     console.log("compare ctn",compareHeight);
-    console.log("branch ctn",brandHeight);*/
+    console.log("branch ctn",brandHeight);
 
     function fixedTop() {
         // if (window.pageYOffset > sticky) {
