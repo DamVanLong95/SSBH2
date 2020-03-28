@@ -525,10 +525,10 @@
    
     });
 
-    $('.open').click(function(){
-  $(this).toggleClass("show hide");
-  $('.content').toggleClass("show hide");
-});
+//     $('.open').click(function(){
+//   $(this).toggleClass("show hide");
+//   $('.content').toggleClass("show hide");
+// });
 
 $('.close').click(function(){
   $('.content').toggleClass("show hide");

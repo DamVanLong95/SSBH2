@@ -18,6 +18,9 @@
                         <li class="sidebar-item"><a href="{{route('indexPermission.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Permission </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexFinance.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Finance </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexPunishment.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Pubnishment </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexLocation.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Location </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexActivity.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Activity </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexDetail.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Detail </span></a></li>
                     </ul>
                 </li>
             </ul>

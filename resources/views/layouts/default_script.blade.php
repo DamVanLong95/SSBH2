@@ -70,6 +70,7 @@
                             var terms_data        = data.terms;
                             var permissions       = data.permissions;
                             var finances    = data.finances;
+                            var data = data.data;
                             // console.log(finances);
 
                             //calculate star
@@ -316,13 +317,28 @@
                                 else{
                                     tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`;
                                 }
-                            }
+                            } 
+                          
+
                             for(var i =113; i<113+finances.length;i++){
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-113]['money'],0)+`</p>`
                             }
-
-                          
+                           
+                            tds = tblBodyObj.rows[131].cells[indexCol]; 
+                            //    console.log(tds);
+                            var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
+                            var html = `@include('frontend/pages/network')`;
+                            // console.log(html);
+                            tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`" alt="">
+                                        <p class="toggle"><span>`+data['total']+`</span> Chi nhánh</p>
+                                        <div id="net-address">
+                                            `+html+`
+                                        </div>
+                                        `;
+                            $('.toggle').click(function() {
+                                $('#net-address').toggle('slow');
+                            });
                         }
                     }).done(function() {
                         // alert('Request done!');
@@ -469,20 +485,20 @@
             console.log(e)
         }
     };
-   /* window.onscroll = function() {fixedTop()};
+window.onscroll = function() {fixedTop()};
 
-    var tblHeader = document.getElementById("tableHeader");
-    var sticky = tblHeader.offsetTop();
-    var menuHeight = $(".block-main-menu").outerHeight();
-    var sec1Height = $(".sec1-wrapper").height();
-    var searchHeight = $(".search-ctn").outerHeight();
-    var compareHeight = $(".compare-section").outerHeight();
-    var brandHeight = $(".brand-section").outerHeight();
-    console.log("menu",menuHeight);
-    console.log("sec1",sec1Height);
-    console.log("search ctn",searchHeight);
-    console.log("compare ctn",compareHeight);
-    console.log("branch ctn",brandHeight);*/
+    // var tblHeader = document.getElementById("tableHeader");
+    // // var sticky = tblHeader.offsetTop();
+    // var menuHeight = $(".block-main-menu").outerHeight();
+    // var sec1Height = $(".sec1-wrapper").height();
+    // var searchHeight = $(".search-ctn").outerHeight();
+    // var compareHeight = $(".compare-section").outerHeight();
+    // var brandHeight = $(".brand-section").outerHeight();
+    // console.log("menu",menuHeight);
+    // console.log("sec1",sec1Height);
+    // console.log("search ctn",searchHeight);
+    // console.log("compare ctn",compareHeight);
+    // console.log("branch ctn",brandHeight);
 
     function fixedTop() {
         // if (window.pageYOffset > sticky) {

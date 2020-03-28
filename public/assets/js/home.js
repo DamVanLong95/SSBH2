@@ -458,7 +458,7 @@
         // get items dimensions
         var itemsLength2 = $('.item2').length;
         var itemSize2 = $('.item2').outerWidth(true);
-        console.log("huhu", leftPaddle2)
+        // console.log("huhu", leftPaddle2)
 
         // get wrapper width
         var getBrandWrapperSize = function() {

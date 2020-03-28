@@ -377,7 +377,7 @@
                                                     </div>
                                                     <div class="item-nt">
                                                         <form action="">
-                                                            <input class="nt_age" type="text" id="nt_age" name="nt_age" placeholder="Tuổi">
+                                                            <input class="nt_age" type="number" id="nt_age" name="nt_age" placeholder="Tuổi">
                                                         </form>
                                                     </div>
                                                     <div class="item-nt">
@@ -561,7 +561,7 @@
         var gender =  $('#gender').val();
         var x = document.getElementsByClassName("item-nt");
         console.log("guug", x);
-        // x.style.borderColor = "blue";
+        // x[0].style.borderColor = "blue";
         })
     })
 </script>

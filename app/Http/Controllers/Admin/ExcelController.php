@@ -11,6 +11,10 @@ use App\Imports\BrandsImport;
 use App\Imports\SummationsImport;
 use App\Imports\ValidateExcel;
 use App\Imports\PunishmentsImport;
+use App\Imports\ActivitiesImport;
+use App\Imports\LocationsImport;
+use App\Imports\DetailsImport;
+
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
 use App\Exports\UsersExport;
@@ -18,6 +22,8 @@ use App\Exports\PermissionsExport;
 use App\Exports\FinancesExport;
 use App\Exports\BrandsExport;
 use App\Exports\PunishmentsExport;
+use App\Exports\ActivitiesExport;
+use App\Exports\LocationsExport;
 use App\User;
 
 use Maatwebsite\Excel\Facades\Excel;
@@ -26,6 +32,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ExcelController extends Controller
 {
+    public function indexDetail(){
+        return view('admin.excel.details_import');
+    }
+    public function indexLocation(){
+        return view('admin.excel.locations_import');
+    }
+    public function indexActivity(){
+        return view('admin.excel.activities_import');
+    }
     public function indexBrandCate()
     {
         return view('admin.excel.brand_cate_summaries');
@@ -44,6 +59,32 @@ class ExcelController extends Controller
     }
     public function indexPunishment(){
         return view('admin.excel.punishment_import');
+    }
+    public function importDetail(Request $request){
+        if ($request->hasFile('import_file'))
+        {
+            Excel::import(new DetailsImport, $request->file('import_file'));
+            $notification = array(
+                'message' => 'add successfully!',
+                'alert-type' => 'success'
+            );
+
+        }
+        
+        return redirect()->back()->with($notification);
+    }
+    public function importLocation(Request $request){
+        if ($request->hasFile('import_file'))
+        {
+            Excel::import(new LocationsImport, $request->file('import_file'));
+            $notification = array(
+                'message' => 'add successfully!',
+                'alert-type' => 'success'
+            );
+
+        }
+        
+        return redirect()->back()->with($notification);
     }
     public function importBrand(Request $request){
         if ($request->hasFile('import_file'))
@@ -131,6 +172,18 @@ class ExcelController extends Controller
         $users = User::orderBy('created_at', 'desc')->get();
         return view('admin.excel.users_import',compact('users','table'));
     }
+    public function importActivity(Request $request){
+        if ($request->hasFile('import_file'))
+        {
+            Excel::import(new ActivitiesImport, $request->file('import_file'));
+            $notification = array(
+                'message' => 'add successfully!',
+                'alert-type' => 'success'
+            );
+
+        }
+        return redirect()->back()->with($notification);
+    }
     public function exportExcel(){
         return Excel::download(new UsersExport, 'users.xlsx');
     }
@@ -147,5 +200,14 @@ class ExcelController extends Controller
     {
         return Excel::download(new PunishmentsExport,'punishment.xlsx' );
     }
+    public function exportActivity()
+    {
+        return Excel::download(new ActivitiesExport,'activities.xlsx' );
+    }
+    public function exportLocation()
+    {
+        return Excel::download(new LocationsExport,'activities.xlsx' );
+    }
+    
 
 }

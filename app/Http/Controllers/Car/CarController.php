@@ -7,7 +7,7 @@ use App\Summary;
 use App\Permission;
 use App\Punishment;
 use App\Brand;
-use App\Finance;
+use App\Finance,App\Activity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -37,6 +37,8 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->take(17)
                     ->get();
+        $activities = Activity::select('company_id','location','location','amount')-> take(10)->get();
+       
         return  view('frontend.pages.car',compact([
                 'companies','terms_data','dedutible_data','exception_data','punishment','brands','permission','finances'
                  ]));
@@ -69,6 +71,17 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->where('company_id', '=', $company_id)
                     ->get();
+        $activities = Activity::select('company_id','location','amount')
+                    ->where('company_id', '=', $company_id)
+                    ->where('amount','<>','')
+                    ->get();
+        $data = array();      
+        $total=0;
+        foreach($activities as $value){
+             $total=$total + $value['amount'];
+        }
+       $data['activities'] = $activities;
+       $data['total']      = $total; 
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
@@ -78,7 +91,8 @@ class CarController extends Controller
             'punishment'    => $punishment,
             'promotion'     => $promotion,
             'terms'         => $terms,
-            'finances'      =>$finances  
+            'finances'      =>$finances ,
+            'data'    => $data,
         ]);
     }
     public function showInfo(Request $request)

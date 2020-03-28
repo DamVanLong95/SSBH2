@@ -82,6 +82,9 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('brand','Admin\ExcelController@indexBrand')->name('indexBrand.import');
     Route::get('brand_cate','Admin\ExcelController@indexBrandCate')->name('indexBrandCate.import');
     Route::get('punishment','Admin\ExcelController@indexPunishment')->name('indexPunishment.import');
+    Route::get('activity','Admin\ExcelController@indexActivity')->name('indexActivity.import');
+    Route::get('location','Admin\ExcelController@indexLocation')->name('indexLocation.import');
+    Route::get('detail','Admin\ExcelController@indexDetail')->name('indexDetail.import');
  
    
    
@@ -95,6 +98,10 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('brand','Admin\ExcelController@importBrand')->name('brand.import');
     Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
     Route::post('punishment','Admin\ExcelController@importPunishment')->name('punishment.import');
+    Route::post('activity','Admin\ExcelController@importActivity')->name('activity.import');
+    Route::post('location','Admin\ExcelController@importLocation')->name('location.import');
+    Route::post('detail','Admin\ExcelController@importDetail')->name('detail.import');
+
 
 //   ============Export excel======================
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
@@ -103,6 +110,9 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('finance/export','Admin\ExcelController@exportFinance')->name('finance.export');
     Route::get('brand/export','Admin\ExcelController@exportBrand')->name('brand.export');
     Route::get('punishment/export','Admin\ExcelController@exportPunishment')->name('punishment.export');
+    Route::get('activity/export','Admin\ExcelController@exportActivity')->name('activity.export');
+    Route::get('location/export','Admin\ExcelController@exportLocation')->name('location.export');
+    Route::get('detail/export','Admin\ExcelController@exportLocation')->name('location.export');
 
 
 });
