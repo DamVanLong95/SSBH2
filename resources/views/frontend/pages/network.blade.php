@@ -8,7 +8,9 @@
                     <div class="address-ctn">
                         <select aria-label="Select menu example" id="province">
                             <option selected>Tỉnh/Thành phố</option>
-                         
+                            @foreach($locations as $value)
+                            <option value=" {{$value['id']}}">{{$value['name']}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

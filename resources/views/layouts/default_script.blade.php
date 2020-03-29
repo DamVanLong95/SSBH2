@@ -335,19 +335,18 @@
                                             `;
                                 $('.toggle').click(function() {
                                     $('#net-address').show('slow');
-                                    // $('#province').change(function(){
-                                    // var location_id = $(this).val();
-                                    // var url = '{{route('address')}}';
-                                    // $.post(url,
-                                    //     { "_token": "{{ csrf_token() }}",
-                                    //     location_id:location_id,
-                                    //     company_id:idImg},
-                                    //     function(data,status){
-                                    //         $('#address').html(data.html);
-                                    //     });
+                                    $('#province').change(function(){
+                                    var location_id = $(this).val();
+                                    var url = '{{route('address')}}';
+                                    $.post(url,
+                                        { "_token": "{{ csrf_token() }}",
+                                        location_id:location_id,
+                                        company_id:idImg},
+                                        function(data,status){
+                                            $('#address').html(data.html);
+                                        });
 
-                                    // })
-                                    //     $('#net-address').hide('slow');
+                                    })
                                   
                                 });
                             }
@@ -593,8 +592,8 @@
             $('#selectall').prop("checked", check);
         });
         //   toogle Net address
-        $('.toggle').click(function() {
-            $('#net-address').toggle('slow');
-        });
+        // $('.toggle').click(function() {
+        //     $('#net-address').toggle('slow');
+        // });
     });
     </script>
