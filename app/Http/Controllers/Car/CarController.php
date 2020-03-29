@@ -7,7 +7,7 @@ use App\Summary;
 use App\Permission;
 use App\Punishment;
 use App\Brand;
-use App\Finance,App\Activity;
+use App\Finance,App\Activity,App\Detail,App\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -37,7 +37,6 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->take(17)
                     ->get();
-        $activities = Activity::select('company_id','location','location','amount')-> take(10)->get();
        
         return  view('frontend.pages.car',compact([
                 'companies','terms_data','dedutible_data','exception_data','punishment','brands','permission','finances'
@@ -71,10 +70,16 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->where('company_id', '=', $company_id)
                     ->get();
-        $activities = Activity::select('company_id','location','amount')
+        $activities = Activity::select('company_id','location_id','amount')
                     ->where('company_id', '=', $company_id)
                     ->where('amount','<>','')
                     ->get();
+        $detail     = Detail::select('company_id','location_id','content')
+                     ->where('company_id', '=', $company_id)
+                     ->get();
+                    //  dd($detail);
+        $locations = Location::all();
+        // dd($locations);
         $data = array();      
         $total=0;
         foreach($activities as $value){
@@ -82,6 +87,9 @@ class CarController extends Controller
         }
        $data['activities'] = $activities;
        $data['total']      = $total; 
+       $data['detail']     = $detail;
+       $data['locations']   =$locations;
+       $html = view('frontend/pages/network')->with(['locations'=> $locations ,'detail' => $detail])->render();
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
@@ -93,6 +101,7 @@ class CarController extends Controller
             'terms'         => $terms,
             'finances'      =>$finances ,
             'data'    => $data,
+            'html'    =>$html
         ]);
     }
     public function showInfo(Request $request)
@@ -150,5 +159,18 @@ class CarController extends Controller
             'price_car' => $price_car
         ]);
 
+    }
+    public function address(Request $request){
+        $location_id = $request->get('location_id');
+        $company_id = $request->get('company_id');
+        $detail     = Detail::select('company_id','location_id','content','address','phone')
+                    ->where('company_id', '=', $company_id)
+                    ->where('location_id', '=', $location_id)
+                    ->get();
+        $html = view('frontend.pages.car_address')->with('detail', $detail)->render();
+        return response()->json([
+            'success' =>true,
+            'html' => $html
+        ]);
     }
 }

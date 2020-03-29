@@ -395,7 +395,7 @@
                                         <p class="toggle"><span>(108)</span> Chi nhánh</p>
                                     </td>
                                     <div id="net-address">
-                                        @include('frontend/pages/network')
+                                         @include('frontend/pages/network') 
                                     </div>
                                 </tr>
                                 <tr class="header">

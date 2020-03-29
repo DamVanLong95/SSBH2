@@ -18,6 +18,8 @@ class CreateDetailTable extends Migration
             $table->integer('company_id');
             $table->integer('location_id');
             $table->string('content')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }

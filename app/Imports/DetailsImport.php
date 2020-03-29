@@ -14,9 +14,11 @@ class DetailsImport implements ToModel,WithHeadingRow
         DB::beginTransaction();
         try {
             Detail::create([
-                'company_id' => $row['id_cong_ty'],
+                'company_id'    => $row['id_cong_ty'],
                 'location_id'   => $row['id_khu_vuc'],
-                'content'     => $row['chi_tiet'],
+                'content'       => $row['chi_tiet'],
+                'address'       => $row['dia_chi'],
+                'phone'         => $row['so_dien_thoai']
             ]);
 
             DB::commit();
