@@ -329,12 +329,13 @@
                                 tds = tblBodyObj.rows[131].cells[indexCol]; 
                                 //    console.log(tds);
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
-                                tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  value="1" alt="">
+                                
+                                tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
                                             <p class="toggle"><span>`+data_activities['total']+`</span> Chi nhánh</p>
                                         
                                             `;
-                                $('.toggle').click(function() {
-                                    $('#net-address').show('slow');
+                                $('#map'+idImg+'').click(function() {
+                                    $('#net-address').toggle('slow');
                                     $('#province').change(function(){
                                     var location_id = $(this).val();
                                     var url = '{{route('address')}}';
@@ -345,7 +346,6 @@
                                         function(data,status){
                                             $('#address').html(data.html);
                                         });
-
                                     })
                                   
                                 });
@@ -465,7 +465,6 @@
                 success: function(data) {
                     // Add response in Modal body
                     $('#note').html(data.note);
-                    // Display Modal
                     $('#detail-td').modal('show');
                 }
             });
