@@ -14,25 +14,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="net-item address-detail">
-                    <h5 data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/address.png?{{ config('custom.version') }}" alt=""></span>Hà Nội <span>(8)</span></h5>
-                    <hr class="line">
-                    <div class="panel-group" id="accordion">
-                        <div class="panel">
-                            <div id="collapseOne" class="panel-collapse collapse">
-                                <div class="cont">
-                                    <div class="address-list">
-                                        <ul class="car-address" id="address">
-                                            <li class="address-item">
-                                             
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
+                <div class="net-item address-detail" id="address">
+                   
                 </div>
             </div>
         </div>

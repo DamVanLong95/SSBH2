@@ -167,7 +167,15 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->where('location_id', '=', $location_id)
                     ->get();
-        $html = view('frontend.pages.car_address')->with('detail', $detail)->render();
+        $data['detail'] = $detail;
+        $activity  = Activity::select('company_id','location_id','amount')
+                    ->where('company_id', '=', $company_id)
+                    ->where('location_id', '=', $location_id)
+                    ->get();
+        $data['activity'] = $activity;
+        $location  = Location::select('name')->where('id', '=', $location_id)->get();
+        $data['location'] = $location;
+        $html = view('frontend.pages.car_address')->with('data', $data)->render();
         return response()->json([
             'success' =>true,
             'html' => $html

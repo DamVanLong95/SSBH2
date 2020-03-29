@@ -67,12 +67,11 @@
                                 var exception   = data.exception;  
                                 var punishment  = data.punishment;
                                 var promotion   = data.promotion;
-                                var terms_data        = data.terms;
-                                var permissions       = data.permissions;
+                                var terms_data  = data.terms;
+                                var permissions = data.permissions;
                                 var finances    = data.finances;
                                 var data_activities = data.data;
                                 $("#net-address").html(data.html);
-                                // console.log(finances);
 
                                 //calculate star
                                 var count_star_green = 0;
