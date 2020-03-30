@@ -4130,8 +4130,8 @@ footer .footer-ctn .footer-nav li a {
   left: 0;
   right: 0;
   position: absolute;
-  top: 0;
-  bottom: 45px;
+  -webkit-transform: translate(0px, 30px);
+          transform: translate(0px, 30px);
 }
 
 .table-section-sk .img-container {
@@ -5279,8 +5279,8 @@ footer .footer-ctn .footer-nav li a {
   left: 0;
   right: 0;
   position: absolute;
-  top: 0;
-  bottom: 45px;
+  -webkit-transform: translate(0px, 30px);
+          transform: translate(0px, 30px);
 }
 
 .table-section-nt .img-container {

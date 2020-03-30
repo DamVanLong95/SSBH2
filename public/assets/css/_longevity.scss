@@ -812,8 +812,9 @@
         left: 0;
         right: 0;
         position: absolute;
-        top: 0;
-        bottom: 45px;
+        transform: translate(0px, 30px);
+        // top: 0;
+        // bottom: 45px;
     }
     .img-container {
         // width: 100%;

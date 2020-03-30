@@ -1,4 +1,4 @@
-<h5 data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/address.png?{{ config('custom.version') }}" alt=""></span></span>Hà Nội <span>(8)</span>
+<h5 data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/address.png?{{ config('custom.version') }}" alt=""></span>
 {{$data['location'][0]->name}} <span>({{$data['activity'][0]->amount}})</span></h5>
 <hr class="line">
 <div class="panel-group" id="accordion">

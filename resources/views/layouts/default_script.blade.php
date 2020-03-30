@@ -333,21 +333,19 @@
                                             <p class="toggle"><span>`+data_activities['total']+`</span> Chi nhánh</p>
                                         
                                             `;
-                                $('#map'+idImg+'').click(function() {
-                                    // $('#net-address').toggle('slow');
+                                            // $('#net-address').toggle('slow');
                                     $('#province').change(function(){
                                     var location_id = $(this).val();
                                     var url = '{{route('address')}}';
                                     $.post(url,
-                                       ) }}",
+                                        { "_token": "{{ csrf_token() }}",
                                         location_id:location_id,
-                                        company_id:id { "_token": "{{ csrf_token(Img},
+                                        company_id:idImg},
                                         function(data,status){
                                             $('#address').html(data.html);
                                         });
-                                    })
-                                  
-                                });
+                                    });
+                                
                             }
                         }).done(function() {
                             // alert('Request done!');
