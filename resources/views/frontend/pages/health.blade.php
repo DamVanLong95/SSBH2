@@ -446,7 +446,6 @@
                                     </tr>
                                     <!-- <tr >
                                         <div id="hospital-address">
-                                            @include('frontend/pages/network')
                                         </div>
                                     </tr> -->
                                 </tr>

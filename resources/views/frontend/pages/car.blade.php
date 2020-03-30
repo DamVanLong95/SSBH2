@@ -392,7 +392,7 @@
                                     <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                     <td>
                                         <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                        <p class="toggle"><span>(108)</span> Chi nhánh</p>
+                                        <p class="toggle"><span>(0)</span> Chi nhánh</p>
                                     </td>
                                     <div id="net-address">
                                         

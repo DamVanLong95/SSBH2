@@ -7,11 +7,11 @@
                                 <div class="cont">
                                     <div class="address-list">
                                         <ul class="car-address" >
-                                            @foreach($data['detail'] as $value)
+                                            @foreach($data['detail'] as  $key => $value)
                                                 <li class="address-item">
-                                                   <div class="no"><span>01</span>{{$value['content']}}</div>
+                                                    <div class="order">{{$key+=1}}</div>
+                                                   <div class="no">{{$value['content']}}</div>
                                                    <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>{{$value['address']}}</div>
-                                                   <div class="detail-location"></div>
                                                    <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span>{{$value['phone']}}</div>
                                                 </li>
                                            @endforeach

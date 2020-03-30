@@ -30,69 +30,69 @@
                                     <div class="address-list">
                                         <ul class="hospi-item">
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235 Hai Bà Trưng Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                             <li class="address-item">
-                                                <div class="no"><span>01</span>Tòa nhà ABC số 1234</div>
+                                                <div class="order">01</div>
+                                                <div class="no">Tòa nhà ABC số 1234</div>
                                                 <div class="location"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/location.png?{{ config('custom.version') }}" alt=""></span>Tòa nhà ABC số 1235, Hai Bà Trưng, Hà nội</div>
-                                                <div class="detail-location"></div>
                                                 <div class="phone-contact"><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone-contact.png?{{ config('custom.version') }}" alt=""></span> 0978654323</div>
                                             </li>
                                         </ul>

@@ -461,12 +461,23 @@ footer {
             ul {
                 list-style: none;
                 li.address-item {
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: 4% 32% 32% 32% ;
                     justify-content: space-between;
                     flex-direction: row;
+                    margin-bottom: 5px;
+                    border-bottom: 1px dashed #ccc;
                     .no span {
                         color: $main-color;
                         padding-right: 20px;
+                    }
+                    .order{
+                        color: $main-color;
+                    }
+                    .location{
+                        span{
+                            margin-right: 5px;
+                        }
                     }
                 }
             }
