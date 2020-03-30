@@ -291,9 +291,10 @@
 
 /** Custom Select **/
 .select2-ctn {
-  position: absolute;
+  position: relative;
   bottom: 0;
   z-index: 1;
+  text-align: center;
 }
 
 /** Custom Select **/
@@ -508,7 +509,7 @@
   height: 100px;
   position: absolute;
   display: block;
-  top: 47%;
+  top: -42%;
   left: 0;
   right: 0;
   min-width: 100%;
@@ -518,7 +519,7 @@
           box-sizing: border-box;
   -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
           box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
-  background-color: #f3f3f4;
+  background-color: rgba(0, 0, 0, 0.3);
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
   opacity: 0;
@@ -531,12 +532,12 @@
 .custom-options::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  background-color: #323649;
+  background-color: #0d723b;
 }
 
 .custom-options::-webkit-scrollbar {
   width: 5px;
-  background-color: #323649;
+  background-color: #0d723b;
 }
 
 .custom-options::-webkit-scrollbar-thumb {
@@ -566,7 +567,7 @@
   padding: 0 22px;
   font-size: 13px;
   font-family: UTM_Helve;
-  color: #b5b5b5;
+  color: #fff;
   line-height: 25px;
   cursor: pointer;
   -webkit-transition: all .4s ease-in-out;
@@ -1026,13 +1027,9 @@ footer .footer-ctn .footer-nav li a {
 }
 
 #net-address {
-  display: none;
-  position: absolute;
-  -webkit-transform: translate(18%, 36%);
-          transform: translate(18%, 36%);
-  bottom: 120px;
+  position: relative;
   z-index: 3;
-  width: 82%;
+  width: 100%;
 }
 
 .network-ctn {
@@ -1129,6 +1126,15 @@ footer .footer-ctn .footer-nav li a {
 
 .network-ctn .net-item .address-list ul li.address-item .location span {
   margin-right: 5px;
+}
+
+.network-ctn .net-item .address-list ul li.address-item .phone-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .network-ctn .net-item .address-list ul.car-address {
@@ -2370,7 +2376,42 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section #layout-area .table tr.data-detail td img.net-img {
   position: relative;
-  top: 50px;
+  top: 100px;
+}
+
+.table-section #layout-area .table tr.data-detail .car-td {
+  position: relative;
+  border-bottom: 3px solid #bcbec0;
+}
+
+.table-section #layout-area .table tr.data-detail .car-td:after {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 9px;
+  height: 16px;
+  margin-top: -8px;
+  font: 16px fontawesome;
+  color: #bcbec0;
+  content: "\f0d7";
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.table-section #layout-area .table tr.data-detail .car-td p.active {
+  color: #0d723b;
+}
+
+.table-section #layout-area .table tr.data-detail .active-car-td {
+  border-bottom: 3px solid #0d723b;
+}
+
+.table-section #layout-area .table tr.data-detail td.empty-first-car {
+  border-top: 0px solid !important;
+}
+
+.table-section #layout-area .table tr.data-detail td.empty-first-car2 {
+  border-bottom: 0px solid !important;
 }
 
 .table-section #layout-area .table tr.data-detail td.first-col {
@@ -3600,8 +3641,6 @@ footer .footer-ctn .footer-nav li a {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  -webkit-box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
   height: 100px;
 }
 
@@ -3609,6 +3648,10 @@ footer .footer-ctn .footer-nav li a {
   border-top: 2px solid #0d723b;
   border-bottom: 1px solid #0d723b;
   border-right: 1px solid #0d723b;
+}
+
+.table-section-sk #layout-area .table thead .top-head th:first-child {
+  border-bottom: 0px;
 }
 
 .table-section-sk #layout-area .table thead .top-head th.th-1 {
@@ -3929,6 +3972,16 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section-sk #layout-area .table tr.data-detail .active-td {
   border-bottom: 3px solid #0d723b;
+}
+
+.table-section-sk #layout-area .table tr.data-detail td.first-select-cf {
+  border: none;
+  border-bottom: 1px solid #0d723b;
+}
+
+.table-section-sk #layout-area .table tr.data-detail td.health-select-cf {
+  overflow: visible;
+  border: 1px solid #0d723b;
 }
 
 .table-section-sk #layout-area .table tr.data-detail td.empty-first {
@@ -4593,14 +4646,12 @@ footer .footer-ctn .footer-nav li a {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  -webkit-box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
   height: 100px;
 }
 
 .table-section-nt #layout-area .table thead .top-head th {
   border-top: 2px solid #0d723b;
-  border-bottom: 1px solid #0d723b;
+  border-bottom: 0px solid #0d723b;
   border-right: 1px solid #0d723b;
 }
 
@@ -5043,6 +5094,16 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section-nt #layout-area .table tr.data-detail td img.net-img {
   position: relative;
+}
+
+.table-section-nt #layout-area .table tr.data-detail td.first-select-cf {
+  border: none;
+  border-bottom: 1px solid #0d723b;
+}
+
+.table-section-nt #layout-area .table tr.data-detail td.health-select-cf {
+  overflow: visible;
+  border: 1px solid #0d723b;
 }
 
 .table-section-nt #layout-area .table tr.data-detail .hospital-td {

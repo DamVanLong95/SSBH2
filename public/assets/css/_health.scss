@@ -199,7 +199,7 @@
                 .top-head {
                     position: sticky;
                     top: 0;
-                    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+                    // box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
                     // border-top: 1px solid #000;
                     height: 100px;
                     th {
@@ -209,6 +209,10 @@
                     }
                     th:last-child {
                         // border-right: 0px;
+                    }
+
+                    th:first-child {
+                        border-bottom: 0px;
                     }
                     th.th-1 {
                         // display: flex;
@@ -527,6 +531,14 @@
                 .active-td{
                     border-bottom: 3px solid $main-color;
                    
+                }
+                td.first-select-cf{
+                    border: none;
+                    border-bottom: 1px solid $main-color;
+                }
+                td.health-select-cf{
+                    overflow: visible;
+                    border: 1px solid $main-color;
                 }
                 td.empty-first{
                     border-top: 0px solid !important;

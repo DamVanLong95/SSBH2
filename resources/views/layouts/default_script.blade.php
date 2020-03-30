@@ -334,14 +334,14 @@
                                         
                                             `;
                                 $('#map'+idImg+'').click(function() {
-                                    $('#net-address').toggle('slow');
+                                    // $('#net-address').toggle('slow');
                                     $('#province').change(function(){
                                     var location_id = $(this).val();
                                     var url = '{{route('address')}}';
                                     $.post(url,
-                                        { "_token": "{{ csrf_token() }}",
+                                       ) }}",
                                         location_id:location_id,
-                                        company_id:idImg},
+                                        company_id:id { "_token": "{{ csrf_token(Img},
                                         function(data,status){
                                             $('#address').html(data.html);
                                         });
@@ -419,6 +419,7 @@
                 $('#select_box').attr("colspan", tableLength +1)
                 $('#select_all').attr("colspan", tableLength +1)
                 $('.green_header').attr("colspan", tableLength +1)
+                $('.car_header').attr("colspan", tableLength )
                 tblHeadObj.rows[h].appendChild(newTH);
                 creatediv.setAttribute('class', "img-container");
                 newTH.appendChild(creatediv);
@@ -438,6 +439,7 @@
                 $('#select_box').next("td").remove()
                 $('#rank_box').next("td").remove()
                 $('.green_header').next("td").remove()
+                $('.car_header').next("td").remove()
 
             }
             }

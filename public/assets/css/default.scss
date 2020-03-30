@@ -392,12 +392,12 @@ footer {
 
 // ================================network==============================
 #net-address {
-    display: none;
-    position: absolute;
-    transform: translate(18%, 36%);
-    bottom: 120px;
+    // display: none;
+    position: relative;
+    // transform: translate(18%, 36%);
+    // bottom: 120px;
     z-index: 3;
-    width: 82%;
+    width: 100%;
 }
 
 .network-ctn {
@@ -478,6 +478,10 @@ footer {
                         span{
                             margin-right: 5px;
                         }
+                    }
+                    .phone-contact{
+                        display: flex;
+                        justify-content: flex-end;
                     }
                 }
             }

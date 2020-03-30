@@ -320,24 +320,30 @@
                                     </th>
                                     <th class="col2">
                                         <div class="img-container">
-                                            <div class="select2-ctn">
-                                                <form action="">
-                                                    <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
-                                                        <option value="1">Chương trình vàng</option>
-                                                        <option value="2">Chương trình bạc</option>
-                                                        <option value="3">Chương trình platinum</option>
-                                                        <option value="4">Chương trình diamond</option>
-                                                        <option value="5">Chương trình gold</option>
-                                                        <option value="6">Chương trình alumnium</option>
-                                                        <option value="6">Chương trình iron</option>
-                                                    </select>
-                                                </form>
-                                            </div>
+                                            
                                         </div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr class="bottom-head data-detail">
+                                    <td class="first-select-cf"></td>
+                                    <td class="health-select-cf">
+                                        <div class="select2-ctn">
+                                            <form action="">
+                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
+                                                    <option value="1">Chương trình vàng</option>
+                                                    <option value="2">Chương trình bạc</option>
+                                                    <option value="3">Chương trình platinum</option>
+                                                    <option value="4">Chương trình diamond</option>
+                                                    <option value="5">Chương trình gold</option>
+                                                    <option value="6">Chương trình alumnium</option>
+                                                    <option value="6">Chương trình iron</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr class="sub-head">
                                     <td class="th-2">
                                         <div class="star-ctn">
@@ -549,7 +555,6 @@
                                     </tr>
                                     <!-- <tr >
                                         <div id="hospital-address">
-                                            @include('frontend/pages/network')
                                         </div>
                                     </tr> -->
                                 </tr>

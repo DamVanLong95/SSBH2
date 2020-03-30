@@ -290,9 +290,10 @@
 
 /** Custom Select **/
 .select2-ctn {
-  position: absolute;
+  position: relative;
   bottom: 0;
   z-index: 1;
+  text-align: center;
 }
 
 /** Custom Select **/
@@ -507,7 +508,7 @@
   height: 100px;
   position: absolute;
   display: block;
-  top: 47%;
+  top: -42%;
   left: 0;
   right: 0;
   min-width: 100%;
@@ -517,7 +518,7 @@
           box-sizing: border-box;
   -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
           box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
-  background-color: #f3f3f4;
+  background-color: rgba(0, 0, 0, 0.3);
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
   opacity: 0;
@@ -530,12 +531,12 @@
 .custom-options::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  background-color: #323649;
+  background-color: #0d723b;
 }
 
 .custom-options::-webkit-scrollbar {
   width: 5px;
-  background-color: #323649;
+  background-color: #0d723b;
 }
 
 .custom-options::-webkit-scrollbar-thumb {
@@ -565,7 +566,7 @@
   padding: 0 22px;
   font-size: 13px;
   font-family: UTM_Helve;
-  color: #b5b5b5;
+  color: #fff;
   line-height: 25px;
   cursor: pointer;
   -webkit-transition: all .4s ease-in-out;

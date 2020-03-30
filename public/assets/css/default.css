@@ -436,13 +436,9 @@ footer .footer-ctn .footer-nav li a {
 }
 
 #net-address {
-  display: none;
-  position: absolute;
-  -webkit-transform: translate(18%, 36%);
-          transform: translate(18%, 36%);
-  bottom: 120px;
+  position: relative;
   z-index: 3;
-  width: 82%;
+  width: 100%;
 }
 
 .network-ctn {
@@ -539,6 +535,15 @@ footer .footer-ctn .footer-nav li a {
 
 .network-ctn .net-item .address-list ul li.address-item .location span {
   margin-right: 5px;
+}
+
+.network-ctn .net-item .address-list ul li.address-item .phone-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .network-ctn .net-item .address-list ul.car-address {

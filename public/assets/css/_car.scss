@@ -656,10 +656,38 @@
                     }
                     img.net-img{
                         position: relative;
-                        top: 50px;
+                        top: 100px;
                     }
                 }
-                
+                .car-td{
+                    position: relative;
+                    border-bottom: 3px solid #bcbec0;
+                    &:after {
+                        position: absolute;
+                        top: 50%;
+                        right: 5px;
+                        width: 9px;
+                        height: 16px;
+                        margin-top: -8px;
+                        font: 16px fontawesome;
+                        color: #bcbec0;
+                        content: "\f0d7";
+                        transition: all .3s ease;
+                    }
+                    p.active{
+                        color: $main-color;
+                    }
+                }
+                .active-car-td{
+                    border-bottom: 3px solid $main-color;
+                   
+                }
+                td.empty-first-car{
+                    border-top: 0px solid !important;
+                }
+                td.empty-first-car2{
+                    border-bottom: 0px solid !important;
+                }
                 td.first-col {
                     text-transform: uppercase;
                 }

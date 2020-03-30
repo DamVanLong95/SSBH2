@@ -199,12 +199,12 @@
                 .top-head {
                     position: sticky;
                     top: 0;
-                    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+                    // box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
                     // border-top: 1px solid #000;
                     height: 100px;
                     th {
                         border-top: 2px solid $main-color;
-                        border-bottom: 1px solid $main-color;
+                        border-bottom: 0px solid $main-color;
                         border-right: 1px solid $main-color;
                     }
                     th:last-child {
@@ -640,6 +640,14 @@
                         position: relative;
                         // top: 50px;
                     }
+                }
+                td.first-select-cf{
+                    border: none;
+                    border-bottom: 1px solid $main-color;
+                }
+                td.health-select-cf{
+                    overflow: visible;
+                    border: 1px solid $main-color;
                 }
                 .hospital-td{
                     position: relative;
