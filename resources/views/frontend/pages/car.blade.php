@@ -167,7 +167,7 @@
             </div>
         </div>
     </div>
-    <div class="brand-section">
+    <div class="brand-section" id="brand-section">
         <div  class="section-wrapper">
             <ul id="thumbs" class="section-list">
                 @foreach($companies as $key => $company)

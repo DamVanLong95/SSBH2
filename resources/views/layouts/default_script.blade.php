@@ -495,26 +495,36 @@
         };
     window.onscroll = function() {fixedTop()};
 
-        var tblHeader = document.getElementById("tableHeader");
-        // var sticky = tblHeader.offsetTop();
+        var tblHeader = document.getElementById("brand-section");
+        // console.log(tblHeader);
+        var sticky = $(window).scrollTop();
         var menuHeight = $(".block-main-menu").outerHeight();
-        var sec1Height = $(".sec1-wrapper").height();
+        var sec1Height = $(".section1").height();
         var searchHeight = $(".search-ctn").outerHeight();
         var compareHeight = $(".compare-section").outerHeight();
-        var brandHeight = $(".brand-section").outerHeight();
-        console.log("menu",menuHeight);
-        console.log("sec1",sec1Height);
-        console.log("search ctn",searchHeight);
-        console.log("compare ctn",compareHeight);
-        console.log("branch ctn",brandHeight);
-
+        console.log("sticky",sticky);
+        // var brandHeight = $(".brand-section").outerHeight();
+        // console.log("menu",menuHeight);
+        // console.log("sec1",sec1Height);
+        // console.log("search ctn",searchHeight);
+        // console.log("compare ctn",compareHeight);
+        // console.log("branch ctn",brandHeight);
+        var totalHeight = menuHeight + sec1Height + searchHeight + compareHeight
+        console.log("Total",totalHeight);
         function fixedTop() {
-            // if (window.pageYOffset > sticky) {
-            //     tblHeader.classList.add("sticky");
-            // } else {
-            //     tblHeader.classList.remove("sticky");
-            // }
+            // console.log("rruur", $(this).scrollTop() );
+            if($(this).scrollTop() > totalHeight) {
+                $('.brand-section').addClass('fixed-sticky');
+                $('.table').css({marginTop:'9%'});
+            } else {
+                $('.brand-section').removeClass('fixed-sticky');
+                $('.table').css({marginTop:'0'});
+            }
+            
         }
+        $(window).on('scroll', function() {
+           
+        });
     </script>
     <script>
         function handleAll(el,length){
