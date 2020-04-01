@@ -48,9 +48,46 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
-                var url = '{{route('droppImage')}}';
-                
-                
+                var url = '{{route('droppLongevity')}}';
+                $.post(url, {"_token": "{{ csrf_token() }}", id: idImg}
+                ,function(data , status , xhr){
+                    if(data.success = true){
+                        var myTable = document.getElementById('main-tbl-nt')
+                                 tblBodyObj  = myTable.tBodies[0]
+                                 tblHeadObj  = myTable.tHead
+                                 indexCol    = tblHeadObj.rows[0].cells.length - 2;
+                        var longevities = data.longevities;
+                        for(var i =6; i<6+longevities.length;i++){
+                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                        }
+                        var costs = data.costs;
+                        for(var j=10;j < 10 + costs.length;j++){
+                            var tds =  tblBodyObj.rows[j].cells[indexCol];
+                            tds.innerHTML = `<p>`+costs[j-10]['content']!=null?costs[j-10]['content']:''+`</p>`
+                        }
+                       
+                        var benifits = data.benifits;
+                        var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
+                        for(var i=14; i< 14+benifits.length;i++){
+                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            if(benifits[i-14]['content']!=null){
+                                  
+                            tds.innerHTML =  `<p>`+benifits[i-14]['content']+`</p>`+`
+                                                        <span><button value="`+benifits[i-14]['content']+`" onclick="showNote(this.value)" >...</button></span>
+                                    <div class="star-td">
+                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                        </div>`;
+                            }
+                          
+                         }
+
+                       
+                       
+                    }
+                }).done(function() {
+                    // alert('Request done!');
+                });;
                 $('table th').on('click', function (e ) {
                     var index = ($(this).index()+1);
                         if( index ==2 ){
@@ -109,7 +146,6 @@
 
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl-nt');
-        console.log(myTable);
         var tblHeadObj = document.getElementById(tblId).tHead;
         var tableLength = document.getElementById('main-tbl-nt').rows[0].cells.length
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
@@ -209,11 +245,6 @@
     var searchHeight = $(".search-ctn").outerHeight();
     var compareHeight = $(".compare-section").outerHeight();
     var brandHeight = $(".brand-section").outerHeight();
-    console.log("menu",menuHeight);
-    console.log("sec1",sec1Height);
-    console.log("search ctn",searchHeight);
-    console.log("compare ctn",compareHeight);
-    console.log("branch ctn",brandHeight);
 
     function fixedTop() {
         // if (window.pageYOffset > sticky) {

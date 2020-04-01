@@ -56,15 +56,16 @@ Route::get('/health', function () {
     return view('frontend.pages.health');
 });
 // =====================================nhân thọ Longevity=================================
-Route::get('/longevity', function () {
-    return view('frontend.pages.longevity');
-});
+Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
+Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::resource('posts','Admin\PostController',['except'=>'show']);
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
+    Route::resource('product','Admin\ProductController',['except' =>'show']);
+    Route::get('getIndex','Admin\ProductController@getIndex')->name('products.datatable');
 
 //   ============View ======================
     // Route::resource('company','Admin\CompanyController',['except' =>'show']);
@@ -86,6 +87,9 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('activity','Admin\ExcelController@indexActivity')->name('indexActivity.import');
     Route::get('location','Admin\ExcelController@indexLocation')->name('indexLocation.import');
     Route::get('detail','Admin\ExcelController@indexDetail')->name('indexDetail.import');
+  
+
+    Route::get('scope','Admin\LongevityExcelController@indexScope')->name('indexScope.import');
  
    
    
@@ -103,6 +107,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('location','Admin\ExcelController@importLocation')->name('location.import');
     Route::post('detail','Admin\ExcelController@importDetail')->name('detail.import');
 
+    Route::post('scope','Admin\LongevityExcelController@importScope')->name('scope.import');
+
 
 //   ============Export excel======================
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
@@ -114,6 +120,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('activity/export','Admin\ExcelController@exportActivity')->name('activity.export');
     Route::get('location/export','Admin\ExcelController@exportLocation')->name('location.export');
     Route::get('detail/export','Admin\ExcelController@exportLocation')->name('location.export');
+  
 
+    Route::get('longevity/export','Admin\LongevityExcelController@exportLongevity')->name('longevity.export');
 
 });

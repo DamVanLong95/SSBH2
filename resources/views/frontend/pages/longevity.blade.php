@@ -173,15 +173,16 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Tích lũy, tiết kiệm <span>(5)</span></h4>
+                    <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper">
                     <ul id="thumbs" class="section-list">
-                        @for($i=1;$i<=10;$i++)
+                  
+                        @foreach($data['saving'] as $value)
                         <li class="item">
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
                                     <input name="type" value="" type="checkbox" id="ala_14"/>
@@ -189,7 +190,7 @@
                                 </div>
                             </div>
                         </li>
-                        @endfor
+                        @endforeach
                     </ul>
                 </div>
                 </div>
@@ -210,14 +211,15 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Bảo vệ <span>(2)</span></h4>
+                    <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper2">
                     <ul id="thumbs" class="section-list2">
+                    @foreach($data['secure'] as $value)
                         <li class="item2">
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
                                     <input name="type" value="" type="checkbox" id="ala_1"/>
@@ -225,61 +227,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="2">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_2"/>
-                                    <label class="toggle" for="ala_2"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="3">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_3"/>
-                                    <label class="toggle" for="ala_3"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="4">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_4"/>
-                                    <label class="toggle" for="ala_4"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="5">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_5"/>
-                                    <label class="toggle" for="ala_5"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="6">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_6"/>
-                                    <label class="toggle" for="ala_6"></label>
-                                </div>
-                            </div>
-                        </li>
+                    @endforeach
                     </ul>
                 </div>
                 </div>
@@ -320,7 +268,9 @@
                                     </th>
                                     <th class="col2">
                                         <div class="img-container">
-                                            
+                                            <div class="select2-ctn">
+                                               
+                                            </div>
                                         </div>
                                     </th>
                                 </tr>
@@ -329,19 +279,7 @@
                                 <tr class="bottom-head data-detail">
                                     <td class="first-select-cf"></td>
                                     <td class="health-select-cf">
-                                        <div class="select2-ctn">
-                                            <form action="">
-                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
-                                                    <option value="1">Chương trình vàng</option>
-                                                    <option value="2">Chương trình bạc</option>
-                                                    <option value="3">Chương trình platinum</option>
-                                                    <option value="4">Chương trình diamond</option>
-                                                    <option value="5">Chương trình gold</option>
-                                                    <option value="6">Chương trình alumnium</option>
-                                                    <option value="6">Chương trình iron</option>
-                                                </select>
-                                            </form>
-                                        </div>
+                                        <p class="">Tuong lai vung vang</p>
                                     </td>
                                 </tr>
                                 <tr class="sub-head">
@@ -453,25 +391,29 @@
                                     </td>
                                 </tr>
                                 <tr class="header">
-                                    <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
+                                    <td  colspan="2" class="green_header">Phạm vi bảo vệ</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
+                                @foreach($scope_secure as $key=>$value)
+                                    <tr class="data-detail">
+                                        <td><p class="ellipsis">{{$value['comparison']}}</p></td>
+                                        <td></td>
+                                    </tr>
+                                @endforeach
                                 <tr class="header green">
                                     <td  colspan="2" class="green_header">Phí</td>
                                 </tr>
+                                @foreach($data['cost'] as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td><p class="ellipsis">{{$value['comparison']}}</p></td>
                                     <td></td>
                                 </tr>
-                                
+                                @endforeach
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                     </td>
                                 </tr>
+                               
                                 <tr class="select-all">
                                     <td>
                                         <div class="choose-all">
@@ -480,11 +422,11 @@
                                         </div>
                                     </td>
                                 </tr>
-                               
+                                @foreach($data['benifits'] as $value)
                                 <tr class="data-detail">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">term</p>
+                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
                                         <label class="drop" for="" style="display:none" id="dksk">% phí</label>
                                     </td>
@@ -492,6 +434,7 @@
 
                                     </td>
                                 </tr>
+                                @endforeach
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Quyền lợi bổ trợ</td>
                                 </tr>

@@ -310,7 +310,7 @@
                                     </td>
                                 </tr>
                                @foreach($terms_data as $key=>$value)  
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
@@ -325,7 +325,7 @@
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail">
                                     <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
@@ -347,7 +347,7 @@
                                 </tr>
                                 </tr>
                                 @foreach($exception_data as $value)
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail">
                                     <td>
                                         <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
                                                 name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
@@ -362,7 +362,7 @@
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
                                 @foreach($punishment as $value)
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail">
                                     <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -371,7 +371,7 @@
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
                                 @foreach($permission as $value)
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail ">
                                     <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -380,7 +380,7 @@
                                     <td  colspan="2" class="green_header">Năng lực tài chính</td>
                                 </tr>
                                 @foreach($finances as $value)
-                                <tr class="data-detail d-none" >
+                                <tr class="data-detail " >
                                     <td><p class="ellipsis">{{$value['finance']}}</p></td>
                                     <td></td>
                                 </tr>

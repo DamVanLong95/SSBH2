@@ -5273,14 +5273,15 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-nt .sized {
-  width: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin: auto;
   left: 0;
   right: 0;
   position: absolute;
   -webkit-transform: translate(0px, 30px);
-          transform: translate(0px, 30px);
+  transform: translate(0px, 15px);
 }
 
 .table-section-nt .img-container {
