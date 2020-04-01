@@ -416,6 +416,7 @@
                 var newTH = document.createElement('th');
                 $('#select_box').attr("colspan", tableLength +1)
                 $('#select_all').attr("colspan", tableLength +1)
+                $('.td-all').attr("colspan", tableLength +1)
                 $('.green_header').attr("colspan", tableLength +1)
                 $('.car_header').attr("colspan", tableLength )
                 tblHeadObj.rows[h].appendChild(newTH);
@@ -438,6 +439,7 @@
                 $('#rank_box').next("td").remove()
                 $('.green_header').next("td").remove()
                 $('.car_header').next("td").remove()
+                $('.td-all').next("td").remove()
 
             }
             }
@@ -503,24 +505,30 @@
         var searchHeight = $(".search-ctn").outerHeight();
         var compareHeight = $(".compare-section").outerHeight();
         console.log("sticky",sticky);
-        // var brandHeight = $(".brand-section").outerHeight();
+        var brandHeight = $(".brand-section").outerHeight();
         // console.log("menu",menuHeight);
         // console.log("sec1",sec1Height);
         // console.log("search ctn",searchHeight);
         // console.log("compare ctn",compareHeight);
-        // console.log("branch ctn",brandHeight);
+        console.log("branch ctn",brandHeight);
         var totalHeight = menuHeight + sec1Height + searchHeight + compareHeight
+        var totalHeightBrand = totalHeight + brandHeight
         console.log("Total",totalHeight);
         function fixedTop() {
             // console.log("rruur", $(this).scrollTop() );
-            if($(this).scrollTop() > totalHeight) {
-                $('.brand-section').addClass('fixed-sticky');
-                $('.table').css({marginTop:'9%'});
-            } else {
-                $('.brand-section').removeClass('fixed-sticky');
-                $('.table').css({marginTop:'0'});
-            }
-            
+            // if($(this).scrollTop() > totalHeight) {
+            //     $('.brand-section').addClass('fixed-sticky');
+            //     // $('.table').css({top:'270px'});
+            // } else {
+            //     $('.brand-section').removeClass('fixed-sticky');
+            //     $('.table').css({top:'0'});
+            // };
+            // if($(this).scrollTop() > totalHeightBrand) {
+            //     $('thead').addClass('fixed-thead');
+            //     // $('thead').css({display:'table'});
+            // }else {
+            //     $('thead').removeClass('fixed-thead');
+            // }
         }
         $(window).on('scroll', function() {
            

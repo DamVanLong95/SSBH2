@@ -436,7 +436,7 @@
                                     <td></td>
                                 </tr>
                                 
-                                <tr class="header bg-head-4">
+                                <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
                                 </tr>
                                 <tr class="data-detail">
@@ -457,6 +457,14 @@
                                 </tr>
                                 <tr class="header bg-head-3">
                                     <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
+                                </tr>
+                                <tr class="select-all">
+                                    <td class="td-all">
+                                        <div class="choose-all">
+                                            <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="" >
+                                            <label class="toggle" for="selectall_bs">Chọn tất cả</label>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>

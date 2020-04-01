@@ -329,19 +329,7 @@
                                 <tr class="bottom-head data-detail">
                                     <td class="first-select-cf"></td>
                                     <td class="health-select-cf">
-                                        <div class="select2-ctn">
-                                            <form action="">
-                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
-                                                    <option value="1">Chương trình vàng</option>
-                                                    <option value="2">Chương trình bạc</option>
-                                                    <option value="3">Chương trình platinum</option>
-                                                    <option value="4">Chương trình diamond</option>
-                                                    <option value="5">Chương trình gold</option>
-                                                    <option value="6">Chương trình alumnium</option>
-                                                    <option value="6">Chương trình iron</option>
-                                                </select>
-                                            </form>
-                                        </div>
+                                        Tương lai vững vàng
                                     </td>
                                 </tr>
                                 <tr class="sub-head">
@@ -364,7 +352,7 @@
 
                                     </td>
                                 </tr>
-                                <tr class="green1">
+                                <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                 </tr>
                                 <tr class="container-selection">
@@ -467,7 +455,7 @@
                                     <td></td>
                                 </tr>
                                 
-                                <tr class="header bg-head-1">
+                                <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                     </td>
@@ -497,7 +485,7 @@
                                 </tr>
                                 <tr class="data-detail gray-detail">
                                     <td class="first-gray">Tai nạn</td>
-                                    <td>
+                                    <td class="second-gray">
                                         <div class="gray-head">
                                             <form action="">
                                                 <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
@@ -539,7 +527,7 @@
                                     <td></td>
                                 </tr>
                                 
-                                <tr class="header bg-head-4">
+                                <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
                                 </tr>
                                 <tr class="data-detail">
