@@ -336,6 +336,7 @@
                                             // $('#net-address').toggle('slow');
                                     $('#province').change(function(){
                                     var location_id = $(this).val();
+                                    console.log(location_id);
                                     var url = '{{route('address')}}';
                                     $.post(url,
                                         { "_token": "{{ csrf_token() }}",

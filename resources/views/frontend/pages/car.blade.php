@@ -311,7 +311,7 @@
                                     </td>
                                 </tr>
                                @foreach($terms_data as $key=>$value)  
-                                <tr class="data-detail ">
+                                <tr class="data-detail d-none">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
@@ -348,7 +348,7 @@
                                 </tr>
                                 </tr>
                                 @foreach($exception_data as $value)
-                                <tr class="data-detail ">
+                                <tr class="data-detail d-none">
                                     <td>
                                         <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
                                                 name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
@@ -363,7 +363,7 @@
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
                                 @foreach($punishment as $value)
-                                <tr class="data-detail ">
+                                <tr class="data-detail d-none">
                                     <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -372,7 +372,7 @@
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
                                 @foreach($permission as $value)
-                                <tr class="data-detail ">
+                                <tr class="data-detail d-none ">
                                     <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -386,7 +386,7 @@
                                     </td>
                                 </tr>
                                 @foreach($finances as $value)
-                                <tr class="data-detail " >
+                                <tr class="data-detail d-none" >
                                     <td><p class="ellipsis">{{$value['finance']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -394,7 +394,7 @@
                                 <tr class="header bg-head-4">
                                     <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td class="text-center empty-first-car2 "><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                     <td class="car-td active-car-td">
                                         <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
