@@ -416,6 +416,7 @@
                 var newTH = document.createElement('th');
                 $('#select_box').attr("colspan", tableLength +1)
                 $('#select_all').attr("colspan", tableLength +1)
+                $('.td-all').attr("colspan", tableLength +1)
                 $('.green_header').attr("colspan", tableLength +1)
                 $('.car_header').attr("colspan", tableLength )
                 tblHeadObj.rows[h].appendChild(newTH);
@@ -438,6 +439,7 @@
                 $('#rank_box').next("td").remove()
                 $('.green_header').next("td").remove()
                 $('.car_header').next("td").remove()
+                $('.td-all').next("td").remove()
 
             }
             }
@@ -495,26 +497,42 @@
         };
     window.onscroll = function() {fixedTop()};
 
-        var tblHeader = document.getElementById("tableHeader");
-        // var sticky = tblHeader.offsetTop();
+        var tblHeader = document.getElementById("brand-section");
+        // console.log(tblHeader);
+        var sticky = $(window).scrollTop();
         var menuHeight = $(".block-main-menu").outerHeight();
-        var sec1Height = $(".sec1-wrapper").height();
+        var sec1Height = $(".section1").height();
         var searchHeight = $(".search-ctn").outerHeight();
         var compareHeight = $(".compare-section").outerHeight();
+        console.log("sticky",sticky);
         var brandHeight = $(".brand-section").outerHeight();
-        console.log("menu",menuHeight);
-        console.log("sec1",sec1Height);
-        console.log("search ctn",searchHeight);
-        console.log("compare ctn",compareHeight);
+        // console.log("menu",menuHeight);
+        // console.log("sec1",sec1Height);
+        // console.log("search ctn",searchHeight);
+        // console.log("compare ctn",compareHeight);
         console.log("branch ctn",brandHeight);
-
+        var totalHeight = menuHeight + sec1Height + searchHeight + compareHeight
+        var totalHeightBrand = totalHeight + brandHeight
+        console.log("Total",totalHeight);
         function fixedTop() {
-            // if (window.pageYOffset > sticky) {
-            //     tblHeader.classList.add("sticky");
+            // console.log("rruur", $(this).scrollTop() );
+            // if($(this).scrollTop() > totalHeight) {
+            //     $('.brand-section').addClass('fixed-sticky');
+            //     // $('.table').css({top:'270px'});
             // } else {
-            //     tblHeader.classList.remove("sticky");
+            //     $('.brand-section').removeClass('fixed-sticky');
+            //     $('.table').css({top:'0'});
+            // };
+            // if($(this).scrollTop() > totalHeightBrand) {
+            //     $('thead').addClass('fixed-thead');
+            //     // $('thead').css({display:'table'});
+            // }else {
+            //     $('thead').removeClass('fixed-thead');
             // }
         }
+        $(window).on('scroll', function() {
+           
+        });
     </script>
     <script>
         function handleAll(el,length){

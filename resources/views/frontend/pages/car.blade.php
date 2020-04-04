@@ -167,7 +167,7 @@
             </div>
         </div>
     </div>
-    <div class="brand-section">
+    <div class="brand-section" id="brand-section">
         <div  class="section-wrapper">
             <ul id="thumbs" class="section-list">
                 @foreach($companies as $key => $company)
@@ -296,13 +296,14 @@
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                 </tr>
-                                <tr class="header bg-head-1">
+                                <tr class="header bg-head-1 fixed-header">
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
 
                                     </td>
+                                    
                                 </tr>
                                 <tr class="select-all">
-                                    <td>
+                                    <td class="td-all">
                                         <div class="choose-all">
                                             <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="handleAll(this,{{count($terms_data)}})" >
                                             <label class="toggle" for="selectall_bs">Chọn tất cả</label>
@@ -310,7 +311,7 @@
                                     </td>
                                 </tr>
                                @foreach($terms_data as $key=>$value)  
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
@@ -325,7 +326,7 @@
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
@@ -347,7 +348,7 @@
                                 </tr>
                                 </tr>
                                 @foreach($exception_data as $value)
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td>
                                         <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
                                                 name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
@@ -362,7 +363,7 @@
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
                                 @foreach($punishment as $value)
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -378,6 +379,11 @@
                                 @endforeach
                                 <tr class="header bg-head-3">
                                     <td  colspan="2" class="green_header">Năng lực tài chính</td>
+                                </tr>
+                                <tr class="select-all">
+                                    <td class="td-all">
+                                        Đơn vị: triệu đồng
+                                    </td>
                                 </tr>
                                 @foreach($finances as $value)
                                 <tr class="data-detail " >

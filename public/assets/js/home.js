@@ -540,7 +540,7 @@
             name    = $(this).attr("name");
             var template =  '<div class="' + classes + '">';
             template += '<span class="custom-select-fix-trigger">' + $(this).attr("placeholder") + '</span>';
-            template += '<div class="custom-options">';
+            template += '<div class="custom-options longevity-option">';
             $(this).find("option").each(function() {
                 template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
             });

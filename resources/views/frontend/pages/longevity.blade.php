@@ -279,7 +279,7 @@
                                 <tr class="bottom-head data-detail">
                                     <td class="first-select-cf"></td>
                                     <td class="health-select-cf">
-                                        <p class="">Tuong lai vung vang</p>
+                                        Tương lai vững vàng
                                     </td>
                                 </tr>
                                 <tr class="sub-head">
@@ -302,7 +302,7 @@
 
                                     </td>
                                 </tr>
-                                <tr class="green1">
+                                <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                 </tr>
                                 <tr class="container-selection">
@@ -407,8 +407,8 @@
                                     <td><p class="ellipsis">{{$value['comparison']}}</p></td>
                                     <td></td>
                                 </tr>
-                                @endforeach
-                                <tr class="header bg-head-1">
+                                
+                                <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                     </td>
@@ -440,7 +440,7 @@
                                 </tr>
                                 <tr class="data-detail gray-detail">
                                     <td class="first-gray">Tai nạn</td>
-                                    <td>
+                                    <td class="second-gray">
                                         <div class="gray-head">
                                             <form action="">
                                                 <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
@@ -482,7 +482,7 @@
                                     <td></td>
                                 </tr>
                                 
-                                <tr class="header bg-head-4">
+                                <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
                                 </tr>
                                 <tr class="data-detail">

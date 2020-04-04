@@ -309,17 +309,17 @@
                     }
                 }
                 tr.bg-head-1 {
-                    background-image: url('../images/car/bg1.png');
+                    background-image: url('../images/health/bg1.png');
                     background-repeat: no-repeat;
                     color: white;
                 }
                 tr.bg-head-2 {
-                    background-image: url('../images/car/bg2.png');
+                    background-image: url('../images/health/bg2.png');
                     background-repeat: no-repeat;
                     color: white;
                 }
                 tr.bg-head-3 {
-                    background-image: url('../images/car/bg3.png');
+                    background-image: url('../images/health/bg2.png');
                     background-repeat: no-repeat;
                     color: white;
                 }
@@ -571,71 +571,7 @@
             tr.data-detail:not(.header) {
                 // display: none;
             }
-            tr.select-all {
-                position: absolute;
-                transform: translate(0, -44px);
-                td {
-                    border: none;
-                    // transform: translateY(-48px);
-                    color: #fff;
-                    .choose-all {
-                        width: max-content;
-                        input[type=checkbox] {
-                            display: none;
-                        }
-                        .selectedAll {
-                            opacity: 0;
-                            filter: alpha(opacity=0);
-                        }
-                        .selectedAll+label {
-                            position: relative;
-                        }
-                        .selectedAll+label:before,
-                        .lt-ie8 .checkbox-replacement {
-                            content: '';
-                            display: inline-flex;
-                            visibility: visible;
-                            left: 0;
-                            width: 16px;
-                            height: 16px;
-                            margin: 0 5px;
-                            line-height: 1;
-                            text-align: center;
-                            /* Put checkbox styles here: */
-                            border: 1px solid #ccc;
-                            border-radius: 100%;
-                        }
-                        .selectedAll:checked+label:before,
-                        .lt-ie9 .selectedAll.checked+label:before {
-                            content: '';
-                            position: relative;
-                            top: 0px;
-                            left: 0;
-                            width: 14px;
-                            height: 14px;
-                            border-radius: 50%;
-                            background: $main-color;
-                            opacity: 1;
-                        }
-                        .selectedAll:checked+label::after,
-                        .lt-ie9 .selectedAll.checked+label::after {
-                            content: '';
-                            width: 18px;
-                            height: 18px;
-                            background: rgba(0, 0, 0, 0);
-                            border: 1px solid #ccc;
-                            border-radius: 20px;
-                            position: absolute;
-                            top: 3px;
-                            left: -2px;
-                            margin: 0 5px;
-                            -webkit-box-shadow: 0 1px 1px #dfecf4;
-                            -moz-box-shadow: 0 1px 1px #dfecf4;
-                            box-shadow: 0 1px 1px #dfecf4;
-                        }
-                    }
-                }
-            }
+           
             tr.network {
                 // td:hover {
                 //     .network-ctn {
@@ -829,7 +765,7 @@
     // display: none;
     position: relative;
     // transform: translate(18%, 36%);
-    bottom: 120px;
+    // bottom: 120px;
     z-index: 3;
     // width: 82%;
 }
