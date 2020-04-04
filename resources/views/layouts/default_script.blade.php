@@ -319,13 +319,13 @@
                                     }
                                 } 
                             
-
-                                for(var i =113; i<113+finances.length;i++){
+                                tds = tblBodyObj.rows[114].cells[indexCol]; 
+                                for(var i =114; i<114+finances.length;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-113]['money'],0)+`</p>`
+                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-114]['money'],0)+`</p>`
                                 }
                             
-                                tds = tblBodyObj.rows[131].cells[indexCol]; 
+                                tds = tblBodyObj.rows[132].cells[indexCol]; 
                                 //    console.log(tds);
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
@@ -333,19 +333,49 @@
                                             <p class="toggle"><span>`+data_activities['total']+`</span> Chi nhánh</p>
                                         
                                             `;
-                                            // $('#net-address').toggle('slow');
-                                    $('#province').change(function(){
-                                    var location_id = $(this).val();
-                                    console.log(location_id);
-                                    var url = '{{route('address')}}';
-                                    $.post(url,
-                                        { "_token": "{{ csrf_token() }}",
-                                        location_id:location_id,
-                                        company_id:idImg},
-                                        function(data,status){
-                                            $('#address').html(data.html);
-                                        });
-                                    });
+                                    
+                                    $('#map'+idImg+'').click(function(){
+                                        var tdnet ;
+                                        for(var i =1;i<4;i++){
+                                            if(indexCol==i){
+                                                tdnet = tds;
+                                                tdnet.setAttribute('class','active-car-td');
+                                               
+                                            }else{
+                                                tdnet= tblBodyObj.rows[132].cells[i]
+                                                tdnet.removeAttribute('class','active-car-td');
+                                            }
+                                        }
+
+                                        var location_id = $('#province').val();
+                                        if (location_id !=0) {
+                                                var location_id = $('#province').val();
+                                                var url = '{{route('address')}}';
+                                                $.post(url,
+                                                    { "_token": "{{ csrf_token() }}",
+                                                    location_id:location_id,
+                                                    company_id:idImg},
+                                                    function(data,status){
+                                                        $('#address').html(data.html);
+                                                });
+                                            
+                                        }else{
+                                            $('#province').change(function(){
+                                                var location_id = $(this).val();
+                                                var url = '{{route('address')}}';
+                                                $.post(url,
+                                                    { "_token": "{{ csrf_token() }}",
+                                                    location_id:location_id,
+                                                    company_id:idImg},
+                                                    function(data,status){
+                                                        $('#address').html(data.html);
+                                                });
+                                            });
+                                        }
+
+                                      
+                                    })
+                                    
                                 
                             }
                         }).done(function() {
@@ -505,16 +535,16 @@
         var sec1Height = $(".section1").height();
         var searchHeight = $(".search-ctn").outerHeight();
         var compareHeight = $(".compare-section").outerHeight();
-        console.log("sticky",sticky);
+        // console.log("sticky",sticky);
         var brandHeight = $(".brand-section").outerHeight();
         // console.log("menu",menuHeight);
         // console.log("sec1",sec1Height);
         // console.log("search ctn",searchHeight);
         // console.log("compare ctn",compareHeight);
-        console.log("branch ctn",brandHeight);
+        // console.log("branch ctn",brandHeight);
         var totalHeight = menuHeight + sec1Height + searchHeight + compareHeight
         var totalHeightBrand = totalHeight + brandHeight
-        console.log("Total",totalHeight);
+        // console.log("Total",totalHeight);
         function fixedTop() {
             // console.log("rruur", $(this).scrollTop() );
             // if($(this).scrollTop() > totalHeight) {

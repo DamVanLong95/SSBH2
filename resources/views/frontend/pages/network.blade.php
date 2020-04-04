@@ -7,7 +7,7 @@
                     <div class="address"><p></p></div>
                     <div class="address-ctn">
                         <select aria-label="Select menu example" id="province">
-                            <option selected>Tỉnh/Thành phố</option>
+                            <option selected value="0">Tỉnh/Thành phố</option>
                             @foreach($locations as $value)
                             <option value=" {{$value['id']}}">{{$value['name']}}</option>
                             @endforeach
