@@ -1834,8 +1834,25 @@ footer .footer-ctn .footer-nav li a {
   transition: -webkit-transform .15s ease-in-out .15s;
   transition: transform .15s ease-in-out .15s;
   transition: transform .15s ease-in-out .15s, -webkit-transform .15s ease-in-out .15s;
-  max-height: 66vh;
-  overflow-y: hidden;
+  max-height: 46vh;
+  overflow-y: scroll;
+}
+
+.compare-section .compare-nav .dropdown .dropdown-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.compare-section .compare-nav .dropdown .dropdown-list::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ccc;
+}
+
+.compare-section .compare-nav .dropdown .dropdown-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #0d723b;
 }
 
 .compare-section .compare-nav .dropdown .dropdown-option {
@@ -1844,6 +1861,7 @@ footer .footer-ctn .footer-nav li a {
   opacity: 0;
   -webkit-transition: opacity .15s ease-in-out;
   transition: opacity .15s ease-in-out;
+  line-height: 22px;
 }
 
 .compare-section .compare-nav .dropdown .dropdown-label {

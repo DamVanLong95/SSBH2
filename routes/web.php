@@ -23,6 +23,7 @@ Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
 Route::post('onchange','Car\CarController@onChange')->name('onchange');
 Route::post('reference','Car\CarController@reference')->name('reference');
 Route::post('car/address','Car\CarController@address')->name('address');
+Route::post('car/filter','Car\CarController@filterCompanies')->name('filterCompanies');
 
 Route::get('/test', function () {
     return view('frontend.pages.test');
@@ -68,7 +69,6 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('getIndex','Admin\ProductController@getIndex')->name('products.datatable');
 
 //   ============View ======================
-    // Route::resource('company','Admin\CompanyController',['except' =>'show']);
     Route::get('company','Admin\CompanyController@index')->name('excel.company');
     Route::get('datatables','Admin\CompanyController@getData')->name('excel.getData');
     Route::get('company/edit/{id?}','Admin\CompanyController@edit')->name('company.edit');

@@ -173,16 +173,15 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
+                <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper">
                     <ul id="thumbs" class="section-list">
-                  
-                        @foreach($data['saving'] as $value)
+                    @foreach($data['saving'] as $value)
                         <li class="item">
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
                                     <input name="type" value="" type="checkbox" id="ala_14"/>
@@ -211,7 +210,7 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
+                <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper2">
                     <ul id="thumbs" class="section-list2">
@@ -391,7 +390,7 @@
                                     </td>
                                 </tr>
                                 <tr class="header">
-                                    <td  colspan="2" class="green_header">Phạm vi bảo vệ</td>
+                                    <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
                                 </tr>
                                 @foreach($scope_secure as $key=>$value)
                                     <tr class="data-detail">
@@ -407,13 +406,12 @@
                                     <td><p class="ellipsis">{{$value['comparison']}}</p></td>
                                     <td></td>
                                 </tr>
-                                
+                                @endforeach
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                     </td>
                                 </tr>
-                               
                                 <tr class="select-all">
                                     <td>
                                         <div class="choose-all">
@@ -422,6 +420,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                               
                                 @foreach($data['benifits'] as $value)
                                 <tr class="data-detail">
                                     <td>
@@ -431,7 +430,6 @@
                                         <label class="drop" for="" style="display:none" id="dksk">% phí</label>
                                     </td>
                                     <td>
-
                                     </td>
                                 </tr>
                                 @endforeach
