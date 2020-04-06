@@ -36,8 +36,14 @@
   }
 }
 
-.text-right {
+.footer-text-right {
   text-align: right;
+}
+
+@media screen and (max-width: 991px) {
+  .footer-text-right {
+    text-align: left;
+  }
 }
 
 .hidden {

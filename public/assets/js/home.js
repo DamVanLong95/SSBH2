@@ -54,7 +54,7 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -88,12 +88,12 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                             spaceBetween: 30,
 
                         },
                         767: {
-                            slidesPerView: 1,
+                            slidesPerView: 2,
                             spaceBetween: 30,
                         },
                         320: {
@@ -122,7 +122,7 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -233,7 +233,7 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -267,7 +267,7 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -409,7 +409,6 @@
 
         // finally, what happens when we are actually scrolling the brand
         $('.section-list').on('scroll', function() {
-
             // get how much of brand is invisible
             brandInvisibleSize = brandSize - brandWrapperSize;
             // get how much have we scrolled so far
@@ -418,7 +417,6 @@
             var paddleMargin = 20;
             // console.log("brandPosition", brandPosition);
             var brandEndOffset = brandInvisibleSize - paddleMargin;
-            // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
             // show & hide the paddles 
             // depending on scroll position
             if (brandPosition <= paddleMargin) {
@@ -481,7 +479,7 @@
         var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
 
         // get how much have we scrolled to the left
-        var getBrandPosition = function() {
+        var getBrandPosition2 = function() {
             return $('.section-list2').scrollLeft();
         };
 
@@ -491,15 +489,15 @@
             // get how much of brand is invisible
             brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
             // get how much have we scrolled so far
-            var brandPosition2 = getBrandPosition();
+            var brandPosition2 = getBrandPosition2();
             // get some relevant size for the paddle triggering point
-            var paddleMargin = 20;
+            var paddleMargin2 = 20;
             // console.log("brandPosition", brandPosition);
-            var brandEndOffset2 = brandInvisibleSize2 - paddleMargin;
+            var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
             // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
             // show & hide the paddles 
             // depending on scroll position
-            if (brandPosition2 <= paddleMargin) {
+            if (brandPosition2 <= paddleMargin2) {
                 $(leftPaddle2).addClass('hidden');
                 $(rightPaddle2).removeClass('hidden');
             } else if (brandPosition2 < brandEndOffset2) {
@@ -516,14 +514,14 @@
         // scroll to left
         $(rightPaddle2).on('click', function() {
             $('.section-list2').animate({
-                scrollLeft: "+=300px"
+                scrollLeft: "+=301px"
             }, "slow");
         });
 
         // scroll to right
         $(leftPaddle2).on('click', function() {
             $('.section-list2').animate({
-                scrollLeft: "-=300px"
+                scrollLeft: "-=301px"
             }, "slow");
         });
         //===============end scroll health page=====================
@@ -540,7 +538,7 @@
             name    = $(this).attr("name");
             var template =  '<div class="' + classes + '">';
             template += '<span class="custom-select-fix-trigger">' + $(this).attr("placeholder") + '</span>';
-            template += '<div class="custom-options longevity-option">';
+            template += '<div class="custom-options">';
             $(this).find("option").each(function() {
                 template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
             });
