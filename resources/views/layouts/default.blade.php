@@ -42,52 +42,57 @@
 <!-- Menu -->
 {{--sticky-top--}}
 <div id="menu-main" class="block-main-menu">
-    <div class="container ">
-        <div class="block-main-menu">
-            <nav id="sidenav" class="main-menu navbar navbar-expand-lg ">
-                    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-                        <ul class="left-nav navbar-nav ml-auto text-center">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
-                                <ul>
-                                    <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
-                                    <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
-                                    <li><a href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
-                                
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mx-auto my-2 order-0 order-md-1 position-relative">
-                        <a class="mx-auto" href="#">
-                            <img src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" class="logo-desktop">
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-                        <ul class="right-nav navbar-nav mr-auto text-center">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/question') }}">CÂU HỎI</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/contact') }}">LIÊN HỆ</a>
-                            </li>
-                        </ul>
-                    </div>
-            </nav>
-        </div>
+    <div class="container flex-display">
         <!-- Menu -->
+        <div class="logo-desktop">
+            <a href="{{ url('/') }}">
+                <img class="img-fluid" src="{{ url('/') }}/assets/images/section1/detox-icon.png?{{ config('custom.version') }}" alt="">
+            </a>
+        </div>
+        <nav id="sidenav" class="main-menu navbar navbar-expand-lg ">
+            <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+                <ul class="left-nav navbar-nav ml-auto text-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
+                        <ul>
+                            <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
+                            <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
+                            <li><a href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
+                        
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+                <a class="mx-auto" href="#">
+                    <img src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" class="logo-desktop">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+                <ul class="right-nav navbar-nav mr-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/question') }}">CÂU HỎI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/contact') }}">LIÊN HỆ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /.Menu -->
+
         <!-- overlay -->
         <div class="block-overlay"></div>
         <!-- /.overlay -->
@@ -101,33 +106,10 @@
         <!-- /.icon bar -->
     </div>
 </div>
+
 <div class="body-page">
     <div class="page-wrapper">
-        <div id="section1" class="section1">
-            <div class="sec1-wrapper text-center">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div id="slideBanner" class="swiper-container swiper-banner">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide slide-item">
-                                    <div class="overlay-bg"></div>
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner1.jpg?{{ config('custom.version') }}" alt="">
-                                </div>
-                                <div class="swiper-slide slide-item">
-                                    <div class="overlay-bg"></div>
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner2.jpg?{{ config('custom.version') }}" alt="">
-                                </div>
-                                <div class="swiper-slide slide-item">
-                                    <div class="overlay-bg"></div>
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/banner3.jpg?{{ config('custom.version') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+    @include('frontend/pages/section1')
         @yield('content')
     </div>
     <!-- Back to top -->
@@ -200,7 +182,7 @@
 
     <script>
         $(document).ready(function(){
-            // $.ui.menu.init();
+            $.ui.menu.init();
             $(window).scroll(function () {
             if ($(this).scrollTop() > 100) {
                 $('.scrollup').fadeIn();
@@ -240,7 +222,6 @@
             });
         });
     </script>
-    
     <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src='https://foliotek.github.io/Croppie/croppie.js'></script>
