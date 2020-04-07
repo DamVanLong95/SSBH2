@@ -29,31 +29,14 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
+                                @forelse($data['companies_cheap'] as $value)
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                     <input type="checkbox" class="dropdownCheckbox" name="companiesID[]" value="{{$value['id']}}" />
+                                        {{$value->name}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @empty
+                                    <p>empty data</p>
+                                @endforelse
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -62,31 +45,14 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
+                                @forelse($data['companies_recoup'] as $value)
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" class="dropdownCheckbox" name="companiesID[]" value="{{$value['id']}}" />
+                                {{$value->name}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @empty
+                                    <p>empty data</p>
+                                @endforelse
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -99,22 +65,6 @@
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -123,31 +73,14 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
-                                <label class="dropdown-option">
+                                @forelse($terms_data as $value)
+                                <label class="dropdown-option ">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                    {{str_limit($value['terms'],50)}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @empty
+                                    <p>empty data</p>
+                                @endforelse
                             </div>
                         </div>
                     </div>
@@ -161,14 +94,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-section">
-                        <button type="button" onclick=""> Tìm kiếm doanh nghiệp bảo hiểm</button>
+                        <button type="button" onclick=" handleFilter()"> Tìm kiếm doanh nghiệp bảo hiểm</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="brand-section" id="brand-section">
-        <div  class="section-wrapper">
+        <div  class="section-wrapper" id="banner-logo">
             <ul id="thumbs" class="section-list">
                 @foreach($companies as $key => $company)
                 <li class="item">
@@ -372,7 +305,7 @@
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
                                 @foreach($permission as $value)
-                                <tr class="data-detail ">
+                                <tr class="data-detail  ">
                                     <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -394,7 +327,7 @@
                                 <tr class="header bg-head-4">
                                     <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td class="text-center empty-first-car2 "><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                     <td class="car-td active-car-td">
                                         <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
@@ -461,6 +394,20 @@
     }
 </script>
 <script>
+    function handleFilter(){
+        var checkedID = []; 
+        var inputElements = document.getElementsByClassName('dropdownCheckbox');
+        $(".dropdownCheckbox").each(function(){
+            if($(this).is(":checked"))
+            checkedID.push($(this).val());
+        });
+        var url = `{{route('filterCompanies')}}`;
+        $.post(url,{ "_token": "{{ csrf_token() }}",checkedID:checkedID}
+        ,function(data,status){
+            $('#banner-logo').html(data.html);
+        });
+        // console.log(checkedID);
+    }
     function handleCheck(el){
         var index = $(el).data("id");
         var checkBox_lt = document.getElementById('checkbox2_'+index+'');

@@ -48,8 +48,33 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
-                var url = '{{route('droppImage')}}';
-                
+                var url = '{{route('droppHealth')}}';
+                $.post(url, 
+                {
+                    "_token": "{{ csrf_token() }}", 
+                    id: idImg
+                }
+                ,function(data , status , xhr){
+                    if(data.success = true){
+                        var myTable = document.getElementById('main-tbl-sk')
+                                 tblBodyObj  = myTable.tBodies[0]
+                                 tblHeadObj  = myTable.tHead
+                                 indexCol    = tblHeadObj.rows[0].cells.length - 2;
+                        var healths = data.data['healths'];
+                        var programs = data.data['programs'];
+                        console.log(programs);
+                        var th =  myTable.rows[1].cells[indexCol];
+                        th.setAttribute('class','health-select-cf');
+                        th.innerHTML = data.html;
+
+                     
+
+                       
+                       
+                    }
+                }).done(function() {
+                    // alert('Request done!');
+                });;
                 
                 $('table th').on('click', function (e ) {
                     var index = ($(this).index()+1);

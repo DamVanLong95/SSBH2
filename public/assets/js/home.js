@@ -536,6 +536,7 @@
             var classes = $(this).attr("class"),
             id      = $(this).attr("id"),
             name    = $(this).attr("name");
+            console.log(classes);
             var template =  '<div class="' + classes + '">';
             template += '<span class="custom-select-fix-trigger">' + $(this).attr("placeholder") + '</span>';
             template += '<div class="custom-options">';

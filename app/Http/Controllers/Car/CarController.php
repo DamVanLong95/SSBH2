@@ -37,9 +37,16 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->take(17)
                     ->get();
+        $companies_cheap = Company::where('classify','=', 1)->get();
+        $companies_recoup= Company::where('classify','=',2)->get();
+        
+        $data = array();
+        $data['companies_cheap'] = $companies_cheap;
+        $data['companies_recoup'] = $companies_recoup; 
+
        
         return  view('frontend.pages.car',compact([
-                'companies','terms_data','dedutible_data','exception_data','punishment','brands','permission','finances'
+               'data', 'companies','terms_data','dedutible_data','exception_data','punishment','brands','permission','finances'
                  ]));
     }
     public function droppImage( Request $request)
@@ -176,6 +183,19 @@ class CarController extends Controller
         $location  = Location::select('name')->where('id', '=', $location_id)->get();
         $data['location'] = $location;
         $html = view('frontend.pages.car_address')->with('data', $data)->render();
+        return response()->json([
+            'success' =>true,
+            'html' => $html
+        ]);
+    }
+    public function filterCompanies(Request $request)
+    {
+        $checkId = $request->get('checkedID');
+        $logos = [];
+        foreach($checkId as $key =>$checked){
+            $logos[$key] = Company::select('id','logo')->where('id','=',$checked)->get();
+        }
+        $html = view('frontend.pages.car_banner')->with('logos', $logos)->render();
         return response()->json([
             'success' =>true,
             'html' => $html

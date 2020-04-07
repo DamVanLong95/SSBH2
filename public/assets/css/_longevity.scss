@@ -746,15 +746,15 @@
         }
     }
     .sized {
-        width: 100px;
-        border-radius: 50%;
-        margin: auto;
-        left: 0;
-        right: 0;
-        position: absolute;
-        transform: translate(0px, 30px);
-        // top: 0;
-        // bottom: 45px;
+        width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    -webkit-transform: translate(0px, 30px);
+    transform: translate(0px, 15px);
     }
     .img-container {
         // width: 100%;
