@@ -32,12 +32,15 @@ class HealthController extends Controller
         $programs = Program::select('id','name','product_id')
                 ->where('product_id','=',$product_id)
                 ->get();
-        $html  = view('frontend.pages.health_ajax.health_program')->with('programs',$programs)->render();
+        $indexCol = $request->get('indexCol');
+        $html  = view('frontend.pages.health_ajax.health_program')->with(['programs'=>$programs,'indexCol'=> $indexCol])->render();
         $data['programs'] = $programs;
         $data['healths']  = $healths;
+        
         return response()->json([
             'success' =>true,
             'data' => $data,
+            'indexCol'=> $indexCol,
             'html' =>$html
         ]);
         

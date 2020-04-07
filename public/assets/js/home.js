@@ -537,9 +537,8 @@
             var classes = $(this).attr("class"),
             id      = $(this).attr("id"),
             name    = $(this).attr("name");
-            console.log(classes);
             var template =  '<div class="' + classes + '">';
-            template += '<span class="custom-select-fix-trigger">' + $(this).attr("placeholder") + '</span>';
+            template += '<span class="custom-select-fix-trigger" >' + $(this).attr("placeholder") + '</span>';
             template += '<div class="custom-options">';
             $(this).find("option").each(function() {
                 template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
@@ -556,9 +555,10 @@
             $(this).parents(".custom-options").removeClass("option-hover");
           });
           $(".custom-select-fix-trigger").on("click", function() {
-            $('html').one('click',function() {
-              $(".custom-select-fix").removeClass("opened");
-            });
+
+            // $('html').one('click',function() {
+            //   $(".custom-select-fix").removeClass("opened");
+            // });
             $(this).parents(".custom-select-fix").toggleClass("opened");
             event.stopPropagation();
           });

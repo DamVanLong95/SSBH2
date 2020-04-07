@@ -48,30 +48,37 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
+                var myTable = document.getElementById('main-tbl-sk')
+                                 tblBodyObj  = myTable.tBodies[0]
+                                 tblHeadObj  = myTable.tHead
+                                 indexCol    = tblHeadObj.rows[0].cells.length - 1;
                 var url = '{{route('droppHealth')}}';
                 $.post(url, 
                 {
                     "_token": "{{ csrf_token() }}", 
-                    id: idImg
+                    id: idImg,
+                    indexCol:indexCol
                 }
                 ,function(data , status , xhr){
                     if(data.success = true){
-                        var myTable = document.getElementById('main-tbl-sk')
-                                 tblBodyObj  = myTable.tBodies[0]
-                                 tblHeadObj  = myTable.tHead
-                                 indexCol    = tblHeadObj.rows[0].cells.length - 2;
                         var healths = data.data['healths'];
                         var programs = data.data['programs'];
-                        console.log(programs);
+                        var indexCol = data.indexCol;
                         var th =  myTable.rows[1].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
                         th.innerHTML = data.html;
-
-                     
-
-                       
-                       
-                    }
+                        $('#select'+indexCol+'').on("click", function() {
+                            $(this).parents(".custom-select-fix").toggleClass("opened");
+                            event.stopPropagation();
+                        });
+                        $(".custom-option").on("click", function() {
+                            $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+                            $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+                            $(this).addClass("selection");
+                            $(this).parents(".custom-select-fix").removeClass("opened");
+                            $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
+                        });
+                    } 
                 }).done(function() {
                     // alert('Request done!');
                 });;
