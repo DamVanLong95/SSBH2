@@ -222,7 +222,7 @@
             });
         });
     </script>
-    <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script>
+    <!-- <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script> -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src='https://foliotek.github.io/Croppie/croppie.js'></script>
 
