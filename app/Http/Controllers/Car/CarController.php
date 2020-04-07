@@ -39,6 +39,7 @@ class CarController extends Controller
                     ->get();
         $companies_cheap = Company::where('classify','=', 1)->get();
         $companies_recoup= Company::where('classify','=',2)->get();
+        
         $data = array();
         $data['companies_cheap'] = $companies_cheap;
         $data['companies_recoup'] = $companies_recoup; 

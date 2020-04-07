@@ -95,13 +95,14 @@ class ProductController extends Controller
             $path = $file->storeAs(
                 'longevity', Str::random(10).'_'.$filename,'public'
             );
+            $product = Product::find($id);
+            $file_old ="public/". $product->url;
+            if(Storage::exists($file_old)) {
+                Storage::delete($file_old);
+            }
         }
       
         $product = Product::find($id);
-        $file_old ="public/". $product->url;
-        if(Storage::exists($file_old)) {
-            Storage::delete($file_old);
-        }
         $product->name    = $request->get('name');
         $product->company_id        = $request->get('company_id');
         $product->cate      = $request->get('cate');

@@ -53,9 +53,8 @@ Route::get('/question', function () {
     return view('frontend.pages.question');
 });
 // =====================================Health=================================
-Route::get('/health', function () {
-    return view('frontend.pages.health');
-});
+Route::get('/health','Health\HealthController@index')->name('health.index');
+Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');
 // =====================================nhân thọ Longevity=================================
 Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
 Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
@@ -90,6 +89,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
   
 
     Route::get('scope','Admin\LongevityExcelController@indexScope')->name('indexScope.import');
+    Route::get('program','Admin\ProgramExcelController@index')->name('indexProgram.import');
+    Route::get('health','Admin\HealthExcelController@index')->name('indexHealth.import');
  
    
    
@@ -108,6 +109,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('detail','Admin\ExcelController@importDetail')->name('detail.import');
 
     Route::post('scope','Admin\LongevityExcelController@importScope')->name('scope.import');
+    Route::post('program','Admin\ProgramExcelController@import')->name('program.import');
+    Route::post('health','Admin\HealthExcelController@import')->name('health.import');
 
 
 //   ============Export excel======================

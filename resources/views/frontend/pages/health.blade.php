@@ -173,23 +173,26 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Tích lũy, tiết kiệm <span>(5)</span></h4>
+                <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper">
                     <ul id="thumbs" class="section-list">
-                        @for($i=1;$i<=10;$i++)
+                    @foreach($data['saving'] as $value)
                         <li class="item">
+                            <div class="thumb-t">
+                               {{$value['name']}}
+                            </div>
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_13"/>
-                                    <label class="toggle" for="ala_13"></label>
+                                    <input name="type" value="" type="checkbox" id="ala_14"/>
+                                    <label class="toggle" for="ala_14"></label>
                                 </div>
                             </div>
                         </li>
-                        @endfor
+                     @endforeach
                     </ul>
                 </div>
                 </div>
@@ -210,14 +213,18 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Bảo vệ <span>(2)</span></h4>
+                <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper2">
                     <ul id="thumbs" class="section-list2">
+                    @foreach($data['secure'] as $value)
                         <li class="item2">
+                            <div class="thumb-t">
+                                {{$value['name']}}
+                            </div>
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
                                     <input name="type" value="" type="checkbox" id="ala_1"/>
@@ -225,61 +232,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="2">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_2"/>
-                                    <label class="toggle" for="ala_2"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="3">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_3"/>
-                                    <label class="toggle" for="ala_3"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="4">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_4"/>
-                                    <label class="toggle" for="ala_4"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="5">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_5"/>
-                                    <label class="toggle" for="ala_5"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item2">
-                            <div class="brand-thumb">
-                                <label for="6">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_6"/>
-                                    <label class="toggle" for="ala_6"></label>
-                                </div>
-                            </div>
-                        </li>
+                    @endforeach
+                     
                     </ul>
                 </div>
                 </div>
@@ -365,9 +319,9 @@
 
                                     </td>
                                 </tr>
-                                <tr class="green1">
+                                <!-- <tr class="green1">
                                     <td  colspan="2" class="green_header">Tính phí</td>
-                                </tr>
+                                </tr> -->
                           
                                 <tr class="header bg-head-1">
                                     <td  colspan="2" class="green_header">Đối tượng bảo hiểm
