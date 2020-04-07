@@ -532,6 +532,7 @@
         });
         // end fold table
         // =========================health and longevity dropdown======================
+        // -----------------seclect brand in health---------------
         $(".custom-select-fix").each(function() {
             var classes = $(this).attr("class"),
             id      = $(this).attr("id"),
@@ -568,6 +569,7 @@
             $(this).parents(".custom-select-fix").removeClass("opened");
             $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
           });
+        //   ----------select in logevity-------------
           $(".select-gray").each(function() {
             var classes = $(this).attr("class"),
             id      = $(this).attr("id"),
