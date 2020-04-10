@@ -187,8 +187,8 @@
                                 <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_14"/>
-                                    <label class="toggle" for="ala_14"></label>
+                                    <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
+                                    <label class="toggle" for="checkbox_{{$value['id']}}"></label>
                                 </div>
                             </div>
                         </li>
@@ -227,8 +227,8 @@
                                     <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_1"/>
-                                    <label class="toggle" for="ala_1"></label>
+                                    <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
+                                    <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
                                 </div>
                             </div>
                         </li>
@@ -329,18 +329,18 @@
                                     </td>
                                 </tr>
                                 <tr class="select-all">
-                                    <td>
+                                    <td class="td-all">
                                         <div class="choose-all">
                                             <input type="checkbox" id="selectall" class="selectedAll"></input>
                                             <label class="toggle" for="selectall">Chọn tất cả</label>
                                         </div>
                                     </td>
                                 </tr>
-                               
+                               @foreach($data['object_bh'] as $value)
                                 <tr class="data-detail">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">term</p>
+                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
                                         <label class="drop" for="" style="display:none" id="dksk">% phí</label>
                                     </td>
@@ -348,12 +348,13 @@
 
                                     </td>
                                 </tr>
+                                @endforeach
                            
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Phạm vi lãnh thổ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>aloha</td>
+                                    <td>{{$data['scope']['comparison']}}</td>
                                     <td></td>
                                     <!-- <td>
 
@@ -364,44 +365,47 @@
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
-                                <tr class="data-detail">
+                                @for($i=2;$i< count($data['benifits']);$i++)
+                                <tr class="data-detail d-none">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
-                                        <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">aloha</p>
+                                        <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
                                         <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
                                         <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td></td>
                                 </tr>
-                                
+                                @endfor
+                               
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Thời gian chờ</td>
                                 </tr>
-                                
-                                <tr class="data-detail">
-                                    <td>aloha</td>
+                            
+                                @for($i=74;$i< 83;$i++)
+                                <tr class="data-detail  ">
+                                    <td><p class="ellipsis">{{$data['healths'][$i]['comparison']}}</p></td>
                                     <td></td>
                                 </tr>
-                                <tr class="header green">
+                                @endfor
+                                <tr class="header green" id="cost">
                                     <td  colspan="2" class="green_header">Phí bảo hiểm</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
+                                <tr class="data-detail" >
+                                    <td><p class="ellipsis">Phi bao hiem</p></td>
                                     <td></td>
-                                </tr>
-                                
+                                 </tr>
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail" id="row-hospital">
                                     <td class="text-center empty-first2 "></td>
-                                    <td class="hospital-td active-td">
+                                    <td class="hospital-td ">
                                         <p class="toggle active"><span>(108)</span> Bệnh viện</p>
                                         
                                     </td>
                                     <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td class="hospital_header" colspan="1">
-                                            @include('frontend/pages/hospital')
+                                        <td class="hospital_header" colspan="1" id="hospital">
+                                            {{--@include('frontend/pages/hospital')--}}
                                         </td>
                                     </tr>
                                     <!-- <tr >

@@ -55,9 +55,13 @@ Route::get('/question', function () {
 // =====================================Health=================================
 Route::get('/health','Health\HealthController@index')->name('health.index');
 Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');
+Route::post('health/selectProgram','Health\HealthController@selectProgram')->name('selectProgram');
+Route::post('health/filterProvince','Health\HealthController@filterProvince')->name('filterProvince');
+Route::post('health/filterDistrict','Health\HealthController@filterDistrict')->name('filterDistrict');
 // =====================================nhân thọ Longevity=================================
 Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
 Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -91,6 +95,10 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('scope','Admin\LongevityExcelController@indexScope')->name('indexScope.import');
     Route::get('program','Admin\ProgramExcelController@index')->name('indexProgram.import');
     Route::get('health','Admin\HealthExcelController@index')->name('indexHealth.import');
+    Route::get('district','Admin\DistrictExcelController@index')->name('indexDistrict.import');
+    Route::get('hospital','Admin\HospitalExcelController@index')->name('indexHospital.import');
+    
+
  
    
    
@@ -111,6 +119,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('scope','Admin\LongevityExcelController@importScope')->name('scope.import');
     Route::post('program','Admin\ProgramExcelController@import')->name('program.import');
     Route::post('health','Admin\HealthExcelController@import')->name('health.import');
+    Route::post('district','Admin\DistrictExcelController@import')->name('district.import');
+    Route::post('hospital','Admin\HospitalExcelController@import')->name('hospital.import');
 
 
 //   ============Export excel======================

@@ -48,6 +48,10 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
+                $('#checkbox_bv'+idImg+'').prop("checked", true);
+                if($('#checkbox_bv'+idImg+'').prop("checked") == true){
+                    $('#'+idImg+'').draggable({ disabled: true });
+                }
                 var myTable = document.getElementById('main-tbl-sk')
                                  tblBodyObj  = myTable.tBodies[0]
                                  tblHeadObj  = myTable.tHead
@@ -63,20 +67,145 @@
                     if(data.success = true){
                         var healths = data.data['healths'];
                         var programs = data.data['programs'];
+                        var count    = data.data['hospitalCount'];
                         var indexCol = data.indexCol;
                         var th =  myTable.rows[1].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
                         th.innerHTML = data.html;
+                        $('#hospital').html(data.html_hospital);
                         $('#select'+indexCol+'').on("click", function() {
                             $(this).parents(".custom-select-fix").toggleClass("opened");
                             event.stopPropagation();
                         });
                         $(".custom-option").on("click", function() {
-                            $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+                            // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                             $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                             $(this).addClass("selection");
                             $(this).parents(".custom-select-fix").removeClass("opened");
                             $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
+                            var program_id = $(this).data("value");
+                            var url ='{{route('selectProgram')}}';
+                            $.post(url,{
+                                "_token": "{{ csrf_token() }}", 
+                                product_id: idImg,
+                                program_id:program_id
+                            },function(data, status){
+                                var healths = data.healths;
+                                var scope   = data.scope;
+                                var obj_bhs= data.obj_bhs;
+                                var myTable = document.getElementById('main-tbl-sk'),
+                                    tblBodyObj  = myTable.tBodies[0];
+                                var tds =  myTable.rows[5].cells[indexCol]; 
+                                (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
+                                                  :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
+                                
+                                var tds =  myTable.rows[7].cells[indexCol]; 
+                                
+                                (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
+                                                  :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
+                                for(var i=8; i< 79; i++){
+                                    var tdss = tblBodyObj.rows[i].cells[indexCol];
+                                    tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                   
+                                }
+                                var tdss = tblBodyObj.rows[80].cells[indexCol] ;
+                                // console.log(tdss);
+                                for(var i =80; i< 88; i++){
+                                    var tdss = tblBodyObj.rows[i].cells[indexCol];
+                                    tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                }
+                              
+                                const row   = document.getElementById('cost');
+                                const index = row.rowIndex;
+                                var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
+                                tdss.innerHTML = `<a href='`+healths[83]['content']+`' class=''>Link_click</a>` ; 
+                                var tdsss =tblBodyObj.rows[92].cells[indexCol];
+                                tdsss.setAttribute('id','td'+indexCol+''); 
+                                tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
+                            //    for(var i =index+1; i<127 ;i++ ){
+                            //     var tdsss =tblBodyObj.rows[i].cells[indexCol];
+                            //     console.log(tdsss);
+                            //     tdsss.innerHTML = `<p class="">`+healths[i-7]['content']!=null?healths[i-7]['content']:''+`</p>`;
+                            //    }
+                                $('#td'+indexCol+'').click(function(){
+                                    var tdnet ;
+                                        for(var i =1;i<4;i++){
+                                            if(indexCol==i){
+                                                tdnet = tdsss;
+                                                tdnet.setAttribute('class','active-td');
+                                               
+                                            }else{
+                                                tdnet= tblBodyObj.rows[92].cells[i]
+                                                tdnet.removeAttribute('class','active-td');
+                                            }
+                                        }
+                                    var provinceID = $('#province').val();
+                                    if(provinceID){
+                                        var url = '{{route('filterProvince')}}';
+                                            $.post(url ,
+                                            {
+                                                "_token": "{{ csrf_token() }}", 
+                                                location_id: provinceID,
+                                                product_id :idImg,
+                                            }
+                                            ,function(data){
+                                                $('#info_address').html(data.html_hospital);
+                                                $('#district').html(data.html_district);
+                                            
+                                            });
+                                    }else{
+                                        $('select[name="province"]').on('change', function(){
+                                            var provinceID = $(this).val();
+                                        // alert(provinceID);
+                                            var url = '{{route('filterProvince')}}';
+                                            $.post(url ,
+                                            {
+                                                "_token": "{{ csrf_token() }}", 
+                                                location_id: provinceID,
+                                                product_id :idImg,
+                                            }
+                                            ,function(data){
+                                                $('#info_address').html(data.html_hospital);
+                                                $('#district').html(data.html_district);
+                                            
+                                            });
+                                        });
+                                    }
+                                    $('select[name="province"]').on('change', function(){
+                                            var provinceID = $(this).val();
+                                        // alert(provinceID);
+                                            var url = '{{route('filterProvince')}}';
+                                            $.post(url ,
+                                            {
+                                                "_token": "{{ csrf_token() }}", 
+                                                location_id: provinceID,
+                                                product_id :idImg,
+                                            }
+                                            ,function(data){
+                                                $('#info_address').html(data.html_hospital);
+                                                $('#district').html(data.html_district);
+                                            
+                                            });
+                                        });
+                                    $('select[name="district"]').on('change', function(){
+                                        var districtID = $(this).val();
+                                    
+                                        if(districtID){
+                                            var url = '{{route('filterDistrict')}}';
+                                            $.post(url ,
+                                            {
+                                                "_token": "{{ csrf_token() }}", 
+                                                district_id: districtID,
+                                                product_id :idImg,
+                                            }
+                                            ,function(data){
+                                                $('#info_address').html(data.html_hospital);
+                                            });
+
+                                        }
+                                    });
+                                });
+                            });
                         });
                     } 
                 }).done(function() {
@@ -142,7 +271,7 @@
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl-sk');
         var tblHeadObj = document.getElementById(tblId).tHead;
-        var tableLength = document.getElementById('main-tbl-sk').rows[0].cells.length
+        var tableLength = document.getElementById('main-tbl-sk').rows[0].cells.length;
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
           if (tableLength < 5) {
               var creatediv = document.createElement('div');
@@ -150,6 +279,7 @@
               $('#select_box').attr("colspan", tableLength +1)
               $('#select_all').attr("colspan", tableLength +1)
               $('.green_header').attr("colspan", tableLength +1)
+              $('.td-all').attr("colspan", tableLength +1)
               $('.hospital_header').attr("colspan", tableLength )
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
@@ -171,6 +301,7 @@
               $('#rank_box').next("td").remove()
               $('.green_header').next("td").remove()
               $('.hospital_header').next("td").remove()
+              $('.td-all').next("td").remove()
 
           }
         }
