@@ -80,18 +80,29 @@
                             <form method="POST" action="" id="sample_form"  action="" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label class="control-label col-md-4" > Name : </label>
+                                    <label class="control-label col-md-4" ><strong>Name</strong>  </label>
                                     <div class="col-md-8">
                                         <input type="text" name="name" id="name" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Select Profile Image : </label>
+                                    <label class="control-label col-md-4"><strong> Select Profile Image</strong> </label>
                                     <div class="col-md-8">
                                         <img src="" alt="" id="logo" name="logo">
-                                        <input type="file" name="file" id="file" />
+                                        <input type="file" name="file" id="file" class="form-control" />
                                         <span id="store_image"></span>
                                     </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-6" ><strong>Chất lượng doanh nghiệp :</strong>  </label>
+                                <div class="col-sm-3">
+                                    <label for="" style="margin-left:15px" >Phí rẻ</label>
+                                    <input type="radio" class="checkmark" value="1" name="classify" checked>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="" style="margin-left:15px"> Bồi thường tốt</label>  
+                                    <input type="radio" class="checkmark" value="2" name="classify">
+                                </div>
                                 </div>
                                 <div class="form-group" align="center">
                                     <input type="hidden" name="id" id="action" value="" />
@@ -127,6 +138,7 @@
             $('#add_new').click(function(){
                 $('.modal-title').text("Add New Record");
                 $('#action_button').val("Add");
+                $('#formdata').trigger("reset");
                 $('#formdata').modal('show');
             });
             $(document).on('click','.delete',function(){
@@ -160,13 +172,16 @@
                     $("#logo").attr("src", $path);
                     $('#name').val(data.name);
                     $('#action').val(data.id);
+                    $('#action_button').val("update");
+                    $('#formdata').modal('show');
                 })
-                $('#formdata').modal('show');
+               
             });
             $('#sample_form').submit(function(event) {
                 event.preventDefault();
                 if($('#action_button').val() == 'Add'){
                     var formdata = new FormData($(this)[0]);
+                    // console.log(formdata);
                     $.ajax({
                         type: 'POST',
                         url: "{{route('company.store')}}",
@@ -174,7 +189,6 @@
                         processData: false,
                         contentType: false,
                         success: function(data) {
-                            // console.log(data);
                             setTimeout(function(){
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
@@ -185,24 +199,28 @@
                         }
                     });
                 }
-                var id = $('#action').val();
-                var formdata = new FormData($(this)[0]);
-                console.log(formdata);
-                $.ajax({
-                    type: 'POST',
-                    url: "{{route('company.update')}}"+ '/' + id,
-                    data: formdata,
-                    processData: false,
-                    contentType: false,
-                    success: function(data) {
-                        // console.log(data);
+                
+                if($('#action_button').val() == 'update'){
+                    var id = $('#action').val();
+                    var formdata = new FormData($(this)[0]);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{route('company.update')}}"+ '/' + id,
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        success: function(data) {
                             setTimeout(function(){
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
+                                toastr.success(data.message);
                             }, 100);
-                        toastr.success(data.message);
-                    }
-                });
+                        
+                        }
+                    });
+                }
+                
             });
         </script>
 

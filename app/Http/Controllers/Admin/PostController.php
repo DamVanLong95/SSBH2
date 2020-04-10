@@ -35,7 +35,7 @@ class PostController extends Controller
                 return '<a href="">'.$post->title.'</a>';
             })
             ->addColumn('action', function ($post) {
-                return '<a href="'.route('post.edit', $post->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                return '<a href="'.route('posts.edit', $post->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                         <a href="javascript:void(0)" data-id="' . $post->id . '" class="delete btn btn btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
 
             })
@@ -92,7 +92,7 @@ class PostController extends Controller
         $post  = Post::find($id);
         return view('admin.posts.edit',compact(['users','post']));
     }
-    public function update(Request $request){
+    public function update(Request $request,$id){
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $ext = $file->getClientOriginalExtension();
@@ -102,6 +102,7 @@ class PostController extends Controller
             );
         }
         $post = Post::find($request->get('id'));
+
         $file_old ="public/". $post->avatar;
         if(Storage::exists($file_old)) {
             Storage::delete($file_old);

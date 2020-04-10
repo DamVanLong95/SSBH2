@@ -173,23 +173,26 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Tích lũy, tiết kiệm <span>(5)</span></h4>
+                <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
                 </div>
                 <div  class="section-wrapper">
                     <ul id="thumbs" class="section-list">
-                        @for($i=1;$i<=10;$i++)
+                    @foreach($data['saving'] as $value)
                         <li class="item">
+                            <div class="thumb-t">
+                               {{$value['name']}}
+                            </div>
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_1"/>
-                                    <label class="toggle" for="ala_1"></label>
+                                    <input name="type" value="" type="checkbox" id="ala_14"/>
+                                    <label class="toggle" for="ala_14"></label>
                                 </div>
                             </div>
                         </li>
-                        @endfor
+                     @endforeach
                     </ul>
                 </div>
                 </div>
@@ -210,14 +213,18 @@
             <div class="row">
                 <div class="col-lg-12">
                 <div class="pack-title">
-                    <h4>Bảo vệ <span>(2)</span></h4>
+                <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
                 </div>
-                <div  class="section-wrapper">
-                    <ul id="thumbs" class="section-list">
-                        <li class="item">
+                <div  class="section-wrapper2">
+                    <ul id="thumbs" class="section-list2">
+                    @foreach($data['secure'] as $value)
+                        <li class="item2">
+                            <div class="thumb-t">
+                                {{$value['name']}}
+                            </div>
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
                                     <input name="type" value="" type="checkbox" id="ala_1"/>
@@ -225,66 +232,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
-                            <div class="brand-thumb">
-                                <label for="2">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_2"/>
-                                    <label class="toggle" for="ala_2"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="brand-thumb">
-                                <label for="3">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_3"/>
-                                    <label class="toggle" for="ala_3"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="brand-thumb">
-                                <label for="4">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_4"/>
-                                    <label class="toggle" for="ala_4"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="brand-thumb">
-                                <label for="5">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_5"/>
-                                    <label class="toggle" for="ala_5"></label>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="brand-thumb">
-                                <label for="6">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_6"/>
-                                    <label class="toggle" for="ala_6"></label>
-                                </div>
-                            </div>
-                        </li>
+                    @endforeach
+                     
                     </ul>
                 </div>
                 </div>
             </div>
-            <div class="paddles">
+            <div class="paddles2">
                 <button class="left-paddle2 paddle hidden">
                     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
                 </button>
@@ -319,12 +273,32 @@
                                         <h4>SANBAOHIEM</h4>
                                     </th>
                                     <th class="col2">
-                                        <div class="img-container"></div>
+                                        <div class="img-container">
+                                           
+                                        </div>
                                     </th>
                                 </tr>
+                                
                             </thead>
                             <tbody>
-
+                                <tr class="bottom-head data-detail">
+                                    <td class="first-select-cf"></td>
+                                    <td class="health-select-cf">
+                                        <div class="select2-ctn">
+                                            <form action="">
+                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
+                                                    <option value="1">Chương trình vàng</option>
+                                                    <option value="2">Chương trình bạc</option>
+                                                    <option value="3">Chương trình platinum</option>
+                                                    <option value="4">Chương trình diamond</option>
+                                                    <option value="5">Chương trình gold</option>
+                                                    <option value="6">Chương trình alumnium</option>
+                                                    <option value="6">Chương trình iron</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr class="sub-head">
                                     <td class="th-2">
                                         <div class="star-ctn">
@@ -342,14 +316,15 @@
                                             <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
                                             </div>
                                         </div>
+
                                     </td>
                                 </tr>
-                                <tr class="green1">
+                                <!-- <tr class="green1">
                                     <td  colspan="2" class="green_header">Tính phí</td>
-                                </tr>
+                                </tr> -->
                           
                                 <tr class="header bg-head-1">
-                                    <td  colspan="2" class="green_header">Điều khoản bổ sung
+                                    <td  colspan="2" class="green_header">Đối tượng bảo hiểm
 
                                     </td>
                                 </tr>
@@ -375,7 +350,7 @@
                                 </tr>
                            
                                 <tr class="header">
-                                    <td  colspan="2" class="green_header">Mức khấu trừ</td>
+                                    <td  colspan="2" class="green_header">Phạm vi lãnh thổ</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>aloha</td>
@@ -387,7 +362,7 @@
                                     </td> -->
                                 </tr>
                                 <tr class="header bg-head-2">
-                                    <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
+                                    <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>
@@ -400,7 +375,7 @@
                                 </tr>
                                 
                                 <tr class="header">
-                                    <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
+                                    <td  colspan="2" class="green_header">Thời gian chờ</td>
                                 </tr>
                                 
                                 <tr class="data-detail">
@@ -408,41 +383,42 @@
                                     <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
+                                    <td  colspan="2" class="green_header">Phí bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
                                     <td></td>
+                                </tr>
+                                
+                                <tr class="header bg-head-2">
+                                    <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
+                                </tr>
+                                <tr class="data-detail">
+                                    <td class="text-center empty-first2 "></td>
+                                    <td class="hospital-td active-td">
+                                        <p class="toggle active"><span>(108)</span> Bệnh viện</p>
+                                        
+                                    </td>
+                                    <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
+                                        <td class="hospital_header" colspan="1">
+                                            @include('frontend/pages/hospital')
+                                        </td>
+                                    </tr>
+                                    <!-- <tr >
+                                        <div id="hospital-address">
+                                        </div>
+                                    </tr> -->
                                 </tr>
                                 <tr class="header bg-head-3">
-                                    <td  colspan="2" class="green_header">Năng lực tài chính</td>
+                                    <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
-                                <tr class="header bg-head-4">
-                                    <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
-                                    <td>
-                                        <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                        <p class="toggle"><span>(108)</span> Chi nhánh</p>
+                                <tr class="select-all">
+                                    <td class="td-all">
+                                        <div class="choose-all">
+                                            <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="" >
+                                            <label class="toggle" for="selectall_bs">Chọn tất cả</label>
+                                        </div>
                                     </td>
-                                    <div id="net-address">
-                                        @include('frontend/pages/network')
-                                    </div>
-                                </tr>
-                                <tr class="header">
-                                    <td  colspan="2" class="green_header">Đánh giá uy tín</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
-                                <tr class="header green">
-                                    <td  colspan="2" class="green_header">Mô hình GQPT</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
@@ -462,33 +438,48 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        <div class="sec3-title">
+                            <h3>Sản phẩm bảo hiểm mới</h3>
+                        </div>
                         <div id="slideKnow" class="swiper-container swiper-sk">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
-                                        <h4>So sánh bảo hiểm vật chất xe ô tô</h4>
                                         <div class="description-ctn">
-                                            <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
+                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
-                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                        <div class="modal-popup-ctn">
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide slide-item ">
                                     <div class="item center-item">
-                                        <h4>So sánh bảo hiểm Nhân thọ</h4>
                                         <div class="description-ctn">
-                                            <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
+                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
-                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
+                                        <div class="modal-popup-ctn">
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
-                                        <h4>So sánh Bảo hiểm sức khoẻ</h4>
                                         <div class="description-ctn">
-                                            <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
+                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
                                         </div>
-                                        <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
+                                        <div class="modal-popup-ctn">
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
+                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -523,64 +514,6 @@
     }
 </script>
 <script>
-    
-    function handleOncick(cb){
-        var index = $(cb).data("id");
-        var checkBox = document.getElementById('checkbox_bs'+index+'');
-        var text = document.getElementById('dkbs'+index+'');
-        if(checkBox.checked==true){
-           text.style.display = "inline-flex";
-
-        }else{
-           text.style.display = "none";
-        }
-       
-    }
-    $(function(){
-        $('#brand').change(function() {
-           
-            if($("#purpose").is(':selected')){
-                alert(1);
-            }else{
-            var id = $(this).val();
-            $.ajax({
-                url: "{{route('onchange')}}",
-                type: 'post',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    brand_id: id
-                },
-                success: function(data) {
-                    $('#cate').html(data.html);
-                }
-            });
-
-            }
-          
-        });
-        $('#prd_date').change(function(){
-            var year = $(this).val();
-            var cate = $('#cate').val();
-            var brand_id= $('#brand').val();
-            $.ajax({
-                url: "{{route('reference')}}",
-                type: 'post',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    brand_id: brand_id,
-                    year_sx : year,
-                    cate_id:cate,
-                },
-                success: function(data) {
-                    // console.log(data);
-                    $('#price_car').val(data.price_car);
-                }
-            });
-
-        });
-
-   
-    });
 
     $('.open').click(function(){
   $(this).toggleClass("show hide");

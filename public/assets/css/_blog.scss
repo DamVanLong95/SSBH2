@@ -191,6 +191,13 @@
                justify-content: space-between;
                float: right;
                padding-top: 20px;
+                @media screen and (max-width: 1024px) {
+                    width: 30%;
+                }
+                @media screen and (max-width: 991px) {
+                    width: 30%;
+                    display: contents;
+                }
                 button{
                     background-color: $main-color;
                     font-family: UTM_Helve;
@@ -214,6 +221,9 @@
         padding-top: 15px;
         margin-bottom: 8%;
         display: none;
+        @media screen and (max-width: 1024px) {
+            margin-bottom: 20%;
+        }
        }
     }
 }

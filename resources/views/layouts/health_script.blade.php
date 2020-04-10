@@ -48,8 +48,33 @@
                 if($('#checkbox_'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
-                var url = '{{route('droppImage')}}';
-                
+                var url = '{{route('droppHealth')}}';
+                $.post(url, 
+                {
+                    "_token": "{{ csrf_token() }}", 
+                    id: idImg
+                }
+                ,function(data , status , xhr){
+                    if(data.success = true){
+                        var myTable = document.getElementById('main-tbl-sk')
+                                 tblBodyObj  = myTable.tBodies[0]
+                                 tblHeadObj  = myTable.tHead
+                                 indexCol    = tblHeadObj.rows[0].cells.length - 2;
+                        var healths = data.data['healths'];
+                        var programs = data.data['programs'];
+                        console.log(programs);
+                        var th =  myTable.rows[1].cells[indexCol];
+                        th.setAttribute('class','health-select-cf');
+                        th.innerHTML = data.html;
+
+                     
+
+                       
+                       
+                    }
+                }).done(function() {
+                    // alert('Request done!');
+                });;
                 
                 $('table th').on('click', function (e ) {
                     var index = ($(this).index()+1);
@@ -118,6 +143,7 @@
               $('#select_box').attr("colspan", tableLength +1)
               $('#select_all').attr("colspan", tableLength +1)
               $('.green_header').attr("colspan", tableLength +1)
+              $('.hospital_header').attr("colspan", tableLength )
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -137,6 +163,7 @@
               $('#select_box').next("td").remove()
               $('#rank_box').next("td").remove()
               $('.green_header').next("td").remove()
+              $('.hospital_header').next("td").remove()
 
           }
         }
@@ -195,21 +222,7 @@
             console.log(e)
         }
     };
-   /* window.onscroll = function() {fixedTop()};
-
-    var tblHeader = document.getElementById("tableHeader");
-    var sticky = tblHeader.offsetTop();
-    var menuHeight = $(".block-main-menu").outerHeight();
-    var sec1Height = $(".sec1-wrapper").height();
-    var searchHeight = $(".search-ctn").outerHeight();
-    var compareHeight = $(".compare-section").outerHeight();
-    var brandHeight = $(".brand-section").outerHeight();
-    console.log("menu",menuHeight);
-    console.log("sec1",sec1Height);
-    console.log("search ctn",searchHeight);
-    console.log("compare ctn",compareHeight);
-    console.log("branch ctn",brandHeight);*/
-
+   
     function fixedTop() {
         // if (window.pageYOffset > sticky) {
         //     tblHeader.classList.add("sticky");
@@ -229,9 +242,9 @@
         var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);
         $('#selectall').prop("checked", check);
     });
-    //   toogle Net address
+    //   toogle hospital address
     $('.toggle').click(function() {
-        $('#net-address').toggle('slow');
+        // $('#hospital-tr').toggle('slow');
     });
   });
 </script>

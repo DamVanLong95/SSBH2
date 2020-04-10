@@ -22,6 +22,7 @@
             ele.slideTreatment = '.swiper-treatment';
             ele.slideBanner = '.swiper-banner';
             ele.slideKnow = '.swiper-know';
+            ele.slideSk = '.swiper-sk';
         };
 
         this.bindEvents = function() {
@@ -53,7 +54,7 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -87,12 +88,12 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                             spaceBetween: 30,
 
                         },
                         767: {
-                            slidesPerView: 1,
+                            slidesPerView: 2,
                             spaceBetween: 30,
                         },
                         320: {
@@ -121,7 +122,7 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -232,7 +233,41 @@
                             spaceBetween: 30,
                         },
                         991: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+
+                        },
+                        767: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        }
+                    }
+                });
+                var swiper7 = new Swiper(ele.slideSk, {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    // autoplay: {
+                    //     delay: 3000,
+                    // },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    //     clickable: true,
+                    // },
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        991: {
+                            slidesPerView: 1,
                             spaceBetween: 30,
 
                         },
@@ -374,7 +409,6 @@
 
         // finally, what happens when we are actually scrolling the brand
         $('.section-list').on('scroll', function() {
-
             // get how much of brand is invisible
             brandInvisibleSize = brandSize - brandWrapperSize;
             // get how much have we scrolled so far
@@ -383,7 +417,6 @@
             var paddleMargin = 20;
             // console.log("brandPosition", brandPosition);
             var brandEndOffset = brandInvisibleSize - paddleMargin;
-            // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
             // show & hide the paddles 
             // depending on scroll position
             if (brandPosition <= paddleMargin) {
@@ -414,23 +447,165 @@
             }, "slow");
         });
         //===============end scroll brand car page=====================
+// =====================scroll health page==================
+        // duration of scroll animation
+        var scrollDuration = 300;
+        // paddles
+        var leftPaddle2 = document.getElementsByClassName('left-paddle2');
+        var rightPaddle2 = document.getElementsByClassName('right-paddle2');
+        // get items dimensions
+        var itemsLength2 = $('.item2').length;
+        var itemSize2 = $('.item2').outerWidth(true);
+        // console.log("huhu", leftPaddle2)
 
+        // get wrapper width
+        var getBrandWrapperSize = function() {
+            return $('.section-wrapper2').outerWidth();
+        }
+        var brandWrapperSize2 = getBrandWrapperSize();
+        // the wrapper is responsive
+        $(window).on('resize', function() {
+            brandWrapperSize2 = getBrandWrapperSize();
+        });
+        // size of the visible part of the brand is equal as the wrapper size 
+        var brandVisibleSize2 = brandWrapperSize2;
+
+        // get total width of all brand items
+        var getBrandSize = function() {
+            return itemsLength2 * itemSize2;
+        };
+        var brandSize2 = getBrandSize();
+        // get how much of brand is invisible
+        var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+
+        // get how much have we scrolled to the left
+        var getBrandPosition2 = function() {
+            return $('.section-list2').scrollLeft();
+        };
+
+        // finally, what happens when we are actually scrolling the brand
+        $('.section-list2').on('scroll', function() {
+
+            // get how much of brand is invisible
+            brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+            // get how much have we scrolled so far
+            var brandPosition2 = getBrandPosition2();
+            // get some relevant size for the paddle triggering point
+            var paddleMargin2 = 20;
+            // console.log("brandPosition", brandPosition);
+            var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
+            // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
+            // show & hide the paddles 
+            // depending on scroll position
+            if (brandPosition2 <= paddleMargin2) {
+                $(leftPaddle2).addClass('hidden');
+                $(rightPaddle2).removeClass('hidden');
+            } else if (brandPosition2 < brandEndOffset2) {
+                // show both paddles in the middle
+                $(leftPaddle2).removeClass('hidden');
+                $(rightPaddle2).removeClass('hidden');
+            } else if (brandPosition2 >= brandEndOffset2) {
+                $(leftPaddle2).removeClass('hidden');
+                $(rightPaddle2).addClass('hidden');
+            }
+
+        });
+
+        // scroll to left
+        $(rightPaddle2).on('click', function() {
+            $('.section-list2').animate({
+                scrollLeft: "+=301px"
+            }, "slow");
+        });
+
+        // scroll to right
+        $(leftPaddle2).on('click', function() {
+            $('.section-list2').animate({
+                scrollLeft: "-=301px"
+            }, "slow");
+        });
+        //===============end scroll health page=====================
+        
         // fold table 
         $(".fold-table tr.view").on("click", function() {
             $(this).toggleClass("open").next(".fold").toggleClass("open");
         });
         // end fold table
-        // =========================mega drop down======================
-        $('.open').click(function() {
-            $(this).toggleClass("show hide");
-            $('.content').toggleClass("show hide");
-        });
-
-        $('.close').click(function() {
-            $('.content').toggleClass("show hide");
-            $('.open').toggleClass("show hide");
-        });
-        // ========================end mega dropdown======================
+        // =========================health and longevity dropdown======================
+        // -----------------seclect brand in health---------------
+        $(".custom-select-fix").each(function() {
+            var classes = $(this).attr("class"),
+            id      = $(this).attr("id"),
+            name    = $(this).attr("name");
+            console.log(classes);
+            var template =  '<div class="' + classes + '">';
+            template += '<span class="custom-select-fix-trigger">' + $(this).attr("placeholder") + '</span>';
+            template += '<div class="custom-options">';
+            $(this).find("option").each(function() {
+                template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+            });
+            template += '</div></div>';
+            
+            $(this).wrap('<div class="custom-select-fix-wrapper"></div>');
+            $(this).hide();
+            $(this).after(template);
+          });
+          $(".custom-option:first-of-type").hover(function() {
+            $(this).parents(".custom-options").addClass("option-hover");
+          }, function() {
+            $(this).parents(".custom-options").removeClass("option-hover");
+          });
+          $(".custom-select-fix-trigger").on("click", function() {
+            $('html').one('click',function() {
+              $(".custom-select-fix").removeClass("opened");
+            });
+            $(this).parents(".custom-select-fix").toggleClass("opened");
+            event.stopPropagation();
+          });
+          $(".custom-option").on("click", function() {
+            $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+            $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+            $(this).addClass("selection");
+            $(this).parents(".custom-select-fix").removeClass("opened");
+            $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
+          });
+        //   ----------select in logevity-------------
+          $(".select-gray").each(function() {
+            var classes = $(this).attr("class"),
+            id      = $(this).attr("id"),
+            name    = $(this).attr("name");
+            var template =  '<div class="' + classes + '">';
+            template += '<span class="select-gray-trigger">' + $(this).attr("placeholder") + '</span>';
+            template += '<div class="custom-options">';
+            $(this).find("option").each(function() {
+                template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+            });
+            template += '</div></div>';
+            
+            $(this).wrap('<div class="select-gray-wrapper"></div>');
+            $(this).hide();
+            $(this).after(template);
+          });
+          $(".custom-option:first-of-type").hover(function() {
+            $(this).parents(".custom-options").addClass("option-hover");
+          }, function() {
+            $(this).parents(".custom-options").removeClass("option-hover");
+          });
+          $(".select-gray-trigger").on("click", function() {
+            $('html').one('click',function() {
+              $(".select-gray").removeClass("opened");
+            });
+            $(this).parents(".select-gray").toggleClass("opened");
+            event.stopPropagation();
+          });
+          $(".custom-option").on("click", function() {
+            $(this).parents(".select-gray-wrapper").find("select").val($(this).data("value"));
+            $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+            $(this).addClass("selection");
+            $(this).parents(".select-gray").removeClass("opened");
+            $(this).parents(".select-gray").find(".select-gray-trigger").text($(this).text());
+          });
+        // ========================end health dropdown======================
         // =======================select dropdown=========================
         $('.dropdown2 > .caption').on('click', function() {
             $(this).parent().toggleClass('open');
@@ -464,9 +639,5 @@
 
         });
     });
-
-
-
-
 
 }(jQuery, $.app));

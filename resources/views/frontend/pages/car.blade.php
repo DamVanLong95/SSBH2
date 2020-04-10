@@ -29,31 +29,14 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
+                                @forelse($data['companies_cheap'] as $value)
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                     <input type="checkbox" class="dropdownCheckbox" name="companiesID[]" value="{{$value['id']}}" />
+                                        {{$value->name}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @empty
+                                    <p>empty data</p>
+                                @endforelse
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -62,31 +45,14 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
+                                @forelse($data['companies_recoup'] as $value)
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" class="dropdownCheckbox" name="companiesID[]" value="{{$value['id']}}" />
+                                {{$value->name}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @empty
+                                    <p>empty data</p>
+                                @endforelse
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -99,22 +65,6 @@
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
                                 </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -123,31 +73,14 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
-                                <label class="dropdown-option">
+                                @forelse($terms_data as $value)
+                                <label class="dropdown-option ">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                    {{str_limit($value['terms'],50)}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @empty
+                                    <p>empty data</p>
+                                @endforelse
                             </div>
                         </div>
                     </div>
@@ -161,14 +94,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-section">
-                        <button type="button" onclick=""> Tìm kiếm doanh nghiệp bảo hiểm</button>
+                        <button type="button" onclick=" handleFilter()"> Tìm kiếm doanh nghiệp bảo hiểm</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="brand-section">
-        <div  class="section-wrapper">
+    <div class="brand-section" id="brand-section">
+        <div  class="section-wrapper" id="banner-logo">
             <ul id="thumbs" class="section-list">
                 @foreach($companies as $key => $company)
                 <li class="item">
@@ -197,9 +130,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="layout-area" class="table-ctn">
-                        <table id="main-tbl" class="table">
-                            <div class="add-del-ctn d-none">
+                    <div id="layout-area" class="table-ctn ">
+                        <table id="main-tbl" class="table sticky-header table-responsive">
+                            <div class="add-del-ctn d-none ">
                                 <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                                 <input type="button" value="add column" onclick="addColumn('main-tbl')" />
                             </div>
@@ -272,19 +205,11 @@
                                                 </div>
                                                 <div class="item select">
                                                     <select aria-label="Select menu example" id="prd_date">
-                                                        <option selected>Năm sản xuất</option>
-                                                        <option value="2019">2019</option>
-                                                        <option value="2018">2018</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2013">2013</option>
-                                                        <option value="2012">2012</option>
-                                                        <option value="2011">2011</option>
-                                                        <option value="2010">2010</option>
-
-                                                      
+                                                    <option selected>Năm sản xuất</option>
+                                                    {{$now = date('Y')}}  
+                                                    @for ($i = $now; $i >=2010 ; $i--)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
                                                     </select>
                                                 </div>
                                                 <div class="item input-filter">
@@ -304,26 +229,27 @@
                                 <tr class="data-detail price-discount">
                                     <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                 </tr>
-                                <tr class="header bg-head-1">
+                                <tr class="header bg-head-1 fixed-header">
                                     <td  colspan="2" class="green_header">Điều khoản bổ sung
 
                                     </td>
+                                    
                                 </tr>
                                 <tr class="select-all">
-                                    <td>
+                                    <td class="td-all">
                                         <div class="choose-all">
-                                            <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                            <label class="toggle" for="selectall">Chọn tất cả</label>
+                                            <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="handleAll(this,{{count($terms_data)}})" >
+                                            <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                         </div>
                                     </td>
                                 </tr>
                                @foreach($terms_data as $key=>$value)  
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                         <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}">{{$value['rate_fee']}}% phí</label>
+                                        <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                     </td>
                                     <td>
 
@@ -333,7 +259,7 @@
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td>{{$dedutible_data[0]['deductible']??""}}</td>
                                     <td></td>
                                     <!-- <td>
@@ -344,14 +270,24 @@
                                 </tr>
                                 <tr class="header bg-head-2">
                                     <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
+                                    <tr class="select-all">
+                                    <td>
+                                        <div class="choose-all">
+                                            
+                                            <input type="checkbox" id="selectall_lt" name="selectall_lt" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
+                                            <label class="toggle" for="selectall_lt">Chọn tất cả</label>
+                                        </div>
+                                    </td>
+                                </tr>
                                 </tr>
                                 @foreach($exception_data as $value)
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" name="checkbox2_{{$value['id']}}"  />
+                                        <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
+                                                name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
                                         <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
-                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
+                                        <span class="show-detail"><button value="{{$value['exception']}}" onclick="showMore(this.value)">...</button></span></span>
+                                        <label class="drop" for="" style="display:none" id="dklt{{$value['id']}}">{{isset($value['rate_fee_dklt'])?$value['rate_fee_dklt']:0}}% phí</label>
                                     </td>
                                     <td></td>
                                 </tr>
@@ -360,38 +296,66 @@
                                     <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
                                 </tr>
                                 @foreach($punishment as $value)
-                                <tr class="data-detail">
-                                    <td>{{$value['sanction']}}</td>
+                                <tr class="data-detail ">
+                                    <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                     <td></td>
                                 </tr>
                                 @endforeach
                                 <tr class="header green">
                                     <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
+                                @foreach($permission as $value)
+                                <tr class="data-detail  ">
+                                    <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header bg-head-3">
                                     <td  colspan="2" class="green_header">Năng lực tài chính</td>
                                 </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
+                                <tr class="select-all">
+                                    <td class="td-all">
+                                        Đơn vị: triệu đồng
+                                    </td>
+                                </tr>
+                                @foreach($finances as $value)
+                                <tr class="data-detail " >
+                                    <td><p class="ellipsis">{{$value['finance']}}</p></td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                                 <tr class="header bg-head-4">
                                     <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                 </tr>
-                                <tr class="data-detail">
+                                <tr class="data-detail ">
+                                    <td class="text-center empty-first-car2 "><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
+                                    <td class="car-td active-car-td">
+                                        <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
+                                        <p class="toggle"><span>(0)</span> Chi nhánh</p>
+                                        
+                                    </td>
+                                    <tr class="data-detail" id="car-tr"><td class="empty-first-car text-center"></td>
+                                        <td class="car_header" colspan="1">
+                                            <div id="net-address">
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr >
+                                        <div id="hospital-address">
+                                        </div>
+                                    </tr> -->
+                                </tr>
+                                <!-- <tr class="data-detail ">
                                     <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                     <td>
                                         <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                        <p class="toggle"><span>(108)</span> Chi nhánh</p>
+                                        <p class="toggle"><span>(0)</span> Chi nhánh</p>
                                     </td>
                                     <div id="net-address">
-                                        @include('frontend/pages/network')
+                                        
                                     </div>
-                                </tr>
+                                </tr> -->
                                 <tr class="header">
                                     <td  colspan="2" class="green_header">Đánh giá uy tín</td>
                                 </tr>
@@ -400,7 +364,7 @@
                                     <td></td>
                                 </tr>
                                 <tr class="header green">
-                                    <td  colspan="2" class="green_header">Mô hình GQPT</td>
+                                    <td  colspan="2" class="green_header">Mô hình GQBT</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>Example text</td>
@@ -414,8 +378,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
 <div id="detail-td" class="modal">
@@ -432,19 +394,63 @@
     }
 </script>
 <script>
-    
+    function handleFilter(){
+        var checkedID = []; 
+        var inputElements = document.getElementsByClassName('dropdownCheckbox');
+        $(".dropdownCheckbox").each(function(){
+            if($(this).is(":checked"))
+            checkedID.push($(this).val());
+        });
+        var url = `{{route('filterCompanies')}}`;
+        $.post(url,{ "_token": "{{ csrf_token() }}",checkedID:checkedID}
+        ,function(data,status){
+            $('#banner-logo').html(data.html);
+        });
+        // console.log(checkedID);
+    }
+    function handleCheck(el){
+        var index = $(el).data("id");
+        var checkBox_lt = document.getElementById('checkbox2_'+index+'');
+        var label_lt = document.getElementById('dklt'+index+'');
+        (checkBox_lt.checked==true)  ?  label_lt.style.display = "inline-flex":  label_lt.style.display = "none";;
+    }
     function handleOncick(cb){
         var index = $(cb).data("id");
-        var checkBox = document.getElementById('checkbox_bs'+index+'');
-        var text = document.getElementById('dkbs'+index+'');
-        if(checkBox.checked==true){
-           text.style.display = "inline-flex";
-
-        }else{
-           text.style.display = "none";
-        }
-       
+        var checkBox_bs = document.getElementById('checkbox_bs'+index+'');
+        var label_bs = document.getElementById('dkbs'+index+'');
+        (checkBox_bs.checked==true)  ?  label_bs.style.display = "inline-flex":  label_bs.style.display = "none";;
     }
+    $(function(){
+        var numShown = 5;
+        var numMore = 19;  
+        var table  = document.getElementById('main-tbl');
+        var  rows   = table.tBodies[0].rows;
+        var length = <?php echo count($terms_data)?>;
+        var length_permission = <?php echo count($permission)?>;
+        for( var i=7+numShown; i<= length+6 ;i++)
+            $(rows[i]).hide();
+        $(rows[length+6]).after('<tr id="more"><td colspan="2"><div style="color:blue">Show <span>' +
+               numMore + '</span> More</div</td></tr>');
+        $('#more').click(function() {
+            $('#more').remove();
+            for(var i=7+numShown;i<=length+6;i++)
+            $( rows[i]) .show();
+         });
+        for(var i=40; i<66;i++ )
+         $(rows[i]).hide();
+         $(rows[65]).after('<tr id="more_2"><td colspan="2"><div style="color:blue">Show <span>' +
+               numMore + '</span> More</div</td></tr>');
+         $('#more_2').click(function() {
+            $('#more_2').remove();
+            for(var i=40;i<=66;i++)
+                $( rows[i]) .show();
+         });
+        //  console.log("line 476",rows[88]);
+        //  for(var i=85; i<68+24;i++ )
+        //  $(rows[i]).hide();
+        //  $(rows[111]).after('<tr id="more_3"><td colspan="2"><div style="color:blue">Show <span>' +
+        //        numMore + '</span> More</div</td></tr>');
+    });
     $(function(){
         $('#brand').change(function() {
            
@@ -491,10 +497,10 @@
    
     });
 
-    $('.open').click(function(){
-  $(this).toggleClass("show hide");
-  $('.content').toggleClass("show hide");
-});
+//     $('.open').click(function(){
+//   $(this).toggleClass("show hide");
+//   $('.content').toggleClass("show hide");
+// });
 
 $('.close').click(function(){
   $('.content').toggleClass("show hide");
@@ -505,6 +511,7 @@ $('.close').click(function(){
 
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
+    
 
     @include('layouts.default_script')
 @stop

@@ -7,6 +7,7 @@ use App\Summary;
 use App\Permission;
 use App\Punishment;
 use App\Brand;
+use App\Finance,App\Activity,App\Detail,App\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -21,7 +22,7 @@ class CarController extends Controller
         $dedutible_data  = Summary::select('company_id','deductible','note_dkkt','id')
                         ->take(24)
                         ->get();//Du lieu  khau tru
-        $exception_data =  Summary::select('company_id','exception','note_dklt','id')
+        $exception_data =  Summary::select('company_id','exception','note_dklt','id','rate_fee_dklt')
                         ->take(30)
                         ->get();//Du lieu dieu khoan loai tru
         $punishment = Punishment::select('company_id','sanction','content')
@@ -30,10 +31,22 @@ class CarController extends Controller
         $brands      = Brand::select('id','name','status')
                     ->where('status','=',1)
                     ->get();
-        // dd($brand);
-                       
+        $permission  = Permission::select('company_id','note_rule','rules_owner')
+                    ->take(24)
+                    ->get();
+        $finances   = Finance::select('company_id','finance','money')
+                    ->take(17)
+                    ->get();
+        $companies_cheap = Company::where('classify','=', 1)->get();
+        $companies_recoup= Company::where('classify','=',2)->get();
+        
+        $data = array();
+        $data['companies_cheap'] = $companies_cheap;
+        $data['companies_recoup'] = $companies_recoup; 
+
+       
         return  view('frontend.pages.car',compact([
-                'companies','terms_data','dedutible_data','exception_data','punishment','brands'
+               'data', 'companies','terms_data','dedutible_data','exception_data','punishment','brands','permission','finances'
                  ]));
     }
     public function droppImage( Request $request)
@@ -50,10 +63,10 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(1)
                     ->get();
-        $permissions = Permission::select('company_id','rules_owner','note_rule')
+        $permissions = Permission::select('company_id','rules_owner','note_rule','rate_star_nv')
                     ->where('company_id' ,'=', $company_id)
                     ->get();
-        $punishment = Punishment::select('company_id','sanction','content')
+        $punishment = Punishment::select('company_id','sanction','content','rate_star_ct')
                     ->where('company_id' ,'=', $company_id)
                     ->get();
         $promotion  = $summaries->first();//KHUYEN MAI
@@ -61,7 +74,29 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();//DIEU KHOAN BO SUNG
-                    // dd($terms);
+        $finances   = Finance::select('company_id','finance','money')
+                    ->where('company_id', '=', $company_id)
+                    ->get();
+        $activities = Activity::select('company_id','location_id','amount')
+                    ->where('company_id', '=', $company_id)
+                    ->where('amount','<>','')
+                    ->get();
+        $detail     = Detail::select('company_id','location_id','content')
+                     ->where('company_id', '=', $company_id)
+                     ->get();
+                    //  dd($detail);
+        $locations = Location::all();
+        // dd($locations);
+        $data = array();      
+        $total=0;
+        foreach($activities as $value){
+             $total=$total + $value['amount'];
+        }
+       $data['activities'] = $activities;
+       $data['total']      = $total; 
+       $data['detail']     = $detail;
+       $data['locations']   =$locations;
+       $html = view('frontend/pages/network')->with(['locations'=> $locations ,'detail' => $detail])->render();
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
@@ -71,6 +106,9 @@ class CarController extends Controller
             'punishment'    => $punishment,
             'promotion'     => $promotion,
             'terms'         => $terms,
+            'finances'      =>$finances ,
+            'data'    => $data,
+            'html'    =>$html
         ]);
     }
     public function showInfo(Request $request)
@@ -128,5 +166,39 @@ class CarController extends Controller
             'price_car' => $price_car
         ]);
 
+    }
+    public function address(Request $request){
+        $location_id = $request->get('location_id');
+        $company_id = $request->get('company_id');
+        $detail     = Detail::select('company_id','location_id','content','address','phone')
+                    ->where('company_id', '=', $company_id)
+                    ->where('location_id', '=', $location_id)
+                    ->get();
+        $data['detail'] = $detail;
+        $activity  = Activity::select('company_id','location_id','amount')
+                    ->where('company_id', '=', $company_id)
+                    ->where('location_id', '=', $location_id)
+                    ->get();
+        $data['activity'] = $activity;
+        $location  = Location::select('name')->where('id', '=', $location_id)->get();
+        $data['location'] = $location;
+        $html = view('frontend.pages.car_address')->with('data', $data)->render();
+        return response()->json([
+            'success' =>true,
+            'html' => $html
+        ]);
+    }
+    public function filterCompanies(Request $request)
+    {
+        $checkId = $request->get('checkedID');
+        $logos = [];
+        foreach($checkId as $key =>$checked){
+            $logos[$key] = Company::select('id','logo')->where('id','=',$checked)->get();
+        }
+        $html = view('frontend.pages.car_banner')->with('logos', $logos)->render();
+        return response()->json([
+            'success' =>true,
+            'html' => $html
+        ]);
     }
 }

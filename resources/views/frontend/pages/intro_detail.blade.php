@@ -36,6 +36,9 @@
           </div>
         </div>
         <div class="second-wrapper">
+          <div class="img-intro">
+            <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro2.png?{{ config('custom.version') }}" width="100%" alt=""></a>
+          </div>
           <div class="second-ctn">
             <div class="title">
               <h4>Về đơn vị sở hữu VICS-CORP</h4>
@@ -48,9 +51,7 @@
             </div>
             
           </div>
-          <div class="img-intro">
-            <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro2.png?{{ config('custom.version') }}" width="100%" alt=""></a>
-          </div>
+         
         </div>
         <div class="img-intro2">
           <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro1.png?{{ config('custom.version') }}" width="100%" alt=""></a>

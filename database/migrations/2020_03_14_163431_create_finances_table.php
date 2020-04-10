@@ -17,8 +17,8 @@ class CreateFinancesTable extends Migration
         Schema::create('finances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('company_id');
-            $table->text('finance');
-            $table->bigInteger('money');
+            $table->text('finance')->nullable();
+            $table->bigInteger('money')->nullable();
             $table->timestamps();
         });
     }

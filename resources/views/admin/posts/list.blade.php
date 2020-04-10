@@ -71,13 +71,12 @@
             var emp_id = $(this).data('id');
             $('#formModal').modal('show');
             $('#ok_button').on('click',function(){
-                console.log(emp_id);
                 $.ajax({
                     headers: {
                         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url:"{{route('posts.destroy')}}"+'/'+emp_id,
-                    method:'post',
+                    url:"posts/ "+emp_id ,
+                    type: 'delete', 
                     success:function(data)
                     {
                         setTimeout(function(){

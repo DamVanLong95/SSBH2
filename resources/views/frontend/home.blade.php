@@ -258,5 +258,4 @@
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
 
-    <script src="{{ url('assets/js/contest.js?'.config('custom.version')) }}"></script>
 @stop
