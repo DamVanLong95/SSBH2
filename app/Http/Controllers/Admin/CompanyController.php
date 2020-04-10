@@ -50,6 +50,7 @@ class CompanyController extends Controller
         $company = new Company;
         $company->name = $request->get('name');
         $company->logo =  isset($path) ? $path: null;
+        $company->classify = $request->get('classify');
         $company->save();
         if ( !  $company->save())
         {
@@ -90,7 +91,7 @@ class CompanyController extends Controller
                 'logo', Str::random(10) . '_' . $filename, 'public'
             );
         }
-        $company = Company::find($request->get('id'));
+        $company = Company::findOrFail($request->get('id'));
         if(isset($company->logo)){
             $file_old ="public/". $company->logo;
             if(Storage::exists($file_old)) {
@@ -99,6 +100,7 @@ class CompanyController extends Controller
         }
         $company->name = $request->get('name');
         $company->logo =  isset($path) ? $path: $company->logo;
+        $company->classify = $request->get('classify');
         $company->save();
         $notification = array(
             'message' => 'update successfully!',

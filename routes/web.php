@@ -21,6 +21,9 @@ Route::get('/car','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
 Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
 Route::post('onchange','Car\CarController@onChange')->name('onchange');
+Route::post('reference','Car\CarController@reference')->name('reference');
+Route::post('car/address','Car\CarController@address')->name('address');
+Route::post('car/filter','Car\CarController@filterCompanies')->name('filterCompanies');
 
 Route::get('/test', function () {
     return view('frontend.pages.test');
@@ -49,20 +52,26 @@ Route::get('/treatment', function () {
 Route::get('/question', function () {
     return view('frontend.pages.question');
 });
+// =====================================Health=================================
+Route::get('/health','Health\HealthController@index')->name('health.index');
+Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');
+Route::post('health/selectProgram','Health\HealthController@selectProgram')->name('selectProgram');
+Route::post('health/filterProvince','Health\HealthController@filterProvince')->name('filterProvince');
+Route::post('health/filterDistrict','Health\HealthController@filterDistrict')->name('filterDistrict');
+// =====================================nhân thọ Longevity=================================
+Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
+Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
-    Route::get('posts','Admin\PostController@index')->name('posts.index');
+    Route::resource('posts','Admin\PostController',['except'=>'show']);
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
-    Route::get('posts/create','Admin\PostController@create')->name('post.create');
-    Route::post('posts/store','Admin\PostController@store')->name('post.store');
-    Route::get('posts/edit/{id?}','Admin\PostController@edit')->name('post.edit');
-    Route::post('posts/update','Admin\PostController@update')->name('post.update');
-    Route::post('posts/destroy/{id?}','Admin\PostController@destroy')->name('posts.destroy');
+    Route::resource('product','Admin\ProductController',['except' =>'show']);
+    Route::get('getIndex','Admin\ProductController@getIndex')->name('products.datatable');
 
 //   ============View ======================
-
     Route::get('company','Admin\CompanyController@index')->name('excel.company');
     Route::get('datatables','Admin\CompanyController@getData')->name('excel.getData');
     Route::get('company/edit/{id?}','Admin\CompanyController@edit')->name('company.edit');
@@ -77,6 +86,19 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('finance','Admin\ExcelController@indexFinance')->name('indexFinance.import');
     Route::get('brand','Admin\ExcelController@indexBrand')->name('indexBrand.import');
     Route::get('brand_cate','Admin\ExcelController@indexBrandCate')->name('indexBrandCate.import');
+    Route::get('punishment','Admin\ExcelController@indexPunishment')->name('indexPunishment.import');
+    Route::get('activity','Admin\ExcelController@indexActivity')->name('indexActivity.import');
+    Route::get('location','Admin\ExcelController@indexLocation')->name('indexLocation.import');
+    Route::get('detail','Admin\ExcelController@indexDetail')->name('indexDetail.import');
+  
+
+    Route::get('scope','Admin\LongevityExcelController@indexScope')->name('indexScope.import');
+    Route::get('program','Admin\ProgramExcelController@index')->name('indexProgram.import');
+    Route::get('health','Admin\HealthExcelController@index')->name('indexHealth.import');
+    Route::get('district','Admin\DistrictExcelController@index')->name('indexDistrict.import');
+    Route::get('hospital','Admin\HospitalExcelController@index')->name('indexHospital.import');
+    
+
  
    
    
@@ -89,6 +111,17 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('finance','Admin\ExcelController@importFinance')->name('finance.import');
     Route::post('brand','Admin\ExcelController@importBrand')->name('brand.import');
     Route::post('users/import','Admin\ExcelController@importExcel')->name('users.import');
+    Route::post('punishment','Admin\ExcelController@importPunishment')->name('punishment.import');
+    Route::post('activity','Admin\ExcelController@importActivity')->name('activity.import');
+    Route::post('location','Admin\ExcelController@importLocation')->name('location.import');
+    Route::post('detail','Admin\ExcelController@importDetail')->name('detail.import');
+
+    Route::post('scope','Admin\LongevityExcelController@importScope')->name('scope.import');
+    Route::post('program','Admin\ProgramExcelController@import')->name('program.import');
+    Route::post('health','Admin\HealthExcelController@import')->name('health.import');
+    Route::post('district','Admin\DistrictExcelController@import')->name('district.import');
+    Route::post('hospital','Admin\HospitalExcelController@import')->name('hospital.import');
+
 
 //   ============Export excel======================
     Route::get('companies/export','Admin\ExcelController@exportCompany')->name('companies.export');
@@ -96,6 +129,12 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('permission/export','Admin\ExcelController@exportPermission')->name('permission.export');
     Route::get('finance/export','Admin\ExcelController@exportFinance')->name('finance.export');
     Route::get('brand/export','Admin\ExcelController@exportBrand')->name('brand.export');
+    Route::get('punishment/export','Admin\ExcelController@exportPunishment')->name('punishment.export');
+    Route::get('activity/export','Admin\ExcelController@exportActivity')->name('activity.export');
+    Route::get('location/export','Admin\ExcelController@exportLocation')->name('location.export');
+    Route::get('detail/export','Admin\ExcelController@exportLocation')->name('location.export');
+  
 
+    Route::get('longevity/export','Admin\LongevityExcelController@exportLongevity')->name('longevity.export');
 
 });

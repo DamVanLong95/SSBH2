@@ -58,13 +58,13 @@
                     </div>
                     <div class="name-list">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item active">
                                     Jonh Doe
                                 </div>   
                             </div>
                             @for($i=1;$i < 12;$i++)
-                                <div class="col-lg-4">
+                                <div class=" col-sm-12 col-md-4 col-lg-4">
                                     <div class="name-item">
                                         nguyen hoan van anh
                                     </div>   

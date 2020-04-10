@@ -2,8 +2,9 @@
 @section('content')
     <div class="col-lg-9">
         <div class="card">
-            <form class="form-horizontal" action="{{route('post.update')}}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{route('posts.update', $post->id )}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                {{ method_field('PUT') }}
                 <div class="card-body">
                     <h4 class="card-title">Edit posts</h4>
                     <input type="hidden" name="id" value="{{$post->id}}">
