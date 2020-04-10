@@ -42,66 +42,76 @@
 <!-- Menu -->
 {{--sticky-top--}}
 <div id="menu-main" class="block-main-menu">
-    <div class="flex-display">
+    
         <!-- Menu -->
-        <div class="logo-desktop d-none d-lg-block">
+        <div class="logo-mobile-nav d-lg-none">
             <a href="{{ url('/') }}">
-                <img class="img-fluid" src="{{ url('/') }}/assets/images/section1/detox-icon.png?{{ config('custom.version') }}" alt="">
+                <img class="img-fluid" src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" alt="">
             </a>
         </div>
-        <nav class="navbar navbar-expand-lg ">
-
-        <!--  Show this only on mobile to medium screens  -->
-        <a class="navbar-brand d-lg-none" href="#"> <img src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" class="logo-desktop"></a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!--  Use flexbox utility classes to change how the child elements are justified  -->
-        <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
-
-            <ul class="left-nav navbar-nav ml-auto text-center">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
-                    <ul>
-                        <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
-                        <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
-                        <li><a href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
-                    
+            <nav id="sidenav" class="main-menu navbar navbar-expand-lg ">
+                <div id="logo-mobile" class="d-lg-none mb-3 mt-4">
+                    <a href="{{ url('/') }}">
+                        <img class="img-fluid" src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" alt="">
+                    </a>
+                </div>
+                <div class="w-100 dual-collapse2 order-1 order-md-0">
+                    <ul class="left-nav navbar-nav ml-auto text-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
+                            <ul>
+                                <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
+                                <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
+                                <li><a href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
+                            
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-        <!--   Show this only lg screens and up   -->
-            <a class="navbar-brand d-none d-lg-block" href="#"> <img src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" class="logo-desktop"></a>
-
-            <ul class="right-nav navbar-nav mr-auto text-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/question') }}">CÂU HỎI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/contact') }}">LIÊN HỆ</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                </div>
+                <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+                    <a class="mx-auto" href="#">
+                        <img src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" class="logo-desktop">
+                    </a>
+                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                </div>
+                <div class=" w-100 dual-collapse2 order-2 order-md-2">
+                    <ul class="right-nav navbar-nav mr-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/question') }}">CÂU HỎI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/contact') }}">LIÊN HỆ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         <!-- /.Menu -->
 
         <!-- overlay -->
         <div class="block-overlay"></div>
         <!-- /.overlay -->
-    </div>
-</div>
 
+        <!-- icon bar -->
+        <div class="open-sidemenu">
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+        </div>
+        <!-- /.icon bar -->
+    
+</div>
+<!-- Menu -->
 <div class="body-page">
     <div class="page-wrapper">
     @include('frontend/pages/section1')
@@ -217,7 +227,7 @@
             });
         });
     </script>
-    <!-- <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script> -->
+    <script src="{{ url('assets/js/custom.js?'.config('custom.version')) }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src='https://foliotek.github.io/Croppie/croppie.js'></script>
 
