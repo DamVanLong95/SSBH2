@@ -55,7 +55,7 @@
                         <img class="img-fluid" src="{{ url('/') }}/assets/images/default/logo.png?{{ config('custom.version') }}" alt="">
                     </a>
                 </div>
-                <div class="w-100 dual-collapse2 order-1 order-md-0">
+                <div class=" d-flex w-100 dual-collapse2 order-1 order-md-0">
                     <ul class="left-nav navbar-nav ml-auto text-center">
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
@@ -82,7 +82,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button> -->
                 </div>
-                <div class=" w-100 dual-collapse2 order-2 order-md-2">
+                <div class=" d-flex w-100 dual-collapse2 order-2 order-md-2">
                     <ul class="right-nav navbar-nav mr-auto text-center">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>

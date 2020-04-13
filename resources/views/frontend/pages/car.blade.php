@@ -126,7 +126,7 @@
             </button>
         </div>
     </div>
-    <div class="table-section">
+    <div class="table-section d-none d-lg-block d-xl-block">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -155,7 +155,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <tr class="sub-head">
                                     <td class="th-2">
                                         <div class="star-ctn">
@@ -511,7 +510,5 @@ $('.close').click(function(){
 
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
-    
-
     @include('layouts.default_script')
 @stop

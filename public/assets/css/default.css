@@ -180,6 +180,7 @@
     bottom: 0;
     width: 200px;
     display: block;
+    overflow-y: auto;
     background: white;
     background-position: center 10px;
     background-repeat: no-repeat;

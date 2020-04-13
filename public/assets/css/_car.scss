@@ -2,11 +2,19 @@
     background-color: #191919;
     height: 50px;
     position: relative;
+    @media (max-width: 991px) {
+        height: 130px;
+    }
     .compare-nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
+        @media (max-width: 991px) {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            
+        }
         .dropdown {
             position: relative;
             font-size: 16px;
@@ -18,8 +26,12 @@
             z-index: 3;
             height: 35px;
             transform: translateY(10px);
+            @media (max-width: 991px) {
+                height: 60px;
+            }
             .dropdown-list {
                 padding: 12px;
+                // width: fit-content;
                 background-color: rgba(0, 0, 0, 0.8);
                 position: absolute;
                 top: 40px;
@@ -31,6 +43,9 @@
                 transition: transform .15s ease-in-out .15s;
                 max-height: 46vh;
                 overflow-y: scroll;
+                @media (max-width: 991px) {
+                    top: 60px;
+                }
             }
             .dropdown-list::-webkit-scrollbar-track
             {
@@ -67,6 +82,9 @@
                 line-height: 1;
                 cursor: pointer;
                 transform: translate(0px, -9px);
+                @media (max-width: 991px) {
+                    height: 65px;
+                }
                 &:before {
                     content: '▼';
                     float: right;
@@ -92,6 +110,10 @@
             }
             &:nth-of-type(1) {
                 border-left: none;
+                @media (max-width: 991px) {
+                    border-left: 1px solid #fff;
+                }
+                
             }
             &:nth-last-child(1) {
                 // border-right: none;
@@ -252,7 +274,7 @@
         top: -30px;
         bottom: -60px;
         @media (max-width: 1440px) {
-            right: 3%;
+            right: 7%;
         }
     }
     .hidden {
