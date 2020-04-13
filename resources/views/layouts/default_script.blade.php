@@ -349,15 +349,15 @@
 
                                         var location_id = $('#province').val();
                                         if (location_id !=0) {
-                                                var location_id = $('#province').val();
-                                                var url = '{{route('address')}}';
-                                                $.post(url,
-                                                    { "_token": "{{ csrf_token() }}",
-                                                    location_id:location_id,
-                                                    company_id:idImg},
-                                                    function(data,status){
-                                                        $('#address').html(data.html);
-                                                });
+                                            var location_id = $('#province').val();
+                                            var url = '{{route('address')}}';
+                                            $.post(url,
+                                                { "_token": "{{ csrf_token() }}",
+                                                location_id:location_id,
+                                                company_id:idImg},
+                                                function(data,status){
+                                                    $('#address').html(data.html);
+                                            });
                                             
                                         }else{
                                             $('#province').change(function(){

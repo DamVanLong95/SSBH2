@@ -337,7 +337,7 @@
                                     </td>
                                 </tr>
                                @foreach($data['object_bh'] as $value)
-                                <tr class="data-detail">
+                                <tr class="data-detail d-none">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
                                         <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
@@ -382,7 +382,7 @@
                                 </tr>
                             
                                 @for($i=74;$i< 83;$i++)
-                                <tr class="data-detail  ">
+                                <tr class="data-detail d-none ">
                                     <td><p class="ellipsis">{{$data['healths'][$i]['comparison']}}</p></td>
                                     <td></td>
                                 </tr>
@@ -424,10 +424,12 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @foreach($data['exclusions'] as $value)
                                 <tr class="data-detail">
-                                    <td>Example text</td>
+                                    <td><p class="ellipsis"></p>{{$value['rules']}}</td>
                                     <td></td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -182,7 +182,7 @@
 
     <script>
         $(document).ready(function(){
-            $.ui.menu.init();
+            // $.ui.menu.init();
             $(window).scroll(function () {
             if ($(this).scrollTop() > 100) {
                 $('.scrollup').fadeIn();

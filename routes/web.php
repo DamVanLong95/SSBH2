@@ -97,6 +97,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('health','Admin\HealthExcelController@index')->name('indexHealth.import');
     Route::get('district','Admin\DistrictExcelController@index')->name('indexDistrict.import');
     Route::get('hospital','Admin\HospitalExcelController@index')->name('indexHospital.import');
+    Route::get('exclusion','Admin\ExclusionExcelController@index')->name('indexExclusion.import');
     
 
  
@@ -121,6 +122,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('health','Admin\HealthExcelController@import')->name('health.import');
     Route::post('district','Admin\DistrictExcelController@import')->name('district.import');
     Route::post('hospital','Admin\HospitalExcelController@import')->name('hospital.import');
+    Route::post('exclusion','Admin\ExclusionExcelController@import')->name('exclusion.import');
 
 
 //   ============Export excel======================

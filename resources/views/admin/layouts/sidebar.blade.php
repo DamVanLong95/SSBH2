@@ -47,6 +47,7 @@
                         <li class="sidebar-item"><a href="{{route('indexProgram.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Program</span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexHospital.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Hospital</span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexDistrict.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">District</span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexExclusion.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Exclusion</span></a></li>
                     </ul>
                 </li>
             </ul>
