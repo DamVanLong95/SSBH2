@@ -131,7 +131,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn ">
-                        <table id="main-tbl" class="table sticky-header table-responsive">
+                        <table id="main-tbl" class="table sticky-header">
                             <div class="add-del-ctn d-none ">
                                 <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
                                 <input type="button" value="add column" onclick="addColumn('main-tbl')" />
