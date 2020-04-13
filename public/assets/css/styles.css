@@ -549,6 +549,9 @@
   .open-sidemenu {
     display: block; }
 
+  .no-scroll {
+    overflow: hidden; }
+
   #sidenav {
     position: fixed;
     top: 0;
