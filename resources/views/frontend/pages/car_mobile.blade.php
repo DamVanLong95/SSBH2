@@ -11,7 +11,7 @@
 
 @stop
 @section('content')
-<div class="table-section  d-md-block d-lg-none d-xl-none">
+<div class="table-section  d-md-block ">
   <div class="container">
     <div class="row">
         <div class="col-md-12 ">
@@ -96,6 +96,49 @@
                 </tr>
                 <tr class="green1">
                     <td class="green-header" colspan="5" >Tính phí</td>
+                </tr>
+                <tr class="tool-ctn">
+                    <td colspan="5" id="select_box">
+                        <div class="select-ctn">
+                            <div class="selection-box">
+                                <div class=" item select">
+                                    <select aria-label="Select menu example" id="purpose">
+                                        <option selected>Mục đích sử dụng</option>
+                                        <option value="1">Xe kinh doanh không vận tải</option>
+                                        <option value="1">Xe kinh doanh chở người</option>
+                                    </select>
+                                </div>
+                                <div class="item select">
+                                    <select aria-label="Select menu example" id="brand">
+                                        <option selected>Hãng xe</option>
+                                        <option value="" id="brand_1">option1</option>
+                                        <option value="" id="brand_2">option2</option>
+                                        <option value="" id="brand_3">option3</option>
+                                    </select>
+                                </div>
+                                <div class="item select">
+                                    <select aria-label="Select menu example" id="cate">
+                                        <option selected="">Loại xe</option>
+                                    </select>
+                                </div>
+                                <div class="item select">
+                                    <select aria-label="Select menu example" id="prd_date">
+                                    <option selected>Năm sản xuất</option>
+                                    {{$now = date('Y')}}  
+                                    @for ($i = $now; $i >=2010 ; $i--)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                    </select>
+                                </div>
+                                <div class="item input-filter">
+                                <span> Giá trị: </span> <input type="text" placeholder="VND"id="price_car" name="price_car" value="">
+                                </div>
+                            </div>
+                            <div class="item button-filter" >
+                                <button type="button" id="calculate">Tính phí</button>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                   <td>Left Column</td>

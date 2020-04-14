@@ -38,7 +38,7 @@
         position: relative;
         
         max-width: 990px;
-        height: 120px; // hide the scroll bar
+        height: 160px; // hide the scroll bar
         margin: auto;
         // border: 1px solid black;
         overflow-x: hidden;
@@ -58,6 +58,7 @@
                 display: inline-block;
                 text-align: center;
                 width: 200px;
+                white-space: normal;
                 // height: 100%;
                 // outline: 1px dotted gray;
                 padding: 0 10px;
@@ -882,4 +883,9 @@
         background-color: $main-color;
         }
     }
+}
+.break-txt{
+    word-break: break-all;
+    color: $main-color;
+    text-align: left;
 }
