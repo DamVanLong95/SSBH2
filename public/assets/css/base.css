@@ -595,56 +595,6 @@
   color: #0d723b;
 }
 
-.table-ctn table {
-  width: 100%;
-  table-layout: fixed;
-  position: relative;
-}
-
-.table-ctn thead,
-.table-ctn tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  /* even columns width , fix width of table too*/
-}
-
-.table-ctn thead tr,
-.table-ctn thead td,
-.table-ctn tbody tr tr,
-.table-ctn tbody tr td {
-  position: relative;
-}
-
-.table-ctn tbody {
-  display: block;
-  height: 1262px;
-  overflow: auto;
-  width: 100%;
-}
-
-.table-ctn tbody::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: #ccc;
-}
-
-.table-ctn tbody::-webkit-scrollbar {
-  width: 5px;
-  background-color: #ccc;
-}
-
-.table-ctn tbody::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #0d723b;
-}
-
-.table-ctn thead {
-  width: calc( 100% - 4px) !important;
-  /* scrollbar is average 1em/16px width, remove it from thead width */
-}
-
 .fixed-thead {
   position: fixed;
   top: 120px;

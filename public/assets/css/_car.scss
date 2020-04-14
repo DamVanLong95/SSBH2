@@ -337,13 +337,14 @@
                         border-top: 2px solid $main-color;
                         border-bottom: 1px solid $main-color;
                         border-right: 1px solid $main-color;
+                        z-index: 7;
                     }
                     th:last-child {
                         // border-right: 0px;
                     }
                     th.th-1 {
                         // display: flex;
-                        position: relative;
+                        // position: relative;
                         .left-ctn {
                             transform: translate(0px, -37px);
                             text-align: left;

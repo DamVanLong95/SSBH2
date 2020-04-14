@@ -564,48 +564,48 @@
 }
 
 // add scroll tbody to table
-.table-ctn {
-    table {
-        width: 100%;
-        table-layout: fixed;
-        position: relative;
-    }
-    thead,
-    tbody tr {
-        display: table;
-        width: 100%;
-        table-layout: fixed;
-        /* even columns width , fix width of table too*/
-        tr,
-        td {
-            position: relative;
-        }
-    }
-    tbody {
-        display: block;
-        height: 1262px;
-        overflow: auto;
-        width: 100%;
-    }
-    tbody::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        background-color: #ccc;
-    }
-    tbody::-webkit-scrollbar {
-        width: 5px;
-        background-color: #ccc;
-    }
-    tbody::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: #0d723b;
-    }
-    thead {
-        width: calc( 100% - 4px) !important;
-        /* scrollbar is average 1em/16px width, remove it from thead width */
-    }
-}
+// .table-ctn {
+//     table {
+//         width: 100%;
+//         table-layout: fixed;
+//         position: relative;
+//     }
+//     thead,
+//     tbody tr {
+//         display: table;
+//         width: 100%;
+//         table-layout: fixed;
+//         /* even columns width , fix width of table too*/
+//         tr,
+//         td {
+//             position: relative;
+//         }
+//     }
+//     tbody {
+//         display: block;
+//         height: 1262px;
+//         overflow: auto;
+//         width: 100%;
+//     }
+//     tbody::-webkit-scrollbar-track {
+//         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//         border-radius: 10px;
+//         background-color: #ccc;
+//     }
+//     tbody::-webkit-scrollbar {
+//         width: 5px;
+//         background-color: #ccc;
+//     }
+//     tbody::-webkit-scrollbar-thumb {
+//         border-radius: 10px;
+//         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+//         background-color: #0d723b;
+//     }
+//     thead {
+//         width: calc( 100% - 4px) !important;
+//         /* scrollbar is average 1em/16px width, remove it from thead width */
+//     }
+// }
 
 .fixed-thead {
     position: fixed;
