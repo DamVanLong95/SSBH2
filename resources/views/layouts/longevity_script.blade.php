@@ -44,8 +44,12 @@
                 $('<span class="remove" />').text('X').appendTo(th);
                 $('span.remove', th).show();
 
-                $('#checkbox_'+idImg+'').prop("checked", true);
-                if($('#checkbox_'+idImg+'').prop("checked") == true){
+                $('#checkbox_tl'+idImg+'').prop("checked", true);
+                $('#checkbox_bv'+idImg+'').prop("checked", true);
+                if($('#checkbox_tl'+idImg+'').prop("checked") == true){
+                    $('#'+idImg+'').draggable({ disabled: true });
+                }
+                if($('#checkbox_bv'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
                 var url = '{{route('droppLongevity')}}';
@@ -81,9 +85,6 @@
                             }
                           
                          }
-
-                       
-                       
                     }
                 }).done(function() {
                     // alert('Request done!');
@@ -93,7 +94,8 @@
                         if( index ==2 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                             console.log("hi");
@@ -101,36 +103,43 @@
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl-nt');
                             dropImage();
-                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl-nt');
                             dropImage();
-                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index == 4){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
                         }else if(index == 5 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl-nt');
                             dropImage();
-                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
 
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             // addColumn('main-tbl-nt');
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
                             dropImage();
                         }else if(index == 3 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
-                            $('#checkbox_'+idImg+'').prop("checked", false);
+                            $('#checkbox_bv'+idImg+'').prop("checked", false);
+                            $('#checkbox_tl'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }
                 });

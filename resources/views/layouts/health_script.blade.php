@@ -127,16 +127,22 @@
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                     $('#td'+indexCol+'').click(function(){
                                         var tdnet ;
-                                            for(var i =1;i<4;i++){
-                                                if(indexCol==i){
-                                                    tdnet = tdsss;
-                                                    tdnet.setAttribute('class','active-td');
-                                                
-                                                }else{
-                                                    tdnet= tblBodyObj.rows[92].cells[i]
-                                                    tdnet.removeAttribute('class','active-td');
-                                                }
+                                        for(var i =1;i<4;i++){
+                                            if(indexCol==1){
+                                                tdnet = tdsss;
+                                                tdnet.setAttribute('class','active-td');
+                                                tblBodyObj.rows[92].cells[i+1].removeAttribute('class','active-td');
+                                                break;
                                             }
+                                            if(indexCol==i){
+                                                tdnet = tdsss;
+                                                tdnet.setAttribute('class','active-td');
+                                            
+                                            }else {
+                                                tdnet= tblBodyObj.rows[92].cells[i];
+                                                tdnet.removeAttribute('class','active-td');
+                                            }
+                                        }
                                         var provinceID = $('#province').val();
                                         if(provinceID){
                                             var url = '{{route('filterProvince')}}';
@@ -206,7 +212,6 @@
                                     
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                                    console.log(exclusions);
                                     for(var i=96;i < 96 + exclusions.length;i++){
                                         var tds = tblBodyObj.rows[i].cells[indexCol];
                                         // console.log(tds);

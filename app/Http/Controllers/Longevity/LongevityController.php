@@ -29,7 +29,7 @@ class LongevityController extends Controller
                 ->get();//quyen loi san pham
         $data['saving'] = $saving;
         $data['secure'] = $secure;
-        $data['cost'] = $cost;
+        $data['cost']   = $cost;
         $data['benifits'] = $benifits;
         return view('frontend.pages.longevity',compact('data','scope_secure'));
     }

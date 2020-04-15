@@ -31,28 +31,32 @@
                                 </a>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" name="dropdown-group" value=" 1" />
+                                Chương trình 1 (dưới 200 triệu)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
+                                <input type="checkbox" name="dropdown-group" value=" 2" />
+                                Chương trình 1 (dưới 200 triệu)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
+                                <input type="checkbox" name="dropdown-group" value=" 3" />
+                                Chương trình 3 (từ 400 - dưới 500 triệu)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
+                                <input type="checkbox" name="dropdown-group" value=" 4" />
+                                Chương trình 4 (từ 500 - dưới 1 tỷ)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
+                                <input type="checkbox" name="dropdown-group" value=" 5" />
+                                Chương trình 5 (từ 1 tỷ - dưới 2 tỷ)
+                                </label>
+                                <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group" value=" 5" />
+                                Chương trình 6 (trên 2 tỷ)
                                 </label>
                             </div>
                         </div>
@@ -162,7 +166,7 @@
                 <div class="col-lg-12">
                     <div class="search-section-health">
                         <button class="btn1" type="button" onclick=""> Chọn lại</button>
-                        <button class="btn2"type="button" onclick=""> Tìm kiếm </button>
+                        <button class="btn2"type="button" > Tìm kiếm </button>
                     </div>
                 </div>
             </div>
@@ -184,8 +188,8 @@
                                 <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_14"/>
-                                    <label class="toggle" for="ala_14"></label>
+                                    <input name="type" value="" type="checkbox" id="checkbox_tl{{$value['id']}}"/>
+                                    <label class="toggle" for="checkbox_tl{{$value['id']}}"></label>
                                 </div>
                             </div>
                         </li>
@@ -221,8 +225,8 @@
                                     <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                 </label>
                                 <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="ala_1"/>
-                                    <label class="toggle" for="ala_1"></label>
+                                    <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
+                                    <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
                                 </div>
                             </div>
                         </li>
@@ -526,6 +530,7 @@
 
 </div>
 <script>
+  
     function showMore(val){
      $('#note').html(val);
      $('#detail-td').modal('show');
@@ -540,6 +545,9 @@
     })
 </script>
 <script>
+    function searchProduct(){
+        alert(1);
+    }
 
     $('.open').click(function(){
   $(this).toggleClass("show hide");

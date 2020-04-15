@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 @stop
 
@@ -29,30 +29,32 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox" value="1" />
+                                (dưới 200 triệu)
+                                </label>
+                                <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox" value="2" />
+                                (từ 200 - dưới 400 triệu)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox"  value="3" />
+                               (từ 400 - dưới 500 triệu)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox" value="4" />
+                               (từ 500 - dưới 1 tỷ)
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox" value="5" />
+                              (từ 1 tỷ - dưới 2 tỷ)
                                 </label>
-
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox" value="6" />
+                              (trên 2 tỷ)
                                 </label>
                             </div>
                         </div>
@@ -62,31 +64,47 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox_2"  value="1" />
+                                 duoi 1 triệu
+                                </label>
+                                <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox_2"  value="2" />
+                                Từ 1-3 triệu
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
+                                <input type="checkbox" name="dropdown-group"class="dropdownCheckbox_2"  value="3" />
+                                Từ 3-5 triệu
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
+                                <input type="checkbox" name="dropdown-group"class="dropdownCheckbox_2"  value="4" />
+                                Từ 5-8 triệu
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
+                                <input type="checkbox" name="dropdown-group"class="dropdownCheckbox_2"  value="5" />
+                                Từ 8-12 triệu
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox_2"  value="6" />
+                                Từ 12- 20 triệu
                                 </label>
+                                <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group"class="dropdownCheckbox_2"  value="7" />
+                                Từ 20-30 triệu
+                                </label>
+                                <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox_2"  value="8" />
+                                Từ 30-50 triệu
+                                </label>
+                                <input type="checkbox" name="dropdown-group" class="dropdownCheckbox_2"  value="9" />
+                                tren 50 triệu
+                                </label>
+                               
+
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -96,24 +114,20 @@
                                 Check All
                                 </a>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" name="dropdown-group" class="checkboxScope" value="1" />
+                                 Việt Nam
                                 </label>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
+                                <input type="checkbox" name="dropdown-group" class="checkboxScope" value="2" />
+                                 Đông Nam Á
                                 </label>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
+                                <input type="checkbox" name="dropdown-group" class="checkboxScope" value="3" />
+                                 Châu Á
                                 </label>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
+                                <input type="checkbox" name="dropdown-group" class="checkboxScope" value="4" />
+                                 Toàn cầu
                                 </label>
                             </div>
                         </div>
@@ -123,31 +137,13 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
+                                @foreach($data['companies'] as $value)
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Selection One
+                                <input type="checkbox" name="dropdown-group" class="checkedCompanies" value="{{$value['id']}}" />
+                                {{$value['name']}}
                                 </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Selection Two
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Selection Three
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Selection Four
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Selection Five
-                                </label>
+                                @endforeach
+                               
                             </div>
                         </div>
                     </div>
@@ -162,7 +158,7 @@
                 <div class="col-lg-12">
                     <div class="search-section-health">
                         <button class="btn1" type="button" onclick=""> Chọn lại</button>
-                        <button class="btn2"type="button" onclick=""> Tìm kiếm </button>
+                        <button class="btn2"type="button" onclick="searchProduct()"> Tìm kiếm </button>
                     </div>
                 </div>
             </div>
@@ -171,30 +167,30 @@
     <div class="pack-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                <div class="pack-title">
-                <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
-                </div>
-                <div  class="section-wrapper">
-                    <ul id="thumbs" class="section-list">
-                    @foreach($data['saving'] as $value)
-                        <li class="item">
-                            <div class="thumb-t">
-                               {{$value['name']}}
-                            </div>
-                            <div class="brand-thumb">
-                                <label for="1">
-                                <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
-                                    <label class="toggle" for="checkbox_{{$value['id']}}"></label>
+                <div class="col-lg-12"  id="thumbs">
+                    <div class="pack-title">
+                    <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
+                    </div>
+                    <div  class="section-wrapper">
+                        <ul class="section-list" >
+                        @foreach($data['saving'] as $value)
+                            <li class="item">
+                                <div class="thumb-t">
+                                {{$value['name']}}
                                 </div>
-                            </div>
-                        </li>
-                     @endforeach
-                    </ul>
-                </div>
+                                <div class="brand-thumb">
+                                    <label for="1">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                    </label>
+                                    <div class="input-pack">
+                                        <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
+                                        <label class="toggle" for="checkbox_{{$value['id']}}"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                        </ul>
+                     </div>
                 </div>
             </div>
             <div class="paddles">
@@ -211,31 +207,31 @@
     <div class="pack-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                <div class="pack-title">
-                <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
-                </div>
-                <div  class="section-wrapper2">
-                    <ul id="thumbs" class="section-list2">
-                    @foreach($data['secure'] as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                {{$value['name']}}
-                            </div>
-                            <div class="brand-thumb">
-                                <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
-                                    <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
+                <div class="col-lg-12" >
+                    <div class="pack-title">
+                    <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
+                    </div>
+                    <div  class="section-wrapper2">
+                        <ul id="secure_list" class="section-list2">
+                        @foreach($data['secure'] as $value)
+                            <li class="item2">
+                                <div class="thumb-t">
+                                    {{$value['name']}}
                                 </div>
-                            </div>
-                        </li>
-                    @endforeach
-                     
-                    </ul>
-                </div>
+                                <div class="brand-thumb">
+                                    <label for="1">
+                                        <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                    </label>
+                                    <div class="input-pack">
+                                        <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
+                                        <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                        
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="paddles2">
@@ -514,6 +510,47 @@
 
 </div>
 <script>
+    function searchProduct(){
+        var checkedID   = []; 
+        var checkedCost = [];
+        var checkedScope= [];
+        var checkedCompanies=[];
+        $(".checkedCompanies").each(function(){
+            if($(this).is(":checked"))
+            checkedCompanies.push($(this).val());
+        });
+        // console.log(checkedCompanies);
+        $(".dropdownCheckbox").each(function(){
+            if($(this).is(":checked"))
+            checkedID.push($(this).val());
+        });
+        $(".dropdownCheckbox_2").each(function(){
+            if($(this).is(":checked"))
+            checkedCost.push($(this).val());
+        });
+        $(".checkboxScope").each(function(){
+            if($(this).is(":checked"))
+            checkedScope.push($(this).val());
+        });
+        var url = `{{route('filterHealth')}}`;
+        $.post(url,
+        { "_token": "{{ csrf_token() }}",
+            program:checkedID,
+            cost : checkedCost,
+            scope :checkedScope,
+            companies:checkedCompanies,
+        }
+        ,function(data,status){
+            setTimeout(function(){
+                $('#thumbs').html(data.html_saving);
+             }, 100);
+             if(data.html_secure){
+                $('#secure_list').html(data.html_secure);
+             }
+             
+             
+        });
+    }
     function showMore(val){
      $('#note').html(val);
      $('#detail-td').modal('show');
