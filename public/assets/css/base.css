@@ -595,6 +595,10 @@
   color: #0d723b;
 }
 
+.blocker {
+  z-index: 999;
+}
+
 .fixed-thead {
   position: fixed;
   top: 120px;

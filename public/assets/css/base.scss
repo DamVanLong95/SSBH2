@@ -562,7 +562,9 @@
     background: #f9f9f9;
     color: #0d723b;
 }
-
+.blocker{
+    z-index: 999;
+}
 // add scroll tbody to table
 // .table-ctn {
 //     table {

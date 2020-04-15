@@ -57,18 +57,18 @@
                 </div>
                 <div class=" d-flex w-100 dual-collapse2 order-1 order-md-0">
                     <ul class="left-nav navbar-nav ml-auto text-center">
-                        <li class="nav-item active">
+                        <li @if(request()->is('/')) class="active" @endif >
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                         </li>
-                        <li class="nav-item">
+                        <li @if(request()->is('/intro')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/car') }}">SO SÁNH</a>
-                            <ul>
-                                <li><a href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
-                                <li><a href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
-                                <li><a href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
+                        <li >
+                            <a class="nav-link" href="#">SO SÁNH</a>
+                            <ul class="menu-hover">
+                                <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
+                                <li @if(request()->is('pages/health')) class="active" @endif><a class="nav-link" href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
+                                <li @if(request()->is('pages/longevity')) class="active" @endif><a class="nav-link" href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
                             
                             </ul>
                         </li>

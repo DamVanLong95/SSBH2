@@ -432,7 +432,7 @@
         var length_permission = <?php echo count($permission)?>;
         for( var i=7+numShown; i<= length+6 ;i++)
             $(rows[i]).hide();
-        $(rows[length+6]).after('<tr id="more"><td colspan="2"><div style="color:blue">Show <span>' +
+        $(rows[length+6]).after('<tr id="more"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
                numMore + '</span> More</div</td></tr>');
         $('#more').click(function() {
             $('#more').remove();
@@ -441,7 +441,7 @@
          });
         for(var i=40; i<66;i++ )
          $(rows[i]).hide();
-         $(rows[65]).after('<tr id="more_2"><td colspan="2"><div style="color:blue">Show <span>' +
+         $(rows[65]).after('<tr id="more_2"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
                numMore + '</span> More</div</td></tr>');
          $('#more_2').click(function() {
             $('#more_2').remove();

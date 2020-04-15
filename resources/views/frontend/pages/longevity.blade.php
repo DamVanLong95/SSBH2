@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
 @stop
 
@@ -255,267 +256,269 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
-                        <table id="main-tbl-nt" class="table">
-                            <div class="add-del-ctn d-none">
-                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl-nt')" />
-                                <input type="button" value="add column" onclick="addColumn('main-tbl-nt')" />
-                            </div>
-                            <thead>
-                                <tr class="top-head" >
-                                    <th class='th-1'>
-                                        <div class="left-ctn">
-                                            <div class="item phone">
-                                                <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
+                        <div id="table-scroll" class="table-scroll">
+                            <table id="main-tbl-nt" class="table">
+                                <div class="add-del-ctn d-none">
+                                    <input type="button" value="delete column" onclick="deleteColumn('main-tbl-nt')" />
+                                    <input type="button" value="add column" onclick="addColumn('main-tbl-nt')" />
+                                </div>
+                                <thead>
+                                    <tr class="top-head" >
+                                        <th class='th-1'>
+                                            <div class="left-ctn">
+                                                <div class="item phone">
+                                                    <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
+                                                </div>
+                                                <div class="item">
+                                                    <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
+                                                </div>
                                             </div>
-                                            <div class="item">
-                                                <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
+                                            <h4>SANBAOHIEM</h4>
+                                        </th>
+                                        <th class="col2">
+                                            <div class="img-container">
+                                                <div class="select2-ctn">
+                                                
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h4>SANBAOHIEM</h4>
-                                    </th>
-                                    <th class="col2">
-                                        <div class="img-container">
-                                            <div class="select2-ctn">
-                                               
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bottom-head data-detail">
+                                        <td class="first-select-cf"></td>
+                                        <td class="health-select-cf">
+                                            Tương lai vững vàng
+                                        </td>
+                                    </tr>
+                                    <tr class="sub-head">
+                                        <td class="th-2">
+                                            <div class="star-ctn">
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                             </div>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="bottom-head data-detail">
-                                    <td class="first-select-cf"></td>
-                                    <td class="health-select-cf">
-                                        Tương lai vững vàng
-                                    </td>
-                                </tr>
-                                <tr class="sub-head">
-                                    <td class="th-2">
-                                        <div class="star-ctn">
-                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
-                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="count-rank-ctn">
-                                            <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
-                                            <div class="service">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                        </td>
+                                        <td>
+                                            <div class="count-rank-ctn">
+                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="service">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr class="header bg-head-1">
-                                    <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
-                                </tr>
-                                <tr class="container-selection">
-                                    <td colspan="2" id="select_box_longevity">
-                                        <div class="select-ctn-nt">
-                                            <div class="selection-box">
-                                                <div class="left-sec">
-                                                    <div class="item-nt select-nt">
-                                                        <form action="">
-                                                            <select calss="nt_gender" aria-label="Select menu example" id="gender">
-                                                                <option selected>Giới tính</option>
-                                                                <option value="1">Nam</option>
-                                                                <option value="2">Nữ</option>
-                                                            </select>
-                                                        </form>
+                                        </td>
+                                    </tr>
+                                    <tr class="header bg-head-1">
+                                        <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
+                                    </tr>
+                                    <tr class="container-selection">
+                                        <td colspan="2" class="select_box_longevity" id="select_box_longevity">
+                                            <div class="select-ctn-nt">
+                                                <div class="selection-box">
+                                                    <div class="left-sec">
+                                                        <div class="item-nt select-nt">
+                                                            <form action="">
+                                                                <select calss="nt_gender" aria-label="Select menu example" id="gender">
+                                                                    <option selected>Giới tính</option>
+                                                                    <option value="1">Nam</option>
+                                                                    <option value="2">Nữ</option>
+                                                                </select>
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input class="nt_age" type="number" id="nt_age" name="nt_age" placeholder="Tuổi">
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input type="text" id="nt_contract_duration" name="nt_contract" placeholder="Thời hạn hợp đồng">
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input type="text" id="nt_contract_value" name="nt_contract" placeholder="Số tiền bảo hiểm">
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt select-nt">
+                                                            <form action="">
+                                                                <select aria-label="Select menu example" id="death_right">
+                                                                    <option selected>Quyền lợi tử vong</option>
+                                                                    <option value="1">Option1</option>
+                                                                    <option value="2">Option2</option>
+                                                                </select>
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input type="text" id="nt_mature" name="nt_contract" placeholder="Lựa chọn đáo hạn(Tuổi)">
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input type="text" id="nt_choose_fee" name="nt_contract" placeholder="Lựa chọn đóng phí(Năm)">
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt select-nt">
+                                                            <form action="">
+                                                                <select aria-label="Select menu example" id="nt_period_fee">
+                                                                    <option selected>Định kì đóng phí</option>
+                                                                    <option value="1">Option1</option>
+                                                                    <option value="2">Option2</option>
+                                                                </select>
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input type="text" id="nt_contract_fee" name="nt_contract" placeholder="Phí bảo hiểm định kì">
+                                                            </form>
+                                                        </div>
+                                                        <div class="item-nt">
+                                                            <form action="">
+                                                                <input type="text" id="nt_contract_more_fee" name="nt_contract" placeholder="Phí bảo hiểm đóng thêm">
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input class="nt_age" type="number" id="nt_age" name="nt_age" placeholder="Tuổi">
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input type="text" id="nt_contract_duration" name="nt_contract" placeholder="Thời hạn hợp đồng">
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input type="text" id="nt_contract_value" name="nt_contract" placeholder="Số tiền bảo hiểm">
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt select-nt">
-                                                        <form action="">
-                                                            <select aria-label="Select menu example" id="death_right">
-                                                                <option selected>Quyền lợi tử vong</option>
-                                                                <option value="1">Option1</option>
-                                                                <option value="2">Option2</option>
-                                                            </select>
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input type="text" id="nt_mature" name="nt_contract" placeholder="Lựa chọn đáo hạn(Tuổi)">
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input type="text" id="nt_choose_fee" name="nt_contract" placeholder="Lựa chọn đóng phí(Năm)">
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt select-nt">
-                                                        <form action="">
-                                                            <select aria-label="Select menu example" id="nt_period_fee">
-                                                                <option selected>Định kì đóng phí</option>
-                                                                <option value="1">Option1</option>
-                                                                <option value="2">Option2</option>
-                                                            </select>
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input type="text" id="nt_contract_fee" name="nt_contract" placeholder="Phí bảo hiểm định kì">
-                                                        </form>
-                                                    </div>
-                                                    <div class="item-nt">
-                                                        <form action="">
-                                                            <input type="text" id="nt_contract_more_fee" name="nt_contract" placeholder="Phí bảo hiểm đóng thêm">
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="right-sec">
-                                                    <div class="item button-filter" >
-                                                        <button type="button" id="calculate">Tính</button>
+                                                    <div class="right-sec">
+                                                        <div class="item button-filter" >
+                                                            <button type="button" id="calculate">Tính</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="container-download">
-                                    <td></td>
-                                    <td class="data-detail download-td">
-                                        <button type="button" id="download-pru">Minh họa Pru
-                                            <span><p><i class="fa fa-download" aria-hidden="true"></i></p></span>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="header">
-                                    <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
-                                </tr>
-                                @foreach($scope_secure as $key=>$value)
+                                        </td>
+                                    </tr>
+                                    <tr class="container-download">
+                                        <td></td>
+                                        <td class="data-detail download-td">
+                                            <button type="button" id="download-pru">Minh họa Pru
+                                                <span><p><i class="fa fa-download" aria-hidden="true"></i></p></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="header">
+                                        <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
+                                    </tr>
+                                    @foreach($scope_secure as $key=>$value)
+                                        <tr class="data-detail">
+                                            <td><p class="ellipsis">{{$value['comparison']}}</p></td>
+                                            <td></td>
+                                        </tr>
+                                    @endforeach
+                                    <tr class="header green">
+                                        <td  colspan="2" class="green_header">Phí</td>
+                                    </tr>
+                                    @foreach($data['cost'] as $value)
                                     <tr class="data-detail">
                                         <td><p class="ellipsis">{{$value['comparison']}}</p></td>
                                         <td></td>
                                     </tr>
-                                @endforeach
-                                <tr class="header green">
-                                    <td  colspan="2" class="green_header">Phí</td>
-                                </tr>
-                                @foreach($data['cost'] as $value)
-                                <tr class="data-detail">
-                                    <td><p class="ellipsis">{{$value['comparison']}}</p></td>
-                                    <td></td>
-                                </tr>
-                                @endforeach
-                                <tr class="header bg-head-2">
-                                    <td  colspan="2" class="green_header">Quyền lợi sản phẩm
+                                    @endforeach
+                                    <tr class="header bg-head-2">
+                                        <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
-                                    </td>
-                                </tr>
-                                <tr class="select-all">
-                                    <td>
-                                        <div class="choose-all">
-                                            <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                            <label class="toggle" for="selectall">Chọn tất cả</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                               
-                                @foreach($data['benifits'] as $value)
-                                <tr class="data-detail">
-                                    <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
-                                        <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
-                                        <label class="drop" for="" style="display:none" id="dksk">% phí</label>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                <tr class="header bg-head-2">
-                                    <td  colspan="2" class="green_header">Quyền lợi bổ trợ</td>
-                                </tr>
-                                <tr class="data-detail gray-detail">
-                                    <td class="first-gray">Tai nạn</td>
-                                    <td class="second-gray">
-                                        <div class="gray-head">
-                                            <form action="">
-                                                <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
-                                                    <option value="1">Chương trình vàng</option>
-                                                    <option value="2">Chương trình bạc</option>
-                                                    <option value="3">Chương trình platinum</option>
-                                                    <option value="4">Chương trình diamond</option>
-                                                    <option value="5">Chương trình gold</option>
-                                                    <option value="6">Chương trình alumnium</option>
-                                                    <option value="6">Chương trình iron</option>
-                                                </select>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
-                                        <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">aloha</p>
-                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                
-                                <tr class="header">
-                                    <td  colspan="2" class="green_header">Thời gian chờ</td>
-                                </tr>
-                                
-                                <tr class="data-detail">
-                                    <td>aloha</td>
-                                    <td></td>
-                                </tr>
-                                <tr class="header green">
-                                    <td  colspan="2" class="green_header">Phí bảo hiểm</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
-                                
-                                <tr class="header bg-head-2">
-                                    <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td class="text-center empty-first2 "></td>
-                                    <td class="hospital-td active-td">
-                                        <p class="toggle active"><span>(108)</span> Bệnh viện</p>
-                                        
-                                    </td>
-                                    <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td class="hospital_header" colspan="1">
-                                            @include('frontend/pages/hospital')
                                         </td>
                                     </tr>
-                                    <!-- <tr >
-                                        <div id="hospital-address">
-                                        </div>
-                                    </tr> -->
-                                </tr>
-                                <tr class="header bg-head-3">
-                                    <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
-                                </tr>
-                                <tr class="data-detail">
-                                    <td>Example text</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr class="select-all">
+                                        <td>
+                                            <div class="choose-all">
+                                                <input type="checkbox" id="selectall" class="selectedAll"></input>
+                                                <label class="toggle" for="selectall">Chọn tất cả</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                
+                                    @foreach($data['benifits'] as $value)
+                                    <tr class="data-detail">
+                                        <td>
+                                            <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
+                                            <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
+                                            <label class="drop" for="" style="display:none" id="dksk">% phí</label>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    <tr class="header bg-head-2">
+                                        <td  colspan="2" class="green_header">Quyền lợi bổ trợ</td>
+                                    </tr>
+                                    <tr class="data-detail gray-detail">
+                                        <td class="first-gray">Tai nạn</td>
+                                        <td class="second-gray">
+                                            <div class="gray-head">
+                                                <form action="">
+                                                    <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
+                                                        <option value="1">Chương trình vàng</option>
+                                                        <option value="2">Chương trình bạc</option>
+                                                        <option value="3">Chương trình platinum</option>
+                                                        <option value="4">Chương trình diamond</option>
+                                                        <option value="5">Chương trình gold</option>
+                                                        <option value="6">Chương trình alumnium</option>
+                                                        <option value="6">Chương trình iron</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="data-detail">
+                                        <td>
+                                            <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
+                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">aloha</p>
+                                            <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
+                                            <label class="drop" for="">0.01% phí</label>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    
+                                    <tr class="header">
+                                        <td  colspan="2" class="green_header">Thời gian chờ</td>
+                                    </tr>
+                                    
+                                    <tr class="data-detail">
+                                        <td>aloha</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="header green">
+                                        <td  colspan="2" class="green_header">Phí bảo hiểm</td>
+                                    </tr>
+                                    <tr class="data-detail">
+                                        <td>Example text</td>
+                                        <td></td>
+                                    </tr>
+                                    
+                                    <tr class="header bg-head-2">
+                                        <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
+                                    </tr>
+                                    <tr class="data-detail">
+                                        <td class="text-center empty-first2 "></td>
+                                        <td class="hospital-td active-td">
+                                            <p class="toggle active"><span>(108)</span> Bệnh viện</p>
+                                            
+                                        </td>
+                                        <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
+                                            <td class="hospital_header" colspan="1">
+                                                @include('frontend/pages/hospital')
+                                            </td>
+                                        </tr>
+                                        <!-- <tr >
+                                            <div id="hospital-address">
+                                            </div>
+                                        </tr> -->
+                                    </tr>
+                                    <tr class="header bg-head-3">
+                                        <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
+                                    </tr>
+                                    <tr class="data-detail">
+                                        <td>Example text</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     
                 </div>

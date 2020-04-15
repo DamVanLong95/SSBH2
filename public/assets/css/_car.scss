@@ -319,6 +319,15 @@
                 height: 65px;
                 font-family: UTM_Helve;
                 text-transform: uppercase;
+                td.green_header {
+                    background-color: $main-color !important;
+                    position: -webkit-sticky;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+            td.green_header{
+                background-color: white;
             }
             .green {
                 background-color: $main-color;
@@ -437,24 +446,33 @@
                     }
                 }
                 tr.bg-head-1 {
-                    background-image: url('../images/car/bg1.png');
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/car/bg1.png') !important;
+                    }
                 }
                 tr.bg-head-2 {
-                    background-image: url('../images/car/bg2.png');
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/car/bg2.png') !important;
+                    }
                 }
                 tr.bg-head-3 {
-                    background-image: url('../images/car/bg3.png');
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/car/bg3.png') !important;
+                    }
                 }
                 tr.bg-head-4 {
-                    background-image: url('../images/car/bg4.png');
+                    
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/car/bg4.png') !important;
+                    }
                 }
                 tr.header {
                     height: 65px;

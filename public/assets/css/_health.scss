@@ -189,6 +189,15 @@
                 height: 65px;
                 font-family: UTM_Helve;
                 text-transform: uppercase;
+                td.green_header {
+                    background-color: $main-color !important;
+                    position: -webkit-sticky;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+            td.green_header{
+                background-color: white;
             }
             .green {
                 background-color: $main-color;
@@ -207,6 +216,7 @@
                         border-top: 2px solid $main-color;
                         border-bottom: 1px solid $main-color;
                         border-right: 1px solid $main-color;
+                        z-index: 8;
                     }
                     th:last-child {
                         // border-right: 0px;
@@ -217,7 +227,7 @@
                     }
                     th.th-1 {
                         // display: flex;
-                        position: relative;
+                        // position: relative;
                         .left-ctn {
                             transform: translate(0px, -37px);
                             text-align: left;
@@ -310,24 +320,36 @@
                     }
                 }
                 tr.bg-head-1 {
-                    background-image: url('../images/health/bg1.png');
+                    
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/health/bg1.png');
+                    }
                 }
                 tr.bg-head-2 {
                     background-image: url('../images/health/bg2.png');
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/health/bg2.png');
+                    }
                 }
                 tr.bg-head-3 {
-                    background-image: url('../images/health/bg2.png');
+                    
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/health/bg2.png');
+                    }
                 }
                 tr.bg-head-4 {
                     background-image: url('../images/car/bg4.png');
                     background-repeat: no-repeat;
                     color: white;
+                    td{
+                        background-image: url('../images/car/bg4.png');
+                    }
                 }
                 tr.header {
                     height: 65px;

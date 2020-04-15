@@ -5,7 +5,7 @@
         z-index: 1;
         margin: auto;
         overflow: auto;
-        height: 350px;
+        height: 800px;
         // table {
         //     width: 100%;
         //     min-width: 1135px;
@@ -568,7 +568,9 @@
         left: 0;
         z-index: 2;
         background-color: #f5f5f5;
+        @media (max-width: 380px) {
         width: 160px;
+        }
     }
     th:first-child {
         position: -webkit-sticky;
