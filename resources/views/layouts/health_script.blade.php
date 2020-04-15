@@ -381,35 +381,28 @@
                 console.log(e)
             }
         };
-    /* window.onscroll = function() {fixedTop()};
-
-        var tblHeader = document.getElementById("tableHeader");
-        var sticky = tblHeader.offsetTop();
-        var menuHeight = $(".block-main-menu").outerHeight();
-        var sec1Height = $(".sec1-wrapper").height();
-        var searchHeight = $(".search-ctn").outerHeight();
-        var compareHeight = $(".compare-section").outerHeight();
-        var brandHeight = $(".brand-section").outerHeight();
-        console.log("menu",menuHeight);
-        console.log("sec1",sec1Height);
-        console.log("search ctn",searchHeight);
-        console.log("compare ctn",compareHeight);
-        console.log("branch ctn",brandHeight);*/
-
-        function fixedTop() {
-            // if (window.pageYOffset > sticky) {
-            //     tblHeader.classList.add("sticky");
-            // } else {
-            //     tblHeader.classList.remove("sticky");
-            // }
-        }
+   
+     
     </script>
     <script>
-    $(document).ready(function () {
-        //   sellect All checkbox
-        $('#selectall').click(function () {
-            $('.selectedId').prop('checked', this.checked);
-        });
+        $(document).ready(function () {
+            //   sellect All checkbox
+            $('#selectall').click(function () {
+                $('.selectedId').prop('checked', this.checked);
+            });
+                return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+            } catch (e) {
+                console.log(e)
+            }
+        };
+   
+    </script>
+<script>
+  $(document).ready(function () {
+    //   sellect All checkbox
+    $('#selectall').click(function () {
+        $('.selectedId').prop('checked', this.checked);
+    });
 
         $('.selectedId').change(function () {
             var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);

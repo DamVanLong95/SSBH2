@@ -25,8 +25,15 @@
                 background-color: #f1f2f2;
                 width: 85%;
                 padding: 50px 30px;
+                @media screen and (max-width: 480px) {
+                    width: 100%;
+                    padding: 50px 15px;
+                }
                 .content {
                     width: 61%;
+                    @media screen and (max-width: 480px) {
+                        width: 100%;
+                    }
                     p {
                         font-family: UTM_Helve;
                         line-height: 26px;
@@ -44,6 +51,11 @@
                 position: absolute;
                 top: -7%;
                 right: 0;
+                @media screen and (max-width: 480px) {
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                }
             }
         }
         .img-intro2 {
@@ -73,10 +85,16 @@
             // padding: 10% 0 10% 10%;
             .title {
                 margin-bottom: 35px;
+                @media screen and (max-width: 480px) {
+                    margin-bottom: 8%;
+                }
                 h4 {
                     text-transform: uppercase;
                     font-family: UTM_Helve;
                     color: $main-color;
+                    @media screen and (max-width: 480px) {
+                        font-size: 18px;
+                    }
                 }
             }
             p {
@@ -138,6 +156,11 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
+        @media screen and (max-width: 480px) {
+           display: grid;
+           grid-template-columns: auto;
+
+        }
         .selection-box {
             width: 100%;
             display: flex;
@@ -154,6 +177,10 @@
         .button-filter {
             width: 26%;
             border: none;
+            @media screen and (max-width: 480px) {
+                width: 100%;
+                text-align: center;
+            }
         }
         .item {
             // width: 100%;
@@ -195,11 +222,19 @@
             -o-border-radius: 20px;
             float: right;
             width: 50%;
+            @media screen and (max-width: 480px) {
+                float: none;
+                margin-top: 5%;
+            }
         }
     }
     .name-list {
         margin: 5% 0;
-        .name-item {}
+        .name-item {
+            @media screen and (max-width: 480px) {
+                text-align: center;
+            }
+        }
         color: #58595b;
         text-transform: uppercase;
         font-family: UTM_HelveBold;
@@ -287,6 +322,7 @@
         background-color: $main-color;
     }
     .question-term-ctn {
+        overflow-x: hidden;
         /* Tabs*/
         section {
             padding: 60px 0;
@@ -307,7 +343,7 @@
             .question-part {
                 .panel-heading {
                     .panel-title {
-                        width: 100%;
+                        width: 95%;
                         height: 50px;
                         // border-top: 2px solid $main-color;
                         border-radius: 3px;
@@ -457,7 +493,7 @@
                 .alpha-left{
                     .alpha-index{
                         display: grid;
-                        grid-template-columns: 20% 80%;
+                        grid-template-columns: 20% 75%;
                         border-bottom: 1px solid $main-color;
                         .alpha-left{
                             a{

@@ -3,13 +3,27 @@ $lineheight:20px;
 $height: $lineheight * 3;
 $ellipsiswidth: 3em !default;
 .block-main-menu {
-    // position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1024;
     margin-bottom: 2px;
+    background-color:white;
+    @media (max-width: 991px) {
+        display: flex;
+        justify-content: space-between;
+        .logo-desktop {
+            display: none;
+        }
+    }
     //background-image: linear-gradient( rgba(0, 0, 0, 0.5), transparent);
+
+    .logo-mobile-nav {
+        position: relative;
+        max-width: 70px;
+        z-index: 2;
+    }
     @media (min-width: 992px) {
         .navbar {
             height: 95px;
@@ -60,7 +74,7 @@ $ellipsiswidth: 3em !default;
                         color: $main-color;
                     }
                 }
-                ul {
+                ul.menu-hover {
                     visibility: hidden;
                     display: inline-block;
                     z-index: 12;
@@ -71,10 +85,17 @@ $ellipsiswidth: 3em !default;
                     left: -143px;
                     background: rgba(0, 0, 0, 0.5);
                     padding: 0;
+                    @media (max-width: 991px) {
+                        left: 0;
+                        top: 45px;
+                    }
                     li {
                         padding: 10px 0;
                         margin: 0;
                         padding: 10px 35px;
+                        @media (max-width: 991px) {
+                            padding: 10px 5px;
+                        }
                         a {
                             color: #fff !important;
                             text-transform: none;
@@ -87,7 +108,7 @@ $ellipsiswidth: 3em !default;
                         }
                     }
                 }
-                &:hover>ul {
+                &:hover>ul.menu-hover {
                     visibility: visible;
                 }
             }
@@ -103,13 +124,13 @@ $ellipsiswidth: 3em !default;
 
 // CSS overlay
 .open-sidemenu {
-    margin-left: 15px;
     cursor: pointer;
     float: right;
-    margin-right: 10%;
     display: none;
+    top: 0;
+    margin: auto 20px;
     .icon-bar {
-        width: 40px;
+        width: 35px;
         height: 3px;
         background-color: #000;
         margin: 5px 0;
@@ -132,17 +153,21 @@ $ellipsiswidth: 3em !default;
     transition: all 0.2s;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .open-sidemenu {
         display: block;
+    }
+    .no-scroll{
+        overflow: hidden;
     }
     #sidenav {
         position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
-        width: 200px;
+        width: 240px;
         display: block;
+        overflow-y: auto;
         background: white;
         background-position: center 10px;
         background-repeat: no-repeat;
@@ -153,7 +178,7 @@ $ellipsiswidth: 3em !default;
         #logo-mobile {
             margin-left: 10px;
             img {
-                max-height: 40px;
+                // max-height: 40px;
             }
         }
         .logo {

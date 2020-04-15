@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
 @stop
 
@@ -167,31 +168,39 @@
     <div class="pack-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12"  id="thumbs">
+                <div class="col-lg-12" id="thumbs">
                     <div class="pack-title">
-                    <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
+                        <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
                     </div>
                     <div  class="section-wrapper">
-                        <ul class="section-list" >
+                        <ul class="section-list">
                         @foreach($data['saving'] as $value)
                             <li class="item">
                                 <div class="thumb-t">
-                                {{$value['name']}}
-                                </div>
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
-                                        <label class="toggle" for="checkbox_{{$value['id']}}"></label>
+                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
+                                    <div class="brand-thumb">
+                                        <label for="1">
+                                        <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                        </label>
+                                        <div class="input-pack">
+                                            <input name="type" value="" type="checkbox" id="ala_14"/>
+                                            <label class="toggle" for="ala_14"></label>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        @endforeach
+                                    <div class="brand-thumb">
+                                        <label for="1">
+                                        <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                        </label>
+                                        <div class="input-pack">
+                                            <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
+                                            <label class="toggle" for="checkbox_{{$value['id']}}"></label>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                      </div>
-                </div>
+                 </div>
             </div>
             <div class="paddles">
                 <button class="left-paddle paddle hidden">
@@ -207,16 +216,25 @@
     <div class="pack-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12" >
-                    <div class="pack-title">
-                    <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
-                    </div>
-                    <div  class="section-wrapper2">
-                        <ul id="secure_list" class="section-list2">
-                        @foreach($data['secure'] as $value)
-                            <li class="item2">
-                                <div class="thumb-t">
-                                    {{$value['name']}}
+                <div class="col-lg-12">
+                <div class="pack-title">
+                <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
+                </div>
+                <div  class="section-wrapper2">
+                    <ul id="secure_list" class="section-list2">
+                    @foreach($data['secure'] as $value)
+                        <li class="item2">
+                            <div class="thumb-t">
+                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
+                            
+                                <div class="brand-thumb">
+                                    <label for="1">
+                                        <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                    </label>
+                                    <div class="input-pack">
+                                        <input name="type" value="" type="checkbox" id="ala_1"/>
+                                        <label class="toggle" for="ala_1"></label>
+                                    </div>
                                 </div>
                                 <div class="brand-thumb">
                                     <label for="1">
@@ -250,77 +268,78 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
-                        <table id="main-tbl-sk" class="table">
-                            <div class="add-del-ctn d-none">
-                                <input type="button" value="delete column" onclick="deleteColumn('main-tbl-sk')" />
-                                <input type="button" value="add column" onclick="addColumn('main-tbl-sks')" />
-                            </div>
-                            <thead>
-                                <tr class="top-head" >
-                                    <th class='th-1'>
-                                        <div class="left-ctn">
-                                            <div class="item phone">
-                                                <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
+                        <div id="table-scroll" class="table-scroll">
+                            <table id="main-tbl-sk" class="table">
+                                <div class="add-del-ctn d-none">
+                                    <input type="button" value="delete column" onclick="deleteColumn('main-tbl-sk')" />
+                                    <input type="button" value="add column" onclick="addColumn('main-tbl-sks')" />
+                                </div>
+                                <thead>
+                                    <tr class="top-head" >
+                                        <th class='th-1'>
+                                            <div class="left-ctn">
+                                                <div class="item phone">
+                                                    <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
+                                                </div>
+                                                <div class="item">
+                                                    <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
+                                                </div>
                                             </div>
-                                            <div class="item">
-                                                <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
+                                            <h4>SANBAOHIEM</h4>
+                                        </th>
+                                        <th class="col2">
+                                            <div class="img-container">
+                                            
                                             </div>
-                                        </div>
-                                        <h4>SANBAOHIEM</h4>
-                                    </th>
-                                    <th class="col2">
-                                        <div class="img-container">
-                                           
-                                        </div>
-                                    </th>
-                                </tr>
-                                
-                            </thead>
-                            <tbody>
-                                <tr class="bottom-head data-detail">
-                                    <td class="first-select-cf"></td>
-                                    <td class="health-select-cf">
-                                        <div class="select2-ctn">
-                                            <form action="">
-                                                <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
-                                                    <option value="1">Chương trình vàng</option>
-                                                    <option value="2">Chương trình bạc</option>
-                                                    <option value="3">Chương trình platinum</option>
-                                                    <option value="4">Chương trình diamond</option>
-                                                    <option value="5">Chương trình gold</option>
-                                                    <option value="6">Chương trình alumnium</option>
-                                                    <option value="6">Chương trình iron</option>
-                                                </select>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="sub-head">
-                                    <td class="th-2">
-                                        <div class="star-ctn">
-                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
-                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                            <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="count-rank-ctn">
-                                            <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
-                                            <div class="service">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                        </th>
+                                    </tr>
+                                    
+                                </thead>
+                                <tbody>
+                                    <tr class="bottom-head data-detail">
+                                        <td class="first-select-cf"></td>
+                                        <td class="health-select-cf">
+                                            <!-- <div class="select2-ctn">
+                                                <form action="">
+                                                    <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
+                                                        <option value="1">Chương trình vàng</option>
+                                                        <option value="2">Chương trình bạc</option>
+                                                        <option value="3">Chương trình platinum</option>
+                                                        <option value="4">Chương trình diamond</option>
+                                                        <option value="5">Chương trình gold</option>
+                                                        <option value="6">Chương trình alumnium</option>
+                                                        <option value="6">Chương trình iron</option>
+                                                    </select>
+                                                </form>
+                                            </div> -->
+                                        </td>
+                                    </tr>
+                                    <tr class="sub-head">
+                                        <td class="th-2">
+                                            <div class="star-ctn">
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                             </div>
-                                        </div>
+                                        </td>
+                                        <td>
+                                            <div class="count-rank-ctn">
+                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="service">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                                </div>
+                                            </div>
 
-                                    </td>
-                                </tr>
-                                <!-- <tr class="green1">
-                                    <td  colspan="2" class="green_header">Tính phí</td>
-                                </tr> -->
-                          
-                                <tr class="header bg-head-1">
-                                    <td  colspan="2" class="green_header">Đối tượng bảo hiểm
+                                        </td>
+                                    </tr>
+                                    <!-- <tr class="green1">
+                                        <td  colspan="2" class="green_header">Tính phí</td>
+                                    </tr> -->
+                            
+                                    <tr class="header bg-head-1">
+                                        <td  colspan="2" class="green_header">Đối tượng bảo hiểm
 
                                     </td>
                                 </tr>
@@ -403,6 +422,7 @@
                                         <td class="hospital_header" colspan="1" id="hospital">
                                             {{--@include('frontend/pages/hospital')--}}
                                         </td>
+                                        <td></td>
                                     </tr>
                                     <!-- <tr >
                                         <div id="hospital-address">
@@ -429,7 +449,6 @@
                             </tbody>
                         </table>
                     </div>
-                    
                 </div>
             </div>
         </div>
