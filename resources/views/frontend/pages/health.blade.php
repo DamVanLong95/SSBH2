@@ -169,38 +169,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" id="thumbs">
-                    <div class="pack-title">
-                        <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
-                    </div>
-                    <div  class="section-wrapper">
-                        <ul class="section-list">
-                        @foreach($data['saving'] as $value)
-                            <li class="item">
-                                <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                                    <div class="brand-thumb">
-                                        <label for="1">
-                                        <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                        </label>
-                                        <div class="input-pack">
-                                            <input name="type" value="" type="checkbox" id="ala_14"/>
-                                            <label class="toggle" for="ala_14"></label>
-                                        </div>
+                <div class="pack-title">
+                <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
+                </div>
+                <div  class="section-wrapper">
+                    <ul id="thumbs" class="section-list">
+                    @foreach($data['saving'] as $value)
+                        <li class="item">
+                            <div class="thumb-t">
+                               <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
+                                <div class="brand-thumb">
+                                    <label for="1">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                    </label>
+                                    <div class="input-pack">
+                                        <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
+                                        <label class="toggle" for="checkbox_{{$value['id']}}"></label>
                                     </div>
-                                    <div class="brand-thumb">
-                                        <label for="1">
-                                        <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                        </label>
-                                        <div class="input-pack">
-                                            <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
-                                            <label class="toggle" for="checkbox_{{$value['id']}}"></label>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
+                                </div>
+                            </li>
+                        @endforeach
                         </ul>
                      </div>
-                 </div>
+                </div>
             </div>
             <div class="paddles">
                 <button class="left-paddle paddle hidden">
@@ -226,16 +217,6 @@
                         <li class="item2">
                             <div class="thumb-t">
                                 <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                            
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="" type="checkbox" id="ala_1"/>
-                                        <label class="toggle" for="ala_1"></label>
-                                    </div>
-                                </div>
                                 <div class="brand-thumb">
                                     <label for="1">
                                         <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
@@ -247,7 +228,6 @@
                                 </div>
                             </li>
                         @endforeach
-                        
                         </ul>
                     </div>
                 </div>
@@ -298,21 +278,7 @@
                                 <tbody>
                                     <tr class="bottom-head data-detail">
                                         <td class="first-select-cf"></td>
-                                        <td class="health-select-cf">
-                                            <!-- <div class="select2-ctn">
-                                                <form action="">
-                                                    <select name="sources" id="sources" class="custom-select-fix sources" placeholder="Tương Lai Vững Vàng">
-                                                        <option value="1">Chương trình vàng</option>
-                                                        <option value="2">Chương trình bạc</option>
-                                                        <option value="3">Chương trình platinum</option>
-                                                        <option value="4">Chương trình diamond</option>
-                                                        <option value="5">Chương trình gold</option>
-                                                        <option value="6">Chương trình alumnium</option>
-                                                        <option value="6">Chương trình iron</option>
-                                                    </select>
-                                                </form>
-                                            </div> -->
-                                        </td>
+                                        <td class="health-select-cf"></td>
                                     </tr>
                                     <tr class="sub-head">
                                         <td class="th-2">

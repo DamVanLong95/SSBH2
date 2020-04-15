@@ -505,7 +505,7 @@
                                         </td>
                                         <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
                                             <td class="hospital_header" colspan="1">
-                                                @include('frontend/pages/hospital')
+                                               {{-- @include('frontend/pages/hospital')--}}
                                             </td>
                                         </tr>
                                         <!-- <tr >
