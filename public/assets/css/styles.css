@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: UTM_Helve_Italic;
-  src: url("../fonts/UTM_Helve_Italic.otf");
+  src: url("../fonts/UTM_Helve_Italic.ttf");
 }
 
 @font-face {
@@ -2294,6 +2294,7 @@ footer .footer-ctn .footer-nav li a {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
+  color: white !important;
 }
 
 .table-section #layout-area .table td.green_header {
@@ -2416,40 +2417,28 @@ footer .footer-ctn .footer-nav li a {
   margin-bottom: 0;
 }
 
-.table-section #layout-area .table tbody tr.bg-head-1 {
-  background-repeat: no-repeat;
-  color: white;
-}
-
 .table-section #layout-area .table tbody tr.bg-head-1 td {
   background-image: url("../images/car/bg1.png") !important;
-}
-
-.table-section #layout-area .table tbody tr.bg-head-2 {
   background-repeat: no-repeat;
-  color: white;
+  color: white !important;
 }
 
 .table-section #layout-area .table tbody tr.bg-head-2 td {
   background-image: url("../images/car/bg2.png") !important;
-}
-
-.table-section #layout-area .table tbody tr.bg-head-3 {
   background-repeat: no-repeat;
-  color: white;
+  color: white !important;
 }
 
 .table-section #layout-area .table tbody tr.bg-head-3 td {
   background-image: url("../images/car/bg3.png") !important;
-}
-
-.table-section #layout-area .table tbody tr.bg-head-4 {
   background-repeat: no-repeat;
-  color: white;
+  color: white !important;
 }
 
 .table-section #layout-area .table tbody tr.bg-head-4 td {
   background-image: url("../images/car/bg4.png") !important;
+  background-repeat: no-repeat;
+  color: white !important;
 }
 
 .table-section #layout-area .table tbody tr.header {
@@ -3847,8 +3836,8 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .pack-section .section-wrapper .section-list .item .brand-thumb img, .pack-section .section-wrapper .section-list .item2 .brand-thumb img, .pack-section .section-wrapper .section-list2 .item .brand-thumb img, .pack-section .section-wrapper .section-list2 .item2 .brand-thumb img, .pack-section .section-wrapper2 .section-list .item .brand-thumb img, .pack-section .section-wrapper2 .section-list .item2 .brand-thumb img, .pack-section .section-wrapper2 .section-list2 .item .brand-thumb img, .pack-section .section-wrapper2 .section-list2 .item2 .brand-thumb img {
-  width: 95%;
-  height: 80px;
+  width: 150px;
+  height: 75px;
 }
 
 .pack-section .section-wrapper .section-list .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper .section-list .item2 .brand-thumb img.ui-draggable, .pack-section .section-wrapper .section-list2 .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper .section-list2 .item2 .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list .item2 .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list2 .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list2 .item2 .brand-thumb img.ui-draggable {
@@ -4416,15 +4405,22 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-sk .sized {
-  width: 100px;
-  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0% 0px;
+     object-position: 0% 0px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   margin: auto;
   left: 0;
   right: 0;
   position: absolute;
-  -webkit-transform: translate(0px, 30px);
-          transform: translate(0px, 30px);
+  -webkit-transform: translate(0px, 40px);
+  transform: translate(0px, 40px);
+  -moz-transform: translate(0px, 40px);
+  -ms-transform: translate(0px, 40px);
+  -o-transform: translate(0px, 40px);
 }
 
 .table-section-sk .img-container {
@@ -4803,8 +4799,8 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .pack-section .section-wrapper .section-list .item .brand-thumb img, .pack-section .section-wrapper .section-list .item2 .brand-thumb img, .pack-section .section-wrapper .section-list2 .item .brand-thumb img, .pack-section .section-wrapper .section-list2 .item2 .brand-thumb img, .pack-section .section-wrapper2 .section-list .item .brand-thumb img, .pack-section .section-wrapper2 .section-list .item2 .brand-thumb img, .pack-section .section-wrapper2 .section-list2 .item .brand-thumb img, .pack-section .section-wrapper2 .section-list2 .item2 .brand-thumb img {
-  width: 95%;
-  height: 80px;
+  width: 150px;
+  height: 75px;
 }
 
 .pack-section .section-wrapper .section-list .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper .section-list .item2 .brand-thumb img.ui-draggable, .pack-section .section-wrapper .section-list2 .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper .section-list2 .item2 .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list .item2 .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list2 .item .brand-thumb img.ui-draggable, .pack-section .section-wrapper2 .section-list2 .item2 .brand-thumb img.ui-draggable {
@@ -5523,15 +5519,22 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-nt .sized {
-  width: 120px;
-  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0% 0px;
+     object-position: 0% 0px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   margin: auto;
   left: 0;
   right: 0;
   position: absolute;
-  -webkit-transform: translate(0px, 30px);
-  transform: translate(0px, 15px);
+  -webkit-transform: translate(0px, 40px);
+  transform: translate(0px, 40px);
+  -moz-transform: translate(0px, 40px);
+  -ms-transform: translate(0px, 40px);
+  -o-transform: translate(0px, 40px);
 }
 
 .table-section-nt .img-container {

@@ -390,27 +390,14 @@
             $('#selectall').click(function () {
                 $('.selectedId').prop('checked', this.checked);
             });
-                return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
-            } catch (e) {
-                console.log(e)
-            }
-        };
-   
-    </script>
-<script>
-  $(document).ready(function () {
-    //   sellect All checkbox
-    $('#selectall').click(function () {
-        $('.selectedId').prop('checked', this.checked);
-    });
 
-        $('.selectedId').change(function () {
-            var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);
-            $('#selectall').prop("checked", check);
+            $('.selectedId').change(function () {
+                var check = ($('.selectedId').filter(":checked").length == $('.selectedId').length);
+                $('#selectall').prop("checked", check);
+            });
+            //   toogle hospital address
+            $('.toggle').click(function() {
+                // $('#hospital-tr').toggle('slow');
+            });
         });
-        //   toogle hospital address
-        $('.toggle').click(function() {
-            // $('#hospital-tr').toggle('slow');
-        });
-    });
     </script>

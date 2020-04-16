@@ -72,8 +72,8 @@
                 .brand-thumb {
                     position: relative;
                     img {
-                        width: 95%;
-                        height: 80px;
+                        width: 150px;
+                        height: 75px;
                     }
                     img.ui-draggable {
                         z-index: 100000;
@@ -633,17 +633,21 @@
         }
     }
     .sized {
-        width: 100px;
-        height: 100px;
+        object-fit: cover;
+        object-position: 0% 0px;
+        width: 75px;
+        height: 75px;
         border-radius: 50%;
         margin: auto;
         left: 0;
         right: 0;
         position: absolute;
-        transform: translate(0px, 30px);
-        // top: 0;
-        // bottom: 45px;
-    }
+        -webkit-transform: translate(0px, 40px);
+        transform: translate(0px, 40px);
+        -moz-transform: translate(0px, 40px);
+        -ms-transform: translate(0px, 40px);
+        -o-transform: translate(0px, 40px);
+}
     .img-container {
         // width: 100%;
         width: 200px;
