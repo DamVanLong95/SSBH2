@@ -158,7 +158,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-section-health">
-                        <button class="btn1" type="button" onclick=""> Chọn lại</button>
+                        <button class="btn1" type="button" onclick="resetChecked()"> Chọn lại</button>
                         <button class="btn2"type="button" onclick="searchProduct()"> Tìm kiếm </button>
                     </div>
                 </div>
@@ -207,27 +207,28 @@
     <div class="pack-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                <div class="pack-title">
-                <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
-                </div>
-                <div  class="section-wrapper2">
-                    <ul id="secure_list" class="section-list2">
-                    @foreach($data['secure'] as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
-                                        <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
+                <div class="col-lg-12" id="secure_list">
+                    <div class="pack-title">
+                        <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
+                    </div>
+                    <div  class="section-wrapper2">
+                        <ul  class="section-list2">
+                            @foreach($data['secure'] as $value)
+                            <li class="item2">
+                                <div class="thumb-t">
+                                    <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
+                                    <div class="brand-thumb">
+                                        <label for="1">
+                                            <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                        </label>
+                                        <div class="input-pack">
+                                            <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
+                                            <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
-                        @endforeach
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -495,6 +496,9 @@
 
 </div>
 <script>
+    function resetChecked(){
+        $('input:checkbox').removeAttr('checked');
+    }
     function searchProduct(){
         var checkedID   = []; 
         var checkedCost = [];

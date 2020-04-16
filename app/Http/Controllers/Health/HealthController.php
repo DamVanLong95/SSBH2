@@ -226,7 +226,7 @@ class HealthController extends Controller
                                 }
                         
                             })->get();
-            $array_3 = Product::select('company_id','name','url','cate')
+            $array_3 = Product::select('company_id','name','url','cate','id')
                     ->where(function ($query) use ($products_id){
                                 foreach($products_id as $value){
                                     $id = $value['product_id'];
@@ -251,7 +251,7 @@ class HealthController extends Controller
                         
                             })->get();
          
-            $array_1 = Product::select('company_id','name','url','cate')
+            $array_1 = Product::select('company_id','name','url','cate','id')
                         ->where(function ($query) use ($products_id){
                         foreach($products_id as $value){
                             $id = $value['product_id'];
