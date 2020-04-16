@@ -71,6 +71,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
     Route::resource('product','Admin\ProductController',['except' =>'show']);
     Route::get('getIndex','Admin\ProductController@getIndex')->name('products.datatable');
+    Route::resource('product_longevity','Admin\ProductLongevityController',['except' =>'show']);
+    Route::get('getData','Admin\ProductLongevityController@getData')->name('product_longevity.datatable');
 
 //   ============View ======================
     Route::get('company','Admin\CompanyController@index')->name('excel.company');

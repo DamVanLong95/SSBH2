@@ -72,7 +72,11 @@ class CompanyController extends Controller
     public function destroy($id){
         $company = Company::findorFail($id);
         if($company){
-            $company->delete();
+            if($company->delete()){
+                $max = DB::table('companies')->max('id') + 1;
+                DB::statement('ALTER TABLE companies AUTO_INCREMENT =  '.$max);
+            }
+            
             Storage::delete('public/'.$company->logo);
 
         } else{
