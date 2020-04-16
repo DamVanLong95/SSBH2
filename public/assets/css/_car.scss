@@ -324,6 +324,7 @@
                     position: -webkit-sticky;
                     position: sticky;
                     left: 0;
+                    color: white !important;
                 }
             }
             td.green_header{
@@ -447,32 +448,31 @@
                     }
                 }
                 tr.bg-head-1 {
-                    background-repeat: no-repeat;
-                    color: white;
                     td{
                         background-image: url('../images/car/bg1.png') !important;
+                        background-repeat: no-repeat;
+                        color: white !important;
                     }
                 }
                 tr.bg-head-2 {
-                    background-repeat: no-repeat;
-                    color: white;
                     td{
                         background-image: url('../images/car/bg2.png') !important;
+                        background-repeat: no-repeat;
+                        color: white !important;
                     }
                 }
                 tr.bg-head-3 {
-                    background-repeat: no-repeat;
-                    color: white;
                     td{
                         background-image: url('../images/car/bg3.png') !important;
+                        background-repeat: no-repeat;
+                        color: white !important;
                     }
                 }
                 tr.bg-head-4 {
-                    
-                    background-repeat: no-repeat;
-                    color: white;
                     td{
                         background-image: url('../images/car/bg4.png') !important;
+                        background-repeat: no-repeat;
+                        color: white !important;
                     }
                 }
                 tr.header {

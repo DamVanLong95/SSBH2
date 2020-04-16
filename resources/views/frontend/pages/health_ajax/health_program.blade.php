@@ -7,7 +7,7 @@
                 @forelse($programs as $value)
                 <span class="custom-option undefined" data-value="{{$value['id']}}">{{$value['name']}}</span>
                 @empty
-                    <span class="">data not update</span>
+                    <span class=""style="color:#fff;">data not update</span>
                 @endforelse
             </div>
         </div>
