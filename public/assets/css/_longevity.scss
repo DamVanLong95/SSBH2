@@ -198,6 +198,7 @@
             }
             td.green_header{
                 background-color: white;
+                color: #000;
             }
             .green {
                 background-color: $main-color;
@@ -320,30 +321,34 @@
                 }
                 tr.bg-head-1 {
                     background-repeat: no-repeat;
-                    color: white;
+                   
                     td{
                         background-image: url('../images/health/bg1_1.png');
+                        color: white;
                     }
                 }
                 tr.bg-head-2 {
                     background-repeat: no-repeat;
-                    color: white;
+                  
                     td{
                         background-image: url('../images/health/bg2_1.png');
+                        color: white;
                     }
                 }
                 tr.bg-head-3 {
                     background-repeat: no-repeat;
-                    color: white;
+                  
                     td{
                         background-image: url('../images/health/bg1_1.png');
+                        color: white;
                     }
                 }
                 tr.bg-head-4 {
                     background-repeat: no-repeat;
-                    color: white;
+                  
                     td{
                         background-image: url('../images/car/bg4.png');
+                        color: white;
                     }
                 }
                 tr.header {

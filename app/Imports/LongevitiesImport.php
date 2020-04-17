@@ -12,14 +12,13 @@ class LongevitiesImport implements ToModel, WithHeadingRow
     
     public function model(array $row)
     {
-        // dd($row);
+        dd($row);
         DB::beginTransaction();
         try {
             Longevity::create([
-                'product_id' => $row['id_san_pham'],
+                'product_id' => $row['id_san_pham_nhan_tho'],
                 'comparison'  => $row['chi_tieu_so_sanh'],
                 'content'     => $row['noi_dung'],
-                'classify'    => $row['phan_loai']
             ]);
 
             DB::commit();

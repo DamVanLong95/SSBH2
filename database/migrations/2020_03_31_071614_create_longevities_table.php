@@ -18,7 +18,6 @@ class CreateLongevitiesTable extends Migration
             $table->integer('product_id');
             $table->string('comparison')->nullable();
             $table->text('content')->nullable();
-            $table->integer('classify')->nullable();
             $table->timestamps();
         });
     }

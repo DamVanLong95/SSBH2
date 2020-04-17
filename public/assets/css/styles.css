@@ -4938,6 +4938,7 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section-nt #layout-area .table td.green_header {
   background-color: white;
+  color: #000;
 }
 
 .table-section-nt #layout-area .table .green {
@@ -5059,38 +5060,38 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section-nt #layout-area .table tbody tr.bg-head-1 {
   background-repeat: no-repeat;
-  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-1 td {
   background-image: url("../images/health/bg1_1.png");
+  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-2 {
   background-repeat: no-repeat;
-  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-2 td {
   background-image: url("../images/health/bg2_1.png");
+  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-3 {
   background-repeat: no-repeat;
-  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-3 td {
   background-image: url("../images/health/bg1_1.png");
+  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-4 {
   background-repeat: no-repeat;
-  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.bg-head-4 td {
   background-image: url("../images/car/bg4.png");
+  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.header {

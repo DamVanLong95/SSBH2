@@ -251,7 +251,7 @@
                     <div id="layout-area" class="table-ctn">
                         <div id="table-scroll" class="table-scroll">
                             <table id="main-tbl-sk" class="table">
-                                <div class="add-del-ctn d-none">
+                                <div class="add-del-ctn ">
                                     <input type="button" value="delete column" onclick="deleteColumn('main-tbl-sk')" />
                                     <input type="button" value="add column" onclick="addColumn('main-tbl-sks')" />
                                 </div>
@@ -319,7 +319,7 @@
                                     </td>
                                 </tr>
                                @foreach($data['object_bh'] as $value)
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail ">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
                                         <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
@@ -348,7 +348,7 @@
                                     <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
                                 @for($i=2;$i< count($data['benifits']);$i++)
-                                <tr class="data-detail d-none">
+                                <tr class="data-detail ">
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
                                         <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
@@ -364,7 +364,7 @@
                                 </tr>
                             
                                 @for($i=74;$i< 83;$i++)
-                                <tr class="data-detail d-none ">
+                                <tr class="data-detail  ">
                                     <td><p class="ellipsis">{{$data['healths'][$i]['comparison']}}</p></td>
                                     <td></td>
                                 </tr>

@@ -61,27 +61,42 @@
                                  tblHeadObj  = myTable.tHead
                                  indexCol    = tblHeadObj.rows[0].cells.length - 2;
                         var longevities = data.longevities;
-                        for(var i =6; i<6+longevities.length;i++){
+                        console.log(longevities);
+                        for(var i =6; i<10;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
                         }
-                        var costs = data.costs;
-                        for(var j=10;j < 10 + costs.length;j++){
-                            var tds =  tblBodyObj.rows[j].cells[indexCol];
-                            tds.innerHTML = `<p>`+costs[j-10]['content']!=null?costs[j-10]['content']:''+`</p>`
-                        }
-                       
-                        var benifits = data.benifits;
-                        var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
-                        for(var i=14; i< 14+benifits.length;i++){
+                        const row   = document.getElementById('benifit');
+                                    const index = row.rowIndex;
+                                    var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
+                        for(var i=index; i<index+16 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(benifits[i-14]['content']!=null){
-                                  
-                            tds.innerHTML =  `<p>`+benifits[i-14]['content']+`</p>`+`
-                                                        <span><button value="`+benifits[i-14]['content']+`" onclick="showNote(this.value)" >...</button></span>
-                                    <div class="star-td">
-                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                        </div>`;
+                            if(longevities[i-index]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-index]['content']+`</p>`;
+                            }
+                          
+                         }
+                        const row_bt   = document.getElementById('product_bt');
+                        const indexRow = row_bt.rowIndex;
+                        // console.log(longevities[24]['content']);
+                        for(var i=indexRow; i<indexRow+4 ;i++){
+                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            if(longevities[i-5]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                            }
+                          
+                         }
+                         for(var i=34; i<41 ;i++){
+                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            if(longevities[i-5]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                            }
+                          
+                         }
+                         for(var i=42; i<51 ;i++){
+                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            if(longevities[i-5]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
                             }
                           
                          }

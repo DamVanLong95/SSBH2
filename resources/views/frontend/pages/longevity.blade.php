@@ -25,7 +25,7 @@
                 <div class="col-lg-12">
                     <div class="compare-nav">
                         <div class="dropdown" data-control="checkbox-dropdown">
-                            <label class="dropdown-label">Chọn chương trình bảo hiểm</label>
+                            <label class="dropdown-label">Nhu cầu tài chính</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
-                            <label class="dropdown-label">Dưới 3 triệu</label>
+                            <label class="dropdown-label">Độ tuổi tham gia</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
-                            <label class="dropdown-label">Phạm vi bảo hiểm</label>
+                            <label class="dropdown-label">Giải pháp gia tăng bảo vệ</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
-                            <label class="dropdown-label">Chọn công ty bảo hiểm</label>
+                            <label class="dropdown-label">Công ty BHNT</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
@@ -406,27 +406,28 @@
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
                                     </tr>
-                                    @foreach($scope_secure as $key=>$value)
-                                        <tr class="data-detail">
+                                    @foreach($data['scope_secure'] as $key=>$value)
+                                        <tr class="data-detail d-none">
                                             <td><p class="ellipsis">{{$value['comparison']}}</p></td>
                                             <td></td>
                                         </tr>
                                     @endforeach
-                                    <tr class="header green">
+                                    <!-- <tr class="header green">
                                         <td  colspan="2" class="green_header">Phí</td>
                                     </tr>
-                                    @foreach($data['cost'] as $value)
+                                    
                                     <tr class="data-detail">
-                                        <td><p class="ellipsis">{{$value['comparison']}}</p></td>
+                                        <td><p class="ellipsis"></p></td>
                                         <td></td>
                                     </tr>
-                                    @endforeach
+                                    -->
                                     <tr class="header bg-head-2">
                                         <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                         </td>
                                     </tr>
-                                    <tr class="select-all">
+                                 
+                                    <tr class="select-all" id="benifit">
                                         <td>
                                             <div class="choose-all">
                                                 <input type="checkbox" id="selectall" class="selectedAll"></input>
@@ -434,23 +435,31 @@
                                             </div>
                                         </td>
                                     </tr>
-                                
-                                    @foreach($data['benifits'] as $value)
-                                    <tr class="data-detail">
+                                   
+                                    @for($i=7;$i < count($data['benifits']); $i++)
+                                    <tr class="data-detail d-none">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                            <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
+                                            <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
                                             <label class="drop" for="" style="display:none" id="dksk">% phí</label>
                                         </td>
                                         <td>
                                         </td>
                                     </tr>
-                                    @endforeach
-                                    <tr class="header bg-head-2">
-                                        <td  colspan="2" class="green_header">Quyền lợi bổ trợ</td>
+                                    @endfor
+                                    <tr class="header bg-head-2" id="product_bt">
+                                        <td  colspan="2" class="green_header">Sản phẩm bổ trợ</td>
                                     </tr>
-                                    <tr class="data-detail gray-detail">
+                                    @for($i =24 ; $i < count($data['benifits_more']); $i++)
+                                    <tr class="data-detail">
+                                        <td>
+                                            <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
+                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">{{$data['benifits_more'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @endfor
+                                    <!-- <tr class="data-detail gray-detail">
                                         <td class="first-gray">Tai nạn</td>
                                         <td class="second-gray">
                                             <div class="gray-head">
@@ -467,59 +476,33 @@
                                                 </form>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr class="data-detail">
+                                    </tr> -->
+                                    <!-- <tr class="data-detail">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
-                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">aloha</p>
-                                            <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
-                                            <label class="drop" for="">0.01% phí</label>
+                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis"></p>
                                         </td>
                                         <td></td>
-                                    </tr>
-                                    
+                                    </tr> -->
+                                   
                                     <tr class="header">
-                                        <td  colspan="2" class="green_header">Thời gian chờ</td>
+                                        <td  colspan="2" class="green_header">Các loại phí</td>
                                     </tr>
-                                    
+                                    @for($i =29 ; $i < 36 ; $i++)
                                     <tr class="data-detail">
-                                        <td>aloha</td>
+                                        <td><p class="ellipsis">{{$products[$i]['comparison']}}</p></td>
                                         <td></td>
                                     </tr>
-                                    <tr class="header green">
-                                        <td  colspan="2" class="green_header">Phí bảo hiểm</td>
-                                    </tr>
-                                    <tr class="data-detail">
-                                        <td>Example text</td>
-                                        <td></td>
-                                    </tr>
-                                    
-                                    <tr class="header bg-head-2">
-                                        <td  colspan="2" class="green_header">Bệnh viện liên kết</td>
-                                    </tr>
-                                    <tr class="data-detail">
-                                        <td class="text-center empty-first2 "></td>
-                                        <td class="hospital-td active-td">
-                                            <p class="toggle active"><span>(108)</span> Bệnh viện</p>
-                                            
-                                        </td>
-                                        <tr class="data-detail" id="hospital-tr"><td class="empty-first text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/health/first-td.png?{{ config('custom.version') }}" alt=""></td>
-                                            <td class="hospital_header" colspan="1">
-                                               {{-- @include('frontend/pages/hospital')--}}
-                                            </td>
-                                        </tr>
-                                        <!-- <tr >
-                                            <div id="hospital-address">
-                                            </div>
-                                        </tr> -->
-                                    </tr>
+                                    @endfor
                                     <tr class="header bg-head-3">
                                         <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                     </tr>
+                                    @for($i =39 ; $i < 48 ; $i++)
                                     <tr class="data-detail">
-                                        <td>Example text</td>
+                                        <td><p class="ellipsis">{{$products[$i]['comparison']}}</p></td>
                                         <td></td>
                                     </tr>
+                                    @endfor
                                 </tbody>
                             </table>
                         </div>
