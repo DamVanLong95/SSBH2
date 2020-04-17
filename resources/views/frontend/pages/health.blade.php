@@ -389,7 +389,6 @@
                                         <td class="hospital_header" colspan="1" id="hospital">
                                             {{--@include('frontend/pages/hospital')--}}
                                         </td>
-                                        <td></td>
                                     </tr>
                                     <!-- <tr >
                                         <div id="hospital-address">
