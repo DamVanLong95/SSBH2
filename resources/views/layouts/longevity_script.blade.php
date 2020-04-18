@@ -55,13 +55,16 @@
                 var url = '{{route('droppLongevity')}}';
                 $.post(url, {"_token": "{{ csrf_token() }}", id: idImg}
                 ,function(data , status , xhr){
+                    console.log(data);
                     if(data.success = true){
                         var myTable = document.getElementById('main-tbl-nt')
                                  tblBodyObj  = myTable.tBodies[0]
                                  tblHeadObj  = myTable.tHead
                                  indexCol    = tblHeadObj.rows[0].cells.length - 2;
                         var longevities = data.longevities;
-                        console.log(longevities);
+                        var th =  myTable.rows[1].cells[indexCol];
+                        th.setAttribute('class','health-select-cf');
+                        th.innerHTML = data.product_name.name;
                         for(var i =6; i<10;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
@@ -93,12 +96,16 @@
                             }
                           
                          }
+                         var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                          for(var i=42; i<51 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(longevities[i-5]['content']!=null){
                                 tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
                             }
-                          
+                            if(longevities[i-5]['content']==='x'){
+                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                            `;
+                            }
                          }
                     }
                 }).done(function() {
