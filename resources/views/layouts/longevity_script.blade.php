@@ -52,55 +52,76 @@
                 if($('#checkbox_bv'+idImg+'').prop("checked") == true){
                     $('#'+idImg+'').draggable({ disabled: true });
                 }
+                var myTable = document.getElementById('main-tbl-nt')
+                                 tblBodyObj  = myTable.tBodies[0]
+                                 tblHeadObj  = myTable.tHead
+                                 indexCol    = tblHeadObj.rows[0].cells.length - 1;
                 var url = '{{route('droppLongevity')}}';
                 $.post(url, {"_token": "{{ csrf_token() }}", id: idImg}
                 ,function(data , status , xhr){
-                    console.log(data);
+                   
                     if(data.success = true){
-                        var myTable = document.getElementById('main-tbl-nt')
-                                 tblBodyObj  = myTable.tBodies[0]
-                                 tblHeadObj  = myTable.tHead
-                                 indexCol    = tblHeadObj.rows[0].cells.length - 2;
                         var longevities = data.longevities;
                         var th =  myTable.rows[1].cells[indexCol];
+                        var ths =  myTable.rows[2].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
+                        console.log(th);
+                        var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
+                        var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
+                        var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                        ths.innerHTML = `
+                            <div class="count-rank-ctn" >
+                                <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                                <div class="service">
+                                    <img src="`+path_camera+`"alt="">
+                                    <img src="`+path_phone+`"alt="">
+                                    <img src="`+path_mess+`"alt="">
+                                </div>
+                            </div>
+                        `;
                         th.innerHTML = data.product_name.name;
+                        //===========Pham vi bao hiem=====================
                         for(var i =6; i<10;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                            tds.innerHTML = '<p class="text">'+longevities[i-6]['content']+'</p>';
                         }
+
+                        //============Quyen loi san pham================
                         const row   = document.getElementById('benifit');
                                     const index = row.rowIndex;
                                     var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
                         for(var i=index; i<index+16 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(longevities[i-index]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-index]['content']+`</p>`;
+                                tds.innerHTML =  '<p class="text">'+longevities[i-index]['content']+'</p>';
                             }
                           
                          }
+                         //  ===========San Pham bo tro==================
                         const row_bt   = document.getElementById('product_bt');
                         const indexRow = row_bt.rowIndex;
-                        // console.log(longevities[24]['content']);
                         for(var i=indexRow; i<indexRow+4 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="text">`+longevities[i-5]['content']+`</p>`;
                             }
                           
                          }
+                        //  ===========Cac loai phi========================
                          for(var i=34; i<41 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                                tds.innerHTML =  '<p class="text" >'+longevities[i-5]['content']+'</p>';
                             }
                           
                          }
+                           //  ===========Loai tru bao hiem========================
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                          for(var i=42; i<51 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            tds.style = "p-wrap";
                             if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                                tds.innerHTML =  '<p class="text">'+longevities[i-5]['content']+'</p>';
                             }
                             if(longevities[i-5]['content']==='x'){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -214,14 +235,7 @@
         }
 
       }
-      function deleteColumn(tblId) {
-        var allRows = document.getElementById(tblId).rows;
-        for (var i = 0; i < allRows.length; i++) {
-            if (allRows[i].cells.length > 1) {
-                allRows[i].deleteCell(-1);
-            }
-        }
-      }
+     
 </script>
 <script>
    function showNote(val){

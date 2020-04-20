@@ -144,3 +144,6 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('longevity/export','Admin\LongevityExcelController@exportLongevity')->name('longevity.export');
 
 });
+Route::get('test',function(){
+    return view('layouts.test');
+});

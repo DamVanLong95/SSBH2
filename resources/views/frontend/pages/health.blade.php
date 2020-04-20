@@ -251,7 +251,7 @@
                     <div id="layout-area" class="table-ctn">
                         <div id="table-scroll" class="table-scroll">
                             <table id="main-tbl-sk" class="table">
-                                <div class="add-del-ctn ">
+                                <div class="add-del-ctn d-none">
                                     <input type="button" value="delete column" onclick="deleteColumn('main-tbl-sk')" />
                                     <input type="button" value="add column" onclick="addColumn('main-tbl-sks')" />
                                 </div>

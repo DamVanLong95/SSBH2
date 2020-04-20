@@ -17,8 +17,8 @@ class LongevityController extends Controller
     {
 
         $products = Longevity::all();
-        $saving = ProductLongevity::where('classify_id','=',1)->get();
-        $secure = ProductLongevity::where('classify_id','=',3)->get();
+        $saving   = ProductLongevity::where('classify_id','=',1)->get();
+        $secure   = ProductLongevity::where('classify_id','=',3)->get();
         $scope_secure = Longevity::select('product_id','comparison')
                     ->take(4)
                     ->get();//pham vi bao ve

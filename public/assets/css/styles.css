@@ -5297,11 +5297,25 @@ footer .footer-ctn .footer-nav li a {
   width: 50%;
 }
 
+.table-section-nt #layout-area .table p.text {
+  overflow: hidden;
+  white-space: pre;
+  width: 150px;
+  text-align: left;
+  font-family: UTM_Helve;
+}
+
 .table-section-nt #layout-area .table tr.data-detail td {
   border-right: 1px solid #ccc;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.table-section-nt #layout-area .table tr.data-detail td pre {
+  text-align: left;
+  display: table-cell;
+  font-family: UTM_Helve;
 }
 
 .table-section-nt #layout-area .table tr.data-detail td span a {

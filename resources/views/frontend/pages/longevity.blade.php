@@ -150,8 +150,8 @@
                                             <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                         </label>
                                         <div class="input-pack">
-                                            <input name="type" value="" type="checkbox" id="ala_1"/>
-                                            <label class="toggle" for="ala_1"></label>
+                                            <input name="type" value="" type="checkbox" id="checkbox_tl{{$value['id']}}"/>
+                                            <label class="toggle" for="checkbox_tl{{$value['id']}}"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -190,8 +190,8 @@
                                             <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                                         </label>
                                         <div class="input-pack">
-                                            <input name="type" value="" type="checkbox" id="ala_1"/>
-                                            <label class="toggle" for="ala_1"></label>
+                                            <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
+                                            <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -372,7 +372,7 @@
                                         <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
                                     </tr>
                                     @foreach($data['scope_secure'] as $key=>$value)
-                                        <tr class="data-detail d-none">
+                                        <tr class="data-detail ">
                                             <td><p class="ellipsis">{{$value['comparison']}}</p></td>
                                             <td></td>
                                         </tr>
@@ -402,9 +402,9 @@
                                     </tr>
                                    
                                     @for($i=7;$i < count($data['benifits']); $i++)
-                                    <tr class="data-detail d-none">
+                                    <tr class="data-detail ">
                                         <td>
-                                            <!-- <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' /> -->
+                                            <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
                                             <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
                                             <label class="drop" for="" style="display:none" id="dksk">% phí</label>
                                         </td>

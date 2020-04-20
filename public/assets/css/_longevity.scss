@@ -555,15 +555,24 @@
                     }
                 }
             }
+            p.text{
+                overflow: hidden;
+                white-space: pre;
+                width: 150px;
+                text-align: left;
+                // display: table-cell;
+                font-family: UTM_Helve;
+            }
             tr.data-detail {
                 td {
                     border-right: 1px solid #ccc;
                     text-align: center;
-                    p {
-                        // overflow: hidden;
-                        // white-space: nowrap;
-                        // width: 135px;
-                    }
+                    pre{
+                        text-align: left;
+                        display: table-cell;
+                        font-family: UTM_Helve;
+                    };
+                   
                     span {
                         a {
                             color: orange;

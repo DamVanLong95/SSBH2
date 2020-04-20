@@ -12,7 +12,7 @@ class LongevitiesImport implements ToModel, WithHeadingRow
     
     public function model(array $row)
     {
-        dd($row);
+        // dd($row);
         DB::beginTransaction();
         try {
             Longevity::create([

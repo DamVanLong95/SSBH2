@@ -49,7 +49,10 @@
                         $('#'+idImg+'').draggable({ disabled: true });
                     }
                 
-
+                    var myTable = document.getElementById('main-tbl');
+                                var tblBodyObj  = myTable.tBodies[0];
+                                var tblHeadObj  = myTable.tHead;
+                                var indexCol    = tblHeadObj.rows[0].cells.length - 1;
                     var url = '{{route('droppImage')}}';
                     $.post(url,
                         {
@@ -58,10 +61,6 @@
                         },
                         function(data, status, xhr) {
                             if(data.success == true) {
-                                var myTable = document.getElementById('main-tbl');
-                                var tblBodyObj  = myTable.tBodies[0];
-                                var tblHeadObj  = myTable.tHead;
-                                var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                                 var notes       = data.summaries;
                                 var deductible  = data.deductible;           
                                 var exception   = data.exception;  
@@ -72,7 +71,10 @@
                                 var finances    = data.finances;
                                 var data_activities = data.data;
                                 $("#net-address").html(data.html);
-
+                                var myTable = document.getElementById('main-tbl');
+                                var tblBodyObj  = myTable.tBodies[0];
+                                var tblHeadObj  = myTable.tHead;
+                                var indexCol    = tblHeadObj.rows[0].cells.length - 2;
                                 //calculate star
                                 var count_star_green = 0;
                                 var count_star_orange = 0;
@@ -293,13 +295,16 @@
                                         tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
                                     }
                                 }
+                                //============================Quyền và nghĩa vụ của xe==============================
+                                // tds = tblBodyObj.rows[].cells[indexCol]; 
+                                //    console.log(tds);
                                 for(var i=88;i<88+permissions.length;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     
                                     if(permissions[i-88]['rate_star_nv']== 3)
                                     {
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`+`
-                                                    <div class="star-td">
+                                        tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                                    `<div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div> `;
                                     }else if(permissions[i-88]['rate_star_nv']== 5){
@@ -315,10 +320,13 @@
                                                         </div> `;
                                     }
                                     else{
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`;
+                                        
+                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`;
+                                      
                                     }
+                                   
                                 } 
-                            
+                                //=================Năng lực tài chính==================
                                 tds = tblBodyObj.rows[114].cells[indexCol]; 
                                 for(var i =114; i<114+finances.length;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
@@ -337,6 +345,12 @@
                                     $('#map'+idImg+'').click(function(){
                                         var tdnet ;
                                         for(var i =1;i<4;i++){
+                                            if(indexCol==1){
+                                                tdnet = tds;
+                                                tdnet.setAttribute('class','active-car-td');
+                                                tblBodyObj.rows[132].cells[i+1].removeAttribute('class','active-car-td');
+                                                break;
+                                            }
                                             if(indexCol==i){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
