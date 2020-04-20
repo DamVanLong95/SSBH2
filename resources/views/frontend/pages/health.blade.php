@@ -324,7 +324,6 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
                                         <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
                                         <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
-                                        <label class="drop" for="" style="display:none" id="dksk">% phí</label>
                                     </td>
                                     <td>
 
@@ -350,10 +349,8 @@
                                 @for($i=2;$i< count($data['benifits']);$i++)
                                 <tr class="data-detail ">
                                     <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
-                                        <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
+                                        <p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
                                         <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
-                                        <label class="drop" for="">0.01% phí</label>
                                     </td>
                                     <td></td>
                                 </tr>

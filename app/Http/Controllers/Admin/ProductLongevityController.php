@@ -82,12 +82,17 @@ class ProductLongevityController extends Controller
             );
         }
             $data = $request->all();
-            $product = new ProductLongevity ;
-            $product->name          = $data['name'];
-            $product->company_id    = $data['company_id'];
-            $product->classify_id   = $data['classify'];
-            $product->url           = isset($path)? $path:null;
-            $product->save();
+            // dd($data['classify']);
+           
+            foreach($data['classify'] as $value){
+                $product = new ProductLongevity ;
+                $product->name          = $data['name'];
+                $product->company_id    = $data['company_id'];
+                $product->classify_id   = $value;
+                $product->url           = isset($path)? $path:null;
+                $product->save();
+            }
+           
 
         $notification = array(
             'message' => 'add new post successfully!',

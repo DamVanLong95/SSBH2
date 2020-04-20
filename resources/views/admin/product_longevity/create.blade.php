@@ -44,7 +44,7 @@
                         @foreach($classifies as $key=>$classify)
                         <div class="col-sm-1">
                             <label for="" style="margin-left:15px" >{{$classify['name']}}</label>
-                            <input type="radio" class="checkmark" value="{{$classify['id']}}" name="classify"  {{ ($key == 0) ? 'checked' : '' }}>
+                            <input type="checkbox" class="checkmark" value="{{$classify['id']}}" name="classify[]"  {{ ($key == 0) ? 'checked' : '' }}>
                         </div>
                         @endforeach
                     </div>

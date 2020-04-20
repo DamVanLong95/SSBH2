@@ -81,10 +81,10 @@ class LongevityController extends Controller
             $products_id = FilterBanner::select('id','company_id','product_longevity_id')->where(function ($query) use($fields){
                 // dd($fields);
                 foreach($fields as $field){
-                    $query->orwhere($field,'=','x');
+                    $query->orwhere($field,'=',1);
                 }
             })->get(); 
-          
+        //   dd($products_id);
             $products = ProductLongevity::select('id','name','url','classify_id')->where(function($query) use ($products_id){
                 foreach($products_id as $product_id){
                     $query->orwhere('id','=',$product_id['product_longevity_id']);
@@ -104,14 +104,14 @@ class LongevityController extends Controller
         }else{
             $product_filter_companies = new Collection();
         }
-        //  dd($product_filter_companies);
+       
         $products = $products->merge($product_filter_companies);
 
         $products = $products->unique(function ($item)
         {
             return $item['name'] ;
         });
-        
+        // dd($products);
         $product_saving=[];
         $product_secure =[];
         $product_invest =[];
@@ -132,7 +132,7 @@ class LongevityController extends Controller
              if($value['classify_id'] == 6)
                 array_push($product_concern,$value);
         }
-        // dd($product_secure);
+        
         $html_saving = view('frontend.pages.health_ajax.saving_longevity')
                     ->with(['product_saving'=> $product_saving])
                     ->render();

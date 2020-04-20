@@ -120,11 +120,15 @@
                                     const row   = document.getElementById('cost');
                                     const index = row.rowIndex;
                                     var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
-                                    tdss.innerHTML = `<a href='`+healths[83]['content']+`' class=''>Link_click</a>` ; 
+                                    
+                                    // tdss.innerHTML = `<a href='`+healths[83]['content']+`' target="_blank" hidden>Link_click</a>` ; 
+                                    tdss.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+healths[83]['content']+`" target="_blank" hidden></a>` ; 
                                     //BENH VIEN LIEN KET
                                     var tdsss =tblBodyObj.rows[92].cells[indexCol];
                                     tdsss.setAttribute('id','td'+indexCol+''); 
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
+                                    document.querySelector('a').setAttribute('target', '_blank');
+                                   
                                     $('#td'+indexCol+'').click(function(){
                                         var tdnet ;
                                         for(var i =1;i<4;i++){
@@ -344,6 +348,10 @@
         }
     </script>
     <script>
+     function clickLink(id) { 
+        var url= document.getElementById("link").getAttribute("href");
+        window.open(url, "_blank"); 
+     }
     function showNote(val){
             $.ajax({
                 url: "{{route('show_info')}}",

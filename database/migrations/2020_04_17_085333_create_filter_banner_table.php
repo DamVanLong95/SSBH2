@@ -17,17 +17,17 @@ class CreateFilterBannerTable extends Migration
             $table->bigIncrements('id');
             $table->integer('company_id');
             $table->integer('product_longevity_id');
-            $table->string('invest')->nullable();
-            $table->string('edu')->nullable();
-            $table->string('retire')->nullable();
-            $table->string('concern')->nullable();
-            $table->string('age_to_eightten')->nullable();
-            $table->string('eightten_to_sixtyfive')->nullable();
-            $table->string('over_sixtyfive')->nullable();
-            $table->string('bh_die')->nullable();
-            $table->string('bh_poor')->nullable();
-            $table->string('benifit_free')->nullable();
-            $table->string('benifit_medical')->nullable();
+            $table->tinyInteger('invest')->nullable();
+            $table->tinyInteger('edu')->nullable();
+            $table->tinyInteger('retire')->nullable();
+            $table->tinyInteger('concern')->nullable();
+            $table->tinyInteger('age_to_eightten')->nullable();
+            $table->tinyInteger('eightten_to_sixtyfive')->nullable();
+            $table->tinyInteger('over_sixtyfive')->nullable();
+            $table->tinyInteger('bh_die')->nullable();
+            $table->tinyInteger('bh_poor')->nullable();
+            $table->tinyInteger('benifit_free')->nullable();
+            $table->tinyInteger('benifit_medical')->nullable();
             $table->timestamps();
         });
     }

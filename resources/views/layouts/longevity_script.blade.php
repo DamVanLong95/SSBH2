@@ -65,7 +65,6 @@
                         var th =  myTable.rows[1].cells[indexCol];
                         var ths =  myTable.rows[2].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
-                        console.log(th);
                         var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                         var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;

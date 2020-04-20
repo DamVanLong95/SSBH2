@@ -534,17 +534,27 @@
                 console.log(data);
                 if(data.product_saving!='')
                     $('#saving').html(data.html_saving);
+                    else  $('#saving').html(''); 
+
                 if(data.product_secure!='')
                 $('#secure').html(data.html_secure);
+                else  $('#secure').html(''); 
+
                 if(data.product_invest!='')
                 $('#invest').html(data.html_invest);
-                else  $('#invest').html('');;
+                else  $('#invest').html('');
+
                 if(data.product_edu!='')
                 $('#edu').html(data.html_edu);
+                else  $('#edu').html(''); 
+
                 if(data.product_retire!='')
                 $('#retire').html(data.html_retire);
+                else  $('#retire').html('');
+
                 if(data.product_concern!='')
                 $('#concern').html(data.html_concern);
+                else  $('#concern').html('');
             },
         });
     }
