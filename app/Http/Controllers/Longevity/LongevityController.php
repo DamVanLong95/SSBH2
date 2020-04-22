@@ -59,6 +59,7 @@ class LongevityController extends Controller
     {
         $params = $request->get('params');
         $param_companies = $request->get('param_companies');
+        $products =[];
         $references = [
             1=> 'invest',
             2=> 'edu',
@@ -84,12 +85,16 @@ class LongevityController extends Controller
                     $query->orwhere($field,'=',1);
                 }
             })->get(); 
-        //   dd($products_id);
-            $products = ProductLongevity::select('id','name','url','classify_id')->where(function($query) use ($products_id){
-                foreach($products_id as $product_id){
-                    $query->orwhere('id','=',$product_id['product_longevity_id']);
-                }
-            })->get();
+            if(sizeof ($products_id) > 0 ){
+                $products = ProductLongevity::select('id','name','url','classify_id')
+                    ->where(function($query) use ($products_id){
+                        foreach($products_id as $product_id){
+                            $query->orwhere('id','=',$product_id['product_longevity_id']);
+                        }
+                    })->get();
+            }else{
+                $products = new Collection();
+            }
         }else{
             $products = new Collection();
         }
@@ -104,7 +109,7 @@ class LongevityController extends Controller
         }else{
             $product_filter_companies = new Collection();
         }
-       
+    //    dd($products);
         $products = $products->merge($product_filter_companies);
 
         $products = $products->unique(function ($item)
