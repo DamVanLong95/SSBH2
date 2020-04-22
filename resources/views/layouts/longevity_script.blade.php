@@ -109,10 +109,13 @@
                         //  ===========Cac loai phi========================
                          for(var i=34; i<41 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            // console.log(longevities[i-5]['content']);
                             if(longevities[i-5]['content']!=null){
+                                if(validURL(longevities[i-5]['content'])==true){
+                                    tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-5]['content']+`" target="_blank" hidden></a>`;
+                                }else
                                 tds.innerHTML =  '<p class="text" >'+longevities[i-5]['content']+'</p>';
                             }
-                          
                          }
                            //  ===========Loai tru bao hiem========================
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
@@ -237,6 +240,19 @@
      
 </script>
 <script>
+    function validURL(str) {
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+    }
+    function clickLink(id) { 
+        var url= document.getElementById("link").getAttribute("href");
+        window.open(url, "_blank"); 
+     }
    function showNote(val){
         $.ajax({
             url: "{{route('show_info')}}",

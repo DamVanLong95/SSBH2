@@ -158,7 +158,7 @@
     </div>
 </div>
 @endif
-@if(isset($product_concern))
+@if(!empty($product_concern))
 <div class="container">
     <div class="row">
         <div class="col-lg-12" >
@@ -295,7 +295,10 @@
                          for(var i=34; i<41 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                                if(validURL(longevities[i-5]['content'])==true){
+                                    tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-5]['content']+`" target="_blank" hidden></a>`;
+                                }else
+                                tds.innerHTML =  '<p class="text" >'+longevities[i-5]['content']+'</p>';
                             }
                           
                          }
@@ -441,6 +444,19 @@
         }
 
       }
-     
+      function validURL(str) {
+        //   console.log(str);
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+    }
+    function clickLink(id) { 
+        var url= document.getElementById("link").getAttribute("href");
+        window.open(url, "_blank"); 
+     }
 </script>
 

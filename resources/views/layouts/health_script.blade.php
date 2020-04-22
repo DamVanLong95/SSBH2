@@ -57,6 +57,7 @@
                                     tblHeadObj  = myTable.tHead
                                     indexCol    = tblHeadObj.rows[0].cells.length - 1;
                     var url = '{{route('droppHealth')}}';
+                    
                     $.post(url, 
                     {
                         "_token": "{{ csrf_token() }}", 
@@ -77,6 +78,13 @@
                                 $(this).parents(".custom-select-fix").toggleClass("opened");
                                 event.stopPropagation();
                             });
+                            $('.custom-select-fix').each(function(){
+                                // console.log(this);
+                                $(this).children('span').html($(this).children('.custom-options').children('.custom-option:first').html());
+                                var value = $(this).children('.custom-options').children('.custom-option:first').data('value');
+                                $(this).attr('value',value);
+                            });
+                            var program_fisrt_id = document.getElementById("selected").value;
                             $(".custom-option").on("click", function() {
                                 // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                                 $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
@@ -180,21 +188,21 @@
                                             });
                                         }
                                         $('select[name="province"]').on('change', function(){
-                                                var provinceID = $(this).val();
-                                            // alert(provinceID);
-                                                var url = '{{route('filterProvince')}}';
-                                                $.post(url ,
-                                                {
-                                                    "_token": "{{ csrf_token() }}", 
-                                                    location_id: provinceID,
-                                                    product_id :idImg,
-                                                }
-                                                ,function(data){
-                                                    $('#info_address').html(data.html_hospital);
-                                                    $('#district').html(data.html_district);
-                                                
-                                                });
+                                            var provinceID = $(this).val();
+                                        // alert(provinceID);
+                                            var url = '{{route('filterProvince')}}';
+                                            $.post(url ,
+                                            {
+                                                "_token": "{{ csrf_token() }}", 
+                                                location_id: provinceID,
+                                                product_id :idImg,
+                                            }
+                                            ,function(data){
+                                                $('#info_address').html(data.html_hospital);
+                                                $('#district').html(data.html_district);
+                                            
                                             });
+                                        });
                                         $('select[name="district"]').on('change', function(){
                                             var districtID = $(this).val();
                                         
