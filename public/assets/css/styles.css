@@ -4407,10 +4407,10 @@ footer .footer-ctn .footer-nav li a {
 .table-section-sk .sized {
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 0% 0px;
-     object-position: 0% 0px;
-  width: 75px;
-  height: 75px;
+  -o-object-position: 50% 0px;
+     object-position: 50% 0px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin: auto;
   left: 0;
@@ -5536,10 +5536,10 @@ footer .footer-ctn .footer-nav li a {
 .table-section-nt .sized {
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 0% 0px;
-     object-position: 0% 0px;
-  width: 75px;
-  height: 75px;
+  -o-object-position: 50% 0px;
+     object-position: 50% 0px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin: auto;
   left: 0;
