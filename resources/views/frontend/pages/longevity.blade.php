@@ -552,9 +552,9 @@
                 $('#retire').html(data.html_retire);
                 else  $('#retire').html('');
 
-                if(data.product_concern!='')
+                // if(data.product_concern!='')
                 $('#concern').html(data.html_concern);
-                else  $('#concern').html('');
+                // else  $('#concern').html(data.html_concern);
             },
         });
     }

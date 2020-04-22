@@ -64,7 +64,7 @@ class ProductController extends Controller
             $ext = $file->getClientOriginalExtension();
             $filename  =  time().'.'.$ext;
             $path = $file->storeAs(
-                'longevity', Str::random(10).'_'.$filename,'public'
+                'health', Str::random(10).'_'.$filename,'public'
             );
         }
             $data = $request->all();
@@ -93,7 +93,7 @@ class ProductController extends Controller
             $ext = $file->getClientOriginalExtension();
             $filename  =  time().'.'.$ext;
             $path = $file->storeAs(
-                'longevity', Str::random(10).'_'.$filename,'public'
+                'health', Str::random(10).'_'.$filename,'public'
             );
             $product = Product::find($id);
             $file_old ="public/". $product->url;
