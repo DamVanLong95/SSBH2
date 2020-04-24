@@ -61,6 +61,8 @@
                         },
                         function(data, status, xhr) {
                             if(data.success == true) {
+                                var rating_and_model = data.data['rating_and_model'];
+                                console.log(rating_and_model);
                                 var notes       = data.summaries;
                                 var deductible  = data.deductible;           
                                 var exception   = data.exception;  
@@ -320,9 +322,9 @@
                                                         </div> `;
                                     }
                                     else{
-                                        
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`;
-                                      
+                                        if(permissions[i-88]['note_rule']=== 'x')
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-88]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`
                                     }
                                    
                                 } 
@@ -332,9 +334,23 @@
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-114]['money'],0)+`</p>`
                                 }
-                            
+                                //==============DANH GIA UY TIN===============
+                                console.log(rating_and_model);
+                                var tds = tblBodyObj.rows[135].cells[indexCol];
+                                if(rating_and_model.rating_agency === 'x')
+                                    tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                //============= MO HINH ============
+                                var tds = tblBodyObj.rows[137].cells[indexCol];
+                                var tdss = tblBodyObj.rows[138].cells[indexCol];
+
+                                if(rating_and_model.business_focused ==='x')
+                                    tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                else tdss.innerHTML = '';
+                                if(rating_and_model.business_unfocused === 'x')
+                                tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                else tds.innerHTML = '';
+                                //===============MANG LUOI HOAT DONG==========
                                 tds = tblBodyObj.rows[132].cells[indexCol]; 
-                                //    console.log(tds);
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
                                 tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
@@ -550,25 +566,25 @@
             // console.log(terms_data);
         
         if(el.checked == true){
-                if(length==length_terms){
-                    length=length_terms;
+            if(length==length_terms){
+                length=length_terms;
+            for(var i=0; i< length ;i++){
+                var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
+            
+                label_dkbs.style.display = "inline-flex";
+            }
+            $('.selectedId').prop('checked', el.checked);
+            } 
+            if(length==length_exception){
+                length=length_exception;
                 for(var i=0; i< length ;i++){
-                    var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
+                    var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
                 
-                    label_dkbs.style.display = "inline-flex";
+                    label_dklt.style.display = "inline-flex";
                 }
-                $('.selectedId').prop('checked', el.checked);
-                } 
-                if(length==length_exception){
-                    length=length_exception;
-                    for(var i=0; i< length ;i++){
-                        var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
-                    
-                        label_dklt.style.display = "inline-flex";
-                    }
-                    $('.selectedId2').prop('checked', el.checked);
-                }
-                
+                $('.selectedId2').prop('checked', el.checked);
+            }
+            
         }else{
             if(length==length_terms){
                 for(var i=0; i< length ;i++){

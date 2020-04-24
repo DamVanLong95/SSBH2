@@ -362,14 +362,18 @@
                                         <td  colspan="2" class="green_header">Đánh giá uy tín</td>
                                     </tr>
                                     <tr class="data-detail">
-                                        <td>Example text</td>
+                                        <td>Top 10 DNBH uy tín 2018</td>
                                         <td></td>
                                     </tr>
                                     <tr class="header green">
                                         <td  colspan="2" class="green_header">Mô hình GQBT</td>
                                     </tr>
                                     <tr class="data-detail">
-                                        <td>Example text</td>
+                                        <td><p class="ellipsis">Tập trung</p></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="data-detail">
+                                        <td><p class="ellipsis">Không tập trung</p></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
