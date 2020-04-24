@@ -335,20 +335,18 @@
                                     tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-114]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
-                                console.log(rating_and_model);
+                                // console.log(rating_and_model);
                                 var tds = tblBodyObj.rows[135].cells[indexCol];
                                 if(rating_and_model.rating_agency === 'x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //============= MO HINH ============
                                 var tds = tblBodyObj.rows[137].cells[indexCol];
                                 var tdss = tblBodyObj.rows[138].cells[indexCol];
-
+                                //console.log(tds);
                                 if(rating_and_model.business_focused ==='x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                else tdss.innerHTML = '';
                                 if(rating_and_model.business_unfocused === 'x')
                                 tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                else tds.innerHTML = '';
                                 //===============MANG LUOI HOAT DONG==========
                                 tds = tblBodyObj.rows[132].cells[indexCol]; 
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
