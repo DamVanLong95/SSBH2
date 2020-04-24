@@ -168,6 +168,7 @@ class HealthController extends Controller
         $costs      = $request->get('cost');
         $scopes     = $request->get('scope');
         $companies_id  = $request->get('companies');
+        // dd($programs);
        
         $obj_program = [
             1 => 'program_one',
@@ -293,11 +294,11 @@ class HealthController extends Controller
                             ->merge($array_2)
                             ->merge($array_3);
 
-        $products = $products->unique(function ($item)
-        {
-            return $item['name'] ;
-        });
-        
+        // $products = $products->unique(function ($item)
+        // {
+        //     return $item['name'] ;
+        // });
+        // dd($products);
         $product_saving=[];
         $product_secure =[];
         foreach($products as $value){

@@ -10,6 +10,7 @@ use App\Brand;
 use App\Finance,App\Activity,App\Detail,App\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\General;
 
 class CarController extends Controller
 {
@@ -84,9 +85,8 @@ class CarController extends Controller
         $detail     = Detail::select('company_id','location_id','content')
                      ->where('company_id', '=', $company_id)
                      ->get();
-                    //  dd($detail);
+        $rating_and_model = General::where('company_id','=',$company_id)->first();
         $locations = Location::all();
-        // dd($locations);
         $data = array();      
         $total=0;
         foreach($activities as $value){
@@ -96,6 +96,7 @@ class CarController extends Controller
        $data['total']      = $total; 
        $data['detail']     = $detail;
        $data['locations']   =$locations;
+       $data['rating_and_model']  = $rating_and_model;
        $html = view('frontend/pages/network')->with(['locations'=> $locations ,'detail' => $detail])->render();
         return response()->json([
             'success' => true,
