@@ -221,7 +221,7 @@
         <div class="pack-section" id="concern">
         </div>
     <div class="table-section-nt">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
@@ -280,7 +280,7 @@
 
                                         </td>
                                     </tr>
-                                    <tr class="header bg-head-1">
+                                    <tr class="header green1 bg-head-1">
                                         <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                     </tr>
                                     <tr class="container-selection">
@@ -368,7 +368,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr class="header">
+                                    <tr class="header ">
                                         <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
                                     </tr>
                                     @foreach($data['scope_secure'] as $key=>$value)
@@ -377,7 +377,7 @@
                                             <td></td>
                                         </tr>
                                     @endforeach
-                                    <!-- <tr class="header green">
+                                    <tr class="header green1 green">
                                         <td  colspan="2" class="green_header">Phí</td>
                                     </tr>
                                     
@@ -385,7 +385,7 @@
                                         <td><p class="ellipsis"></p></td>
                                         <td></td>
                                     </tr>
-                                    -->
+                                   
                                     <tr class="header bg-head-2">
                                         <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
@@ -393,12 +393,13 @@
                                     </tr>
                                  
                                     <tr class="select-all" id="benifit">
-                                        <td>
+                                        <td class="td-all">
                                             <div class="choose-all">
                                                 <input type="checkbox" id="selectall" class="selectedAll"></input>
                                                 <label class="toggle" for="selectall">Chọn tất cả</label>
                                             </div>
                                         </td>
+                                        <td class="td-all"></td>
                                     </tr>
                                    
                                     @for($i=7;$i < count($data['benifits']); $i++)
@@ -412,7 +413,7 @@
                                         </td>
                                     </tr>
                                     @endfor
-                                    <tr class="header bg-head-2" id="product_bt">
+                                    <tr class="header green1 bg-head-2" id="product_bt">
                                         <td  colspan="2" class="green_header">Sản phẩm bổ trợ</td>
                                     </tr>
                                     @for($i =24 ; $i < count($data['benifits_more']); $i++)
@@ -450,7 +451,7 @@
                                         <td></td>
                                     </tr> -->
                                    
-                                    <tr class="header">
+                                    <tr class="header ">
                                         <td  colspan="2" class="green_header">Các loại phí</td>
                                     </tr>
                                     @for($i =29 ; $i < 36 ; $i++)
@@ -459,7 +460,7 @@
                                         <td></td>
                                     </tr>
                                     @endfor
-                                    <tr class="header bg-head-3">
+                                    <tr class="header green1 bg-head-3">
                                         <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                     </tr>
                                     @for($i =39 ; $i < 48 ; $i++)

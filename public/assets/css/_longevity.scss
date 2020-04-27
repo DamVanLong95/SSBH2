@@ -163,8 +163,8 @@
     margin-top: 2%;
     .table-ctn {}
     table {
-        // table-layout: fixed;
-        table-layout: auto;
+        table-layout: fixed;
+        // table-layout: auto;
         // width: 1170px;
         border-spacing: 2%;
     }
@@ -186,7 +186,7 @@
             .green1 {
                 background-color: $main-color;
                 color: #fff;
-                height: 65px;
+                height: 60px;
                 font-family: UTM_Helve;
                 text-transform: uppercase;
                 td.green_header {
@@ -194,11 +194,13 @@
                     position: -webkit-sticky;
                     position: sticky;
                     left: 0;
+                    color: white !important;
+                    padding: 15px 15px;
                 }
             }
             td.green_header{
-                background-color: white;
-                color: #000;
+                // background-color: white;
+                // color: #000;
             }
             .green {
                 background-color: $main-color;
@@ -319,40 +321,40 @@
                         }
                     }
                 }
-                tr.bg-head-1 {
-                    background-repeat: no-repeat;
+                // tr.bg-head-1 {
+                //     background-repeat: no-repeat;
                    
-                    td{
-                        background-image: url('../images/health/bg1_1.png');
-                        color: white;
-                    }
-                }
-                tr.bg-head-2 {
-                    background-repeat: no-repeat;
+                //     td{
+                //         background-image: url('../images/health/bg1_1.png');
+                //         color: white;
+                //     }
+                // }
+                // tr.bg-head-2 {
+                //     background-repeat: no-repeat;
                   
-                    td{
-                        background-image: url('../images/health/bg2_1.png');
-                        color: white;
-                    }
-                }
-                tr.bg-head-3 {
-                    background-repeat: no-repeat;
+                //     td{
+                //         background-image: url('../images/health/bg2_1.png');
+                //         color: white;
+                //     }
+                // }
+                // tr.bg-head-3 {
+                //     background-repeat: no-repeat;
                   
-                    td{
-                        background-image: url('../images/health/bg1_1.png');
-                        color: white;
-                    }
-                }
-                tr.bg-head-4 {
-                    background-repeat: no-repeat;
+                //     td{
+                //         background-image: url('../images/health/bg1_1.png');
+                //         color: white;
+                //     }
+                // }
+                // tr.bg-head-4 {
+                //     background-repeat: no-repeat;
                   
-                    td{
-                        background-image: url('../images/car/bg4.png');
-                        color: white;
-                    }
-                }
+                //     td{
+                //         background-image: url('../images/car/bg4.png');
+                //         color: white;
+                //     }
+                // }
                 tr.header {
-                    height: 65px;
+                    height: 60px;
                     position: relative;
                     font-weight: bold;
                     border-top: 1px solid #ccc;
@@ -360,7 +362,7 @@
                     // background-color: $main-color;
                     // color: #000;
                     font-family: UTM_Helve;
-                    // background-color: #f2f2f3;
+                    background-color: #f2f2f3;
                     text-transform: uppercase;
                     cursor: pointer;
                     -webkit-user-select: none;
@@ -399,14 +401,17 @@
                             height: 16px;
                             margin-top: -8px;
                             font: 16px fontawesome;
-                            color: #000;
+                            color: #bcbec0;
                             content: "\f0d8";
                             transition: all .3s ease;
                         }
                     }
+                    td.green_header{
+                        padding: 15px 15px;
+                    }
                     &.colapse-head {
                         background: $main-color;
-                        color: white;
+                        // color: white;
                         td {
                             &:after {
                                 transform: rotate(-180deg);
@@ -556,9 +561,9 @@
                 }
             }
             p.text{
-                overflow: hidden;
-                white-space: pre;
-                width: 250px;
+                // overflow: hidden;
+                // white-space: pre;
+                // width: 250px;
                 text-align: left;
                 // display: table-cell;
                 font-family: UTM_Helve;
@@ -665,7 +670,7 @@
                         position: relative;
                         display: inline-block;
                         transform: translate(32px, -27px);
-                        width: 90%;
+                        width: 100%;
                         -webkit-transform: translate(32px, -27px);
                         -moz-transform: translate(32px, -27px);
                         -ms-transform: translate(32px, -27px);
@@ -741,9 +746,11 @@
                 }
             }
             tr.data-detail:not(.header) {
-                // display: none;
+                display: none;
             }
-          
+            tr.select-all:not(.header) {
+                display: none;
+            }
             tr.network {
                 // td:hover {
                 //     .network-ctn {

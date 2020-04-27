@@ -211,6 +211,8 @@
               $('.green_header').attr("colspan", tableLength +1)
               $('.hospital_header').attr("colspan", tableLength )
               $('#select_box_longevity').attr("colspan", tableLength +1 )
+              $('.select-all').attr("colspan", tableLength ),
+              $('.td-all').attr("colspan", tableLength +1),
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -232,6 +234,8 @@
               $('.green_header').next("td").remove()
               $('.hospital_header').next("td").remove()
               $('#select_box_longevity').next("td").remove()
+              $('.td-all').next("td").remove()
+              $('.select-all').next("td").remove()
 
           }
         }

@@ -1,5 +1,14 @@
-.block-main-menu {
+.disable-scroll {
+  overflow: hidden;
+}
+
+.fix-position {
   position: fixed;
+  top: 10px;
+  z-index: 999;
+}
+
+.block-main-menu {
   top: 0;
   left: 0;
   right: 0;
@@ -323,7 +332,7 @@
 
 footer {
   background-color: #0d723b;
-  padding: 40px 0;
+  padding: 0;
 }
 
 footer .logo_ft {
