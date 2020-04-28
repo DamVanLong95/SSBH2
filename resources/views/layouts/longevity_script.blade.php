@@ -43,7 +43,7 @@
                 $(this).addClass('img-inserted');
                 $('<span class="remove" />').text('X').appendTo(th);
                 $('span.remove', th).show();
-
+                $('.sized').draggable({ disabled: true });
                 $('#checkbox_tl'+idImg+'').prop("checked", true);
                 $('#checkbox_bv'+idImg+'').prop("checked", true);
                 if($('#checkbox_tl'+idImg+'').prop("checked") == true){
