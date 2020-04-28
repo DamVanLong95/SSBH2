@@ -292,7 +292,7 @@
     .table-ctn {}
     table {
         // table-layout: fixed;
-        // table-layout: auto;
+        table-layout: auto;
         // width: 1170px;
         border-spacing: 2%;
     }
@@ -316,7 +316,7 @@
             .green1 {
                 background-color: $main-color;
                 color: #fff;
-                height: 65px;
+                height: 60px;
                 font-family: UTM_Helve;
                 text-transform: uppercase;
                 td.green_header {
@@ -325,10 +325,11 @@
                     position: sticky;
                     left: 0;
                     color: white !important;
+                    padding: 15px 15px;
                 }
             }
             td.green_header{
-                background-color: white;
+                // background-color: white;
                 color: #000;
             }
             .green {
@@ -447,36 +448,40 @@
                         }
                     }
                 }
-                tr.bg-head-1 {
-                    td{
-                        background-image: url('../images/car/bg1.png') !important;
-                        background-repeat: no-repeat;
-                        color: white !important;
-                    }
-                }
-                tr.bg-head-2 {
-                    td{
-                        background-image: url('../images/car/bg2.png') !important;
-                        background-repeat: no-repeat;
-                        color: white !important;
-                    }
-                }
-                tr.bg-head-3 {
-                    td{
-                        background-image: url('../images/car/bg3.png') !important;
-                        background-repeat: no-repeat;
-                        color: white !important;
-                    }
-                }
-                tr.bg-head-4 {
-                    td{
-                        background-image: url('../images/car/bg4.png') !important;
-                        background-repeat: no-repeat;
-                        color: white !important;
-                    }
-                }
+                // tr.bg-head-1 {
+                //     td{
+                //         background-image: url('../images/car/bg1.png') !important;
+                //         background-repeat: no-repeat;
+                //         color: white !important;
+                //         background-size: 100% 100%;
+                //     }
+                // }
+                // tr.bg-head-2 {
+                //     td{
+                //         background-image: url('../images/car/bg2.png') !important;
+                //         background-repeat: no-repeat;
+                //         color: white !important;
+                //         background-size: 100% 100%;
+                //     }
+                // }
+                // tr.bg-head-3 {
+                //     td{
+                //         background-image: url('../images/car/bg3.png') !important;
+                //         background-repeat: no-repeat;
+                //         color: white !important;
+                //         background-size: 100% 100%;
+                //     }
+                // }
+                // tr.bg-head-4 {
+                //     td{
+                //         background-image: url('../images/car/bg4.png') !important;
+                //         background-repeat: no-repeat;
+                //         color: white !important;
+                //         background-size: 100% 100%;
+                //     }
+                // }
                 tr.header {
-                    height: 65px;
+                    height: 60px;
                     position: relative;
                     font-weight: bold;
                     border-top: 1px solid #ccc;
@@ -484,7 +489,7 @@
                     // background-color: $main-color;
                     // color: #000;
                     font-family: UTM_Helve;
-                    // background-color: #f2f2f3;
+                    background-color: #f2f2f3;
                     text-transform: uppercase;
                     cursor: pointer;
                     -webkit-user-select: none;
@@ -515,6 +520,7 @@
                     }
                     td {
                         position: relative;
+                        padding: 15px 15px;
                         &:after {
                             position: absolute;
                             top: 50%;
@@ -523,7 +529,7 @@
                             height: 16px;
                             margin-top: -8px;
                             font: 16px fontawesome;
-                            color: #000;
+                            color: #bcbec0;
                             content: "\f0d8";
                             transition: all .3s ease;
                         }
@@ -780,7 +786,16 @@
                 }
             }
             tr.data-detail:not(.header) {
-                // display: none;
+                display: none;
+            }
+            tr.select-all:not(.header) {
+                display: none;
+            }
+            tr.more:not(.header) {
+                display: none;
+            }
+            tr.price-discount:not(.header) {
+                display:table-row;
             }
             tr.network {
                 // td:hover {
@@ -805,7 +820,7 @@
                         &:hover {
                             background-color: #f36f21;
                             font-family: UTM_HelveBold;
-                            color: #000;
+                            color: #fff;
                         }
                     }
                 }
