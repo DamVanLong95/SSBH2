@@ -245,8 +245,8 @@
                         // alert('Request done!');
                     });;
                     
-                    $('table th').on('click', function (e ) {
-                        var index = ($(this).index()+1);
+                    $('span.remove').on('click', function (e ) {
+                        var index = ($(this).parent().parent().index()+1);
                             if( index ==2 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
