@@ -53,6 +53,7 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
+        $indexCol   = $request->get('indexCol');
         $summaries  = Summary::select('company_id','terms','note_more','promotion')
                     ->where('company_id', '=', $company_id)
                     ->take(24)
@@ -100,6 +101,7 @@ class CarController extends Controller
        $html = view('frontend/pages/network')->with(['locations'=> $locations ,'detail' => $detail])->render();
         return response()->json([
             'success' => true,
+            'indexCol' => $indexCol,
             'summaries'    => $summaries,
             'exception'    => $exception,
             'deductible'    => $deductible,

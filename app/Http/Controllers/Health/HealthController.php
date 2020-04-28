@@ -79,7 +79,7 @@ class HealthController extends Controller
 
         $data['hospitalCount'] = $hospitalCount;
       
-        // dd($html_hospital);
+     
         return response()->json([
             'success' =>true,
             'data' => $data,

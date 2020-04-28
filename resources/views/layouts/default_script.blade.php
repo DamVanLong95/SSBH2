@@ -59,12 +59,12 @@
                     $.post(url,
                         {
                             "_token": "{{ csrf_token() }}",
-                            id: idImg
+                            id: idImg,
+                            indexCol:indexCol
                         },
                         function(data, status, xhr) {
                             if(data.success == true) {
                                 var rating_and_model = data.data['rating_and_model'];
-                                console.log(rating_and_model);
                                 var notes       = data.summaries;
                                 var deductible  = data.deductible;           
                                 var exception   = data.exception;  
@@ -78,7 +78,7 @@
                                 var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
-                                var indexCol    = tblHeadObj.rows[0].cells.length - 2;
+                                var indexCol    = data.indexCol;
                                 //calculate star
                                 var count_star_green = 0;
                                 var count_star_orange = 0;
@@ -413,7 +413,7 @@
                         });
                     $('span.remove').on('click', function (e ) {
                         var index = ($(this).parent().parent().index()+1);
-                            if( index ==2 ){
+                        if( index ==2 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
@@ -422,11 +422,11 @@
                                 console.log("hi");
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
+                                addColumn('main-tbl');
+                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            
-                            }else if(index== 4 && !$('div.img-container').is(":not(.dropped)")){
-                                index = parseInt(index) + 1;
+                            }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 addColumn('main-tbl');
@@ -434,18 +434,22 @@
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index == 4){
-                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
-                            }else if(index == 3 ){
-                                index = parseInt(index) + 1;
+                            }else if(index == 5 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
+                                addColumn('main-tbl');
+                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index == 1){
-                                index = parseInt(index) + 1;
+                            }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                                $('th:nth-child('+index+')').remove()
+                                $('td:nth-child('+index+')').remove()
+                                // addColumn('main-tbl');
+                                dropImage();
+                            }else if(index == 3 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
