@@ -2264,7 +2264,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 2%;
 }
 
@@ -3940,7 +3940,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-sk table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 2%;
 }
 
@@ -4872,7 +4872,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-nt table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 2%;
 }
 
@@ -5530,7 +5530,7 @@ footer .footer-ctn .footer-nav li a {
   z-index: 1;
   margin: auto;
   overflow: auto;
-  height: 950px;
+  height: 850px;
 }
 
 .table-scroll::-webkit-scrollbar-track {
