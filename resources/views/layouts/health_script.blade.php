@@ -245,24 +245,18 @@
                         // alert('Request done!');
                     });;
                     
-                    $('table th').on('click', function (e ) {
-                        var index = ($(this).index()+1);
+                    $('span.remove').on('click', function (e ) {
+                        var $th     = $(this).parent().parent();
+                        var index   = $th.prevAll().length;
                             if( index ==2 ){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
-                                $('#checkbox_'+idImg+'').prop("checked", false);
-                                $('#checkbox_bv'+idImg+'').prop("checked", false);
-                                $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
-                                console.log("hi");
-                                $('th:nth-child('+index+')').remove()
-                                $('td:nth-child('+index+')').remove()
-                                addColumn('main-tbl-sk');
-                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#checkbox_bv'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 addColumn('main-tbl-sk');
@@ -271,25 +265,20 @@
                                 $('#checkbox_bv'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index == 4){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#checkbox_bv'+idImg+'').prop("checked", false);
-                            }else if(index == 5 ){
+                            }else if(index == 3 ){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
-                                addColumn('main-tbl-sk');
-                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#checkbox_bv'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
-
-                                $('th:nth-child('+index+')').remove()
-                                $('td:nth-child('+index+')').remove()
-                                // addColumn('main-tbl-sk');
-                                dropImage();
-                            }else if(index == 3 ){
+                            }else if(index == 1){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
