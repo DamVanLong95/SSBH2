@@ -506,11 +506,12 @@
             if($(this).is(":checked"))
             checkedCompanies.push($(this).val());
         });
-        // console.log(checkedCompanies);
+       
         $(".dropdownCheckbox").each(function(){
             if($(this).is(":checked"))
             checkedID.push($(this).val());
         });
+        console.log(checkedID);
         $(".dropdownCheckbox_2").each(function(){
             if($(this).is(":checked"))
             checkedCost.push($(this).val());

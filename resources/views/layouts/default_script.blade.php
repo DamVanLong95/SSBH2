@@ -38,17 +38,19 @@
                     var th = $(this);
                     var img = ui.draggable;
                     var copy = img.clone();
+                    // console.log(copy[0]);
                     $(this).addClass('dropped');
                     $(copy).addClass('sized').appendTo(th);
                     $(this).addClass('img-inserted');
                     $('<span class="remove" />').text('X').appendTo(th);
                     $('span.remove', th).show();
-
+                    $('sized').draggable({ disabled: true });
+                   
                     $('#checkbox_'+idImg+'').prop("checked", true);
                     if($('#checkbox_'+idImg+'').prop("checked") == true){
                         $('#'+idImg+'').draggable({ disabled: true });
                     }
-                
+                    $('#'+idImg+'').draggable({ disabled: true });
                     var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
@@ -61,6 +63,8 @@
                         },
                         function(data, status, xhr) {
                             if(data.success == true) {
+                                var rating_and_model = data.data['rating_and_model'];
+                                console.log(rating_and_model);
                                 var notes       = data.summaries;
                                 var deductible  = data.deductible;           
                                 var exception   = data.exception;  
@@ -320,9 +324,9 @@
                                                         </div> `;
                                     }
                                     else{
-                                        
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`;
-                                      
+                                        if(permissions[i-88]['note_rule']=== 'x')
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-88]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`
                                     }
                                    
                                 } 
@@ -332,9 +336,21 @@
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-114]['money'],0)+`</p>`
                                 }
-                            
+                                //==============DANH GIA UY TIN===============
+                                // console.log(rating_and_model);
+                                var tds = tblBodyObj.rows[135].cells[indexCol];
+                                if(rating_and_model.rating_agency === 'x')
+                                    tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                //============= MO HINH ============
+                                var tds = tblBodyObj.rows[137].cells[indexCol];
+                                var tdss = tblBodyObj.rows[138].cells[indexCol];
+                                //console.log(tds);
+                                if(rating_and_model.business_focused ==='x')
+                                    tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                if(rating_and_model.business_unfocused === 'x')
+                                tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                //===============MANG LUOI HOAT DONG==========
                                 tds = tblBodyObj.rows[132].cells[indexCol]; 
-                                //    console.log(tds);
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
                                 tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
@@ -395,8 +411,8 @@
                         }).done(function() {
                             // alert('Request done!');
                         });
-                    $('table th').on('click', function (e ) {
-                        var index = ($(this).index()+1);
+                    $('span.remove').on('click', function (e ) {
+                        var index = ($(this).parent().parent().index()+1);
                             if( index ==2 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
@@ -406,11 +422,11 @@
                                 console.log("hi");
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
-                                addColumn('main-tbl');
-                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                            
+                            }else if(index== 4 && !$('div.img-container').is(":not(.dropped)")){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 addColumn('main-tbl');
@@ -418,23 +434,18 @@
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index == 4){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
-                            }else if(index == 5 ){
+                            }else if(index == 3 ){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
-                                addColumn('main-tbl');
-                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
-
-                                $('th:nth-child('+index+')').remove()
-                                $('td:nth-child('+index+')').remove()
-                                // addColumn('main-tbl');
-                                dropImage();
-                            }else if(index == 3 ){
+                            }else if(index == 1){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
@@ -492,14 +503,6 @@
             }
 
         }
-        function deleteColumn(tblId) {
-            var allRows = document.getElementById(tblId).rows;
-            for (var i = 0; i < allRows.length; i++) {
-                if (allRows[i].cells.length > 1) {
-                    allRows[i].deleteCell(-1);
-                }
-            }
-        }
     </script>
     <script>
     function showNote(val){
@@ -552,25 +555,25 @@
             // console.log(terms_data);
         
         if(el.checked == true){
-                if(length==length_terms){
-                    length=length_terms;
+            if(length==length_terms){
+                length=length_terms;
+            for(var i=0; i< length ;i++){
+                var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
+            
+                label_dkbs.style.display = "inline-flex";
+            }
+            $('.selectedId').prop('checked', el.checked);
+            } 
+            if(length==length_exception){
+                length=length_exception;
                 for(var i=0; i< length ;i++){
-                    var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
+                    var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
                 
-                    label_dkbs.style.display = "inline-flex";
+                    label_dklt.style.display = "inline-flex";
                 }
-                $('.selectedId').prop('checked', el.checked);
-                } 
-                if(length==length_exception){
-                    length=length_exception;
-                    for(var i=0; i< length ;i++){
-                        var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
-                    
-                        label_dklt.style.display = "inline-flex";
-                    }
-                    $('.selectedId2').prop('checked', el.checked);
-                }
-                
+                $('.selectedId2').prop('checked', el.checked);
+            }
+            
         }else{
             if(length==length_terms){
                 for(var i=0; i< length ;i++){

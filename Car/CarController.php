@@ -9,6 +9,7 @@ use App\Punishment;
 use App\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\General;
 
 class CarController extends Controller
 {
@@ -38,6 +39,7 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
+        dd($company_id);
         $summaries  = Summary::select('company_id','terms','note_more','promotion')
                     ->where('company_id', '=', $company_id)
                     ->take(24)
@@ -60,6 +62,8 @@ class CarController extends Controller
                     ->where('company_id', '=', $company_id)
                     ->take(24)
                     ->get();//DIEU KHOAN BO SUNG
+        $rating_and_model = General::where('company_id','=',$company_id)->get();
+        dd($company_id);
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
@@ -85,7 +89,6 @@ class CarController extends Controller
 	$brand_cate = Summation::select('brand_id','cate_car','id')
                     ->where('brand_id','=',$brand_id)
 		    ->get();
-	dd(1);
         if(! $brand_cate) {
             return response()->json( array('success' => false, 'html'=>'No job ') );
         }
