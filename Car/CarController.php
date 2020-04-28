@@ -39,7 +39,8 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
-        dd($company_id);
+        $indexCol   = $request->get('indexCol');
+        dd($indexCol);
         $summaries  = Summary::select('company_id','terms','note_more','promotion')
                     ->where('company_id', '=', $company_id)
                     ->take(24)
@@ -63,7 +64,6 @@ class CarController extends Controller
                     ->take(24)
                     ->get();//DIEU KHOAN BO SUNG
         $rating_and_model = General::where('company_id','=',$company_id)->get();
-        dd($company_id);
         return response()->json([
             'success' => true,
             'summaries'    => $summaries,
