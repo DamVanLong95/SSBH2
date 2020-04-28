@@ -38,17 +38,19 @@
                     var th = $(this);
                     var img = ui.draggable;
                     var copy = img.clone();
+                    // console.log(copy[0]);
                     $(this).addClass('dropped');
                     $(copy).addClass('sized').appendTo(th);
                     $(this).addClass('img-inserted');
                     $('<span class="remove" />').text('X').appendTo(th);
                     $('span.remove', th).show();
-
+                    $('sized').draggable({ disabled: true });
+                   
                     $('#checkbox_'+idImg+'').prop("checked", true);
                     if($('#checkbox_'+idImg+'').prop("checked") == true){
                         $('#'+idImg+'').draggable({ disabled: true });
                     }
-                
+                    $('#'+idImg+'').draggable({ disabled: true });
                     var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
@@ -420,11 +422,11 @@
                                 console.log("hi");
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
-                                addColumn('main-tbl');
-                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                            
+                            }else if(index== 4 && !$('div.img-container').is(":not(.dropped)")){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 addColumn('main-tbl');
@@ -432,23 +434,18 @@
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index == 4){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
-                            }else if(index == 5 ){
+                            }else if(index == 3 ){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
-                                addColumn('main-tbl');
-                                dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
-                            }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
-
-                                $('th:nth-child('+index+')').remove()
-                                $('td:nth-child('+index+')').remove()
-                                // addColumn('main-tbl');
-                                dropImage();
-                            }else if(index == 3 ){
+                            }else if(index == 1){
+                                index = parseInt(index) + 1;
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
@@ -503,14 +500,6 @@
             }
             }
 
-        }
-        function deleteColumn(tblId) {
-            var allRows = document.getElementById(tblId).rows;
-            for (var i = 0; i < allRows.length; i++) {
-                if (allRows[i].cells.length > 1) {
-                    allRows[i].deleteCell(-1);
-                }
-            }
         }
     </script>
     <script>
