@@ -181,10 +181,10 @@
                                         </tr>
                                     </div>
                                     
-                                    <tr class="green1">
+                                    <tr class="green1 sub-ctn2">
                                         <td  colspan="2" class="green_header">Tính phí</td>
                                     </tr>
-                                    <tr class="tool-ctn">
+                                    <tr class="tool-ctn sub-ctn3">
                                         <td colspan="2" id="select_box">
                                             <div class="select-ctn">
                                                 <div class="selection-box">
@@ -228,12 +228,12 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="data-detail price-discount">
-                                        <td><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
+                                    <tr class="data-detail price-discount sub-ctn4">
+                                        <td class="td-discount"><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
                                         <td rowspan="2"></td>
                                     </tr>
-                                    <tr class="data-detail price-discount">
-                                        <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
+                                    <tr class="data-detail price-discount sub-ctn5">
+                                        <td class="td-discount"><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                     </tr>
                                     <tr class="header green1 bg-head-1 fixed-header">
                                         <td  colspan="2" class="green_header">Điều khoản bổ sung
@@ -250,19 +250,21 @@
                                         </td>
                                         <td class="td-all"></td>
                                     </tr>
-                                @foreach($terms_data as $key=>$value)  
-                                    <tr class="data-detail ">
-                                        <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
-                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                            <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
-                                        </td>
-                                        <td>
+                                    <div class="dkbh-ctn">
+                                        @foreach($terms_data as $key=>$value)  
+                                            <tr class="data-detail ">
+                                                <td>
+                                                    <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
+                                                    <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
+                                                    <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                                    <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
+                                                </td>
+                                                <td>
 
-                                        </td>
-                                    </tr>
-                                @endforeach  
+                                                </td>
+                                            </tr>
+                                        @endforeach  
+                                    </div>
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                     </tr>
