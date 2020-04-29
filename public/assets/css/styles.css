@@ -5562,7 +5562,7 @@ footer .footer-ctn .footer-nav li a {
   z-index: 1;
   margin: auto;
   overflow: auto;
-  height: 950px;
+  height: 123vh;
 }
 
 .table-scroll::-webkit-scrollbar-track {
