@@ -13,8 +13,8 @@
                         trs.hide();
                         trs.slice(0, 5).show(); 
             if($('#'+nameId+'').length == 0 ){
-                $(rows[length]).after('<tr class="more" id="'+nameId+'"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-                numMore + '</span> More</div</td></tr>');
+                $(rows[length]).after('<tr class="more" id="'+nameId+'"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+                 '</span></div</td></tr>');
             }
             $('#'+nameId+'').click(function() {
                 $('#'+selector+'').slice(0, currentIndex + 5).show();

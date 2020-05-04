@@ -1,4 +1,4 @@
-\<!-- <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script> -->
+<!-- <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 
 
@@ -121,7 +121,7 @@
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                          for(var i=42; i<51 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            tds.style = "p-wrap";
+                            // tds.style = "p-wrap";
                             if(longevities[i-5]['content']!=null){
                                 tds.innerHTML =  '<p class="text">'+longevities[i-5]['content']+'</p>';
                             }

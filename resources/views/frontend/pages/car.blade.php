@@ -442,17 +442,17 @@
         // console.log(rows);
         var length = <?php echo count($terms_data)?>;
         var length_permission = <?php echo count($permission)?>;
-        $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-               numMore + '</span> More</div</td></tr>');
-        $(rows[65]).after('<tr class="more" id="more_exc"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-            numMore + '</span> More</div</td></tr>');
+        $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+               '</span></div</td></tr>');
+        $(rows[65]).after('<tr class="more" id="more_exc"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+            '</span></div</td></tr>');
         
-        $(rows[85]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-        numMore + '</span> More</div</td></tr>');
-        $(rows[112]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-        numMore + '</span> More</div</td></tr>');
-        $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-        numMore + '</span> More</div</td></tr>');
+        $(rows[85]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        '</span></div</td></tr>');
+        $(rows[112]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        '</span></div</td></tr>');
+        $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        '</span></div</td></tr>');
     });
     $(function(){
         $('#brand').change(function() {
@@ -500,22 +500,24 @@
    
     });
     $(document).ready(function() {
-
+        if (screen.height > screen.width){
+            alert("Please use Landscape!");
+        }
     $(window).scroll(function(e){
         var scrollTop = $(window).scrollTop();
         var docHeight = $(document).height();
         var winHeight = $(window).height();
         var scrollPercent = (scrollTop) / (docHeight - winHeight);
         var scrollPercentRounded = Math.round(scrollPercent*100);
-
+        
         // console.log("scroll position", scrollPercentRounded)
-        if( scrollPercentRounded >= 12 ){
-            $(".top-head").addClass("fix-position");
-            $(".sub-ctn").addClass("fix-position");
-        }else{
-            $(".top-head").removeClass("fix-position");
-            $(".sub-ctn").removeClass("fix-position");
-        }
+        // if( scrollPercentRounded >= 12 ){
+        //     $(".top-head").addClass("fix-position");
+        //     $(".sub-ctn").addClass("fix-position");
+        // }else{
+        //     $(".top-head").removeClass("fix-position");
+        //     $(".sub-ctn").removeClass("fix-position");
+        // }
     });
 });
 
