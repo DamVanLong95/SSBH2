@@ -42,40 +42,46 @@
     .sub-head td{
         position: -webkit-sticky;
         position: sticky;
-        top: 17%;
+        top: 163px;
         z-index: 8;
         background-color: #f5f5f5;
     }
     .sub-head td.th-2{
         position: -webkit-sticky;
         position: sticky;
-        top: 17%;
+        top: 163px;
         z-index: 8;
     }
     .sub-ctn2 td{
         position: -webkit-sticky;
         position: sticky;
-        top: 20.8%;
+        top: 198px;
         z-index: 8 !important;
         background-color: #f5f5f5;
     }
     .sub-ctn3 td{
         position: -webkit-sticky;
         position: sticky;
-        top: 27%;
+        top: 259px;
         z-index: 8 !important;
     }
     .sub-ctn4 td{
         position: -webkit-sticky;
         position: sticky;
-        top: 33%;
+        top: 316px;
         z-index: 8 !important;
+        @media (max-width: 991px) {
+            top: 340px;
+        }
     }
     .sub-ctn5 td{
         position: -webkit-sticky;
         position: sticky;
-        top: 37%;
+        top: 354px;
         z-index: 8 !important;
+        @media (max-width: 991px) {
+            top: 377px;
+        }
     }
     /* safari and ios need the tfoot itself to be position:sticky also */
     .table-scroll tfoot,
