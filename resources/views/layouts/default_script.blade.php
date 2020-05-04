@@ -40,7 +40,6 @@
                         var nameId ='more';
                         var visible=  "main-tbl .term:visible";
                         showMore(length,selector,nameId,visible);
-                       
                     }
                     //==================== DIEU_KHOAN_LOAI_TRU========
                     if(event.target.matches('.exception')){
