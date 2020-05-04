@@ -236,7 +236,7 @@
                                         <td class="td-discount"><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                     </tr>
                                     <tr class="header green1 bg-head-1 fixed-header">
-                                        <td  colspan="2" class="green_header">Điều khoản bổ sung
+                                        <td  colspan="2" class="green_header term_header">Điều khoản bổ sung
 
                                         </td>
                                         
@@ -250,16 +250,15 @@
                                         </td>
                                         <td class="td-all"></td>
                                     </tr>
-                                    <div class="dkbh-ctn">
-                                        @foreach($terms_data as $key=>$value)  
-                                            <tr class="data-detail ">
-                                                <td>
-                                                    <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
-                                                    <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                                    <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                                    <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
-                                                </td>
-                                                <td>
+                                @foreach($terms_data as $key=>$value)  
+                                    <tr class="data-detail term">
+                                        <td>
+                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
+                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                            <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
+                                        </td>
+                                        <td>
 
                                                 </td>
                                             </tr>
@@ -278,7 +277,7 @@
                                         </td> -->
                                     </tr>
                                     <tr class="header green1 bg-head-2">
-                                        <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
+                                        <td  colspan="2" class="green_header exception">Điều khoản loại trừ</td>
                                         <tr class="select-all">
                                         <td class="td-all" >
                                             <div class="choose-all">
@@ -291,7 +290,7 @@
                                     </tr>
                                     </tr>
                                     @foreach($exception_data as $value)
-                                    <tr class="data-detail ">
+                                    <tr class="data-detail dklt">
                                         <td>
                                             <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
                                                     name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
@@ -303,25 +302,25 @@
                                     </tr>
                                     @endforeach
                                     <tr class="header">
-                                        <td  colspan="2" class="green_header">Chế tài trong các trường hợp</td>
+                                        <td  colspan="2" class="green_header punishment">Chế tài trong các trường hợp</td>
                                     </tr>
                                     @foreach($punishment as $value)
-                                    <tr class="data-detail ">
+                                    <tr class="data-detail ctai">
                                         <td><p class="ellipsis">{{$value['sanction']}}</p></td>
                                         <td></td>
                                     </tr>
                                     @endforeach
                                     <tr class="header green1 green">
-                                        <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
+                                        <td  colspan="2" class="green_header permission">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                     </tr>
                                     @foreach($permission as $value)
-                                    <tr class="data-detail  ">
+                                    <tr class="data-detail nv ">
                                         <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
                                         <td></td>
                                     </tr>
                                     @endforeach
                                     <tr class="header bg-head-3">
-                                        <td  colspan="2" class="green_header">Năng lực tài chính</td>
+                                        <td  colspan="2" class="green_header finances">Năng lực tài chính</td>
                                     </tr>
                                     <tr class="select-all">
                                         <td class="td-all" colspan="2">
@@ -329,7 +328,7 @@
                                         </td>
                                     </tr>
                                     @foreach($finances as $value)
-                                    <tr class="data-detail " >
+                                    <tr class="data-detail nltc" >
                                         <td><p class="ellipsis">{{$value['finance']}}</p></td>
                                         <td></td>
                                     </tr>
@@ -437,34 +436,23 @@
     }
     $(function(){
         var numShown = 5;
-        var numMore = 19;  
+        var numMore = 5;  
         var table  = document.getElementById('main-tbl');
-        var  rows   = table.tBodies[0].rows;
+        var rows   = table.tBodies[0].rows;
+        // console.log(rows);
         var length = <?php echo count($terms_data)?>;
         var length_permission = <?php echo count($permission)?>;
-        for( var i=7+numShown; i<= length+6 ;i++)
-            $(rows[i]).hide();
         $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
                numMore + '</span> More</div</td></tr>');
-        $('#more').click(function() {
-            $('#more').remove();
-            for(var i=7+numShown;i<=length+6;i++)
-            $( rows[i]) .show();
-         });
-        for(var i=40; i<66;i++ )
-         $(rows[i]).hide();
-         $(rows[65]).after('<tr class="more" id="more_2"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
-               numMore + '</span> More</div</td></tr>');
-         $('#more_2').click(function() {
-            $('#more_2').remove();
-            for(var i=40;i<=66;i++)
-                $( rows[i]) .show();
-         });
-        //  console.log("line 476",rows[88]);
-        //  for(var i=85; i<68+24;i++ )
-        //  $(rows[i]).hide();
-        //  $(rows[111]).after('<tr id="more_3"><td colspan="2"><div style="color:blue">Show <span>' +
-        //        numMore + '</span> More</div</td></tr>');
+        $(rows[65]).after('<tr class="more" id="more_exc"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+            numMore + '</span> More</div</td></tr>');
+        
+        $(rows[85]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+        numMore + '</span> More</div</td></tr>');
+        $(rows[112]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+        numMore + '</span> More</div</td></tr>');
+        $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+        numMore + '</span> More</div</td></tr>');
     });
     $(function(){
         $('#brand').change(function() {
@@ -520,7 +508,7 @@
         var scrollPercent = (scrollTop) / (docHeight - winHeight);
         var scrollPercentRounded = Math.round(scrollPercent*100);
 
-        console.log("scroll position", scrollPercentRounded)
+        // console.log("scroll position", scrollPercentRounded)
         if( scrollPercentRounded >= 12 ){
             $(".top-head").addClass("fix-position");
             $(".sub-ctn").addClass("fix-position");
