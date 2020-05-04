@@ -18,7 +18,6 @@
 @stop
 
 @section('content')
-
 <div id="app">
     <div class="compare-section">
         <div class="container">
@@ -129,7 +128,8 @@
         </div>
     </div>
     <div class="table-section ">
-        <div class="container">
+        
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn ">
@@ -157,30 +157,34 @@
                                         </th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
-                                    <tr class="sub-head">
-                                        <td class="th-2">
-                                            <div class="star-ctn">
-                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
-                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="count-rank-ctn">
-                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
-                                                <div class="service">
-                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                    <div class="sub-ctn">
+                                        <tr class="sub-head">
+                                            <td class="th-2">
+                                                <div class="star-ctn">
+                                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
+                                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
+                                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="green1">
+                                            </td>
+                                            <td>
+                                                <div class="count-rank-ctn">
+                                                    <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                    <div class="service">
+                                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </div>
+                                    
+                                    <tr class="green1 sub-ctn2">
                                         <td  colspan="2" class="green_header">Tính phí</td>
                                     </tr>
-                                    <tr class="tool-ctn">
+                                    <tr class="tool-ctn sub-ctn3">
                                         <td colspan="2" id="select_box">
                                             <div class="select-ctn">
                                                 <div class="selection-box">
@@ -224,40 +228,43 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="data-detail price-discount">
-                                        <td><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
+                                    <tr class="data-detail price-discount sub-ctn4">
+                                        <td class="td-discount"><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
                                         <td rowspan="2"></td>
                                     </tr>
-                                    <tr class="data-detail price-discount">
-                                        <td><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
+                                    <tr class="data-detail price-discount sub-ctn5">
+                                        <td class="td-discount"><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
                                     </tr>
-                                    <tr class="header bg-head-1 fixed-header">
+                                    <tr class="header green1 bg-head-1 fixed-header">
                                         <td  colspan="2" class="green_header">Điều khoản bổ sung
 
                                         </td>
                                         
                                     </tr>
                                     <tr class="select-all">
-                                        <td class="td-all">
+                                        <td class="td-all" >
                                             <div class="choose-all">
                                                 <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="handleAll(this,{{count($terms_data)}})" >
                                                 <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                             </div>
                                         </td>
+                                        <td class="td-all"></td>
                                     </tr>
-                                @foreach($terms_data as $key=>$value)  
-                                    <tr class="data-detail ">
-                                        <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
-                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
-                                            <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
-                                        </td>
-                                        <td>
+                                    <div class="dkbh-ctn">
+                                        @foreach($terms_data as $key=>$value)  
+                                            <tr class="data-detail ">
+                                                <td>
+                                                    <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
+                                                    <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
+                                                    <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                                    <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
+                                                </td>
+                                                <td>
 
-                                        </td>
-                                    </tr>
-                                @endforeach  
+                                                </td>
+                                            </tr>
+                                        @endforeach  
+                                    </div>
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                     </tr>
@@ -270,16 +277,17 @@
                                         <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
                                         </td> -->
                                     </tr>
-                                    <tr class="header bg-head-2">
+                                    <tr class="header green1 bg-head-2">
                                         <td  colspan="2" class="green_header">Điều khoản loại trừ</td>
                                         <tr class="select-all">
-                                        <td>
+                                        <td class="td-all" >
                                             <div class="choose-all">
                                                 
                                                 <input type="checkbox" id="selectall_lt" name="selectall_lt" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
                                                 <label class="toggle" for="selectall_lt">Chọn tất cả</label>
                                             </div>
                                         </td>
+                                        <td class="td-all"></td>
                                     </tr>
                                     </tr>
                                     @foreach($exception_data as $value)
@@ -303,7 +311,7 @@
                                         <td></td>
                                     </tr>
                                     @endforeach
-                                    <tr class="header green">
+                                    <tr class="header green1 green">
                                         <td  colspan="2" class="green_header">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
                                     </tr>
                                     @foreach($permission as $value)
@@ -316,7 +324,7 @@
                                         <td  colspan="2" class="green_header">Năng lực tài chính</td>
                                     </tr>
                                     <tr class="select-all">
-                                        <td class="td-all">
+                                        <td class="td-all" colspan="2">
                                             Đơn vị: triệu đồng
                                         </td>
                                     </tr>
@@ -326,7 +334,7 @@
                                         <td></td>
                                     </tr>
                                     @endforeach
-                                    <tr class="header bg-head-4">
+                                    <tr class="header green1 bg-head-4">
                                         <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                     </tr>
                                     <tr class="data-detail ">
@@ -365,7 +373,7 @@
                                         <td>Top 10 DNBH uy tín 2018</td>
                                         <td></td>
                                     </tr>
-                                    <tr class="header green">
+                                    <tr class="header green1 green">
                                         <td  colspan="2" class="green_header">Mô hình GQBT</td>
                                     </tr>
                                     <tr class="data-detail">
@@ -436,7 +444,7 @@
         var length_permission = <?php echo count($permission)?>;
         for( var i=7+numShown; i<= length+6 ;i++)
             $(rows[i]).hide();
-        $(rows[length+6]).after('<tr id="more"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+        $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
                numMore + '</span> More</div</td></tr>');
         $('#more').click(function() {
             $('#more').remove();
@@ -445,7 +453,7 @@
          });
         for(var i=40; i<66;i++ )
          $(rows[i]).hide();
-         $(rows[65]).after('<tr id="more_2"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+         $(rows[65]).after('<tr class="more" id="more_2"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
                numMore + '</span> More</div</td></tr>');
          $('#more_2').click(function() {
             $('#more_2').remove();
@@ -503,12 +511,27 @@
 
    
     });
+    $(document).ready(function() {
 
-//     $('.open').click(function(){
-//   $(this).toggleClass("show hide");
-//   $('.content').toggleClass("show hide");
-// });
+    $(window).scroll(function(e){
+        var scrollTop = $(window).scrollTop();
+        var docHeight = $(document).height();
+        var winHeight = $(window).height();
+        var scrollPercent = (scrollTop) / (docHeight - winHeight);
+        var scrollPercentRounded = Math.round(scrollPercent*100);
 
+        console.log("scroll position", scrollPercentRounded)
+        if( scrollPercentRounded >= 12 ){
+            $(".top-head").addClass("fix-position");
+            $(".sub-ctn").addClass("fix-position");
+        }else{
+            $(".top-head").removeClass("fix-position");
+            $(".sub-ctn").removeClass("fix-position");
+        }
+    });
+});
+
+   
 $('.close').click(function(){
   $('.content').toggleClass("show hide");
   $('.open').toggleClass("show hide");
