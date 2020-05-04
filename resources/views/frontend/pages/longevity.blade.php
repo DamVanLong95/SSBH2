@@ -402,7 +402,7 @@
                                         <td class="td-all"></td>
                                     </tr>
                                    
-                                    @for($i=7;$i < count($data['benifits']); $i++)
+                                    @for($i=5;$i < count($data['benifits']); $i++)
                                     <tr class="data-detail ">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
@@ -451,8 +451,8 @@
                                         <td></td>
                                     </tr> -->
                                    
-                                    <tr class="header ">
-                                        <td  colspan="2" class="green_header">Các loại phí</td>
+                                    <tr class="header " id="type_price">
+                                        <td  colspan="2" class="green_header" >Các loại phí</td>
                                     </tr>
                                     @for($i =29 ; $i < 36 ; $i++)
                                     <tr class="data-detail">
