@@ -68,7 +68,7 @@
                     }
                     //====================NANG LUC TAI CHINH================
                     if(event.target.matches('.finances')){
-                        var length = 131;
+                        var length = 132;
                         var selector = "main-tbl .nltc";
                         var nameId ='more_finance';
                         var visible=  "main-tbl .nltc:visible";
@@ -379,9 +379,7 @@
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
-                                // tds = tblBodyObj.rows[].cells[indexCol]; 
-                                //    console.log(tds);
-                                for(var i=89;i<88+permissions.length;i++){
+                                for(var i=89;i<=112;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     // console.log(tds);
                                     if(permissions[i-89]['rate_star_nv']== 3)
@@ -405,24 +403,23 @@
                                     else{
                                         if(permissions[i-89]['note_rule']=== 'x')
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`
+                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
                                     }
                                    
                                 } 
                                 //=================Năng lực tài chính==================
-                                tds = tblBodyObj.rows[114].cells[indexCol]; 
-                                for(var i =114; i<114+finances.length;i++){
+                                for(var i =116; i<=132;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-114]['money'],0)+`</p>`
+                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-116]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
                                 // console.log(rating_and_model);
-                                var tds = tblBodyObj.rows[135].cells[indexCol];
+                                var tds = tblBodyObj.rows[138].cells[indexCol];
                                 if(rating_and_model.rating_agency === 'x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //============= MO HINH ============
-                                var tds = tblBodyObj.rows[137].cells[indexCol];
-                                var tdss = tblBodyObj.rows[138].cells[indexCol];
+                                var tds = tblBodyObj.rows[140].cells[indexCol];
+                                var tdss = tblBodyObj.rows[141].cells[indexCol];
                                 //console.log(tds);
                                 if(rating_and_model.business_focused ==='x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;

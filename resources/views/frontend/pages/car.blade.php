@@ -433,12 +433,12 @@
         var label_bs = document.getElementById('dkbs'+index+'');
         (checkBox_bs.checked==true)  ?  label_bs.style.display = "inline-flex":  label_bs.style.display = "none";;
     }
-    // $(function(){
+    $(function(){
         var numShown = 5;
         var numMore = 5;  
         var table  = document.getElementById('main-tbl');
         var rows   = table.tBodies[0].rows;
-        console.log(rows);
+        // console.log(rows);
         var length = <?php echo count($terms_data)?>;
         var length_permission = <?php echo count($permission)?>;
         $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
@@ -450,9 +450,9 @@
         numMore + '</span> More</div</td></tr>');
         $(rows[112]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
         numMore + '</span> More</div</td></tr>');
-        $(rows[131]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+        $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
         numMore + '</span> More</div</td></tr>');
-    // });
+    });
     $(function(){
         $('#brand').change(function() {
            
