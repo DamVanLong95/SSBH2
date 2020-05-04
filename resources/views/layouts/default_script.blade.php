@@ -3,11 +3,84 @@
 
 
     <script>
+        function showMore(length,selector,nameId,visible){
+            var currentIndex = 5;
+            var numMore = 5;  
+            var table  = document.getElementById('main-tbl');
+            var rows   = table.tBodies[0].rows;
+            var trs = $('#'+selector+'');
+            var trsLength = trs.length;
+                        trs.hide();
+                        trs.slice(0, 5).show(); 
+            if($('#'+nameId+'').length == 0 ){
+                $(rows[length]).after('<tr class="more" id="'+nameId+'"><td class="green_header" colspan="2"><div style="color:blue">Show <span>' +
+                numMore + '</span> More</div</td></tr>');
+            }
+            $('#'+nameId+'').click(function() {
+                $('#'+selector+'').slice(0, currentIndex + 5).show();
+                currentIndex +=5;
+                checkButton();
+            });
+                    
+            function checkButton(){
+                var currentLength = $('#'+visible+'').length;
+                if (currentLength >= trsLength) $('#'+nameId+'').remove(); 
+                else   $('#'+nameId+'').show();   
+            }
+        }
         $(document).ready(function() {
-        $('.header').click(function(){
-            $(this).toggleClass('colapse-head','').nextUntil('tr.header').slideToggle(100);
-        });
-    })
+            var element = document.getElementsByClassName('header');
+            for (var i = 0; i < element.length; i++){
+                element[i].addEventListener('click', function (event) {
+                    $(this).toggleClass('colapse-head').nextUntil('tr.header').slideToggle(100);
+                    //====== DIEU KHOAN BO SUNG============
+                    if(event.target.matches('.term_header') ){
+                        var length = <?php echo count($terms_data)?>;
+                        var selector = "main-tbl .term";
+                        var nameId ='more';
+                        var visible=  "main-tbl .term:visible";
+                        showMore(length,selector,nameId,visible);
+                       
+                    }
+                    //==================== DIEU_KHOAN_LOAI_TRU========
+                    if(event.target.matches('.exception')){
+                        var length = 65;
+                        var selector = "main-tbl .dklt";
+                        var nameId ='more_exc';
+                        var visible=  "main-tbl .dklt:visible";
+                        showMore(length,selector,nameId,visible);
+                    }
+                     //====================CHE TAI===================
+                    if(event.target.matches('.punishment')){
+                        var length = 85;
+                        var selector = "main-tbl .ctai";
+                        var nameId ='more_punish';
+                        var visible=  "main-tbl .ctai:visible";
+                        showMore(length,selector,nameId,visible);
+                    }
+                     //====================Quyen va nghia vu=========
+                    if(event.target.matches('.permission')){
+                        var length = 112;
+                        var selector = "main-tbl .nv";
+                        var nameId ='more_permiss';
+                        var visible=  "main-tbl .nv:visible";
+                        showMore(length,selector,nameId,visible);
+                    }
+                    //====================NANG LUC TAI CHINH================
+                    if(event.target.matches('.finances')){
+                        var length = 132;
+                        var selector = "main-tbl .nltc";
+                        var nameId ='more_finance';
+                        var visible=  "main-tbl .nltc:visible";
+                        showMore(length,selector,nameId,visible);
+                    }
+                }, false);
+            };
+
+           
+
+        })
+        
     </script>
 
 
@@ -183,10 +256,12 @@
                                     $('#price_'+indexCol+'').text((price_car));
                                         
                                 });
+                                //==============DIEU KHOAN BO SUNG============================
+                              
                                 var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
                                     max_rows_terms  =terms_data.length+7;
                                 for (var i = 7; i < max_rows_terms; i++) {
-                                    tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
+                                    // tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     var imgGray  =`{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}`;
                                     var imgOrange = ` {{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}`;
@@ -225,6 +300,8 @@
                                     }
                                     
                                 }
+                                //===============MUC KHAU TRU===============================
+
                                 var i= max_rows_terms+2;
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
                                 if(deductible[0]['note_dkkt']=== "x")
@@ -275,8 +352,10 @@
                                         `;
                                     }
                                 }
-                                for(var i=68;i <= 86 ;i++){
+                                  //===============CHE TAI===============================
+                                for(var i=68;i < 86 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                   
                                     if(punishment[i-68]['rate_star_ct']== 3)
                                     {
                                         tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
@@ -300,50 +379,47 @@
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
-                                // tds = tblBodyObj.rows[].cells[indexCol]; 
-                                //    console.log(tds);
-                                for(var i=88;i<88+permissions.length;i++){
+                                for(var i=89;i<=112;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    
-                                    if(permissions[i-88]['rate_star_nv']== 3)
+                                    // console.log(tds);
+                                    if(permissions[i-89]['rate_star_nv']== 3)
                                     {
                                         tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                     `<div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div> `;
-                                    }else if(permissions[i-88]['rate_star_nv']== 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`+`
+                                    }else if(permissions[i-89]['rate_star_nv']== 5){
+                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                         </div> `;
                                     
-                                    }else if(permissions[i-88]['rate_star_nv']== 2){
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-88]['note_rule']+`</p>`+`
+                                    }else if(permissions[i-89]['rate_star_nv']== 2){
+                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                         </div> `;
                                     }
                                     else{
-                                        if(permissions[i-88]['note_rule']=== 'x')
+                                        if(permissions[i-89]['note_rule']=== 'x')
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-88]['note_rule']!=null?permissions[i-88]['note_rule']:''+`</p>`
+                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
                                     }
                                    
                                 } 
                                 //=================Năng lực tài chính==================
-                                tds = tblBodyObj.rows[114].cells[indexCol]; 
-                                for(var i =114; i<114+finances.length;i++){
+                                for(var i =116; i<=132;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-114]['money'],0)+`</p>`
+                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-116]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
                                 // console.log(rating_and_model);
-                                var tds = tblBodyObj.rows[135].cells[indexCol];
+                                var tds = tblBodyObj.rows[138].cells[indexCol];
                                 if(rating_and_model.rating_agency === 'x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //============= MO HINH ============
-                                var tds = tblBodyObj.rows[137].cells[indexCol];
-                                var tdss = tblBodyObj.rows[138].cells[indexCol];
+                                var tds = tblBodyObj.rows[140].cells[indexCol];
+                                var tdss = tblBodyObj.rows[141].cells[indexCol];
                                 //console.log(tds);
                                 if(rating_and_model.business_focused ==='x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
