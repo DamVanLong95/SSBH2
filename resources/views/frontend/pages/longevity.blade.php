@@ -254,7 +254,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bottom-head data-detail">
+                                    <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf">
                                             Tương lai vững vàng
