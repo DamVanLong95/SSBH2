@@ -225,7 +225,7 @@
                     }
 
                     th:first-child {
-                        border-bottom: 0px;
+                        border-bottom: 0px ;
                     }
                     th.th-1 {
                         // display: flex;
@@ -272,16 +272,19 @@
             tbody {
                 .sub-head {
                     td {
-                        border-bottom: 1px solid $main-color;
+                        border-bottom: 1px solid $main-color ;
                         border-right: 1px solid $main-color;
                     }
                     td:first-child {
                         // border-left: 0px;
+                        border-collapse: separate; /* Don't collapse */
+                        border-spacing: 0;
                     }
                     td:last-child {
                         // border-right: 0px;
                     }
                     td.th-2 {
+                        border-bottom: 1px solid $main-color !important;
                         .star-ctn {
                             display: flex;
                             justify-content: space-around;
@@ -558,7 +561,6 @@
                    
                 }
                 td.first-select-cf{
-                    border: none;
                     border-bottom: 1px solid $main-color;
                 }
                 td.health-select-cf{
@@ -598,6 +600,14 @@
             }
             tr.select-all:not(.header) {
                 display: none;
+            }
+            tr.data-detail-cf {
+                td{
+                    border: 1px solid $main-color;
+                }
+                td.first-select-cf{
+                    border: none;
+                }
             }
             tr.network {
                 // td:hover {
