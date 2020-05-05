@@ -66,9 +66,7 @@
                         var th =  myTable.rows[1].cells[indexCol];
                         var ths =  myTable.rows[2].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
-
                         th.innerHTML = data.product_name.name;
-
                         var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                         var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
@@ -100,12 +98,10 @@
                           
                          }
                          //  ===========San Pham bo tro==================
-                        const row_bt   = document.getElementById('product_bt');
-                        var indexRow = row_bt.rowIndex;
-                        for(var i=indexRow; i<indexRow+4 ;i++){
+                        for(var i=33; i<=36 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p class="text">`+longevities[i-5]['content']+`</p>`;
+                            if(longevities[i-9]['content']!=null){
+                                tds.innerHTML =  `<p class="text">`+longevities[i-9]['content']+`</p>`;
                             }
                           
                          }
@@ -123,7 +119,8 @@
                          }
                            //  ===========Loai tru bao hiem========================
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                         for(var i=46; i<=54 ;i++){
+                         console.log(longevities);
+                         for(var i=47; i<=57 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             // tds.style = "p-wrap";
                             if(longevities[i-10]['content']!=null){

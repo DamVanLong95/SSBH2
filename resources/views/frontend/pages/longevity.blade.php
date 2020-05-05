@@ -463,7 +463,7 @@
                                     <tr class="header green1 bg-head-3">
                                         <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                     </tr>
-                                    @for($i =39 ; $i < 48 ; $i++)
+                                    @for($i =36; $i < 48 ; $i++)
                                     <tr class="data-detail">
                                         <td><p class="ellipsis">{{$products[$i]['comparison']}}</p></td>
                                         <td></td>

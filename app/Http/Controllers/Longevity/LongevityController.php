@@ -26,7 +26,6 @@ class LongevityController extends Controller
                     ->take(23)
                     ->get();//quyen loi san pham
                     // dd($benifits);
-                    // dd($benifits);
         $benifits_more =  Longevity::select('product_id','comparison')
                             ->take(28)
                             ->get();//quyen loi san pham
