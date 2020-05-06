@@ -683,8 +683,49 @@ tr.select-all td .choose-all .lt-ie9 .selectedAll.checked + label::after {
   box-shadow: 0 1px 1px #dfecf4;
 }
 
-.block-main-menu {
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table th {
+  /* Apply both top and bottom borders to the <th> */
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+table td {
+  /* For cells, apply the border to one of each side only (right but not left, bottom but not top) */
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 0px solid #ccc !important;
+}
+
+table th:first-child,
+table td:first-child {
+  /* Apply a left border on the first <td> or <th> in a row */
+  border-left: 1px solid #ccc;
+}
+
+table thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #edecec;
+}
+
+.disable-scroll {
+  overflow: hidden;
+}
+
+.fix-position {
   position: fixed;
+  top: 10px;
+  z-index: 999;
+}
+
+.block-main-menu {
   top: 0;
   left: 0;
   right: 0;
@@ -1008,7 +1049,7 @@ tr.select-all td .choose-all .lt-ie9 .selectedAll.checked + label::after {
 
 footer {
   background-color: #0d723b;
-  padding: 40px 0;
+  padding: 0;
 }
 
 footer .logo_ft {
@@ -2255,6 +2296,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section table {
+  table-layout: auto;
   border-spacing: 2%;
 }
 
@@ -2284,7 +2326,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section #layout-area .table .green1 {
   background-color: #0d723b;
   color: #fff;
-  height: 65px;
+  height: 60px;
   font-family: UTM_Helve;
   text-transform: uppercase;
 }
@@ -2295,10 +2337,10 @@ footer .footer-ctn .footer-nav li a {
   position: sticky;
   left: 0;
   color: white !important;
+  padding: 15px 15px;
 }
 
 .table-section #layout-area .table td.green_header {
-  background-color: white;
   color: #000;
 }
 
@@ -2417,36 +2459,13 @@ footer .footer-ctn .footer-nav li a {
   margin-bottom: 0;
 }
 
-.table-section #layout-area .table tbody tr.bg-head-1 td {
-  background-image: url("../images/car/bg1.png") !important;
-  background-repeat: no-repeat;
-  color: white !important;
-}
-
-.table-section #layout-area .table tbody tr.bg-head-2 td {
-  background-image: url("../images/car/bg2.png") !important;
-  background-repeat: no-repeat;
-  color: white !important;
-}
-
-.table-section #layout-area .table tbody tr.bg-head-3 td {
-  background-image: url("../images/car/bg3.png") !important;
-  background-repeat: no-repeat;
-  color: white !important;
-}
-
-.table-section #layout-area .table tbody tr.bg-head-4 td {
-  background-image: url("../images/car/bg4.png") !important;
-  background-repeat: no-repeat;
-  color: white !important;
-}
-
 .table-section #layout-area .table tbody tr.header {
-  height: 65px;
+  height: 60px;
   position: relative;
   font-weight: bold;
   border-top: 1px solid #ccc;
   font-family: UTM_Helve;
+  background-color: #f2f2f3;
   text-transform: uppercase;
   cursor: pointer;
   -webkit-user-select: none;
@@ -2465,6 +2484,7 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section #layout-area .table tbody tr.header td {
   position: relative;
+  padding: 15px 15px;
 }
 
 .table-section #layout-area .table tbody tr.header td:after {
@@ -2475,7 +2495,7 @@ footer .footer-ctn .footer-nav li a {
   height: 16px;
   margin-top: -8px;
   font: 16px fontawesome;
-  color: #000;
+  color: #bcbec0;
   content: "\f0d8";
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
@@ -2767,6 +2787,22 @@ footer .footer-ctn .footer-nav li a {
           box-shadow: none;
 }
 
+.table-section #layout-area .table tr.data-detail:not(.header) {
+  display: none;
+}
+
+.table-section #layout-area .table tr.select-all:not(.header) {
+  display: none;
+}
+
+.table-section #layout-area .table tr.more:not(.header) {
+  display: none;
+}
+
+.table-section #layout-area .table tr.price-discount:not(.header) {
+  display: table-row;
+}
+
 .table-section #layout-area .table tr.price-discount td {
   background-color: #fff;
   padding: 0;
@@ -2786,7 +2822,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section #layout-area .table tr.price-discount td .btn-discount:hover {
   background-color: #f36f21;
   font-family: UTM_HelveBold;
-  color: #000;
+  color: #fff;
 }
 
 .table-section #layout-area .table tr.price-discount .active {
@@ -3961,7 +3997,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section-sk #layout-area .table .green1 {
   background-color: #0d723b;
   color: #fff;
-  height: 65px;
+  height: 60px;
   font-family: UTM_Helve;
   text-transform: uppercase;
 }
@@ -3971,10 +4007,8 @@ footer .footer-ctn .footer-nav li a {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
-}
-
-.table-section-sk #layout-area .table td.green_header {
-  background-color: white;
+  color: white !important;
+  padding: 15px 15px;
 }
 
 .table-section-sk #layout-area .table .green {
@@ -4094,50 +4128,13 @@ footer .footer-ctn .footer-nav li a {
   margin-bottom: 0;
 }
 
-.table-section-sk #layout-area .table tbody tr.bg-head-1 {
-  background-repeat: no-repeat;
-  color: white;
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-1 td {
-  background-image: url("../images/health/bg1.png");
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-2 {
-  background-image: url("../images/health/bg2.png");
-  background-repeat: no-repeat;
-  color: white;
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-2 td {
-  background-image: url("../images/health/bg2.png");
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-3 {
-  background-repeat: no-repeat;
-  color: white;
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-3 td {
-  background-image: url("../images/health/bg2.png");
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-4 {
-  background-image: url("../images/car/bg4.png");
-  background-repeat: no-repeat;
-  color: white;
-}
-
-.table-section-sk #layout-area .table tbody tr.bg-head-4 td {
-  background-image: url("../images/car/bg4.png");
-}
-
 .table-section-sk #layout-area .table tbody tr.header {
-  height: 65px;
+  height: 60px;
   position: relative;
   font-weight: bold;
   border-top: 1px solid #ccc;
   font-family: UTM_Helve;
+  background-color: #f2f2f3;
   text-transform: uppercase;
   cursor: pointer;
   -webkit-user-select: none;
@@ -4166,7 +4163,7 @@ footer .footer-ctn .footer-nav li a {
   height: 16px;
   margin-top: -8px;
   font: 16px fontawesome;
-  color: #000;
+  color: #bcbec0;
   content: "\f0d8";
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
@@ -4371,6 +4368,14 @@ footer .footer-ctn .footer-nav li a {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.table-section-sk #layout-area .table tr.data-detail:not(.header) {
+  display: none;
+}
+
+.table-section-sk #layout-area .table tr.select-all:not(.header) {
+  display: none;
 }
 
 .table-section-sk #layout-area .table tr.price-discount td {
@@ -4924,7 +4929,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section-nt #layout-area .table .green1 {
   background-color: #0d723b;
   color: #fff;
-  height: 65px;
+  height: 60px;
   font-family: UTM_Helve;
   text-transform: uppercase;
 }
@@ -4934,11 +4939,8 @@ footer .footer-ctn .footer-nav li a {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
-}
-
-.table-section-nt #layout-area .table td.green_header {
-  background-color: white;
-  color: #000;
+  color: white !important;
+  padding: 15px 15px;
 }
 
 .table-section-nt #layout-area .table .green {
@@ -5058,48 +5060,13 @@ footer .footer-ctn .footer-nav li a {
   margin-bottom: 0;
 }
 
-.table-section-nt #layout-area .table tbody tr.bg-head-1 {
-  background-repeat: no-repeat;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-1 td {
-  background-image: url("../images/health/bg1_1.png");
-  color: white;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-2 {
-  background-repeat: no-repeat;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-2 td {
-  background-image: url("../images/health/bg2_1.png");
-  color: white;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-3 {
-  background-repeat: no-repeat;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-3 td {
-  background-image: url("../images/health/bg1_1.png");
-  color: white;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-4 {
-  background-repeat: no-repeat;
-}
-
-.table-section-nt #layout-area .table tbody tr.bg-head-4 td {
-  background-image: url("../images/car/bg4.png");
-  color: white;
-}
-
 .table-section-nt #layout-area .table tbody tr.header {
-  height: 65px;
+  height: 60px;
   position: relative;
   font-weight: bold;
   border-top: 1px solid #ccc;
   font-family: UTM_Helve;
+  background-color: #f2f2f3;
   text-transform: uppercase;
   cursor: pointer;
   -webkit-user-select: none;
@@ -5128,15 +5095,18 @@ footer .footer-ctn .footer-nav li a {
   height: 16px;
   margin-top: -8px;
   font: 16px fontawesome;
-  color: #000;
+  color: #bcbec0;
   content: "\f0d8";
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
 }
 
+.table-section-nt #layout-area .table tbody tr.header td.green_header {
+  padding: 15px 15px;
+}
+
 .table-section-nt #layout-area .table tbody tr.header.colapse-head {
   background: #0d723b;
-  color: white;
 }
 
 .table-section-nt #layout-area .table tbody tr.header.colapse-head td:after {
@@ -5298,9 +5268,6 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-nt #layout-area .table p.text {
-  overflow: hidden;
-  white-space: pre;
-  width: 250px;
   text-align: left;
   font-family: UTM_Helve;
 }
@@ -5417,7 +5384,7 @@ footer .footer-ctn .footer-nav li a {
   position: relative;
   display: inline-block;
   transform: translate(32px, -27px);
-  width: 90%;
+  width: 100%;
   -webkit-transform: translate(32px, -27px);
   -moz-transform: translate(32px, -27px);
   -ms-transform: translate(32px, -27px);
@@ -5436,6 +5403,14 @@ footer .footer-ctn .footer-nav li a {
 .table-section-nt #layout-area .table tr.data-detail td.first-select-cf {
   border: none;
   border-bottom: 1px solid #0d723b;
+}
+
+.table-section-nt #layout-area .table tr.data-detail tr.data-detail-cf td {
+  border: 1px solid #0d723b;
+}
+
+.table-section-nt #layout-area .table tr.data-detail tr.data-detail-cf td.first-select-cf {
+  border: none;
 }
 
 .table-section-nt #layout-area .table tr.data-detail td.health-select-cf {
@@ -5500,6 +5475,14 @@ footer .footer-ctn .footer-nav li a {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.table-section-nt #layout-area .table tr.data-detail:not(.header) {
+  display: none;
+}
+
+.table-section-nt #layout-area .table tr.select-all:not(.header) {
+  display: none;
 }
 
 .table-section-nt #layout-area .table tr.price-discount td {
@@ -5587,7 +5570,7 @@ footer .footer-ctn .footer-nav li a {
   z-index: 1;
   margin: auto;
   overflow: auto;
-  height: 800px;
+  height: 123vh;
 }
 
 .table-scroll::-webkit-scrollbar-track {
@@ -5620,6 +5603,62 @@ footer .footer-ctn .footer-nav li a {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+}
+
+.sub-head td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 163px;
+  z-index: 8;
+  background-color: #f5f5f5;
+}
+
+.sub-head td.th-2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 163px;
+  z-index: 8;
+}
+
+.sub-ctn2 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 198px;
+  z-index: 8 !important;
+  background-color: #f5f5f5;
+}
+
+.sub-ctn3 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 259px;
+  z-index: 8 !important;
+}
+
+.sub-ctn4 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 316px;
+  z-index: 8 !important;
+}
+
+@media (max-width: 991px) {
+  .sub-ctn4 td {
+    top: 340px;
+  }
+}
+
+.sub-ctn5 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 354px;
+  z-index: 8 !important;
+}
+
+@media (max-width: 991px) {
+  .sub-ctn5 td {
+    top: 377px;
+  }
 }
 
 /* safari and ios need the tfoot itself to be position:sticky also */

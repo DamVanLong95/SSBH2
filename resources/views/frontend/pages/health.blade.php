@@ -245,7 +245,7 @@
         
     </div>
     <div class="table-section-sk">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
@@ -277,7 +277,7 @@
                                     
                                 </thead>
                                 <tbody>
-                                    <tr class="bottom-head data-detail">
+                                    <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf"></td>
                                     </tr>
@@ -291,7 +291,7 @@
                                         </td>
                                         <td>
                                             <div class="count-rank-ctn">
-                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="mark-num"><p><span class="first-span">0</span>/<span>10</span></p></div>
                                                 <div class="service">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
@@ -305,7 +305,7 @@
                                         <td  colspan="2" class="green_header">Tính phí</td>
                                     </tr> -->
                             
-                                    <tr class="header bg-head-1">
+                                    <tr class="header green1 bg-head-1">
                                         <td  colspan="2" class="green_header">Đối tượng bảo hiểm
 
                                     </td>
@@ -317,6 +317,7 @@
                                             <label class="toggle" for="selectall">Chọn tất cả</label>
                                         </div>
                                     </td>
+                                    <td class="td-all"></td>
                                 </tr>
                                @foreach($data['object_bh'] as $value)
                                 <tr class="data-detail ">
@@ -343,7 +344,7 @@
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
                                     </td> -->
                                 </tr>
-                                <tr class="header bg-head-2">
+                                <tr class="header green1 bg-head-2">
                                     <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
                                 @for($i=2;$i< count($data['benifits']);$i++)
@@ -366,7 +367,7 @@
                                     <td></td>
                                 </tr>
                                 @endfor
-                                <tr class="header green" id="cost">
+                                <tr class="header green1 green" id="cost">
                                     <td  colspan="2" class="green_header">Phí bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail" >
@@ -392,7 +393,7 @@
                                         </div>
                                     </tr> -->
                                 </tr>
-                                <tr class="header bg-head-3">
+                                <tr class="header green1 bg-head-3">
                                     <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                 </tr>
                                 <tr class="select-all">
@@ -402,6 +403,7 @@
                                             <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                         </div>
                                     </td>
+                                    <td class="td-all"></td>
                                 </tr>
                                 @foreach($data['exclusions'] as $value)
                                 <tr class="data-detail">

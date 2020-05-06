@@ -41,6 +41,7 @@ class LongevityController extends Controller
     }
     public function droppImage(Request $request){
         $product_id = $request->get('id');
+        $indexCol = $request->get('indexCol');
         $product_name = ProductLongevity::where('id','=',$product_id)->first();
         $longevities = Longevity::select('product_id','comparison','content')
                     ->where('product_id','=',$product_id)
@@ -49,8 +50,10 @@ class LongevityController extends Controller
         $benifits = Longevity::select('product_id','comparison','content')
                     ->where('product_id','=',$product_id)
                     ->get();
+            
         return response()->json([
              'success'      => true,
+             'indexcol'     => $indexCol,
              'longevities' =>$longevities,
              'product_name'    => $product_name
         ]);

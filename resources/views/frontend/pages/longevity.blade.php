@@ -221,7 +221,7 @@
         <div class="pack-section" id="concern">
         </div>
     <div class="table-section-nt">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn">
@@ -254,7 +254,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bottom-head data-detail">
+                                    <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf">
                                             Tương lai vững vàng
@@ -270,7 +270,7 @@
                                         </td>
                                         <td>
                                             <div class="count-rank-ctn">
-                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="mark-num"><p><span class="first-span">0</span>/<span>10</span></p></div>
                                                 <div class="service">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
@@ -280,10 +280,10 @@
 
                                         </td>
                                     </tr>
-                                    <tr class="header bg-head-1">
+                                    <tr class="header green1 bg-head-1 sub-ctn2">
                                         <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                     </tr>
-                                    <tr class="container-selection">
+                                    <tr class="container-selection sub-ctn3">
                                         <td colspan="2" class="select_box_longevity" id="select_box_longevity">
                                             <div class="select-ctn-nt">
                                                 <div class="selection-box">
@@ -368,7 +368,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr class="header">
+                                    <tr class="header ">
                                         <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
                                     </tr>
                                     @foreach($data['scope_secure'] as $key=>$value)
@@ -377,7 +377,7 @@
                                             <td></td>
                                         </tr>
                                     @endforeach
-                                    <!-- <tr class="header green">
+                                    <tr class="header green1 green">
                                         <td  colspan="2" class="green_header">Phí</td>
                                     </tr>
                                     
@@ -385,7 +385,7 @@
                                         <td><p class="ellipsis"></p></td>
                                         <td></td>
                                     </tr>
-                                    -->
+                                   
                                     <tr class="header bg-head-2">
                                         <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
@@ -393,15 +393,16 @@
                                     </tr>
                                  
                                     <tr class="select-all" id="benifit">
-                                        <td>
+                                        <td class="td-all">
                                             <div class="choose-all">
                                                 <input type="checkbox" id="selectall" class="selectedAll"></input>
                                                 <label class="toggle" for="selectall">Chọn tất cả</label>
                                             </div>
                                         </td>
+                                        <td class="td-all"></td>
                                     </tr>
                                    
-                                    @for($i=7;$i < count($data['benifits']); $i++)
+                                    @for($i=5;$i < count($data['benifits']); $i++)
                                     <tr class="data-detail ">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
@@ -412,7 +413,7 @@
                                         </td>
                                     </tr>
                                     @endfor
-                                    <tr class="header bg-head-2" id="product_bt">
+                                    <tr class="header green1 bg-head-2" id="product_bt">
                                         <td  colspan="2" class="green_header">Sản phẩm bổ trợ</td>
                                     </tr>
                                     @for($i =24 ; $i < count($data['benifits_more']); $i++)
@@ -424,33 +425,7 @@
                                         <td></td>
                                     </tr>
                                     @endfor
-                                    <!-- <tr class="data-detail gray-detail">
-                                        <td class="first-gray">Tai nạn</td>
-                                        <td class="second-gray">
-                                            <div class="gray-head">
-                                                <form action="">
-                                                    <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
-                                                        <option value="1">Chương trình vàng</option>
-                                                        <option value="2">Chương trình bạc</option>
-                                                        <option value="3">Chương trình platinum</option>
-                                                        <option value="4">Chương trình diamond</option>
-                                                        <option value="5">Chương trình gold</option>
-                                                        <option value="6">Chương trình alumnium</option>
-                                                        <option value="6">Chương trình iron</option>
-                                                    </select>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr> -->
-                                    <!-- <tr class="data-detail">
-                                        <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
-                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis"></p>
-                                        </td>
-                                        <td></td>
-                                    </tr> -->
-                                   
-                                    <tr class="header">
+                                    <tr class="header ">
                                         <td  colspan="2" class="green_header">Các loại phí</td>
                                     </tr>
                                     @for($i =29 ; $i < 36 ; $i++)
@@ -459,10 +434,10 @@
                                         <td></td>
                                     </tr>
                                     @endfor
-                                    <tr class="header bg-head-3">
+                                    <tr class="header green1 bg-head-3">
                                         <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                     </tr>
-                                    @for($i =39 ; $i < 48 ; $i++)
+                                    @for($i =36; $i < 48 ; $i++)
                                     <tr class="data-detail">
                                         <td><p class="ellipsis">{{$products[$i]['comparison']}}</p></td>
                                         <td></td>

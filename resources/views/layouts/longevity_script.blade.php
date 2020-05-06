@@ -1,4 +1,4 @@
-\<!-- <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script> -->
+<!-- <script src="{{ url('assets/js/site.js?'.config('custom.version')) }}"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 
 
@@ -43,7 +43,7 @@
                 $(this).addClass('img-inserted');
                 $('<span class="remove" />').text('X').appendTo(th);
                 $('span.remove', th).show();
-
+                $('.sized').draggable({ disabled: true });
                 $('#checkbox_tl'+idImg+'').prop("checked", true);
                 $('#checkbox_bv'+idImg+'').prop("checked", true);
                 if($('#checkbox_tl'+idImg+'').prop("checked") == true){
@@ -56,8 +56,9 @@
                                  tblBodyObj  = myTable.tBodies[0]
                                  tblHeadObj  = myTable.tHead
                                  indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                 console.log(tblBodyObj.rows);
                 var url = '{{route('droppLongevity')}}';
-                $.post(url, {"_token": "{{ csrf_token() }}", id: idImg}
+                $.post(url, {"_token": "{{ csrf_token() }}", id: idImg,  indexCol:indexCol}
                 ,function(data , status , xhr){
                    
                     if(data.success = true){
@@ -65,6 +66,7 @@
                         var th =  myTable.rows[1].cells[indexCol];
                         var ths =  myTable.rows[2].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
+                        th.innerHTML = data.product_name.name;
                         var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                         var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
@@ -78,7 +80,6 @@
                                 </div>
                             </div>
                         `;
-                        th.innerHTML = data.product_name.name;
                         //===========Pham vi bao hiem=====================
                         for(var i =6; i<10;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
@@ -89,43 +90,43 @@
                         const row   = document.getElementById('benifit');
                                     const index = row.rowIndex;
                                     var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
-                        for(var i=index; i<index+16 ;i++){
+                        for(var i=index; i<= index+17 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-index]['content']!=null){
-                                tds.innerHTML =  '<p class="text">'+longevities[i-index]['content']+'</p>';
+                            if(longevities[i-9]['content']!=null){
+                                tds.innerHTML =  '<p class="text">'+longevities[i-9]['content']+'</p>';
                             }
                           
                          }
                          //  ===========San Pham bo tro==================
-                        const row_bt   = document.getElementById('product_bt');
-                        const indexRow = row_bt.rowIndex;
-                        for(var i=indexRow; i<indexRow+4 ;i++){
+                        for(var i=33; i<=36 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p class="text">`+longevities[i-5]['content']+`</p>`;
+                            if(longevities[i-9]['content']!=null){
+                                tds.innerHTML =  `<p class="text">`+longevities[i-9]['content']+`</p>`;
                             }
                           
                          }
                         //  ===========Cac loai phi========================
-                         for(var i=34; i<41 ;i++){
+                         for(var i=38; i<=44 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             // console.log(longevities[i-5]['content']);
-                            if(longevities[i-5]['content']!=null){
-                                if(validURL(longevities[i-5]['content'])==true){
-                                    tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-5]['content']+`" target="_blank" hidden></a>`;
+                          ;
+                            if(longevities[i-9]['content']!=null){
+                                if(validURL(longevities[i-9]['content'])==true){
+                                    tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-9]['content']+`" target="_blank" hidden></a>`;
                                 }else
-                                tds.innerHTML =  '<p class="text" >'+longevities[i-5]['content']+'</p>';
+                                tds.innerHTML =  '<p class="text" >'+longevities[i-9]['content']+'</p>';
                             }
                          }
                            //  ===========Loai tru bao hiem========================
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                         for(var i=42; i<51 ;i++){
+                         console.log(longevities);
+                         for(var i=47; i<=57 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            tds.style = "p-wrap";
-                            if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  '<p class="text">'+longevities[i-5]['content']+'</p>';
+                            // tds.style = "p-wrap";
+                            if(longevities[i-10]['content']!=null){
+                                tds.innerHTML =  '<p class="text">'+longevities[i-10]['content']+'</p>';
                             }
-                            if(longevities[i-5]['content']==='x'){
+                            if(longevities[i-10]['content']==='x'){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                             `;
                             }
@@ -134,9 +135,9 @@
                 }).done(function() {
                     // alert('Request done!');
                 });;
-                $('table th').on('click', function (e ) {
-                    var index = ($(this).index()+1);
-                        if( index ==2 ){
+                $('span.remove').on('click', function (e ) {
+                    var index = ($(this).parent().parent().index()+1);
+                    if( index ==2 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             $('#checkbox_tl'+idImg+'').prop("checked", false);
@@ -173,7 +174,6 @@
                             $('#checkbox_tl'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
-
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             // addColumn('main-tbl-nt');
@@ -211,6 +211,8 @@
               $('.green_header').attr("colspan", tableLength +1)
               $('.hospital_header').attr("colspan", tableLength )
               $('#select_box_longevity').attr("colspan", tableLength +1 )
+              $('.select-all').attr("colspan", tableLength ),
+              $('.td-all').attr("colspan", tableLength +1),
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -232,6 +234,8 @@
               $('.green_header').next("td").remove()
               $('.hospital_header').next("td").remove()
               $('#select_box_longevity').next("td").remove()
+              $('.td-all').next("td").remove()
+              $('.select-all').next("td").remove()
 
           }
         }

@@ -43,7 +43,7 @@
                     $(this).addClass('img-inserted');
                     $('<span class="remove" />').text('X').appendTo(th);
                     $('span.remove', th).show();
-
+                    $('.sized').draggable({ disabled: true });
                     $('#checkbox_'+idImg+'').prop("checked", true);
                     if($('#checkbox_'+idImg+'').prop("checked") == true){
                         $('#'+idImg+'').draggable({ disabled: true });
@@ -104,25 +104,33 @@
                                     var exclusions = data.exclusions;
                                     var myTable = document.getElementById('main-tbl-sk'),
                                         tblBodyObj  = myTable.tBodies[0];
+                                    //================DOI TUONG BAO HIEM===========
                                     var tds =  myTable.rows[5].cells[indexCol]; 
                                     (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
                                                     :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
                                     
                                     var tds =  myTable.rows[7].cells[indexCol]; 
                                     
-                                    (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
+                                    (scope.length == 0)? tds.innerHTML = `<p class="">Data not update</p>`
                                                     :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
+                                    //====================Quyen loi bao hiem==================
+
                                     for(var i=8; i< 79; i++){
                                         var tdss = tblBodyObj.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                        (healths.length == 0)? tdss.innerHTML = `<p class="">Data not update</p>`
+                                                    :tdss.innerHTML = `<p class="">`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`;
+                                       
                                     
                                     }
                                     //THOI GIAN
                                     var tdss = tblBodyObj.rows[80].cells[indexCol] ;
                                     // console.log(tdss);
-                                    for(var i =80; i< 88; i++){
+                                    for(var i =80; i<= 88; i++){
                                         var tdss = tblBodyObj.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                        console.log(tdss);
+                                        (healths.length == 0)? tdss.innerHTML = `<p class="">Data not update</p>`
+                                                    :tdss.innerHTML = `<p class="">`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`;
+                                       
                                     }
                                 
                                     const row   = document.getElementById('cost');
@@ -132,6 +140,7 @@
                                     // tdss.innerHTML = `<a href='`+healths[83]['content']+`' target="_blank" hidden>Link_click</a>` ; 
                                     tdss.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+healths[83]['content']+`" target="_blank" hidden></a>` ; 
                                     //BENH VIEN LIEN KET
+                                   
                                     var tdsss =tblBodyObj.rows[92].cells[indexCol];
                                     tdsss.setAttribute('id','td'+indexCol+''); 
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
@@ -245,9 +254,9 @@
                         // alert('Request done!');
                     });;
                     
-                    $('table th').on('click', function (e ) {
-                        var index = ($(this).index()+1);
-                            if( index ==2 ){
+                    $('span.remove').on('click', function (e ) {
+                        var index = ($(this).parent().parent().index()+1);
+                        if( index ==2 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
@@ -284,7 +293,6 @@
                                 $('#checkbox_bv'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
-
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 // addColumn('main-tbl-sk');

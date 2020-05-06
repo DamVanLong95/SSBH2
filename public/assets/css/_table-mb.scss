@@ -5,519 +5,8 @@
         z-index: 1;
         margin: auto;
         overflow: auto;
-        height: 800px;
-        // table {
-        //     width: 100%;
-        //     min-width: 1135px;
-        //     table-layout: fixed;
-        //     margin: auto;
-        //     border-collapse: separate;
-        //     border-spacing: 0;
-        //     td {
-        //         border: 1px solid #ccc;
-        //     }
-        //     .green1 {
-        //         background-color: $main-color;
-        //         color: #fff;
-        //         height: 65px;
-        //         font-family: UTM_Helve;
-        //         text-transform: uppercase;
-        //         td.green-header {
-        //             background-color: $main-color !important;
-        //             position: -webkit-sticky;
-        //             position: sticky;
-        //             left: 0;
-        //         }
-        //     }
-        //     .green {
-        //         background-color: $main-color;
-        //         color: #fff;
-        //         font-family: UTM_Helve;
-        //         text-transform: uppercase;
-        //     }
-        //     .top-head {
-        //         // position: sticky;
-        //         // top: 0;
-        //         box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
-        //         // border-top: 1px solid #000;
-        //         height: 100px;
-               
-        //         th {
-        //             border-top: 2px solid $main-color;
-        //             border-bottom: 1px solid $main-color;
-        //             border-right: 1px solid $main-color;
-        //             z-index: 7;
-        //             .img-container {
-        //                 // width: 100%;
-        //                 width: 200px;
-        //                 height: 150px;
-        //                 display: block;
-        //                 background: transparent;
-        //                 overflow: hidden;
-        //                 position: relative;
-        //             }
-        //         }
-        //         th:last-child {
-        //             // border-right: 0px;
-        //         }
-        //         th.th-1 {
-        //             // display: flex;
-        //             // position: relative;
-        //             .left-ctn {
-        //                 transform: translate(0px, -6px);
-        //                 text-align: left;
-        //                 display: inherit;
-        //                 -webkit-transform: translate(0px, -6px);
-        //                 -moz-transform: translate(0px, -6px);
-        //                 -ms-transform: translate(0px, -6px);
-        //                 -o-transform: translate(0px, -6px);
-        //                 .item {
-        //                     // margin-bottom: 15px;
-        //                     display: block;
-        //                     a {
-        //                         color: #fff;
-        //                         font-family: UTM_Helve;
-        //                         text-decoration: none;
-        //                         padding-left: 15px;
-        //                     }
-        //                 }
-        //                 .phone {
-        //                     background-image: url('../images/home/cta-phone.png');
-        //                     background-repeat: no-repeat;
-        //                     padding: 12px 30px;
-        //                     background-position: top center;
-        //                     // background-size: cover;
-        //                     height: 50px;
-        //                     width: 185px;
-        //                     display: inline-flex;
-        //                     a {
-        //                         padding-left: 18px;
-        //                     }
-        //                 }
-        //             }
-        //             h4 {
-        //                 position: absolute;
-        //                 transform: translate(-25%, 50%);
-        //                 top: 61%;
-        //                 left: 30%;
-        //                 color: $main-color;
-        //                 font-family: UTM_HelveBold_Italic;
-        //             }
-        //         }
-        //     }
-        //     .sub-head {
-        //         td {
-        //             border-bottom: 1px solid $main-color;
-        //             border-right: 1px solid $main-color;
-        //         }
-        //         td:first-child {
-        //             // border-left: 0px;
-        //         }
-        //         td:last-child {
-        //             // border-right: 0px;
-        //         }
-        //         td.th-2 {
-        //             .star-ctn {
-        //                 display: flex;
-        //                 justify-content: space-around;
-        //                 flex-direction: row;
-        //             }
-        //             .item {
-        //                 p {
-        //                     margin-bottom: 0;
-        //                 }
-        //             }
-        //         }
-        //         .star-ctn {
-        //             .item {
-        //                 p {
-        //                     span {
-        //                         bottom: 2px;
-        //                         position: relative;
-        //                         right: 0px;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //         .count-rank-ctn {
-        //             display: flex;
-        //             justify-content: space-between;
-        //             flex-direction: row;
-        //             .mark-num {
-        //                 p {
-        //                     span.first-span {
-        //                         color: #f36f21;
-        //                     }
-        //                 }
-        //             }
-        //             .service {}
-        //             p {
-        //                 margin-bottom: 0;
-        //             }
-        //         }
-        //     }
-        //     tr.bg-head-1 {
-        //         background-image: url('../images/car/bg1.png');
-        //         background-repeat: no-repeat;
-        //         color: white;
-        //     }
-        //     tr.bg-head-2 {
-        //         background-image: url('../images/car/bg2.png');
-        //         background-repeat: no-repeat;
-        //         color: white;
-        //     }
-        //     tr.bg-head-3 {
-        //         background-image: url('../images/car/bg3.png');
-        //         background-repeat: no-repeat;
-        //         color: white;
-        //     }
-        //     tr.bg-head-4 {
-        //         background-image: url('../images/car/bg4.png');
-        //         background-repeat: no-repeat;
-        //         color: white;
-        //     }
-        //     tr.header {
-        //         height: 65px;
-        //         position: relative;
-        //         font-weight: bold;
-        //         border-top: 1px solid #ccc;
-        //         // color: #fff;
-        //         // background-color: $main-color;
-        //         // color: #000;
-        //         font-family: UTM_Helve;
-        //         // background-color: #f2f2f3;
-        //         text-transform: uppercase;
-        //         cursor: pointer;
-        //         -webkit-user-select: none;
-        //         /* Chrome all / Safari all */
-        //         -moz-user-select: none;
-        //         /* Firefox all */
-        //         -ms-user-select: none;
-        //         /* IE 10+ */
-        //         user-select: none;
-        //         /* Likely future */
-        //         .choose-all {
-        //             position: absolute;
-        //         }
-        //         // &:nth-child(2n-1) {
-        //         //     background: $main-color;
-        //         //     color: #fff;
-        //         //     // border-right: 0px solid #ccc;
-        //         // }
-        //         &:nth-child(2n-1) {
-        //             // background: $main-color;
-        //         }
-        //         &:hover {
-        //             // background: #ddd;
-        //         }
-        //         td:nth-child(1) {
-        //             // width: 40%;
-        //             // border-right: 1px solid #ccc;
-        //         }
-        //         td {
-        //             position: relative;
-        //             &:after {
-        //                 position: absolute;
-        //                 top: 50%;
-        //                 right: 5px;
-        //                 width: 9px;
-        //                 height: 16px;
-        //                 margin-top: -8px;
-        //                 font: 16px fontawesome;
-        //                 color: #000;
-        //                 content: "\f0d8";
-        //                 transition: all .3s ease;
-        //             }
-        //         }
-        //         &.colapse-head {
-        //             background: $main-color;
-        //             color: white;
-        //             td {
-        //                 &:after {
-        //                     transform: rotate(-180deg);
-        //                     color: #000;
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     tr.tool-ctn {
-        //         width: 100%;
-        //         .select-ctn {
-        //             display: flex;
-        //             justify-content: space-between;
-        //             align-items: center;
-        //             flex-direction: row;
-        //             .selection-box {
-        //                 width: 100%;
-        //                 display: flex;
-        //                 justify-content: space-around;
-        //                 align-items: center;
-        //                 flex-direction: row;
-        //                 border: 1px solid;
-        //                 padding: 8px 22px;
-        //                 border-radius: 20px;
-        //                 background-color: #f1f2f2;
-        //                 // color: #bdbebf;
-        //                 font-family: UTM_Helve;
-        //             }
-        //             .button-filter {
-        //                 width: 26%;
-        //                 border: none;
-        //             }
-        //             .item {
-        //                 // width: 100%;
-        //                 select {
-        //                     width: 100%;
-        //                     border-bottom: none;
-        //                     border-left: none;
-        //                     border-top: none;
-        //                     outline: none;
-        //                     border-right: 1px solid #58595b;
-        //                     background-color: #f1f2f2;
-        //                     color: #58595b;
-        //                 }
-        //             }
-        //             span {
-        //                 margin-left: 20px;
-        //                 color: #58595b;
-        //             }
-        //             input {
-        //                 width: 60%;
-        //                 border-bottom: 1px solid #ccc;
-        //                 border-top: none;
-        //                 border-left: none;
-        //                 border-right: none;
-        //                 outline: none;
-        //                 background-color: #f1f2f2;
-        //             }
-        //             button {
-        //                 background-color: $main-color;
-        //                 font-family: UTM_Helve;
-        //                 color: #fff;
-        //                 text-transform: uppercase;
-        //                 padding: 9px 15px;
-        //                 outline: none;
-        //                 border-radius: 20px;
-        //                 -webkit-border-radius: 20px;
-        //                 -moz-border-radius: 20px;
-        //                 -ms-border-radius: 20px;
-        //                 -o-border-radius: 20px;
-        //                 float: right;
-        //                 width: 50%;
-        //             }
-        //         }
-        //     }
-        //     tr.data-detail {
-        //         td {
-        //             border-right: 1px solid #ccc;
-        //             text-align: center;
-        //             p {
-        //                 // overflow: hidden;
-        //                 // white-space: nowrap;
-        //                 // width: 135px;
-        //             }
-        //             span {
-        //                 a {
-        //                     color: orange;
-        //                     left: 46%;
-        //                     right: 0;
-        //                     position: relative;
-        //                     margin: auto;
-        //                     text-decoration: none;
-        //                 }
-        //             }
-        //             // white-space: nowrap;
-        //             overflow: hidden;
-        //             text-overflow: ellipsis;
-        //             .tick-td {
-        //                 text-align: center;
-        //                 margin: 14px 0;
-        //                 height: auto;
-        //             }
-        //             .star-td {
-        //                 width: 20px;
-        //                 right: 0;
-        //                 float: right;
-        //                 margin-top: 10px;
-        //             }
-        //             .mega-drop-down a:hover {
-        //                 display: block;
-        //             }
-        //             input[type=checkbox] {
-        //                 display: none;
-        //             }
-        //             .selectedId,
-        //             .selectedId2 {
-        //                 opacity: 0;
-        //                 filter: alpha(opacity=0);
-        //             }
-        //             .selectedId+label,
-        //             .selectedId2+label {
-        //                 position: relative;
-        //                 margin-left: 35px;
-        //                 display: inherit;
-        //             }
-        //             .selectedId+label:before,
-        //             .selectedId2+label:before,
-        //             .lt-ie8 .checkbox-replacement {
-        //                 content: '';
-        //                 display: inline-flex;
-        //                 visibility: visible;
-        //                 left: 0;
-        //                 width: 16px;
-        //                 height: 16px;
-        //                 margin: 0 5px;
-        //                 line-height: 1;
-        //                 text-align: center;
-        //                 /* Put checkbox styles here: */
-        //                 border: 1px solid #ccc;
-        //                 border-radius: 100%;
-        //             }
-        //             .selectedId:checked+label:before,
-        //             .selectedId2:checked+label:before,
-        //             .lt-ie9 .selectedId.checked+label:before,
-        //             .selectedId2.checked+label:before {
-        //                 content: '';
-        //                 position: relative;
-        //                 top: 0px;
-        //                 left: 0;
-        //                 width: 14px;
-        //                 height: 14px;
-        //                 border-radius: 50%;
-        //                 background: $main-color;
-        //                 opacity: 1;
-        //             }
-        //             .selectedId:checked+label::after,
-        //             .selectedId2:checked+label::after {
-        //                 content: '';
-        //                 width: 18px;
-        //                 height: 18px;
-        //                 background: rgba(0, 0, 0, 0);
-        //                 border: 1px solid #ccc;
-        //                 border-radius: 20px;
-        //                 position: absolute;
-        //                 top: 3px;
-        //                 left: -2px;
-        //                 margin: 0 5px;
-        //                 -webkit-box-shadow: 0 1px 1px #dfecf4;
-        //                 -moz-box-shadow: 0 1px 1px #dfecf4;
-        //                 box-shadow: 0 1px 1px #dfecf4;
-        //             }
-        //             label.drop {
-        //                 position: absolute;
-        //                 left: 12px;
-        //                 margin-top: 0px;
-        //                 width: 32px;
-        //                 font-size: 13px;
-        //             }
-        //             span.first-td {
-        //                 position: relative;
-        //                 display: inline-block;
-        //                 transform: translate(20px, -27px);
-        //                 width: 90%;
-        //                 -webkit-transform: translate(20px, -27px);
-        //                 -moz-transform: translate(20px, -27px);
-        //                 -ms-transform: translate(20px, -27px);
-        //                 -o-transform: translate(20px, -27px);
-        //             }
-        //             span.show-detail {
-        //                 right: 0;
-        //                 float: right;
-        //             }
-        //             img.net-img {
-        //                 position: relative;
-        //                 top: 100px;
-        //             }
-        //         }
-        //         .car-td {
-        //             position: relative;
-        //             border-bottom: 3px solid #bcbec0;
-        //             &:after {
-        //                 position: absolute;
-        //                 top: 50%;
-        //                 right: 5px;
-        //                 width: 9px;
-        //                 height: 16px;
-        //                 margin-top: -8px;
-        //                 font: 16px fontawesome;
-        //                 color: #bcbec0;
-        //                 content: "\f0d7";
-        //                 transition: all .3s ease;
-        //             }
-        //             p.active {
-        //                 color: $main-color;
-        //             }
-        //         }
-        //         .active-car-td {
-        //             border-bottom: 3px solid $main-color;
-        //         }
-        //         td.empty-first-car {
-        //             border-top: 0px solid !important;
-        //         }
-        //         td.empty-first-car2 {
-        //             border-bottom: 0px solid !important;
-        //         }
-        //         td.first-col {
-        //             text-transform: uppercase;
-        //         }
-        //         td:last-child {
-        //             // border-right: 0px;
-        //         }
-        //         .toggle {
-        //             cursor: pointer;
-        //             width: 200px;
-        //             span {
-        //                 color: $main-color;
-        //                 font-family: UTM_HelveBold;
-        //             }
-        //         }
-        //         button {
-        //             color: #f36f21;
-        //             background-color: transparent;
-        //             border: none;
-        //             outline: none;
-        //             box-shadow: none;
-        //         }
-        //     }
-        //     tr.data-detail:not(.header) {
-        //         // display: none;
-        //     }
-        //     tr.network {
-        //         // td:hover {
-        //         //     .network-ctn {
-        //         //         display: block;
-        //         //     }
-        //         // }
-        //     }
-        //     tr.price-discount {
-        //         td {
-        //             background-color: #fff;
-        //             padding: 0;
-        //             vertical-align: middle;
-        //             text-align: center;
-        //             .btn-discount {
-        //                 color: $main-color;
-        //                 background-color: #fff;
-        //                 width: 100%;
-        //                 border-radius: 0;
-        //                 font-family: UTM_Helve;
-        //                 text-align: left;
-        //                 &:hover {
-        //                     background-color: #f36f21;
-        //                     font-family: UTM_HelveBold;
-        //                     color: #000;
-        //                 }
-        //             }
-        //         }
-        //         .active {
-        //             background-color: #f36f21;
-        //             a {
-        //                 font-family: UTM_HelveBold;
-        //                 color: #000;
-        //             }
-        //         }
-        //     }
-        // }
+        // height: 950px;
+        height: 123vh;
     }
     .table-scroll::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -549,6 +38,50 @@
         position: -webkit-sticky;
         position: sticky;
         top: 0;
+    }
+    .sub-head td{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 163px;
+        z-index: 8;
+        background-color: #f5f5f5;
+    }
+    .sub-head td.th-2{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 163px;
+        z-index: 8;
+    }
+    .sub-ctn2 td{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 198px;
+        z-index: 8 !important;
+        background-color: #f5f5f5;
+    }
+    .sub-ctn3 td{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 259px;
+        z-index: 8 !important;
+    }
+    .sub-ctn4 td{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 316px;
+        z-index: 8 !important;
+        @media (max-width: 991px) {
+            top: 340px;
+        }
+    }
+    .sub-ctn5 td{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 354px;
+        z-index: 8 !important;
+        @media (max-width: 991px) {
+            top: 377px;
+        }
     }
     /* safari and ios need the tfoot itself to be position:sticky also */
     .table-scroll tfoot,
@@ -585,4 +118,5 @@
         // width: 185px;
         // border-right: none;
     }
+    
 // }
