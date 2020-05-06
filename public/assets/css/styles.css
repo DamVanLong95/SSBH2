@@ -5405,6 +5405,14 @@ footer .footer-ctn .footer-nav li a {
   border-bottom: 1px solid #0d723b;
 }
 
+.table-section-nt #layout-area .table tr.data-detail tr.data-detail-cf td {
+  border: 1px solid #0d723b;
+}
+
+.table-section-nt #layout-area .table tr.data-detail tr.data-detail-cf td.first-select-cf {
+  border: none;
+}
+
 .table-section-nt #layout-area .table tr.data-detail td.health-select-cf {
   color: #0d723b;
   overflow: visible;

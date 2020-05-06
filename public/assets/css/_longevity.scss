@@ -689,6 +689,14 @@
                     border: none;
                     border-bottom: 1px solid $main-color;
                 }
+                tr.data-detail-cf {
+                    td{
+                        border: 1px solid $main-color;
+                    }
+                    td.first-select-cf{
+                        border: none;
+                    }
+                }
                 td.health-select-cf{
                     color: $main-color;
                     overflow: visible;
