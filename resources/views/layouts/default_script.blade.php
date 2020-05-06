@@ -40,7 +40,6 @@
                         var nameId ='more';
                         var visible=  "main-tbl .term:visible";
                         showMore(length,selector,nameId,visible);
-                       
                     }
                     //==================== DIEU_KHOAN_LOAI_TRU========
                     if(event.target.matches('.exception')){
@@ -426,7 +425,7 @@
                                 if(rating_and_model.business_unfocused === 'x')
                                 tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //===============MANG LUOI HOAT DONG==========
-                                tds = tblBodyObj.rows[132].cells[indexCol]; 
+                                tds = tblBodyObj.rows[135].cells[indexCol]; 
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
                                 tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
@@ -440,7 +439,7 @@
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
-                                                tblBodyObj.rows[132].cells[i+1].removeAttribute('class','active-car-td');
+                                                tblBodyObj.rows[135].cells[i+1].removeAttribute('class','active-car-td');
                                                 break;
                                             }
                                             if(indexCol==i){
@@ -448,7 +447,7 @@
                                                 tdnet.setAttribute('class','active-car-td');
                                                
                                             }else{
-                                                tdnet= tblBodyObj.rows[132].cells[i]
+                                                tdnet= tblBodyObj.rows[135].cells[i]
                                                 tdnet.removeAttribute('class','active-car-td');
                                             }
                                         }

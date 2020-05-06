@@ -270,7 +270,7 @@
                                         </td>
                                         <td>
                                             <div class="count-rank-ctn">
-                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="mark-num"><p><span class="first-span">0</span>/<span>10</span></p></div>
                                                 <div class="service">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
@@ -280,10 +280,10 @@
 
                                         </td>
                                     </tr>
-                                    <tr class="header green1 bg-head-1">
+                                    <tr class="header green1 bg-head-1 sub-ctn2">
                                         <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                     </tr>
-                                    <tr class="container-selection">
+                                    <tr class="container-selection sub-ctn3">
                                         <td colspan="2" class="select_box_longevity" id="select_box_longevity">
                                             <div class="select-ctn-nt">
                                                 <div class="selection-box">
@@ -425,34 +425,8 @@
                                         <td></td>
                                     </tr>
                                     @endfor
-                                    <!-- <tr class="data-detail gray-detail">
-                                        <td class="first-gray">Tai nạn</td>
-                                        <td class="second-gray">
-                                            <div class="gray-head">
-                                                <form action="">
-                                                    <select name="sources" id="sources2" class="select-gray sources" placeholder="SPBT BH Tử Vong Và Thương Tật Do Tai Nạn Nâng Cao - Gia hạn hàng năm ">
-                                                        <option value="1">Chương trình vàng</option>
-                                                        <option value="2">Chương trình bạc</option>
-                                                        <option value="3">Chương trình platinum</option>
-                                                        <option value="4">Chương trình diamond</option>
-                                                        <option value="5">Chương trình gold</option>
-                                                        <option value="6">Chương trình alumnium</option>
-                                                        <option value="6">Chương trình iron</option>
-                                                    </select>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr> -->
-                                    <!-- <tr class="data-detail">
-                                        <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox2_sk" name="checkbox2_sk"  />
-                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis"></p>
-                                        </td>
-                                        <td></td>
-                                    </tr> -->
-                                   
-                                    <tr class="header " id="type_price">
-                                        <td  colspan="2" class="green_header" >Các loại phí</td>
+                                    <tr class="header ">
+                                        <td  colspan="2" class="green_header">Các loại phí</td>
                                     </tr>
                                     @for($i =29 ; $i < 36 ; $i++)
                                     <tr class="data-detail">

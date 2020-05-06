@@ -277,7 +277,7 @@
                                     
                                 </thead>
                                 <tbody>
-                                    <tr class="bottom-head data-detail">
+                                    <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf"></td>
                                     </tr>
@@ -291,7 +291,7 @@
                                         </td>
                                         <td>
                                             <div class="count-rank-ctn">
-                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="mark-num"><p><span class="first-span">0</span>/<span>10</span></p></div>
                                                 <div class="service">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
                                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
