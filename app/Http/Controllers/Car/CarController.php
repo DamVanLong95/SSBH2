@@ -19,7 +19,6 @@ class CarController extends Controller
         $terms_data = Summary::select('company_id','terms','note_more','id','rate_fee')
                     ->take(24)
                     ->get();//Du lieu dieu khoan bo sung
-                    // dd($terms_data);
         $dedutible_data  = Summary::select('company_id','deductible','note_dkkt','id')
                         ->take(24)
                         ->get();//Du lieu  khau tru
@@ -203,5 +202,10 @@ class CarController extends Controller
             'success' =>true,
             'html' => $html
         ]);
+    }
+    public static function trimtext($data, $limit) {
+        $arr = explode(" ", $data);
+        $new_arr = array_slice($arr, 0, $limit);
+        return implode(" ", $new_arr);
     }
 }

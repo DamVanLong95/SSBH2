@@ -4,9 +4,19 @@
 
     <script>
         $(document).ready(function() {
-        $('.header').click(function(){
-            $(this).toggleClass('colapse-head','').nextUntil('tr.header').slideToggle(100);
-        });
+            var element = document.getElementsByClassName('header');
+            for (var i = 0; i < element.length; i++){
+                element[i].addEventListener('click', function (event) {
+                    $(this).toggleClass('colapse-head').nextUntil('tr.header').slideToggle(100);
+                    //====== DIEU KHOAN BO SUNG============
+                    // if(event.target.matches('.term_header') ){
+                    //     var selector = "main-tbl .term";
+                    //     var nameId ='more';
+                    //     var visible=  "main-tbl .term:visible";
+                    //     showMore(length,selector,nameId,visible);
+                    // }
+                }, false);
+            }
     })
     </script>
 

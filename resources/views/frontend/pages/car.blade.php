@@ -62,10 +62,10 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-                                <label class="dropdown-option">
+                                <!-- <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" value="Selection 1" />
                                 Selection One
-                                </label>
+                                </label> -->
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -255,13 +255,13 @@
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
                                             <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="showMore(this.value)"  >...</button></span></span>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span>
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                         </td>
                                         <td>
 
                                                 </td>
-                                            </tr>
+                                    </tr>
                                         @endforeach  
                                     </div>
                                     <tr class="header">
@@ -295,7 +295,7 @@
                                             <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
                                                     name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
                                             <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
-                                            <span class="show-detail"><button value="{{$value['exception']}}" onclick="showMore(this.value)">...</button></span></span>
+                                            <span class="show-detail"><button value="{{$value['exception']}}" onclick="show(this.value)">...</button></span></span>
                                             <label class="drop" for="" style="display:none" id="dklt{{$value['id']}}">{{isset($value['rate_fee_dklt'])?$value['rate_fee_dklt']:0}}% phí</label>
                                         </td>
                                         <td></td>
@@ -402,10 +402,11 @@
 
 </div>
 <script>
-    function showMore(val){
-     $('#note').html(val);
-     $('#detail-td').modal('show');
+    function show(val){
+        $('#note').html(val);
+        $('#detail-td').modal('show');
     }
+   
 </script>
 <script>
     function handleFilter(){
