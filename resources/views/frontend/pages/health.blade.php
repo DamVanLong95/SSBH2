@@ -324,7 +324,7 @@
                                     <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
                                         <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
-                                        <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span>
+                                        <!-- <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span> -->
                                     </td>
                                     <td>
 
@@ -351,7 +351,7 @@
                                 <tr class="data-detail ">
                                     <td>
                                         <p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
-                                        <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span>
+                                        <!-- <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span> -->
                                     </td>
                                     <td></td>
                                 </tr>
@@ -499,9 +499,9 @@
         var numMore = 5;  
         var table  = document.getElementById('main-tbl-sk');
         var rows   = table.tBodies[0].rows;
-        console.log(rows);
-        $(rows[78]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-            '</span></div</td></tr>');
+        // console.log(rows);
+        // $(rows[78]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        //     '</span></div</td></tr>');
       
       
     });

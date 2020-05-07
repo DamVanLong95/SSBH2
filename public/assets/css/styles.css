@@ -3867,6 +3867,11 @@ footer .footer-ctn .footer-nav li a {
   opacity: 1;
 }
 
+.pack-section .section-wrapper .section-list .item .thumb-t p.break-txt, .pack-section .section-wrapper .section-list .item2 .thumb-t p.break-txt, .pack-section .section-wrapper .section-list2 .item .thumb-t p.break-txt, .pack-section .section-wrapper .section-list2 .item2 .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list .item .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list .item2 .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list2 .item .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list2 .item2 .thumb-t p.break-txt {
+  vertical-align: middle;
+  height: 50px;
+}
+
 .pack-section .section-wrapper .section-list .item .brand-thumb, .pack-section .section-wrapper .section-list .item2 .brand-thumb, .pack-section .section-wrapper .section-list2 .item .brand-thumb, .pack-section .section-wrapper .section-list2 .item2 .brand-thumb, .pack-section .section-wrapper2 .section-list .item .brand-thumb, .pack-section .section-wrapper2 .section-list .item2 .brand-thumb, .pack-section .section-wrapper2 .section-list2 .item .brand-thumb, .pack-section .section-wrapper2 .section-list2 .item2 .brand-thumb {
   position: relative;
 }
@@ -4797,6 +4802,11 @@ footer .footer-ctn .footer-nav li a {
 
 .pack-section .section-wrapper .section-list .item input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper .section-list .item2 input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper .section-list2 .item input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper .section-list2 .item2 input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper2 .section-list .item input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper2 .section-list .item2 input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper2 .section-list2 .item input[type=checkbox]:checked + .toggle:after, .pack-section .section-wrapper2 .section-list2 .item2 input[type=checkbox]:checked + .toggle:after {
   opacity: 1;
+}
+
+.pack-section .section-wrapper .section-list .item .thumb-t p.break-txt, .pack-section .section-wrapper .section-list .item2 .thumb-t p.break-txt, .pack-section .section-wrapper .section-list2 .item .thumb-t p.break-txt, .pack-section .section-wrapper .section-list2 .item2 .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list .item .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list .item2 .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list2 .item .thumb-t p.break-txt, .pack-section .section-wrapper2 .section-list2 .item2 .thumb-t p.break-txt {
+  vertical-align: middle;
+  height: 50px;
 }
 
 .pack-section .section-wrapper .section-list .item .brand-thumb, .pack-section .section-wrapper .section-list .item2 .brand-thumb, .pack-section .section-wrapper .section-list2 .item .brand-thumb, .pack-section .section-wrapper .section-list2 .item2 .brand-thumb, .pack-section .section-wrapper2 .section-list .item .brand-thumb, .pack-section .section-wrapper2 .section-list .item2 .brand-thumb, .pack-section .section-wrapper2 .section-list2 .item .brand-thumb, .pack-section .section-wrapper2 .section-list2 .item2 .brand-thumb {

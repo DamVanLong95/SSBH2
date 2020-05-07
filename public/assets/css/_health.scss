@@ -69,6 +69,12 @@
                 input[type=checkbox]:checked+.toggle:after {
                     opacity: 1;
                 }
+                .thumb-t{
+                    p.break-txt{
+                        vertical-align: middle;
+                        height: 50px;
+                    }
+                }
                 .brand-thumb {
                     position: relative;
                     img {
