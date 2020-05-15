@@ -21,7 +21,6 @@
 <div id="app">
     <div class="compare-section">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="compare-nav">
@@ -129,7 +128,7 @@
         </div>
     </div>
     <div class="table-section ">
-         <div class="contact-floating">
+        <div class="contact-floating">
             <div class="contact-email"><a href="tel:0906060784" target="_blank"><img src="<?php echo e(url('/')); ?>/assets/images/default/phone-intro.png?<?php echo e(config('custom.version')); ?>" alt=""></a></div>
             <div class="contact-phone"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="<?php echo e(url('/')); ?>/assets/images/default/email-intro.png?<?php echo e(config('custom.version')); ?>" alt=""></a></div>
         </div>
@@ -146,6 +145,7 @@
                                 <thead>
                                     <tr class="top-head" >
                                         <th class='th-1'>
+                                            
                                         </th>
                                         <th class="col2">
                                             <div class="img-container"></div>
@@ -176,8 +176,8 @@
                                         </tr>
                                     </div>
                                     
-                                    <tr class="green1 sub-ctn2" style="height:0px; padding:0;">
-                                        <td colspan="2" class="" style="height:0px; padding:0;"></td>
+                                    <tr class="green1 sub-ctn2">
+                                        <td  colspan="2" class="green_header">Tính phí</td>
                                     </tr>
                                     <tr class="tool-ctn sub-ctn3">
                                         <td colspan="2" id="select_box">
