@@ -316,7 +316,7 @@
             .green1 {
                 background-color: $main-color;
                 color: #fff;
-                height: 60px;
+                height: 40px;
                 font-family: UTM_Helve;
                 text-transform: uppercase;
                 td.green_header {
@@ -325,7 +325,7 @@
                     position: sticky;
                     left: 0;
                     color: white !important;
-                    padding: 15px 15px;
+                    padding: 8px 15px;
                 }
             }
             td.green_header{
@@ -355,7 +355,9 @@
                         // border-right: 0px;
                     }
                     th.th-1 {
-                        // display: flex;
+                        background: url(../images/car/thead.png);
+                        background-size: 100% 100%;
+                        background-position: center;
                         // position: relative;
                         .left-ctn {
                             transform: translate(0px, -37px);
@@ -481,7 +483,7 @@
                 //     }
                 // }
                 tr.header {
-                    height: 60px;
+                    height: 40px;
                     position: relative;
                     font-weight: bold;
                     border-top: 1px solid #ccc;
@@ -489,6 +491,7 @@
                     // background-color: $main-color;
                     // color: #000;
                     font-family: UTM_Helve;
+                    font-size: 14px;
                     background-color: #f2f2f3;
                     text-transform: uppercase;
                     cursor: pointer;
@@ -520,7 +523,7 @@
                     }
                     td {
                         position: relative;
-                        padding: 15px 15px;
+                        padding: 8px 15px;
                         &:after {
                             position: absolute;
                             top: 50%;
@@ -847,6 +850,16 @@
         background: transparent;
         overflow: hidden;
         position: relative;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        img{
+            transform: translateY(75%);
+            -webkit-transform: translateY(75%);
+            -moz-transform: translateY(75%);
+            -ms-transform: translateY(75%);
+            -o-transform: translateY(75%);
+}
     }
     .remove {
         width: 26px;

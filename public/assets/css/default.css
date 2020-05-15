@@ -360,7 +360,7 @@ footer .logo_ft img {
 footer .footer-ctn .foot-title {
   font-size: 18px;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   font-family: UTM_Helve;
   text-transform: uppercase;
 }
@@ -393,8 +393,8 @@ footer .footer-ctn .footer-nav li {
   list-style: none;
   position: relative;
   color: #fff;
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 14px;
+  margin-bottom: 5px;
   line-height: 30px;
 }
 

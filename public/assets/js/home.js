@@ -71,9 +71,9 @@
                 var swiper2 = new Swiper(ele.slidePartner, {
                     slidesPerView: 3,
                     spaceBetween: 30,
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
+                    autoplay: {
+                        delay: 3000,
+                    },
                     navigation: {
                         nextEl: '.swiper-button-next',
                         prevEl: '.swiper-button-prev',
@@ -104,18 +104,10 @@
                 });
                 var swiper3 = new Swiper(ele.slideBanner, {
                     slidesPerView: 1,
-                    spaceBetween: 30,
+                    // spaceBetween: 30,
                     autoplay: {
                         delay: 3000,
                     },
-                    // navigation: {
-                    //     nextEl: '.swiper-button-next',
-                    //     prevEl: '.swiper-button-prev',
-                    // },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
                     breakpoints: {
                         1200: {
                             slidesPerView: 1,
