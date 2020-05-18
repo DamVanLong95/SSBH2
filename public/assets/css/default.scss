@@ -34,16 +34,16 @@ $ellipsiswidth: 3em !default;
     }
     @media (min-width: 992px) {
         .navbar {
-            height: 95px;
+            height: 65px;
         }
         .logo-desktop {
-            transform: translate(10%, 22%);
+            transform: translate(15%, 22%);
             top: 0;
             left: 0;
             right: 0;
             margin: auto;
             position: relative;
-            width: 125px;
+            width: 100px;
             z-index: 2;
         }
     }

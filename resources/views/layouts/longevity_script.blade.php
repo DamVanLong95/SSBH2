@@ -62,7 +62,8 @@
                    
                     if(data.success = true){
                         var longevities = data.longevities;
-                        var th =  myTable.rows[1].cells[indexCol];
+                        var th =  myTable.rows[0].cells[indexCol];
+                        console.log('hhhh',th);
                         var ths =  myTable.rows[2].cells[indexCol];
                         th.setAttribute('class','health-select-cf');
                         var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
