@@ -243,11 +243,11 @@
                                                 </div>
                                                 
                                             </div>
-                                            <p>Tương lai vững vàng</p>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                     <tr class="sub-head">
                                         <td class="th-2">
                                             <div class="star-ctn">

@@ -64,11 +64,14 @@
                     if(data.success = true){
                         var longevities = data.longevities;
                         var th =  myTable.rows[0].cells[indexCol];
-                        console.log('hhhh',th);
-                        var ths =  myTable.rows[2].cells[indexCol];
-                        th.setAttribute('class','health-select-cf');
-                        console.log(th);
-                        th.innerHTML = data.product_name.name;
+                        var ths =  myTable.rows[1].cells[indexCol];
+                        var create = document.createElement("p");
+                        create.style.color = "#0d723b";
+                        create.style.position = "sticky";
+                        create.style.textAlign = "center";
+                        create.append(data.product_name.name);
+                        th.appendChild(create);
+                        // th.innerHTML = data.product_name.name;
                         var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                         var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
