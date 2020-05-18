@@ -176,8 +176,8 @@
                                         </tr>
                                     </div>
                                     
-                                    <tr class="green1 sub-ctn2">
-                                        <td  colspan="2" class="green_header">Tính phí</td>
+                                    <tr class="green1 sub-ctn2" style="height: 0;background: none;color: transparent;">
+                                        <td  colspan="2" class="green_header" style="height: 0;padding: 0;"></td>
                                     </tr>
                                     <tr class="tool-ctn sub-ctn3">
                                         <td colspan="2" id="select_box">

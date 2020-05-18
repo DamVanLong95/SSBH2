@@ -234,33 +234,20 @@
                                 <thead>
                                     <tr class="top-head" >
                                         <th class='th-1'>
-                                            <div class="left-ctn">
-                                                <div class="item phone">
-                                                    <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
-                                                </div>
-                                                <div class="item">
-                                                    <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
-                                                </div>
-                                            </div>
-                                            <h4>SANBAOHIEM</h4>
+                                        
                                         </th>
                                         <th class="col2">
                                             <div class="img-container">
                                                 <div class="select2-ctn">
-                                                
+                                                    
                                                 </div>
+                                                
                                             </div>
-                                            <p class="">Tương lai vững vàng
-                                        </th></p>
+                                            <p>Tương lai vững vàng</p>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bottom-head data-detail-cf">
-                                        <td class="first-select-cf"></td>
-                                        <td class="health-select-cf">
-                                          
-                                        </td>
-                                    </tr>
                                     <tr class="sub-head">
                                         <td class="th-2">
                                             <div class="star-ctn">
