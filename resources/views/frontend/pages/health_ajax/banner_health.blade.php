@@ -1,5 +1,5 @@
 <div class="pack-title">
-<h4>Tích lũy, tiết kiệm <span>({{count($products)}})</span></h4>
+<h4>kết quả <span>({{count($products)}})</span></h4>
 </div>
 <div  class="section-wrapper">
     <ul class="section-list" >

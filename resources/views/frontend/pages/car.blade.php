@@ -128,7 +128,10 @@
         </div>
     </div>
     <div class="table-section ">
-        
+        <div class="contact-floating">
+            <div class="contact-email"><a href="tel:0906060784" target="_blank"><img src="<?php echo e(url('/')); ?>/assets/images/default/phone-intro.png?<?php echo e(config('custom.version')); ?>" alt=""></a></div>
+            <div class="contact-phone"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="<?php echo e(url('/')); ?>/assets/images/default/email-intro.png?<?php echo e(config('custom.version')); ?>" alt=""></a></div>
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -142,15 +145,7 @@
                                 <thead>
                                     <tr class="top-head" >
                                         <th class='th-1'>
-                                            <div class="left-ctn">
-                                                <div class="item phone">
-                                                    <a class="" href="tel:1900988965" target="_blank">1900 9889 65</a>
-                                                </div>
-                                                <div class="item">
-                                                    <a href="mailto:contact@vics-corp.com" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
-                                                </div>
-                                            </div>
-                                            <h4>SANBAOHIEM</h4>
+                                            
                                         </th>
                                         <th class="col2">
                                             <div class="img-container"></div>

@@ -250,14 +250,15 @@
                                                 
                                                 </div>
                                             </div>
-                                        </th>
+                                            <p class="">Tương lai vững vàng
+                                        </th></p>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf">
-                                            Tương lai vững vàng
+                                          
                                         </td>
                                     </tr>
                                     <tr class="sub-head">

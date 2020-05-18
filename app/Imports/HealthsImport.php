@@ -20,6 +20,7 @@ class HealthsImport implements ToModel,WithHeadingRow
                 'program_id' => $row['id_chuong_trinh'],
                 'comparison'  => $row['chi_tieu_so_sanh'],
                 'content'     => $row['noi_dung'],
+                'level'       => $row['phan_cap']
             ]);
 
             DB::commit();

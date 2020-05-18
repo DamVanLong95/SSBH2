@@ -329,7 +329,6 @@
                                 <tr class="data-detail ">
                                     <td>
                                         <p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
-                                        <!-- <span class="show-detail"><button href="#detail-td" rel="modal:open">...</button></span></span> -->
                                     </td>
                                     <td></td>
                                 </tr>

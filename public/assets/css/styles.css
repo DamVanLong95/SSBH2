@@ -1077,7 +1077,7 @@ footer .logo_ft img {
 footer .footer-ctn .foot-title {
   font-size: 18px;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   font-family: UTM_Helve;
   text-transform: uppercase;
 }
@@ -1110,8 +1110,8 @@ footer .footer-ctn .footer-nav li {
   list-style: none;
   position: relative;
   color: #fff;
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 14px;
+  margin-bottom: 5px;
   line-height: 30px;
 }
 
@@ -2326,7 +2326,7 @@ footer .footer-ctn .footer-nav li a {
 .table-section #layout-area .table .green1 {
   background-color: #0d723b;
   color: #fff;
-  height: 60px;
+  height: 40px;
   font-family: UTM_Helve;
   text-transform: uppercase;
 }
@@ -2337,7 +2337,7 @@ footer .footer-ctn .footer-nav li a {
   position: sticky;
   left: 0;
   color: white !important;
-  padding: 15px 15px;
+  padding: 8px 15px;
 }
 
 .table-section #layout-area .table td.green_header {
@@ -2365,6 +2365,13 @@ footer .footer-ctn .footer-nav li a {
   border-bottom: 1px solid #0d723b;
   border-right: 1px solid #0d723b;
   z-index: 7;
+}
+
+.table-section #layout-area .table thead .top-head th.th-1 {
+  background: #f5f5f5 url(../images/car/thead.png);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 
 .table-section #layout-area .table thead .top-head th.th-1 .left-ctn {
@@ -2460,11 +2467,12 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section #layout-area .table tbody tr.header {
-  height: 60px;
+  height: 40px;
   position: relative;
   font-weight: bold;
   border-top: 1px solid #ccc;
   font-family: UTM_Helve;
+  font-size: 14px;
   background-color: #f2f2f3;
   text-transform: uppercase;
   cursor: pointer;
@@ -2484,7 +2492,7 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section #layout-area .table tbody tr.header td {
   position: relative;
-  padding: 15px 15px;
+  padding: 8px 15px;
 }
 
 .table-section #layout-area .table tbody tr.header td:after {
@@ -2836,11 +2844,22 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section .img-container {
   width: 200px;
-  height: 150px;
+  height: 100px;
   display: block;
   background: transparent;
   overflow: hidden;
   position: relative;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.table-section .img-container img {
+  transform: translateY(75%);
+  -webkit-transform: translateY(75%);
+  -moz-transform: translateY(75%);
+  -ms-transform: translateY(75%);
+  -o-transform: translateY(75%);
 }
 
 .table-section .remove {
@@ -5580,7 +5599,7 @@ footer .footer-ctn .footer-nav li a {
   z-index: 1;
   margin: auto;
   overflow: auto;
-  height: 123vh;
+  height: 100vh;
 }
 
 .table-scroll::-webkit-scrollbar-track {
@@ -5618,7 +5637,7 @@ footer .footer-ctn .footer-nav li a {
 .sub-head td {
   position: -webkit-sticky;
   position: sticky;
-  top: 163px;
+  top: 112px;
   z-index: 8;
   background-color: #f5f5f5;
 }
@@ -5626,14 +5645,14 @@ footer .footer-ctn .footer-nav li a {
 .sub-head td.th-2 {
   position: -webkit-sticky;
   position: sticky;
-  top: 163px;
+  top: 112px;
   z-index: 8;
 }
 
 .sub-ctn2 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 198px;
+  top: 148px;
   z-index: 8 !important;
   background-color: #f5f5f5;
 }
@@ -5641,14 +5660,14 @@ footer .footer-ctn .footer-nav li a {
 .sub-ctn3 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 259px;
+  top: 148px;
   z-index: 8 !important;
 }
 
 .sub-ctn4 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 316px;
+  top: 205px;
   z-index: 8 !important;
 }
 
@@ -5661,7 +5680,7 @@ footer .footer-ctn .footer-nav li a {
 .sub-ctn5 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 354px;
+  top: 242px;
   z-index: 8 !important;
 }
 
