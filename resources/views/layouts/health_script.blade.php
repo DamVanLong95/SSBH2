@@ -3,18 +3,43 @@
 
 
     <script>
+          function showMore(length,selector,nameId,visible){
+            var currentIndex = 5;
+            var numMore = 5;  
+            var table  = document.getElementById('main-tbl-sk');
+            var rows   = table.tBodies[0].rows;
+            var trs = $('#'+selector+'');
+            var trsLength = trs.length;
+                        trs.hide();
+                        trs.slice(0, 5).show(); 
+            if($('#'+nameId+'').length == 0 ){
+                $(rows[length]).after('<tr class="more" id="'+nameId+'"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+                 '</span></div</td></tr>');
+            }
+            $('#'+nameId+'').click(function() {
+                $('#'+selector+'').slice(0, currentIndex + 5).show();
+                currentIndex +=5;
+                checkButton();
+            });
+                    
+            function checkButton(){
+                var currentLength = $('#'+visible+'').length;
+                if (currentLength >= trsLength) $('#'+nameId+'').remove(); 
+                else   $('#'+nameId+'').show();   
+            }
+        }
         $(document).ready(function() {
             var element = document.getElementsByClassName('header');
             for (var i = 0; i < element.length; i++){
                 element[i].addEventListener('click', function (event) {
                     $(this).toggleClass('colapse-head').nextUntil('tr.header').slideToggle(100);
                     //====== DIEU KHOAN BO SUNG============
-                    // if(event.target.matches('.term_header') ){
-                    //     var selector = "main-tbl .term";
-                    //     var nameId ='more';
-                    //     var visible=  "main-tbl .term:visible";
-                    //     showMore(length,selector,nameId,visible);
-                    // }
+                    if(event.target.matches('.term_header') ){
+                        var selector = "main-tbl .term";
+                        var nameId ='more';
+                        var visible=  "main-tbl .term:visible";
+                        showMore(length,selector,nameId,visible);
+                    }
                 }, false);
             }
     })
@@ -137,7 +162,6 @@
                                     // console.log(tdss);
                                     for(var i =80; i<= 88; i++){
                                         var tdss = tblBodyObj.rows[i].cells[indexCol];
-                                        console.log(tdss);
                                         (healths.length == 0)? tdss.innerHTML = `<p class="">Data not update</p>`
                                                     :tdss.innerHTML = `<p class="">`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`;
                                        

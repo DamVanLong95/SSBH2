@@ -169,29 +169,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" id="thumbs">
-                <div class="pack-title">
-                <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
-                </div>
-                <div  class="section-wrapper">
-                    <ul id="thumbs" class="section-list">
-                    @foreach($data['saving'] as $value)
-                        <li class="item">
-                            <div class="thumb-t">
-                               <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="" type="checkbox" id="checkbox_{{$value['id']}}"/>
-                                        <label class="toggle" for="checkbox_{{$value['id']}}"></label>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                        </ul>
-                     </div>
-                </div>
+               </div>
             </div>
             <div class="paddles">
                 <button class="left-paddle paddle hidden">
@@ -204,7 +182,7 @@
         </div>
         
     </div>
-    <div class="pack-section">
+    <!-- <div class="pack-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" id="secure_list">
@@ -243,7 +221,7 @@
             </div>
         </div>
         
-    </div>
+    </div> -->
     <div class="table-section-sk">
         <div class="container-fluid">
             <div class="row">
@@ -517,12 +495,11 @@
             if($(this).is(":checked"))
             checkedCompanies.push($(this).val());
         });
-       
+        console.log(checkedCompanies);
         $(".dropdownCheckbox").each(function(){
             if($(this).is(":checked"))
             checkedID.push($(this).val());
         });
-        console.log(checkedID);
         $(".dropdownCheckbox_2").each(function(){
             if($(this).is(":checked"))
             checkedCost.push($(this).val());
@@ -541,13 +518,8 @@
         }
         ,function(data,status){
             setTimeout(function(){
-                $('#thumbs').html(data.html_saving);
+                $('#thumbs').html(data.html);
              }, 100);
-             if(data.html_secure){
-                $('#secure_list').html(data.html_secure);
-             }
-             
-             
         });
     }
     function showMore(val){

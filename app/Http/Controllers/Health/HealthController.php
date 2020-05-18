@@ -201,8 +201,8 @@ class HealthController extends Controller
             foreach($companies_id as $value){
                 $array_4[] = Company::find($value)->products;
             }
-            $items = new Collection();
 
+            $items = new Collection();
             foreach($array_4 as $collection)
             {
                 foreach($collection as $item)
@@ -271,7 +271,6 @@ class HealthController extends Controller
             
                 $cols [] = $obj_cost[$costs[$i]];
             }  
-        // dd($cols);
             $products_id = FilterCost::select('product_id')
                     ->where(function ($query) use ($cols){
                     foreach($cols as $key=>$value)
@@ -293,34 +292,15 @@ class HealthController extends Controller
         $products = $items  ->merge($array_1)
                             ->merge($array_2)
                             ->merge($array_3);
+        $products = $products->unique('company_id');
+        $products = $products->unique('name');
 
-        // $products = $products->unique(function ($item)
-        // {
-        //     return $item['name'] ;
-        // });
-        // dd($products);
-        $product_saving=[];
-        $product_secure =[];
-        foreach($products as $value){
-            if($value['cate'] == 1){
-                array_push($product_saving,$value);
-            }
-            if($value['cate'] == 2){
-                array_push($product_secure,$value);
-            }
-        }
-        // dd($product_secure);
-        $html_saving = view('frontend.pages.health_ajax.banner_health')
-                        ->with(['product_saving'=> $product_saving])
+
+        $html = view('frontend.pages.health_ajax.banner_health')
+                        ->with(['products'=> $products])
                         ->render();
-        
-        $html_secure = view('frontend.pages.health_ajax.secure_health')
-                        ->with(['product_secure'=> $product_secure])
-                        ->render();
-       
         return response()->json([
-            'html_saving' => $html_saving,
-            'html_secure' => $html_secure,
+            'html' => $html,
         ]);
     }
    

@@ -1,9 +1,9 @@
 <div class="pack-title">
-<h4>Tích lũy, tiết kiệm <span>({{count($product_saving)}})</span></h4>
+<h4>Tích lũy, tiết kiệm <span>({{count($products)}})</span></h4>
 </div>
 <div  class="section-wrapper">
     <ul class="section-list" >
-        @forelse($product_saving as $value)
+        @forelse($products as $value)
             <li class="item">
                 <div class="thumb-t">
                     {{$value['name']}}
