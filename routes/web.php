@@ -63,6 +63,8 @@ Route::post('health/filter','Health\HealthController@filterHealth')->name('filte
 Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
 Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
 Route::post('longevity/filter','Longevity\LongevityController@filterBanner')->name('filterLongevity');
+Route::post('longevity/popup','Longevity\LongevityController@displayPopup')->name('popupLongevity');
+Route::post('longevity/showProduct','Longevity\LongevityController@showProduct')->name('showProduct');
 
 Auth::routes();
 
