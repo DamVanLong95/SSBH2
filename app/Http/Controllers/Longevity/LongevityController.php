@@ -189,24 +189,24 @@ class LongevityController extends Controller
     }
     public function displayPopup(Request $request){
         $data = $request->all();
+        // dd($data);
         $product_longevity_id = $data['product_longevity_id'];//id san pham nhan tho
         $product_group_id = $data['product_group_id'];//nhom san pham bo tro
-        $collection = Benifit::groupBy('product_group_id')
-            ->selectRaw('count(product_group_id) as total, product_group_id')
-            ->where('product_group_id',$product_group_id)
-            ->first();
-            
-            $total = $collection!=null?$collection->total:0;
+
+        
+
         $group_parent = GroupProduct::where('id',$product_group_id)->first();
+
         $group_child = Benifit::select('id','group_child')
                     ->where('product_group_id','=',$product_group_id)
                     ->get();
-        $spbt = Benifit::select('product_longevity_id','product_group_id','product_more_name','product_longevity_name','group_child_id','content')
+
+        $spbt = Benifit::select('product_longevity_id','product_group_id','product_more_name','product_longevity_name','content')
+                    ->whereIn('product_longevity_id',$product_longevity_id) 
                     ->where('product_group_id',  $product_group_id )
-                    ->whereIn('product_longevity_id',$product_longevity_id)
                     ->get();
-                   
-         $spbt = $spbt->unique('product_more_name');
+        $spbt = $spbt->unique('product_longevity_name');
+        // dd($spbt);
         $product_longevity = ProductLongevity::whereIn('id',$product_longevity_id)->get();
 
         $result = array(
@@ -217,7 +217,7 @@ class LongevityController extends Controller
         );
         
         $html = view('frontend.pages.health_ajax.popup')
-                    ->with(['result' => $result,'total' => $total])
+                    ->with(['result' => $result,'product_longevity_id' => json_encode($product_longevity_id)])
                     ->render();
         return response()->json([
             'success' => true,
@@ -226,7 +226,9 @@ class LongevityController extends Controller
     }
     public function showProduct(Request $request){
         $product_name = $request->get('product_name');
-        $benifits  = Benifit::where('product_more_name', $product_name)->get();
+        $product_id   = $request->get('product_id');
+        $benifits  = Benifit::where('product_more_name','LIKE', "%$product_name%")
+                    ->get();
         // dd($benifits);
         return response()->json([
             'status' => 'success',

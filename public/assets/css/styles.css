@@ -1142,7 +1142,7 @@ footer .footer-ctn .footer-nav li a {
 
 .modal {
   height: 370px;
-  max-width: initial !important;
+  max-width: initial;
   background-color: #0d723b;
   color: #fff;
 }

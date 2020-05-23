@@ -414,19 +414,17 @@
     
 </div>
 
-<div id="detail-td" class="modal ">
+<div id="detail-td" class="modal">
     <div class="content-ctn">
         <div id="note"></div>
     </div>
   <a href="javascript:void(0)">Liên hệ ngay</a>
-
 </div>
-<div id="detail-comparison" class="modal modal-config " >
+<div id="detail-comparison" class="modal" >
     <div class="content-ctn" >
         <div id="comparison"></div>
     </div>
   <a href="javascript:void(0)">Liên hệ ngay</a>
-
 </div>
 <script>
   
@@ -444,7 +442,7 @@
     })
 </script>
 <script>
- 
+   
     function resetChecked(){
         $(".checkedbox").removeAttr('checked');
         $(".checkedCompanies").removeAttr('checked');

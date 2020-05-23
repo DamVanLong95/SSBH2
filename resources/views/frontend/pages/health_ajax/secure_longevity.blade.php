@@ -224,7 +224,15 @@
         </button>
     </div>
 </div>
+
 @endif
+<div id="detail-comparison" class="modal" >
+    <div class="content-ctn" >
+        <div id="comparison"></div>
+    </div>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
+</div>
+
 <script>
     var globalId=[];
     dropImage();
@@ -359,9 +367,8 @@
                           
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                         //  console.log(longevities);
-                         for(var i=ltbh.rowIndex+1; i<64;i++){
+                         for(var i=ltbh.rowIndex+1; i<60;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            // console.log(tds);
                             if(longevities[i-12]['content']!=null){
                                 tds.innerHTML =  `<p>`+longevities[i-12]['content']+`</p>`;
                             }
@@ -522,21 +529,27 @@
 </script>
 <script>
    function handleOncick(el){
-       console.log(globalId);
-        var url = '{{route('popupLongevity')}}';
-        $.ajax({
-            type: "POST",
-            url : url,
-            data:{
-                "_token": "{{ csrf_token() }}",
-                "product_group_id":el.value,
-                "product_longevity_id":globalId
-            },
-        }).done(function(data){
-            $('#note').html(data.html);
-            $('#detail-td').modal('show');
-        });
-      
+       if(el.checked === true){
+            var url = '{{route('popupLongevity')}}';
+            $.ajax({
+                type: "POST",
+                url : url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "product_group_id":el.value,
+                    "product_longevity_id":globalId
+                },
+            }).done(function(data){
+                $('#comparison').html(data.html);
+                $('#detail-comparison').modal('show');
+            });
+       }
+     
+        
     }
+    $('.close').click(function(){
+  $('.content').toggleClass("show hide");
+  $('.open').toggleClass("show hide");
+});
 </script>
 
