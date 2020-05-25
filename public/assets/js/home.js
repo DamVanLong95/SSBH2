@@ -104,7 +104,7 @@
                 });
                 var swiper3 = new Swiper(ele.slideBanner, {
                     slidesPerView: 1,
-                    // spaceBetween: 30,
+                    spaceBetween: 0,
                     autoplay: {
                         delay: 3000,
                     },

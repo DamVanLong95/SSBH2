@@ -87,6 +87,12 @@
   position: relative;
 }
 
+@media (max-width: 1024px) {
+  .block-main-menu .main-menu ul li {
+    margin-left: 0;
+  }
+}
+
 .block-main-menu .main-menu ul li a {
   display: block;
   white-space: nowrap;
@@ -479,6 +485,10 @@ footer .footer-ctn .footer-nav li a {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #0d723b;
+}
+
+.swiper-banner .swiper-slide {
+  margin-right: 0;
 }
 
 #net-address {

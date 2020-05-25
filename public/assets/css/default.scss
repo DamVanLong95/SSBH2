@@ -65,6 +65,9 @@ $ellipsiswidth: 3em !default;
             margin-top: -8px;
             li {
                 margin-left: 35px;
+                @media (max-width: 1024px) {
+                    margin-left: 0;
+                }
                 position: relative;
                 a {
                     display: block;
@@ -424,7 +427,11 @@ footer {
     background-color: $main-color;
     }
 }
-
+.swiper-banner{
+    .swiper-slide{
+        margin-right: 0;
+    }
+}
 
 // ================================network==============================
 #net-address {
