@@ -156,19 +156,19 @@
             <ul id="thumbs" class="section-list">
             @foreach($product_edu as $value)
                 <li class="item">
-                <div class="thumb-t">
-                        <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                    
-                        <div class="brand-thumb">
-                            <label for="1">
-                                <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                            </label>
-                            <div class="input-pack">
-                            <input name="type" value="" type="checkbox" id="checkbox_gd{{$value['id']}}"/>
-                                <label class="toggle" for="checkbox_gd{{$value['id']}}"></label>
+                    <div class="thumb-t">
+                            <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
+                        
+                            <div class="brand-thumb">
+                                <label for="1">
+                                    <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                </label>
+                                <div class="input-pack">
+                                <input name="type" value="" type="checkbox" id="checkbox_gd{{$value['id']}}"/>
+                                    <label class="toggle" for="checkbox_gd{{$value['id']}}"></label>
+                                </div>
                             </div>
-                        </div>
-            </div>
+                    </div>
                 </li>
                 @endforeach
             </ul>
@@ -230,10 +230,14 @@
     <div class="content-ctn" >
         <div id="comparison"></div>
     </div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
   <a href="javascript:void(0)">Liên hệ ngay</a>
 </div>
 
 <script>
+    function closeModal() {
+       $('#detail-comparison').modal('hide');
+    }
     var globalId=[];
     dropImage();
     
@@ -519,12 +523,12 @@
             '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
             '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
         return !!pattern.test(str);
-    }
+      }
 
     function clickLink(id) { 
         var url= document.getElementById("link").getAttribute("href");
         window.open(url, "_blank"); 
-     }
+    }
 
 </script>
 <script>
@@ -547,9 +551,9 @@
      
         
     }
-    $('.close').click(function(){
-  $('.content').toggleClass("show hide");
-  $('.open').toggleClass("show hide");
-});
-</script>
+        $('.close').click(function(){
+        $('.content').toggleClass("show hide");
+        $('.open').toggleClass("show hide");
+    });
 
+</script>

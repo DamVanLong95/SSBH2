@@ -4012,6 +4012,15 @@ footer .footer-ctn .footer-nav li a {
   display: none;
 }
 
+.table-scroll {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  height: 80vh;
+}
+
 .table-section-sk {
   margin-bottom: 5%;
   margin-top: 2%;
