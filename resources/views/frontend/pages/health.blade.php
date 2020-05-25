@@ -251,7 +251,7 @@
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf"></td>
                                     </tr> -->
-                                    <tr class="sub-head-health">
+                                    <tr class="sub-head sub-head-health">
                                         <td class="th-2">
                                             <div class="star-ctn">
                                                 <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
