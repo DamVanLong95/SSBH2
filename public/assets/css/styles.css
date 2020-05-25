@@ -4144,12 +4144,12 @@ footer .footer-ctn .footer-nav li a {
   font-family: UTM_HelveBold_Italic;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health td {
+.table-section-sk #layout-area .table tbody tr.sub-head-health td {
   border-bottom: 1px solid #0d723b;
   border-right: 1px solid #0d723b;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health td.th-2 .star-ctn {
+.table-section-sk #layout-area .table tbody tr.sub-head-health td.th-2 .star-ctn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4161,17 +4161,17 @@ footer .footer-ctn .footer-nav li a {
           flex-direction: row;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health td.th-2 .item p {
+.table-section-sk #layout-area .table tbody tr.sub-head-health td.th-2 .item p {
   margin-bottom: 0;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health .star-ctn .item p span {
+.table-section-sk #layout-area .table tbody tr.sub-head-health .star-ctn .item p span {
   bottom: 2px;
   position: relative;
   right: 0px;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health .count-rank-ctn {
+.table-section-sk #layout-area .table tbody tr.sub-head-health .count-rank-ctn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4184,11 +4184,11 @@ footer .footer-ctn .footer-nav li a {
           flex-direction: row;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health .count-rank-ctn .mark-num p span.first-span {
+.table-section-sk #layout-area .table tbody tr.sub-head-health .count-rank-ctn .mark-num p span.first-span {
   color: #f36f21;
 }
 
-.table-section-sk #layout-area .table tbody .sub-head-health .count-rank-ctn p {
+.table-section-sk #layout-area .table tbody tr.sub-head-health .count-rank-ctn p {
   margin-bottom: 0;
 }
 
@@ -5692,7 +5692,7 @@ footer .footer-ctn .footer-nav li a {
 .sub-head-health td {
   position: -webkit-sticky;
   position: sticky;
-  top: 183px !important;
+  top: 143px !important;
   z-index: 8;
   background-color: #f5f5f5;
 }
@@ -5707,7 +5707,7 @@ footer .footer-ctn .footer-nav li a {
 .sub-head-health td.th-2 {
   position: -webkit-sticky;
   position: sticky;
-  top: 183px !important;
+  top: 143px !important;
   z-index: 8;
 }
 
