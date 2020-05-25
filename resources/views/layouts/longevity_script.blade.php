@@ -56,7 +56,6 @@
                                  tblBodyObj  = myTable.tBodies[0]
                                  tblHeadObj  = myTable.tHead
                                  indexCol    = tblHeadObj.rows[0].cells.length - 1;
-                                 console.log(tblBodyObj.rows);
                 var url = '{{route('droppLongevity')}}';
                 $.post(url, {"_token": "{{ csrf_token() }}", id: idImg,  indexCol:indexCol}
                 ,function(data , status , xhr){

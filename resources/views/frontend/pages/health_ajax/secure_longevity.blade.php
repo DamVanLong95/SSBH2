@@ -1,3 +1,30 @@
+@if(!empty($product_saving))
+<div class="pack-title">
+<h4>Tích lũy, tiết kiệm <span>({{count($product_saving)}})</span></h4>
+</div>
+<div  class="section-wrapper">
+    <ul id="thumbs" class="section-list">
+    @foreach($product_saving as $value)
+        <li class="item">
+        <div class="thumb-t">
+                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
+            
+                <div class="brand-thumb">
+                    <label for="1">
+                        <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                    </label>
+                    <div class="input-pack">
+                        <input name="type" value="" type="checkbox" id="checkbox_tl{{$value['id']}}"/>
+                        <label class="toggle" for="checkbox_tl{{$value['id']}}"></label>
+                    </div>
+                </div>
+            </div>
+        </li>
+        @endforeach
+    </ul>
+</div>
+
+@endif
 @if(!empty($product_secure))
 <div class="container">
     <div class="row">
@@ -197,8 +224,17 @@
         </button>
     </div>
 </div>
+
 @endif
+<div id="detail-comparison" class="modal" >
+    <div class="content-ctn" >
+        <div id="comparison"></div>
+    </div>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
+</div>
+
 <script>
+    var globalId=[];
     dropImage();
     
     function dropImage(){
@@ -230,7 +266,6 @@
                 $(this).addClass('img-inserted');
                 $('<span class="remove" />').text('X').appendTo(th);
                 $('span.remove', th).show();
-
                 $('#checkbox_tl'+idImg+'').prop("checked", true);
                 $('#checkbox_bv'+idImg+'').prop("checked", true);
                 $('#checkbox_gd'+idImg+'').prop("checked", true);
@@ -254,61 +289,90 @@
 
                 if($('#checkbox_dn'+idImg+'').prop("checked") == true)
                     $('#'+idImg+'').draggable({ disabled: true });
+
+                   globalId.push(idImg);
+                //   var els = $('.selectedId');
+                //   for(var i=0; i<els.length; i++){
+                //     els[i].setAttribute('data-options',[idImg]);
+                //   }
+                //   console.log(els);
                 
+                    var myTable = document.getElementById('main-tbl-nt')
+                                 tblBodyObj  = myTable.tBodies[0]
+                                 tblHeadObj  = myTable.tHead
+                                 indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                //  console.log(myTable.rows);
                 var url = '{{route('droppLongevity')}}';
                 $.post(url, {"_token": "{{ csrf_token() }}", id: idImg}
                 ,function(data , status , xhr){
-                    console.log(data);
                     if(data.success = true){
-                        var myTable = document.getElementById('main-tbl-nt')
-                                 tblBodyObj  = myTable.tBodies[0]
-                                 tblHeadObj  = myTable.tHead
-                                 indexCol    = tblHeadObj.rows[0].cells.length - 2;
+                       
                         var longevities = data.longevities;
-                        var th =  myTable.rows[1].cells[indexCol];
-                        th.setAttribute('class','health-select-cf');
-                        th.innerHTML = data.product_name.name;
+                        var th =  myTable.rows[0].cells[indexCol];
+                        var ths =  myTable.rows[1].cells[indexCol];
+                        var create = document.createElement("p");
+                        create.style.color = "#0d723b";
+                        create.style.position = "sticky";
+                        create.style.textAlign = "center";
+                        create.append(data.product_name.name);
+                        th.appendChild(create);
+                        var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
+                        var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
+                        var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                        ths.innerHTML = `
+                            <div class="count-rank-ctn" >
+                                <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                                <div class="service">
+                                    <img src="`+path_camera+`"alt="">
+                                    <img src="`+path_phone+`"alt="">
+                                    <img src="`+path_mess+`"alt="">
+                                </div>
+                            </div>
+                        `;
+                         //===========Pham vi bao hiem=====================
                         for(var i =6; i<10;i++){
-                            var tds =  tblBodyObj.rows[i].cells[indexCol];
+                            var tds =  myTable.rows[i].cells[indexCol];
                             tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
                         }
-                        const row   = document.getElementById('benifit');
-                                    const index = row.rowIndex;
-                                    var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
-                        for(var i=index; i<index+16 ;i++){
-                            var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-index]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-index]['content']+`</p>`;
+                           //============Quyen loi san pham================
+                        var row   = document.getElementById('benifit');
+                        var index = row.rowIndex;
+                        var row_bt   = document.getElementById('product_bt');
+                        var indexRow = row_bt.rowIndex;
+                        // console.log(longevities);
+                        for(var i=index+1; i<indexRow ;i++){
+                            var tds =  myTable.rows[i].cells[indexCol];
+                            if(longevities[i-8]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-8]['content']+`</p>`;
                             }
                           
                          }
-                        const row_bt   = document.getElementById('product_bt');
-                        const indexRow = row_bt.rowIndex;
-                        // console.log(longevities[24]['content']);
-                        for(var i=indexRow; i<indexRow+4 ;i++){
-                            var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
-                            }
-                          
-                         }
-                         for(var i=34; i<41 ;i++){
-                            var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-5]['content']!=null){
-                                if(validURL(longevities[i-5]['content'])==true){
+                        //  ===========San Pham bo tro==================
+                      
+                        //=====================CAC LOAI PHI===========================
+                        var lphi   = document.getElementById('lphi');
+                        var ltbh   = document.getElementById('ltbh');
+                        var row_lphi = lphi.rowIndex;
+                         for(var i=row_lphi+1; i<ltbh.rowIndex ;i++){
+                            var tds =  myTable.rows[i].cells[indexCol];
+                            if(longevities[i-10]['content']!=null){
+                                if(validURL(longevities[i-10]['content'])==true){
                                     tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-5]['content']+`" target="_blank" hidden></a>`;
                                 }else
-                                tds.innerHTML =  '<p class="text" >'+longevities[i-5]['content']+'</p>';
+                                tds.innerHTML =  '<p class="text" >'+longevities[i-10]['content']+'</p>';
                             }
                           
                          }
+                         //====================LOAI TRU BAO HIEM============================
+                          
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                         for(var i=42; i<51 ;i++){
-                            var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            if(longevities[i-5]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-5]['content']+`</p>`;
+                        //  console.log(longevities);
+                         for(var i=ltbh.rowIndex+1; i<60;i++){
+                            var tds =  myTable.rows[i].cells[indexCol];
+                            if(longevities[i-12]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-12]['content']+`</p>`;
                             }
-                            if(longevities[i-5]['content']==='x'){
+                            if(longevities[i-12]['content']==='x'){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                             `;
                             }
@@ -317,8 +381,8 @@
                 }).done(function() {
                     // alert('Request done!');
                 });;
-                $('table th').on('click', function (e ) {
-                    var index = ($(this).index()+1);
+                $('span.remove').on('click', function (e ) {
+                    var index = ($(this).parent().parent().index()+1);
                         if( index ==2 ){
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
@@ -400,11 +464,11 @@
             },
             out: function( event, ui ){
                 $(this).removeClass('dropped');
-            }
-
+            },
         });
+        
     }
-
+   
       function addColumn(tblId) {
         var myTable = document.getElementById('main-tbl-nt');
         var tblHeadObj = document.getElementById(tblId).tHead;
@@ -418,6 +482,7 @@
               $('.green_header').attr("colspan", tableLength +1)
               $('.hospital_header').attr("colspan", tableLength )
               $('#select_box_longevity').attr("colspan", tableLength +1 )
+              $('.spbt').attr("colspan", tableLength +1)
               tblHeadObj.rows[h].appendChild(newTH);
               creatediv.setAttribute('class', "img-container");
               newTH.appendChild(creatediv);
@@ -439,6 +504,7 @@
               $('.green_header').next("td").remove()
               $('.hospital_header').next("td").remove()
               $('#select_box_longevity').next("td").remove()
+              $('.spbt').next("td").remove()
 
           }
         }
@@ -452,11 +518,38 @@
             '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
             '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
             '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-    return !!pattern.test(str);
+        return !!pattern.test(str);
     }
+
     function clickLink(id) { 
         var url= document.getElementById("link").getAttribute("href");
         window.open(url, "_blank"); 
      }
+
+</script>
+<script>
+   function handleOncick(el){
+       if(el.checked === true){
+            var url = '{{route('popupLongevity')}}';
+            $.ajax({
+                type: "POST",
+                url : url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "product_group_id":el.value,
+                    "product_longevity_id":globalId
+                },
+            }).done(function(data){
+                $('#comparison').html(data.html);
+                $('#detail-comparison').modal('show');
+            });
+       }
+     
+        
+    }
+    $('.close').click(function(){
+  $('.content').toggleClass("show hide");
+  $('.open').toggleClass("show hide");
+});
 </script>
 

@@ -77,6 +77,7 @@
                                     tblBodyObj  = myTable.tBodies[0]
                                     tblHeadObj  = myTable.tHead
                                     indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                    // console.log(tblBodyObj.rows);
                     var url = '{{route('droppHealth')}}';
                     $.post(url, 
                     {
@@ -90,9 +91,28 @@
                             var programs = data.data['programs'];
                             var count    = data.data['hospitalCount'];
                             var indexCol = data.indexCol;
-                            var th =  myTable.rows[1].cells[indexCol];
-                            th.setAttribute('class','health-select-cf');
-                            th.innerHTML = data.html;
+                            var th =  myTable.rows[0].cells[indexCol];
+                            var ths =  myTable.rows[1].cells[indexCol];
+                            var div = document.createElement('div');
+                            div.setAttribute('class','health-select-cf');
+                            div.innerHTML =data.html;
+                            th.appendChild(div);
+                            var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
+                            var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
+                            var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                            ths.innerHTML = `
+                                <div class="count-rank-ctn" >
+                                    <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                                    <div class="service">
+                                        <img src="`+path_camera+`"alt="">
+                                        <img src="`+path_phone+`"alt="">
+                                        <img src="`+path_mess+`"alt="">
+                                    </div>
+                                </div>
+                            `;
+                                
+                          
+                            // th.innerHTML = data.html;
                             $('#hospital').html(data.html_hospital);
                             $('#select'+indexCol+'').on("click", function() {
                                 $(this).parents(".custom-select-fix").toggleClass("opened");
@@ -115,35 +135,44 @@
                                     var scope   = data.scope;
                                     var obj_bhs= data.obj_bhs;
                                     var exclusions = data.exclusions;
-                                    var myTable = document.getElementById('main-tbl-sk'),
-                                        tblBodyObj  = myTable.tBodies[0];
-                                    var tds =  myTable.rows[5].cells[indexCol]; 
+                                    var myTable = document.getElementById('main-tbl-sk');
+                                    console.log(myTable.rows);
+                                    console.log(healths);
+                                    var row   = document.getElementById('dtbh');
+                                    var qlbh  = document.getElementById('qlbh');
+                                    var pending   = document.getElementById('pending');
+                                    var pbh   = document.getElementById('pbh');
+                                  
+                                    var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
                                     (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
                                                     :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
-                                    
-                                    var tds =  myTable.rows[7].cells[indexCol]; 
-                                    
+                                    //=====================pham vi lanh tho===========================
+                                    var pvlt   = document.getElementById('pvlt');
+                                  
+                                    var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
+
                                     (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
                                                     :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
-                                    for(var i=8; i< 79; i++){
-                                        var tdss = tblBodyObj.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                
+                                    //========================quyen loi bao hiem========================
+                                    for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
+                                        var tdss = myTable.rows[i].cells[indexCol];
+                                        tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
                                     
                                     }
-                                    //THOI GIAN
-                                    var tdss = tblBodyObj.rows[80].cells[indexCol] ;
-                                    // console.log(tdss);
-                                    for(var i =80; i< 88; i++){
-                                        var tdss = tblBodyObj.rows[i].cells[indexCol];
+                                    //========================THOI GIAN================================
+                                  
+                                    for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
+                                        var tdss = myTable.rows[i].cells[indexCol];
+                                        // console.log(tdss);
                                         tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
                                     }
-                                
-                                    const row   = document.getElementById('cost');
-                                    const index = row.rowIndex;
-                                    var tdss    = tblBodyObj.rows[index].cells[indexCol] ;
-                                    tdss.innerHTML = `<a href='`+healths[83]['content']+`' class=''>Link_click</a>` ; 
+
+                                  
+                                    var tdss    = myTable.rows[90].cells[indexCol] ;
+                                    tdss.innerHTML = `<a href='`+healths[84]['content']+`' class=''>Link_click</a>` ; 
                                     //BENH VIEN LIEN KET
-                                    var tdsss =tblBodyObj.rows[92].cells[indexCol];
+                                    var tdsss =myTable.rows[92].cells[indexCol];
                                     tdsss.setAttribute('id','td'+indexCol+''); 
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                     $('#td'+indexCol+'').click(function(){
@@ -152,7 +181,7 @@
                                             if(indexCol==1){
                                                 tdnet = tdsss;
                                                 tdnet.setAttribute('class','active-td');
-                                                tblBodyObj.rows[92].cells[i+1].removeAttribute('class','active-td');
+                                                myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
                                                 break;
                                             }
                                             if(indexCol==i){
@@ -160,7 +189,7 @@
                                                 tdnet.setAttribute('class','active-td');
                                             
                                             }else {
-                                                tdnet= tblBodyObj.rows[92].cells[i];
+                                                tdnet= myTable.rows[92].cells[i];
                                                 tdnet.removeAttribute('class','active-td');
                                             }
                                         }
@@ -234,7 +263,7 @@
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                     for(var i=96;i < 96 + exclusions.length;i++){
-                                        var tds = tblBodyObj.rows[i].cells[indexCol];
+                                        var tds = myTable.rows[i].cells[indexCol];
                                         // console.log(tds);
                                         if(exclusions[i-96]['content']==='x'){
                                             tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -254,9 +283,9 @@
                         // alert('Request done!');
                     });;
                     
-                    $('table th').on('click', function (e ) {
-                        var index = ($(this).index()+1);
-                            if( index ==2 ){
+                    $('span.remove').on('click', function (e ) {
+                        var index = ($(this).parent().parent().index()+1);
+                        if( index ==2 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
@@ -293,7 +322,6 @@
                                 $('#checkbox_bv'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
                             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
-
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 // addColumn('main-tbl-sk');
