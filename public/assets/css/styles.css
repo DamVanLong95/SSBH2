@@ -2867,7 +2867,7 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section .img-container {
   width: 200px;
-  height: 100px;
+  height: 130px;
   display: block;
   background: transparent;
   overflow: hidden;
@@ -2878,11 +2878,11 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section .img-container img {
-  transform: translateY(75%);
-  -webkit-transform: translateY(75%);
-  -moz-transform: translateY(75%);
-  -ms-transform: translateY(75%);
-  -o-transform: translateY(75%);
+  transform: translateY(25%);
+  -webkit-transform: translateY(25%);
+  -moz-transform: translateY(25%);
+  -ms-transform: translateY(25%);
+  -o-transform: translateY(25%);
 }
 
 .table-section .remove {
@@ -4012,15 +4012,6 @@ footer .footer-ctn .footer-nav li a {
   display: none;
 }
 
-.table-scroll {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin: auto;
-  overflow: auto;
-  height: 80vh;
-}
-
 .table-section-sk {
   margin-bottom: 5%;
   margin-top: 2%;
@@ -4494,7 +4485,7 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section-sk .img-container {
   width: 200px;
-  height: 120px;
+  height: 130px;
   display: block;
   background: transparent;
   overflow: hidden;
@@ -5619,7 +5610,7 @@ footer .footer-ctn .footer-nav li a {
 
 .table-section-nt .img-container {
   width: 200px;
-  height: 120px;
+  height: 130px;
   display: block;
   background: transparent;
   overflow: hidden;
@@ -5684,7 +5675,7 @@ footer .footer-ctn .footer-nav li a {
 .sub-head td {
   position: -webkit-sticky;
   position: sticky;
-  top: 112px;
+  top: 142px;
   z-index: 8;
   background-color: #f5f5f5;
 }
@@ -5692,14 +5683,14 @@ footer .footer-ctn .footer-nav li a {
 .sub-head td.th-2 {
   position: -webkit-sticky;
   position: sticky;
-  top: 112px;
+  top: 142px;
   z-index: 8;
 }
 
 .sub-ctn2 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 148px;
+  top: 178px;
   z-index: 8 !important;
   background-color: #f5f5f5;
 }
@@ -5707,14 +5698,14 @@ footer .footer-ctn .footer-nav li a {
 .sub-ctn3 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 148px;
+  top: 178px;
   z-index: 8 !important;
 }
 
 .sub-ctn4 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 205px;
+  top: 235px;
   z-index: 8 !important;
 }
 
@@ -5727,7 +5718,7 @@ footer .footer-ctn .footer-nav li a {
 .sub-ctn5 td {
   position: -webkit-sticky;
   position: sticky;
-  top: 242px;
+  top: 272px;
   z-index: 8 !important;
 }
 
