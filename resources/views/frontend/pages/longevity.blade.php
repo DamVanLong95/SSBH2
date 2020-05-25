@@ -420,12 +420,7 @@
     </div>
   <a href="javascript:void(0)">Liên hệ ngay</a>
 </div>
-<div id="detail-comparison" class="modal" >
-    <div class="content-ctn" >
-        <div id="comparison"></div>
-    </div>
-  <a href="javascript:void(0)">Liên hệ ngay</a>
-</div>
+
 <script>
   
     function showMore(val){

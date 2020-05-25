@@ -200,6 +200,7 @@ class LongevityController extends Controller
         $group_child = Benifit::select('id','group_child')
                     ->where('product_group_id','=',$product_group_id)
                     ->get();
+        $group_child = $group_child->unique('group_child');
 
         $spbt = Benifit::select('product_longevity_id','product_group_id','product_more_name','product_longevity_name','content')
                     ->whereIn('product_longevity_id',$product_longevity_id) 
