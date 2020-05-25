@@ -21,7 +21,7 @@ class ProductLongevityController extends Controller
     }
     public function getData()
     {
-        $products = DB::table('product_longevities')->select([ 'id','name', 'company_id','url','classify_id'])->orderBy('created_at', 'desc');
+        $products = DB::table('product_longevities')->select([ 'id','name', 'company_id','url','classify_id'])->orderBy('created_at', 'asc');
       
         return Datatables::of($products)
 
@@ -36,7 +36,7 @@ class ProductLongevityController extends Controller
             ->editColumn('company_id', function($product){
 
                 $company = Company::where('id','=',$product->company_id)->get();
-                return $company[0]->name;
+                return $company[0]->name.'    '.'ID:'.$product->company_id;
             })
             
             ->addColumn('path',function($product){

@@ -366,8 +366,10 @@ footer {
 }
 
 // ===========================modal==============================
+
 .modal {
     height: 370px;
+    max-width: initial;
     background-color: #0d723b;
     color: #fff;
     // overflow-y: auto;
@@ -398,6 +400,7 @@ footer {
     #note{
         overflow: auto;
         height: 280px;
+
         margin: 20px 10px;
         text-align: justify;
     }

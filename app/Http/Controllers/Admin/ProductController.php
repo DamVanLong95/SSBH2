@@ -35,7 +35,7 @@ class ProductController extends Controller
             ->editColumn('company_id', function($product){
 
                 $company = Company::where('id','=',$product->company_id)->get();
-                return $company[0]->name;
+                return $company[0]->name.'        '.'ID:'.$product->company_id;
             })
             
             ->addColumn('path',function($product){

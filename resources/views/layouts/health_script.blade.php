@@ -92,7 +92,8 @@
                                     tblHeadObj  = myTable.tHead
                                     indexCol    = tblHeadObj.rows[0].cells.length - 1;
                     var url = '{{route('droppHealth')}}';
-                    
+                    var rows   = table.tBodies[0].rows;
+                    console.log(myTable);
                     $.post(url, 
                     {
                         "_token": "{{ csrf_token() }}", 
@@ -138,7 +139,8 @@
                                     var obj_bhs= data.obj_bhs;
                                     var exclusions = data.exclusions;
                                     var myTable = document.getElementById('main-tbl-sk'),
-                                        tblBodyObj  = myTable.tBodies[0];
+                                        tblBodyObj  = myTable.tBodies[0]; 
+                                        
                                     //================DOI TUONG BAO HIEM===========
                                     var tds =  myTable.rows[5].cells[indexCol]; 
                                     (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`

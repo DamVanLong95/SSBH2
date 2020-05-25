@@ -30,24 +30,30 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
-
                                 <label class="dropdown-option">
                                 <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 1" />
+                                Tich lũy
+                                </label>  <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 2" />
+                                Bảo vệ
+                                </label>
+                                <label class="dropdown-option">
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 3" />
                                 Đầu tư
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 2" />
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 4" />
                                 Giáo dục
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 3" />
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 5" />
                                 Hưu trí
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 4" />
+                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 6" />
                                 Doanh nghiệp
                                 </label>
                             </div>
@@ -60,17 +66,17 @@
                                 </a>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 5" />
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 7" />
                                 Từ 0- 18 tuổi
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 6" />
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 8" />
                                 Từ 18- 65 tuổi
                                 </label>
 
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 7" />
+                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 9" />
                                 Trên 65 tuổi
                                 </label>
                             </div>
@@ -82,19 +88,19 @@
                                 Check All
                                 </a>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 8" />
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 10" />
                                 Bảo hiểm Tử vong/Thương tật
                                 </label>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 9" />
+                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 11" />
                                 Bảo hiểm bệnh hiểm nghèo
                                 </label>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 10" />
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 12" />
                                 Quyền lợi miễn đóng phí
                                 </label>
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group"class="checkedbox" value="11" />
+                                <input type="checkbox" name="dropdown-group"class="checkedbox" value="13" />
                                 Quyền lợi trợ cấp y tế/ CSSK
                                 </label>
                             </div>
@@ -135,30 +141,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12" id="saving" >
-                    <div class="pack-title">
-                    <h4>Tích lũy, tiết kiệm <span>({{count($data['saving'])}})</span></h4>
-                    </div>
-                    <div  class="section-wrapper">
-                        <ul id="thumbs" class="section-list">
-                        @foreach($data['saving'] as $value)
-                            <li class="item">
-                            <div class="thumb-t">
-                                    <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                                
-                                    <div class="brand-thumb">
-                                        <label for="1">
-                                            <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
-                                        </label>
-                                        <div class="input-pack">
-                                            <input name="type" value="" type="checkbox" id="checkbox_tl{{$value['id']}}"/>
-                                            <label class="toggle" for="checkbox_tl{{$value['id']}}"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                 
                     </div>
                 </div>
                 <div class="paddles">
@@ -172,7 +155,7 @@
             </div>
         </div>
         <div class="pack-section" id="secure" >
-            <div class="container">
+            <!-- <div class="container">
                 <div class="row">
                     <div class="col-lg-12"  >
                     <div class="pack-title">
@@ -209,7 +192,7 @@
                     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
                     </button>
                 </div>
-            </div>
+            </div> -->
             
         </div>
         <div class="pack-section" id="invest">
@@ -374,28 +357,16 @@
                                         <td></td>
                                     </tr>
                                    
-                                    <tr class="header bg-head-2">
+                                    <tr class="header bg-head-2" id="benifit">
                                         <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
                                         </td>
                                     </tr>
                                  
-                                    <tr class="select-all" id="benifit">
-                                        <td class="td-all">
-                                            <div class="choose-all">
-                                                <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                                <label class="toggle" for="selectall">Chọn tất cả</label>
-                                            </div>
-                                        </td>
-                                        <td class="td-all"></td>
-                                    </tr>
-                                   
                                     @for($i=5;$i < count($data['benifits']); $i++)
                                     <tr class="data-detail ">
                                         <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                            <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
-                                            <label class="drop" for="" style="display:none" id="dksk">% phí</label>
+                                            <p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td>
                                         </td>
@@ -404,16 +375,15 @@
                                     <tr class="header green1 bg-head-2" id="product_bt">
                                         <td  colspan="2" class="green_header">Sản phẩm bổ trợ</td>
                                     </tr>
-                                    @for($i =24 ; $i < count($data['benifits_more']); $i++)
-                                    <tr class="data-detail">
-                                        <td>
-                                            <input class="selectedId" type="" id="checkbox2_sk" name="checkbox2_sk"  />
-                                            <label for="checkbox2_sk"> </label> </label><span class="first-td"><p class="ellipsis">{{$data['benifits_more'][$i]['comparison']}}</p>
+                                    @foreach($data['benifits_group'] as $value)
+                                    <tr class="data-detail "  style="color:gray">
+                                        <td colspan="2" class="spbt">
+                                        <input class="selectedId" type="checkbox" id="checkbox_bt{{$value['id']}}" name="checkbox_bt{{$value['id']}}" value="{{$value['id']}}" data-options=''  onclick='handleOncick(this);' />
+                                            <label for="checkbox_bt{{$value['id']}}" class=""> </label> </label><span class="first-td"><p class="ellipsis">{{$value['name']}}</p>
                                         </td>
-                                        <td></td>
                                     </tr>
-                                    @endfor
-                                    <tr class="header ">
+                                    @endforeach
+                                    <tr class="header " id="lphi">
                                         <td  colspan="2" class="green_header">Các loại phí</td>
                                     </tr>
                                     @for($i =29 ; $i < 36 ; $i++)
@@ -422,7 +392,7 @@
                                         <td></td>
                                     </tr>
                                     @endfor
-                                    <tr class="header green1 bg-head-3">
+                                    <tr class="header green1 bg-head-3" id="ltbh">
                                         <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                     </tr>
                                     @for($i =36; $i < 48 ; $i++)
@@ -449,7 +419,12 @@
         <div id="note"></div>
     </div>
   <a href="javascript:void(0)">Liên hệ ngay</a>
-
+</div>
+<div id="detail-comparison" class="modal" >
+    <div class="content-ctn" >
+        <div id="comparison"></div>
+    </div>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
 </div>
 <script>
   
@@ -467,6 +442,7 @@
     })
 </script>
 <script>
+   
     function resetChecked(){
         $(".checkedbox").removeAttr('checked');
         $(".checkedCompanies").removeAttr('checked');
@@ -482,7 +458,7 @@
             if($(this).is(":checked"))
             param_companies.push($(this).val());
         });
-        console.log(param_companies);
+        // console.log(param_companies);
         var url = `{{route('filterLongevity')}}`;
         $.ajax({
             type: 'POST',
@@ -494,7 +470,6 @@
             },
             dataType: 'json',
             success: function(data) {
-                console.log(data);
                 if(data.product_saving!='')
                     $('#saving').html(data.html_saving);
                     else  $('#saving').html(''); 

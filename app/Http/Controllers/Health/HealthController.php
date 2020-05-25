@@ -25,12 +25,12 @@ class HealthController extends Controller
         $object_bh = Health::select('comparison')->take(1)->get();
 
         $scope = Health::select('comparison')->where('id','=',2)->first();
-        $benifits = Health::select('comparison')->take(73)->get();
+        $benifits = Health::select('comparison','level')->take(74)->get();
         $healths  = Health::select('comparison')->get();
         $exclusions = Exclusion::select('rules')->take(66)->get();
 
         $companies = Company::all();
-
+        // dd($benifits);
 
         $data['companies']  = $companies;
         $data['saving']     = $saving;

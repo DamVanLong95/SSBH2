@@ -247,10 +247,10 @@
                                     
                                 </thead>
                                 <tbody>
-                                    <tr class="bottom-head data-detail-cf">
+                                    <!-- <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf"></td>
-                                    </tr>
+                                    </tr> -->
                                     <tr class="sub-head">
                                         <td class="th-2">
                                             <div class="star-ctn">
@@ -275,19 +275,10 @@
                                         <td  colspan="2" class="green_header">Tính phí</td>
                                     </tr> -->
                             
-                                    <tr class="header green1 bg-head-1">
+                                    <tr class="header green1 bg-head-1" id="dtbh">
                                         <td  colspan="2" class="green_header">Đối tượng bảo hiểm
 
                                     </td>
-                                </tr>
-                                <tr class="select-all">
-                                    <td class="td-all">
-                                        <div class="choose-all">
-                                            <input type="checkbox" id="selectall" class="selectedAll"></input>
-                                            <label class="toggle" for="selectall">Chọn tất cả</label>
-                                        </div>
-                                    </td>
-                                    <td class="td-all"></td>
                                 </tr>
                                @foreach($data['object_bh'] as $value)
                                 <tr class="data-detail ">
@@ -302,8 +293,8 @@
                                 </tr>
                                 @endforeach
                            
-                                <tr class="header">
-                                    <td  colspan="2" class="green_header">Phạm vi lãnh thổ</td>
+                                <tr class="header" id="pvlt">
+                                    <td  colspan="2" class="green_header" >Phạm vi lãnh thổ</td>
                                 </tr>
                                 <tr class="data-detail">
                                     <td>{{$data['scope']['comparison']}}</td>
@@ -314,19 +305,42 @@
                                     <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
                                     </td> -->
                                 </tr>
-                                <tr class="header green1 bg-head-2">
+                                <tr class="header green1 bg-head-2" id="qlbh">
                                     <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
                                 @for($i=2;$i< count($data['benifits']);$i++)
-                                <tr class="data-detail ">
-                                    <td>
-                                        <p class="ellipsis">{{$data['benifits'][$i]['comparison']}}</p>
-                                    </td>
-                                    <td></td>
-                                </tr>
+                                    @if($data['benifits'][$i]['level']==1)
+                                    <tr class="data-detail ">
+                                        <td>
+                                            <p class="ellipsis" style="color: red">1.{{$data['benifits'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @elseif($data['benifits'][$i]['level']==2)
+                                    <tr class="data-detail ">
+                                        <td>
+                                            <p class="ellipsis" style="color: blue">1.1{{$data['benifits'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @elseif($data['benifits'][$i]['level']==3)
+                                    <tr class="data-detail ">
+                                        <td>
+                                            <p class="ellipsis" style="color: green">1.2{{$data['benifits'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @else
+                                    <tr class="data-detail ">
+                                        <td>
+                                            <p class="ellipsis" >{{$data['benifits'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @endif
                                 @endfor
                                
-                                <tr class="header">
+                                <tr class="header" id="pending">
                                     <td  colspan="2" class="green_header">Thời gian chờ</td>
                                 </tr>
                             
@@ -336,7 +350,7 @@
                                     <td></td>
                                 </tr>
                                 @endfor
-                                <tr class="header green1 green" id="cost">
+                                <tr class="header green1 green" id="pbh">
                                     <td  colspan="2" class="green_header">Phí bảo hiểm</td>
                                 </tr>
                                 <tr class="data-detail" >
@@ -362,7 +376,7 @@
                                         </div>
                                     </tr> -->
                                 </tr>
-                                <tr class="header green1 bg-head-3">
+                                <tr class="header green1 bg-head-3" id="ltbh">
                                     <td  colspan="2" class="green_header">Loại trừ bảo hiểm</td>
                                 </tr>
                                 <tr class="select-all">
