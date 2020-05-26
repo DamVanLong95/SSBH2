@@ -244,7 +244,11 @@
     text-align: center;
 }
 
-
+.rating-ctn{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
 /** Custom Select **/
 
 .custom-select-fix-wrapper {

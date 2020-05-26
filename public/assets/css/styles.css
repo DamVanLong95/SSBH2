@@ -303,6 +303,16 @@
   text-align: center;
 }
 
+.rating-ctn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0px;
+}
+
 /** Custom Select **/
 .custom-select-fix-wrapper {
   position: relative;
@@ -1170,7 +1180,7 @@ footer .footer-ctn .footer-nav li a {
   position: absolute;
   top: 10px;
   right: 10px;
-  display: block;
+  display: none;
   width: 23px;
   height: 23px;
   text-indent: -9999px;
@@ -4172,6 +4182,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .table-section-sk #layout-area .table tbody tr.sub-head-health .count-rank-ctn {
+  margin: 15px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

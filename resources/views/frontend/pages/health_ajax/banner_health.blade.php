@@ -92,29 +92,34 @@
                             var count    = data.data['hospitalCount'];
                             var indexCol = data.indexCol;
                             // var th =  myTable.rows[0].cells[indexCol];
-                            var ths =  myTable.rows[2].cells[indexCol];
-                            // var div = document.createElement('div');
-                            // div.setAttribute('class','health-select-cf');
-                            // div.innerHTML =data.html;
-                            // th.appendChild(div);
-                            var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
-                            var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
-                            var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
-                            ths.innerHTML = `
-                                <div class="count-rank-ctn" >
-                                    <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
-                                    <div class="service">
-                                        <img src="`+path_camera+`"alt="">
-                                        <img src="`+path_phone+`"alt="">
-                                        <img src="`+path_mess+`"alt="">
-                                    </div>
-                                </div>
-                            `;
+                            var ths =  myTable.rows[1].cells[indexCol];
+                           
+                            console.log(data.html);
+                            var div = document.createElement('div');
+                            div.setAttribute('class','health-select-cf');
+                            div.innerHTML =data.html;
+                            // console.log(div);
+
+                            ths.appendChild(div);
+                            // var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
+                            // var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
+                            // var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
+                            // ths.innerHTML = `
+
+                            //     <div class="count-rank-ctn" >
+                            //         <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                            //         <div class="service">
+                            //             <img src="`+path_camera+`"alt="">
+                            //             <img src="`+path_phone+`"alt="">
+                            //             <img src="`+path_mess+`"alt="">
+                            //         </div>
+                            //     </div>
+                            // `;
                                 
-                            var indexCol = data.indexCol;	
-                            var th =  myTable.rows[1].cells[indexCol];	
-                            th.setAttribute('class','health-select-cf');	
-                            th.innerHTML = data.html;
+                            // var indexCol = data.indexCol;	
+                            // var th =  myTable.rows[1].cells[indexCol];	
+                            // th.setAttribute('class','health-select-cf');	
+                            // th.innerHTML = data.html;
                             // th.innerHTML = data.html;
                             $('#hospital').html(data.html_hospital);
                             $('#select'+indexCol+'').on("click", function() {
@@ -140,7 +145,6 @@
                                     var exclusions = data.exclusions;
                                     var myTable = document.getElementById('main-tbl-sk');
                                     console.log(myTable.rows);
-                                    console.log(healths);
                                     var row   = document.getElementById('dtbh');
                                     var qlbh  = document.getElementById('qlbh');
                                     var pending   = document.getElementById('pending');
@@ -160,6 +164,7 @@
                                     //========================quyen loi bao hiem========================
                                     for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
+                                        console.log(tdss);
                                         tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
                                     
                                     }
