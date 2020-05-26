@@ -247,10 +247,10 @@
                                     
                                 </thead>
                                 <tbody>
-                                    <!-- <tr class="bottom-head data-detail-cf">
+                                    <tr class="bottom-head data-detail-cf">
                                         <td class="first-select-cf"></td>
                                         <td class="health-select-cf"></td>
-                                    </tr> -->
+                                    </tr>
                                     <tr class="sub-head-health">
                                         <td class="th-2">
                                             <div class="star-ctn">

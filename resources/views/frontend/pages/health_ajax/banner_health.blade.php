@@ -91,12 +91,12 @@
                             var programs = data.data['programs'];
                             var count    = data.data['hospitalCount'];
                             var indexCol = data.indexCol;
-                            var th =  myTable.rows[0].cells[indexCol];
-                            var ths =  myTable.rows[1].cells[indexCol];
-                            var div = document.createElement('div');
-                            div.setAttribute('class','health-select-cf');
-                            div.innerHTML =data.html;
-                            th.appendChild(div);
+                            // var th =  myTable.rows[0].cells[indexCol];
+                            var ths =  myTable.rows[2].cells[indexCol];
+                            // var div = document.createElement('div');
+                            // div.setAttribute('class','health-select-cf');
+                            // div.innerHTML =data.html;
+                            // th.appendChild(div);
                             var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                             var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                             var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
@@ -111,7 +111,10 @@
                                 </div>
                             `;
                                 
-                          
+                            var indexCol = data.indexCol;	
+                            var th =  myTable.rows[1].cells[indexCol];	
+                            th.setAttribute('class','health-select-cf');	
+                            th.innerHTML = data.html;
                             // th.innerHTML = data.html;
                             $('#hospital').html(data.html_hospital);
                             $('#select'+indexCol+'').on("click", function() {
