@@ -32,6 +32,7 @@ $(document).ready(function(){
     $(".selectedId:checked").each(function(){
         if($(this)[0].checked ===true){
            $('.spbt').on('change', function() {
+            $('.selectedId').prop("checked", false);
               var indexCol = ($(this).parent().index());
               var value = $(this).val();
               var url = '{{route('showProduct')}}';
@@ -45,10 +46,10 @@ $(document).ready(function(){
               ,function(data,status){
                 if(data.status == 'success'){
                   var benifits = data.benifits;
-                  console.log(data.benifits);
+                  // console.log(data.benifits);
                   for(var i =1; i < myTable.rows.length ; i ++ ){
                     var tds =  myTable.rows[i].cells[indexCol];
-                    console.log(tds);
+                    // console.log(tds);
                     tds.innerHTML = '<p class="">'+benifits[i-1]['content']+'</p>';
                   }
                 }

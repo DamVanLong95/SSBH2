@@ -535,6 +535,7 @@
    function handleOncick(el){
        if(el.checked === true){
             var url = '{{route('popupLongevity')}}';
+            $(this).prop("checked", true);
             $.ajax({
                 type: "POST",
                 url : url,
@@ -546,11 +547,15 @@
             }).done(function(data){
                 $('#comparison').html(data.html);
                 $('#detail-comparison').modal('show');
+                // console.log($('#detail-comparison').is(':visible'));
+                if($('#detail-comparison').is(':visible') === false)
+                    $('.selectedId').prop("checked", false);
             });
+           
        }
-     
-        
+       
     }
+   
         $('.close').click(function(){
         $('.content').toggleClass("show hide");
         $('.open').toggleClass("show hide");
