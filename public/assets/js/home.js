@@ -282,6 +282,7 @@
             this.areAllChecked = false;
             this.$el = $(el);
             this.$label = this.$el.find('.dropdown-label');
+            // console.log(this);
             this.$checkAll = this.$el.find('[data-toggle="check-all"]').first();
             this.$inputs = this.$el.find('[type="checkbox"]');
 
@@ -351,6 +352,7 @@
                     }
                 });
             } else {
+                console.log("line 355",_this);
                 this.isOpen = false;
                 this.$el.removeClass('on');
                 $(document).off('click');
@@ -358,6 +360,7 @@
         };
 
         var checkboxesDropdowns = document.querySelectorAll('[data-control="checkbox-dropdown"]');
+        // console.log(checkboxesDropdowns);
         for (var i = 0, length = checkboxesDropdowns.length; i < length; i++) {
             new CheckboxDropdown(checkboxesDropdowns[i]);
         }

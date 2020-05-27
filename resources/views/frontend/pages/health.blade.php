@@ -312,21 +312,21 @@
                                     @if($data['benifits'][$i]['level']==1)
                                     <tr class="data-detail ">
                                         <td>
-                                            <p class="ellipsis" style="color: red">1.{{$data['benifits'][$i]['comparison']}}</p>
+                                            <p class="ellipsis" style="color: blue">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
                                     @elseif($data['benifits'][$i]['level']==2)
                                     <tr class="data-detail ">
                                         <td>
-                                            <p class="ellipsis" style="color: blue">1.1{{$data['benifits'][$i]['comparison']}}</p>
+                                            <p class="ellipsis" style="color: #125732">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
                                     @elseif($data['benifits'][$i]['level']==3)
                                     <tr class="data-detail ">
                                         <td>
-                                            <p class="ellipsis" style="color: green">1.2{{$data['benifits'][$i]['comparison']}}</p>
+                                            <p class="ellipsis" style="color: #3d7ba1">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>

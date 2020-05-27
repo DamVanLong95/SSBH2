@@ -27,12 +27,10 @@
 <script >
 $(document).ready(function(){
   var myTable = document.getElementById('main-tbl-popup');
- 
   if(myTable){
     $(".selectedId:checked").each(function(){
-        if($(this)[0].checked ===true){
+        if($(this)[0].checked === true){
            $('.spbt').on('change', function() {
-            $('.selectedId').prop("checked", false);
               var indexCol = ($(this).parent().index());
               var value = $(this).val();
               var url = '{{route('showProduct')}}';
@@ -67,7 +65,8 @@ $(function() {
   var myTable = document.getElementById('main-tbl-popup');
         var tblHeadObj = document.getElementById('main-tbl-popup').tHead;
         var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
-        for (var h = 0; h <= tblHeadObj.rows.length; h++) {
+        var length = <?php echo sizeof($result['spbt'])?>;
+        for (var h = 0; h < length; h++) {
           if (tableLength < 5) {
             
               var tblBodyObj = document.getElementById('main-tbl-popup').tBodies[0];
