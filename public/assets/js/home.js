@@ -285,7 +285,7 @@
             this.$label = this.$el.find('.dropdown-label');
             this.$checkAll = this.$el.find('[data-toggle="check-all"]').first();
             this.$inputs = this.$el.find('[type="checkbox"]');
-            // console.log(els);
+            this.$textHead = this.$label.text();
             this.onCheckBox();
             
             this.$label.on('click', function(e) {
@@ -295,10 +295,13 @@
                 var els_filter = els.filter(function(el,index){
                     if(index !=indexEl){
                         _this.isOpen = false;
+
                         $(el).removeClass("on");
+                       
                     }
                     return el;
                 });
+                
             });
 
             this.$checkAll.on('click', function(e) {
@@ -312,27 +315,36 @@
           
            
         };
+        CheckboxDropdown.prototype.check = function(){
+
+        };
         CheckboxDropdown.prototype.onCheckBox = function() {
             this.updateStatus();
         };
 
         CheckboxDropdown.prototype.updateStatus = function() {
+           
             var checked = this.$el.find(':checked');
+            console.log(checked);
             this.areAllChecked = false;
             this.$checkAll.html('Check All');
-
-            if (checked.length <= 0) {
+         
+            if (checked.length === 0) {
                 this.$label = this.$el.find('.dropdown-label');
+                this.$label.html(this.$textHead);
             } else if (checked.length === 1) {
                 this.$label.html(checked.parent('label').text());
             } else if (checked.length === this.$inputs.length) {
                 // this.$label.html(this.$label);
                 this.$label.html(checked.parent('label').text());
-                this.$label.html('All Selected');
+                this.$label = this.$el.find('.dropdown-label');
+                this.$label.html(this.$textHead);
                 this.areAllChecked = true;
                 this.$checkAll.html('Uncheck All');
             } else {
-                this.$label.html(checked.length + ' Selected');
+                // this.$label.html(checked.length + ' Selected');
+                this.$label = this.$el.find('.dropdown-label');
+                this.$label.html(this.$textHead);
             }
         };
 
@@ -351,7 +363,7 @@
         };
         CheckboxDropdown.prototype.toggleOpen = function(forceOpen) {
             var _this = this;
-            
+            console.log(this.$el);
             if (!this.isOpen || forceOpen) {
                 this.isOpen = true;
                 this.$el.addClass('on');
@@ -365,6 +377,8 @@
                 this.$el.removeClass('on');
                 $(document).off('click');
             }
+           
+                
         };
        
           var checkboxesDropdowns =   Array.from(document.querySelectorAll('[data-control="checkbox-dropdown"]'));
