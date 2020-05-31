@@ -286,22 +286,13 @@
             this.$checkAll = this.$el.find('[data-toggle="check-all"]').first();
             this.$inputs = this.$el.find('[type="checkbox"]');
             this.$textHead = this.$label.text();
+            this.els = els;
+            this.el  = el;
             this.onCheckBox();
             
             this.$label.on('click', function(e) {
                 e.preventDefault();
                 _this.toggleOpen();
-                var indexEl = els.indexOf(el);
-                var els_filter = els.filter(function(el,index){
-                    if(index !=indexEl){
-                        _this.isOpen = false;
-
-                        $(el).removeClass("on");
-                       
-                    }
-                    return el;
-                });
-                
             });
 
             this.$checkAll.on('click', function(e) {
@@ -325,7 +316,7 @@
         CheckboxDropdown.prototype.updateStatus = function() {
            
             var checked = this.$el.find(':checked');
-            console.log(checked);
+            // console.log(checked);
             this.areAllChecked = false;
             this.$checkAll.html('Check All');
          
@@ -363,22 +354,27 @@
         };
         CheckboxDropdown.prototype.toggleOpen = function(forceOpen) {
             var _this = this;
-            console.log(this.$el);
+           
             if (!this.isOpen || forceOpen) {
+               
                 this.isOpen = true;
                 this.$el.addClass('on');
-                $(document).on('click', function(e) {
-                    if (!$(e.target).closest('[data-control]').length) {
-                        _this.toggleOpen();
-                    }
+                var indexEl = this.els.indexOf(this.el);
+                var els_filter = this.els.filter(function(el,index){
+                    return index !=indexEl;
                 });
+                for(var i=0; i< els_filter.length; i++){
+                        if($(els_filter[i]).hasClass('on')){
+                            $(els_filter[i]).removeClass("on");
+                        }
+                }
+              
             } else {
                 this.isOpen = false;
                 this.$el.removeClass('on');
                 $(document).off('click');
             }
-           
-                
+           this.isOpen = false;
         };
        
           var checkboxesDropdowns =   Array.from(document.querySelectorAll('[data-control="checkbox-dropdown"]'));
