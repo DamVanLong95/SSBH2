@@ -354,7 +354,7 @@
         };
         CheckboxDropdown.prototype.toggleOpen = function(forceOpen) {
             var _this = this;
-           
+          console.log("trang thai ban dau",this.isOpen);
             if (!this.isOpen || forceOpen) {
                
                 this.isOpen = true;
@@ -365,16 +365,18 @@
                 });
                 for(var i=0; i< els_filter.length; i++){
                         if($(els_filter[i]).hasClass('on')){
+                            _this.isOpen = false;
                             $(els_filter[i]).removeClass("on");
                         }
                 }
-              
-            } else {
+                console.log("trang thai Open",this.isOpen);
+            }else{
                 this.isOpen = false;
-                this.$el.removeClass('on');
-                $(document).off('click');
+                 this.$el.removeClass('on');
+                 $(document).off('click');
+                 console.log("trang thai Close",this.isOpen);
             }
-           this.isOpen = false;
+            
         };
        
           var checkboxesDropdowns =   Array.from(document.querySelectorAll('[data-control="checkbox-dropdown"]'));
