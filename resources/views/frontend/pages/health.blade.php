@@ -104,8 +104,6 @@
                                 <input type="checkbox" name="dropdown-group" class="dropdownCheckbox_2"  value="9" />
                                 tren 50 triệu
                                 </label>
-                               
-
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
@@ -500,7 +498,6 @@
             if($(this).is(":checked"))
             checkedCompanies.push($(this).val());
         });
-        console.log(checkedCompanies);
         $(".dropdownCheckbox").each(function(){
             if($(this).is(":checked"))
             checkedID.push($(this).val());

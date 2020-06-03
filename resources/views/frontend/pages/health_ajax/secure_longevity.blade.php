@@ -276,30 +276,9 @@
                 $('#checkbox_dt'+idImg+'').prop("checked", true);
                 $('#checkbox_ht'+idImg+'').prop("checked", true);
                 $('#checkbox_dn'+idImg+'').prop("checked", true);
-                if($('#checkbox_tl'+idImg+'').prop("checked") == true)
-                    $('#'+idImg+'').draggable({ disabled: true });
-                
-                if($('#checkbox_bv'+idImg+'').prop("checked") == true)
-                    $('#'+idImg+'').draggable({ disabled: true });
-                
-                if($('#checkbox_dt'+idImg+'').prop("checked") == true)
-                    $('#'+idImg+'').draggable({ disabled: true });
-                
-                if($('#checkbox_ht'+idImg+'').prop("checked") == true)
-                    $('#'+idImg+'').draggable({ disabled: true });
-                
-                if($('#checkbox_gd'+idImg+'').prop("checked") == true)
-                    $('#'+idImg+'').draggable({ disabled: true });
-
-                if($('#checkbox_dn'+idImg+'').prop("checked") == true)
-                    $('#'+idImg+'').draggable({ disabled: true });
-
+                  
+                $('.sized').draggable({ disabled: true });
                    globalId.push(idImg);
-                //   var els = $('.selectedId');
-                //   for(var i=0; i<els.length; i++){
-                //     els[i].setAttribute('data-options',[idImg]);
-                //   }
-                //   console.log(els);
                 
                     var myTable = document.getElementById('main-tbl-nt')
                                  tblBodyObj  = myTable.tBodies[0]

@@ -25,6 +25,8 @@ Route::post('reference','Car\CarController@reference')->name('reference');
 Route::post('car/address','Car\CarController@address')->name('address');
 Route::post('car/filter','Car\CarController@filterCompanies')->name('filterCompanies');
 
+Route::post('car/checkImage','Car\CarController@checkImage')->name('checkImage');
+
 Route::get('/test', function () {
     return view('frontend.pages.test');
 });

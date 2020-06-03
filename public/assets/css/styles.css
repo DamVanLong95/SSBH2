@@ -2169,15 +2169,6 @@ footer .footer-ctn .footer-nav li a {
   content: '+';
 }
 
-.table-scroll {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin: auto;
-  overflow: auto;
-  height: 100vh;
-}
-
 .search-ctn {
   background-color: #333333;
   height: 30px;
@@ -4047,15 +4038,6 @@ footer .footer-ctn .footer-nav li a {
   display: none;
 }
 
-.table-scroll {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin: auto;
-  overflow: auto;
-  height: 80vh;
-}
-
 .table-section-sk {
   margin-bottom: 5%;
   margin-top: 2%;
@@ -5683,6 +5665,15 @@ footer .footer-ctn .footer-nav li a {
   -moz-border-radius: 22px;
   -ms-border-radius: 22px;
   -o-border-radius: 22px;
+}
+
+.table-scroll {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  max-height: 100vh;
 }
 
 .table-scroll::-webkit-scrollbar-track {

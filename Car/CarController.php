@@ -13,6 +13,7 @@ use App\Model\General;
 
 class CarController extends Controller
 {
+    
     public function index(){
         $companies  = Company::orderBy('created_at','asc')->get();
         $terms_data = Summary::select('company_id','terms','note_more','id')
@@ -84,7 +85,7 @@ class CarController extends Controller
         ]);
     }
     public function onChange(Request $request){
-        $brand_id = $request->get('brand_id');
+    $brand_id = $request->get('brand_id');
 	
 	$brand_cate = Summation::select('brand_id','cate_car','id')
                     ->where('brand_id','=',$brand_id)
@@ -132,4 +133,5 @@ class CarController extends Controller
         ]);
 
     }
+   
 }
