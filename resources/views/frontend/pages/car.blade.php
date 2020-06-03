@@ -111,8 +111,8 @@
                             <img class="thumb" src="{{asset('storage').'/'}}{{$company['logo']}}" alt="" id="{{$company['id']}}">
                         </label>
                     </div>
-                    <input name="type" value="" type="checkbox" id="checkbox_{{$company['id']}}"/>
-                    <label class="toggle" for="1"></label>
+                    <input name="type" value="{{$company['id']}}" type="checkbox" id="checkbox_{{$company['id']}}" class="checkId"/>
+                    <label class="toggle" for="checkbox_{{$company['id']}}"></label>
                 </li>
                 @endforeach
             </ul>

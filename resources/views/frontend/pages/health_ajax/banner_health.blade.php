@@ -64,14 +64,10 @@
                     $(this).addClass('img-inserted');
                     $('<span class="remove" />').text('X').appendTo(th);
                     $('span.remove', th).show();
-
+                    $('.sized').draggable({ disabled: true });
                     $('#checkbox_'+idImg+'').prop("checked", true);
                     if($('#checkbox_'+idImg+'').prop("checked") == true){
-                        $('#'+idImg+'').draggable({ disabled: true });
-                    }
-                    $('#checkbox_bv'+idImg+'').prop("checked", true);
-                    if($('#checkbox_bv'+idImg+'').prop("checked") == true){
-                        $('#'+idImg+'').draggable({ disabled: true });
+                        $('#'+idImg+'').draggable({ disabled: false });
                     }
                     var myTable = document.getElementById('main-tbl-sk')
                                     tblBodyObj  = myTable.tBodies[0]
@@ -94,7 +90,7 @@
                             // var th =  myTable.rows[0].cells[indexCol];
                             var ths =  myTable.rows[1].cells[indexCol];
                            
-                            console.log(data.html);
+                            // console.log(data.html);
                             var div = document.createElement('div');
                             div.setAttribute('class','health-select-cf');
                             div.innerHTML =data.html;

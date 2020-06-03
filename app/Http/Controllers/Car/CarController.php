@@ -14,6 +14,13 @@ use App\Model\General;
 
 class CarController extends Controller
 {
+   
+    public function checkImage(Request $request){
+        $company_id = $request->get('id');
+        // dd($this->dropImage());
+
+
+    }
     public function index(){
         $companies  = Company::orderBy('created_at','asc')->get();
         $terms_data = Summary::select('company_id','terms','note_more','id','rate_fee')

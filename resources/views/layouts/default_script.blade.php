@@ -85,7 +85,29 @@
 
     <script>
         dropImage();
-        
+        checkImage();
+        function checkImage(){
+            $(document).ready(function(){
+                $('.checkId').click(function(){
+                    var clicked = $(this);
+                    if(clicked.is(':checked')){
+                        var idImg = clicked.val();
+                        var url   = "{{route('checkImage')}}";
+                        $.post(url,
+                        {
+                            "_token": "{{ csrf_token() }}",
+                            id: idImg,
+                        },
+                        function(data, status, xhr) {
+                         
+                        }).done(function() {
+                         
+                        });
+                    }
+
+                });
+            });
+        }
         function dropImage(){
             $('img.thumb').draggable({
                 containment: '#layout-area',
@@ -119,9 +141,9 @@
                     $('.sized').draggable({ disabled: true });
                    
                     $('#checkbox_'+idImg+'').prop("checked", true);
-                    if($('#checkbox_'+idImg+'').prop("checked") == true){
-                        $('#'+idImg+'').draggable({ disabled: true });
-                    }
+                    // if($('#checkbox_'+idImg+'').prop("checked") == true){
+                    //     $('#'+idImg+'').draggable({ disabled: true });
+                    // }
                     $('#'+idImg+'').draggable({ disabled: true });
                     var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
