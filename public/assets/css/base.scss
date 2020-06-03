@@ -27,7 +27,9 @@
 *::before {
     box-sizing: border-box;
 }
-
+*, input, select, textarea, option, button {
+    outline: none!important;
+}
 @media (min-width: 1360px) {
     .container {
         max-width: 1170px !important;
