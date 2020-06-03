@@ -163,15 +163,6 @@
         display: none;
     }
 }
-// .table-scroll {
-//     position: relative;
-//     width: 100%;
-//     z-index: 1;
-//     margin: auto;
-//     overflow: auto;
-//     // height: 950px;
-//     height: 100vh;
-// }
 .table-section-nt {
     margin-bottom: 5%;
     margin-top: 2%;
@@ -589,6 +580,9 @@
                 font-family: UTM_Helve;
             }
             tr.data-detail {
+                td:first-child {
+                    width: 50%;
+                }
                 td {
                     border-right: 1px solid #ccc;
                     text-align: center;

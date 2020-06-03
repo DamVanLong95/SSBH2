@@ -134,7 +134,6 @@
         }
     }
 }
-
 .search-ctn {
     background-color: #333333;
     height: 30px;
@@ -566,7 +565,7 @@
                         justify-content: space-around;
                         align-items: center;
                         flex-direction: row;
-                        border: 1px solid;
+                        border: 1px solid $main-color;
                         padding: 8px 22px;
                         border-radius: 20px;
                         background-color: #f1f2f2;
@@ -588,6 +587,9 @@
                             border-right: 1px solid #58595b;
                             background-color: #f1f2f2;
                             color: #58595b;
+                            &:focus{
+                                outline: none;
+                            }
                         }
                     }
                     span {
@@ -621,6 +623,9 @@
                 }
             }
             tr.data-detail {
+                td:first-child {
+                    width: 50%;
+                }
                 td {
                     border-right: 1px solid #ccc;
                     text-align: center;
@@ -726,12 +731,19 @@
                     span.first-td {
                         position: relative;
                         display: inline-block;
-                        transform: translate(20px, -27px);
+                        transform: translate(-25px, -27px);
                         width: 90%;
-                        -webkit-transform: translate(20px, -27px);
-                        -moz-transform: translate(20px, -27px);
-                        -ms-transform: translate(20px, -27px);
-                        -o-transform: translate(20px, -27px);
+                        -webkit-transform: translate(-25px, -27px);
+                        -moz-transform: translate(-25px, -27px);
+                        -ms-transform: translate(-25px, -27px);
+                        -o-transform: translate(-25px, -27px);
+                        @media (max-width: 1024px) {
+                            transform: translate(0px, -27px);
+                            -webkit-transform: translate(0px, -27px);
+                            -moz-transform: translate(0px, -27px);
+                            -ms-transform: translate(0px, -27px);
+                            -o-transform: translate(0px, -27px);
+}
                     }
                     span.show-detail {
                         right: 0;
