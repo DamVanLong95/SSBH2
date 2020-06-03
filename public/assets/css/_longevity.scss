@@ -580,6 +580,9 @@
                 font-family: UTM_Helve;
             }
             tr.data-detail {
+                td:first-child {
+                    width: 50%;
+                }
                 td {
                     border-right: 1px solid #ccc;
                     text-align: center;

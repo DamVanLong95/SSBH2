@@ -282,7 +282,7 @@
                                 </tr>
                                @foreach($data['object_bh'] as $value)
                                 <tr class="data-detail ">
-                                    <td>
+                                    <td class="1st-td">
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
                                         <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
                                         <!-- <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span> -->
