@@ -293,7 +293,8 @@ footer {
   .contact-phone a {
     width: 100%;
     font-size: 26px;
-    color: transparent; }
+    color: transparent;
+    line-height: 40px; }
   .contact-phone:hover {
     content: "";
     background: url(../images/home/cta-phone2.png) no-repeat;

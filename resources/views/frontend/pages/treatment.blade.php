@@ -17,10 +17,10 @@
 
 @section('content')
 <div class="treatment-container">
-    <div class="contact-floating">
-        <div class="contact-email"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/phone-intro.png?{{ config('custom.version') }}" alt=""></a></div>
-        <div class="contact-phone"><a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
-    </div>
+<div class="contact-floating">
+    <div class="contact-phone"><a href="tel:0906060784" target="_blank">0906060784</a></div>
+    <div class="contact-email"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+</div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

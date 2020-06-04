@@ -375,8 +375,9 @@ footer {
     height: 51px;
     a{
         width: 100%;
-    font-size: 26px;
-    color: transparent;
+        font-size: 26px;
+        color: transparent;
+        line-height: 40px;
     }
     &:hover{
         content:"";
