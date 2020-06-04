@@ -15,21 +15,14 @@
 @stop
 
 @section('content')
-
+<div class="contact-floating">
+    <div class="contact-phone"><a href="tel:0906060784" target="_blank">0906060784</a></div>
+    <div class="contact-email"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+</div>
 <div class="section2">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="left-ctn">
-                    <div class="item phone">
-                        <a class="" href="#" target="_blank">1900 9889 65</a>
-                    </div>
-                    <div class="item">
-                        <a href="#" target="_blank"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/mes.png?{{ config('custom.version') }}" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 offset-lg-3">
                 <div class="right-ctn">
                     <div class="content">
                         <h5>Với VICS CORP, mọi sự so sánh trở nên dễ dàng</h5>

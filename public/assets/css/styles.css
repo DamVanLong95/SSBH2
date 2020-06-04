@@ -819,6 +819,22 @@ footer {
         color: #fff;
         text-decoration: none; }
 
+.contact-phone {
+  background: url(../images/default/phone-intro.png) no-repeat;
+  background-size: contain;
+  width: 46px;
+  height: 51px; }
+  .contact-phone a {
+    width: 100%;
+    font-size: 26px;
+    color: transparent; }
+  .contact-phone:hover {
+    content: "";
+    background: url(../images/home/cta-phone2.png) no-repeat;
+    background-size: contain;
+    width: 145px;
+    height: 60px; }
+
 .modal {
   height: 370px;
   max-width: initial;
