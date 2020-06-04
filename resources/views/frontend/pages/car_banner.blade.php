@@ -12,7 +12,7 @@
     </li>
     @endforeach
 </ul>
-
+@include('layouts.car_click')
 <script>
         dropImage();
         

@@ -19,13 +19,9 @@ class CarController extends Controller
     public function checkImage(Request $request){
         $data = [];
         $company_id = $request->get('id');
+        $data = $this->displayData($company_id);
 
-        $img = Company::where('id',$company_id)->first();
-
-        return response()->json([
-            'status' => 'success',
-            'img'    => $img,
-        ]);
+        return response()->json( $data );
 
 
 
@@ -68,66 +64,9 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
-        $indexCol   = $request->get('indexCol');
-        $summaries  = Summary::select('company_id','terms','note_more','promotion')
-                    ->where('company_id', '=', $company_id)
-                    ->take(24)
-                    ->get();
-        $exception  = Summary::select('company_id','exception','note_dklt','rate_star_dklt')
-                     ->where('company_id', '=', $company_id)
-                     ->get();
-        $deductible = Summary::select('company_id','deductible','note_dkkt')   
-                    ->where('company_id', '=', $company_id)
-                    ->take(1)
-                    ->get();
-        $permissions = Permission::select('company_id','rules_owner','note_rule','rate_star_nv')
-                    ->where('company_id' ,'=', $company_id)
-                    ->get();
-        $punishment = Punishment::select('company_id','sanction','content','rate_star_ct')
-                    ->where('company_id' ,'=', $company_id)
-                    ->get();
-        $promotion  = $summaries->first();//KHUYEN MAI
-        $terms = Summary::select('company_id','terms','note_more','id','rate_star_dkbs','rate_fee')
-                    ->where('company_id', '=', $company_id)
-                    ->take(24)
-                    ->get();//DIEU KHOAN BO SUNG
-        $finances   = Finance::select('company_id','finance','money')
-                    ->where('company_id', '=', $company_id)
-                    ->get();
-        $activities = Activity::select('company_id','location_id','amount')
-                    ->where('company_id', '=', $company_id)
-                    ->where('amount','<>','')
-                    ->get();
-        $detail     = Detail::select('company_id','location_id','content')
-                     ->where('company_id', '=', $company_id)
-                     ->get();
-        $rating_and_model = General::where('company_id','=',$company_id)->first();
-        $locations = Location::all();
-        $data = array();      
-        $total=0;
-        foreach($activities as $value){
-             $total=$total + $value['amount'];
-        }
-       $data['activities'] = $activities;
-       $data['total']      = $total; 
-       $data['detail']     = $detail;
-       $data['locations']   =$locations;
-       $data['rating_and_model']  = $rating_and_model;
-       $html = view('frontend/pages/network')->with(['locations'=> $locations ,'detail' => $detail])->render();
-        return response()->json([
-            'success' => true,
-            'indexCol' => $indexCol,
-            'summaries'    => $summaries,
-            'exception'    => $exception,
-            'deductible'    => $deductible,
-            'permissions'   => $permissions,
-            'punishment'    => $punishment,
-            'promotion'     => $promotion,
-            'terms'         => $terms,
-            'finances'      =>$finances ,
-            'data'    => $data,
-            'html'    =>$html
-        ]);
+        $data = $this->displayData($company_id);
+        return response()->json($data);
+       
     }
     public function showInfo(Request $request)
     {
@@ -223,5 +162,69 @@ class CarController extends Controller
         $arr = explode(" ", $data);
         $new_arr = array_slice($arr, 0, $limit);
         return implode(" ", $new_arr);
+    }
+    public static function displayData($company_id){
+        $summaries  = Summary::select('company_id','terms','note_more','promotion')
+        ->where('company_id', '=', $company_id)
+        ->take(24)
+        ->get();
+        $exception  = Summary::select('company_id','exception','note_dklt','rate_star_dklt')
+                ->where('company_id', '=', $company_id)
+                ->get();
+        $deductible = Summary::select('company_id','deductible','note_dkkt')   
+                ->where('company_id', '=', $company_id)
+                ->take(1)
+                ->get();
+        $permissions = Permission::select('company_id','rules_owner','note_rule','rate_star_nv')
+                ->where('company_id' ,'=', $company_id)
+                ->get();
+        $punishment = Punishment::select('company_id','sanction','content','rate_star_ct')
+                ->where('company_id' ,'=', $company_id)
+                ->get();
+        $promotion  = $summaries->first();//KHUYEN MAI
+        $terms = Summary::select('company_id','terms','note_more','id','rate_star_dkbs','rate_fee')
+                ->where('company_id', '=', $company_id)
+                ->take(24)
+                ->get();//DIEU KHOAN BO SUNG
+        $finances   = Finance::select('company_id','finance','money')
+                ->where('company_id', '=', $company_id)
+                ->get();
+        $activities = Activity::select('company_id','location_id','amount')
+                ->where('company_id', '=', $company_id)
+                ->where('amount','<>','')
+                ->get();
+        $detail     = Detail::select('company_id','location_id','content')
+                ->where('company_id', '=', $company_id)
+                ->get();
+        $rating_and_model = General::where('company_id','=',$company_id)->first();
+        $locations = Location::all();
+        $data = array();      
+        $total=0;
+        foreach($activities as $value){
+        $total=$total + $value['amount'];
+        }
+
+        $img = Company::where('id',$company_id)->first();
+
+        $data['activities'] = $activities;
+        $data['total']      = $total; 
+        $data['detail']     = $detail;
+        $data['locations']   =$locations;
+        $data['rating_and_model']  = $rating_and_model;
+        $html = view('frontend/pages/network')->with(['locations'=> $locations ,'detail' => $detail])->render();
+        return [
+                'success'       => true,
+                'summaries'     => $summaries,
+                'exception'     => $exception,
+                'deductible'    => $deductible,
+                'permissions'   => $permissions,
+                'punishment'    => $punishment,
+                'promotion'     => $promotion,
+                'terms'         => $terms,
+                'finances'      =>$finances ,
+                'data'          => $data,
+                'html'          =>$html,
+                'img'           =>$img
+        ];
     }
 }

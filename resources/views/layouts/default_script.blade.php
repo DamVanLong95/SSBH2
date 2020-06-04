@@ -132,9 +132,9 @@
                         {
                             "_token": "{{ csrf_token() }}",
                             id: idImg,
-                            indexCol:indexCol
                         },
                         function(data, status, xhr) {
+                            // console.log(data.data);
                             if(data.success == true) {
                                 var rating_and_model = data.data['rating_and_model'];
                                 var notes       = data.summaries;
@@ -150,7 +150,6 @@
                                 var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
-                                var indexCol    = data.indexCol;
                                 //calculate star
                                 var count_star_green = 0;
                                 var count_star_orange = 0;
