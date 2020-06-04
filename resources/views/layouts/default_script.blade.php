@@ -83,31 +83,9 @@
     </script>
 
 
+</script>
     <script>
         dropImage();
-        checkImage();
-        function checkImage(){
-            $(document).ready(function(){
-                $('.checkId').click(function(){
-                    var clicked = $(this);
-                    if(clicked.is(':checked')){
-                        var idImg = clicked.val();
-                        var url   = "{{route('checkImage')}}";
-                        $.post(url,
-                        {
-                            "_token": "{{ csrf_token() }}",
-                            id: idImg,
-                        },
-                        function(data, status, xhr) {
-                         
-                        }).done(function() {
-                         
-                        });
-                    }
-
-                });
-            });
-        }
         function dropImage(){
             $('img.thumb').draggable({
                 containment: '#layout-area',
@@ -132,7 +110,6 @@
                     var th = $(this);
                     var img = ui.draggable;
                     var copy = img.clone();
-                    // console.log(copy[0]);
                     $(this).addClass('dropped');
                     $(copy).addClass('sized').appendTo(th);
                     $(this).addClass('img-inserted');
@@ -141,9 +118,10 @@
                     $('.sized').draggable({ disabled: true });
                    
                     $('#checkbox_'+idImg+'').prop("checked", true);
-                    // if($('#checkbox_'+idImg+'').prop("checked") == true){
-                    //     $('#'+idImg+'').draggable({ disabled: true });
-                    // }
+                    $('#checkbox_'+idImg+'')[0].setAttribute('disabled',false);
+                    if($('#checkbox_'+idImg+'').prop("checked") == true){
+                        $('#'+idImg+'').draggable({ disabled: true });
+                    }
                     $('#'+idImg+'').draggable({ disabled: true });
                     var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
@@ -515,6 +493,7 @@
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
+                                $('#checkbox_'+idImg+'')[0].removeAttribute("disabled");
                             }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                                 console.log("hi");
                                 $('th:nth-child('+index+')').remove()
@@ -534,6 +513,7 @@
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
+                                $('#checkbox_'+idImg+'')[0].removeAttribute("disabled");
                             }else if(index == 5 ){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
@@ -541,6 +521,7 @@
                                 dropImage();
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
+                                $('#checkbox_'+idImg+'')[0].removeAttribute("disabled");
                             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                                 $('th:nth-child('+index+')').remove()
                                 $('td:nth-child('+index+')').remove()
@@ -551,6 +532,7 @@
                                 $('td:nth-child('+index+')').remove()
                                 $('#checkbox_'+idImg+'').prop("checked", false);
                                 $('#'+idImg+'').draggable({ disabled: false });
+                                $('#checkbox_'+idImg+'')[0].removeAttribute("disabled");
                             }
                     });
                     addColumn('main-tbl');

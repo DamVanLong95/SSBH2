@@ -12,12 +12,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\General;
 
+
 class CarController extends Controller
 {
    
     public function checkImage(Request $request){
+        $data = [];
         $company_id = $request->get('id');
-        // dd($this->dropImage());
+
+        $img = Company::where('id',$company_id)->first();
+
+        return response()->json([
+            'status' => 'success',
+            'img'    => $img,
+        ]);
+
 
 
     }
