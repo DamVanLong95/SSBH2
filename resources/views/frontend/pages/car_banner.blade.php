@@ -506,11 +506,13 @@ $(function() {
                {
                    "_token": "{{ csrf_token() }}",
                    id: idImg,
+                   indexCol:indexCol
                },
                function(data, status, xhr) {
                 
                    if(data.success == true){
                        console.log(data);
+                       var indexCol = data.indexCol;
                        var rating_and_model = data.data['rating_and_model'];
                         var notes       = data.summaries;
                         var deductible  = data.deductible;           
@@ -535,7 +537,6 @@ $(function() {
                         img.className = 'img-responsive';
                         img.src = ''+logo+'';
                         divImg.appendChild(img); 
-                        $(img).addClass('sized');
                         $(divImg).addClass('dropped');
                         if($('#checkbox_'+idImg+'').prop("checked") == true){
                             $('#'+idImg+'').draggable({ disabled: true });
@@ -889,11 +890,11 @@ $(function() {
                                     })
                         addColumn('main-tbl');
                         dropImage();
-                        deleteColumn(idImg,clicked);
+                       
                    }
                
                }).done(function() {
-               
+                deleteColumn(idImg,clicked);
                });
                $(this).disabled = true;
            }else{

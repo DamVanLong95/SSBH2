@@ -19,7 +19,8 @@ class CarController extends Controller
     public function checkImage(Request $request){
         $data = [];
         $company_id = $request->get('id');
-        $data = $this->displayData($company_id);
+        $indexCol = $request->get('indexCol');
+        $data = $this->displayData($company_id,  $indexCol);
 
         return response()->json( $data );
 
@@ -64,7 +65,8 @@ class CarController extends Controller
     public function droppImage( Request $request)
     {
         $company_id = $request->get('id');
-        $data = $this->displayData($company_id);
+        $indexCol = $request->get('indexCol');
+        $data = $this->displayData($company_id, $indexCol);
         return response()->json($data);
        
     }
@@ -163,7 +165,7 @@ class CarController extends Controller
         $new_arr = array_slice($arr, 0, $limit);
         return implode(" ", $new_arr);
     }
-    public static function displayData($company_id){
+    public static function displayData($company_id, $indexCol){
         $summaries  = Summary::select('company_id','terms','note_more','promotion')
         ->where('company_id', '=', $company_id)
         ->take(24)
@@ -224,7 +226,8 @@ class CarController extends Controller
                 'finances'      =>$finances ,
                 'data'          => $data,
                 'html'          =>$html,
-                'img'           =>$img
+                'img'           =>$img,
+                'indexCol'      => $indexCol
         ];
     }
 }

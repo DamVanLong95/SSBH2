@@ -1,11 +1,12 @@
 <script>
+   
 $(function() {  
        $('.checkId').click(function(){
-           var clicked = $(this);
+            var clicked = $(this);
            
            if(clicked.is(':checked')){
             clicked[0].setAttribute('disabled',true);
-               var idImg = clicked.val();
+                var idImg = clicked.val();
                var url   = "{{route('checkImage')}}";
                var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
@@ -15,6 +16,7 @@ $(function() {
                {
                    "_token": "{{ csrf_token() }}",
                    id: idImg,
+                   indexCol:indexCol
                },
                function(data, status, xhr) {
                 
@@ -22,7 +24,8 @@ $(function() {
                        console.log(data);
                        var rating_and_model = data.data['rating_and_model'];
                         var notes       = data.summaries;
-                        var deductible  = data.deductible;           
+                        var deductible  = data.deductible;  
+                                 
                         var exception   = data.exception;  
                         var punishment  = data.punishment;
                         var promotion   = data.promotion;
@@ -30,6 +33,7 @@ $(function() {
                         var permissions = data.permissions;
                         var finances    = data.finances;
                         var data_activities = data.data;
+                        var indexCol = data.indexCol;
                         $("#net-address").html(data.html);
                         var myTable = document.getElementById('main-tbl');
                         var tblBodyObj  = myTable.tBodies[0];
@@ -46,9 +50,9 @@ $(function() {
                         divImg.appendChild(img); 
                         $(img).addClass('sized');
                         $(divImg).addClass('dropped');
-                        if($('#checkbox_'+idImg+'').prop("checked") == true){
-                            $('#'+idImg+'').draggable({ disabled: true });
-                        }
+                        // if($('#checkbox_'+idImg+'').prop("checked") == true){
+                        //     $('#'+idImg+'').draggable({ disabled: true });
+                        // }
                         //======================Rows 1==========================
                         var tds =  myTable.rows[1].cells[indexCol];
                         // console.log(tds);
@@ -219,22 +223,26 @@ $(function() {
 
                                 var i= max_rows_terms+2;
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                if(deductible[0]['note_dkkt']=== "x")
-                                {
-                                tds.innerHTML = 
-                                    `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                    <div class="star-td">
-                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                    </div>
-                                    `;
-                                }else{
-                                    tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
-                                    <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
-                                    <div class="star-td">
-                                        <img class="img-fluid" src="`+imgGray+`" alt="">
-                                    </div>
-                                    `;
+                                console.log(deductible);
+                                if(deductible.length > 0){
+                                    if(deductible[0]['note_dkkt']=== "x")
+                                    {
+                                    tds.innerHTML = 
+                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        <div class="star-td">
+                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                        </div>
+                                        `;
+                                    }else{
+                                        tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                        <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
+                                        <div class="star-td">
+                                            <img class="img-fluid" src="`+imgGray+`" alt="">
+                                        </div>
+                                        `;
+                                    }
                                 }
+                               
                                 var max_rows_exception = (i+3) + exception.length;
                                 for(var j=i+3 ;j<max_rows_exception;j++){
 
@@ -270,61 +278,64 @@ $(function() {
                                   //===============CHE TAI===============================
                                 for(var i=68;i < 86 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                   
-                                    if(punishment[i-68]['rate_star_ct']== 3)
-                                    {
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                        </div> `;
-                                    }else if(punishment[i-68]['rate_star_ct']== 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div> `;
-                                    
-                                    }else if(punishment[i-68]['rate_star_ct']== 2){
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                        </div> `;
-                                    }
-                                    else{
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
+                                   if(punishment.length >0){
+                                        if(punishment[i-68]['rate_star_ct']== 3)
+                                        {
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                        }else if(punishment[i-68]['rate_star_ct']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                        
+                                        }else if(punishment[i-68]['rate_star_ct']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                        }
+                                        else{
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
+                                        }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=89;i<=112;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    // console.log(tds);
-                                    if(permissions[i-89]['rate_star_nv']== 3)
-                                    {
-                                        tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
-                                                    `<div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                        </div> `;
-                                    }else if(permissions[i-89]['rate_star_nv']== 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div> `;
-                                    
-                                    }else if(permissions[i-89]['rate_star_nv']== 2){
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                        </div> `;
+                                    // console.log(tds)
+                                    if(permissions.length > 0){
+                                        if(permissions[i-89]['rate_star_nv']== 3)
+                                        {
+                                            tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                                        `<div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                        }else if(permissions[i-89]['rate_star_nv']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                        
+                                        }else if(permissions[i-89]['rate_star_nv']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                        }
+                                        else{
+                                            if(permissions[i-89]['note_rule']=== 'x')
+                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                            else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
+                                        }
                                     }
-                                    else{
-                                        if(permissions[i-89]['note_rule']=== 'x')
-                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
-                                    }
-                                   
                                 } 
                                 //=================Năng lực tài chính==================
                                 for(var i =116; i<=132;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                    if(finances.length > 0)
                                     tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-116]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
@@ -398,18 +409,17 @@ $(function() {
                                     })
                         addColumn('main-tbl');
                         dropImage();
-                        deleteColumn(idImg,clicked);
+                       
                    }
                
                }).done(function() {
-               
+                deleteColumn(idImg,clicked);
                });
                $(this).disabled = true;
-           }else{
-            var idImg = clicked.val();
-            
            }
+           
        });
+      
        function deleteColumn(idImg,clicked){
 
             $('span.remove').on('click', function (e ) {

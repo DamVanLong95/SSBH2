@@ -61,6 +61,7 @@ Route::post('health/selectProgram','Health\HealthController@selectProgram')->nam
 Route::post('health/filterProvince','Health\HealthController@filterProvince')->name('filterProvince');
 Route::post('health/filterDistrict','Health\HealthController@filterDistrict')->name('filterDistrict');
 Route::post('health/filter','Health\HealthController@filterHealth')->name('filterHealth');
+Route::post('health/checkImage','Health\HealthController@checkImage')->name('checkHealth');
 // =====================================nhân thọ Longevity=================================
 Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
 Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
