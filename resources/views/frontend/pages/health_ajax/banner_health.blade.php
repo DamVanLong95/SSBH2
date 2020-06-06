@@ -393,7 +393,6 @@
 $(function() {  
        $('.checkId').click(function(){
            var clicked = $(this);
-        //    console.log(clicked);
            if(clicked.is(':checked')){
             clicked[0].setAttribute('disabled',true);
                var idImg = clicked.val();

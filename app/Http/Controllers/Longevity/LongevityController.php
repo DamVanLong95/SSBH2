@@ -47,24 +47,18 @@ class LongevityController extends Controller
         $data['benifits'] = $benifits;
         return view('frontend.pages.longevity',compact('data','products'));
     }
+    public function checkImg(Request $request){
+        $product_id = $request->get('id');
+        $indexCol   = $request->get('indexCol');
+        // dd($product_id);
+        $tbl_data     = $this->displayData($product_id, $indexCol);
+        return response()->json($tbl_data);
+    }
     public function droppImage(Request $request){
         $product_id = $request->get('id');
         $indexCol = $request->get('indexCol');
-        $product_name = ProductLongevity::where('id','=',$product_id)->first();
-        $longevities = Longevity::select('product_id','comparison','content')
-                    ->where('product_id','=',$product_id)
-                    ->get();
-     
-        $benifits = Longevity::select('product_id','comparison','content')
-                    ->where('product_id','=',$product_id)
-                    ->get();
-            
-        return response()->json([
-             'success'      => true,
-             'indexcol'     => $indexCol,
-             'longevities'  => $longevities,
-             'product_name' => $product_name
-        ]);
+        $data     = $this->displayData($product_id, $indexCol);
+        return response()->json($data);
     }
     public function filterBanner(Request $request)
     {
@@ -211,9 +205,9 @@ class LongevityController extends Controller
         $product_longevity = ProductLongevity::whereIn('id',$product_longevity_id)->get();
 
         $result = array(
-            'group_child'=> $group_child,
-            'group_parent' => $group_parent,
-            'spbt'    => $spbt,
+            'group_child'   => $group_child,
+            'group_parent'  => $group_parent,
+            'spbt'          => $spbt,
             'product_longevity' => $product_longevity
         );
         
@@ -235,6 +229,23 @@ class LongevityController extends Controller
             'status' => 'success',
             'benifits' => $benifits
         ]);
+    }
+    static function displayData($product_id, $indexCol){
+        $product_name = ProductLongevity::where('id','=',$product_id)->first();
+        $longevities = Longevity::select('product_id','comparison','content')
+                    ->where('product_id','=',$product_id)
+                    ->get();
+     
+        $benifits = Longevity::select('product_id','comparison','content')
+                    ->where('product_id','=',$product_id)
+                    ->get();
+            
+        return [
+             'success'      => true,
+             'indexCol'     => $indexCol,
+             'longevities'  => $longevities,
+             'product_name' => $product_name
+        ];
     }
 
 
