@@ -527,4 +527,5 @@ $('.close').click(function(){
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     @include('layouts.default_script')
+    @include('layouts.car_click')
 @stop

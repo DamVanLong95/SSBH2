@@ -12,7 +12,7 @@
                         <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                     </label>
                     <div class="input-pack">
-                        <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
+                        <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
                         <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
                     </div>
                 </div>

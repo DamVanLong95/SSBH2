@@ -43,50 +43,23 @@ class HealthController extends Controller
         return view('frontend.pages.health',compact('data'));
 
     }
+    public function checkImage(Request $request){
+        $product_id = $request->get('id');
+        $indexCol   = $request->get('indexCol');   
+        $data = $this->displayData($product_id, $indexCol);
+        return response()->json($data);
+    }
     public function droppImage(Request $request)
     {
         $data = [];
 
         $product_id = $request->get('id');
 
-        $programs   = Program::select('id','name','product_id')
-                
-                    ->where('product_id','=',$product_id)
-                
-                    ->get();
-
         $indexCol   = $request->get('indexCol');
 
-        $html       = view('frontend.pages.health_ajax.health_program')
-
-                        ->with(['programs'=>$programs,'indexCol'=> $indexCol])
-               
-                        ->render();
-
-        $data['programs']   = $programs;
-
-        $locations          = Location::all();
-
-        $html_hospital      = view('frontend.pages.hospital')
-
-                                ->with(['locations'=>$locations,'indexCol'=> $indexCol])
-
-                                ->render();
-
-        $hospital = Hospital::where('product_id','=', $product_id)->get();
-
-        $hospitalCount = count($hospital);
-
-        $data['hospitalCount'] = $hospitalCount;
-      
+        $data = $this->displayData( $product_id, $indexCol );
      
-        return response()->json([
-            'success' =>true,
-            'data' => $data,
-            'indexCol'=> $indexCol,
-            'html' =>$html,
-            'html_hospital' => $html_hospital
-        ]);
+        return response()->json($data);
         
 
     }
@@ -169,7 +142,7 @@ class HealthController extends Controller
         $scopes     = $request->get('scope');
         $companies_id  = $request->get('companies');
         // dd($programs);
-       
+        // Company::where()
         $obj_program = [
             1 => 'program_one',
             2 => 'program_two',
@@ -296,12 +269,57 @@ class HealthController extends Controller
         $products = $products->unique('name');
 
 
+
+        // dd($products);
         $html = view('frontend.pages.health_ajax.banner_health')
                         ->with(['products'=> $products])
                         ->render();
         return response()->json([
             'html' => $html,
         ]);
+    }
+
+    public static function displayData($product_id, $indexCol)
+    {
+        $programs   = Program::select('id','name','product_id')
+                
+        ->where('product_id','=',$product_id)
+    
+        ->get();
+
+
+
+        $html       = view('frontend.pages.health_ajax.health_program')
+
+                    ->with(['programs'=>$programs,'indexCol'=> $indexCol])
+        
+                    ->render();
+
+        $data['programs']   = $programs;
+
+        $locations          = Location::all();
+
+        $html_hospital      = view('frontend.pages.hospital')
+
+                            ->with(['locations'=>$locations,'indexCol'=> $indexCol])
+
+                            ->render();
+
+        $hospital = Hospital::where('product_id','=', $product_id)->get();
+
+        $hospitalCount = count($hospital);
+
+        $data['hospitalCount'] = $hospitalCount;
+
+        $img = Product::where('id',$product_id)->first();
+        return [
+            'success' =>true,
+            'data' => $data,
+            'indexCol'=> $indexCol,
+            'html' =>$html,
+            'html_hospital' => $html_hospital,
+            'img' => $img   
+            ];
     }
    
    
