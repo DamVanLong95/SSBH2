@@ -21,8 +21,7 @@
 <div id="app">
     <div class="compare-section">
     <div class="contact-floating">
-        <div class="contact-phone"><a href="tel:0906060784" target="_blank">0906060784</a></div>
-        <div class="contact-email"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="{{ url('/') }}/assets/images/default/email-intro.png?{{ config('custom.version') }}" alt=""></a></div>
+        <a class="btn-call-now" href="tel:1900988965" title="Gọi ngay"><span class="icon-tel"></span> <span class="tel">1900 9889 65</span></a>
     </div>
         <div class="container">
             <div class="row">
@@ -132,10 +131,6 @@
         </div>
     </div>
     <div class="table-section ">
-        <div class="contact-floating">
-            <div class="contact-email"><a href="tel:0906060784" target="_blank"><img src="<?php echo e(url('/')); ?>/assets/images/default/phone-intro.png?<?php echo e(config('custom.version')); ?>" alt=""></a></div>
-            <div class="contact-phone"><a href="mailto:contact@vics-corp.com" target="_blank"><img src="<?php echo e(url('/')); ?>/assets/images/default/email-intro.png?<?php echo e(config('custom.version')); ?>" alt=""></a></div>
-        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -253,8 +248,8 @@
                                     <tr class="data-detail term">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
-                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}}</p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span>
+                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
+                                            
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                         </td>
                                         <td>

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css" />
     <!-- Link CSS default -->
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- <link type="text/css" href="{{ url('/') }}/assets/css/system.css?{{ config('custom.version') }}" rel="stylesheet"> -->
     <link rel="stylesheet" href="{{ url('assets/lib/swiper/css/swiper.min.css?'.config('custom.version')) }}">
     <link rel="stylesheet" href="{{ url('assets/lib/jqueryModal/css/jquery.modal.min.css?'.config('custom.version')) }}" />
@@ -91,7 +91,7 @@
                             <a class="nav-link" href="{{ url('/question') }}">KIẾN THỨC</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/contact') }}">KẾT NỐI ỨNG VIÊN</a>
+                            <a class="nav-link" href="{{ url('/contact') }}">KẾT NỐI TƯ VẤN VIÊN</a>
                         </li>
                     </ul>
                 </div>
@@ -124,9 +124,9 @@
     <div class="footer-ctn">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mt-5">
+                <div class="col-lg-4 mt-3">
                     <div class="foot-title">
-                        <h5>Liên hệ với chúng tôi</h5>
+                        <h5>Giới thiệu</h5>
                     </div>
 
                     <div class="footer-content">
@@ -138,7 +138,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-5">
+                <div class="col-lg-4 mt-3">
                     <div class="foot-title">
                         <h5>Liên hệ với chúng tôi</h5>
                     </div>
@@ -159,7 +159,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 mt-5 footer-text-right">
+                <div class="col-lg-4 mt-3 footer-text-right">
                     <div class="foot-title">
                         <h5>Khác</h5>
                     </div>

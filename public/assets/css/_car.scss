@@ -159,7 +159,7 @@
     .section-wrapper {
         position: relative;
         max-width: 1170px;
-        height: 120px; // hide the scroll bar
+        height: 100px; // hide the scroll bar
         margin: auto;
         // border: 1px solid black;
         overflow-x: hidden;
@@ -287,7 +287,7 @@
 // Table
 .table-section {
     margin-bottom: 5%;
-    margin-top: 2%;
+    margin-top: 18px;
     .table-ctn {}
     table {
         // table-layout: fixed;
@@ -566,7 +566,7 @@
                         align-items: center;
                         flex-direction: row;
                         border: 1px solid $main-color;
-                        padding: 8px 22px;
+                        padding: 5px 22px;
                         border-radius: 20px;
                         background-color: #f1f2f2;
                         // color: #bdbebf;
@@ -579,6 +579,7 @@
                     .item {
                         // width: 100%;
                         select {
+                            font-size: 14px;
                             width: 100%;
                             border-bottom: none;
                             border-left: none;
@@ -611,7 +612,7 @@
                         font-family: UTM_Helve;
                         color: #fff;
                         text-transform: uppercase;
-                        padding: 9px 15px;
+                        padding: 5px 15px;
                         outline: none;
                         border-radius: 20px;
                         -webkit-border-radius: 20px;
@@ -619,7 +620,7 @@
                         -ms-border-radius: 20px;
                         -o-border-radius: 20px;
                         float: right;
-                        width: 50%;
+                        width: 45%;
                     }
                 }
             }
@@ -724,15 +725,17 @@
                     }
                     label.drop {
                         position: absolute;
-                        left: 12px;
+                        left: -30px;
                         margin-top: 0px;
-                        width: 32px;
+                        width: 64px;
                         font-size: 13px;
+                        top: 40px;
+                        color: $main-color;
                     }
                     span.first-td {
                         position: relative;
                         display: inline-block;
-                        transform: translate(-15px, -27px);
+                        transform: translate(0px, -27px);
                         width: 90%;
                         @media(max-width: 1024px){
                             transform: translate(0px, -27px);
@@ -745,6 +748,12 @@
                     span.show-detail {
                         right: 0;
                         float: right;
+                        button{
+                            right: -18px;
+                            float: right;
+                            position: absolute;
+                            top: 10px;
+                        }
                     }
                     img.net-img {
                         position: relative;
