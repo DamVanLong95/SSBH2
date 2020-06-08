@@ -17,7 +17,6 @@ class LongevityController extends Controller
     //
     public function index()
     {
-
         $products = Longevity::all();
         $saving   = ProductLongevity::where('classify_id','=',1)->get();
         $secure   = ProductLongevity::where('classify_id','=',3)->get();
@@ -50,7 +49,6 @@ class LongevityController extends Controller
     public function checkImg(Request $request){
         $product_id = $request->get('id');
         $indexCol   = $request->get('indexCol');
-        // dd($product_id);
         $tbl_data     = $this->displayData($product_id, $indexCol);
         return response()->json($tbl_data);
     }

@@ -142,7 +142,7 @@ class HealthController extends Controller
         $scopes     = $request->get('scope');
         $companies_id  = $request->get('companies');
         // dd($programs);
-       
+        // Company::where()
         $obj_program = [
             1 => 'program_one',
             2 => 'program_two',
@@ -269,6 +269,8 @@ class HealthController extends Controller
         $products = $products->unique('name');
 
 
+
+        // dd($products);
         $html = view('frontend.pages.health_ajax.banner_health')
                         ->with(['products'=> $products])
                         ->render();
