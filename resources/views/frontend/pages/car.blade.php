@@ -229,10 +229,11 @@
                                     </tr>
                                     <tr class="data-detail price-discount sub-ctn4">
                                         <td class="td-discount"><button type="button" class="btn btn-discount" id="before_discount">Phí trước khuyến mại</button></td>
-                                        <td rowspan="2"></td>
+                                        <td></td>
                                     </tr>
                                     <tr class="data-detail price-discount sub-ctn5">
                                         <td class="td-discount"><button type="button" class="btn btn-discount" id="discount">Phí sau khuyến mại</button></td>
+                                        <td></td>
                                     </tr>
                                     <tr class="header green1 bg-head-1 fixed-header">
                                         <td  colspan="2" class="green_header term_header">Điều khoản bổ sung

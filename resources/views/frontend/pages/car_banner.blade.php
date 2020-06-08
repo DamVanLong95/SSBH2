@@ -15,7 +15,6 @@
 
 <script>
         dropImage();
-        
         function dropImage(){
             $('img.thumb').draggable({
                 containment: '#layout-area',
@@ -493,7 +492,6 @@
 $(function() {  
        $('.checkId').click(function(){
            var clicked = $(this);
-           console.log(clicked);
            if(clicked.is(':checked')){
             clicked[0].setAttribute('disabled',true);
                var idImg = clicked.val();
@@ -511,7 +509,6 @@ $(function() {
                function(data, status, xhr) {
                 
                    if(data.success == true){
-                       console.log(data);
                        var indexCol = data.indexCol;
                        var rating_and_model = data.data['rating_and_model'];
                         var notes       = data.summaries;
@@ -598,12 +595,19 @@ $(function() {
                                 </div>
                             `;
                                 
-                                //set id for column have price car
-                                var tds         =  tblBodyObj.rows[3].cells[indexCol];
+                                 //set id for column have price car
+                                 var tds         =  tblBodyObj.rows[3].cells[indexCol];
+                                var tdss        =  tblBodyObj.rows[4].cells[indexCol];
+                              
                                 var creatediv   = document.createElement('div');
+                                var div_discount   = document.createElement('div');
                                 var name        ='price_'+indexCol+'';
+                                var name_after       ='price_after_'+indexCol+'';
                                 creatediv.setAttribute('id', name);
                                 tds.appendChild(creatediv);
+                                div_discount.setAttribute('id',name_after );
+                                tdss.appendChild(div_discount);
+                                // console.log(tdss);
                                 $('#calculate').click(function(){
                                     var price = $('#price_car').val();
                                     var rate = 1.5;
@@ -612,6 +616,7 @@ $(function() {
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
                                     for(var i=2; i<=25; i++){
+                                        // console.log(chks[i]);
                                         if (chks[i].checked) {
                                             checked++;
                                             total =(Number(total) + Number(chks[i].value));
@@ -620,52 +625,51 @@ $(function() {
                                     for(var i=27; i<chks.length; i++){
                                         if (chks[i].checked) {
                                             checked++;
-                                            // console.log(chks[i].value);
+                                            console.log(chks[i]);
                                             total =(Number(total) + Number(chks[i].value));
                                         }
                                     }
-                                    if(checked >0){	
-                                            var price     = $('#price_car').val();	
-                                            var price_root= (price * 1.5)/100;	
+                                    // console.log(total);
+                                    // if(checked >0){	
+                                    //     var price     = $('#price_car').val();	
+                                    //     var price_root= (price * 1.5)/100;	
+                                    //     var rate      = promotion['promotion'];	
+                                    //     var price_promotion = price_root * (1-rate/100);	
+                                    //     var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
+                                    //     price_new = Math.round(price_new * 100) / 100 ;	
+                                    //     var div_price = document.getElementById('price_'+indexCol+'');	
+                                    //     div_price.setAttribute('value',(price_new));	
+                                    //     $('#price_'+indexCol+'').html((price_new));	
+                                    // }	
+                                    // console.log(checked);
+                                    // var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai
+                                    // if(checked > 0 && price_discount!=''){	
+                                    //     var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
+                                    //     $('#price_'+indexCol+'').html((formatMoney(price_car)));	
+                                    // }	
+                                    // else 
+                                    if(price !=''){	
+                                        if(checked == 0){
+                                            var price_old = (price * rate)/100;	
+                                            $('#price_'+indexCol+'').html((formatMoney(price_old)));	
                                             var rate      = promotion['promotion'];	
-                                            var price_promotion = price_root * (1-rate/100);	
-                                            var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
+                                            var price_new = price_old * (1-rate/100);
                                             price_new = Math.round(price_new * 100) / 100 ;	
-                                            var div_price = document.getElementById('price_'+indexCol+'');	
-                                            div_price.setAttribute('value',(price_new));	
-                                            $('#price_'+indexCol+'').html((price_new));	
-                                    }	
-                                    var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai	
-                                    if(checked > 0 && price_discount!=''){	
-                                        // console.log(price);	
-                                        var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
-                                        $('#price_'+indexCol+'').html((formatMoney(price_car)));	
-                                    }	
-                                    else if(price !='' && checked==0){	
-                                        var price_car = (price * rate)/100;	
-                                        $('#price_'+indexCol+'').html((formatMoney(price_car)));	
-                                        
+                                            $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                            $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                        }else if(checked > 0){
+                                            var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
+                                            // console.log(price_old);
+                                            var price_discount =  Number(price_old)+ Number(price_old*total/100);
+                                            $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
+                                        }
+                                    }else{
+                                        alert("Vui long nhap gia tri xe");
                                     }
                                 });
-                                $('#discount').click(function(){
-                                    var price_old = $('#price_car').val();	
-                                    var price_old = (price_old * 1.5)/100;	
-                                    var rate      = promotion['promotion'];	
-                                    var price_new = price_old * (1-rate/100);	
-                                    price_new = Math.round(price_new * 100) / 100 ;	//lam tron den phan thap phan thu 2
-                                    var div_price = document.getElementById('price_'+indexCol+'');	
-                                    div_price.setAttribute('value',(price_new));	
-                                    $('#price_'+indexCol+'').html((price_new));
-                                });
-                                $('#before_discount').click(function(){
-                                    var price = $('#price_car').val();	
-                                    var  price_car = (price * 1.5)/100;	
-                                    $('#price_'+indexCol+'').text((price_car));
-                                        
-                                });
-                                //==============DIEU KHOAN BO SUNG============================
+                                  //==============DIEU KHOAN BO SUNG============================
                               
-                                var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
+                                  var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
                                     max_rows_terms  =terms_data.length+7;
                                 for (var i = 7; i < max_rows_terms; i++) {
                                     // tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
@@ -711,22 +715,25 @@ $(function() {
 
                                 var i= max_rows_terms+2;
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                if(deductible[0]['note_dkkt']=== "x")
-                                {
-                                tds.innerHTML = 
-                                    `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                    <div class="star-td">
-                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                    </div>
-                                    `;
-                                }else{
-                                    tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
-                                    <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
-                                    <div class="star-td">
-                                        <img class="img-fluid" src="`+imgGray+`" alt="">
-                                    </div>
-                                    `;
+                                if(deductible.length > 0){
+                                    if(deductible[0]['note_dkkt']=== "x")
+                                    {
+                                    tds.innerHTML = 
+                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        <div class="star-td">
+                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                        </div>
+                                        `;
+                                    }else{
+                                        tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                        <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
+                                        <div class="star-td">
+                                            <img class="img-fluid" src="`+imgGray+`" alt="">
+                                        </div>
+                                        `;
+                                    }
                                 }
+                               
                                 var max_rows_exception = (i+3) + exception.length;
                                 for(var j=i+3 ;j<max_rows_exception;j++){
 
@@ -762,61 +769,64 @@ $(function() {
                                   //===============CHE TAI===============================
                                 for(var i=68;i < 86 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                   
-                                    if(punishment[i-68]['rate_star_ct']== 3)
-                                    {
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                        </div> `;
-                                    }else if(punishment[i-68]['rate_star_ct']== 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div> `;
-                                    
-                                    }else if(punishment[i-68]['rate_star_ct']== 2){
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                        </div> `;
-                                    }
-                                    else{
-                                        tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
+                                   if(punishment.length >0){
+                                        if(punishment[i-68]['rate_star_ct']== 3)
+                                        {
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                        }else if(punishment[i-68]['rate_star_ct']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                        
+                                        }else if(punishment[i-68]['rate_star_ct']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                        }
+                                        else{
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
+                                        }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=89;i<=112;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    // console.log(tds);
-                                    if(permissions[i-89]['rate_star_nv']== 3)
-                                    {
-                                        tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
-                                                    `<div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                        </div> `;
-                                    }else if(permissions[i-89]['rate_star_nv']== 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div> `;
-                                    
-                                    }else if(permissions[i-89]['rate_star_nv']== 2){
-                                        tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
-                                                    <div class="star-td">
-                                                            <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                        </div> `;
+                                    // console.log(tds)
+                                    if(permissions.length > 0){
+                                        if(permissions[i-89]['rate_star_nv']== 3)
+                                        {
+                                            tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                                        `<div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                        }else if(permissions[i-89]['rate_star_nv']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                        
+                                        }else if(permissions[i-89]['rate_star_nv']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                        }
+                                        else{
+                                            if(permissions[i-89]['note_rule']=== 'x')
+                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                            else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
+                                        }
                                     }
-                                    else{
-                                        if(permissions[i-89]['note_rule']=== 'x')
-                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                        else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
-                                    }
-                                   
                                 } 
                                 //=================Năng lực tài chính==================
                                 for(var i =116; i<=132;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                    if(finances.length > 0)
                                     tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-116]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
@@ -977,10 +987,10 @@ $(function() {
                     // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
                     var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
                 }
-                var x =  myTable.rows[4].cells;
-                var y =  myTable.rows[5].cells;
-                x[tableLength].setAttribute('rowspan',2);
-                y[1].remove();
+                // var x =  myTable.rows[4].cells;
+                // var y =  myTable.rows[5].cells;
+                // x[tableLength].setAttribute('rowspan',2);
+                // y[1].remove();
                 $('#green_header').next("td").remove()
                 $('#select_box').next("td").remove()
                 $('.select_all').next("td").remove()

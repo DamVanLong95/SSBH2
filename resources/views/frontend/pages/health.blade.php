@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
-                            <label class="dropdown-label">Dưới 3 triệu</label>
+                            <label class="dropdown-label">Mức phí</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
@@ -314,7 +314,7 @@
                                     @if($data['benifits'][$i]['level']==1)
                                     <tr class="data-detail ">
                                         <td>
-                                            <p class="ellipsis" style="color: blue">{{$data['benifits'][$i]['comparison']}}</p>
+                                            <p class="ellipsis" style="color: #0d723b">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
