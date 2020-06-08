@@ -92,7 +92,7 @@ $ellipsiswidth: 3em !default;
                     text-align: left;
                     width: auto;
                     position: absolute;
-                    top: 84px;
+                    top: 64px;
                     left: -143px;
                     background: rgba(0, 0, 0, 0.5);
                     padding: 0;
@@ -713,3 +713,23 @@ span.tel{
     text-decoration: none;
     font-family: UTM_HelveBold;
 }
+// ===============banner=============
+.swiper-banner {
+    height: calc(70vh - 120px);
+    // margin: 60px;
+  }
+  
+  .swiper-slide {
+    overflow: hidden;
+  }
+  
+  .slide-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  

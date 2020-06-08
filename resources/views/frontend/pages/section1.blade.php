@@ -1,4 +1,4 @@
-<div id="section1" class="section1">
+<!-- <div id="section1" class="section1">
     <div class="sec1-wrapper text-center">
         <div class="container-fluid">
             <div class="row">
@@ -6,15 +6,21 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide slide-item">
                             <div class="overlay-bg"></div>
-                            <img src="{{ url('/') }}/assets/images/home/banner1.jpg?{{ config('custom.version') }}" alt="">
+                            <div class="swiper-slide">
+                                <div class="slide-inner" style="background-image:url(./../assets/images/home/banner1.jpg)"></div>
+                            </div>
                         </div>
                         <div class="swiper-slide slide-item">
                             <div class="overlay-bg"></div>
-                            <img src="{{ url('/') }}/assets/images/home/banner2.jpg?{{ config('custom.version') }}" alt="">
+                            <div class="swiper-slide">
+                                <div class="slide-inner" style="background-image:url(./../assets/images/home/banner2.jpg)"></div>
+                            </div>
                         </div>
                         <div class="swiper-slide slide-item">
                             <div class="overlay-bg"></div>
-                            <img src="{{ url('/') }}/assets/images/home/banner3.jpg?{{ config('custom.version') }}" alt="">
+                            <div class="swiper-slide">
+                                <div class="slide-inner" style="background-image:url(./../assets/images/home/banner3.jpg)"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -22,4 +28,22 @@
 
         </div>
     </div>
+</div> -->
+<div class="swiper-container swiper-banner">
+  <div class="swiper-wrapper">
+    
+    <div class="swiper-slide">
+        <div class="overlay-bg">
+        <div class="slide-inner" style="background-image:url(./../assets/images/home/banner1.jpg)"></div>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="overlay-bg"></div>
+        <div class="slide-inner" style="background-image:url(./../assets/images/home/banner2.jpg)"></div>
+    </div>
+    <div class="swiper-slide">
+        <div class="overlay-bg"></div>
+        <div class="slide-inner" style="background-image:url(./../assets/images/home/banner3.jpg)"></div>
+    </div>
+  </div>
 </div>

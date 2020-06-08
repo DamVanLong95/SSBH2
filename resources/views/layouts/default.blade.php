@@ -198,7 +198,7 @@
             }
             });
             $(window).scroll(function () {
-                if ($(this).scrollTop() > 600) {
+                if ($(this).scrollTop() > 50) {
                     $('.contact-floating').fadeIn();
                 } else {
                     $('.contact-floating').fadeOut();

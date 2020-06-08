@@ -25,7 +25,8 @@
             <div class="col-lg-12 p-0">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-question-tab" data-toggle="tab" href="#nav-question" role="tab" aria-controls="nav-question" aria-selected="true">Các câu hỏi thường gặp</a>
+                        <a class="nav-item nav-link active" id="nav-knowledge-tab" data-toggle="tab" href="#nav-knowledge" role="tab" aria-controls="nav-knowledge" aria-selected="true">Kiến thức</a>
+                        <a class="nav-item nav-link " id="nav-question-tab" data-toggle="tab" href="#nav-question" role="tab" aria-controls="nav-question" aria-selected="true">Các câu hỏi thường gặp</a>
                         <a class="nav-item nav-link" id="nav-term-tab" data-toggle="tab" href="#nav-term" role="tab" aria-controls="nav-term" aria-selected="false">Giải thích thuật ngữ</a>
                     </div>
                 </nav>
@@ -39,7 +40,35 @@
                 <div class="question-term-ctn">
                     <section id="tabs">
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-question" role="tabpanel" aria-labelledby="nav-question-tab">
+                            <div class="tab-pane fade show active" id="nav-knowledge" role="tabpanel" aria-labelledby="nav-knowledge-tab">
+                                <div class="knowledge-ctn">
+                                    <div class="knowledge-wrapper">
+                                        <div class="row">
+                                            @for($i=1;$i<=3;$i++)
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="item-knowledge ">
+                                                        <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
+                                                        <div class="description-ctn">
+                                                            <a href="{{ url('/blog') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                            @for($i=1;$i<=3;$i++)
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="item-knowledge">
+                                                        <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
+                                                        <div class="description-ctn">
+                                                            <a href="{{ url('/blog') }}">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh.</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show " id="nav-question" role="tabpanel" aria-labelledby="nav-question-tab">
                                 <div class="question-ctn">
                                     <div class="question-part">
                                         <div class="panel-group" id="accordion">
