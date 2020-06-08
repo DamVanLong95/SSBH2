@@ -168,7 +168,7 @@
             align-items: center;
             flex-direction: row;
             border: 1px solid;
-            padding: 8px 22px;
+            padding: 5px 22px;
             border-radius: 20px;
             background-color: #f1f2f2;
             // color: #bdbebf;
@@ -186,6 +186,7 @@
             // width: 100%;
             select {
                 width: 100%;
+                font-size: 14px;
                 border-bottom: none;
                 border-left: none;
                 border-top: none;
@@ -213,7 +214,7 @@
             font-family: UTM_Helve;
             color: #fff;
             text-transform: uppercase;
-            padding: 9px 15px;
+            padding: 5px 15px;
             outline: none;
             border-radius: 20px;
             -webkit-border-radius: 20px;

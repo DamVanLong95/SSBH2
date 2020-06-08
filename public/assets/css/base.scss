@@ -29,6 +29,13 @@
 }
 *, input, select, textarea, option, button {
     outline: none!important;
+    
+}
+p{
+    font-size: 14px;
+}
+option{
+    font-size: 14px;
 }
 @media (min-width: 1360px) {
     .container {
