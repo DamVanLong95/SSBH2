@@ -112,10 +112,17 @@ $(function() {
                                 
                                 //set id for column have price car
                                 var tds         =  tblBodyObj.rows[3].cells[indexCol];
+                                var tdss        =  tblBodyObj.rows[4].cells[indexCol];
+                              
                                 var creatediv   = document.createElement('div');
+                                var div_discount   = document.createElement('div');
                                 var name        ='price_'+indexCol+'';
+                                var name_after       ='price_after_'+indexCol+'';
                                 creatediv.setAttribute('id', name);
                                 tds.appendChild(creatediv);
+                                div_discount.setAttribute('id',name_after );
+                                tdss.appendChild(div_discount);
+                                // console.log(tdss);
                                 $('#calculate').click(function(){
                                     var price = $('#price_car').val();
                                     var rate = 1.5;
@@ -124,6 +131,7 @@ $(function() {
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
                                     for(var i=2; i<=25; i++){
+                                        // console.log(chks[i]);
                                         if (chks[i].checked) {
                                             checked++;
                                             total =(Number(total) + Number(chks[i].value));
@@ -132,48 +140,47 @@ $(function() {
                                     for(var i=27; i<chks.length; i++){
                                         if (chks[i].checked) {
                                             checked++;
-                                            // console.log(chks[i].value);
+                                            console.log(chks[i]);
                                             total =(Number(total) + Number(chks[i].value));
                                         }
                                     }
-                                    if(checked >0){	
-                                            var price     = $('#price_car').val();	
-                                            var price_root= (price * 1.5)/100;	
+                                    // console.log(total);
+                                    // if(checked >0){	
+                                    //     var price     = $('#price_car').val();	
+                                    //     var price_root= (price * 1.5)/100;	
+                                    //     var rate      = promotion['promotion'];	
+                                    //     var price_promotion = price_root * (1-rate/100);	
+                                    //     var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
+                                    //     price_new = Math.round(price_new * 100) / 100 ;	
+                                    //     var div_price = document.getElementById('price_'+indexCol+'');	
+                                    //     div_price.setAttribute('value',(price_new));	
+                                    //     $('#price_'+indexCol+'').html((price_new));	
+                                    // }	
+                                    // console.log(checked);
+                                    // var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai
+                                    // if(checked > 0 && price_discount!=''){	
+                                    //     var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
+                                    //     $('#price_'+indexCol+'').html((formatMoney(price_car)));	
+                                    // }	
+                                    // else 
+                                    if(price !=''){	
+                                        if(checked == 0){
+                                            var price_old = (price * rate)/100;	
+                                            $('#price_'+indexCol+'').html((formatMoney(price_old)));	
                                             var rate      = promotion['promotion'];	
-                                            var price_promotion = price_root * (1-rate/100);	
-                                            var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
+                                            var price_new = price_old * (1-rate/100);
                                             price_new = Math.round(price_new * 100) / 100 ;	
-                                            var div_price = document.getElementById('price_'+indexCol+'');	
-                                            div_price.setAttribute('value',(price_new));	
-                                            $('#price_'+indexCol+'').html((price_new));	
-                                    }	
-                                    var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai	
-                                    if(checked > 0 && price_discount!=''){	
-                                        // console.log(price);	
-                                        var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
-                                        $('#price_'+indexCol+'').html((formatMoney(price_car)));	
-                                    }	
-                                    else if(price !='' && checked==0){	
-                                        var price_car = (price * rate)/100;	
-                                        $('#price_'+indexCol+'').html((formatMoney(price_car)));	
-                                        
+                                            $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                            $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                        }else if(checked > 0){
+                                            var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
+                                            // console.log(price_old);
+                                            var price_discount =  Number(price_old)+ Number(price_old*total/100);
+                                            $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
+                                        }
+                                    }else{
+                                        alert("Vui long nhap gia tri xe");
                                     }
-                                });
-                                $('#discount').click(function(){
-                                    var price_old = $('#price_car').val();	
-                                    var price_old = (price_old * 1.5)/100;	
-                                    var rate      = promotion['promotion'];	
-                                    var price_new = price_old * (1-rate/100);	
-                                    price_new = Math.round(price_new * 100) / 100 ;	//lam tron den phan thap phan thu 2
-                                    var div_price = document.getElementById('price_'+indexCol+'');	
-                                    div_price.setAttribute('value',(price_new));	
-                                    $('#price_'+indexCol+'').html((price_new));
-                                });
-                                $('#before_discount').click(function(){
-                                    var price = $('#price_car').val();	
-                                    var  price_car = (price * 1.5)/100;	
-                                    $('#price_'+indexCol+'').text((price_car));
-                                        
                                 });
                                 //==============DIEU KHOAN BO SUNG============================
                               
@@ -475,43 +482,42 @@ $(function() {
             var tblHeadObj = document.getElementById(tblId).tHead;
             var tableLength = document.getElementById('main-tbl').rows[0].cells.length
             for (var h = 0; h < tblHeadObj.rows.length; h++) {
-            if (tableLength < 5) {
-                var creatediv = document.createElement('div');
-                var newTH = document.createElement('th');
-                $('#select_box').attr("colspan", tableLength +1)
-                $('.select_all').attr("colspan", tableLength +1)
-                $('.td-all').attr("colspan", tableLength +1)
-                $('.green_header').attr("colspan", tableLength +1)
-                $('.car_header').attr("colspan", tableLength )
-                
-                tblHeadObj.rows[h].appendChild(newTH);
-                creatediv.setAttribute('class', "img-container");
-                newTH.appendChild(creatediv);
+                if (tableLength < 5) {
+                    var creatediv = document.createElement('div');
+                    var newTH = document.createElement('th');
+                    $('#select_box').attr("colspan", tableLength +1)
+                    $('.select_all').attr("colspan", tableLength +1)
+                    $('.td-all').attr("colspan", tableLength +1)
+                    $('.green_header').attr("colspan", tableLength +1)
+                    $('.car_header').attr("colspan", tableLength )
+                    
+                    tblHeadObj.rows[h].appendChild(newTH);
+                    creatediv.setAttribute('class', "img-container");
+                    newTH.appendChild(creatediv);
 
-                // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
-                var tblBodyObj = document.getElementById(tblId).tBodies[0];
-                for (var i = 0; i < tblBodyObj.rows.length; i++) {
-                    var newCell = tblBodyObj.rows[i].insertCell(-1);
-                    // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
-                    var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+                    // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+                    var tblBodyObj = document.getElementById(tblId).tBodies[0];
+                    for (var i = 0; i < tblBodyObj.rows.length; i++) {
+                        var newCell = tblBodyObj.rows[i].insertCell(-1);
+                        // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                        var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+                    }
+                    // var x =  myTable.rows[4].cells;
+                    // var y =  myTable.rows[5].cells;
+                    // x[tableLength].setAttribute('rowspan',2);
+                    // y[1].remove();
+                    $('#green_header').next("td").remove()
+                    $('#select_box').next("td").remove()
+                    $('.select_all').next("td").remove()
+                    $('#rank_box').next("td").remove()
+                    $('.green_header').next("td").remove()
+                    $('.car_header').next("td").remove()
+                    $('.td-all').next("td").remove()
+
                 }
-                var x =  myTable.rows[4].cells;
-                var y =  myTable.rows[5].cells;
-                x[tableLength].setAttribute('rowspan',2);
-                y[1].remove();
-                $('#green_header').next("td").remove()
-                $('#select_box').next("td").remove()
-                $('.select_all').next("td").remove()
-                $('#rank_box').next("td").remove()
-                $('.green_header').next("td").remove()
-                $('.car_header').next("td").remove()
-                $('.td-all').next("td").remove()
-
             }
-            }
-
         }
           
-    });
+});
 </script>
    
