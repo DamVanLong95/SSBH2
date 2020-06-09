@@ -6030,8 +6030,131 @@ span.tel {
   vertical-align: top;
 }
 
+.table-scroll thead th {
+  background: #f5f5f5;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.sub-head td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 142px;
+  z-index: 8;
+  background-color: #f5f5f5;
+}
+
+.sub-head-health td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 143px !important;
+  z-index: 8;
+  background-color: #f5f5f5;
+}
+
+.sub-head td.th-2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 142px;
+  z-index: 8;
+}
+
+.sub-head-health td.th-2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 143px !important;
+  z-index: 8;
+}
+
+.sub-ctn2 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 178px;
+  z-index: 8 !important;
+  background-color: #f5f5f5;
+}
+
+.sub-ctn3 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 178px;
+  z-index: 8 !important;
+}
+
+.sub-ctn4 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 228px;
+  z-index: 8 !important;
+}
+
+@media (max-width: 1024px) {
+  .sub-ctn4 td {
+    top: 260px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sub-ctn4 td {
+    top: 251px;
+  }
+}
+
+.sub-ctn5 td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 265px;
+  z-index: 8 !important;
+}
+
+@media (max-width: 1024px) {
+  .sub-ctn5 td {
+    top: 297px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sub-ctn5 td {
+    top: 288px;
+  }
+}
+
 /* safari and ios need the tfoot itself to be position:sticky also */
+.table-scroll tfoot,
+.table-scroll tfoot th,
+.table-scroll tfoot td {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background: #666;
+  color: #fff;
+  z-index: 4;
+}
+
 /* testing links*/
+td:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 0;
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 380px) {
+  td:first-child {
+    width: 160px;
+  }
+}
+
+th:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  background: #f5f5f5;
+}
+
 thead th:first-child,
 tfoot th:first-child {
   z-index: 8 !important;
