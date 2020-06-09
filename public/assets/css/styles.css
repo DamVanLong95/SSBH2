@@ -3883,8 +3883,6 @@ span.tel {
   .table-section-nt #layout-area .table p.text {
     text-align: left;
     font-family: UTM_Helve; }
-  .table-section-nt #layout-area .table tr.data-detail td:first-child {
-    width: 50%; }
   .table-section-nt #layout-area .table tr.data-detail td {
     border-right: 1px solid #ccc;
     text-align: center;
