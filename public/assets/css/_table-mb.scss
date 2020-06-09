@@ -81,26 +81,26 @@
     .sub-ctn4 td{
         position: -webkit-sticky;
         position: sticky;
-        top: 227px;
+        top: 228px;
         z-index: 8 !important;
         @media (max-width: 1024px) {
             top: 260px;
         }
-        // @media (max-width: 991px) {
-        //     top: 340px;
-        // }
+        @media (max-width: 991px) {
+            top: 251px;
+        }
     }
     .sub-ctn5 td{
         position: -webkit-sticky;
         position: sticky;
-        top: 264px;
+        top: 265px;
         z-index: 8 !important;
         @media (max-width: 1024px) {
             top: 297px;
         }
-        // @media (max-width: 991px) {
-        //     top: 377px;
-        // }
+        @media (max-width: 991px) {
+            top: 288px;
+        }
     }
     /* safari and ios need the tfoot itself to be position:sticky also */
     .table-scroll tfoot,
