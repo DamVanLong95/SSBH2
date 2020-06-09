@@ -2662,6 +2662,8 @@ span.tel {
   background-size: contain;
   background-position: center;
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   left: 0;
   color: white !important;
@@ -2681,6 +2683,8 @@ span.tel {
 
 .table-section #layout-area .table thead .top-head {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 0;
   -webkit-box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
@@ -4413,6 +4417,8 @@ span.tel {
   background-size: contain;
   background-position: center;
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   left: 0;
   color: white !important;
@@ -4428,6 +4434,8 @@ span.tel {
 
 .table-section-sk #layout-area .table thead .top-head {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 0;
   height: 100px;
@@ -5359,6 +5367,8 @@ span.tel {
   background-position: center;
   background-color: #0d723b !important;
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   left: 0;
   color: white !important;
@@ -5374,6 +5384,8 @@ span.tel {
 
 .table-section-nt #layout-area .table thead .top-head {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 0;
   height: 100px;
@@ -6034,12 +6046,16 @@ span.tel {
   background: #f5f5f5;
   color: #fff;
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 0;
 }
 
 .sub-head td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 142px;
   z-index: 8;
@@ -6048,6 +6064,8 @@ span.tel {
 
 .sub-head-health td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 143px !important;
   z-index: 8;
@@ -6056,6 +6074,8 @@ span.tel {
 
 .sub-head td.th-2 {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 142px;
   z-index: 8;
@@ -6063,6 +6083,8 @@ span.tel {
 
 .sub-head-health td.th-2 {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 143px !important;
   z-index: 8;
@@ -6070,6 +6092,8 @@ span.tel {
 
 .sub-ctn2 td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 178px;
   z-index: 8 !important;
@@ -6078,6 +6102,8 @@ span.tel {
 
 .sub-ctn3 td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 178px;
   z-index: 8 !important;
@@ -6085,6 +6111,8 @@ span.tel {
 
 .sub-ctn4 td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 228px;
   z-index: 8 !important;
@@ -6104,6 +6132,8 @@ span.tel {
 
 .sub-ctn5 td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   top: 265px;
   z-index: 8 !important;
@@ -6126,6 +6156,8 @@ span.tel {
 .table-scroll tfoot th,
 .table-scroll tfoot td {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   bottom: 0;
   background: #666;
@@ -6136,6 +6168,8 @@ span.tel {
 /* testing links*/
 td:first-child {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   left: 0;
   z-index: 0;
@@ -6150,6 +6184,8 @@ td:first-child {
 
 th:first-child {
   position: -webkit-sticky;
+  position: -webkit-o-sticky;
+  position: -webkit-ms-sticky;
   position: sticky;
   left: 0;
   background: #f5f5f5;
