@@ -18,7 +18,10 @@
 
 <div class="intro-container">
     <div class="contact-floating">
-        <a class="btn-call-now" href="tel:1900988965" title="Gọi ngay"><span class="icon-tel"></span> <span class="tel">1900 9889 65</span></a>
+        <a class="btn-call-now" href="tel:1900988965">
+			<i class="fa fa-phone"></i>
+			<span>1900988965</span>
+		</a>
     </div>
     <div class="container">
         <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">

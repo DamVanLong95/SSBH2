@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> -->
   
 
 @stop
@@ -21,9 +21,13 @@
 <div id="app">
     <div class="compare-section">
     <div class="contact-floating">
-        <a class="btn-call-now" href="tel:1900988965" title="Gọi ngay"><span class="icon-tel"></span> <span class="tel">1900 9889 65</span></a>
+        <a class="btn-call-now" href="tel:1900988965">
+			<i class="fa fa-phone"></i>
+			<span>1900988965</span>
+		</a>
+        <!-- <a class="btn-call-now" href="tel:1900988965" title="Gọi ngay"><span class="icon-tel"></span> <span class="tel">1900 9889 65</span></a> -->
     </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="compare-nav">
@@ -135,7 +139,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn ">
-                        <div id="table-scroll" class="table-scroll">
+                        <div id="table-scroll" class="table-scroll table-responsive">
                             <table id="main-tbl" class="table sticky-header">
                                 <div class="add-del-ctn d-none ">
                                     <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
@@ -496,9 +500,9 @@
    
     });
     $(document).ready(function() {
-        if (screen.height > screen.width){
-            alert("Please use Landscape!");
-        }
+        // if (screen.height > screen.width){
+        //     alert("Please use Landscape!");
+        // }
     $(window).scroll(function(e){
         var scrollTop = $(window).scrollTop();
         var docHeight = $(document).height();
