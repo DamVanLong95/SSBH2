@@ -36,11 +36,15 @@
         background: #f5f5f5;
         color: #fff;
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 0;
     }
     .sub-head td{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 142px;
         z-index: 8;
@@ -48,6 +52,8 @@
     }
     .sub-head-health td{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 143px !important;
         z-index: 8;
@@ -55,18 +61,24 @@
     }
     .sub-head td.th-2{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 142px;
         z-index: 8;
     }
     .sub-head-health td.th-2{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 143px !important;
         z-index: 8;
     }
     .sub-ctn2 td{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 178px;
         z-index: 8 !important;
@@ -74,12 +86,16 @@
     }
     .sub-ctn3 td{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 178px;
         z-index: 8 !important;
     }
     .sub-ctn4 td{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 228px;
         z-index: 8 !important;
@@ -92,6 +108,8 @@
     }
     .sub-ctn5 td{
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         top: 265px;
         z-index: 8 !important;
@@ -107,6 +125,8 @@
     .table-scroll tfoot th,
     .table-scroll tfoot td {
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         bottom: 0;
         background: #666;
@@ -116,6 +136,8 @@
     /* testing links*/
     td:first-child {
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         left: 0;
         z-index: 0;
@@ -126,6 +148,8 @@
     }
     th:first-child {
         position: -webkit-sticky;
+        position: -webkit-o-sticky;
+        position: -webkit-ms-sticky;
         position: sticky;
         left: 0;
         // z-index: 2;

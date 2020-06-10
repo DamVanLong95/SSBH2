@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 Route::get('/car1', function () {
-    return view('frontend.pages.car_mobile');
+    return view('frontend.pages.test');
 });
 Route::get('/car','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');

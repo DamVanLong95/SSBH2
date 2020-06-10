@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> -->
 
 @stop
 
@@ -21,7 +21,10 @@
 <div id="app">
     <div class="compare-section">
     <div class="contact-floating">
-        <a class="btn-call-now" href="tel:1900988965" title="Gọi ngay"><span class="icon-tel"></span> <span class="tel">1900 9889 65</span></a>
+        <a class="btn-call-now" href="tel:1900988965">
+			<i class="fa fa-phone"></i>
+			<span>1900988965</span>
+		</a>
     </div>
         <div class="container">
             <div class="row">
