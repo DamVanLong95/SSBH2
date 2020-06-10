@@ -313,13 +313,17 @@
                                     @if($data['benifits'][$i]['level']==1)
                                     <tr class="data-detail ">
                                         <td>
-                                            <p class="ellipsis" style="color: #0d723b">{{$data['benifits'][$i]['comparison']}}</p>
+                                        <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" data-id="id"  onclick='handleAll(this);' />
+                                        <label for="checkbox_one_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
+                                            <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
                                     @elseif($data['benifits'][$i]['level']==2)
                                     <tr class="data-detail ">
                                         <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" onclick='handleCheckbox(this);'   />
+                                        <label for="checkbox_two_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
                                             <p class="ellipsis" style="color: #125732">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
@@ -327,7 +331,9 @@
                                     @elseif($data['benifits'][$i]['level']==3)
                                     <tr class="data-detail ">
                                         <td>
-                                            <p class="ellipsis" style="color: #3d7ba1">{{$data['benifits'][$i]['comparison']}}</p>
+                                        <input class="selectedId" type="checkbox" id="checkbox_three_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="" data-id="id"   />
+                                        <label for="checkbox_three_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
+                                            <p class="ellipsis" style="color: #000">{{$data['benifits'][$i]['comparison']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -489,6 +495,47 @@
       
       
     });
+    function handleAll(el){
+        var selector = $('.selectedId');
+        // console.log(selector);
+        for(var i = 2; i <= 25; i ++){
+            if( $(el).val() == 3) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+        for(var i = 27; i < 32; i ++){
+            if( $(el).val() == 28) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+        for(var i = 33; i < 32; i ++){
+            if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+        for(var i = 33; i < 36; i ++){
+            if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+        for(var i = 37; i < 41; i ++){
+            if( $(el).val() == 38) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+        for(var i = 42; i < 62; i ++){
+            if( $(el).val() == 43) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+       
+        for(var i = 62; i <=selector.length; i ++){
+            if( $(el).val() == 64) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+       
+    }
+    function handleCheckbox(el){
+        
+        var selector = $('.selectedId');
+        for(var i = 3; i <= 8; i ++){
+            if( $(el).val() == 4) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        }
+    }
     function resetChecked(){
         $('input:checkbox').removeAttr('checked');
     }

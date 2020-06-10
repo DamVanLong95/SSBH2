@@ -353,54 +353,59 @@
             var myTable = document.getElementById('main-tbl-sk');
             var tblHeadObj = document.getElementById(tblId).tHead;
             var tableLength = document.getElementById('main-tbl-sk').rows[0].cells.length;
+           
             for (var h = 0; h < tblHeadObj.rows.length; h++) {
-            if (tableLength < 5) {
-                var creatediv = document.createElement('div');
-                var newTH = document.createElement('th');
-                $('#select_box').attr("colspan", tableLength +1)
-                $('#select_all').attr("colspan", tableLength +1)
-                $('.green_header').attr("colspan", tableLength +1)
-                $('.td-all').attr("colspan", tableLength +1)
-                $('.hospital_header').attr("colspan", tableLength )
-                tblHeadObj.rows[h].appendChild(newTH);
-                creatediv.setAttribute('class', "img-container");
-                newTH.appendChild(creatediv);
+                if (tableLength < 5) {
+                    var creatediv = document.createElement('div');
+                    var newTH = document.createElement('th');
+                    $('#select_box').attr("colspan", tableLength +1)
+                    $('#select_all').attr("colspan", tableLength +1)
+                    $('.green_header').attr("colspan", tableLength +1)
+                    $('.td-all').attr("colspan", tableLength +1)
+                    $('.hospital_header').attr("colspan", tableLength )
+                    tblHeadObj.rows[h].appendChild(newTH);
+                    creatediv.setAttribute('class', "img-container");
+                    newTH.appendChild(creatediv);
 
-                // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
-                var tblBodyObj = document.getElementById(tblId).tBodies[0];
-                for (var i = 0; i < tblBodyObj.rows.length; i++) {
-                    var newCell = tblBodyObj.rows[i].insertCell(-1);
-                    // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
-                    var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+                    // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+                    var tblBodyObj = document.getElementById(tblId).tBodies[0];
+                    for (var i = 0; i < tblBodyObj.rows.length; i++) {
+                        var newCell = tblBodyObj.rows[i].insertCell(-1);
+                        // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                        var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+                    }
+                    //   var x =  myTable.rows[4].cells;
+                    //   var y =  myTable.rows[5].cells;
+                    //   x[tableLength].setAttribute('rowspan',2);
+                    //   y[1].remove();
+                    $('#green_header').next("td").remove()
+                    $('#select_box').next("td").remove()
+                    $('#rank_box').next("td").remove()
+                    $('.green_header').next("td").remove()
+                    $('.hospital_header').next("td").remove()
+                    $('.td-all').next("td").remove()
+
                 }
-                //   var x =  myTable.rows[4].cells;
-                //   var y =  myTable.rows[5].cells;
-                //   x[tableLength].setAttribute('rowspan',2);
-                //   y[1].remove();
-                $('#green_header').next("td").remove()
-                $('#select_box').next("td").remove()
-                $('#rank_box').next("td").remove()
-                $('.green_header').next("td").remove()
-                $('.hospital_header').next("td").remove()
-                $('.td-all').next("td").remove()
-
-            }
             }
 
         }
  </script>
  <script>
 $(function() {  
+    var count=0;
        $('.checkId').click(function(){
            var clicked = $(this);
-           if(clicked.is(':checked')){
-            clicked[0].setAttribute('disabled',true);
-               var idImg = clicked.val();
-               var url   = "{{route('checkHealth')}}";
-               var myTable = document.getElementById('main-tbl-sk');
+           var myTable = document.getElementById('main-tbl-sk');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+           if(indexCol==4)count++;
+           console.log(count);
+           if(clicked.is(':checked') && count <=1){
+            clicked[0].setAttribute('disabled',true);
+               var idImg = clicked.val();
+               var url   = "{{route('checkHealth')}}";
+              
              $.post(url,
                {
                    "_token": "{{ csrf_token() }}",
@@ -478,7 +483,7 @@ $(function() {
                                 //========================quyen loi bao hiem========================
                                 for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    console.log(tdss);
+                                    // console.log(tdss);
                                     tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
                                 
                                 }
@@ -606,6 +611,7 @@ $(function() {
                });
               
            }
+           if(this.checked ==false) count=1;
        });
        function deleteColumn(idImg,clicked){
 
@@ -616,8 +622,11 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
+                   
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                     console.log("hi");
+                    count=0;
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl-sk');
@@ -625,6 +634,8 @@ $(function() {
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     $('#'+idImg+'').draggable({ disabled: true });
                     clicked[0].disabled = false;
+                    count=0;
+                   
                 }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
@@ -634,12 +645,14 @@ $(function() {
                     $('#checkbox_bv'+idImg+'').prop("checked", false);
                     $('#'+idImg+'').draggable({ disabled: false });
                     clicked[0].disabled = false;
+                    count=0;
                 }else if(index == 4){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     $('#'+idImg+'').draggable({ disabled: false });
                     clicked[0].disabled = false;
+                    count=0;
                 }else if(index == 5 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
@@ -648,12 +661,14 @@ $(function() {
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
+                    count=0;
                     
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     // addColumn('main-tbl-sk');
                     dropImage();
+                    count=0;
                 }else if(index == 3 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
@@ -661,6 +676,7 @@ $(function() {
                     $('#checkbox_bv'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
+                    count=0;
                 }
                        
 
