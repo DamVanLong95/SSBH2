@@ -185,7 +185,7 @@
                                                     <div class=" item select">
                                                         <select aria-label="Select menu example" id="purpose">
                                                             <option selected>Mục đích sử dụng</option>
-                                                            <option value="1">Xe kinh doanh không vận tải</option>
+                                                            <option value="1">Xe không kinh doanh vận tải</option>
                                                             <option value="1">Xe kinh doanh chở người</option>
                                                         </select>
                                                     </div>

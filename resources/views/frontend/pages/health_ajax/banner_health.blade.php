@@ -400,7 +400,6 @@ $(function() {
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
            if(indexCol==4)count++;
-           console.log(count);
            if(clicked.is(':checked') && count <=1){
             clicked[0].setAttribute('disabled',true);
                var idImg = clicked.val();
@@ -611,7 +610,7 @@ $(function() {
                });
               
            }
-           if(this.checked ==false) count=1;
+           if(clicked[0].checked ==false)  count=0;
        });
        function deleteColumn(idImg,clicked){
 

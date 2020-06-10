@@ -337,7 +337,7 @@
             var checked = this.$el.find(':checked');
             // console.log(checked);
             this.areAllChecked = false;
-            this.$checkAll.html('Check All');
+            this.$checkAll.html('Chọn tất cả');
          
             if (checked.length === 0) {
                 this.$label = this.$el.find('.dropdown-label');
@@ -398,7 +398,7 @@
                 this.isOpen = false;
                  this.$el.removeClass('on');
                  $(document).off('click');
-                 console.log("trang thai Close",this.isOpen);
+                //  console.log("trang thai Close",this.isOpen);
             }
             
         };
