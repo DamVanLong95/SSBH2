@@ -649,9 +649,7 @@
             tr.data-detail {
                  td:first-child {
                     // width: 50%;
-                    @media (max-width: 767px) {
-                        width: 100%;
-                    }
+                    
                 }
                 td {
                     border-right: 1px solid #ccc;
@@ -769,6 +767,13 @@
                             -ms-transform: translate(0px, -27px);
                             -o-transform: translate(0px, -27px);
                         }
+                        @media(max-width: 767px){
+                            transform: translate(13px, -27px);
+                            -webkit-transform: translate(13px, -27px);
+                            -moz-transform: translate(13px, -27px);
+                            -ms-transform: translate(13px, -27px);
+                            -o-transform: translate(13px, -27px);
+}
                     }
                     span.show-detail {
                         right: 0;
