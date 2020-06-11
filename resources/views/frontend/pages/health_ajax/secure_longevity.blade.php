@@ -226,12 +226,14 @@
 </div>
 
 @endif
-<div id="detail-comparison" class="modal" >
-    <div class="content-ctn" >
+<div id="detail-comparison" class="modal"  style="height: auto">
+    <h1 style="text-align: center">SO SÁNH QUYỀN LỢI BỔ TRỢ</h1>
+    <div class="content-ctn" style="background: #3e6e3e" >
         <div id="comparison"></div>
     </div>
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-  <a href="javascript:void(0)">Liên hệ ngay</a>
+        <a href="javascript:void(0)">Liên hệ tư vấn</a>
+    </button>
 </div>
 
 <script>

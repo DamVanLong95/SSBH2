@@ -24,13 +24,13 @@ class HealthController extends Controller
         $secure    = Product::where('cate','=',2)->get();
         $object_bh = Health::select('comparison')->take(1)->get();
 
-        $scope = Health::select('comparison')->where('id','=',2)->first();
-        $benifits = Health::select('comparison','level')->take(74)->get();
-        $healths  = Health::select('comparison')->get();
+        $scope      = Health::select('comparison')->where('id','=',2)->first();
+        $benifits   = Health::select('id','comparison','level')->take(74)->get();
+        $healths    = Health::select('comparison')->get();
         $exclusions = Exclusion::select('rules')->take(66)->get();
 
         $companies = Company::all();
-        // dd($benifits);
+       
 
         $data['companies']  = $companies;
         $data['saving']     = $saving;
@@ -319,7 +319,7 @@ class HealthController extends Controller
             'html' =>$html,
             'html_hospital' => $html_hospital,
             'img' => $img   
-            ];
+        ];
     }
    
    

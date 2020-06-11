@@ -2,14 +2,19 @@
 @if(count($result['spbt'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
-<table class="table table-hover" id="main-tbl-popup">
+<table class="table" id="main-tbl-popup" style="background: none; color: white">
   <thead>
     <tr>
-      <th>{{$result['group_parent']->name}}</th>
+      <th style="background: none;">{{$result['group_parent']->name}}</th>
       @foreach($result['spbt'] as $value)
-      <th scope="col"><label>{{$value['product_longevity_name']}}</label>
-        <select name="select" class="spbt">
-            <option selected disabled hidden>--Chon--</option>
+      <th style="background: none;text-align:center;">
+        <label>{{$value['product_longevity_name']}}</label><br>
+        <select class="spbt" name="select"  style="color: #0d723b;
+                            font-family: UTM_Helve;
+                            line-height: 28px;
+                            background: #fff;
+                            border: 1px solid #0d723b;">
+            <option selected disabled hidden>--Chọn--</option>
             <option value="{{$value['product_more_name']}}" >{{$value['product_more_name']}}</option>
         </select>
       </th>
@@ -19,7 +24,7 @@
   <tbody>
   @foreach($result['group_child'] as $child)
     <tr>
-      <td scope="row">{{$child['group_child']}}</td>
+      <td scope="row" style="background: none;">{{$child['group_child']}}</td>
     </tr>
     @endforeach
   </tbody>
