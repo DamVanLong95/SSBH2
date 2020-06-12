@@ -21,7 +21,9 @@ class PostController extends Controller
         return view('admin.posts.list');
     }
     public function getData( Request $request){
+       
         $posts = DB::table('posts')->select([ 'id','title', 'content', 'created_at','is_published','author_id','avatar']);
+        
         return Datatables::of($posts)
             ->editColumn('avatar', function ($post) {
                 $path = asset('storage/'.$post->avatar);
@@ -120,6 +122,7 @@ class PostController extends Controller
             'message' => 'update successfully!',
             'alert-type' => 'success'
         );
+       
         return redirect()->route('posts.index')->with($notification);
     }
     public function destroy($id)

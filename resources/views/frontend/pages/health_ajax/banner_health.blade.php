@@ -31,7 +31,6 @@
             </li>
         @endforelse
     </ul>
-</div>
 <script>
         dropImage();
         
@@ -82,7 +81,7 @@
                         indexCol:indexCol
                     }
                     ,function(data , status , xhr){
-                        console.log(data);
+                        // console.log(data);
                         if(data.success = true){
                             var healths = data.data['healths'];
                             var programs = data.data['programs'];
@@ -140,8 +139,9 @@
                                     var scope   = data.scope;
                                     var obj_bhs= data.obj_bhs;
                                     var exclusions = data.exclusions;
+                                    var program  = data.program;
                                     var myTable = document.getElementById('main-tbl-sk');
-                                    console.log(myTable.rows);
+                                    // console.log(myTable.rows);
                                     var row   = document.getElementById('dtbh');
                                     var qlbh  = document.getElementById('qlbh');
                                     var pending   = document.getElementById('pending');
@@ -161,7 +161,7 @@
                                     //========================quyen loi bao hiem========================
                                     for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        console.log(tdss);
+                                        // console.log(tdss);
                                         tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
                                     
                                     }
@@ -175,7 +175,10 @@
 
                                   
                                     var tdss    = myTable.rows[90].cells[indexCol] ;
-                                    tdss.innerHTML = `<a href='`+healths[84]['content']+`' class=''>Link_click</a>` ; 
+                                    //========================phi bao hiem= =================================
+                                    var img     = 'storage/'+ program.img_cost;
+                                    tdss.innerHTML = '<a href="'+img+'" class="fancybox"><img src="'+img+'" class="img-responsive" style="width:100px"></a>' ; 
+                                    $('.fancybox').fancybox();
                                     //BENH VIEN LIEN KET
                                     var tdsss =myTable.rows[92].cells[indexCol];
                                     tdsss.setAttribute('id','td'+indexCol+''); 
@@ -282,6 +285,7 @@
                                         }
                                     }
                                 });
+                              
                             });
                         } 
                     }).done(function() {

@@ -400,7 +400,7 @@
                                 </tr>
                                 @foreach($data['exclusions'] as $value)
                                 <tr class="data-detail">
-                                    <td><p class="ellipsis"></p>{{$value['rules']}}</td>
+                                    <td><p class="ellipsis">{{$value['rules']}}</p></td>
                                     <td></td>
                                 </tr>
                                 @endforeach
@@ -486,6 +486,7 @@
   <a href="javascript:void(0)">Liên hệ ngay</a>
 
 </div>
+
 <script>
      $(function(){
         var numShown = 5;
@@ -503,29 +504,22 @@
         // console.log(selector);
         for(var i = 2; i <= 25; i ++){
             if( $(el).val() == 3) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 27; i < 32; i ++){
             if( $(el).val() == 28) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 33; i < 32; i ++){
             if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 33; i < 36; i ++){
             if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 37; i < 41; i ++){
             if( $(el).val() == 38) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
-        for(var i = 42; i < 62; i ++){
+        for(var i = 42; i < 62; i ++)
             if( $(el).val() == 43) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
-        }
-       
         for(var i = 62; i <=selector.length; i ++){
             if( $(el).val() == 64) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            

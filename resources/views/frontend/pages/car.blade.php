@@ -14,7 +14,6 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> -->
   
-
 @stop
 
 @section('content')
@@ -190,16 +189,22 @@
                                                         <select aria-label="Select menu example" id="purpose">
                                                             <option selected>Mục đích sử dụng</option>
                                                             <option value="1">Xe không kinh doanh vận tải</option>
-                                                            <option value="1">Xe kinh doanh chở người</option>
+                                                            <option value="2">Xe kinh doanh chở người</option>
+                                                            <option value="2">Xe kinh doanh chở hành khách ứng dụng công nghệ</option>
+                                                            <option value="2">Xe chở hàng KDVT</option>
+                                                            <option value="2">Xe chở hàng không KDVT, xe ô tô, máy chuyên dụng</option>
+                                                            <option value="2">Xe bán tải( pickup) vừa chở người- hàng còn lại</option>
                                                         </select>
                                                     </div>
                                                     <div class="item select">
                                                     
                                                     <select aria-label="Select menu example" id="brand">
                                                         <option selected>Hãng xe</option>
-                                                        @foreach($brands as $brand)
-                                                            <option value="{{$brand['id']}}" id="brand_{{$brand['id']}}">{{$brand['name']}}</option>
-                                                        @endforeach
+                                                            <div class="option-ctn" style="overflow:auto;height:100px">
+                                                            @foreach($brands as $brand)
+                                                                <option value="{{$brand['id']}}" id="brand_{{$brand['id']}}">{{$brand['name']}}</option>
+                                                            @endforeach
+                                                            </div>
                                                         </select>
                                                     </div>
                                                     <div class="item select">

@@ -81,6 +81,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::resource('product_longevity','Admin\ProductLongevityController',['except' =>'show']);
     Route::get('getData','Admin\ProductLongevityController@getData')->name('product_longevity.datatable');
 
+    
 //   ============View ======================
     Route::get('company','Admin\CompanyController@index')->name('excel.company');
     Route::get('datatables','Admin\CompanyController@getData')->name('excel.getData');
@@ -108,7 +109,6 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('district','Admin\DistrictExcelController@index')->name('indexDistrict.import');
     Route::get('hospital','Admin\HospitalExcelController@index')->name('indexHospital.import');
     Route::get('exclusion','Admin\ExclusionExcelController@index')->name('indexExclusion.import');
-    
 
  
    
@@ -133,6 +133,11 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('district','Admin\DistrictExcelController@import')->name('district.import');
     Route::post('hospital','Admin\HospitalExcelController@import')->name('hospital.import');
     Route::post('exclusion','Admin\ExclusionExcelController@import')->name('exclusion.import');
+
+    Route::get('anyData','Admin\ProgramExcelController@anyData')->name('program.data');
+    // Route::resource('program','Admin\ProgramExcelController', ['except' => ['create', 'show']]);
+    Route::get('program/edit/{id?}','Admin\ProgramExcelController@edit')->name('program.edit');
+    Route::post('program/update/{id?}','Admin\ProgramExcelController@update')->name('program.update');
 
 
 //   ============Export excel======================

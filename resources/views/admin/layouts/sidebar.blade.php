@@ -33,14 +33,14 @@
                         <li class="sidebar-item"><a href="{{route('product_longevity.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Product(BH)</span></a></li>
                     </ul>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Health </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Trang sức khỏe </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                    <li class="sidebar-item"><a href="{{route('product.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Product(BH)</span></a></li>
-                        <li class="sidebar-item"><a href="{{route('indexHealth.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Health</span></a></li>
-                        <li class="sidebar-item"><a href="{{route('indexProgram.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Program</span></a></li>
-                        <li class="sidebar-item"><a href="{{route('indexHospital.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Hospital</span></a></li>
-                        <li class="sidebar-item"><a href="{{route('indexDistrict.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">District</span></a></li>
-                        <li class="sidebar-item"><a href="{{route('indexExclusion.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Exclusion</span></a></li>
+                    <li class="sidebar-item"><a href="{{route('product.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Sản phẩm lọc dưới banner</span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexHealth.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Dữ liệu hiển thị </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexProgram.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Chương trình theo sức khỏe</span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexHospital.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Bệnh viện liên kết</span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexDistrict.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Quận </span></a></li>
+                        <li class="sidebar-item"><a href="{{route('indexExclusion.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Điều khoản loại trừ</span></a></li>
                     </ul>
                 </li>
             </ul>

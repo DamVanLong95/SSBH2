@@ -85,11 +85,14 @@ class HealthController extends Controller
                     ->get();
         $exclusions = Exclusion::where('product_id','=',$product_id)->get();
 
+        $program   = Program::where('id',$program_id)->first();
+
         return response()->json([
             'obj_bhs' => $obj_bhs,
             'scope'    => $scope,
             'healths' => $healths,
-            'exclusions'=> $exclusions
+            'exclusions'=> $exclusions,
+            'program'   => $program
         ]);
 
     }
