@@ -2,8 +2,8 @@
     background-color: #191919;
     height: 50px;
     position: relative;
-    @media (max-width: 991px) {
-        // height: 130px;
+    @media (max-width: 767px) {
+        height: 88px;
     }
     .compare-nav {
         display: flex;
@@ -15,14 +15,14 @@
             // display: grid;
             // grid-template-columns: 50% 50%;
         }
-        @media (max-width: 375px) {
-            
-            // display: block;
-            // grid-template-columns: 50% 50%;
+        @media (max-width: 767px) {
+            display: grid;
+            position: relative;
+            grid-template-columns: 50% 50%;
         }
         .dropdown {
             position: relative;
-            font-size: 16px;
+            font-size: 14px;
             font-family: UTM_Helve;
             width: 100%;
             color: #fff;
@@ -31,9 +31,14 @@
             z-index: 3;
             height: 35px;
             transform: translateY(10px);
-            @media (max-width: 991px) {
-                // height: 60px;
-            }
+            @media (max-width: 767px) {
+                height: 25px;
+                transform: translateY(25px);
+                -webkit-transform: translateY(25px);
+                -moz-transform: translateY(25px);
+                -ms-transform: translateY(25px);
+                -o-transform: translateY(25px);
+}
             .dropdown-list {
                 padding: 12px;
                 // width: fit-content;
@@ -92,7 +97,7 @@
                 cursor: pointer;
                 transform: translate(0px, -9px);
                 @media (max-width: 767px) {
-                    // height: 65px;
+                    height: 25px;
                     font-size: 13px;
                     padding: 0;
                 }
@@ -197,6 +202,9 @@
                 // outline: 1px dotted gray;
                 padding: 1em;
                 box-sizing: border-box;
+                @media (max-width: 375px){
+                    width: 157px;
+                }
                 input[type=checkbox] {
                     display: none;
                 }
@@ -276,6 +284,9 @@
         @media (max-width: 1440px) {
             left: 2%;
         }
+        @media (max-width: 375px) {
+            top: -20px;
+        }
     }
     .right-paddle {
         right: 15%;
@@ -284,6 +295,9 @@
         bottom: -60px;
         @media (max-width: 1440px) {
             right: 7%;
+        }
+        @media (max-width: 375px) {
+            top: -20px;
         }
     }
     .hidden {
@@ -597,6 +611,12 @@
                     .button-filter {
                         width: 26%;
                         border: none;
+                        @media (max-width: 1024px){
+                            width: 58%;
+                        }
+                        @media (max-width: 375px){
+                            width: 55%;
+                        }
                     }
                     .item {
                         // width: 100%;

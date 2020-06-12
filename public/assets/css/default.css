@@ -975,6 +975,12 @@ span.tel {
   height: calc(70vh - 120px);
 }
 
+@media (max-width: 375px) {
+  .swiper-banner {
+    height: calc(50vh - 100px);
+  }
+}
+
 .swiper-slide {
   overflow: hidden;
 }
