@@ -416,11 +416,12 @@ $(function() {
                                     })
                         addColumn('main-tbl');
                         dropImage();
+                        deleteColumn(idImg,clicked);
                        
                    }
                
                }).done(function() {
-                deleteColumn(idImg,clicked);
+                
                });
                $(this).disabled = true;
            }
@@ -431,6 +432,7 @@ $(function() {
 
             $('span.remove').on('click', function (e ) {
                 var index = ($(this).parent().index()+1);
+                console.log(index);
                 if( index ==2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()

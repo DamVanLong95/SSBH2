@@ -390,12 +390,13 @@ footer {
 // ===========================modal==============================
 
 .modal {
-    height: 370px;
+    max-height: 700px;
     max-width: initial;
-    background-color: #0d723b;
-    color: #fff;
-    overflow: auto;
-    // overflow-y: auto;
+    background-image: linear-gradient(#fcfeff, #f5f5f5);
+    color: #000;
+    // overflow: auto;
+    // padding:0px 30px;
+    overflow-y: auto;
     a {
         color: #f36f21;
         float: right;

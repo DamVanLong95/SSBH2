@@ -69,6 +69,7 @@ Route::post('longevity/filter','Longevity\LongevityController@filterBanner')->na
 Route::post('longevity/popup','Longevity\LongevityController@displayPopup')->name('popupLongevity');
 Route::post('longevity/showProduct','Longevity\LongevityController@showProduct')->name('showProduct');
 Route::post('longevity/checkImg','Longevity\LongevityController@checkImg')->name('checkLongevity');
+Route::post('longevity/showData','Longevity\LongevityController@showData')->name('sick_longevity.show');
 
 Auth::routes();
 
@@ -81,6 +82,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::resource('product_longevity','Admin\ProductLongevityController',['except' =>'show']);
     Route::get('getData','Admin\ProductLongevityController@getData')->name('product_longevity.datatable');
 
+    
 //   ============View ======================
     Route::get('company','Admin\CompanyController@index')->name('excel.company');
     Route::get('datatables','Admin\CompanyController@getData')->name('excel.getData');
@@ -108,7 +110,10 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('district','Admin\DistrictExcelController@index')->name('indexDistrict.import');
     Route::get('hospital','Admin\HospitalExcelController@index')->name('indexHospital.import');
     Route::get('exclusion','Admin\ExclusionExcelController@index')->name('indexExclusion.import');
-    
+    //===============================Danh sach benh======
+    Route::get('sickList','Admin\SickListController@index')->name('sick_longevity.index');
+    Route::post('sickList/import', 'Admin\SickListController@import')->name('sick_longevity.import');
+   
 
  
    
@@ -133,6 +138,11 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('district','Admin\DistrictExcelController@import')->name('district.import');
     Route::post('hospital','Admin\HospitalExcelController@import')->name('hospital.import');
     Route::post('exclusion','Admin\ExclusionExcelController@import')->name('exclusion.import');
+
+    Route::get('anyData','Admin\ProgramExcelController@anyData')->name('program.data');
+    // Route::resource('program','Admin\ProgramExcelController', ['except' => ['create', 'show']]);
+    Route::get('program/edit/{id?}','Admin\ProgramExcelController@edit')->name('program.edit');
+    Route::post('program/update/{id?}','Admin\ProgramExcelController@update')->name('program.update');
 
 
 //   ============Export excel======================

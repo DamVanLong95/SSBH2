@@ -355,10 +355,26 @@
                                 </tr>
                             
                                 @for($i=74;$i< 83;$i++)
-                                <tr class="data-detail  ">
-                                    <td><p class="ellipsis">{{$data['healths'][$i]['comparison']}}</p></td>
-                                    <td></td>
-                                </tr>
+                                    @if($data['healths'][$i]['level']== 1)
+                                    <tr class="data-detail  ">
+                                        <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['healths'][$i]['id']}}" name="checkbox_one" value="{{$data['healths'][$i]['id']}}" onclick='handleCheckbox(this);'  />
+                                        <label for="checkbox_one_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
+                                        <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['healths'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @elseif($data['healths'][$i]['level'] == 2)
+                                    <tr class="data-detail  ">
+                                        <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['healths'][$i]['id']}}" name="checkbox_two" value="{{$data['healths'][$i]['id']}}"    />
+                                        <label for="checkbox_two_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
+                                        <p class="ellipsis" style="color: #125732">{{$data['healths'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @else
+                                    @endif
                                 @endfor
                                 <tr class="header green1 green" id="pbh">
                                     <td  colspan="2" class="green_header">Phí bảo hiểm</td>
@@ -400,7 +416,7 @@
                                 </tr>
                                 @foreach($data['exclusions'] as $value)
                                 <tr class="data-detail">
-                                    <td><p class="ellipsis"></p>{{$value['rules']}}</td>
+                                    <td><p class="ellipsis">{{$value['rules']}}</p></td>
                                     <td></td>
                                 </tr>
                                 @endforeach
@@ -486,6 +502,7 @@
   <a href="javascript:void(0)">Liên hệ ngay</a>
 
 </div>
+
 <script>
      $(function(){
         var numShown = 5;
@@ -503,29 +520,22 @@
         // console.log(selector);
         for(var i = 2; i <= 25; i ++){
             if( $(el).val() == 3) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 27; i < 32; i ++){
             if( $(el).val() == 28) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 33; i < 32; i ++){
             if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 33; i < 36; i ++){
             if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
         }
         for(var i = 37; i < 41; i ++){
             if( $(el).val() == 38) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
-        for(var i = 42; i < 62; i ++){
+        for(var i = 42; i < 62; i ++)
             if( $(el).val() == 43) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-           
-        }
-       
         for(var i = 62; i <=selector.length; i ++){
             if( $(el).val() == 64) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
@@ -535,8 +545,12 @@
     function handleCheckbox(el){
         
         var selector = $('.selectedId');
+        // console.log(selector)
         for(var i = 3; i <= 8; i ++){
             if( $(el).val() == 4) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        }
+        for(var i = 76; i < 79; i ++){
+            if( $(el).val() == 78) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
     }
     function resetChecked(){
