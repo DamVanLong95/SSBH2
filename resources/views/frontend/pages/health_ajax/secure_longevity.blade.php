@@ -228,13 +228,23 @@
 @endif
 <div id="detail-comparison" class="modal"  style="height: auto">
     <h1 style="text-align: center">SO SÁNH QUYỀN LỢI BỔ TRỢ</h1>
-    <div class="content-ctn" style="background: #3e6e3e" >
+    <div class="content-ctn" >
         <div id="comparison"></div>
     </div>
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
 </div>
+<div id="detail-insurance" class="modal"  style="height: auto">
+    <h1 style="text-align: center">Danh sách bệnh</h1>
+    <div class="content-ctn"  >
+        <div id="insurance"></div>
+    </div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        <a href="javascript:void(0)">Liên hệ tư vấn</a>
+    </button>
+</div>
+
 
 <script>
     function closeModal() {
@@ -351,13 +361,12 @@
                          //====================LOAI TRU BAO HIEM============================
                           
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                        //  console.log(longevities);
-                         for(var i=ltbh.rowIndex+1; i<60;i++){
+                         for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-12]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-12]['content']+`</p>`;
+                            if(longevities[i-10]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
                             }
-                            if(longevities[i-12]['content']==='x'){
+                            if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                             `;
                             }
@@ -492,7 +501,6 @@
                 if($('#detail-comparison').is(':visible') === false)
                     $('.selectedId').prop("checked", false);
             });
-           
        }
        
     }
@@ -518,6 +526,9 @@
                             var tblBodyObj  = myTable.tBodies[0];
                             var tblHeadObj  = myTable.tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+            addColumn('main-tbl-nt');
+            dropImage();
+            deleteColumn('main-tbl-nt',clicked);
             $.post(url,
             {
                 "_token": "{{ csrf_token() }}",
@@ -600,19 +611,17 @@
                           
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                         //  console.log(longevities);
-                         for(var i=ltbh.rowIndex+1; i<60;i++){
+                        for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-12]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-12]['content']+`</p>`;
+                            if(longevities[i-10]['content']!=null){
+                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
                             }
-                            if(longevities[i-12]['content']==='x'){
+                            if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                             `;
                             }
                          }
-                    addColumn('main-tbl-nt');
-                    dropImage();
-                    deleteColumn('main-tbl-nt',clicked);
+                 
                 }
              });
             $(this).disabled = true;
@@ -714,5 +723,33 @@
                 $('#'+idImg+'').draggable({ disabled: false });
             }
         });
+    }
+</script>
+<script>
+    function checkList(el){
+       
+       if(el.checked === true && globalId.length > 0){
+            var url = '{{route('sick_longevity.show')}}';
+            $(el).prop("checked", true);
+            $.ajax({
+                type: "POST",
+                url : url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    product_id:globalId,
+                    group_sick_id:el.value
+                }
+               
+            }).done(function(data){
+                $('#insurance').html(data);
+                $('#detail-insurance').modal('show');
+                if($('#detail-insurance').is(':visible') === false)
+                    $('.selectedId').prop("checked", false);
+            });
+       }else{
+           alert("Bạn chưa chọn sản phẩm nào!");
+           $(el).prop("checked", false);
+       }
+       
     }
 </script>

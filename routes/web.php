@@ -69,6 +69,7 @@ Route::post('longevity/filter','Longevity\LongevityController@filterBanner')->na
 Route::post('longevity/popup','Longevity\LongevityController@displayPopup')->name('popupLongevity');
 Route::post('longevity/showProduct','Longevity\LongevityController@showProduct')->name('showProduct');
 Route::post('longevity/checkImg','Longevity\LongevityController@checkImg')->name('checkLongevity');
+Route::post('longevity/showData','Longevity\LongevityController@showData')->name('sick_longevity.show');
 
 Auth::routes();
 
@@ -109,6 +110,10 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('district','Admin\DistrictExcelController@index')->name('indexDistrict.import');
     Route::get('hospital','Admin\HospitalExcelController@index')->name('indexHospital.import');
     Route::get('exclusion','Admin\ExclusionExcelController@index')->name('indexExclusion.import');
+    //===============================Danh sach benh======
+    Route::get('sickList','Admin\SickListController@index')->name('sick_longevity.index');
+    Route::post('sickList/import', 'Admin\SickListController@import')->name('sick_longevity.import');
+   
 
  
    

@@ -2,7 +2,7 @@
 @if(count($result['spbt'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
-<table class="table" id="main-tbl-popup" style="background: none; color: white">
+<table class="table" id="main-tbl-popup" style="background: none; color: #212529">
   <thead>
     <tr>
       <th style="background: none;">{{$result['group_parent']->name}}</th>

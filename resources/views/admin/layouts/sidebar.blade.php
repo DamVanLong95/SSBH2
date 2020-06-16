@@ -27,10 +27,11 @@
                         <li class="sidebar-item"><a href="{{route('indexDetail.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Detail </span></a></li>
                     </ul>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Longevity </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Trang nhân thọ </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="{{route('indexScope.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Scope(BH)</span></a></li>
-                        <li class="sidebar-item"><a href="{{route('product_longevity.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Product(BH)</span></a></li>
+                        <li class="sidebar-item"><a href="{{route('product_longevity.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Sản phẩm(BH)</span></a></li>
+                        <li class="sidebar-item"><a href="{{route('sick_longevity.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Danh sách bệnh (import data)</span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Trang sức khỏe </span></a>

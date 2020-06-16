@@ -355,10 +355,26 @@
                                 </tr>
                             
                                 @for($i=74;$i< 83;$i++)
-                                <tr class="data-detail  ">
-                                    <td><p class="ellipsis">{{$data['healths'][$i]['comparison']}}</p></td>
-                                    <td></td>
-                                </tr>
+                                    @if($data['healths'][$i]['level']== 1)
+                                    <tr class="data-detail  ">
+                                        <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['healths'][$i]['id']}}" name="checkbox_one" value="{{$data['healths'][$i]['id']}}" onclick='handleCheckbox(this);'  />
+                                        <label for="checkbox_one_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
+                                        <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['healths'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @elseif($data['healths'][$i]['level'] == 2)
+                                    <tr class="data-detail  ">
+                                        <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['healths'][$i]['id']}}" name="checkbox_two" value="{{$data['healths'][$i]['id']}}"    />
+                                        <label for="checkbox_two_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
+                                        <p class="ellipsis" style="color: #125732">{{$data['healths'][$i]['comparison']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @else
+                                    @endif
                                 @endfor
                                 <tr class="header green1 green" id="pbh">
                                     <td  colspan="2" class="green_header">Phí bảo hiểm</td>
@@ -529,8 +545,12 @@
     function handleCheckbox(el){
         
         var selector = $('.selectedId');
+        // console.log(selector)
         for(var i = 3; i <= 8; i ++){
             if( $(el).val() == 4) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        }
+        for(var i = 76; i < 79; i ++){
+            if( $(el).val() == 78) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
     }
     function resetChecked(){

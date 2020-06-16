@@ -342,7 +342,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr class="header ">
+                                    <tr class="header green1 bg-head-2 ">
                                         <td  colspan="2" class="green_header">Phạm vi bảo hiểm</td>
                                     </tr>
                                     @foreach($data['scope_secure'] as $key=>$value)
@@ -351,7 +351,7 @@
                                             <td></td>
                                         </tr>
                                     @endforeach
-                                    <tr class="header green1 green">
+                                    <!-- <tr class="header green1 green">
                                         <td  colspan="2" class="green_header">Phí</td>
                                     </tr>
                                     
@@ -359,7 +359,7 @@
                                         <td><p class="ellipsis"></p></td>
                                         <td></td>
                                     </tr>
-                                   
+                                    -->
                                     <tr class="header bg-head-2" id="benifit">
                                         <td  colspan="2" class="green_header">Quyền lợi sản phẩm
 
@@ -404,6 +404,19 @@
                                         <td></td>
                                     </tr>
                                     @endfor
+                                    <tr class="header" id="dsb">
+                                        <td  colspan="2" class="green_header">Danh sách bệnh</td>
+                                    </tr>
+                                    @foreach($data['group_sicks'] as $value)
+                                    <tr class="data-detail">
+                                        <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox_dsb_{{$value['id']}}"  value="{{$value['id']}}" onclick="checkList(this)"/>
+                                            <label for="checkbox_dsb_{{$value['id']}}" class=""> </label><span class="first-td">
+                                            <p class="ellipsis">{{$value['stage']}}</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

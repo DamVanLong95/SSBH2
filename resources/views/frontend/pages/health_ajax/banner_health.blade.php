@@ -161,7 +161,6 @@
                                     //========================quyen loi bao hiem========================
                                     for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        // console.log(tdss);
                                         tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
                                     
                                     }
@@ -169,18 +168,17 @@
                                   
                                     for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        // console.log(tdss);
                                         tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
                                     }
 
+                                    var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
                                   
-                                    var tdss    = myTable.rows[90].cells[indexCol] ;
                                     //========================phi bao hiem= =================================
                                     var img     = 'storage/'+ program.img_cost;
                                     tdss.innerHTML = '<a href="'+img+'" class="fancybox"><img src="'+img+'" class="img-responsive" style="width:100px"></a>' ; 
                                     $('.fancybox').fancybox();
                                     //BENH VIEN LIEN KET
-                                    var tdsss =myTable.rows[92].cells[indexCol];
+                                    var tdsss =myTable.rows[91].cells[indexCol];
                                     tdsss.setAttribute('id','td'+indexCol+''); 
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                     $('#td'+indexCol+'').click(function(){
@@ -189,7 +187,7 @@
                                             if(indexCol==1){
                                                 tdnet = tdsss;
                                                 tdnet.setAttribute('class','active-td');
-                                                myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
+                                                myTable.rows[91].cells[i+1].removeAttribute('class','active-td');
                                                 break;
                                             }
                                             if(indexCol==i){
@@ -197,7 +195,7 @@
                                                 tdnet.setAttribute('class','active-td');
                                             
                                             }else {
-                                                tdnet= myTable.rows[92].cells[i];
+                                                tdnet= myTable.rows[91].cells[i];
                                                 tdnet.removeAttribute('class','active-td');
                                             }
                                         }
@@ -270,9 +268,8 @@
                                     
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                                    for(var i=96;i < 96 + exclusions.length;i++){
+                                    for(var i=96;i < 95 + exclusions.length;i++){
                                         var tds = myTable.rows[i].cells[indexCol];
-                                        // console.log(tds);
                                         if(exclusions[i-96]['content']==='x'){
                                             tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         `;
@@ -502,7 +499,7 @@ $(function() {
                                 var tdss    = myTable.rows[90].cells[indexCol] ;
                                 tdss.innerHTML = `<a href='`+healths[84]['content']+`' class=''>Link_click</a>` ; 
                                 //BENH VIEN LIEN KET
-                                var tdsss =myTable.rows[92].cells[indexCol];
+                                var tdsss =myTable.rows[91].cells[indexCol];
                                 tdsss.setAttribute('id','td'+indexCol+''); 
                                 tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                 $('#td'+indexCol+'').click(function(){
@@ -511,7 +508,7 @@ $(function() {
                                         if(indexCol==1){
                                             tdnet = tdsss;
                                             tdnet.setAttribute('class','active-td');
-                                            myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
+                                            myTable.rows[91].cells[i+1].removeAttribute('class','active-td');
                                             break;
                                         }
                                         if(indexCol==i){
@@ -519,7 +516,7 @@ $(function() {
                                             tdnet.setAttribute('class','active-td');
                                         
                                         }else {
-                                            tdnet= myTable.rows[92].cells[i];
+                                            tdnet= myTable.rows[91].cells[i];
                                             tdnet.removeAttribute('class','active-td');
                                         }
                                     }
@@ -592,7 +589,7 @@ $(function() {
                                 
                                 var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                 var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                                for(var i=96;i < 96 + exclusions.length;i++){
+                                for(var i=96;i < 95 + exclusions.length;i++){
                                     var tds = myTable.rows[i].cells[indexCol];
                                     // console.log(tds);
                                     if(exclusions[i-96]['content']==='x'){

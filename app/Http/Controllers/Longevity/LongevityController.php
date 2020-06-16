@@ -10,7 +10,8 @@ use App\Model\ProductLongevity;
 use App\Model\FilterBanner;
 use App\Company;
 use App\Model\GroupProduct;
-use App\Model\Benifit;
+use App\Model\Benifit, App\Model\SickGroup;
+use App\Model\SickLongevity;
 use Illuminate\Support\Collection;
 class LongevityController extends Controller
 {
@@ -34,6 +35,7 @@ class LongevityController extends Controller
                     ->where('parent_id','=',null)
                     ->get();
                     // dd($benifits_group);
+        $group_sicks = SickGroup::all();
         
         $companies          = Company::all();
         $data['companies']  = $companies;
@@ -42,8 +44,9 @@ class LongevityController extends Controller
         $data['products']   = $products;
         $data['scope_secure']    = $scope_secure;
         $data['benifits_more']   = $benifits_more;
-        $data['benifits_group'] = $benifits_group;
-        $data['benifits'] = $benifits;
+        $data['benifits_group']  = $benifits_group;
+        $data['benifits']        = $benifits;
+        $data['group_sicks']     = $group_sicks ;
         return view('frontend.pages.longevity',compact('data','products'));
     }
     public function checkImg(Request $request){
@@ -237,13 +240,35 @@ class LongevityController extends Controller
         $benifits = Longevity::select('product_id','comparison','content')
                     ->where('product_id','=',$product_id)
                     ->get();
+      
             
         return [
              'success'      => true,
              'indexCol'     => $indexCol,
              'longevities'  => $longevities,
-             'product_name' => $product_name
+             'product_name' => $product_name,
+            
         ];
+    }
+    public function showData(Request $request){
+        $product_longevity_id = $request->get('product_id');
+        $group_sick_id = $request->get('group_sick_id');     
+    
+        $company_longevity = ProductLongevity::whereIn('id',$product_longevity_id)->get();
+        $result = [];
+        foreach($company_longevity as $value){
+            array_push($result, $value->company->id);
+        }
+        $result = array_unique($result);
+        
+        $data = SickLongevity::where('group_sick_id',$group_sick_id)
+                ->whereIn('company_id', $result)
+                ->get();
+        $header = $data->unique(function ($item)
+        {
+            return $item['insurance'] ;
+        });
+        return view('frontend.pages.popup_sick')->with(['data'=> $data, 'header' => $header])->render();
     }
 
 
