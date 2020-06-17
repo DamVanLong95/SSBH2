@@ -235,15 +235,6 @@
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
 </div>
-<div id="detail-insurance" class="modal"  style="height: auto">
-    <h1 style="text-align: center">Danh sách bệnh</h1>
-    <div class="content-ctn"  >
-        <div id="insurance"></div>
-    </div>
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-        <a href="javascript:void(0)">Liên hệ tư vấn</a>
-    </button>
-</div>
 
 
 <script>

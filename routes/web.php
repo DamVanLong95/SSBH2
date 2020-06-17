@@ -24,6 +24,7 @@ Route::post('onchange','Car\CarController@onChange')->name('onchange');
 Route::post('reference','Car\CarController@reference')->name('reference');
 Route::post('car/address','Car\CarController@address')->name('address');
 Route::post('car/filter','Car\CarController@filterCompanies')->name('filterCompanies');
+Route::post('car/purpose','Car\CarController@purpose')->name('purpose');
 
 Route::post('car/checkImage','Car\CarController@checkImage')->name('checkImage');
 

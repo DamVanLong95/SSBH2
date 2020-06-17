@@ -187,13 +187,10 @@
                                                 <div class="selection-box">
                                                     <div class=" item select">
                                                         <select aria-label="Select menu example" id="purpose">
-                                                            <option selected>Mục đích sử dụng</option>
-                                                            <option value="1">Xe không kinh doanh vận tải</option>
-                                                            <option value="2">Xe kinh doanh chở người</option>
-                                                            <option value="2">Xe kinh doanh chở hành khách ứng dụng công nghệ</option>
-                                                            <option value="2">Xe chở hàng KDVT</option>
-                                                            <option value="2">Xe chở hàng không KDVT, xe ô tô, máy chuyên dụng</option>
-                                                            <option value="2">Xe bán tải( pickup) vừa chở người- hàng còn lại</option>
+                                                            <option selected hidden>---Mục đích sử dụng--</option>
+                                                            @foreach($data['uses'] as $value)
+                                                            <option value="{{$value['id']}}">{{$value['type_car']}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="item select">
@@ -216,7 +213,7 @@
                                                         <select aria-label="Select menu example" id="prd_date">
                                                         <option selected>Năm sản xuất</option>
                                                         {{$now = date('Y')}}  
-                                                        @for ($i = $now; $i >=2010 ; $i--)
+                                                        @for ($i = $now-1; $i >=2010 ; $i--)
                                                             <option value="{{ $i }}">{{ $i }}</option>
                                                         @endfor
                                                         </select>
