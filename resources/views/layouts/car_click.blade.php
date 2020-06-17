@@ -140,44 +140,54 @@ $(function() {
                                     for(var i=27; i<chks.length; i++){
                                         if (chks[i].checked) {
                                             checked++;
-                                            console.log(chks[i]);
                                             total =(Number(total) + Number(chks[i].value));
                                         }
                                     }
-                                    // console.log(total);
-                                    // if(checked >0){	
-                                    //     var price     = $('#price_car').val();	
-                                    //     var price_root= (price * 1.5)/100;	
-                                    //     var rate      = promotion['promotion'];	
-                                    //     var price_promotion = price_root * (1-rate/100);	
-                                    //     var price_new = Number(price_promotion)+ Number(price_promotion*total/100);	
-                                    //     price_new = Math.round(price_new * 100) / 100 ;	
-                                    //     var div_price = document.getElementById('price_'+indexCol+'');	
-                                    //     div_price.setAttribute('value',(price_new));	
-                                    //     $('#price_'+indexCol+'').html((price_new));	
-                                    // }	
-                                    // console.log(checked);
-                                    // var price_discount = document.getElementById('price_'+indexCol+'').getAttribute('value');//gia sau khuyen mai
-                                    // if(checked > 0 && price_discount!=''){	
-                                    //     var price_car = Number(price_discount)+ Number(price_discount*total/100) ;	
-                                    //     $('#price_'+indexCol+'').html((formatMoney(price_car)));	
-                                    // }	
-                                    // else 
                                     if(price !=''){	
-                                        if(checked == 0){
-                                            var price_old = (price * rate)/100;	
-                                            $('#price_'+indexCol+'').html((formatMoney(price_old)));	
-                                            var rate      = promotion['promotion'];	
-                                            var price_new = price_old * (1-rate/100);
-                                            price_new = Math.round(price_new * 100) / 100 ;	
-                                            $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                            $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
-                                        }else if(checked > 0){
-                                            var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
-                                            // console.log(price_old);
-                                            var price_discount =  Number(price_old)+ Number(price_old*total/100);
-                                            $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
+                                            //===================muc dich su dung=============================
+                                        var purpose = document.getElementById('purpose');
+                                        var ref_rates_id = purpose.value;
+                                        var year_sx = document.getElementById('prd_date').value;
+                                        var url = '{{route('purpose')}}';
+                                        if(year_sx){
+                                            $.post(url,{
+                                            "_token": "{{ csrf_token() }}",
+                                            id: ref_rates_id,
+                                            year_sx:year_sx
+                                            }).done(function(data){
+                                                var ratte = data.rate;
+                                                rate = ratte + rate;
+                                                var price_old = (price * rate)/100;	
+                                                $('#price_'+indexCol+'').html((formatMoney(price_old)));
+
+                                                var rate_promotion      = promotion['promotion'];
+                                                var price_new           = price_old * (1-rate_promotion/100);
+                                            
+                                                if(total > 0) 
+                                                price_new = Number(price_new)+ Number(price_new*total/100);
+
+                                                price_new               = Math.round(price_new * 100) / 100 
+                                                $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                                $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                            })
                                         }
+                                       
+                                        // var price_old = (price * rate)/100;	
+                                        // $('#price_'+indexCol+'').html((formatMoney(price_old)));
+
+                                        // var rate_promotion      = promotion['promotion'];	
+                                        // var price_new = price_old * (1-rate_promotion/100);
+                                        // price_new = Math.round(price_new * 100) / 100 ;	
+                                        
+                                        
+                                        // $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                    
+                                        // var rate = total + rate;
+                                        // var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
+                                        // var price_discount =  Number(price_old)+ Number(price_old*rate/100);
+                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
+                                       
                                     }else{
                                         alert("Vui long nhap gia tri xe");
                                     }

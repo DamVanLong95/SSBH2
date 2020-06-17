@@ -229,41 +229,45 @@
                                         var ref_rates_id = purpose.value;
                                         var year_sx = document.getElementById('prd_date').value;
                                         var url = '{{route('purpose')}}';
-                                        $.post(url,{
+                                        if(year_sx){
+                                            $.post(url,{
                                             "_token": "{{ csrf_token() }}",
                                             id: ref_rates_id,
                                             year_sx:year_sx
-                                        }).done(function(data){
-                                            var ratte = data.rate;
-                                            rate = ratte + rate;
-                                            var price_old = (price * rate)/100;	
-                                            $('#price_'+indexCol+'').html((formatMoney(price_old)));
+                                            }).done(function(data){
+                                                var ratte = data.rate;
+                                                rate = ratte + rate;
+                                                console.log(rate);
+                                                var price_old = (price * rate)/100;	
+                                                $('#price_'+indexCol+'').html((formatMoney(price_old)));
 
-                                            var rate_promotion      = promotion['promotion'];
-                                            var price_new           = price_old * (1-rate_promotion/100);
-                                           
-                                            if(total > 0) 
-                                            price_new = Number(price_new)+ Number(price_new*total/100);
+                                                var rate_promotion      = promotion['promotion'];
+                                                var price_new           = price_old * (1-rate_promotion/100);
+                                            
+                                                if(total > 0) 
+                                                price_new = Number(price_new)+ Number(price_new*total/100);
 
-                                            price_new               = Math.round(price_new * 100) / 100 
-                                            $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                            $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
-                                        })
-                                        var price_old = (price * rate)/100;	
-                                        $('#price_'+indexCol+'').html((formatMoney(price_old)));
+                                                price_new               = Math.round(price_new * 100) / 100 
+                                                $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                                $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                            })
+                                        }
+                                       
+                                        // var price_old = (price * rate)/100;	
+                                        // $('#price_'+indexCol+'').html((formatMoney(price_old)));
 
-                                        var rate_promotion      = promotion['promotion'];	
-                                        var price_new = price_old * (1-rate_promotion/100);
-                                        price_new = Math.round(price_new * 100) / 100 ;	
+                                        // var rate_promotion      = promotion['promotion'];	
+                                        // var price_new = price_old * (1-rate_promotion/100);
+                                        // price_new = Math.round(price_new * 100) / 100 ;	
                                         
                                         
-                                        $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                        $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                        // $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
                                     
-                                        var rate = total + rate;
-                                        var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
-                                        var price_discount =  Number(price_old)+ Number(price_old*rate/100);
-                                        $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
+                                        // var rate = total + rate;
+                                        // var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
+                                        // var price_discount =  Number(price_old)+ Number(price_old*rate/100);
+                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
                                        
                                     }else{
                                         alert("Vui long nhap gia tri xe");
