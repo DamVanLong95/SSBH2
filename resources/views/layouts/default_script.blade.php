@@ -692,10 +692,6 @@
                 $('.selectedId2').prop('checked', false);
             }
         }
-
-            
-
-
         }
     $(document).ready(function () {
     

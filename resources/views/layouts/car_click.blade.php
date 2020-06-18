@@ -240,7 +240,6 @@ $(function() {
 
                                 var i= max_rows_terms+2;
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                console.log(deductible);
                                 if(deductible.length > 0){
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
@@ -442,7 +441,6 @@ $(function() {
 
             $('span.remove').on('click', function (e ) {
                 var index = ($(this).parent().index()+1);
-                console.log(index);
                 if( index ==2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()

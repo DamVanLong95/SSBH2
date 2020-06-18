@@ -235,6 +235,15 @@
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
 </div>
+<div id="detail-insurance" class="modal"  style="height: auto">
+    <h1 style="text-align: center">Danh sách bệnh</h1>
+    <div class="content-ctn"  >
+        <div id="insurance"></div>
+    </div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        <a href="javascript:void(0)">Liên hệ tư vấn</a>
+    </button>
+</div>
 
 
 <script>
@@ -488,7 +497,6 @@
             }).done(function(data){
                 $('#comparison').html(data.html);
                 $('#detail-comparison').modal('show');
-                // console.log($('#detail-comparison').is(':visible'));
                 if($('#detail-comparison').is(':visible') === false)
                     $('.selectedId').prop("checked", false);
             });
@@ -517,9 +525,7 @@
                             var tblBodyObj  = myTable.tBodies[0];
                             var tblHeadObj  = myTable.tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 1;
-            addColumn('main-tbl-nt');
-            dropImage();
-            deleteColumn('main-tbl-nt',clicked);
+          
             $.post(url,
             {
                 "_token": "{{ csrf_token() }}",
@@ -614,8 +620,12 @@
                          }
                  
                 }
+                addColumn('main-tbl-nt');
+                dropImage();
+                deleteColumn('main-tbl-nt',clicked);
              });
             $(this).disabled = true;
+           
         }
     }
     
@@ -718,7 +728,6 @@
 </script>
 <script>
     function checkList(el){
-       
        if(el.checked === true && globalId.length > 0){
             var url = '{{route('sick_longevity.show')}}';
             $(el).prop("checked", true);
@@ -732,8 +741,9 @@
                 }
                
             }).done(function(data){
-                $('#insurance').html(data);
-                $('#detail-insurance').modal('show');
+                console.log(data.html);
+                $('#insurance').html(data.html);
+                $('#detail-insurance').modal();
                 if($('#detail-insurance').is(':visible') === false)
                     $('.selectedId').prop("checked", false);
             });
