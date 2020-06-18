@@ -226,7 +226,7 @@
 </div>
 
 @endif
-<div id="detail-comparison" class="modal"  style="height: auto">
+<!-- <div id="detail-comparison" class="modal"  style="height: auto">
     <h1 style="text-align: center">SO SÁNH QUYỀN LỢI BỔ TRỢ</h1>
     <div class="content-ctn" >
         <div id="comparison"></div>
@@ -234,9 +234,9 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
-</div>
-<div id="detail-insurance" class="modal"  style="height: auto">
-    <h1 style="text-align: center">Danh sách bệnh</h1>
+</div> -->
+<div id="detail-insurance" class="modal" data-toggle="modal" style="height: auto">
+    <h1 style="text-align: center">Danh sách</h1>
     <div class="content-ctn"  >
         <div id="insurance"></div>
     </div>
@@ -495,9 +495,9 @@
                     "product_longevity_id":globalId
                 },
             }).done(function(data){
-                $('#comparison').html(data.html);
-                $('#detail-comparison').modal('show');
-                if($('#detail-comparison').is(':visible') === false)
+                $('#insurance').html(data.html);
+                $('#detail-insurance').modal();
+                if($('#detail-insurance').is(':visible') === false)
                     $('.selectedId').prop("checked", false);
             });
        }
@@ -741,7 +741,6 @@
                 }
                
             }).done(function(data){
-                console.log(data.html);
                 $('#insurance').html(data.html);
                 $('#detail-insurance').modal();
                 if($('#detail-insurance').is(':visible') === false)
