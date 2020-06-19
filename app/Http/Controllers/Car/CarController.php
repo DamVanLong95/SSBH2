@@ -11,11 +11,28 @@ use App\Finance,App\Activity,App\Detail,App\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\General;
+use App\Model\RefRate;
 
 
 class CarController extends Controller
 {
-   
+    public function purpose(Request $request){
+        $id         = $request->get('id');
+        $year_sx    = $request->get('year_sx');
+        $year_now   = date('Y')  ;
+        $time_use   = $year_now - $year_sx;
+        if($time_use < 3)
+            $column = "less_than_three";
+        else if( $time_use >= 3 && $time_use < 6  )
+            $column = "from_three_six";
+        else if($time_use >= 6 && $time_use < 10)
+            $column = "from_three_six";
+        else if($time_use >=10 && $time_use < 15)
+            $column = "from_six_fiften";
+        // dd($column);
+        $rate = RefRate::select($column)->where('id',$id)->first();
+        return response()->json(['rate' => $rate[$column]]);
+    }   
     public function checkImage(Request $request){
         $data = [];
         $company_id = $request->get('id');
@@ -23,9 +40,6 @@ class CarController extends Controller
         $data = $this->displayData($company_id,  $indexCol);
 
         return response()->json( $data );
-
-
-
     }
     public function index(){
         $companies  = Company::orderBy('created_at','asc')->get();
@@ -52,10 +66,13 @@ class CarController extends Controller
                     ->get();
         $companies_cheap = Company::where('classify','=', 1)->get();
         $companies_recoup= Company::where('classify','=',2)->get();
+
+        $uses = RefRate::all();
         
         $data = array();
-        $data['companies_cheap'] = $companies_cheap;
+        $data['companies_cheap']  = $companies_cheap;
         $data['companies_recoup'] = $companies_recoup; 
+        $data['uses']             = $uses;
 
        
         return  view('frontend.pages.car',compact([

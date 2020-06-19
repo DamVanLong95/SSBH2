@@ -251,9 +251,9 @@ class LongevityController extends Controller
         ];
     }
     public function showData(Request $request){
-        $product_longevity_id = $request->get('product_id');
-        $group_sick_id = $request->get('group_sick_id');     
-    
+        $product_longevity_id   = $request->get('product_id');
+        $group_sick_id          = $request->get('group_sick_id'); 
+        
         $company_longevity = ProductLongevity::whereIn('id',$product_longevity_id)->get();
         $result = [];
         foreach($company_longevity as $value){
@@ -268,7 +268,11 @@ class LongevityController extends Controller
         {
             return $item['insurance'] ;
         });
-        return view('frontend.pages.popup_sick')->with(['data'=> $data, 'header' => $header])->render();
+        $html = view('frontend.pages.popup_sick')->with(['data'=> $data, 'header' => $header])->render();
+        return response()->json([
+            'success' => true,
+            'html' => $html
+        ]);
     }
 
 
