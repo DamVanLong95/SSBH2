@@ -45,7 +45,7 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <h4>So sánh bảo hiểm vật chất xe ô tô</h4>
+                                    <h4> <a href="{{ url('/car') }}">  So sánh bảo hiểm vật chất xe ô tô</a></h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
                                     </div>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="swiper-slide slide-item ">
                                 <div class="item center-item">
-                                    <h4>So sánh bảo hiểm Nhân thọ</h4>
+                                    <h4> <a href="{{ url('/longevity') }}"> So sánh bảo hiểm Nhân thọ</a></h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
                                     </div>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <h4>So sánh Bảo hiểm sức khoẻ</h4>
+                                    <h4> <a href="{{ url('/health') }}"> So sánh Bảo hiểm sức khoẻ </a></h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
                                     </div>
@@ -178,26 +178,48 @@
                             </div>
                         </div>
                     <div class="blog-ctn">
-                        <div class="item">
-                            <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
-                            <div class="description-ctn">
-                                <a href="{{ url('/blog') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
+                    <div id="slideKnowledge" class="swiper-container swiper-knowledge">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide slide-item ">
+                                <div class="item">
+                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <div class="description-ctn">
+                                        <a href="{{ url('/question') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-item ">
+                                <div class="item">
+                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
+                                    <div class="description-ctn">
+                                        <a href="{{ url('/question') }}">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-item ">
+                                <div class="item">
+                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
+                                    <div class="description-ctn">
+                                        <a href="{{ url('/question') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-item ">
+                                <div class="item">
+                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
+                                    <div class="description-ctn">
+                                        <a href="{{ url('/question') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="item center">
-                            <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
-                            <div class="description-ctn">
-                                <a href="{{ url('/blog') }}">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh</a>
+                        <div class="arrow-ctn ">
+                            <div class="swiper-button-prev">
                             </div>
-                        </div>
-                        <div class="item">
-                            <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
-                            <div class="description-ctn">
-                                <a href="{{ url('/blog') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
+                            <div class="swiper-button-next">
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -232,7 +254,6 @@
                             </div>
                         </div>
                         <!-- Add Arrows -->
-                       
                     </div>
                     <div class="arrow-ctn ">
                         <div class="swiper-button-prev">
