@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
+use DB;
 
 class CompanyController extends Controller
 {
@@ -28,6 +29,14 @@ class CompanyController extends Controller
             ->editColumn('logo', function ($company) {
                 $path = asset('storage/'.$company->logo);
                 return '<img src="' .$path . '" alt="" class="avatar ">';
+            })
+            ->editColumn('classify', function ($company) {
+                $describe = $company->classify;
+                if($describe == 1) return "Phí rẻ";
+                if($describe == 2) return "Bồi thường tốt";
+                if($describe == 3) return "Phi nhân thọ";
+                if($describe == 4) return "Nhân thọ";
+                if($describe == 0) return "Chưa có";
             })
             ->addColumn('action', function ($company) {
                 return '<a href="'.route('company.edit', $company->id).'"  data-id="' . $company->id . '"  class="edit btn btn btn-primary"  data-toggle="modal"><i class="glyphicon glyphicon-edit"></i> Edit</a>
@@ -47,16 +56,29 @@ class CompanyController extends Controller
                 'logo', Str::random(10) . '_' . $filename, 'public'
             );
         }
-        $company = new Company;
-        $company->name = $request->get('name');
-        $company->logo =  isset($path) ? $path: null;
-        $company->classify = $request->get('classify');
-        $company->save();
-        if ( !  $company->save())
-        {
-            $file_new ="public/". $path;
-            Storage::delete($file_new);
+        $classifies = $request->get('classify');
+        if($classifies){
+            foreach ($classifies as $value){
+                $company = new Company;
+                $company->name = $request->get('name');
+                $company->logo =  isset($path) ? $path: null;
+                $company->classify = $value;
+                $company->save();
+                if ( !  $company->save())
+                {
+                    $file_new ="public/". $path;
+                    Storage::delete($file_new);
+                }
+            }
+        }else{
+            $company = new Company;
+            $company->name = $request->get('name');
+            $company->logo =  isset($path) ? $path: null;
+            $company->classify = 0;
+            $company->save();
         }
+        
+        
         $notification = array(
             'message' => 'add new successfully!',
             'alert-type' => 'success'
@@ -87,6 +109,7 @@ class CompanyController extends Controller
     public function update(Request $request)
 
     {
+        $company = Company::findOrFail($request->get('id'));
         if($request->hasFile('file')) {
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
@@ -94,18 +117,41 @@ class CompanyController extends Controller
             $path = $file->storeAs(
                 'logo', Str::random(10) . '_' . $filename, 'public'
             );
-        }
-        $company = Company::findOrFail($request->get('id'));
-        if(isset($company->logo)){
-            $file_old ="public/". $company->logo;
-            if(Storage::exists($file_old)) {
-                Storage::delete($file_old);
+            
+            if(isset($company->logo)){
+                $file_old ="public/". $company->logo;
+                if(Storage::exists($file_old)) {
+                    Storage::delete($file_old);
+                }
             }
         }
-        $company->name = $request->get('name');
-        $company->logo =  isset($path) ? $path: $company->logo;
-        $company->classify = $request->get('classify');
-        $company->save();
+        // $company = Company::findOrFail($request->get('id'));
+        // dd($company->logo);
+        $classifies = $request->get('classify');
+        if($classifies){
+            if(sizeof($classifies) ==  1){
+                    $company->name = $request->get('name');
+                    $company->logo =  isset($path) ? $path: $company->logo;
+                    $company->classify = $classifies[0];
+                    $company->save();
+            }
+            foreach($classifies as $value){
+                if($company->classify == $value){
+                    $company->name = $request->get('name');
+                    $company->logo =  isset($path) ? $path: $company->logo;
+                    $company->classify = $value;
+                    $company->save();
+                    break;
+                }
+                else{
+                    $new = new Company;
+                    $new->name = $request->get('name');
+                    $new->logo =  isset($path) ? $path: $company->logo;
+                    $new->classify = $value;
+                    $new->save();
+                }
+            }
+        }
         $notification = array(
             'message' => 'update successfully!',
             'alert-type' => 'success'

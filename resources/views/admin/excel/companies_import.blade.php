@@ -7,6 +7,9 @@
                 height: 50px;
                 border-radius: 50%;
             }
+            .col-sm-3 {
+                margin-left: 15px;
+             }
         </style>
     @stop
     @section('content')
@@ -33,12 +36,13 @@
                                 <table class="table table-bordered" id="table">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Logo</th>
-                                        <th>Name</th>
-                                        <th>Url</th>
-                                        <th >Created At</th>
-                                        <th >Action</th>
+                                        <th><strong>ID</strong> </th>
+                                        <th> <strong>Logo</strong> </th>
+                                        <th><strong>Tên doanh nghiệp</strong> </th>
+                                        <th><strong>Đường dẫn ảnh</strong> </th>
+                                        <th><strong>Loại doanh nghiệp</strong></th>
+                                        <th >Thời gian tạo</th>
+                                        <th >Thao tác</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -93,19 +97,29 @@
                                         <span id="store_image"></span>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="control-label col-md-6" ><strong>Chất lượng doanh nghiệp :</strong>  </label>
-                                <div class="col-sm-3">
-                                    <label for="" style="margin-left:15px" >Phí rẻ</label>
-                                    <input type="radio" class="checkmark" value="1" name="classify" checked>
-                                </div>
-                                <div class="col-sm-3">
-                                    <label for="" style="margin-left:15px"> Bồi thường tốt</label>  
-                                    <input type="radio" class="checkmark" value="2" name="classify">
-                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-md-6" ><strong>Loại doanh nghiệp </strong>  </label>
+                                   
+                                    <div class="col-sm-3">
+                                        <label for="" style="margin-left:15px">Phi nhân thọ</label>  
+                                        <input type="checkbox" class="checkmark" value="3" id="checkmark_3" name="classify[]">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" style="margin-left:15px">Nhân thọ</label>  
+                                        <input type="checkbox" class="checkmark" value="4" id="checkmark_4" name="classify[]">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" style="margin-left:15px" >Phí rẻ</label>
+                                        <input type="checkbox" class="checkmark" value="1" id="checkmark_1" name="classify[]" >
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" style="margin-left:15px"> Bồi thường tốt</label>  
+                                        <input type="checkbox" class="checkmark" value="2" id="checkmark_2" name="classify[]">
+                                    </div>
                                 </div>
                                 <div class="form-group" align="center">
                                     <input type="hidden" name="id" id="action" value="" />
+                                    <button type="button" class="btn btn-outline-secondary reset">Reset</button>
                                     <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Update" />
                                 </div>
                             </form>
@@ -129,6 +143,7 @@
                         {data: 'logo', name: 'logo'},
                         {data: 'name', name: 'name'},
                         {data: 'url', name: 'url'},
+                        {data: 'classify', name: 'classify'},
                         {data: 'created_at', name: 'created_at'},
                         {data:'action', name:'action',orderable: false, searchable: false},
                     ],
@@ -168,6 +183,8 @@
                 var url = "{{route('company.edit')}}"+ '/' + company_id;
                 $.get(url , function (data) {
                     //success data
+                    // console.log(data);
+                    $('#checkmark_'+data.classify+'').prop('checked',true);
                     $path = "{{asset('storage/')}}"+ '/'+data.logo;
                     $("#logo").attr("src", $path);
                     $('#name').val(data.name);
@@ -194,7 +211,7 @@
                                 $('#formdata').modal('hide');
                             }, 100);
                             toastr.success(data.message);
-                            location.reload();
+                            // location.reload();
 
                         }
                     });
@@ -223,5 +240,58 @@
                 
             });
         </script>
+        <script >
+            $(document).ready(function(){
+                // $('.checkmark').click(function(){
+                //     const checkboxes = document.getElementsByClassName("checkmark");
+                //     var clicked = $(this);
+                //     if(clicked.val() == 3 ){
+                //         console.log(checkboxes);
+                //         checkboxes[1].disabled = true;
+                //     }else if(clicked.val() == 4 ){
+                //         checkboxes[0].disabled = true;
+                //         checkboxes[3].disabled = true;
+                //         checkboxes[2].disabled = true;
 
+                //     }
+                // });
+                var checkmark = document.getElementsByClassName('checkmark');
+                for(var i=0; i<checkmark.length; i++){
+                    checkmark[i].addEventListener('click', check);
+                }
+                var resetButtons = document.getElementsByClassName('reset');
+
+                // Loop through each reset buttons to bind the click event
+                for(var i=0; i<resetButtons.length; i++){
+                    resetButtons[i].addEventListener('click', resetForm);
+                }
+            });
+            function check(e){
+                const checkboxes = document.getElementsByClassName("checkmark");
+                 var clicked = $(this);
+                    if(clicked.val() == 3 ){
+                        checkboxes[1].disabled = true;
+                    }else if(clicked.val() == 4 ){
+                        checkboxes[0].disabled = true;
+                        checkboxes[3].disabled = true;
+                        checkboxes[2].disabled = true;
+
+                    }
+            }
+            function resetForm(event){
+
+                event.preventDefault();
+
+                var form = event.currentTarget.form;
+                var inputs = form.querySelectorAll('input');
+
+                inputs.forEach(function(input, index){
+                    // input.value = null;
+                    input.disabled = false;
+                    input.checked = false;
+                    $('#action_button').val("Add");
+                });
+
+            }
+        </script>
     @endpush
