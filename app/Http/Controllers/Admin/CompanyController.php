@@ -33,11 +33,12 @@ class CompanyController extends Controller
             })
             ->editColumn('classify', function ($company) {
                 $describe = $company->classify;
-                if($describe == 1) return "Phí rẻ";
-                if($describe == 2) return "Bồi thường tốt";
-                if($describe == 3) return "Phi nhân thọ";
+                $record_type = $company->types->first();
                 if($describe == 4) return "Nhân thọ";
                 if($describe == 0) return "Chưa có";
+                if($describe == 3 && !$record_type) return "Phi Nhân thọ";
+                if($record_type['type'] == 1) return  "Phi nhân thọ , Phí rẻ";
+                if($record_type['type'] == 2) return "Phi nhân thọ , Bồi thường tốt";
             })
             ->addColumn('action', function ($company) {
                 return '<a href="'.route('company.edit', $company->id).'"  data-id="' . $company->id . '"  class="edit btn btn btn-primary"  data-toggle="modal"><i class="glyphicon glyphicon-edit"></i> Edit</a>
@@ -58,6 +59,7 @@ class CompanyController extends Controller
             );
         }
         $classifies = $request->get('classify');
+       
         if($classifies){
             foreach ($classifies as $value){
                 $company = new Company;
@@ -166,11 +168,13 @@ class CompanyController extends Controller
                 'message' => 'update successfully!',
                 'alert-type' => 'success'
             );
-        }
+        }else{
             $company->name = $request->get('name');
             $company->logo =  isset($path) ? $path: $company->logo;
             $company->classify = 0;
             $company->save();
+        }
+           
        
         return response()->json($notification);
     }
