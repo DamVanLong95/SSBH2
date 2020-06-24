@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\General;
 use App\Model\RefRate;
+use App\Model\CompanyType;
 
 
 class CarController extends Controller
@@ -68,11 +69,21 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->take(17)
                     ->get();
-        $companies_cheap = Company::where('classify','=', 1)
-                        ->orwhere('classify',3)
+        $type = CompanyType::select('company_id')->where('type',1)->get();
+        $classify = CompanyType::select('company_id')->where('type',2)->get();
+        $condition_1 = [];
+        $condition_2 = [];
+        foreach ($type as $value){
+            array_push($condition_1 , $value['company_id']);
+        }
+        foreach ($classify as $value){
+            array_push($condition_2 , $value['company_id']);
+        }
+        $companies_cheap = Company::where('classify','=', 3)
+                        ->whereIn('id',$condition_1)
                         ->get();
-        $companies_recoup= Company::where('classify','=',2)
-                        ->orwhere('classify',3)
+        $companies_recoup= Company::where('classify','=',3)
+                        ->whereIn('id',$condition_2)
                         ->get();
 
         $uses = RefRate::all();
