@@ -22,10 +22,10 @@ class SummariesImport implements ToModel,WithHeadingRow
         try {
             Summary::create([
                 'company_id'    => $row['id_cong_ty'],
-                'uses'          => $row['muc_dich_su_dung'],
-                'brand_car'     => $row['hang_xe'],
-                'cate_car'      => $row['loai_xe'] ,
-                'year_sx'       => $row['nam_san_xuat'],
+                // 'uses'          => $row['muc_dich_su_dung'],
+                // 'brand_car'     => $row['hang_xe'],
+                // 'cate_car'      => $row['loai_xe'] ,
+                // 'year_sx'       => $row['nam_san_xuat'],
                 'exception'     => $row['dieu_khoan_loai_tru'],
                 'note_dklt'     => $row['ghi_chu_dklt'],
                 'deductible'    => $row['muc_khau_tru'],
@@ -36,7 +36,8 @@ class SummariesImport implements ToModel,WithHeadingRow
                 'rate_fee'      => $row['ty_le_phi'],
                 'rate_star_dkbs' => $row['danh_gia_dkbs'],
                 'rate_star_dklt' => $row['danh_gia_dklt'],
-                'rate_fee_dklt'      => $row['ty_le_phi_loai_tru'],
+                'rate_star_dkkt' => $row['danh_gia_dkkt'],
+                // 'rate_fee_dklt'      => $row['ty_le_phi_loai_tru'],
             ]);
 
             DB::commit();
