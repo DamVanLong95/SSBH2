@@ -47,7 +47,7 @@
                                 <div class="knowledge-ctn">
                                     <div class="knowledge-wrapper">
                                         <div class="row">
-                                            @for($i=1;$i<=3;$i++)
+                                            
                                                 <div class="col-sm-6 col-md-4">
                                                     <div class="item-knowledge ">
                                                         <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
@@ -56,8 +56,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endfor
-                                            @for($i=1;$i<=3;$i++)
                                                 <div class="col-sm-6 col-md-4">
                                                     <div class="item-knowledge">
                                                         <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
@@ -66,7 +64,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endfor
+                                            
                                         </div>
                                     </div>
                                 </div>
