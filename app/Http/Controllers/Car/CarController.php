@@ -42,7 +42,11 @@ class CarController extends Controller
         return response()->json( $data );
     }
     public function index(){
-        $companies  = Company::orderBy('created_at','asc')->get();
+        $companies  = Company::orderBy('created_at','asc')
+                    ->where('classify','=',3)
+                    ->orwhere('classify',1)
+                    ->orwhere('classify',2)
+                    ->get();
         $terms_data = Summary::select('company_id','terms','note_more','id','rate_fee')
                     ->take(24)
                     ->get();//Du lieu dieu khoan bo sung
@@ -64,8 +68,12 @@ class CarController extends Controller
         $finances   = Finance::select('company_id','finance','money')
                     ->take(17)
                     ->get();
-        $companies_cheap = Company::where('classify','=', 1)->get();
-        $companies_recoup= Company::where('classify','=',2)->get();
+        $companies_cheap = Company::where('classify','=', 1)
+                        ->orwhere('classify',3)
+                        ->get();
+        $companies_recoup= Company::where('classify','=',2)
+                        ->orwhere('classify',3)
+                        ->get();
 
         $uses = RefRate::all();
         
