@@ -43,7 +43,9 @@ class CarController extends Controller
     }
     public function index(){
         $companies  = Company::orderBy('created_at','asc')
-                    ->where('classify',3)
+                    ->where('classify','=',3)
+                    ->orwhere('classify',1)
+                    ->orwhere('classify',2)
                     ->get();
         $terms_data = Summary::select('company_id','terms','note_more','id','rate_fee')
                     ->take(24)

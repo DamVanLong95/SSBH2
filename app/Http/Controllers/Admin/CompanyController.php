@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use DB;
+use App\Model\CompanyType;
 
 class CompanyController extends Controller
 {
@@ -88,7 +89,8 @@ class CompanyController extends Controller
     public  function edit($id)
     {
         $company = Company::find ($id);
-        return response()->json($company);
+        $type    = $company->types->first();
+        return response()->json(['company'=>$company,'type' => $type]);
     }
 
     public function destroy($id){
@@ -125,10 +127,10 @@ class CompanyController extends Controller
                 }
             }
         }
-        // $company = Company::findOrFail($request->get('id'));
-        // dd($company->logo);
         $classifies = $request->get('classify');
+        // dd($classifies);
         if($classifies){
+               // dd($classifies);
             if(sizeof($classifies) ==  1){
                     $company->name = $request->get('name');
                     $company->logo =  isset($path) ? $path: $company->logo;
@@ -136,26 +138,40 @@ class CompanyController extends Controller
                     $company->save();
             }
             foreach($classifies as $value){
-                if($company->classify == $value){
-                    $company->name = $request->get('name');
-                    $company->logo =  isset($path) ? $path: $company->logo;
-                    $company->classify = $value;
-                    $company->save();
-                    break;
+                if($value == 3 || $value==4){
+                    $data = [
+                        'name' => $request->get('name'),
+                        'logo' => isset($path) ? $path: $company->logo,
+                        'classify' => $value
+                    ];
+                   Company::where('id',$request->get('id'))->update($data);
                 }
-                else{
-                    $new = new Company;
-                    $new->name = $request->get('name');
-                    $new->logo =  isset($path) ? $path: $company->logo;
-                    $new->classify = $value;
-                    $new->save();
+                else if($value ==2 || $value ==1){
+                    $types = [
+                        'company_id' => $request->get('id'),
+                        'type' =>  $value
+                    ];
+                    $record = CompanyType::where('company_id',$request->get('id'))->get();
+                    if(!$record->isEmpty()){
+                        CompanyType::where('company_id',$request->get('id'))->update($types);
+                    }else{
+                        $new = new CompanyType;
+                        $new->company_id = $request->get('id');
+                        $new->type = $value;
+                        $new->save();
+                    }
                 }
             }
+            $notification = array(
+                'message' => 'update successfully!',
+                'alert-type' => 'success'
+            );
         }
-        $notification = array(
-            'message' => 'update successfully!',
-            'alert-type' => 'success'
-        );
+            $company->name = $request->get('name');
+            $company->logo =  isset($path) ? $path: $company->logo;
+            $company->classify = 0;
+            $company->save();
+       
         return response()->json($notification);
     }
 }

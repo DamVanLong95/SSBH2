@@ -183,16 +183,18 @@
                 var url = "{{route('company.edit')}}"+ '/' + company_id;
                 $.get(url , function (data) {
                     //success data
-                    // console.log(data);
-                    $('#checkmark_'+data.classify+'').prop('checked',true);
-                    $path = "{{asset('storage/')}}"+ '/'+data.logo;
-                    $("#logo").attr("src", $path);
-                    $('#name').val(data.name);
-                    $('#action').val(data.id);
-                    $('#action_button').val("update");
-                    $('#formdata').modal('show');
+                        for(var i =1; i <=4 ; i++)
+                            $('#checkmark_'+i+'').prop('checked',false);
+                        $('#checkmark_'+data.company.classify+'').prop('checked',true);
+                        if(data.type!=null)
+                        $('#checkmark_'+data.type.type+'').prop('checked',true);
+                        $path = "{{asset('storage/')}}"+ '/'+data.company.logo;
+                        $("#logo").attr("src", $path);
+                        $('#name').val(data.company.name);
+                        $('#action').val(data.company.id);
+                        $('#action_button').val("update");
+                        $('#formdata').modal('show');
                 })
-               
             });
             $('#sample_form').submit(function(event) {
                 event.preventDefault();
@@ -211,7 +213,7 @@
                                 $('#formdata').modal('hide');
                             }, 100);
                             toastr.success(data.message);
-                            // location.reload();
+                            location.reload();
 
                         }
                     });
@@ -226,14 +228,14 @@
                         url: "{{route('company.update')}}"+ '/' + id,
                         data: formdata,
                         processData: false,
-                        contentType: false,
+                        contentType: false, 
                         success: function(data) {
                             setTimeout(function(){
                                 $('#table').DataTable().ajax.reload();
                                 $('#formdata').modal('hide');
                                 toastr.success(data.message);
                             }, 100);
-                        
+                            location.reload();
                         }
                     });
                 }
@@ -276,7 +278,7 @@
                         checkboxes[3].disabled = true;
                         checkboxes[2].disabled = true;
 
-                    }
+                    }else if(clicked.val() == 1 || clicked.val() ==2) checkboxes[0].checked = true;
             }
             function resetForm(event){
 
@@ -289,7 +291,7 @@
                     // input.value = null;
                     input.disabled = false;
                     input.checked = false;
-                    $('#action_button').val("Add");
+                    $('#action_button').val("update");
                 });
 
             }

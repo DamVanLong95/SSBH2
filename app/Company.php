@@ -13,4 +13,8 @@ class Company extends Model
     public function products(){
         return $this->hasMany('App\Product');
     }
+    public function types(){
+        return $this->hasMany('App\Model\CompanyType');
+    }
+
 }
