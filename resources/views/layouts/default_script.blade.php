@@ -66,13 +66,13 @@
                         showMore(length,selector,nameId,visible);
                     }
                     //====================NANG LUC TAI CHINH================
-                    if(event.target.matches('.finances')){
-                        var length = 132;
-                        var selector = "main-tbl .nltc";
-                        var nameId ='more_finance';
-                        var visible=  "main-tbl .nltc:visible";
-                        showMore(length,selector,nameId,visible);
-                    }
+                    // if(event.target.matches('.finances')){
+                    //     var length = 132;
+                    //     var selector = "main-tbl .nltc";
+                    //     var nameId ='more_finance';
+                    //     var visible=  "main-tbl .nltc:visible";
+                    //     showMore(length,selector,nameId,visible);
+                    // }
                 }, false);
             };
 
@@ -173,6 +173,14 @@
                                         count_star_gray++;
                                     }
                                 }
+                                $('.selectedId').click(function(){
+                                    var clicked = $(this);
+                                    if(clicked.is(':checked') == true){ 
+                                        console.log(myTable);
+                                      console.log(clicked.parent().find('.ellipsis')[0]);
+                                    }
+
+                                });
                                 var total_star = count_star_gray + count_star_green +count_star_orange;
                                 var point = 1/(total_star)*(count_star_green + 3/4*count_star_orange + 1/2*count_star_gray)*10;
                                 var tdsss =  myTable.rows[1].cells[indexCol];
@@ -288,7 +296,7 @@
                                         tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -296,7 +304,7 @@
 
                                         `;
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
@@ -304,7 +312,7 @@
 
                                         `;
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
@@ -321,6 +329,7 @@
 
                                 var i= max_rows_terms+2;
                                 var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                // console.log(tds);
                                 if(deductible.length > 0){
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
@@ -373,83 +382,83 @@
                                     }
                                 }
                                   //===============CHE TAI===============================
-                                for(var i=68;i < 86 ;i++){
+                               
+                                for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                    if(punishment.length >0){
-                                        if(punishment[i-68]['rate_star_ct']== 3)
+                                        if(punishment[i-69]['rate_star_ct']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
-                                        }else if(punishment[i-68]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                        }else if(punishment[i-69]['rate_star_ct']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
-                                        }else if(punishment[i-68]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                        }else if(punishment[i-69]['rate_star_ct']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
                                         else{
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
                                         }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
-                                for(var i=89;i<=112;i++){
+                                for(var i=91; i<115 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    // console.log(tds)
                                     if(permissions.length > 0){
-                                        if(permissions[i-89]['rate_star_nv']== 3)
+                                        if(permissions[i-91]['rate_star_nv']== 3)
                                         {
                                             tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
-                                        }else if(permissions[i-89]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                        }else if(permissions[i-91]['rate_star_nv']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
-                                        }else if(permissions[i-89]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                        }else if(permissions[i-91]['rate_star_nv']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
                                         else{
-                                            if(permissions[i-89]['note_rule']=== 'x')
+                                            if(permissions[i-91]['note_rule']=== 'x')
                                             tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                            else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
+                                            else tds.innerHTML = `<p class="ellipsis">`+permissions[i-91]['note_rule']!=null?permissions[i-91]['note_rule']:''+`</p>`
                                         }
                                     }
                                 } 
                                 //=================Năng lực tài chính==================
-                                for(var i =116; i<=132;i++){
+                                for(var i =118; i<=134;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     if(finances.length > 0)
-                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-116]['money'],0)+`</p>`
+                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-118]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
                                 // console.log(rating_and_model);
-                                var tds = tblBodyObj.rows[138].cells[indexCol];
+                                var tds = tblBodyObj.rows[139].cells[indexCol];
                                 if(rating_and_model.rating_agency === 'x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //============= MO HINH ============
-                                var tds = tblBodyObj.rows[140].cells[indexCol];
-                                var tdss = tblBodyObj.rows[141].cells[indexCol];
+                                var tds = tblBodyObj.rows[141].cells[indexCol];
+                                var tdss = tblBodyObj.rows[142].cells[indexCol];
                                 //console.log(tds);
                                 if(rating_and_model.business_focused ==='x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 if(rating_and_model.business_unfocused === 'x')
                                 tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //===============MANG LUOI HOAT DONG==========
-                                tds = tblBodyObj.rows[135].cells[indexCol]; 
+                                tds = tblBodyObj.rows[136].cells[indexCol]; 
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
                                 tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
@@ -463,7 +472,7 @@
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
-                                                tblBodyObj.rows[135].cells[i+1].removeAttribute('class','active-car-td');
+                                                tblBodyObj.rows[136].cells[i+1].removeAttribute('class','active-car-td');
                                                 break;
                                             }
                                             if(indexCol==i){
@@ -471,7 +480,7 @@
                                                 tdnet.setAttribute('class','active-car-td');
                                                
                                             }else{
-                                                tdnet= tblBodyObj.rows[135].cells[i]
+                                                tdnet= tblBodyObj.rows[136].cells[i]
                                                 tdnet.removeAttribute('class','active-car-td');
                                             }
                                         }
@@ -561,7 +570,6 @@
                 out: function( event, ui ){
                     $(this).removeClass('dropped');
                 }
-
             });
         }
 

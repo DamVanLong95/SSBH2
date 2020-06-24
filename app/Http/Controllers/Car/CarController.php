@@ -225,8 +225,8 @@ class CarController extends Controller
                 ->take(24)
                 ->get();//DIEU KHOAN BO SUNG
         $finances   = Finance::select('company_id','finance','money')
-                ->where('company_id', '=', $company_id)
-                ->get();
+                    ->where('company_id', '=', $company_id)
+                    ->get();
         $activities = Activity::select('company_id','location_id','amount')
                 ->where('company_id', '=', $company_id)
                 ->where('amount','<>','')

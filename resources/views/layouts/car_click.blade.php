@@ -12,6 +12,9 @@ $(function() {
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                addColumn('main-tbl');
+                dropImage();
+                deleteColumn(idImg,clicked);
                $.post(url,
                {
                    "_token": "{{ csrf_token() }}",
@@ -21,7 +24,6 @@ $(function() {
                function(data, status, xhr) {
                 
                    if(data.success == true){
-                       console.log(data);
                        var rating_and_model = data.data['rating_and_model'];
                         var notes       = data.summaries;
                         var deductible  = data.deductible;  
@@ -291,84 +293,84 @@ $(function() {
                                         `;
                                     }
                                 }
-                                  //===============CHE TAI===============================
-                                for(var i=68;i < 86 ;i++){
+                                   //===============CHE TAI===============================
+                               
+                                   for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                    if(punishment.length >0){
-                                        if(punishment[i-68]['rate_star_ct']== 3)
+                                        if(punishment[i-69]['rate_star_ct']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
-                                        }else if(punishment[i-68]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                        }else if(punishment[i-69]['rate_star_ct']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
-                                        }else if(punishment[i-68]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`+`
+                                        }else if(punishment[i-69]['rate_star_ct']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
                                         else{
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-68]['content']+`</p>`;
+                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
                                         }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
-                                for(var i=89;i<=112;i++){
+                                for(var i=91; i<115 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    // console.log(tds)
                                     if(permissions.length > 0){
-                                        if(permissions[i-89]['rate_star_nv']== 3)
+                                        if(permissions[i-91]['rate_star_nv']== 3)
                                         {
                                             tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
-                                        }else if(permissions[i-89]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                        }else if(permissions[i-91]['rate_star_nv']== 5){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
-                                        }else if(permissions[i-89]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-89]['note_rule']+`</p>`+`
+                                        }else if(permissions[i-91]['rate_star_nv']== 2){
+                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
                                         else{
-                                            if(permissions[i-89]['note_rule']=== 'x')
+                                            if(permissions[i-91]['note_rule']=== 'x')
                                             tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                            else tds.innerHTML = `<p class="ellipsis">`+permissions[i-89]['note_rule']!=null?permissions[i-89]['note_rule']:''+`</p>`
+                                            else tds.innerHTML = `<p class="ellipsis">`+permissions[i-91]['note_rule']!=null?permissions[i-91]['note_rule']:''+`</p>`
                                         }
                                     }
                                 } 
                                 //=================Năng lực tài chính==================
-                                for(var i =116; i<=132;i++){
+                                for(var i =118; i<=134;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     if(finances.length > 0)
-                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-116]['money'],0)+`</p>`
+                                    tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-118]['money'],0)+`</p>`
                                 }
                                 //==============DANH GIA UY TIN===============
                                 // console.log(rating_and_model);
-                                var tds = tblBodyObj.rows[138].cells[indexCol];
+                                var tds = tblBodyObj.rows[139].cells[indexCol];
                                 if(rating_and_model.rating_agency === 'x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //============= MO HINH ============
-                                var tds = tblBodyObj.rows[140].cells[indexCol];
-                                var tdss = tblBodyObj.rows[141].cells[indexCol];
+                                var tds = tblBodyObj.rows[141].cells[indexCol];
+                                var tdss = tblBodyObj.rows[142].cells[indexCol];
                                 //console.log(tds);
                                 if(rating_and_model.business_focused ==='x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 if(rating_and_model.business_unfocused === 'x')
                                 tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //===============MANG LUOI HOAT DONG==========
-                                tds = tblBodyObj.rows[135].cells[indexCol]; 
+                                tds = tblBodyObj.rows[136].cells[indexCol]; 
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
                                 tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
@@ -382,7 +384,7 @@ $(function() {
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
-                                                tblBodyObj.rows[135].cells[i+1].removeAttribute('class','active-car-td');
+                                                tblBodyObj.rows[136].cells[i+1].removeAttribute('class','active-car-td');
                                                 break;
                                             }
                                             if(indexCol==i){
@@ -390,10 +392,11 @@ $(function() {
                                                 tdnet.setAttribute('class','active-car-td');
                                                
                                             }else{
-                                                tdnet= tblBodyObj.rows[135].cells[i]
+                                                tdnet= tblBodyObj.rows[136].cells[i]
                                                 tdnet.removeAttribute('class','active-car-td');
                                             }
                                         }
+
 
                                         var location_id = $('#province').val();
                                         if (location_id !=0) {
@@ -423,14 +426,12 @@ $(function() {
 
                                       
                                     })
-                        addColumn('main-tbl');
-                        dropImage();
-                        deleteColumn(idImg,clicked);
+                       
                        
                    }
                
                }).done(function() {
-                
+                deleteColumn(idImg,clicked);
                });
                $(this).disabled = true;
            }

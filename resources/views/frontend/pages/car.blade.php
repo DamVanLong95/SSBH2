@@ -254,27 +254,30 @@
                                 @foreach($terms_data as $key=>$value)  
                                     <tr class="data-detail term">
                                         <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOncick(this);' />
+                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
                                             <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
                                             
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                         </td>
                                         <td>
-
-                                                </td>
+                                        </td>
                                     </tr>
-                                        @endforeach  
+                                 @endforeach  
                                     </div>
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                     </tr>
                                     <tr class="data-detail ">
-                                        <td>{{$dedutible_data[0]['deductible']??""}}</td>
+                                        <td>
+                                        <input class="selectedId" type="checkbox" id="checkbox2" 
+                                                    name="checkbox2" value="" data-id=""  onclick="handleCheck(this)" />
+                                        <label for="checkbox2"> </label> </label><span class="first-td"><p class="ellipsis">{{$dedutible_data[0]['deductible']??""}}</p>
+                                            <span class="show-detail"><button value="{{$dedutible_data[0]['deductible']}}" onclick="show(this.value)">...</button></span></span>
+                                        </td>
                                         <td></td>
                                         <!-- <td>
-
-                                    <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
-                                        <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
+                                            <div class="tick-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}" alt=""></div>
+                                            <div class="star-td"><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></div>
                                         </td> -->
                                     </tr>
                                     <tr class="header green1 bg-head-2">
@@ -282,7 +285,6 @@
                                         <tr class="select-all">
                                         <td class="td-all" >
                                             <div class="choose-all">
-                                                
                                                 <input type="checkbox" id="selectall_lt" name="selectall_lt" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
                                                 <label class="toggle" for="selectall_lt">Chọn tất cả</label>
                                             </div>
@@ -302,21 +304,50 @@
                                         <td></td>
                                     </tr>
                                     @endforeach
-                                    <tr class="header">
+                                    <!-- <tr class="header">
                                         <td  colspan="2" class="green_header punishment">Chế tài trong các trường hợp</td>
+                                    </tr> -->
+                                    <tr class="header ">
+                                        <td  colspan="2" class="green_header punishment">Chế tài trong các trường hợp</td>
+                                        <tr class="select-all">
+                                            <td class="td-all" >
+                                                <div class="choose-all">
+                                                    <input type="checkbox" id="selectall_ct" name="selectall_ct" class="selectedAll" >
+                                                    <label class="toggle" for="selectall_ct">Chọn tất cả</label>
+                                                </div>
+                                            </td>
+                                            <td class="td-all"></td>
+                                         </tr>
                                     </tr>
                                     @foreach($punishment as $value)
                                     <tr class="data-detail ctai">
-                                        <td><p class="ellipsis">{{$value['sanction']}}</p></td>
+                                        <td>
+                                        <input class="selectedId2" type="checkbox" id="checkbox2" 
+                                                    name="checkbox2" value="" data-id=""  onclick="handleCheck(this)" />
+                                            <label for="checkbox2"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['sanction']}}</p>
+                                        </td>
                                         <td></td>
                                     </tr>
                                     @endforeach
                                     <tr class="header green1 green">
                                         <td  colspan="2" class="green_header permission">Quyền và nghĩa vụ của chủ xe/ lái xe</td>
+                                        <tr class="select-all">
+                                            <td class="td-all" >
+                                                <div class="choose-all">
+                                                    <input type="checkbox" id="selectall_qnv" name="selectall_qnv" class="selectedAll" >
+                                                    <label class="toggle" for="selectall_qnv">Chọn tất cả</label>
+                                                </div>
+                                            </td>
+                                            <td class="td-all"></td>
+                                         </tr>
                                     </tr>
                                     @foreach($permission as $value)
                                     <tr class="data-detail nv ">
-                                        <td><p class="ellipsis">{{$value['rules_owner']}}</p></td>
+                                        <td>
+                                            <input class="selectedId2" type="checkbox" id="checkbox2" 
+                                                    name="checkbox2" value="" data-id=""  onclick="handleCheck(this)" />
+                                            <label for="checkbox2"> </label> </label><span class="first-td">  <p class="ellipsis">{{$value['rules_owner']}}</p>
+                                        </td>
                                         <td></td>
                                     </tr>
                                     @endforeach
@@ -407,7 +438,6 @@
         $('#note').html(val);
         $('#detail-td').modal('show');
     }
-   
 </script>
 <script>
     function handleFilter(){
@@ -430,7 +460,7 @@
         var label_lt = document.getElementById('dklt'+index+'');
         (checkBox_lt.checked==true)  ?  label_lt.style.display = "inline-flex":  label_lt.style.display = "none";;
     }
-    function handleOncick(cb){
+    function handleOnclick(cb){
         var index = $(cb).data("id");
         var checkBox_bs = document.getElementById('checkbox_bs'+index+'');
         var label_bs = document.getElementById('dkbs'+index+'');
@@ -441,7 +471,6 @@
         var numMore = 5;  
         var table  = document.getElementById('main-tbl');
         var rows   = table.tBodies[0].rows;
-        // console.log(rows);
         var length = <?php echo count($terms_data)?>;
         var length_permission = <?php echo count($permission)?>;
         $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
@@ -449,12 +478,12 @@
         $(rows[65]).after('<tr class="more" id="more_exc"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
             '</span></div</td></tr>');
         
-        $(rows[85]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        $(rows[87]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
         '</span></div</td></tr>');
-        $(rows[112]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        $(rows[114]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
         '</span></div</td></tr>');
-        $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-        '</span></div</td></tr>');
+        // $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        // '</span></div</td></tr>');
     });
     $(function(){
         $('#brand').change(function() {

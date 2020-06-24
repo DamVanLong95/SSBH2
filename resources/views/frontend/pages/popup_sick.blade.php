@@ -4,7 +4,7 @@
 <table class="table" id="main-tbl-popup" style="background: none; color: black">
   <thead>
     <tr>
-        <th style="background-color:#d8dad9">Giai đoạn đầu</th>
+        <th style="background-color:#d8dad9">Bảo hiểm liên quan</th>
         <th style="background-color:#d8dad9">Nội dung</th>
     </tr>
   </thead>  

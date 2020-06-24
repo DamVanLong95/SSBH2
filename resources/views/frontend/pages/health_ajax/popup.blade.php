@@ -1,4 +1,3 @@
-<script src="http://localhost/assets/lib/jqueryModal/js/jquery.modal.min.js?"></script>
 @if(count($result['spbt'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
