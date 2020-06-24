@@ -319,10 +319,8 @@
                                                         </div>
 
                                         `;
-                                    }else{
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
-                                        `;
                                     }
+                                    
                                     
                                 }
                                 //===============MUC KHAU TRU===============================
@@ -340,7 +338,7 @@
                                         </div>
                                         `;
                                     }else{
-                                        tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                        tds.innerHTML =`<p class="ellipsis">`+deductible[0]['note_dkkt']+`</p>
                                         <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -348,11 +346,13 @@
                                         `;
                                     }
                                 }
-                               
+                                 //===============DIEU KHOAN LOAI TRU===============================
                                 var max_rows_exception = (i+3) + exception.length;
                                 for(var j=i+3 ;j<max_rows_exception;j++){
 
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
+                                    // console.log(tds);
+
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                     {
                                     tds.innerHTML = 
@@ -363,22 +363,29 @@
                                         `;
                                 
                                     }else if(exception[j-36]['rate_star_dklt']=== 5){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
                                         <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                         <img class="img-fluid" src="`+imgGreen+`" alt="">
                                     </div>
                                         `;
-                                    }else if(exception[j-36]['rate_star_dklt']=== 2){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
-                                        <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
-                                        <div class="star-td">
-                                        <img class="img-fluid" src="`+imgGray+`" alt="">
-                                    </div>
-                                        `;
-                                    }else{
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>
-                                        `;
+                                    }else if(exception[j-36]['rate_star_dklt'] === 2 ){
+                                        if(exception[j-36]['note_dklt']=== "x"){
+                                                tds.innerHTML = 
+                                            `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            <div class="star-td">
+                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                            </div>
+                                            `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                            <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                            <div class="star-td">
+                                            <img class="img-fluid" src="`+imgGray+`" alt="">
+                                        </div>
+                                            `;
+                                        }
+                                       
                                     }
                                 }
                                   //===============CHE TAI===============================

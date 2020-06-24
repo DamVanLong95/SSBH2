@@ -611,7 +611,7 @@ $(function() {
                });
               
            }
-           if(clicked[0].checked ==false)  count=0;
+           if(count==4) return;
        });
        function deleteColumn(idImg,clicked){
 

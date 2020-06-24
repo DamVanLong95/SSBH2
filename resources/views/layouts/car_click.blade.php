@@ -1,20 +1,26 @@
 <script>
    
 $(function() {  
+    var count =0;
        $('.checkId').click(function(){
             var clicked = $(this);
+            var myTable = document.getElementById('main-tbl');
+                    var tblBodyObj  = myTable.tBodies[0];
+                    var tblHeadObj  = myTable.tHead;
+                    var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+
+           if(indexCol==4)count++;
            
-           if(clicked.is(':checked')){
+           if(clicked.is(':checked')&& count <=1){
             clicked[0].setAttribute('disabled',true);
                 var idImg = clicked.val();
                var url   = "{{route('checkImage')}}";
-               var myTable = document.getElementById('main-tbl');
-                                var tblBodyObj  = myTable.tBodies[0];
-                                var tblHeadObj  = myTable.tHead;
-                                var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+             
                 addColumn('main-tbl');
                 dropImage();
                 deleteColumn(idImg,clicked);
+              
+
                $.post(url,
                {
                    "_token": "{{ csrf_token() }}",
@@ -232,10 +238,10 @@ $(function() {
                                                         </div>
 
                                         `;
-                                    }else{
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
-                                        `;
-                                    }
+                                     }//else{
+                                    //     tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
+                                    //     `;
+                                    // }
                                     
                                 }
                                 //===============MUC KHAU TRU===============================
@@ -282,15 +288,21 @@ $(function() {
                                     </div>
                                         `;
                                     }else if(exception[j-36]['rate_star_dklt']=== 2){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
-                                        <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
-                                        <div class="star-td">
-                                        <img class="img-fluid" src="`+imgGray+`" alt="">
-                                    </div>
-                                        `;
-                                    }else{
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>
-                                        `;
+                                        if(exception[j-36]['note_dklt']=== "x"){
+                                                tds.innerHTML = 
+                                            `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            <div class="star-td">
+                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                            </div>
+                                            `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                            <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                            <div class="star-td">
+                                            <img class="img-fluid" src="`+imgGray+`" alt="">
+                                        </div>
+                                            `;
+                                        }
                                     }
                                 }
                                    //===============CHE TAI===============================
@@ -433,9 +445,9 @@ $(function() {
                }).done(function() {
                 deleteColumn(idImg,clicked);
                });
-               $(this).disabled = true;
+               if(count==4) return;
+            //    $(this).disabled = true;
            }
-           
        });
       
        function deleteColumn(idImg,clicked){
@@ -447,11 +459,13 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl');
+                    count=0;
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
@@ -462,11 +476,13 @@ $(function() {
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
+                    count=0;
                 }else if(index == 4){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 5 ){
                     $('th:nth-child('+index+')').remove()
@@ -474,16 +490,19 @@ $(function() {
                     addColumn('main-tbl');
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
+                    count=0;
                     // addColumn('main-tbl');
                 }else if(index == 3 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }
             });

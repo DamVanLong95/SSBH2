@@ -17,6 +17,7 @@ class FinancesImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
         DB::beginTransaction();
+        // dd($row);
         try {
             Finance::create([
 
@@ -31,10 +32,6 @@ class FinancesImport implements ToModel,WithHeadingRow
             Log::debug($e);
         }
        
-    }
-    public function chunkSize(): int
-    {
-        return 500;
     }
     public function headingRow(): int
 

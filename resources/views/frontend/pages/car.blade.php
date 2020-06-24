@@ -471,6 +471,7 @@
         var numMore = 5;  
         var table  = document.getElementById('main-tbl');
         var rows   = table.tBodies[0].rows;
+        // console.log(rows);
         var length = <?php echo count($terms_data)?>;
         var length_permission = <?php echo count($permission)?>;
         $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +

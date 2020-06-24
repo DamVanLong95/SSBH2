@@ -506,16 +506,26 @@
     </script>
   <script>
 $(function() {  
+    var count =0;
        $('.checkId').click(function(){
-           var clicked = $(this);
-           if(clicked.is(':checked')){
+            var clicked = $(this);
+            var myTable = document.getElementById('main-tbl');
+                    var tblBodyObj  = myTable.tBodies[0];
+                    var tblHeadObj  = myTable.tHead;
+                    var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+
+           if(indexCol==4)count++;
+           
+           if(clicked.is(':checked')&& count <=1){
             clicked[0].setAttribute('disabled',true);
-               var idImg = clicked.val();
+                var idImg = clicked.val();
                var url   = "{{route('checkImage')}}";
-               var myTable = document.getElementById('main-tbl');
-                                var tblBodyObj  = myTable.tBodies[0];
-                                var tblHeadObj  = myTable.tHead;
-                                var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+             
+                addColumn('main-tbl');
+                dropImage();
+                deleteColumn(idImg,clicked);
+              
+
                $.post(url,
                {
                    "_token": "{{ csrf_token() }}",
@@ -525,10 +535,10 @@ $(function() {
                function(data, status, xhr) {
                 
                    if(data.success == true){
-                       var indexCol = data.indexCol;
                        var rating_and_model = data.data['rating_and_model'];
                         var notes       = data.summaries;
-                        var deductible  = data.deductible;           
+                        var deductible  = data.deductible;  
+                                 
                         var exception   = data.exception;  
                         var punishment  = data.punishment;
                         var promotion   = data.promotion;
@@ -536,6 +546,7 @@ $(function() {
                         var permissions = data.permissions;
                         var finances    = data.finances;
                         var data_activities = data.data;
+                        var indexCol = data.indexCol;
                         $("#net-address").html(data.html);
                         var myTable = document.getElementById('main-tbl');
                         var tblBodyObj  = myTable.tBodies[0];
@@ -550,10 +561,11 @@ $(function() {
                         img.className = 'img-responsive';
                         img.src = ''+logo+'';
                         divImg.appendChild(img); 
+                        $(img).addClass('sized');
                         $(divImg).addClass('dropped');
-                        if($('#checkbox_'+idImg+'').prop("checked") == true){
-                            $('#'+idImg+'').draggable({ disabled: true });
-                        }
+                        // if($('#checkbox_'+idImg+'').prop("checked") == true){
+                        //     $('#'+idImg+'').draggable({ disabled: true });
+                        // }
                         //======================Rows 1==========================
                         var tds =  myTable.rows[1].cells[indexCol];
                         // console.log(tds);
@@ -611,8 +623,8 @@ $(function() {
                                 </div>
                             `;
                                 
-                                 //set id for column have price car
-                                 var tds         =  tblBodyObj.rows[3].cells[indexCol];
+                                //set id for column have price car
+                                var tds         =  tblBodyObj.rows[3].cells[indexCol];
                                 var tdss        =  tblBodyObj.rows[4].cells[indexCol];
                               
                                 var creatediv   = document.createElement('div');
@@ -693,9 +705,9 @@ $(function() {
                                         alert("Vui long nhap gia tri xe");
                                     }
                                 });
-                                  //==============DIEU KHOAN BO SUNG============================
+                                //==============DIEU KHOAN BO SUNG============================
                               
-                                  var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
+                                var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
                                     max_rows_terms  =terms_data.length+7;
                                 for (var i = 7; i < max_rows_terms; i++) {
                                     // tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
@@ -731,10 +743,10 @@ $(function() {
                                                         </div>
 
                                         `;
-                                    }else{
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
-                                        `;
-                                    }
+                                     }//else{
+                                    //     tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
+                                    //     `;
+                                    // }
                                     
                                 }
                                 //===============MUC KHAU TRU===============================
@@ -781,20 +793,26 @@ $(function() {
                                     </div>
                                         `;
                                     }else if(exception[j-36]['rate_star_dklt']=== 2){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
-                                        <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
-                                        <div class="star-td">
-                                        <img class="img-fluid" src="`+imgGray+`" alt="">
-                                    </div>
-                                        `;
-                                    }else{
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>
-                                        `;
+                                        if(exception[j-36]['note_dklt']=== "x"){
+                                                tds.innerHTML = 
+                                            `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            <div class="star-td">
+                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                            </div>
+                                            `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                            <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                            <div class="star-td">
+                                            <img class="img-fluid" src="`+imgGray+`" alt="">
+                                        </div>
+                                            `;
+                                        }
                                     }
                                 }
-                                    //===============CHE TAI===============================
+                                   //===============CHE TAI===============================
                                
-                                    for(var i=69;i < 88 ;i++){
+                                   for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                    if(punishment.length >0){
                                         if(punishment[i-69]['rate_star_ct']== 3)
@@ -895,6 +913,8 @@ $(function() {
                                                 tdnet.removeAttribute('class','active-car-td');
                                             }
                                         }
+
+
                                         var location_id = $('#province').val();
                                         if (location_id !=0) {
                                             var location_id = $('#province').val();
@@ -923,20 +943,18 @@ $(function() {
 
                                       
                                     })
-                        addColumn('main-tbl');
-                        dropImage();
+                       
                        
                    }
                
                }).done(function() {
                 deleteColumn(idImg,clicked);
                });
-               $(this).disabled = true;
-           }else{
-            var idImg = clicked.val();
-            
+               if(count==4) return;
+            //    $(this).disabled = true;
            }
        });
+      
        function deleteColumn(idImg,clicked){
 
             $('span.remove').on('click', function (e ) {
@@ -946,11 +964,13 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl');
+                    count=0;
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
@@ -961,11 +981,13 @@ $(function() {
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
+                    count=0;
                 }else if(index == 4){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 5 ){
                     $('th:nth-child('+index+')').remove()
@@ -973,16 +995,19 @@ $(function() {
                     addColumn('main-tbl');
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
+                    count=0;
                     // addColumn('main-tbl');
                 }else if(index == 3 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }
             });
@@ -992,43 +1017,42 @@ $(function() {
             var tblHeadObj = document.getElementById(tblId).tHead;
             var tableLength = document.getElementById('main-tbl').rows[0].cells.length
             for (var h = 0; h < tblHeadObj.rows.length; h++) {
-            if (tableLength < 5) {
-                var creatediv = document.createElement('div');
-                var newTH = document.createElement('th');
-                $('#select_box').attr("colspan", tableLength +1)
-                $('.select_all').attr("colspan", tableLength +1)
-                $('.td-all').attr("colspan", tableLength +1)
-                $('.green_header').attr("colspan", tableLength +1)
-                $('.car_header').attr("colspan", tableLength )
-                
-                tblHeadObj.rows[h].appendChild(newTH);
-                creatediv.setAttribute('class', "img-container");
-                newTH.appendChild(creatediv);
+                if (tableLength < 5) {
+                    var creatediv = document.createElement('div');
+                    var newTH = document.createElement('th');
+                    $('#select_box').attr("colspan", tableLength +1)
+                    $('.select_all').attr("colspan", tableLength +1)
+                    $('.td-all').attr("colspan", tableLength +1)
+                    $('.green_header').attr("colspan", tableLength +1)
+                    $('.car_header').attr("colspan", tableLength )
+                    
+                    tblHeadObj.rows[h].appendChild(newTH);
+                    creatediv.setAttribute('class', "img-container");
+                    newTH.appendChild(creatediv);
 
-                // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
-                var tblBodyObj = document.getElementById(tblId).tBodies[0];
-                for (var i = 0; i < tblBodyObj.rows.length; i++) {
-                    var newCell = tblBodyObj.rows[i].insertCell(-1);
-                    // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
-                    var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+                    // newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+                    var tblBodyObj = document.getElementById(tblId).tBodies[0];
+                    for (var i = 0; i < tblBodyObj.rows.length; i++) {
+                        var newCell = tblBodyObj.rows[i].insertCell(-1);
+                        // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+                        var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+                    }
+                    // var x =  myTable.rows[4].cells;
+                    // var y =  myTable.rows[5].cells;
+                    // x[tableLength].setAttribute('rowspan',2);
+                    // y[1].remove();
+                    $('#green_header').next("td").remove()
+                    $('#select_box').next("td").remove()
+                    $('.select_all').next("td").remove()
+                    $('#rank_box').next("td").remove()
+                    $('.green_header').next("td").remove()
+                    $('.car_header').next("td").remove()
+                    $('.td-all').next("td").remove()
+
                 }
-                // var x =  myTable.rows[4].cells;
-                // var y =  myTable.rows[5].cells;
-                // x[tableLength].setAttribute('rowspan',2);
-                // y[1].remove();
-                $('#green_header').next("td").remove()
-                $('#select_box').next("td").remove()
-                $('.select_all').next("td").remove()
-                $('#rank_box').next("td").remove()
-                $('.green_header').next("td").remove()
-                $('.car_header').next("td").remove()
-                $('.td-all').next("td").remove()
-
             }
-            }
-
         }
           
-    });
+});
 </script>
    
