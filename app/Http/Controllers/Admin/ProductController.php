@@ -34,23 +34,23 @@ class ProductController extends Controller
             })
             ->editColumn('company_id', function($product){
 
-                $company = Company::where('id','=',$product->company_id)->get();
-                return $company[0]->name.'        '.'ID:'.$product->company_id;
+                $record = Product::find($product->company_id);
+                return $product->company_id;
             })
             
             ->addColumn('path',function($product){
                 return $product->url ;
             })
-            ->editColumn('cate',function($product){
-                return ($product->cate==1)?"Tich luy":"Bao ve" ;
-            })
+            // ->editColumn('cate',function($product){
+            //     return ($product->cate==1)?"Tich luy":"Bao ve" ;
+            // })
             ->addColumn('action', function ($product) {
                 return '<a href="'.route('product.edit', $product->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                         <a href="javascript:void(0)" data-id="' . $product->id . '" class="delete btn btn btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
 
             })
            
-            ->rawColumns(['action','name','path','url','company_id','cate'])
+            ->rawColumns(['action','name','path','url','company_id'])
             ->make(true);
     }
     public function create(){

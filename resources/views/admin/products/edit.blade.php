@@ -41,7 +41,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="title" class="col-md-3 text-right ">Loại </label>
                         <div class="col-sm-3">
                             <label for="" style="margin-left:15px" >Tích lũy</label>
@@ -52,7 +52,7 @@
                             <input type="radio" class="checkmark" value="2" name="cate" {{$product->cate == 2? 'checked':''}}>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
                 <div class="border-top">
                     <div class="card-body">
