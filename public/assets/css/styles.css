@@ -6286,9 +6286,6 @@ span.tel {
 }
 
 @media (max-width: 1200px) {
-  table {
-    min-width: 1400px;
-  }
   td:first-child {
     width: 500px;
   }

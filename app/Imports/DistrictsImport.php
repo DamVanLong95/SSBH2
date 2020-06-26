@@ -17,7 +17,7 @@ class DistrictsImport implements ToModel,WithHeadingRow
         try {
             District::create([
                 'location_id'   => $row['id_tinh_thanh'],
-                'district'          => $row['quan'],
+                'district'      => $row['quan'],
             ]);
 
             DB::commit();

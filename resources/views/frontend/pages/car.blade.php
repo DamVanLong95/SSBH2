@@ -526,10 +526,7 @@
                     $('#price_car').val(data.price_car);
                 }
             });
-
         });
-
-   
     });
     $(document).ready(function() {
         // if (screen.height > screen.width){
@@ -541,15 +538,7 @@
         var winHeight = $(window).height();
         var scrollPercent = (scrollTop) / (docHeight - winHeight);
         var scrollPercentRounded = Math.round(scrollPercent*100);
-        
-        // console.log("scroll position", scrollPercentRounded)
-        // if( scrollPercentRounded >= 12 ){
-        //     $(".top-head").addClass("fix-position");
-        //     $(".sub-ctn").addClass("fix-position");
-        // }else{
-        //     $(".top-head").removeClass("fix-position");
-        //     $(".sub-ctn").removeClass("fix-position");
-        // }
+     
     });
 });
 
@@ -564,5 +553,9 @@ $('.close').click(function(){
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     @include('layouts.default_script')
-    @include('layouts.car_click')
+    @if($agent->isMobile())
+         @include('layouts.car_mobile')
+    @else
+        @include('layouts.car_click')
+    @endif
 @stop

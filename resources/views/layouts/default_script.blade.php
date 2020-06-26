@@ -151,45 +151,21 @@
                                 var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
-                                //calculate star
-                                var count_star_green = 0;
+                              //===========calulate point================================
+                                var countCheck = 0;
+                                var count_star;
                                 var count_star_orange = 0;
+                                var count_star_green = 0;
                                 var count_star_gray = 0;
-                                for(var j=0;j<terms_data.length;j++){
-                                    if(terms_data[j]['rate_star_dkbs'] == 5){
-                                        count_star_green++;
-                                    }else if(terms_data[j]['rate_star_dkbs'] == 3){
-                                        count_star_orange++;
-                                    }else if(terms_data[j]['rate_star_dkbs'] == 2){
-                                        count_star_gray++;
-                                    }
-                                }
-                                for(var k=0;k < exception.length;k++){
-                                    if(exception[k]['rate_star_dklt'] == 5){
-                                        count_star_green++;
-                                    }else if(exception[k]['rate_star_dklt'] == 3){
-                                        count_star_orange++;
-                                    }else if(exception[k]['rate_star_dklt'] == 2){
-                                        count_star_gray++;
-                                    }
-                                }
-                                $('.selectedId').click(function(){
-                                    var clicked = $(this);
-                                    if(clicked.is(':checked') == true){ 
-                                        console.log(myTable);
-                                      console.log(clicked.parent().find('.ellipsis')[0]);
-                                    }
-
-                                });
-                                var total_star = count_star_gray + count_star_green +count_star_orange;
-                                var point = 1/(total_star)*(count_star_green + 3/4*count_star_orange + 1/2*count_star_gray)*10;
+                                var selector = ".selectedId";
+                                checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
                                 var tdsss =  myTable.rows[1].cells[indexCol];
                                 var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                                 var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
                                 var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
                                 tdsss.innerHTML = `
                                     <div class="count-rank-ctn" >
-                                        <div class="mark-num"><p><span class="first-span" >`+Math.round(point)+`</span>/<span>10</span></p></div>
+                                        <div class="mark-num"><p><span class="first-span" id="point_`+indexCol+`" value="0">`+10+`</span>/<span>10</span></p><input type="hidden" id="his_`+indexCol+`"></div>
                                         <div class="service">
                                             <img src="`+path_camera+`"alt="">
                                             <img src="`+path_phone+`"alt="">
@@ -245,7 +221,7 @@
                                             }).done(function(data){
                                                 var ratte = data.rate;
                                                 rate = ratte + rate;
-                                                console.log(rate);
+                                                // console.log(rate);
                                                 var price_old = (price * rate)/100;	
                                                 $('#price_'+indexCol+'').html((formatMoney(price_old)));
 
@@ -395,10 +371,20 @@
                                    if(punishment.length >0){
                                         if(punishment[i-69]['rate_star_ct']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            if(punishment[i-69]['content']=== "x"){
+                                                tds.innerHTML = 
+                                                    `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <div class="star-td">
+                                                        <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+                                                    `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
+                                            }
+                                           
                                         }else if(punishment[i-69]['rate_star_ct']== 5){
                                             tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
@@ -411,9 +397,9 @@
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
-                                        else{
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
-                                        }
+                                        // else{
+                                        //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
+                                        // }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
@@ -619,6 +605,79 @@
 
                 }
             }
+        }
+        function calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol){
+            var count_star = count_star_orange + count_star_green + count_star_gray;
+            var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            $('#point_'+indexCol+'').text(result);
+            $('#point_'+indexCol+'')[0].setAttribute("value",result);
+        }
+        function checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol){
+            $(''+selector+'').click(function(){
+                var clicked = $(this);
+                // console.log(clicked);
+                var checkIndex  = clicked.parent().parent()[0].rowIndex;
+                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                    countCheck++;
+                    if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                    else star = 0;
+                        var point;
+                        
+                        if(countCheck==1){
+                            if(star == 3){
+                                point= 7.5;
+                                if(clicked.is(':checked') == true){
+                                    count_star_orange++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            }else if(star == 5){
+                                point = 10;
+                                if(clicked.is(':checked') == true){
+                                    count_star_green++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            }else if(star == 2){
+                                point = 5;
+                                if(clicked.is(':checked') == true){
+                                    count_star_gray++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            };
+                        }else if(countCheck > 1){
+                            if(star == 5){
+                                if(clicked.is(':checked') == true){
+                                    count_star_green++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_green--;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                            }else if(star == 3){
+                                if(clicked.is(':checked') == true){
+                                    count_star_orange++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_orange--;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                                
+                            }else if(star == 2){
+                                if(clicked.is(':checked') == true){
+                                    count_star_gray ++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_gray --;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                            }else if(star == 0) {
+                                var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                                $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                            };
+                        }
+            });
         }
     </script>
     <script>

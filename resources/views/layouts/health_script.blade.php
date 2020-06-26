@@ -92,7 +92,7 @@
                                     indexCol    = tblHeadObj.rows[0].cells.length - 1;
                     var url = '{{route('droppHealth')}}';
                     var rows   = table.tBodies[0].rows;
-                    console.log(myTable);
+                    // console.log(myTable);
                     $.post(url, 
                     {
                         "_token": "{{ csrf_token() }}", 
@@ -419,15 +419,6 @@
                 }
             });
         }
-        $(function(){
-        
-            // $('#calculate').click(function(){
-            //    var price = $('#price_car').val();
-            //    $('#price').html(price);
-                
-            // })
-            
-        });
     </script>
 
     <script>
