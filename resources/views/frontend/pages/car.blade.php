@@ -210,7 +210,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="item select">
-                                                        <select aria-label="Select menu example" id="prd_date">
+                                                        <select  aria-label="Select menu example" id="prd_date">
                                                         <option selected hidden value="0">Năm sản xuất</option>
                                                         {{$now = date('Y')}}  
                                                         @for ($i = $now-1; $i >=2010 ; $i--)

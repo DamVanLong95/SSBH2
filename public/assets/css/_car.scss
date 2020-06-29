@@ -454,6 +454,9 @@
                             display: flex;
                             justify-content: space-around;
                             flex-direction: row;
+                            @media (max-width: 375px){
+                                display: block;
+                            }
                         }
                         .item {
                             p {
@@ -462,12 +465,21 @@
                         }
                     }
                     .star-ctn {
+                       
                         .item {
                             p {
+                                @media (max-width: 375px){
+                                    font-size: 13px;
+                                }
                                 span {
                                     bottom: 2px;
                                     position: relative;
                                     right: 0px;
+                                    img{
+                                        @media (max-width: 375px){
+                                            width: 12px;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -476,6 +488,9 @@
                         display: flex;
                         justify-content: space-between;
                         flex-direction: row;
+                        @media (max-width: 375px){
+                            display: block;
+                        }
                         .mark-num {
                             p {
                                 span.first-span {
@@ -489,38 +504,7 @@
                         }
                     }
                 }
-                // tr.bg-head-1 {
-                //     td{
-                //         background-image: url('../images/car/bg1.png') !important;
-                //         background-repeat: no-repeat;
-                //         color: white !important;
-                //         background-size: 100% 100%;
-                //     }
-                // }
-                // tr.bg-head-2 {
-                //     td{
-                //         background-image: url('../images/car/bg2.png') !important;
-                //         background-repeat: no-repeat;
-                //         color: white !important;
-                //         background-size: 100% 100%;
-                //     }
-                // }
-                // tr.bg-head-3 {
-                //     td{
-                //         background-image: url('../images/car/bg3.png') !important;
-                //         background-repeat: no-repeat;
-                //         color: white !important;
-                //         background-size: 100% 100%;
-                //     }
-                // }
-                // tr.bg-head-4 {
-                //     td{
-                //         background-image: url('../images/car/bg4.png') !important;
-                //         background-repeat: no-repeat;
-                //         color: white !important;
-                //         background-size: 100% 100%;
-                //     }
-                // }
+                
                 tr.header {
                     height: 40px;
                     position: relative;
@@ -607,6 +591,10 @@
                         background-color: #f1f2f2;
                         // color: #bdbebf;
                         font-family: UTM_Helve;
+                        @media (max-width: 425px){
+                            display: block;
+                            margin: 5% 0;
+                        }
                     }
                     .button-filter {
                         width: 26%;
@@ -630,11 +618,15 @@
                             border-right: 1px solid #58595b;
                             background-color: #f1f2f2;
                             color: #58595b;
-                            
+                            @media (max-width: 375px){
+                                margin: 5% 0;
+                                border: 1px solid #ccc;
+                            }
                         }
                         &:focus{
                             outline: none;
                         }
+                        
                     }
                     span {
                         margin-left: 20px;
@@ -663,6 +655,12 @@
                         -o-border-radius: 20px;
                         float: right;
                         width: 45%;
+                    }
+                    @media (max-width: 375px){
+                       display: block;
+                       button{
+                           width: 100%;
+                       }
                     }
                 }
             }
@@ -793,7 +791,7 @@
                             -moz-transform: translate(13px, -27px);
                             -ms-transform: translate(13px, -27px);
                             -o-transform: translate(13px, -27px);
-}
+                        }
                     }
                     span.show-detail {
                         right: 0;
@@ -847,6 +845,10 @@
                 .toggle {
                     cursor: pointer;
                     width: 200px;
+                    @media (max-width: 375px){
+                        width: 90px;
+                        
+                    }
                     span {
                         color: $main-color;
                         font-family: UTM_HelveBold;
@@ -937,13 +939,20 @@
         top: 0;
         bottom: 0;
         margin: auto;
+        @media (max-width: 375px){
+            width: 80px;
+            height: 60px;
+        }
         img{
             transform: translateY(25%);
             -webkit-transform: translateY(25%);
             -moz-transform: translateY(25%);
             -ms-transform: translateY(25%);
             -o-transform: translateY(25%);
-}
+            @media (max-width: 375px){
+                width: 100%;
+            }
+        }
     }
     .remove {
         width: 26px;

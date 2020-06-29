@@ -212,7 +212,7 @@ $(function() {
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                     if(terms_data[i-7]['note_more']==="-----") {
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                        tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
                                         tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
@@ -258,7 +258,7 @@ $(function() {
                                         </div>
                                         `;
                                     }else{
-                                        tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                        tds.innerHTML =`<p class="ellipsis">`+deductible[0]['note_dkkt']+`</p>
                                         <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -281,7 +281,7 @@ $(function() {
                                         `;
                                 
                                     }else if(exception[j-36]['rate_star_dklt']=== 5){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
                                         <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                         <img class="img-fluid" src="`+imgGreen+`" alt="">

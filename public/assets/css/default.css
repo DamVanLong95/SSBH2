@@ -592,6 +592,12 @@ footer .footer-ctn .footer-nav li a {
   outline: none;
 }
 
+@media (max-width: 375px) {
+  .network-ctn .net-item .address-ctn {
+    width: 100%;
+  }
+}
+
 .network-ctn .net-item .address-ctn select {
   width: 100%;
   border: none;

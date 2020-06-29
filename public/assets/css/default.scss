@@ -533,6 +533,9 @@ footer {
             border: 1px solid #ccc4;
             border-radius: 20px;
             outline: none;
+            @media (max-width: 375px){
+                width: 100%;
+            }
             select {
                 width: 100%;
                 border: none;
