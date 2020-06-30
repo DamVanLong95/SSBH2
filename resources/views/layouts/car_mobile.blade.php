@@ -465,17 +465,14 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl');
                     count=0;
-                    $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
-                    $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     count=0;
                     addColumn('main-tbl');
                     clicked[0].disabled = false;
-                    clicked[0].checked = false;
-                    $('#'+idImg+'').draggable({ disabled: false });
+                    $('#checkbox_'+idImg+'').prop("checked", false);
                 }
             });
        }

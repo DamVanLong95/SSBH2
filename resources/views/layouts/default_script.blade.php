@@ -158,7 +158,10 @@
                                 var count_star_green = 0;
                                 var count_star_gray = 0;
                                 var selector = ".selectedId";
+                                var selector_dklt    = ".selectedId2";
                                 checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
+                                checkCalulate(selector_dklt,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
+
                                 var tdsss =  myTable.rows[1].cells[indexCol];
                                 var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
                                 var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
@@ -308,13 +311,13 @@
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" value="3" ><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
                                         `;
                                     }else{
-                                        tds.innerHTML =`<p class="ellipsis">`+deductible[0]['note_dkkt']+`</p>
+                                        tds.innerHTML =`<p class="ellipsis" value="2">`+deductible[0]['note_dkkt']+`</p>
                                         <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -332,14 +335,14 @@
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                     {
                                     tds.innerHTML = 
-                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" value="3" ></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
                                         `;
                                 
                                     }else if(exception[j-36]['rate_star_dklt']=== 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="5" > `+exception[j-36]['note_dklt']+`</p>`+`
                                         <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                         <img class="img-fluid" src="`+imgGreen+`" alt="">
@@ -348,13 +351,13 @@
                                     }else if(exception[j-36]['rate_star_dklt'] === 2 ){
                                         if(exception[j-36]['note_dklt']=== "x"){
                                                 tds.innerHTML = 
-                                            `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            `<p class="ellipsis" value="2" ></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                             <div class="star-td">
                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                             </div>
                                             `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+exception[j-36]['note_dklt']+`</p>`+`
                                             <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                             <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -373,26 +376,26 @@
                                         {
                                             if(punishment[i-69]['content']=== "x"){
                                                 tds.innerHTML = 
-                                                    `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                                     <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                     </div>
                                                     `;
                                             }else{
-                                                tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                             }
                                            
                                         }else if(punishment[i-69]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="5">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(punishment[i-69]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
@@ -408,18 +411,18 @@
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
-                                            tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                            tds.innerHTML =`<p class="ellipsis" value="3"><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="5">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2>`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
@@ -609,6 +612,7 @@
         function calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol){
             var count_star = count_star_orange + count_star_green + count_star_gray;
             var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            result = Math.round(result * 100) / 100;
             $('#point_'+indexCol+'').text(result);
             $('#point_'+indexCol+'')[0].setAttribute("value",result);
         }

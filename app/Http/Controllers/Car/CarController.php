@@ -57,13 +57,13 @@ class CarController extends Controller
         $exception_data =  Summary::select('company_id','exception','note_dklt','id')
                         ->take(30)
                         ->get();//Du lieu dieu khoan loai tru
-        $punishment = Punishment::select('company_id','sanction','content')
+        $punishment = Punishment::select('company_id','sanction','content','id')
                     ->take(19)
                     ->get();
         $brands      = Brand::select('id','name','status')
                     ->where('status','=',1)
                     ->get();
-        $permission  = Permission::select('company_id','note_rule','rules_owner')
+        $permission  = Permission::select('company_id','note_rule','rules_owner','id')
                     ->take(24)
                     ->get();
         $finances   = Finance::select('company_id','finance','money')

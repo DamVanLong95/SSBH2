@@ -140,9 +140,9 @@
 
                                     var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
                                   
-                                    //========================phi bao hiem= =================================
-                                    var img     = 'storage/'+ program.img_cost;
-                                    tdss.innerHTML = '<a href="'+img+'" class="fancybox"><img src="'+img+'" class="img-responsive" style="width:100px"></a>' ; 
+                                      //========================phi bao hiem= =================================
+                                     var img     = 'storage/'+ program.img_cost;
+                                    tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
                                     $('.fancybox').fancybox();
                                     //BENH VIEN LIEN KET
                                     var tdsss =myTable.rows[91].cells[indexCol];
@@ -425,6 +425,7 @@ $(function() {
                                 product_id: idImg,
                                 program_id:program_id
                             },function(data, status){
+                                var program  = data.program;
                                 var healths = data.healths;
                                 var scope   = data.scope;
                                 var obj_bhs= data.obj_bhs;
@@ -455,16 +456,18 @@ $(function() {
                                 
                                 }
                                 //========================THOI GIAN================================
-                                
+                                  
                                 for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
-                                    var tdss = myTable.rows[i].cells[indexCol];
-                                    // console.log(tdss);
-                                    tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
-                                }
+                                        var tdss = myTable.rows[i].cells[indexCol];
+                                        tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                    }
 
-                                
-                                var tdss    = myTable.rows[90].cells[indexCol] ;
-                                tdss.innerHTML = `<a href='`+healths[84]['content']+`' class=''>Link_click</a>` ; 
+                                    var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
+                                  
+                                    //========================phi bao hiem= =================================
+                                    var img     = 'storage/'+ program.img_cost;
+                                    tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
+                                    $('.fancybox').fancybox();
                                 //BENH VIEN LIEN KET
                                 var tdsss =myTable.rows[91].cells[indexCol];
                                 tdsss.setAttribute('id','td'+indexCol+''); 

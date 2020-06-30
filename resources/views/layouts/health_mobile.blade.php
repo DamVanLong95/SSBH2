@@ -221,42 +221,31 @@
        });
        function deleteColumn(idImg,clicked){
 
-            $('span.remove').on('click', function (e ) {
+        $('span.remove').on('click', function (e ) {
                 var index = ($(this).parent().index()+1);
+                // console.log(index);
                 if( index ==2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     count=0;
+                    // $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
-                    console.log("hi");
-                    count=0;
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     add('main-tbl-sk');
-                    $('#checkbox_'+idImg+'').prop("checked", false);
-                    $('#'+idImg+'').draggable({ disabled: true });
-                    clicked[0].disabled = false;
                     count=0;
+                    clicked[0].disabled = false;
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
+                    count=0;
                     add('main-tbl-sk');
                     $('#checkbox_'+idImg+'').prop("checked", false);
-                    $('#'+idImg+'').draggable({ disabled: true });
                     clicked[0].disabled = false;
-                    count=0;
-                }else if(index == 3 ){
-                    $('th:nth-child('+index+')').remove()
-                    $('td:nth-child('+index+')').remove()
-                    $('#checkbox_'+idImg+'').prop("checked", false);
-                    clicked[0].disabled = false;
-                    $('#'+idImg+'').draggable({ disabled: false });
-                    count=0;
+                    // clicked[0].checked = false;
                 }
-                       
-
             });
        }
        function add(tblId) {
