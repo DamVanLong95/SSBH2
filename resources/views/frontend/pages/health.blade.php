@@ -170,19 +170,8 @@
         </div>
     </div>
     <div class="pack-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12" id="thumbs">
-               </div>
-            </div>
-            <div class="paddles">
-                <button class="left-paddle paddle hidden">
-                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-                </button>
-                <button class="right-paddle paddle">
-                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-                </button>
-            </div>
+        <div class="container" id="thumbs">
+            
         </div>
         
     </div>
@@ -318,7 +307,12 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" data-id="id"  onclick='handleAll(this);' />
                                         <label for="checkbox_one_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
+                                        @if($agent->isMobile())
+                                            <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                        @else
                                             <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['benifits'][$i]['comparison']}}</p>
+                                        @endif
                                         </td>
                                         <td></td>
                                     </tr>
@@ -327,7 +321,13 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" onclick='handleCheckbox(this);'   />
                                         <label for="checkbox_two_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
+                                        @if($agent->isMobile())
+                                            <p class="ellipsis" style="color: #125732">{{Str::words($data['benifits'][$i]['comparison'],3)}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                        @else
                                             <p class="ellipsis" style="color: #125732">{{$data['benifits'][$i]['comparison']}}</p>
+                                        @endif
+                                            
                                         </td>
                                         <td></td>
                                     </tr>
@@ -336,7 +336,14 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_three_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="" data-id="id"   />
                                         <label for="checkbox_three_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
-                                            <p class="ellipsis" style="color: #000">{{$data['benifits'][$i]['comparison']}}</p>
+                                          
+                                            @if($agent->isMobile())
+                                                <p class="ellipsis" style="color: #000">{{Str::words($data['benifits'][$i]['comparison'],3)}}</p>
+                                                <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                            @else
+                                                <p class="ellipsis" style="color: #000">{{$data['benifits'][$i]['comparison']}}</p>
+                                            @endif
+                                            
                                         </td>
                                         <td></td>
                                     </tr>
@@ -360,7 +367,13 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['healths'][$i]['id']}}" name="checkbox_one" value="{{$data['healths'][$i]['id']}}" onclick='handleCheckbox(this);'  />
                                         <label for="checkbox_one_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
+                                        @if($agent->isMobile())
+                                            <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{str_limit($data['healths'][$i]['comparison'],12)}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                        @else
                                         <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['healths'][$i]['comparison']}}</p>
+                                        @endif
+                                        
                                         </td>
                                         <td></td>
                                     </tr>
@@ -369,7 +382,13 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['healths'][$i]['id']}}" name="checkbox_two" value="{{$data['healths'][$i]['id']}}"    />
                                         <label for="checkbox_two_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
+                                        @if($agent->isMobile())
+                                            <p class="ellipsis" style="color: #125732">{{str_limit($data['healths'][$i]['comparison'],12)}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                        @else
                                         <p class="ellipsis" style="color: #125732">{{$data['healths'][$i]['comparison']}}</p>
+                                        @endif
+                                       
                                         </td>
                                         <td></td>
                                     </tr>

@@ -3,6 +3,7 @@ $(function() {
     var count =0;
        $('.checkId').click(function(){
             var clicked = $(this);
+            // console.log(clicked);
             var myTable = document.getElementById('main-tbl');
                     var tblBodyObj  = myTable.tBodies[0];
                     var tblHeadObj  = myTable.tHead;

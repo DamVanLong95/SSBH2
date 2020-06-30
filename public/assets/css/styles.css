@@ -6363,6 +6363,7 @@ span.tel {
   }
   th:first-child {
     width: 500px;
+    padding: 33px;
   }
   thead th:first-child,
   tfoot th:first-child {

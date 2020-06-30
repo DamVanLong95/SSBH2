@@ -151,6 +151,23 @@
                                 var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
+                                //====check All======================================
+                                $('.selectedAll').click(function(){
+                                    // console.log(terms_data);
+                                    console.log(this);
+                                    if(this.checked == true){
+                                        var green = 0,orange = 0, gray = 0;
+                                        for(const i in terms_data){
+                                            // console.log(terms_data[i]);
+                                            if(terms_data[i]['rate_star_dkbs']==3) orange++;
+                                            else if(terms_data[i]['rate_star_dkbs']==5) green++;
+                                            else if(terms_data[i]['rate_star_dkbs']==2) gray++;
+                                        }
+                                        calculatePoint(orange,green,gray,indexCol);
+                                    }
+                                });
+                                var checked = document.getElementsByClassName('selectedId');
+                                console.log(checked);
                               //===========calulate point================================
                                 var countCheck = 0;
                                 var count_star;
@@ -158,9 +175,7 @@
                                 var count_star_green = 0;
                                 var count_star_gray = 0;
                                 var selector = ".selectedId";
-                                var selector_dklt    = ".selectedId2";
                                 checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
-                                checkCalulate(selector_dklt,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
 
                                 var tdsss =  myTable.rows[1].cells[indexCol];
                                 var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
@@ -626,7 +641,6 @@
                     if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
                     else star = 0;
                         var point;
-                        
                         if(countCheck==1){
                             if(star == 3){
                                 point= 7.5;
@@ -728,6 +742,7 @@
     </script>
     <script>
         function handleAll(el,length){
+            // console.log(el);
             var terms_data = <?php echo $terms_data?>;
             var length_terms = terms_data.length;
             var exception_data  = <?php echo $exception_data?>;
@@ -737,21 +752,21 @@
         if(el.checked == true){
             if(length==length_terms){
                 length=length_terms;
-            for(var i=0; i< length ;i++){
-                var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
-            
-                label_dkbs.style.display = "inline-flex";
-            }
-            $('.selectedId').prop('checked', el.checked);
+                for(var i=0; i< length ;i++){
+                    var label_dkbs= document.getElementById('dkbs'+terms_data[i]['id']+'');
+                    label_dkbs.style.display = "inline-flex";
+                    $('#checkbox_bs'+terms_data[i]['id']+'').prop('checked', el.checked);
+                }
+           
             } 
-            if(length==length_exception){
+            if(length == length_exception){
                 length=length_exception;
                 for(var i=0; i< length ;i++){
                     var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
-                
-                    label_dklt.style.display = "inline-flex";
+                    // label_dklt.style.display = "inline-flex";
+                    $('#checkbox2_'+exception_data[i]['id']+'').prop('checked', el.checked);
                 }
-                $('.selectedId2').prop('checked', el.checked);
+                
             }
             
         }else{
@@ -762,15 +777,9 @@
                 }
                 $('.selectedId').prop('checked', false);
             }
-            if(length==length_exception){
-                for(var i=0; i< length ;i++){
-                    var text= document.getElementById('dklt'+exception_data[i]['id']+'');
-                    text.style.display = "none";
-                }
-                $('.selectedId2').prop('checked', false);
-            }
+            if(length==length_exception)  $('.selectedId').prop('checked', false);
         }
-        }
+    }
     $(document).ready(function () {
     
         // $('#selectall_bs').click(function () {

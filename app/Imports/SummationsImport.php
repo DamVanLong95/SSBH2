@@ -5,8 +5,9 @@ namespace App\Imports;
 use App\Summation;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use DB;
-class SummationsImport implements ToModel,WithHeadingRow
+class SummationsImport implements ToModel,WithHeadingRow,WithChunkReading
 {
     /**
     * @param array $row
@@ -52,5 +53,9 @@ class SummationsImport implements ToModel,WithHeadingRow
 
     {
         return 1;
+    }
+    public function chunkSize(): int
+    {
+        return 1000;
     }
 }
