@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12" id="secure_list">
+    <div class="col-lg-12" >
     <div class="pack-title">
         <h4>kết quả <span>({{count($products)}})</span></h4>
         </div>
@@ -12,7 +12,7 @@
                         </div>
                         <div class="brand-thumb">
                             <label for="1">
-                                <img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
+                            <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
                             </label>
                             <div class="input-pack">
                                 <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_{{$value['id']}}" class="checkId"/>
@@ -22,12 +22,12 @@
                     </li>
                     @empty
                     <li class="item2">
-                    <div class="thumb-t">
-                    <strong class="">Yêu cầu chưa được cập nhật.Vui lòng chọn lại ! </strong>
+                        <div class="thumb-t">
+                            <strong class="">Yêu cầu chưa được cập nhật.Vui lòng chọn lại ! </strong>
                         </div>
                         <div class="brand-thumb">
                             <label for="1">
-                                <img class="thumb" src="" id="" alt="">
+                            <a href="#" target="_blank"><img class="thumb" src="" id="" alt=""></a>
                             </label>
                         </div>
                     </li>
@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="paddles2">
+<div class="paddles">
     <button class="left-paddle2 paddle hidden">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
     </button>
@@ -44,18 +44,18 @@
     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
     </button>
 </div>
-
-    <script>
-    // =====================scroll health page==================
-        // duration of scroll animation
-        var scrollDuration = 300;
+    @if($agent->isMobile())
+         @include('layouts.health_mobile')
+    @else
+        @include('layouts.health_load_script')
+    @endif
+<script>
+     var scrollDuration = 300;
         // paddles
         var leftPaddle2 = document.getElementsByClassName('left-paddle2');
         var rightPaddle2 = document.getElementsByClassName('right-paddle2');
-       
         // get items dimensions
         var itemsLength2 = $('.item2').length;
-        
         var itemSize2 = $('.item2').outerWidth(true);
         // console.log("huhu", leftPaddle2)
 
@@ -78,7 +78,7 @@
         var brandSize2 = getBrandSize();
         // get how much of brand is invisible
         var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
-        console.log("huuauauauau",brandInvisibleSize2);
+
         // get how much have we scrolled to the left
         var getBrandPosition2 = function() {
             return $('.section-list2').scrollLeft();
@@ -114,7 +114,6 @@
 
         // scroll to left
         $(rightPaddle2).on('click', function() {
-            console.log(1);
             $('.section-list2').animate({
                 scrollLeft: "+=301px"
             }, "slow");
@@ -126,10 +125,4 @@
                 scrollLeft: "-=301px"
             }, "slow");
         });
-        //===============end scroll health page=====================
 </script>
-    @if($agent->isMobile())
-         @include('layouts.health_mobile')
-    @else
-        @include('layouts.health_load_script')
-    @endif

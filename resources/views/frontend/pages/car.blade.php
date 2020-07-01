@@ -213,7 +213,7 @@
                                                         <select  aria-label="Select menu example" id="prd_date">
                                                         <option selected hidden value="0">Năm sản xuất</option>
                                                         {{$now = date('Y')}}  
-                                                        @for ($i = $now-1; $i >=2010 ; $i--)
+                                                        @for ($i = $now; $i >=2002 ; $i--)
                                                             <option value="{{ $i }}">{{ $i }}</option>
                                                         @endfor
                                                         </select>
@@ -245,7 +245,8 @@
                                     <tr class="select-all">
                                         <td class="td-all" >
                                             <div class="choose-all">
-                                                <input type="checkbox" id="selectall_bs" class="selectedAll"  onclick="handleAll(this,{{count($terms_data)}})" >
+                                          {{-- onclick="handleAll(this,{{count($terms_data)}})" --}}
+                                                <input type="checkbox" id="selectall_bs" class="selectedAll" onclick="handleAll(this,{{count($terms_data)}})"  >
                                                 <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                             </div>
                                         </td>
@@ -270,7 +271,7 @@
                                     <tr class="data-detail ">
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox2" 
-                                                    name="checkbox2" value="" data-id=""  onclick="handleCheck(this)" />
+                                                    name="checkbox2" value="" data-id=""   />
                                         <label for="checkbox2"> </label> </label><span class="first-td"><p class="ellipsis">{{$dedutible_data[0]['deductible']??""}}</p>
                                             <span class="show-detail"><button value="{{$dedutible_data[0]['deductible']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
@@ -295,8 +296,8 @@
                                     @foreach($exception_data as $value)
                                     <tr class="data-detail dklt">
                                         <td>
-                                            <input class="selectedId2" type="checkbox" id="checkbox2_{{$value['id']}}" 
-                                                    name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  onclick="handleCheck(this)" />
+                                            <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" 
+                                                    name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  />
                                             <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
                                             <span class="show-detail"><button value="{{$value['exception']}}" onclick="show(this.value)">...</button></span></span>
                                             <label class="drop" for="" style="display:none" id="dklt{{$value['id']}}">{{isset($value['rate_fee_dklt'])?$value['rate_fee_dklt']:0}}% phí</label>
@@ -322,9 +323,9 @@
                                     @foreach($punishment as $value)
                                     <tr class="data-detail ctai">
                                         <td>
-                                        <input class="selectedId2" type="checkbox" id="checkbox2" 
-                                                    name="checkbox2" value="" data-id=""  onclick="handleCheck(this)" />
-                                            <label for="checkbox2"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['sanction']}}</p>
+                                        <input class="selectedId" type="checkbox" id="checkbox_ct{{$value['id']}}"
+                                        name="checkbox_ct{{$value['id']}}" value="" data-id="{{$value['id']}}"   />
+                                            <label for="checkbox_ct{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['sanction']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -344,9 +345,9 @@
                                     @foreach($permission as $value)
                                     <tr class="data-detail nv ">
                                         <td>
-                                            <input class="selectedId2" type="checkbox" id="checkbox2" 
-                                                    name="checkbox2" value="" data-id=""  onclick="handleCheck(this)" />
-                                            <label for="checkbox2"> </label> </label><span class="first-td">  <p class="ellipsis">{{$value['rules_owner']}}</p>
+                                            <input class="selectedId" type="checkbox" id="checkbox_nv{{$value['id']}}" 
+                                                    name="checkbox" value="" data-id=""  />
+                                            <label for="checkbox_nv{{$value['id']}}"> </label> </label><span class="first-td">  <p class="ellipsis">{{$value['rules_owner']}}</p>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -454,12 +455,12 @@
         });
         // console.log(checkedID);
     }
-    function handleCheck(el){
-        var index = $(el).data("id");
-        var checkBox_lt = document.getElementById('checkbox2_'+index+'');
-        var label_lt = document.getElementById('dklt'+index+'');
-        (checkBox_lt.checked==true)  ?  label_lt.style.display = "inline-flex":  label_lt.style.display = "none";;
-    }
+    // function handleCheck(el){
+    //     var index = $(el).data("id");
+    //     var checkBox_lt = document.getElementById('checkbox2_'+index+'');
+    //     var label_lt = document.getElementById('dklt'+index+'');
+    //     (checkBox_lt.checked==true)  ?  label_lt.style.display = "inline-flex":  label_lt.style.display = "none";;
+    // }
     function handleOnclick(cb){
         var index = $(cb).data("id");
         var checkBox_bs = document.getElementById('checkbox_bs'+index+'');

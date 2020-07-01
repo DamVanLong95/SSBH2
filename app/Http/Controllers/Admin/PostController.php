@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 use DB,File;
-use function foo\func;
 
 class PostController extends Controller
 {

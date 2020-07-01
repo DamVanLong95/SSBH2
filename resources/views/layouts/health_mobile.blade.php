@@ -1,4 +1,17 @@
 <script>
+    function show(val){
+        $('#note').html(val);
+        $('#detail-td').modal('show');
+    }
+</script>
+<style>
+    @media (max-width: 425px){
+    td:first-child {
+        width: 100px;
+        padding: 33px;
+    }}
+</style>
+<script>
     $(function() {  
     var count=0;
        $('.checkId').click(function(){
@@ -71,6 +84,7 @@
                                 var exclusions = data.exclusions;
                                 var myTable = document.getElementById('main-tbl-sk');
                                 // console.log(myTable.rows);
+                                var program  = data.program;
                                 var row   = document.getElementById('dtbh');
                                 var qlbh  = document.getElementById('qlbh');
                                 var pending   = document.getElementById('pending');
@@ -79,32 +93,33 @@
                                 var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
                                 (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
                                                 :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
-                                //=====================pham vi lanh tho===========================
-                                var pvlt   = document.getElementById('pvlt');
-                                
-                                var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
+                               //=====================pham vi lanh tho===========================
+                               var pvlt   = document.getElementById('pvlt');
+                                  
+                                  var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
 
-                                (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
-                            
-                                //========================quyen loi bao hiem========================
-                                for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
-                                    var tdss = myTable.rows[i].cells[indexCol];
-                                    // console.log(tdss);
-                                    tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
+                                  (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
+                                                  :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
+                              
+                                  //========================quyen loi bao hiem========================
+                                  for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
+                                      var tdss = myTable.rows[i].cells[indexCol];
+                                      tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
+                                  
+                                  }
+                                  //========================THOI GIAN================================
                                 
-                                }
-                                //========================THOI GIAN================================
-                                
-                                for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
-                                    var tdss = myTable.rows[i].cells[indexCol];
-                                    // console.log(tdss);
-                                    tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
-                                }
+                                  for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
+                                      var tdss = myTable.rows[i].cells[indexCol];
+                                      tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                  }
 
+                                  var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
                                 
-                                var tdss    = myTable.rows[90].cells[indexCol] ;
-                                tdss.innerHTML = `<a href='`+healths[84]['content']+`' class=''>Link_click</a>` ; 
+                                    //========================phi bao hiem= =================================
+                                   var img     = 'storage/'+ program.img_cost;
+                                  tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
+                                  $('.fancybox').fancybox();
                                 //BENH VIEN LIEN KET
                                 var tdsss =myTable.rows[91].cells[indexCol];
                                 tdsss.setAttribute('id','td'+indexCol+''); 
@@ -221,42 +236,31 @@
        });
        function deleteColumn(idImg,clicked){
 
-            $('span.remove').on('click', function (e ) {
+        $('span.remove').on('click', function (e ) {
                 var index = ($(this).parent().index()+1);
+                // console.log(index);
                 if( index ==2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     count=0;
+                    // $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
-                    console.log("hi");
-                    count=0;
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     add('main-tbl-sk');
-                    $('#checkbox_'+idImg+'').prop("checked", false);
-                    $('#'+idImg+'').draggable({ disabled: true });
-                    clicked[0].disabled = false;
                     count=0;
+                    clicked[0].disabled = false;
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
+                    count=0;
                     add('main-tbl-sk');
                     $('#checkbox_'+idImg+'').prop("checked", false);
-                    $('#'+idImg+'').draggable({ disabled: true });
                     clicked[0].disabled = false;
-                    count=0;
-                }else if(index == 3 ){
-                    $('th:nth-child('+index+')').remove()
-                    $('td:nth-child('+index+')').remove()
-                    $('#checkbox_'+idImg+'').prop("checked", false);
-                    clicked[0].disabled = false;
-                    $('#'+idImg+'').draggable({ disabled: false });
-                    count=0;
+                    // clicked[0].checked = false;
                 }
-                       
-
             });
        }
        function add(tblId) {
