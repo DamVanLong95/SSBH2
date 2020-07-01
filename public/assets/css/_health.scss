@@ -550,6 +550,9 @@
                         -moz-transform: translate(32px, -27px);
                         -ms-transform: translate(32px, -27px);
                         -o-transform: translate(32px, -27px);
+                        @media (max-width: 375px){
+                            transform: translate(15px, -27px);
+                        }
                     }
                     span.show-detail {
                         right: 0;
