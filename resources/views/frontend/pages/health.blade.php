@@ -435,7 +435,16 @@
                                 </tr>
                                 @foreach($data['exclusions'] as $value)
                                 <tr class="data-detail">
-                                    <td><p class="ellipsis">{{$value['rules']}}</p></td>
+                                    <td>
+                                        @if($agent->isMobile())
+                                            <!-- <p class="ellipsis" style="color: #125732">{{str_limit($data['healths'][$i]['comparison'],12)}}</p> -->
+                                            <p class="ellipsis">{{Str::words($value['rules'],5)}}</p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['rules']}}" onclick="show(this.value)"  >...</button></span>
+                                        @else
+                                        <p class="ellipsis" >{{$value['rules']}}</p>
+                                        @endif
+                                        
+                                    </td>
                                     <td></td>
                                 </tr>
                                 @endforeach

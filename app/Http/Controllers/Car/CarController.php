@@ -30,7 +30,9 @@ class CarController extends Controller
             $column = "from_three_six";
         else if($time_use >=10 && $time_use < 15)
             $column = "from_six_fiften";
-        // dd($column);
+        if(!isset($column)){
+            return response()->json( array('success' => false, 'message'=>' undifined  variable column ') );
+        }
         $rate = RefRate::select($column)->where('id',$id)->first();
         return response()->json(['rate' => $rate[$column]]);
     }   
@@ -134,25 +136,34 @@ class CarController extends Controller
         $year_sx  = $request->get('year_sx');
         $summation_id = $request->get('cate_id');
         $objec_price = [ 
+            2002 =>"price_two",
+            2003 =>"price_three",
+            2004 =>"price_four",
+            2005 =>"price_five",
+            2006 =>"price_six",
+            2008 =>"price_eight",
+            2009 =>"price_night",
             2010 =>"price_ten",
             2011 =>"price_eleven",
             2012 =>"price_twelve",
             2013  => "price_thirt", 
-            2014=>"price_four",
-            2015=>"price_five", 
-            2016 => "price_six", 
-            2017=>"price_seven",
-            2018=>"price_eight",
-            2019=>"price_night"
+            2014   =>"price_fourteen",
+            2015    =>"price_fifteen", 
+            2016 => "price_sixteen", 
+            2017=>"price_seventeen",
+            2018=>"price_eighteen",
+            2019=>"price_nineteen",
+            2020=>"price_twenty"
         ];
         $field = $objec_price[$year_sx];
-        $summation= Summation::select($field)
+        if($brand_id !=0){
+            $summation= Summation::select($field)
                 ->where('brand_id','=',$brand_id)
                 ->where('id','=',$summation_id)
                 ->take(1)
                 ->get();
-            
-        if(! $summation) {
+        }
+        if(!isset($summation)) {
             return response()->json( array('success' => false, 'html'=>'No job ') );
         }
         $price_car = $summation[0][$field];

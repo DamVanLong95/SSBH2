@@ -167,7 +167,7 @@
                                     }
                                 });
                                 var checked = document.getElementsByClassName('selectedId');
-                                console.log(checked);
+                                // console.log(checked);
                               //===========calulate point================================
                                 var countCheck = 0;
                                 var count_star;

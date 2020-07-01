@@ -196,7 +196,7 @@
                                                     <div class="item select">
                                                     
                                                     <select aria-label="Select menu example" id="brand">
-                                                        <option selected>Hãng xe</option>
+                                                        <option selected hidden value="0">Hãng xe</option>
                                                             <div class="option-ctn" style="overflow:auto;height:100px">
                                                             @foreach($brands as $brand)
                                                                 <option value="{{$brand['id']}}" id="brand_{{$brand['id']}}">{{$brand['name']}}</option>
