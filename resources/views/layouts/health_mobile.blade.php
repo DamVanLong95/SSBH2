@@ -7,8 +7,8 @@
 <style>
     @media (max-width: 425px){
     td:first-child {
-        width: 100px;
-        padding: 33px;
+        /* width: 100px; */
+        /* padding: 33px; */
     }}
 </style>
 <script>
