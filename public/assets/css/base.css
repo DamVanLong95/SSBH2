@@ -358,6 +358,15 @@ option {
   cursor: pointer;
 }
 
+@media (max-width: 375px) {
+  .custom-select-fix-trigger {
+    width: 90px;
+    padding: 5px 5px;
+    font-size: 9px;
+    line-height: 16px;
+  }
+}
+
 .custom-select-fix-trigger:after {
   position: absolute;
   display: block;
@@ -436,6 +445,14 @@ option {
   -moz-transform: translateY(48%);
   -ms-transform: translateY(48%);
   -o-transform: translateY(48%);
+}
+
+@media screen and (max-width: 375px) {
+  .custom-select-fix.opened .custom-options {
+    width: 200px;
+    -webkit-transform: translateX(-116px);
+            transform: translateX(-116px);
+  }
 }
 
 .option-hover:before {

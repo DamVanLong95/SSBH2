@@ -99,11 +99,17 @@
         position: sticky;
         top: 228px;
         z-index: 8 !important;
-        @media (max-width: 1024px) {
+        @media (min-width: 1024px) {
             top: 227px;
+        }
+        @media (max-width: 1024px) {
+            top: 229px;
         }
         @media (max-width: 991px) {
             top: 227px;
+        }
+        @media (max-width: 768px) {
+            top: 322px;
         }
     }
     .sub-ctn5 td{
@@ -114,10 +120,13 @@
         top: 265px;
         z-index: 8 !important;
         @media (max-width: 1024px) {
-            top: 264px;
+            top: 266px;
         }
         @media (max-width: 991px) {
             top: 264px;
+        }
+        @media (max-width: 768px) {
+            top: 359px;
         }
     }
 }

@@ -364,7 +364,7 @@
             }
             td.green_header{
                 // background-color: white;
-                color: #000;
+                // color: #000;
             }
             .green {
                 background-color: $main-color;
@@ -591,9 +591,9 @@
                         background-color: #f1f2f2;
                         // color: #bdbebf;
                         font-family: UTM_Helve;
-                        @media (max-width: 425px){
+                        @media (max-width: 768px){
                             display: block;
-                            margin: 5% 0;
+                            margin: 0;
                         }
                     }
                     .button-filter {
@@ -656,6 +656,11 @@
                         float: right;
                         width: 45%;
                     }
+                    @media (max-width: 767px){
+                        button{
+                            width: 100%;
+                        }
+                     }
                     @media (max-width: 375px){
                        display: block;
                        button{
@@ -894,6 +899,10 @@
                         border-radius: 0;
                         font-family: UTM_Helve;
                         text-align: left;
+                        font-size: 16px;
+                        @media (max-width: 375px){
+                            font-size: 13px;
+                        }
                         &:hover {
                             background-color: #f36f21;
                             font-family: UTM_HelveBold;

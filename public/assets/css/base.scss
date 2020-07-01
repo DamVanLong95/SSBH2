@@ -291,6 +291,12 @@ option{
     background: #fff;
     border: 1px solid #0d723b;
     cursor: pointer;
+    @media (max-width: 375px){
+        width: 90px;
+        padding: 5px 5px;
+        font-size: 9px;
+        line-height: 16px;
+    }
 }
 
 .custom-select-fix-trigger:after {
@@ -341,6 +347,7 @@ option{
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-15px);
+    
 }
 
 .custom-options::-webkit-scrollbar-track {
@@ -369,6 +376,10 @@ option{
     -moz-transform: translateY(48%);
     -ms-transform: translateY(48%);
     -o-transform: translateY(48%);
+    @media screen and (max-width: 375px) {
+        width: 200px;
+        transform: translateX(-116px);
+    }
 }
 
 .custom-options:before {
@@ -529,6 +540,7 @@ option{
     -moz-transform: translateY(50%);
     -ms-transform: translateY(50%);
     -o-transform: translateY(50%);
+    
 }
 
 .custom-options:before {

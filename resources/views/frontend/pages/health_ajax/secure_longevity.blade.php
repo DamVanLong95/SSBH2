@@ -11,7 +11,7 @@
             
                 <div class="brand-thumb">
                     <label for="1">
-                        <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                        <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                     </label>
                     <div class="input-pack">
                         <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_tl{{$value['id']}}" onclick="checkImg(this)"/>
@@ -41,7 +41,7 @@
                     
                         <div class="brand-thumb">
                             <label for="1">
-                                <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                             </label>
                             <div class="input-pack">
                             <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_bv{{$value['id']}}" onclick="checkImg(this)"/>
@@ -81,14 +81,14 @@
                     
                         <div class="brand-thumb">
                             <label for="1">
-                                <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                               <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                             </label>
                             <div class="input-pack">
                             <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_dt{{$value['id']}}" onclick="checkImg(this)"/>
                             <label class="toggle" for="checkbox_dt{{$value['id']}}"></label>
                             </div>
                         </div>
-            </div>
+                    </div>
                 </li>
                 @endforeach
             </ul>
@@ -121,7 +121,7 @@
                     
                         <div class="brand-thumb">
                             <label for="1">
-                                <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                             </label>
                             <div class="input-pack">
                                 <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_ht{{$value['id']}}"/>
@@ -161,7 +161,7 @@
                         
                             <div class="brand-thumb">
                                 <label for="1">
-                                    <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                                    <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                                 </label>
                                 <div class="input-pack">
                                 <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_gd{{$value['id']}}"/>
@@ -201,7 +201,7 @@
                     
                         <div class="brand-thumb">
                             <label for="1">
-                                <a href="#" target="_blank"><img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                               <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                             </label>
                             <div class="input-pack">
                                 <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_dn{{$value['id']}}"/>
