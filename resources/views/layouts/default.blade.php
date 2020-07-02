@@ -148,7 +148,7 @@
                         <ul class="footer-nav">
                             <li>
                                 <img src="{{ url('assets/images/default/phone.png?'.config('custom.version')) }}" alt="">
-                                <a href="tel:0906060784">0906.060.784</a>
+                                <a href="tel:0906060784">0906.060.784</a><span> | <a href="tel:1900 9889 65">1900 9889 65</a></span>
                             </li>
                             <li>
                                 <img src="{{ url('assets/images/default/address.png?'.config('custom.version')) }}" alt="">

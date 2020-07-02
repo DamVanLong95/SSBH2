@@ -638,7 +638,7 @@ table thead th {
             padding: 5px 35px; }
             @media (max-width: 991px) {
               .block-main-menu .main-menu ul li ul.menu-hover li {
-                padding: 10px 5px; } }
+                padding: 0px 5px; } }
             .block-main-menu .main-menu ul li ul.menu-hover li a {
               color: #fff !important;
               text-transform: none; }

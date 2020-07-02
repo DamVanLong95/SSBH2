@@ -2,14 +2,16 @@ $main-color: #0d723b;
 $lineheight:20px;
 $height: $lineheight * 2;
 $ellipsiswidth: 3em !default;
-.disable-scroll{
+.disable-scroll {
     overflow: hidden;
 }
-.fix-position{
+
+.fix-position {
     position: fixed;
     top: 10px;
     z-index: 999;
 }
+
 .block-main-menu {
     // position: fixed;
     top: 0;
@@ -17,7 +19,7 @@ $ellipsiswidth: 3em !default;
     right: 0;
     z-index: 1024;
     margin-bottom: 2px;
-    background-color:white;
+    background-color: white;
     @media (max-width: 991px) {
         display: flex;
         justify-content: space-between;
@@ -26,7 +28,6 @@ $ellipsiswidth: 3em !default;
         }
     }
     //background-image: linear-gradient( rgba(0, 0, 0, 0.5), transparent);
-
     .logo-mobile-nav {
         position: relative;
         max-width: 70px;
@@ -105,7 +106,7 @@ $ellipsiswidth: 3em !default;
                         margin: 0;
                         padding: 5px 35px;
                         @media (max-width: 991px) {
-                            padding: 10px 5px;
+                            padding: 0px 5px;
                         }
                         a {
                             color: #fff !important;
@@ -168,7 +169,7 @@ $ellipsiswidth: 3em !default;
     .open-sidemenu {
         display: block;
     }
-    .no-scroll{
+    .no-scroll {
         overflow: hidden;
     }
     #sidenav {
@@ -367,28 +368,29 @@ footer {
         }
     }
 }
+
 //  ==========================contact============================
-.contact-phone{
+.contact-phone {
     background: url(../images/default/phone-intro.png) no-repeat;
     background-size: contain;
     width: 46px;
     height: 51px;
-    a{
+    a {
         width: 100%;
         font-size: 26px;
         color: transparent;
         line-height: 40px;
     }
-    &:hover{
-        content:"";
+    &:hover {
+        content: "";
         background: url(../images/home/cta-phone2.png) no-repeat;
         background-size: contain;
         width: 145px;
         height: 60px;
     }
 }
-// ===========================modal==============================
 
+// ===========================modal==============================
 .modal {
     max-height: 700px;
     max-width: initial;
@@ -421,61 +423,50 @@ footer {
         background-position: center center;
         background-image: url('../images/default/close.png');
     }
-    #note{
+    #note {
         overflow: auto;
         height: 280px;
-
         margin: 20px 10px;
         text-align: justify;
     }
-    #note::-webkit-scrollbar-track
-    {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: #c2c3c7;
+    #note::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #c2c3c7;
     }
-
-    #note::-webkit-scrollbar
-    {
-    width: 5px;
-    background-color: #c2c3c7;
+    #note::-webkit-scrollbar {
+        width: 5px;
+        background-color: #c2c3c7;
     }
-
-    #note::-webkit-scrollbar-thumb
-    {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: $main-color;
+    #note::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: $main-color;
     }
-    #dettail-comparison{
+    #dettail-comparison {
         overflow: auto;
         height: 280px;
-
         margin: 20px 10px;
         text-align: justify;
     }
-    #dettail-comparison::-webkit-scrollbar-track
-    {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: #c2c3c7;
+    #dettail-comparison::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #c2c3c7;
     }
-
-    #dettail-comparison::-webkit-scrollbar
-    {
-    width: 5px;
-    background-color: #c2c3c7;
+    #dettail-comparison::-webkit-scrollbar {
+        width: 5px;
+        background-color: #c2c3c7;
     }
-
-    #dettail-comparison::-webkit-scrollbar-thumb
-    {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: $main-color;
+    #dettail-comparison::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: $main-color;
     }
 }
-.swiper-banner{
-    .swiper-slide{
+
+.swiper-banner {
+    .swiper-slide {
         margin-right: 0;
     }
 }
@@ -533,7 +524,7 @@ footer {
             border: 1px solid #ccc4;
             border-radius: 20px;
             outline: none;
-            @media (max-width: 375px){
+            @media (max-width: 375px) {
                 width: 100%;
             }
             select {
@@ -556,7 +547,7 @@ footer {
                 list-style: none;
                 li.address-item {
                     display: grid;
-                    grid-template-columns: 4% 32% 32% 32% ;
+                    grid-template-columns: 4% 32% 32% 32%;
                     justify-content: space-between;
                     flex-direction: row;
                     margin-bottom: 5px;
@@ -565,42 +556,37 @@ footer {
                         color: $main-color;
                         padding-right: 20px;
                     }
-                    .order{
+                    .order {
                         color: $main-color;
                     }
-                    .location{
-                        span{
+                    .location {
+                        span {
                             margin-right: 5px;
                         }
                     }
-                    .phone-contact{
+                    .phone-contact {
                         display: flex;
                         justify-content: flex-end;
                     }
                 }
             }
-            ul.car-address{
+            ul.car-address {
                 overflow: auto;
                 height: 100px;
             }
-            .car-address::-webkit-scrollbar-track
-            {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            border-radius: 10px;
-            background-color: #c2c3c7;
+            .car-address::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                background-color: #c2c3c7;
             }
-        
-            .car-address::-webkit-scrollbar
-            {
-            width: 5px;
-            background-color: #c2c3c7;
+            .car-address::-webkit-scrollbar {
+                width: 5px;
+                background-color: #c2c3c7;
             }
-        
-            .car-address::-webkit-scrollbar-thumb
-            {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: $main-color;
+            .car-address::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+                background-color: $main-color;
             }
         }
     }
@@ -615,6 +601,7 @@ footer {
     z-index: 1024;
     cursor: pointer;
 }
+
 // ===============================scrollup=====================================
 .scrollup {
     position: fixed;
@@ -624,6 +611,7 @@ footer {
     z-index: 1024;
     cursor: pointer;
 }
+
 // ============================ellipsis=======================================
 .ellipsis {
     font-size: 14px;
@@ -636,17 +624,20 @@ footer {
     text-overflow: ellipsis;
     margin-bottom: 0;
 }
+
 .ellipsis:before {
     content: "";
     float: left;
     width: 5px;
     height: $height;
 }
+
 .ellipsis>*:first-child {
     float: right;
     width: 100%;
     margin-left: -5px;
 }
+
 .ellipsis:after {
     content: "";
     float: right;
@@ -661,9 +652,11 @@ footer {
     color: #f36f21;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
 }
-.thumb-t{
+
+.thumb-t {
     color: $main-color;
 }
+
 // btn call 
 // .btn-call-now {
 //     position: fixed;
@@ -696,16 +689,16 @@ footer {
     font-size: 100%;
     border-radius: 25px;
     padding: 5px 15px 5px 5px;
-    
-    @media (max-width: 767px){
+    @media (max-width: 767px) {
         width: initial;
         padding: 5px;
         border: 1px solid $main-color;
     }
-span{
-    margin-left: 8px;
+    span {
+        margin-left: 8px;
+    }
 }
-}
+
 @-moz-keyframes coccoc-alo-circle-anim {
     0% {
         transform: rotate(0) scale(.5) skew(1deg);
@@ -921,11 +914,13 @@ span{
         transform: rotate(0) scale(1) skew(1deg)
     }
 }
-@media (max-width: 767px){
+
+@media (max-width: 767px) {
     .btn-call-now span {
         display: none;
     }
 }
+
 .btn-call-now .fa {
     -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
     -moz-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
@@ -942,9 +937,11 @@ span{
     text-align: center;
     padding: 7px;
 }
+
 .fa-phone:before {
     content: "\f095";
 }
+
 .btn-call-now span.icon-tel {
     position: relative;
     display: inline-block;
@@ -961,10 +958,12 @@ span{
     overflow: hidden;
     vertical-align: top;
 }
+
 .btn-call-now:hover span.icon-tel {
     transform: rotate(720deg);
     transition: 1s;
 }
+
 .btn-call-now span.icon-tel:after {
     content: "\f2a0";
     position: relative;
@@ -972,7 +971,8 @@ span{
     font-family: 'Font Awesome 5 Pro';
     font-weight: 300;
 }
-span.tel{
+
+span.tel {
     color: $main-color;
     position: relative;
     display: inline-block;
@@ -983,20 +983,21 @@ span.tel{
     text-decoration: none;
     font-family: UTM_HelveBold;
 }
+
 // ===============banner=============
 .swiper-banner {
     height: calc(70vh - 120px);
     // margin: 60px;
-    @media (max-width: 375px){
+    @media (max-width: 375px) {
         height: calc(50vh - 100px);
     }
-  }
-  
-  .swiper-slide {
+}
+
+.swiper-slide {
     overflow: hidden;
-  }
-  
-  .slide-inner {
+}
+
+.slide-inner {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1004,5 +1005,4 @@ span.tel{
     top: 0;
     background-size: cover;
     background-position: center;
-  }
-  
+}
