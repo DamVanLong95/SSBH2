@@ -22,10 +22,9 @@ class HealthController extends Controller
         $products  = Product::orderBy('created_at','desc')->get();
         $saving    = Product::where('cate','=',1)->get();
         $secure    = Product::where('cate','=',2)->get();
-        $object_bh = Health::select('comparison')->take(1)->get();
-
-        $scope      = Health::select('comparison')->where('id','=',2)->first();
-        $benifits   = Health::select('id','comparison','level')->take(74)->get();
+        $object_bh = Health::select('comparison')->skip(1)->first();
+        $scope      = Health::select('comparison')->skip(2)->first();
+        $benifits   = Health::select('id','comparison','level')->take(76)->get();
         $healths    = Health::select('id','comparison','level')->get();
         // dd($healths);
         $exclusions = Exclusion::select('rules')->take(66)->get();
@@ -72,14 +71,15 @@ class HealthController extends Controller
         $obj_bhs    = Health::select('comparison','content','program_id')
                     ->where('product_id','=',$product_id)
                     ->where('program_id','=',$program_id)
+                    ->skip(1)
                     ->first();
+                    // dd($obj_bhs);
 
         $scope = Health::select('comparison','content','program_id')
                     ->where('product_id','=',$product_id)
                     ->where('program_id','=',$program_id)
-                    ->take(2)
-                    ->get();
-
+                    ->skip(2)
+                    ->first();
         $healths = Health::select('comparison','content','program_id')
                     ->where('product_id','=',$product_id)
                     ->where('program_id','=',$program_id)

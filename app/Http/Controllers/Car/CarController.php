@@ -63,7 +63,6 @@ class CarController extends Controller
                     ->take(19)
                     ->get();
         $brands      = Brand::select('id','name','status')
-                    ->where('status','=',1)
                     ->get();
         $permission  = Permission::select('company_id','note_rule','rules_owner','id')
                     ->take(24)
@@ -88,8 +87,8 @@ class CarController extends Controller
                         ->whereIn('id',$condition_2)
                         ->get();
 
-        $uses = RefRate::all();
-        
+        $uses = RefRate::orderBy('type_car')->get();
+        // dd($uses);
         $data = array();
         $data['companies_cheap']  = $companies_cheap;
         $data['companies_recoup'] = $companies_recoup; 

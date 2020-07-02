@@ -495,15 +495,9 @@
                     "product_longevity_id":globalId
                 },
             }).done(function(data){
-<<<<<<< Updated upstream
-                $('#insurance').html(data.html);
-                $('#detail-insurance').modal();
-                if($('#detail-insurance').is(':visible') === false)
-=======
                 $('#comparison').html(data.html);
                 $('#detail-comparison').modal();
                 if($('#detail-comparison').is(':visible') === false)
->>>>>>> Stashed changes
                     $('.selectedId').prop("checked", false);
             });
        }

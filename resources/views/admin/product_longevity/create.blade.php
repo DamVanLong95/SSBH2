@@ -2,7 +2,7 @@
 @section('styles')
 @endsection
 @section('content')
-    <div class="col-lg-9">
+    <div class="col-md-12">
         <div class="card">
             <form class="form-horizontal" action="{{route('product_longevity.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -39,12 +39,12 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="title" class="col-md-3 text-right "><strong>Loại</strong>  </label>
+                    <div class="form-group ">
+                        <label for="title" class="col-md-3 text-right "><strong>Loại</strong> </label>
                         @foreach($classifies as $key=>$classify)
-                        <div class="col-sm-1">
+                        <div class="col-sm-2 offset-3">
                             <label for="" style="margin-left:15px" >{{$classify['name']}}</label>
-                            <input type="radio" class="checkmark" value="{{$classify['id']}}" name="classify[]"  {{ ($key == 0) ? 'checked' : '' }}>
+                            <input type="checkbox" class="checkmark" value="{{$classify['id']}}" name="classify[]"  {{ ($key == 0) ? 'checked' : '' }}>
                         </div>
                         @endforeach
                     </div>
@@ -56,8 +56,5 @@
                 </div>
             </form>
         </div>
-    </div>
-    <div class="col-lg-3">
-
     </div>
 @stop
