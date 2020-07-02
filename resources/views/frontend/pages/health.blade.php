@@ -273,24 +273,21 @@
 
                                     </td>
                                 </tr>
-                               @foreach($data['object_bh'] as $value)
                                 <tr class="data-detail ">
                                     <td class="1st-td">
                                         <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$value['comparison']}}</p>
+                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$data['object_bh']['comparison']}}</p>
                                         <!-- <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span> -->
                                     </td>
                                     <td>
 
                                     </td>
                                 </tr>
-                                @endforeach
-                           
                                 <tr class="header" id="pvlt">
                                     <td  colspan="2" class="green_header" >Phạm vi lãnh thổ</td>
                                 </tr>
                                 <tr class="data-detail">
-                                    <td>{{$data['scope']['comparison']}}</td>
+                                    <td><p class="ellipsis">{{$data['scope']['comparison']}}</p></td>
                                     <td></td>
                                     <!-- <td>
 
@@ -301,7 +298,7 @@
                                 <tr class="header green1 bg-head-2" id="qlbh">
                                     <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
-                                @for($i=2;$i< count($data['benifits']);$i++)
+                                @for($i=4;$i< count($data['benifits']);$i++)
                                     @if($data['benifits'][$i]['level']==1)
                                     <tr class="data-detail ">
                                         <td>
@@ -361,7 +358,7 @@
                                     <td  colspan="2" class="green_header">Thời gian chờ</td>
                                 </tr>
                             
-                                @for($i=74;$i< 83;$i++)
+                                @for($i=76;$i< 86;$i++)
                                     @if($data['healths'][$i]['level']== 1)
                                     <tr class="data-detail  ">
                                         <td>
@@ -393,6 +390,12 @@
                                         <td></td>
                                     </tr>
                                     @else
+                                    <!-- <tr class="data-detail  ">
+                                        <td> <p class="ellipsis">{{$data['healths'][$i]['comparison']}}</p></td>
+                                        <td></td>
+                                    
+                                    </tr> -->
+                                   
                                     @endif
                                 @endfor
                                 <tr class="header green1 green" id="pbh">

@@ -119,23 +119,22 @@
                                                     :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
                                     //=====================pham vi lanh tho===========================
                                     var pvlt   = document.getElementById('pvlt');
-                                  
+                        
                                     var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
-
-                                    (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                    :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
+                                    (!scope)? tds.innerHTML = `<p class="">Data not update</p>`
+                                                    :tds.innerHTML = `<p class="">`+scope['content']+`</p>`;
                                 
                                     //========================quyen loi bao hiem========================
                                     for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
+                                        
+                                        tdss.innerHTML =  `<p>`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     
                                     }
                                     //========================THOI GIAN================================
-                                  
                                     for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                        tdss.innerHTML =  `<p>`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     }
 
                                     var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
@@ -145,7 +144,7 @@
                                     tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
                                     $('.fancybox').fancybox();
                                     //BENH VIEN LIEN KET
-                                    var tdsss =myTable.rows[91].cells[indexCol];
+                                    var tdsss =myTable.rows[92].cells[indexCol];
                                     tdsss.setAttribute('id','td'+indexCol+''); 
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                     $('#td'+indexCol+'').click(function(){
@@ -154,7 +153,7 @@
                                             if(indexCol==1){
                                                 tdnet = tdsss;
                                                 tdnet.setAttribute('class','active-td');
-                                                myTable.rows[91].cells[i+1].removeAttribute('class','active-td');
+                                                myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
                                                 break;
                                             }
                                             if(indexCol==i){
@@ -162,7 +161,7 @@
                                                 tdnet.setAttribute('class','active-td');
                                             
                                             }else {
-                                                tdnet= myTable.rows[91].cells[i];
+                                                tdnet= myTable.rows[92].cells[i];
                                                 tdnet.removeAttribute('class','active-td');
                                             }
                                         }
@@ -438,38 +437,36 @@ $(function() {
                                 var pbh   = document.getElementById('pbh');
                                 
                                 var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
-                                (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
-                                //=====================pham vi lanh tho===========================
-                                var pvlt   = document.getElementById('pvlt');
+                                    (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
+                                                    :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
+                                    //=====================pham vi lanh tho===========================
+                                    var pvlt   = document.getElementById('pvlt');
+                        
+                                    var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
+                                    (!scope)? tds.innerHTML = `<p class="">Data not update</p>`
+                                                    :tds.innerHTML = `<p class="">`+scope['content']+`</p>`;
                                 
-                                var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
-
-                                (scope[1]===null)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                :tds.innerHTML = `<p class="">`+scope[1]['content']+`</p>`;
-                            
-                                //========================quyen loi bao hiem========================
-                                for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
-                                    var tdss = myTable.rows[i].cells[indexCol];
-                                    // console.log(tdss);
-                                    tdss.innerHTML =  `<p>`+healths[i-5]['content']!=null?healths[i-5]['content']:''+`</p>`
-                                
-                                }
-                                //========================THOI GIAN================================
-                                  
-                                for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
+                                    //========================quyen loi bao hiem========================
+                                    for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-6]['content']!=null?healths[i-6]['content']:''+`</p>`
+                                        
+                                        tdss.innerHTML =  `<p>`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                    
+                                    }
+                                    //========================THOI GIAN================================
+                                    for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
+                                        var tdss = myTable.rows[i].cells[indexCol];
+                                        tdss.innerHTML =  `<p>`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     }
 
                                     var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
                                   
-                                    //========================phi bao hiem= =================================
-                                    var img     = 'storage/'+ program.img_cost;
+                                      //========================phi bao hiem= =================================
+                                     var img     = 'storage/'+ program.img_cost;
                                     tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
                                     $('.fancybox').fancybox();
                                 //BENH VIEN LIEN KET
-                                var tdsss =myTable.rows[91].cells[indexCol];
+                                var tdsss =myTable.rows[92].cells[indexCol];
                                 tdsss.setAttribute('id','td'+indexCol+''); 
                                 tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                 $('#td'+indexCol+'').click(function(){
@@ -478,7 +475,7 @@ $(function() {
                                         if(indexCol==1){
                                             tdnet = tdsss;
                                             tdnet.setAttribute('class','active-td');
-                                            myTable.rows[91].cells[i+1].removeAttribute('class','active-td');
+                                            myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
                                             break;
                                         }
                                         if(indexCol==i){
@@ -486,7 +483,7 @@ $(function() {
                                             tdnet.setAttribute('class','active-td');
                                         
                                         }else {
-                                            tdnet= myTable.rows[91].cells[i];
+                                            tdnet= myTable.rows[92].cells[i];
                                             tdnet.removeAttribute('class','active-td');
                                         }
                                     }
