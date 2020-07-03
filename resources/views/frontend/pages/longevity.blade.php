@@ -33,32 +33,12 @@
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
                                 </a>
+                                @foreach($classifies as $value)
                                 <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 1" />
-                                Tich lũy
-                                </label>  <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 2" />
-                                Bảo vệ
-                                </label>
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 3" />
-                                Đầu tư
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 4" />
-                                Giáo dục
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" 5" />
-                                Hưu trí
-                                </label>
-
-                                <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group"class="checkedbox" value=" 6" />
-                                Doanh nghiệp
-                                </label>
+                                <input type="checkbox" name="dropdown-group" class="checkedbox" value=" {{$value['id']}}" />
+                               {{$value['name']}}
+                                </label>  
+                                @endforeach
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">

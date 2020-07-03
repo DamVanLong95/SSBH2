@@ -45,12 +45,20 @@ class ProductLongevityController extends Controller
                 return $product->url ;
             })
             ->editColumn('classify_id',function($product){
-                if($product->classify_id ==1)  return  "Tích lũy - Tiết kiệm";
-                if($product->classify_id == 2) return  "Đầu tư";
-                if($product->classify_id == 3) return  "Bảo vệ";
-                if($product->classify_id == 4) return  "Giáo dục";
-                if($product->classify_id == 5) return  "Hưu trí";
-                if($product->classify_id == 6) return  "Doanh nghiệp";
+                $product = ProductLongevity::find($product->id);
+                $str = '';
+                // dd($product->type);
+                foreach($product->type as $value){
+                    if($value->type ==1)  $str.=  "Tích lũy - Tiết kiệm, &nbsp;";
+                    if($value->type == 2) $str.=  "Đầu tư, &nbsp;";
+                    if($value->type == 3) $str.=  "Bảo vệ, &nbsp;";
+                    if($value->type == 4) $str.=  "Giáo dục, &nbsp;";
+                    if($value->type == 5) $str.=  "Hưu trí, &nbsp;";
+                    if($value->type == 6) $str.=  "Doanh nghiệp, &nbsp;";
+                   
+                }
+                return  $str ;
+               
             })
             ->addColumn('action', function ($product) {
                 return '<a href="'.route('product_longevity.edit', $product->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
@@ -150,25 +158,62 @@ class ProductLongevityController extends Controller
                 }
                 
            }else{
-            //    dd($classifies);
                if(sizeof($product->type) > sizeof($classifies)){
+                //    dd($product->type);
                     foreach ($product->type as $key=>$value) { 
-                            Log::debug($value);
-                            Log::debug($classifies);
-                        if($value->type != isset($classifies[$key])){
+                        Log::debug("th1");
+                        if(in_array($value->type, $classifies)){
+                            $record = TypeLongevity::where('type',$value->type)->update([
+                                'product_longevity_id' => $id,
+                                'type'                 => $value->type
+                            ]);   
+                        }else{
                             $new = TypeLongevity::where('type',$value->type)->delete();
                         }
+                    }   
+                }elseif(sizeof($product->type) < sizeof($classifies)){
+                    $arr_temp = [];
+                    foreach($product->type as $val){
+                        array_push($arr_temp, $val->type);
                     }
-                }else{
-                    // dd($classifies);
                     foreach ($classifies as $key=>$classify) { 
-                        Log::debug($classify);
-                        Log::debug(isset($product->type[$key]->type));
-                        if($classify != isset($product->type[$key]->type)){
+                        if(in_array($classify, $arr_temp)){
+                            $record = TypeLongevity::where('type',$classify)->update([
+                                'product_longevity_id' => $id,
+                                'type'                 => $classify
+                            ]);
+                            
+                        }else{
                             $new = new TypeLongevity;
                             $new->product_longevity_id = $id;
                             $new->type = $classify;
-                            $new->save();                           
+                            $new->save();  
+                        }
+
+                    }
+                }else{
+                    $arr_temp = [];
+                    foreach($product->type as $val){
+                        array_push($arr_temp, $val->type);
+                    }
+                    foreach ($classifies as $key=>$classify) { 
+                        if(in_array($classify, $arr_temp)){
+                            $record = TypeLongevity::where('type',$classify)->update([
+                                'product_longevity_id' => $id,
+                                'type'                 => $classify
+                            ]);
+                            
+                        }else{
+                            $new = new TypeLongevity;
+                            $new->product_longevity_id = $id;
+                            $new->type = $classify;
+                            $new->save();  
+                        }
+
+                    }
+                    foreach($arr_temp as $temp){
+                        if(!in_array($temp, $classifies)){
+                            TypeLongevity::where('type',$temp)->delete();
                         }
                     }
                 }

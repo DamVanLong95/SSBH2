@@ -13,14 +13,15 @@ use App\Model\GroupProduct;
 use App\Model\Benifit, App\Model\SickGroup;
 use App\Model\SickLongevity;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
+use App\Model\ClassifyLongevity;
 class LongevityController extends Controller
 {
     //
     public function index()
     {
         $products = Longevity::all();
-        // $saving   = ProductLongevity::where('classify_id','=',1)->get();
-        // $secure   = ProductLongevity::where('classify_id','=',3)->get();
+        $classifies = ClassifyLongevity::all();
         $scope_secure = Longevity::select('product_id','comparison')
                     ->take(4)
                     ->get();//pham vi bao ve
@@ -45,7 +46,7 @@ class LongevityController extends Controller
         $data['benifits_group']  = $benifits_group;
         $data['benifits']        = $benifits;
         $data['group_sicks']     = $group_sicks ;
-        return view('frontend.pages.longevity',compact('data','products'));
+        return view('frontend.pages.longevity',compact('data','products','classifies'));
     }
     public function checkImg(Request $request){
         $product_id = $request->get('id');
@@ -68,8 +69,8 @@ class LongevityController extends Controller
         $products =[];
         $references = [
             1=>'saving',
-            2=>'secure',
-            3=> 'invest',
+            2=>'invest',
+            3=>'secure',
             4=> 'edu',
             5=> 'retire',
             6=> 'concern',
@@ -90,10 +91,12 @@ class LongevityController extends Controller
             $products_id = FilterBanner::select('id','company_id','product_longevity_id')->where(function ($query) use($fields){
               
                 for($i=0; $i< sizeof($fields) ;$i++){
+                   
                     $query->orwhere($fields[$i],'=',1);
+                   
                 }
             })->get(); 
-            // dd($products_id);
+           
             if(sizeof ($products_id) > 0 ){
                 $products = ProductLongevity::select('id','name','url','classify_id')
                     ->where(function($query) use ($products_id){
@@ -118,33 +121,29 @@ class LongevityController extends Controller
         }else{
             $product_filter_companies = new Collection();
         }
-  
         $products = $products->merge($product_filter_companies);
 
-        $products = $products->unique(function ($item)
-        {
-            return $item['name'] ;
-        });
-        $product_saving=[];
+        // $products = $products->unique(function ($item)
+        // {
+        //     return $item['name'] ;
+        // });
+        $product_saving =[];
         $product_secure =[];
         $product_invest =[];
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
-        dd($products);
-        foreach($products as $value){
-            if($value['classify_id'] == 1)
-                array_push($product_saving,$value);
-            if($value['classify_id'] == 2)
-                array_push($product_invest,$value);
-            if($value['classify_id'] == 3)
-                array_push($product_secure,$value);
-            if($value['classify_id'] == 4)
-            array_push($product_edu,$value);
-            if($value['classify_id'] == 5)
-            array_push($product_retire,$value);
-            if($value['classify_id'] == 6)
-            array_push($product_concern,$value);
+        foreach($products as $key=>$value){
+            $check = [];
+            foreach($value->type as $val){
+                array_push($check, $val->type);
+                if($val->type == 1 && in_array($val->type,$params))  array_push($product_saving,$value);
+                if($val->type == 2 && in_array($val->type,$params))  array_push($product_invest,$value);
+                if($val->type == 3 && in_array($val->type,$params))  array_push($product_secure,$value);
+                if($val->type == 4 && in_array($val->type,$params))  array_push($product_edu,$value);;
+                if($val->type == 5 && in_array($val->type,$params))  array_push($product_retire,$value);
+                if($val->type == 6 && in_array($val->type,$params))  array_push($product_concern,$value);
+            }
         }
         $html_saving = view('frontend.pages.health_ajax.secure_longevity')
                     ->with(['product_saving'=> $product_saving])
