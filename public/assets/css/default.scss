@@ -425,9 +425,12 @@ footer {
     }
     #note {
         overflow: auto;
-        height: 280px;
+        height: 580px;
         margin: 20px 10px;
         text-align: justify;
+        @media (max-width: 375px) {
+            height: 530px;
+        }
     }
     #note::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);

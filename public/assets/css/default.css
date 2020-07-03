@@ -331,9 +331,12 @@ footer {
     background-image: url("../images/default/close.png"); }
   .modal #note {
     overflow: auto;
-    height: 280px;
+    height: 580px;
     margin: 20px 10px;
     text-align: justify; }
+    @media (max-width: 375px) {
+      .modal #note {
+        height: 530px; } }
   .modal #note::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
