@@ -41,12 +41,12 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label for="title" class="col-md-3 text-right "><strong>Loại</strong>  </label>
                         @foreach($classifies as $key=>$classify)
-                        <div class="col-sm-1">
+                        <div class="col-sm-2 offset-3">
                             <label for="" style="margin-left:15px" >{{$classify['name']}}</label>
-                            <input type="radio" class="checkmark" value="{{$classify['id']}}" name="classify"  {{ ($classify['id'] == $product->classify_id )? 'checked' : '' }}>
+                            <input type="checkbox" class="checkmark" value="{{$classify['id']}}" name="classify[]"  >
                         </div>
                         @endforeach
                     </div>
@@ -63,3 +63,22 @@
 
     </div>
 @stop
+@push('scripts')
+<script>
+    $(function(){
+        var arr = <?php echo $arr?>;
+       var checkmark = document.getElementsByClassName('checkmark');
+       for( var i=0; i< checkmark.length; i++){
+           for(var j =0; j < arr.length;j++){
+               if(arr[j]==checkmark[i].value){
+                    checkmark[i].checked = true;
+               }
+           }
+          
+           
+       }
+    //    console.log(checkmark);
+    //    console.log(arr.length);
+    });
+</script>
+@endpush

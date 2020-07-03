@@ -19,8 +19,8 @@ class LongevityController extends Controller
     public function index()
     {
         $products = Longevity::all();
-        $saving   = ProductLongevity::where('classify_id','=',1)->get();
-        $secure   = ProductLongevity::where('classify_id','=',3)->get();
+        // $saving   = ProductLongevity::where('classify_id','=',1)->get();
+        // $secure   = ProductLongevity::where('classify_id','=',3)->get();
         $scope_secure = Longevity::select('product_id','comparison')
                     ->take(4)
                     ->get();//pham vi bao ve
@@ -39,8 +39,6 @@ class LongevityController extends Controller
         
         $companies          = Company::all();
         $data['companies']  = $companies;
-        $data['saving']     = $saving;
-        $data['secure']     = $secure;
         $data['products']   = $products;
         $data['scope_secure']    = $scope_secure;
         $data['benifits_more']   = $benifits_more;
@@ -95,6 +93,7 @@ class LongevityController extends Controller
                     $query->orwhere($fields[$i],'=',1);
                 }
             })->get(); 
+            // dd($products_id);
             if(sizeof ($products_id) > 0 ){
                 $products = ProductLongevity::select('id','name','url','classify_id')
                     ->where(function($query) use ($products_id){
@@ -132,6 +131,7 @@ class LongevityController extends Controller
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
+        dd($products);
         foreach($products as $value){
             if($value['classify_id'] == 1)
                 array_push($product_saving,$value);
@@ -139,12 +139,12 @@ class LongevityController extends Controller
                 array_push($product_invest,$value);
             if($value['classify_id'] == 3)
                 array_push($product_secure,$value);
-             if($value['classify_id'] == 4)
-                array_push($product_edu,$value);
-             if($value['classify_id'] == 5)
-                array_push($product_retire,$value);
-             if($value['classify_id'] == 6)
-                array_push($product_concern,$value);
+            if($value['classify_id'] == 4)
+            array_push($product_edu,$value);
+            if($value['classify_id'] == 5)
+            array_push($product_retire,$value);
+            if($value['classify_id'] == 6)
+            array_push($product_concern,$value);
         }
         $html_saving = view('frontend.pages.health_ajax.secure_longevity')
                     ->with(['product_saving'=> $product_saving])

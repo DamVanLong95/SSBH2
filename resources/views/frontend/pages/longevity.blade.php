@@ -162,11 +162,11 @@
                 <div class="row">
                     <div class="col-lg-12"  >
                     <div class="pack-title">
-                    <h4>Bảo vệ <span>({{count($data['secure'])}})</span></h4>
+                    <h4>Bảo vệ <span></span></h4>
                     </div>
                     <div  class="section-wrapper2">
                         <ul id="thumbs" class="section-list2">
-                        @foreach($data['secure'] as $value)
+                       
                             <li class="item2">
                                 <div class="thumb-t">
                                     <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
@@ -182,7 +182,6 @@
                                     </div>
                                 </div>
                             </li>
-                        @endforeach
                         </ul>
                     </div>
                     </div>

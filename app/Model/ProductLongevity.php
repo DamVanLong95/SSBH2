@@ -12,4 +12,7 @@ class ProductLongevity extends Model
     public function company(){
         return $this->belongsTo('App\Company');
     }
+    public function type(){
+        return $this->hasMany('App\Model\TypeLongevity');;
+    }
 }

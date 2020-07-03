@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Company;
 use App\Model\ClassifyLongevity;
 use App\Model\ProductLongevity;
+use App\Model\TypeLongevity;
 use App\Http\Requests\ProductLongevityRequest;
 use Illuminate\Support\Facades\Storage;
 use DB;
 use Str;
 use Yajra\DataTables\Facades\DataTables;
 use App\Exports\ProductsExport;
+use Illuminate\Support\Facades\Log;
 class ProductLongevityController extends Controller
 {
     //
@@ -70,7 +72,16 @@ class ProductLongevityController extends Controller
         $companies = Company::orderBy('created_at')->get();
         $classifies = ClassifyLongevity::all();
         $product  = ProductLongevity::find($id);
-        return view('admin.product_longevity.edit',compact('companies','product','classifies'));
+        // dd($product);
+        // dd($product->type);
+        $longevity_type = $product->type;
+        $arr = [];
+        foreach($longevity_type as $value){
+            array_push($arr, $value->type);
+        }
+        // dd($arr);
+        $arr = json_encode($arr);
+        return view('admin.product_longevity.edit',compact('companies','product','classifies','arr'));
     }
     public function store(ProductLongevityRequest $request){
         if($request->hasFile('file')){
@@ -83,14 +94,21 @@ class ProductLongevityController extends Controller
         }
             $data = $request->all();
             // dd($data['classify']);
-           
+            $product = new ProductLongevity;
+            $product->name          = $data['name'];
+            $product->company_id    = $data['company_id'];
+            $product->classify_id   = 0;
+            $product->url           = isset($path)? $path:null;
+            $product->save();
+            if ( !  $product->save())
+            {
+                App::abort(500, 'Error');
+            }
             foreach($data['classify'] as $value){
-                $product = new ProductLongevity ;
-                $product->name          = $data['name'];
-                $product->company_id    = $data['company_id'];
-                $product->classify_id   = $value;
-                $product->url           = isset($path)? $path:null;
-                $product->save();
+                $type = new TypeLongevity ;
+                $type->product_longevity_id = $product->id;
+                $type->type   = $value;
+                $type->save();
             }
            
 
@@ -101,7 +119,6 @@ class ProductLongevityController extends Controller
         return redirect()->route('product_longevity.index')->with($notification);
     }
     public function update(Request $request,$id){
-        // dd($request->all());
         if($request->hasFile('file')){
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
@@ -115,17 +132,53 @@ class ProductLongevityController extends Controller
                 Storage::delete($file_old);
             }
         }
-      
+        $classifies = $request->get('classify');
+        // dd($classifies);
         $product = ProductLongevity::find($id);
-        $product->name    = $request->get('name');
-        $product->company_id        = $request->get('company_id');
-        $product->classify_id      = $request->get('classify');
-        $product->url       = isset($path) ? $path: $product->url;;
+        $product->name          = $request->get('name');
+        $product->company_id    = $request->get('company_id');
+        $product->classify_id   = 0;
+        $product->url           = isset($path) ? $path: $product->url;;
         $product->save();
-        $notification = array(
-            'message' => 'update successfully!',
-            'alert-type' => 'success'
-        );
+        if($classifies){
+           if($product->type->isEmpty()){
+                foreach($classifies as $classify){
+                    $type = new TypeLongevity;
+                    $type->product_longevity_id = $id;
+                    $type->type = $classify;
+                    $type->save();
+                }
+                
+           }else{
+            //    dd($classifies);
+               if(sizeof($product->type) > sizeof($classifies)){
+                    foreach ($product->type as $key=>$value) { 
+                            Log::debug($value);
+                            Log::debug($classifies);
+                        if($value->type != isset($classifies[$key])){
+                            $new = TypeLongevity::where('type',$value->type)->delete();
+                        }
+                    }
+                }else{
+                    // dd($classifies);
+                    foreach ($classifies as $key=>$classify) { 
+                        Log::debug($classify);
+                        Log::debug(isset($product->type[$key]->type));
+                        if($classify != isset($product->type[$key]->type)){
+                            $new = new TypeLongevity;
+                            $new->product_longevity_id = $id;
+                            $new->type = $classify;
+                            $new->save();                           
+                        }
+                    }
+                }
+           }
+            
+        }
+            $notification = array(
+                'message' => 'update successfully!',
+                'alert-type' => 'success'
+            );
         return redirect()->route('product_longevity.index')->with($notification);
     }
     public function destroy($id)
