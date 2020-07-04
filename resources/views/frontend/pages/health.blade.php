@@ -548,27 +548,24 @@
     });
     function handleAll(el){
         var selector = $('.selectedId');
-        // console.log(selector);
+        console.log(el);
         for(var i = 2; i <= 25; i ++){
-            if( $(el).val() == 3) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 5) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
         for(var i = 27; i < 32; i ++){
-            if( $(el).val() == 28) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-        }
-        for(var i = 33; i < 32; i ++){
-            if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 30) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
         for(var i = 33; i < 36; i ++){
-            if( $(el).val() == 34) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 36) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
         for(var i = 37; i < 41; i ++){
-            if( $(el).val() == 38) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 40) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
         for(var i = 42; i < 62; i ++)
-            if( $(el).val() == 43) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-        for(var i = 62; i <=selector.length; i ++){
-            if( $(el).val() == 64) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 45) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        for(var i = 62; i <73; i ++){
+            if( $(el).val() == 66) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
        
@@ -576,12 +573,11 @@
     function handleCheckbox(el){
         
         var selector = $('.selectedId');
-        // console.log(selector)
         for(var i = 3; i <= 8; i ++){
             if( $(el).val() == 4) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
         for(var i = 76; i < 79; i ++){
-            if( $(el).val() == 78) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 80) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
     }
     function resetChecked(){

@@ -226,7 +226,7 @@
 </div>
 
 @endif
-<!-- <div id="detail-comparison" class="modal"  style="height: auto">
+<div id="detail-comparison" class="modal"  style="height: auto">
     <h1 style="text-align: center">SO SÁNH QUYỀN LỢI BỔ TRỢ</h1>
     <div class="content-ctn" >
         <div id="comparison"></div>
@@ -234,7 +234,7 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
-</div> -->
+</div>
 <div id="detail-insurance" class="modal" data-toggle="modal" style="height: auto">
     <h1 style="text-align: center">Danh sách</h1>
     <div class="content-ctn"  >
@@ -292,7 +292,7 @@
                 $('.sized').draggable({ disabled: true });
                    globalId.push(idImg);
                 
-                    var myTable = document.getElementById('main-tbl-nt')
+                var myTable = document.getElementById('main-tbl-nt')
                                  tblBodyObj  = myTable.tBodies[0]
                                  tblHeadObj  = myTable.tHead
                                  indexCol    = tblHeadObj.rows[0].cells.length - 1;
@@ -483,7 +483,8 @@
 </script>
 <script>
    function handleOncick(el){
-       if(el.checked === true){
+       console.log($(el));
+       if($(el)[0].checked == true){
             var url = '{{route('popupLongevity')}}';
             $(this).prop("checked", true);
             $.ajax({

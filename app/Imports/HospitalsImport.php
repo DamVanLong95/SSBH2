@@ -6,9 +6,10 @@ use Illuminate\Support\Collection;
 use App\Model\Hospital;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use DB;
 
-class HospitalsImport implements ToModel,WithHeadingRow
+class HospitalsImport implements ToModel,WithHeadingRow,WithChunkReading
 {
     public function model(array $row)
     {
@@ -34,5 +35,9 @@ class HospitalsImport implements ToModel,WithHeadingRow
 
     {
         return 1;
+    }
+    public function chunkSize(): int
+    {
+        return 1000;
     }
 }

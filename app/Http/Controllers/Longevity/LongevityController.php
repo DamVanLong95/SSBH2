@@ -214,6 +214,7 @@ class LongevityController extends Controller
         $html = view('frontend.pages.health_ajax.popup')
                     ->with(['result' => $result,'product_longevity_id' => json_encode($product_longevity_id)])
                     ->render();
+                    // dd($html);
         return response()->json([
             'success' => true,
             'html' => $html
