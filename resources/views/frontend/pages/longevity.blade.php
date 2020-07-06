@@ -389,8 +389,6 @@
                                     @foreach($data['group_sicks'] as $value)
                                     <tr class="data-detail">
                                         <td>
-                                        <input class="selectedId" type="checkbox" id="checkbox_dsb_{{$value['id']}}"  value="{{$value['id']}}" onclick="checkList(this)"/>
-                                            <label for="checkbox_dsb_{{$value['id']}}" class=""> </label><span class="first-td">
                                             <p class="ellipsis">{{$value['stage']}}</p>
                                         </td>
                                         <td></td>

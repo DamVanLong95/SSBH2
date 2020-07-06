@@ -619,7 +619,27 @@
                             `;
                             }
                          }
-                 
+                         //==================== Danh sach benh==================================
+                         var dsb   = document.getElementById('dsb');
+                         for(var i = dsb.rowIndex+1 ; i < 63; i++){
+                             var tds = myTable.rows[i].cells[indexCol];
+                            //  console.log(tds);
+                             tds.innerHTML = `<button class="modalSick" value="`+idImg+`" data-id="`+(i-58)+`">...</button> `;
+                         }
+                         $('.modalSick').click(function(){
+                            var id = this.value;
+                            var url = "{{route('longevity.sick')}}";
+                            $.post(url,{
+                                "_token": "{{ csrf_token() }}",
+                                product_longevity:  id ,
+                                group_sick: $(this).data('id')
+                            }).done(function(data){
+                                $('#insurance').html(data);
+                                $('#detail-insurance').modal();
+                            });
+
+                         });
+                                    
                 }
                 addColumn('main-tbl-nt');
                 dropImage();
@@ -728,6 +748,7 @@
     }
 </script>
 <script>
+    
     function checkList(el){
        if(el.checked === true && globalId.length > 0){
             var url = '{{route('sick_longevity.show')}}';
