@@ -71,6 +71,7 @@ Route::post('longevity/popup','Longevity\LongevityController@displayPopup')->nam
 Route::post('longevity/showProduct','Longevity\LongevityController@showProduct')->name('showProduct');
 Route::post('longevity/checkImg','Longevity\LongevityController@checkImg')->name('checkLongevity');
 Route::post('longevity/showData','Longevity\LongevityController@showData')->name('sick_longevity.show');
+Route::post('longevity/sick','Longevity\LongevityController@sickShow')->name('longevity.sick');
 
 Auth::routes();
 

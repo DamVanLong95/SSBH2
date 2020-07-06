@@ -274,6 +274,43 @@ class LongevityController extends Controller
             'html' => $html
         ]);
     }
+    public function sickShow(Request $request){
+        // dd($request->all());
+        $group_sick_id          = $request->get('group_sick');
+        $product_longevity_id   = $request->get('product_longevity');
+
+        $product_longevity    = ProductLongevity::find($product_longevity_id);
+        $name                 = $product_longevity->company->name;
+        $company_id           = $product_longevity->company->id;
+
+    //    dd($product_longevity->company->id);
+        $data_show = SickLongevity::where('company_id',$company_id)
+                        ->where('group_sick_id',$group_sick_id)        
+                        ->get();
+        $header = $data_show->unique(function ($item)
+        {
+            return $item['insurance'] ;
+        });
+        // $arr = [];
+        // foreach($header as $key=>$th){
+        //     array_push($arr, $th['insurance']);
+        // }
+    //    foreach($arr as $key=>$val){
+          
+    //         ${"data_insurance". $key} = [];
+    //         ${"data_insurance". $key} = $data_show->filter(function($item)use ($val){
+    //            return $item['insurance'] === $val;
+    //        });
+          
+    //    }
+    //    foreach($header as $key=>$th){
+    //         dd(${"data_insurance". $key});
+       
+    //     }
+        $html = view('frontend.pages.popup_sick')->with(['data_show'=> $data_show, 'header' => $header])->render();
+       return response()->json($html);
+
+    }
 
 
 
