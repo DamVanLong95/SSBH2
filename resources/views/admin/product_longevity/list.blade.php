@@ -10,12 +10,12 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th><h4>Image</h4></th>
-                        <th><h4>Company</h4></th>
-                        <th><h4>Product Name</h4></th>
-                        <th><h4>Url</h4></th>
-                        <th><h4>Classify</h4></th>
-                        <th><h4>Action</h4></th>
+                        <th><h4>Ảnh</h4></th>
+                        <th><h4>Doanh nghiệp</h4></th>
+                        <th><h4>Tên sản phẩm</h4></th>
+                        <th><h4>Đường dẫn ảnh</h4></th>
+                        <th><h4>Loại sản phẩm</h4></th>
+                        <th><h4>Hành động</h4></th>
                     </tr>
                     </thead>
 
@@ -45,12 +45,12 @@
     </div>
 @stop
 @push('scripts')
-    <script type="text/javascript">
+     <script type="text/javascript">
         $( document ).ready(function() {
             $('#product_table').dataTable({
                 processing: true,
                 serverSide: true,
-                    ajax      :{
+                ajax      :{
                         url:"{{route('product_longevity.datatable')}}",
                     },
                     columns: [
@@ -65,8 +65,10 @@
                         {data:'action', name:'action',orderable: false, searchable: false},
                     ],
                     "order": [[1, 'asc']]
+                });
             });
-            $(document).on('click','.delete',function(){
+        ///XOA RECORD
+        $(document).on('click','.delete',function(){
                 var product_id = $(this).data('id');
                 $('#formModal').modal('show');
                 $('#ok_button').on('click',function(){
@@ -87,8 +89,6 @@
                     });
                 });
             });
-        });
-     
 
     </script>
 

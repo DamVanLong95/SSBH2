@@ -23,7 +23,7 @@ class ProductLongevityController extends Controller
     }
     public function getData()
     {
-        $products = DB::table('product_longevities')->select([ 'id','name', 'company_id','url','classify_id'])->orderBy('created_at', 'asc');
+        $products = DB::table('product_longevities')->select([ 'id','name', 'company_id','url','classify_id']);
       
         return Datatables::of($products)
 

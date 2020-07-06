@@ -121,8 +121,8 @@ class LongevityController extends Controller
         }else{
             $product_filter_companies = new Collection();
         }
+       
         $products = $products->merge($product_filter_companies);
-
         // $products = $products->unique(function ($item)
         // {
         //     return $item['name'] ;
@@ -133,18 +133,30 @@ class LongevityController extends Controller
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
+        // dd($params);
         foreach($products as $key=>$value){
             $check = [];
             foreach($value->type as $val){
                 array_push($check, $val->type);
-                if($val->type == 1 && in_array($val->type,$params))  array_push($product_saving,$value);
-                if($val->type == 2 && in_array($val->type,$params))  array_push($product_invest,$value);
-                if($val->type == 3 && in_array($val->type,$params))  array_push($product_secure,$value);
-                if($val->type == 4 && in_array($val->type,$params))  array_push($product_edu,$value);;
-                if($val->type == 5 && in_array($val->type,$params))  array_push($product_retire,$value);
-                if($val->type == 6 && in_array($val->type,$params))  array_push($product_concern,$value);
+                if($params!=null){
+                    if($val->type == 1 && in_array($val->type,$params))  array_push($product_saving,$value);
+                    if($val->type == 2 && in_array($val->type,$params))  array_push($product_invest,$value);
+                    if($val->type == 3 && in_array($val->type,$params))  array_push($product_secure,$value);
+                    if($val->type == 4 && in_array($val->type,$params))  array_push($product_edu,$value);;
+                    if($val->type == 5 && in_array($val->type,$params))  array_push($product_retire,$value);
+                    if($val->type == 6 && in_array($val->type,$params))  array_push($product_concern,$value);
+                }else{
+                    if($val->type == 1)  array_push($product_saving,$value);
+                    if($val->type == 2)  array_push($product_invest,$value);
+                    if($val->type == 3)  array_push($product_secure,$value);
+                    if($val->type == 4)  array_push($product_edu,$value);;
+                    if($val->type == 5)  array_push($product_retire,$value);
+                    if($val->type == 6)  array_push($product_concern,$value);
+                }
+                   
             }
         }
+
         $html_saving = view('frontend.pages.health_ajax.secure_longevity')
                     ->with(['product_saving'=> $product_saving])
                     ->render();
@@ -295,18 +307,18 @@ class LongevityController extends Controller
         // foreach($header as $key=>$th){
         //     array_push($arr, $th['insurance']);
         // }
-    //    foreach($arr as $key=>$val){
-          
-    //         ${"data_insurance". $key} = [];
-    //         ${"data_insurance". $key} = $data_show->filter(function($item)use ($val){
-    //            return $item['insurance'] === $val;
-    //        });
-          
-    //    }
-    //    foreach($header as $key=>$th){
-    //         dd(${"data_insurance". $key});
-       
-    //     }
+        //    foreach($arr as $key=>$val){
+            
+        //         ${"data_insurance". $key} = [];
+        //         ${"data_insurance". $key} = $data_show->filter(function($item)use ($val){
+        //            return $item['insurance'] === $val;
+        //        });
+            
+        //    }
+        //    foreach($header as $key=>$th){
+        //         dd(${"data_insurance". $key});
+        
+        //     }
         $html = view('frontend.pages.popup_sick')->with(['data_show'=> $data_show, 'header' => $header])->render();
        return response()->json($html);
 

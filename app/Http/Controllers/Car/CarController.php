@@ -87,8 +87,8 @@ class CarController extends Controller
                         ->whereIn('id',$condition_2)
                         ->get();
 
-        $uses = RefRate::orderBy('type_car')->get();
-        // dd($uses);
+        $uses = RefRate::orderBy('sort')->get();
+        
         $data = array();
         $data['companies_cheap']  = $companies_cheap;
         $data['companies_recoup'] = $companies_recoup; 
