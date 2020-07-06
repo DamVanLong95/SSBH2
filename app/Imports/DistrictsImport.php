@@ -13,7 +13,7 @@ class DistrictsImport implements ToModel,WithHeadingRow,WithChunkReading
 {
     public function model(array $row)
     {
-        // dd($row);
+       // dd($row);
         DB::beginTransaction();
         try {
             District::create([

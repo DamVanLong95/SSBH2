@@ -17,7 +17,7 @@ class SummationsImport implements ToModel,WithHeadingRow,WithChunkReading
     public function model(array $row)
     {
         DB::beginTransaction();
-        // dd($row);
+	//dd($row);
         try {
             Summation::create([
                 'brand_id' => $row['id_hang_xe'],
