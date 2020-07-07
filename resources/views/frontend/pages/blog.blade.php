@@ -42,6 +42,7 @@
                 <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/blog/blog2.jpg?{{ config('custom.version') }}" alt=""></div>
                 <p>Ngoài ra, chúng tôi sẽ cố gắng đưa ra các tiêu chí xếp hạng phù hợp nhất trên thế giới áp dụng tại Việt Nam, nhằm mục tiêu giúp khách hàng có cái nhìn khách quan khi so sánh và lựa chọn.</p>
             </div>
+        </div>
     </div>
 </div>
 
