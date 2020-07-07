@@ -108,9 +108,12 @@ class HealthController extends Controller
         $hospitals = Hospital::where('location_id' ,'=', $location_id)
                     ->where('product_id','=',$product_id)
                     ->get();
+        $location  = Location::where('id',$location_id)->first();
+        // dd();
+       
 
         $html_hospital = view('frontend.pages.health_ajax.filter_province')
-                        ->with(['hospitals'=>$hospitals])
+                        ->with(['hospitals'=>$hospitals, 'location' => $location])
                         ->render();
 
         $html_district = view('frontend.pages.health_ajax.district')
