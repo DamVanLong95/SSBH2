@@ -179,9 +179,9 @@
                             <li>
                                 <a href="{{ url('/question') }}">Tin tức</a>   
                             </li>
-                            <li>
+                            <!-- <li>
                                 Phản hồi khách hàng
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>

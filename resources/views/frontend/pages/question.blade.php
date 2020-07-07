@@ -315,11 +315,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse12" class="collapsed" aria-expanded="false">
                                                                 GIẤY YÊU CẦU BẢO HIỂM</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse12" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -339,11 +339,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse13" class="collapsed" aria-expanded="false">
                                                                 GIÁ TRỊ GIẢI ƯỚC</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse13" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -370,11 +370,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse14" class="collapsed" aria-expanded="false">
                                                                 HỢP ĐỒNG BẢO HIỂM</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse14" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -422,11 +422,11 @@
                                                 <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse15" class="collapsed" aria-expanded="false">
                                                                 LÃI CHIA</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse15" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -460,11 +460,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse16" class="collapsed" aria-expanded="false">
                                                                 NIÊN KIM (ĐỐI VỚI CÁC HỢP ĐỒNG NIÊN KIM NHÂN THỌ)</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse16" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -484,11 +484,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse17" class="collapsed" aria-expanded="false">
                                                                 NGÀY KỶ NIỆM HỢP ĐỒNG, NĂM HỢP ĐỒNG</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse17" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -522,11 +522,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse18" class="collapsed" aria-expanded="false">
                                                                 PHỤ LỤC HỢP ĐỒNG</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse18" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -567,11 +567,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse19" class="collapsed" aria-expanded="false">
                                                                 SẢN PHẨM HỖ TRỢ</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse19" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -591,11 +591,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse20" class="collapsed" aria-expanded="false">
                                                                 SỐ TIỀN BẢO HIỂM</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse20" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -622,11 +622,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse21" class="collapsed" aria-expanded="false">
                                                                 TAI NẠN</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse21" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -646,11 +646,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse22" class="collapsed" aria-expanded="false">
                                                                 THƯƠNG TẬT BỘ PHẬN VĨNH VIỄN</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse22" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -670,11 +670,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse23" class="collapsed" aria-expanded="false">
                                                                 THƯƠNG TẬT TOÀN BỘ VĨNH VIỄN</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse23" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -694,11 +694,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse24" class="collapsed" aria-expanded="false">
                                                                 TUỔI CỦA NGƯỜI ĐƯỢC BẢO HIỂM, BÊN MUA BẢO HIỂM</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse24" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
@@ -718,11 +718,11 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" class="collapsed" aria-expanded="false">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse25" class="collapsed" aria-expanded="false">
                                                                 THỜI GIAN CÂN NHẮC</a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse11" class="panel-collapse collapse" aria-expanded="false">
+                                                        <div id="collapse25" class="panel-collapse collapse" aria-expanded="false">
                                                             <div class="panel-body">
                                                                 <p>
                                                                 <strong>Bên mua bảo hiểm:</strong>(“Người tham gia bảo hiểm”) là tổ chức được thành lập và hoạt động hợp pháp tại Việt Nam, hoặc cá nhân từ đủ 18 tuổi trở lên hiện đang cư trú tại Việt Nam, có năng lực hành vi dân sự đầy đủ; là bên kê khai, ký tên trên Hồ sơ yêu cầu bảo hiểm, đóng Phí bảo hiểm và thực hiện các quyền và nghĩa vụ quy định trong Hợp đồng bảo hiểm. Thông tin cần thiết về Bên mua bảo hiểm được ghi trong Giấy yêu cầu bảo hiểm và Phụ lục Hợp đồng
