@@ -65,13 +65,25 @@
                         <li @if(request()->is('/intro')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
                         </li>
-                        <li >
-                            <a class="nav-link" href="#">SO SÁNH</a>
+                        <!-- <li >
+                            <a class="nav-link has-subnav" href="#">SO SÁNH</a>
                             <ul class="menu-hover">
                                 <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
                                 <li @if(request()->is('pages/health')) class="active" @endif><a class="nav-link" href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
                                 <li @if(request()->is('pages/longevity')) class="active" @endif><a class="nav-link" href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
                             
+                            </ul>
+                        </li> -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -113,6 +125,7 @@
         <!-- /.icon bar -->
     
 </div>
+
 <!-- Menu -->
 <div class="body-page">
     <div class="page-wrapper">
@@ -168,7 +181,7 @@
                     <div class="footer-content">
                         <ul class="footer-nav">
                             <li>
-                               Tin tức
+                                <a href="{{ url('/question') }}">Tin tức</a>   
                             </li>
                             <li>
                                 Phản hồi khách hàng
@@ -186,7 +199,13 @@
 
     @yield('footer')
     <script src="{{ url('assets/lib/jqueryModal/js/jquery.modal.min.js?'.config('custom.version')) }}"></script>
-
+    <script>
+        $('ul.nav li.dropdown').hover(function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+        }, function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        });
+    </script>
     <script>
         $(document).ready(function(){
             // $.ui.menu.init();
