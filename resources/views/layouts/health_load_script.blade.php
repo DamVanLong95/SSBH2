@@ -519,8 +519,9 @@ $(function() {
                                             });
                                         });
                                     }
+                                    var provinceID ;
                                     $('select[name="province"]').on('change', function(){
-                                            var provinceID = $(this).val();
+                                             provinceID = $(this).val();
                                         // alert(provinceID);
                                             var url = '{{route('filterProvince')}}';
                                             $.post(url ,
@@ -545,6 +546,7 @@ $(function() {
                                                 "_token": "{{ csrf_token() }}", 
                                                 district_id: districtID,
                                                 product_id :idImg,
+                                                location_id: provinceID,
                                             }
                                             ,function(data){
                                                 $('#info_address').html(data.html_hospital);

@@ -128,16 +128,19 @@ class HealthController extends Controller
     public function filterDistrict(Request $request)
     {
         $district_id = $request->get('district_id');
+        $location_id = $request->get('location_id');
 
         $product_id  = $request->get('product_id');
 
         $hospitals = Hospital::where('district_id' ,'=',$district_id )
                     ->where('product_id','=',$product_id)
                     ->get();
+        $location  = Location::where('id',$location_id)->first();
 
         $html_hospital = view('frontend.pages.health_ajax.filter_province')
-                        ->with(['hospitals'=>$hospitals])
+                        ->with(['hospitals'=>$hospitals,'location' => $location])
                         ->render();
+        
 
         return response()->json([
             'html_hospital' => $html_hospital,
