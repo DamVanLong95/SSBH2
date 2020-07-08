@@ -9,4 +9,5 @@ class Benifit extends Model
     //
     protected $guarded=['id'];
     protected $table = 'benifits_mores';
+    public $timestamps = false;
 }

@@ -121,6 +121,9 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     //===============================Danh sach benh======
     Route::get('sickList','Admin\SickListController@index')->name('sick_longevity.index');
     Route::post('sickList/import', 'Admin\SickListController@import')->name('sick_longevity.import');
+    //================== Danh sach SPBT==================
+    Route::get('benifits','Admin\BenifitController@index')->name('benifit_longevity.index');
+    Route::post('benifits/import','Admin\BenifitController@import')->name('benifit_longevity.import');
    
 
  
