@@ -12,9 +12,11 @@
     <meta property="og:image:height" content="630" />
 
     <!-- Link bootstrap -->
-    <link rel="stylesheet"
+    <!-- jhgjhgjhgjhg -->
+    <link rel="stylesheet"   
           href="{{ url('assets/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css?'.config('custom.version')) }}">
     <!-- Link font-awesome -->
+    <!-- jhgjhgjhgjhg -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css" />
     <!-- Link CSS default -->
