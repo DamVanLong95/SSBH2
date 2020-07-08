@@ -11,7 +11,6 @@
         align-items: center;
         flex-direction: row;
         @media (max-width: 991px) {
-            
             // display: grid;
             // grid-template-columns: 50% 50%;
         }
@@ -38,7 +37,7 @@
                 -moz-transform: translateY(25px);
                 -ms-transform: translateY(25px);
                 -o-transform: translateY(25px);
-}
+            }
             .dropdown-list {
                 padding: 12px;
                 // width: fit-content;
@@ -86,7 +85,7 @@
                 -moz-transition: opacity .15s ease-in-out;
                 -ms-transition: opacity .15s ease-in-out;
                 -o-transition: opacity .15s ease-in-out;
-}
+            }
             .dropdown-label {
                 display: block;
                 height: 42px;
@@ -156,6 +155,7 @@
         }
     }
 }
+
 .search-ctn {
     background-color: #333333;
     height: 30px;
@@ -202,7 +202,7 @@
                 // outline: 1px dotted gray;
                 padding: 1em;
                 box-sizing: border-box;
-                @media (max-width: 375px){
+                @media (max-width: 375px) {
                     width: 157px;
                 }
                 input[type=checkbox] {
@@ -321,8 +321,8 @@
     margin-top: 18px;
     .table-ctn {}
     table {
-        // table-layout: fixed;
-        table-layout: auto;
+        table-layout: fixed;
+        // table-layout: auto;
         // width: 1170px;
         border-spacing: 2%;
     }
@@ -352,7 +352,7 @@
                 td.green_header {
                     background: $main-color url(../images/default/bg-green.png) no-repeat !important;
                     background-size: contain;
-                    background-position:center;
+                    background-position: center;
                     position: -webkit-sticky;
                     position: -webkit-o-sticky;
                     position: -webkit-ms-sticky;
@@ -362,7 +362,7 @@
                     padding: 8px 15px;
                 }
             }
-            td.green_header{
+            td.green_header {
                 // background-color: white;
                 // color: #000;
             }
@@ -454,7 +454,7 @@
                             display: flex;
                             justify-content: space-around;
                             flex-direction: row;
-                            @media (max-width: 375px){
+                            @media (max-width: 375px) {
                                 display: block;
                             }
                         }
@@ -465,18 +465,17 @@
                         }
                     }
                     .star-ctn {
-                       
                         .item {
                             p {
-                                @media (max-width: 375px){
+                                @media (max-width: 375px) {
                                     font-size: 13px;
                                 }
                                 span {
                                     bottom: 2px;
                                     position: relative;
                                     right: 0px;
-                                    img{
-                                        @media (max-width: 375px){
+                                    img {
+                                        @media (max-width: 375px) {
                                             width: 12px;
                                         }
                                     }
@@ -488,7 +487,7 @@
                         display: flex;
                         justify-content: space-between;
                         flex-direction: row;
-                        @media (max-width: 375px){
+                        @media (max-width: 375px) {
                             display: block;
                         }
                         .mark-num {
@@ -504,7 +503,6 @@
                         }
                     }
                 }
-                
                 tr.header {
                     height: 40px;
                     position: relative;
@@ -591,7 +589,7 @@
                         background-color: #f1f2f2;
                         // color: #bdbebf;
                         font-family: UTM_Helve;
-                        @media (max-width: 768px){
+                        @media (max-width: 768px) {
                             display: block;
                             margin: 0;
                         }
@@ -599,10 +597,10 @@
                     .button-filter {
                         width: 26%;
                         border: none;
-                        @media (max-width: 1024px){
+                        @media (max-width: 1024px) {
                             width: 58%;
                         }
-                        @media (max-width: 375px){
+                        @media (max-width: 375px) {
                             width: 55%;
                         }
                     }
@@ -618,15 +616,14 @@
                             border-right: 1px solid #58595b;
                             background-color: #f1f2f2;
                             color: #58595b;
-                            @media (max-width: 375px){
+                            @media (max-width: 375px) {
                                 margin: 5% 0;
                                 border: 1px solid #ccc;
                             }
                         }
-                        &:focus{
+                        &:focus {
                             outline: none;
                         }
-                        
                     }
                     span {
                         margin-left: 20px;
@@ -656,23 +653,22 @@
                         float: right;
                         width: 45%;
                     }
-                    @media (max-width: 767px){
-                        button{
+                    @media (max-width: 767px) {
+                        button {
                             width: 100%;
                         }
-                     }
-                    @media (max-width: 375px){
-                       display: block;
-                       button{
-                           width: 100%;
-                       }
+                    }
+                    @media (max-width: 375px) {
+                        display: block;
+                        button {
+                            width: 100%;
+                        }
                     }
                 }
             }
             tr.data-detail {
-                 td:first-child {
+                td:first-child {
                     // width: 50%;
-                    
                 }
                 td {
                     border-right: 1px solid #ccc;
@@ -783,14 +779,14 @@
                         display: inline-block;
                         transform: translate(0px, -27px);
                         width: 90%;
-                        @media(max-width: 1024px){
+                        @media(max-width: 1024px) {
                             transform: translate(0px, -27px);
                             -webkit-transform: translate(0px, -27px);
                             -moz-transform: translate(0px, -27px);
                             -ms-transform: translate(0px, -27px);
                             -o-transform: translate(0px, -27px);
                         }
-                        @media(max-width: 767px){
+                        @media(max-width: 767px) {
                             transform: translate(13px, -27px);
                             -webkit-transform: translate(13px, -27px);
                             -moz-transform: translate(13px, -27px);
@@ -801,7 +797,7 @@
                     span.show-detail {
                         right: 0;
                         float: right;
-                        button{
+                        button {
                             right: -18px;
                             float: right;
                             position: absolute;
@@ -850,9 +846,8 @@
                 .toggle {
                     cursor: pointer;
                     width: 200px;
-                    @media (max-width: 375px){
+                    @media (max-width: 375px) {
                         width: 90px;
-                        
                     }
                     span {
                         color: $main-color;
@@ -877,7 +872,7 @@
                 display: none;
             }
             tr.price-discount:not(.header) {
-                display:table-row;
+                display: table-row;
             }
             tr.network {
                 // td:hover {
@@ -900,7 +895,7 @@
                         font-family: UTM_Helve;
                         text-align: left;
                         font-size: 16px;
-                        @media (max-width: 375px){
+                        @media (max-width: 375px) {
                             font-size: 13px;
                         }
                         &:hover {
@@ -948,17 +943,17 @@
         top: 0;
         bottom: 0;
         margin: auto;
-        @media (max-width: 375px){
+        @media (max-width: 375px) {
             width: 80px;
             height: 60px;
         }
-        img{
+        img {
             transform: translateY(25%);
             -webkit-transform: translateY(25%);
             -moz-transform: translateY(25%);
             -ms-transform: translateY(25%);
             -o-transform: translateY(25%);
-            @media (max-width: 375px){
+            @media (max-width: 375px) {
                 width: 100%;
             }
         }
