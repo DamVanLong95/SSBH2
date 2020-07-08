@@ -12,7 +12,7 @@
         "_health.scss",
         "_longevity.scss",
         "_table-mb.scss",
-        "_safari.scss"
+        "safari.scss"
     ],
     "names": [],
     "file": "styles.css"
