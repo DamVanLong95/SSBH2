@@ -74,16 +74,12 @@
                             
                             </ul>
                         </li> -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                        <li class=" dropdown">
+                            <a href="javascript:void(0)" class="nav-link has-subnav dropdown-toggle" data-toggle="dropdown">SO SÁNH </a>
+                            <ul class="menu-hover dropdown-menu">
+                                <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
+                                <li @if(request()->is('pages/health')) class="active" @endif><a class="nav-link" href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
+                                <li @if(request()->is('pages/longevity')) class="active" @endif><a class="nav-link" href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -183,9 +179,9 @@
                             <li>
                                 <a href="{{ url('/question') }}">Tin tức</a>   
                             </li>
-                            <li>
+                            <!-- <li>
                                 Phản hồi khách hàng
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>
