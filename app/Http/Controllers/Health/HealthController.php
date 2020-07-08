@@ -172,6 +172,7 @@ class HealthController extends Controller
             8 => 'cost_eight',
             9 => 'cost_night',
         ];
+        // dd($costs);
         $obj_scope = [
             1 => 'scope_vn',
             2 => 'scope_dna',
@@ -272,14 +273,13 @@ class HealthController extends Controller
         }else{
             $array_2 = new Collection();
         }
+        
         $products = $items  ->merge($array_1)
                             ->merge($array_2)
                             ->merge($array_3);
-        $products = $products->unique('company_id');
+        // $products = $products->unique('company_id');
         $products = $products->unique('name');
-
-
-
+        // dd( $products);
         // dd($products);
         $html = view('frontend.pages.health_ajax.banner_health')
                         ->with(['products'=> $products])
@@ -293,9 +293,9 @@ class HealthController extends Controller
     {
         $programs   = Program::select('id','name','product_id')
                 
-        ->where('product_id','=',$product_id)
-    
-        ->get();
+                    ->where('product_id','=',$product_id)
+                
+                    ->get();
 
 
 
