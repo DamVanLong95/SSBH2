@@ -3374,6 +3374,14 @@ span.tel {
   font-size: 16px;
 }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .table-section #layout-area .table tr.price-discount td .btn-discount .safari_only {
+      background-color: #0000FF;
+    }
+  }
+}
+
 @media (max-width: 375px) {
   .table-section #layout-area .table tr.price-discount td .btn-discount {
     font-size: 13px;
