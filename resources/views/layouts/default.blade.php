@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="{{ url('assets/lib/swiper/css/swiper.min.css?'.config('custom.version')) }}">
     <link rel="stylesheet" href="{{ url('assets/lib/jqueryModal/css/jquery.modal.min.css?'.config('custom.version')) }}" />
     <link type="text/css" href="{{ url('assets/css/styles.css?18022020') }}" rel="stylesheet" />
+    @if(!$agent->isSafari())
+    <link type="text/css" href="{{ url('assets/css/safari.css?18022020') }}" rel="stylesheet" />
+    @endif
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="{{ url('/') }}/assets/js/jquery-3.3.1.js"></script>
     <script src="{{ url('assets/lib/popper/js/popper.min.js?'.config('custom.version')) }}"></script>

@@ -133,7 +133,7 @@ class LongevityController extends Controller
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
-        // dd($params);
+        // dd($products);
         foreach($products as $key=>$value){
             $check = [];
             foreach($value->type as $val){

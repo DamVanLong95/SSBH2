@@ -1,0 +1,64 @@
+@media (min-width: 768px) {
+  .table-scroll tfoot,
+  .table-scroll tfoot th,
+  .table-scroll tfoot td {
+    position: relative !important;
+    bottom: 0;
+    background: #666;
+    color: #fff;
+    z-index: 4;
+  }
+  /* testing links*/
+  td:first-child {
+    position: relative !important;
+    left: 0;
+    z-index: 0;
+    background-color: #f5f5f5;
+  }
+  th:first-child {
+    position: relative !important;
+    left: 0;
+    background: #f5f5f5;
+  }
+  thead th:first-child,
+  tfoot th:first-child {
+    z-index: 8 !important;
+  }
+}
+
+tr.price-discount td {
+  background-color: #fff;
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+tr.price-discount td .btn-discount {
+  color: #0d723b;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 0;
+  font-family: UTM_Helve;
+  text-align: left;
+  font-size: 16px;
+}
+
+@media (max-width: 375px) {
+  tr.price-discount td .btn-discount {
+    font-size: 13px;
+  }
+}
+
+tr.price-discount td .btn-discount:hover {
+  background-color: #f36f21;
+  font-family: UTM_HelveBold;
+  color: #fff;
+}
+
+tr.price-discount td:first-child {
+  position: relative !important;
+  left: 0;
+  z-index: 0;
+  background-color: #f5f5f5;
+}
+/*# sourceMappingURL=safari.css.map */

@@ -121,69 +121,35 @@
         </div>
     </div>
         <div class="pack-section" >
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12" id="saving" >
-                 
-                    </div>
-                </div>
-                <div class="paddles">
-                    <button class="left-paddle paddle hidden">
-                        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-                    </button>
-                    <button class="right-paddle paddle">
-                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-                    </button>
-                </div>
+            <div class="container" id="saving">
+                
             </div>
         </div>
-        <div class="pack-section" id="secure" >
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="col-lg-12"  >
-                    <div class="pack-title">
-                    <h4>Bảo vệ <span></span></h4>
-                    </div>
-                    <div  class="section-wrapper2">
-                        <ul id="thumbs" class="section-list2">
-                       
-                            <li class="item2">
-                                <div class="thumb-t">
-                                    <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                                
-                                    <div class="brand-thumb">
-                                        <label for="1">
-                                            <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                        </label>
-                                        <div class="input-pack">
-                                            <input name="type" value="" type="checkbox" id="checkbox_bv{{$value['id']}}"/>
-                                            <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                <div class="paddles2">
-                    <button class="left-paddle2 paddle hidden">
-                        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-                    </button>
-                    <button class="right-paddle2 paddle">
-                    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-                    </button>
-                </div>
-            </div> -->
+        <div class="pack-section"  >
+             <div class="container" id="secure">
+                
+            </div>
             
         </div>
-        <div class="pack-section" id="invest">
+        <div class="pack-section" >
+                <div class="container" id="invest">
+                
+                </div>
         </div>
-        <div class="pack-section" id="edu">
+        <div class="pack-section" >
+                <div class="container" id="edu">
+                
+                </div>
         </div>
-        <div class="pack-section" id="retire">
+        <div class="pack-section" >
+        <div class="container" id="retire">
+                
+                </div>
         </div>
-        <div class="pack-section" id="concern">
+        <div class="pack-section">
+                <div class="container"  id="concern">
+                
+                </div>
         </div>
     <div class="table-section-nt">
         <div class="container-fluid">
@@ -495,6 +461,7 @@ $('.close').click(function(){
   $('.open').toggleClass("show hide");
 });
 </script>
+
 @stop
 
 @section('footer')
