@@ -889,10 +889,10 @@
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        margin: 3% 0;
+        margin: 10px 0;
         .address-ctn {
             width: 46%;
-            margin-bottom: 2%;
+            margin-bottom: 10px;
             background-color: #e6e7e8;
             padding: 8px 20px;
             border: 1px solid #ccc4;
@@ -939,7 +939,7 @@
         }
         ul.hospi-item {
             overflow: auto;
-            height: 100px;
+            height: 200px;
         }
         .hospi-item::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
