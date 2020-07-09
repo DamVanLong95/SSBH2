@@ -895,12 +895,10 @@
                         font-family: UTM_Helve;
                         text-align: left;
                         font-size: 16px;
-                        @media not all and (min-resolution: .001dpcm) {
-                            @supports (-webkit-appearance: none) {
-                                .safari_only {
-                                    background-color: #0000FF;
-                                }
-                            }
+                        _::-webkit-full-page-media,
+                        _:future,
+                         :root .safari_only {
+                            background-color: red;
                         }
                         @media (max-width: 375px) {
                             font-size: 13px;
