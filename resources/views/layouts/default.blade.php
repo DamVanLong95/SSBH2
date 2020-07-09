@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-
+    
     <!-- Link bootstrap -->
     <!-- jhgjhgjhgjhg -->
     <link rel="stylesheet"   
@@ -20,17 +20,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css" />
     <!-- Link CSS default -->
+
+    <link type="text/css" href="{{ url('assets/css/styles.css?18022020') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css" media="screen" />
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- <link type="text/css" href="{{ url('/') }}/assets/css/system.css?{{ config('custom.version') }}" rel="stylesheet"> -->
     <link rel="stylesheet" href="{{ url('assets/lib/swiper/css/swiper.min.css?'.config('custom.version')) }}">
     <link rel="stylesheet" href="{{ url('assets/lib/jqueryModal/css/jquery.modal.min.css?'.config('custom.version')) }}" />
-    <link type="text/css" href="{{ url('assets/css/styles.css?18022020') }}" rel="stylesheet" />
-    @if(!$agent->isSafari())
-    <link type="text/css" href="{{ url('assets/css/safari.css?18022020') }}" rel="stylesheet" />
-    @endif
+    <link type="text/css" href="{{ url('assets/css/styles.css?'.config('custom.version')) }}" rel="stylesheet" />
+
+
+   
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+    var ua = navigator.userAgent.toLowerCase(); 
+    if (ua.indexOf('safari') != -1) { 
+        var url = `{{ url('assets/css/safari.css') }}`;
+        if (ua.indexOf('chrome') > -1) {
+        } else {
+            link = document.createElement('link');
+            link.id = 'id2';
+            link.rel = 'stylesheet';
+            link.href = url;
+            document.head.appendChild(link);
+        }
+    }
+</script>
     <script src="{{ url('/') }}/assets/js/jquery-3.3.1.js"></script>
     <script src="{{ url('assets/lib/popper/js/popper.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
@@ -39,17 +55,15 @@
 
 
     @yield('header')
-<script>
 
 
-</script>
+
 </head>
 
 <body class="">
 <!-- Menu -->
 {{--sticky-top--}}
 <div id="menu-main" class="block-main-menu">
-    
         <!-- Menu -->
         <div class="logo-mobile-nav d-lg-none">
             <a href="{{ url('/') }}">
@@ -126,7 +140,6 @@
         <!-- /.icon bar -->
     
 </div>
-
 <!-- Menu -->
 <div class="body-page">
     <div class="page-wrapper">

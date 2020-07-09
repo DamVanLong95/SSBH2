@@ -2,7 +2,7 @@
   .table-scroll tfoot,
   .table-scroll tfoot th,
   .table-scroll tfoot td {
-    position: relative !important;
+    position: initial !important;
     bottom: 0;
     background: #666;
     color: #fff;
@@ -10,13 +10,13 @@
   }
   /* testing links*/
   td:first-child {
-    position: relative !important;
+    position: initial !important;
     left: 0;
     z-index: 0;
     background-color: #f5f5f5;
   }
   th:first-child {
-    position: relative !important;
+    position: initial !important;
     left: 0;
     background: #f5f5f5;
   }
@@ -26,39 +26,71 @@
   }
 }
 
-tr.price-discount td {
-  background-color: #fff;
-  padding: 0;
-  vertical-align: middle;
-  text-align: center;
+.sub-ctn4 td {
+  position: initial !important;
+  top: 228px;
+  z-index: 8 !important;
 }
 
-tr.price-discount td .btn-discount {
-  color: #0d723b;
-  background-color: #fff;
-  width: 100%;
-  border-radius: 0;
-  font-family: UTM_Helve;
-  text-align: left;
-  font-size: 16px;
-}
-
-@media (max-width: 375px) {
-  tr.price-discount td .btn-discount {
-    font-size: 13px;
+@media (min-width: 1024px) {
+  .sub-ctn4 td {
+    top: 227px;
   }
 }
 
-tr.price-discount td .btn-discount:hover {
-  background-color: #f36f21;
-  font-family: UTM_HelveBold;
-  color: #fff;
+@media (max-width: 1024px) {
+  .sub-ctn4 td {
+    top: 229px;
+  }
 }
 
-tr.price-discount td:first-child {
-  position: relative !important;
-  left: 0;
-  z-index: 0;
+@media (max-width: 991px) {
+  .sub-ctn4 td {
+    top: 227px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub-ctn4 td {
+    top: 322px;
+  }
+}
+
+.sub-ctn5 td {
+  position: initial !important;
+  top: 265px;
+  z-index: 8 !important;
+}
+
+@media (max-width: 1024px) {
+  .sub-ctn5 td {
+    top: 266px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sub-ctn5 td {
+    top: 264px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub-ctn5 td {
+    top: 359px;
+  }
+}
+
+.table-scroll thead th {
+  background: #f5f5f5;
+  color: #fff;
+  position: initial !important;
+  top: 0;
+}
+
+.sub-head td {
+  position: initial !important;
+  top: 142px;
+  z-index: 8;
   background-color: #f5f5f5;
 }
 /*# sourceMappingURL=safari.css.map */
