@@ -3374,12 +3374,6 @@ span.tel {
   font-size: 16px;
 }
 
-.table-section #layout-area .table tr.price-discount td .btn-discount _::-webkit-full-page-media,
-.table-section #layout-area .table tr.price-discount td .btn-discount _:future,
-.table-section #layout-area .table tr.price-discount td .btn-discount :root .safari_only {
-  background-color: red;
-}
-
 @media (max-width: 375px) {
   .table-section #layout-area .table tr.price-discount td .btn-discount {
     font-size: 13px;
@@ -3409,6 +3403,14 @@ span.tel {
 .table-section #layout-area .table tr.price-discount .active a {
   font-family: UTM_HelveBold;
   color: #000;
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .table-section #layout-area .table tr.price-discount .safari_only {
+      background-color: red;
+    }
+  }
 }
 
 .table-section .img-container {
