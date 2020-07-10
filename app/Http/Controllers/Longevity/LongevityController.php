@@ -63,7 +63,7 @@ class LongevityController extends Controller
     public function filterBanner(Request $request)
     {
         $params = $request->get('params');
-
+      
         $param_companies = $request->get('param_companies');
         $products =[];
         $references = [
@@ -109,6 +109,7 @@ class LongevityController extends Controller
         }else{
             $products = new Collection();
         }
+       
         if(!empty($param_companies)){
            
             $product_filter_companies = ProductLongevity::select('id','name','url','classify_id')
@@ -126,6 +127,7 @@ class LongevityController extends Controller
         // {
         //     return $item['name'] ;
         // });
+        
         $product_saving =[];
         $product_secure =[];
         $product_invest =[];
@@ -135,8 +137,9 @@ class LongevityController extends Controller
         // dd($products);
         foreach($products as $key=>$value){
             $check = [];
+            // Log::debug($value);
             foreach($value->type as $val){
-                array_push($check, $val->type);
+              
                 if($params!=null){
                     if($val->type == 1 && in_array($val->type,$params))  array_push($product_saving,$value);
                     if($val->type == 2 && in_array($val->type,$params))  array_push($product_invest,$value);
@@ -155,7 +158,7 @@ class LongevityController extends Controller
                    
             }
         }
-
+        // dd($product_saving);
         $html_saving = view('frontend.pages.health_ajax.secure_longevity')
                     ->with(['product_saving'=> $product_saving])
                     ->render();

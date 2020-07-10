@@ -15,6 +15,7 @@ use Str;
 use Yajra\DataTables\Facades\DataTables;
 use App\Exports\ProductsExport;
 use Illuminate\Support\Facades\Log;
+
 class ProductLongevityController extends Controller
 {
     //
@@ -77,9 +78,9 @@ class ProductLongevityController extends Controller
         return view('admin.product_longevity.create',compact('companies','classifies'));
     }
     public function edit($id){
-        $companies = Company::orderBy('created_at')->get();
+        $companies  = Company::orderBy('created_at')->get();
         $classifies = ClassifyLongevity::all();
-        $product  = ProductLongevity::find($id);
+        $product    = ProductLongevity::find($id);
         // dd($product);
         // dd($product->type);
         $longevity_type = $product->type;
@@ -162,7 +163,7 @@ class ProductLongevityController extends Controller
             $arr_temp = [];
             foreach($product->type as $val){
                 array_push($arr_temp, $val->type);
-                TypeLongevity::where('type',$val->type)->delete();
+                TypeLongevity::where('type',$val->type)->where('product_longevity_id',$id)->delete();
             }
             foreach ($classifies as $key=>$classify) { 
                 $new = new TypeLongevity;
