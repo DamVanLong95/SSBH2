@@ -225,6 +225,7 @@
                                             total =(Number(total) + Number(chks[i].value));
                                         }
                                     }
+                                  
                                     if(price !=''){	
                                             //===================muc dich su dung=============================
                                         var purpose = document.getElementById('purpose');
@@ -237,6 +238,7 @@
                                             id: ref_rates_id,
                                             year_sx:year_sx
                                             }).done(function(data){
+                                                console.log(data);
                                                 var ratte = data.rate;
                                                 rate = ratte + rate;
                                                 // console.log(rate);

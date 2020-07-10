@@ -542,7 +542,7 @@
     }
    
     
-      function validURL(str) {
+    function validURL(str) {
         //   console.log(str);
         var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
             '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
@@ -551,7 +551,7 @@
             '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
             '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
         return !!pattern.test(str);
-      }
+    }
 
     function clickLink(id) { 
         var url= document.getElementById("link").getAttribute("href");
@@ -561,10 +561,11 @@
 </script>
 <script>
    function handleOncick(el){
-       console.log($(el));
+       console.log(el);
        if($(el)[0].checked == true){
             var url = '{{route('popupLongevity')}}';
             $(this).prop("checked", true);
+            
             $.ajax({
                 type: "POST",
                 url : url,

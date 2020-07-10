@@ -63,7 +63,6 @@ class LongevityController extends Controller
     public function filterBanner(Request $request)
     {
         $params = $request->get('params');
-        // dd($params);
 
         $param_companies = $request->get('param_companies');
         $products =[];
@@ -196,10 +195,8 @@ class LongevityController extends Controller
     public function displayPopup(Request $request){
         $data = $request->all();
         // dd($data);
-        $product_longevity_id = $data['product_longevity_id'];//id san pham nhan tho
-        $product_group_id = $data['product_group_id'];//nhom san pham bo tro
-
-        
+        $product_longevity_id   = $data['product_longevity_id'];//id san pham nhan tho
+        $product_group_id       = $data['product_group_id'];//nhom san pham bo tro
 
         $group_parent = GroupProduct::where('id',$product_group_id)->first();
 
@@ -212,8 +209,8 @@ class LongevityController extends Controller
                     ->whereIn('product_longevity_id',$product_longevity_id) 
                     ->where('product_group_id',  $product_group_id )
                     ->get();
-        $spbt = $spbt->unique('product_longevity_name');
-        // dd($spbt);
+        // $spbt = $spbt->unique('product_longevity_name');
+        dd($spbt);
         $product_longevity = ProductLongevity::whereIn('id',$product_longevity_id)->get();
 
         $result = array(
@@ -303,22 +300,6 @@ class LongevityController extends Controller
         {
             return $item['insurance'] ;
         });
-        // $arr = [];
-        // foreach($header as $key=>$th){
-        //     array_push($arr, $th['insurance']);
-        // }
-        //    foreach($arr as $key=>$val){
-            
-        //         ${"data_insurance". $key} = [];
-        //         ${"data_insurance". $key} = $data_show->filter(function($item)use ($val){
-        //            return $item['insurance'] === $val;
-        //        });
-            
-        //    }
-        //    foreach($header as $key=>$th){
-        //         dd(${"data_insurance". $key});
-        
-        //     }
         $html = view('frontend.pages.popup_sick')->with(['data_show'=> $data_show, 'header' => $header])->render();
        return response()->json($html);
 

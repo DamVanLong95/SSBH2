@@ -452,14 +452,14 @@
     }
 
     $('.open').click(function(){
-  $(this).toggleClass("show hide");
-  $('.content').toggleClass("show hide");
-});
+        $(this).toggleClass("show hide");
+        $('.content').toggleClass("show hide");
+    });
 
-$('.close').click(function(){
-  $('.content').toggleClass("show hide");
-  $('.open').toggleClass("show hide");
-});
+    $('.close').click(function(){
+        $('.content').toggleClass("show hide");
+        $('.open').toggleClass("show hide");
+    });
 </script>
 
 @stop

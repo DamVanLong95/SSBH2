@@ -22,18 +22,22 @@ class CarController extends Controller
         $year_sx    = $request->get('year_sx');
         $year_now   = date('Y')  ;
         $time_use   = $year_now - $year_sx;
+       
         if($time_use < 3)
             $column = "less_than_three";
         else if( $time_use >= 3 && $time_use < 6  )
             $column = "from_three_six";
         else if($time_use >= 6 && $time_use < 10)
-            $column = "from_three_six";
+            $column = "from_six_ten";
         else if($time_use >=10 && $time_use < 15)
-            $column = "from_six_fiften";
+            $column = "from_ten_fifteen";
         if(!isset($column)){
             return response()->json( array('success' => false, 'message'=>' undifined  variable column ') );
         }
+        
         $rate = RefRate::select($column)->where('id',$id)->first();
+        
+        if($id == 7) $rate[$column] = 1.5;
         return response()->json(['rate' => $rate[$column]]);
     }   
     public function checkImage(Request $request){
