@@ -1,7 +1,7 @@
 @if(count($result['spbt_more'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
-<table class="table" id="main-tbl-popup" style="background: none; color: #212529">
+<table class="table" id="main-tbl-popup" style="background: none; color: #212529;table-layout:fixed;">
   <thead>
     <tr>
    
