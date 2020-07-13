@@ -200,33 +200,50 @@ class LongevityController extends Controller
         // dd($data);
         $product_longevity_id   = $data['product_longevity_id'];//id san pham nhan tho
         $product_group_id       = $data['product_group_id'];//nhom san pham bo tro
-
+        // dd($product_group_id);
         $group_parent = GroupProduct::where('id',$product_group_id)->first();
 
         $group_child = Benifit::select('id','group_child')
                     ->where('product_group_id','=',$product_group_id)
                     ->get();
         $group_child = $group_child->unique('group_child');
-
-        $spbt = Benifit::select('product_longevity_id','product_group_id','product_more_name','product_longevity_name','content')
+        // dd($group_child);
+        $spbt = Benifit::select('id','product_longevity_id','product_group_id','product_more_name','product_longevity_name','content')
                     ->whereIn('product_longevity_id',$product_longevity_id) 
                     ->where('product_group_id',  $product_group_id )
                     ->get();
-        // $spbt = $spbt->unique('product_longevity_name');
-        dd($spbt);
+        $product_name = $spbt->unique('product_longevity_name');
+        // $spbt_more = $spbt->unique('product_more_name');
+     
+       
+        $spbt_more = $spbt->unique(function($item){
+            return $item['product_longevity_id'].$item['product_more_name'];
+        });
+        // dd($spbt_more);
+        foreach($product_name as $key=>$val){
+            
+            $filtered = $spbt_more->filter(function ($value, $key) use($val) {
+                return $value['product_longevity_id'] ==  $val['product_longevity_id'];
+            });
+            $val['product_more'] =   $filtered;
+        }
+       
+        // dd($product_name);
         $product_longevity = ProductLongevity::whereIn('id',$product_longevity_id)->get();
 
         $result = array(
+            'product_name'  => $product_name,
             'group_child'   => $group_child,
             'group_parent'  => $group_parent,
-            'spbt'          => $spbt,
+            'spbt_more'          => $spbt_more,
             'product_longevity' => $product_longevity
         );
-        
+        // foreach($result['product_name'] as $value){
+        //     dd($value->product_longevity_name);
+        // }
         $html = view('frontend.pages.health_ajax.popup')
                     ->with(['result' => $result,'product_longevity_id' => json_encode($product_longevity_id)])
                     ->render();
-                    // dd($html);
         return response()->json([
             'success' => true,
             'html' => $html
@@ -236,6 +253,7 @@ class LongevityController extends Controller
         $product_name = $request->get('product_name');
         $product_id   = $request->get('product_id');
         $benifits  = Benifit::where('product_more_name','LIKE', "%$product_name%")
+                    ->where('product_longevity_id',$product_id)
                     ->get();
         // dd($benifits);
         return response()->json([
@@ -295,7 +313,7 @@ class LongevityController extends Controller
         $name                 = $product_longevity->company->name;
         $company_id           = $product_longevity->company->id;
 
-    //    dd($product_longevity->company->id);
+    //    dd($product_longevity_id);
         $data_show = SickLongevity::where('company_id',$company_id)
                         ->where('group_sick_id',$group_sick_id)        
                         ->get();

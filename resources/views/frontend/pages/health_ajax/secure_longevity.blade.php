@@ -727,6 +727,8 @@
             $(this).disabled = true;
            
         }
+          
+        
     }
     
 
@@ -782,6 +784,7 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
+                globalId.pop(idImg);
             }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -790,6 +793,7 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
+                globalId.pop(idImg);
             }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -798,12 +802,14 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
+                globalId.pop(idImg);
             }else if(index == 4){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
+                globalId.pop(idImg);
             }else if(index == 5 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -812,16 +818,19 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
+                globalId.pop(idImg);
             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 // addColumn('main-tbl-nt');
+                globalId.pop(idImg);
             }else if(index == 3 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
+                globalId.pop(idImg);
             }
         });
     }

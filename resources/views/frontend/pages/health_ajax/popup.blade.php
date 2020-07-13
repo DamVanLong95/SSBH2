@@ -1,23 +1,30 @@
-@if(count($result['spbt'])== 0)
+@if(count($result['spbt_more'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
 <table class="table" id="main-tbl-popup" style="background: none; color: #212529">
   <thead>
     <tr>
-      <th style="background: none;">{{$result['group_parent']->name}}</th>
-      @foreach($result['spbt'] as $value)
+   
+      <th style="background: none;">Chỉ tiêu</th>
+      @foreach($result['product_name'] as $name)
       <th style="background: none;text-align:center;">
-        <label>{{$value['product_longevity_name']}}</label><br>
+      
+        <label value="{{$name['product_longevity_id']}}">{{$name->product_longevity_name}}</label><br>
+
         <select class="spbt" name="select"  style="color: #0d723b;
                             font-family: UTM_Helve;
                             line-height: 28px;
                             background: #fff;
                             border: 1px solid #0d723b;">
-            <option selected disabled hidden>--Chọn--</option>
+
+            <option selected disabled>--Chọn--</option>
+            @foreach($name['product_more'] as $value)
             <option value="{{$value['product_more_name']}}" >{{$value['product_more_name']}}</option>
+            @endforeach
         </select>
       </th>
       @endforeach
+     
     </tr>
   </thead>  
   <tbody>
@@ -36,9 +43,10 @@ $(document).ready(function(){
         if($(this)[0].checked === true){
            $('.spbt').on('change', function() {
               var indexCol = ($(this).parent().index());
-              var value = $(this).val();
+              var value    = $(this).val();
+              console.log(value);
               var url = '{{route('showProduct')}}';
-              var product_id = <?php echo $product_longevity_id?>;
+              var product_id = $(this).parent().find('label')[0].getAttribute("value");
               $.post(url,
               {
                 "_token": "{{ csrf_token() }}", 
@@ -51,8 +59,9 @@ $(document).ready(function(){
                   // console.log(data.benifits);
                   for(var i =1; i < myTable.rows.length ; i ++ ){
                     var tds =  myTable.rows[i].cells[indexCol];
-                    // console.log(tds);
-                    tds.innerHTML = '<p class="">'+benifits[i-1]['content']+'</p>';
+                    if(benifits[i-1]){
+                      tds.innerHTML = '<p class="">'+ benifits[i-1]['content']+'</p>';
+                    }
                   }
                 }
               }).done(function(){
@@ -69,7 +78,7 @@ $(function() {
   var myTable = document.getElementById('main-tbl-popup');
         var tblHeadObj = document.getElementById('main-tbl-popup').tHead;
         var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
-        var length = <?php echo sizeof($result['spbt'])?>;
+        var length = <?php echo sizeof($result['product_name'])?>;
         for (var h = 0; h < length; h++) {
           if (tableLength < 5) {
             
