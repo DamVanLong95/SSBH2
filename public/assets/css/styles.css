@@ -2737,7 +2737,7 @@ span.tel {
 }
 
 .table-section table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 2%;
 }
 
@@ -4704,7 +4704,7 @@ span.tel {
 }
 
 .table-section-sk table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 2%;
 }
 
@@ -5779,7 +5779,7 @@ span.tel {
 }
 
 .table-section-nt table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 2%;
 }
 
