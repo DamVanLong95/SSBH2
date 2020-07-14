@@ -152,12 +152,12 @@ tr.price-discount {
         font-family: UTM_Helve;
         text-transform: uppercase;
         td.green_header {
-            position: relative;
+            position: relative !important;
         }
     }
     thead {
         .top-head {
-            position: relative;
+            position: relative !important;
             top: 0;
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
             // border-top: 1px solid #000;

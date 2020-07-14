@@ -145,10 +145,10 @@ tr.price-discount td:first-child {
     text-transform: uppercase;
   }
   .green1 td.green_header {
-    position: relative;
+    position: relative !important;
   }
   thead .top-head {
-    position: relative;
+    position: relative !important;
     top: 0;
     -webkit-box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
