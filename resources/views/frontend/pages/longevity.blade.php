@@ -446,7 +446,123 @@
 
                 // if(data.product_concern!='')
                 $('#concern').html(data.html_concern);
-                // else  $('#concern').html(data.html_concern);
+                var scrollDuration = 300;
+                // paddles
+                var leftPaddle2 = document.getElementsByClassName('left-paddle2');
+            
+                var rightPaddle2 = document.getElementsByClassName('right-paddle2');
+                //get items dimensions
+                var itemsLength2 = $('.item2').length;
+                var itemSize2 = $('.item2').outerWidth(true);
+
+                var getBrandWrapperSize = function() {
+                    return $('.section-wrapper2').outerWidth();
+                }
+                var brandWrapperSize2 = getBrandWrapperSize();
+                $(window).on('resize', function() {
+                    brandWrapperSize2 = getBrandWrapperSize();
+                });
+                var brandVisibleSize2 = brandWrapperSize2;
+
+            // get total width of all brand items
+                var getBrandSize = function() {
+                    return itemsLength2 * itemSize2;
+                };
+                var brandSize2 = getBrandSize();
+                // get how much of brand is invisible
+                var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+
+            // get how much have we scrolled to the left
+                var getBrandPosition2 = function() {
+                    return $('.section-list2').scrollLeft();
+                };
+
+            // finally, what happens when we are actually scrolling the brand
+            $('.section-list2').on('scroll', function() {
+
+                // get how much of brand is invisible
+                brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+                // get how much have we scrolled so far
+                var brandPosition2 = getBrandPosition2();
+                // get some relevant size for the paddle triggering point
+                var paddleMargin2 = 20;
+                // console.log("brandPosition", brandPosition);
+                var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
+                // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
+                // show & hide the paddles 
+                // depending on scroll position
+                if (brandPosition2 <= paddleMargin2) {
+                    $(leftPaddle2).addClass('hidden');
+                    $(rightPaddle2).removeClass('hidden');
+                } else if (brandPosition2 < brandEndOffset2) {
+                    // show both paddles in the middle
+                    $(leftPaddle2).removeClass('hidden');
+                    $(rightPaddle2).removeClass('hidden');
+                } else if (brandPosition2 >= brandEndOffset2) {
+                    $(leftPaddle2).removeClass('hidden');
+                    $(rightPaddle2).addClass('hidden');
+                }
+
+            });
+
+                // scroll to left
+                $(rightPaddle2).on('click', function() {
+                    if(this.value == 1){
+                        $('#thumbs_saving').animate({
+                        scrollLeft: "+=301px"
+                        }, "slow");
+                    }else if(this.value == 2){
+                        $('#thumbs_secure').animate({
+                        scrollLeft: "+=301px"
+                        }, "slow");
+                    }else if(this.value == 3){
+                        $('#thumbs_invest').animate({
+                        scrollLeft: "+=301px"
+                        }, "slow");
+                    }else if(this.value == 4){
+                        $('#thumbs_edu').animate({
+                        scrollLeft: "+=301px"
+                        }, "slow");
+                    }else if(this.value == 5){
+                        $('#thumbs_retire').animate({
+                        scrollLeft: "+=301px"
+                        }, "slow");
+                    }else if(this.value == 6){
+                        $('#thumbs_concern').animate({
+                        scrollLeft: "+=301px"
+                        }, "slow");
+                    }
+                
+                });
+
+                // scroll to right
+                $(leftPaddle2).on('click', function() {
+                    if(this.value == 1){
+                        $('#thumbs_saving').animate({
+                            scrollLeft: "-=301px"
+                        }, "slow");
+                    }else if(this.value == 2){
+                        $('#thumbs_secure').animate({
+                        scrollLeft: "-=301px"
+                        }, "slow");
+                    }else if(this.value == 3){
+                        $('#thumbs_invest').animate({
+                        scrollLeft: "-=301px"
+                        }, "slow");
+                    }else if(this.value == 4){
+                        $('#thumbs_edu').animate({
+                        scrollLeft: "-=301px"
+                        }, "slow");
+                    }else if(this.value == 5){
+                        $('#thumbs_retire').animate({
+                        scrollLeft: "-=301px"
+                        }, "slow");
+                    }else if(this.value == 6){
+                        $('#thumbs_concern').animate({
+                        scrollLeft: "-=301px"
+                        }, "slow");
+                    }
+                });
             },
         });
     }
@@ -467,4 +583,5 @@
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     @include('layouts.longevity_script')
+  
 @stop

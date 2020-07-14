@@ -5,7 +5,7 @@
         <h4>Tích lũy, tiết kiệm <span>({{count($product_saving)}})</span></h4>
         </div>
         <div  class="section-wrapper2">
-            <ul id="thumbs" class="section-list2">
+            <ul id="thumbs_saving" class="section-list2">
                 @foreach($product_saving as $value)
                     <li class="item2">
                         <div class="thumb-t">
@@ -28,10 +28,10 @@
     </div>
 </div>
 <div class="paddles">
-    <button class="left-paddle2 paddle hidden">
+    <button class="left-paddle2 paddle hidden" value="1">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
     </button>
-    <button class="right-paddle2 paddle">
+    <button class="right-paddle2 paddle" value="1">
     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
     </button>
 </div>
@@ -43,7 +43,7 @@
             <h4>Bảo vệ <span>({{count($product_secure)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs" class="section-list2">
+                <ul id="thumbs_secure" class="section-list2">
                 @foreach($product_secure as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -66,10 +66,10 @@
         </div>
     </div>
     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden">
+        <button class="left-paddle2 paddle hidden" value="2">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle">
+        <button class="right-paddle2 paddle" value="2">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -81,7 +81,7 @@
                 <h4>Đầu tư <span>({{count($product_invest)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs" class="section-list2">
+                <ul id="thumbs_invest" class="section-list2">
                     @foreach($product_invest as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -104,10 +104,10 @@
         </div>
     </div>
      <div class="paddles2">
-        <button class="left-paddle2 paddle hidden">
+        <button class="left-paddle2 paddle hidden" value="3">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle">
+        <button class="right-paddle2 paddle" value="3">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div> 
@@ -119,7 +119,7 @@
                 <h4>Hưu trí <span>({{count($product_retire)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs" class="section-list2">
+                <ul id="thumbs_retire" class="section-list2">
                     @foreach($product_retire as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -142,10 +142,10 @@
         </div>
     </div>
     <div class="paddles">
-        <button class="left-paddle2 paddle hidden">
+        <button class="left-paddle2 paddle hidden" value="4">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle">
+        <button class="right-paddle2 paddle" value="4">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -158,7 +158,7 @@
                 <h4>Giáo dục<span>({{count($product_edu)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs" class="section-list2">
+                <ul id="thumbs_edu" class="section-list2">
                     @foreach($product_edu as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -181,10 +181,10 @@
         </div>
     </div>
     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden">
+        <button class="left-paddle2 paddle hidden" value="5">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle">
+        <button class="right-paddle2 paddle" value="5">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -197,7 +197,7 @@
                 <h4>Doanh nghiệp <span>({{count($product_concern)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs" class="section-list2">
+                <ul id="thumbs_concern" class="section-list2">
                 @foreach($product_concern as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -220,10 +220,10 @@
         </div>
     </div>
     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden">
+        <button class="left-paddle2 paddle hidden" value="6">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle">
+        <button class="right-paddle2 paddle" value="6">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -247,83 +247,6 @@
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
 </div>
-<script>
-     var scrollDuration = 300;
-        // paddles
-        var leftPaddle2 = document.getElementsByClassName('left-paddle2');
-        var rightPaddle2 = document.getElementsByClassName('right-paddle2');
-        // get items dimensions
-        var itemsLength2 = $('.item2').length;
-        var itemSize2 = $('.item2').outerWidth(true);
-        // console.log("huhu", leftPaddle2)
-
-        // get wrapper width
-        var getBrandWrapperSize = function() {
-            return $('.section-wrapper2').outerWidth();
-        }
-        var brandWrapperSize2 = getBrandWrapperSize();
-        // the wrapper is responsive
-        $(window).on('resize', function() {
-            brandWrapperSize2 = getBrandWrapperSize();
-        });
-        // size of the visible part of the brand is equal as the wrapper size 
-        var brandVisibleSize2 = brandWrapperSize2;
-
-        // get total width of all brand items
-        var getBrandSize = function() {
-            return itemsLength2 * itemSize2;
-        };
-        var brandSize2 = getBrandSize();
-        // get how much of brand is invisible
-        var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
-
-        // get how much have we scrolled to the left
-        var getBrandPosition2 = function() {
-            return $('.section-list2').scrollLeft();
-        };
-
-        // finally, what happens when we are actually scrolling the brand
-        $('.section-list2').on('scroll', function() {
-
-            // get how much of brand is invisible
-            brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
-            // get how much have we scrolled so far
-            var brandPosition2 = getBrandPosition2();
-            // get some relevant size for the paddle triggering point
-            var paddleMargin2 = 20;
-            // console.log("brandPosition", brandPosition);
-            var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
-            // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
-            // show & hide the paddles 
-            // depending on scroll position
-            if (brandPosition2 <= paddleMargin2) {
-                $(leftPaddle2).addClass('hidden');
-                $(rightPaddle2).removeClass('hidden');
-            } else if (brandPosition2 < brandEndOffset2) {
-                // show both paddles in the middle
-                $(leftPaddle2).removeClass('hidden');
-                $(rightPaddle2).removeClass('hidden');
-            } else if (brandPosition2 >= brandEndOffset2) {
-                $(leftPaddle2).removeClass('hidden');
-                $(rightPaddle2).addClass('hidden');
-            }
-
-        });
-
-        // scroll to left
-        $(rightPaddle2).on('click', function() {
-            $('.section-list2').animate({
-                scrollLeft: "+=301px"
-            }, "slow");
-        });
-
-        // scroll to right
-        $(leftPaddle2).on('click', function() {
-            $('.section-list2').animate({
-                scrollLeft: "-=301px"
-            }, "slow");
-        });
-</script>
 <script>
     function closeModal() {
        $('#detail-comparison').modal('hide');
@@ -561,7 +484,6 @@
 </script>
 <script>
    function handleOncick(el){
-       console.log(el);
        if($(el)[0].checked == true){
             var url = '{{route('popupLongevity')}}';
             $(this).prop("checked", true);
