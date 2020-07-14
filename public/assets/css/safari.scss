@@ -1,36 +1,36 @@
-@media (min-width: 768px) {
-    .table-scroll tfoot,
-    .table-scroll tfoot th,
-    .table-scroll tfoot td {
-        position: relative !important;
-        bottom: 0;
-        background: #666;
-        color: #fff;
-        z-index: 4;
-    }
-    /* testing links*/
-    td:first-child {
-        position: relative !important;
-        left: 0;
-        z-index: 0;
-        background-color: #f5f5f5;
-        // @media (max-width: 380px) {
-        // width: 160px;
-        // }
-    }
-    th:first-child {
-        position: relative !important;
-        left: 0;
-        // z-index: 2;
-        background: #f5f5f5;
-    }
-    thead th:first-child,
-    tfoot th:first-child {
-        z-index: 8 !important;
-        // width: 185px;
-        // border-right: none;
-    }
-}
+// @media (min-width: 768px) {
+//     .table-scroll tfoot,
+//     .table-scroll tfoot th,
+//     .table-scroll tfoot td {
+//         // position: relative !important;
+//         bottom: 0;
+//         background: #666;
+//         color: #fff;
+//         z-index: 4;
+//     }
+//     /* testing links*/
+//     td:first-child {
+//         // position: relative !important;
+//         left: 0;
+//         z-index: 0;
+//         background-color: #f5f5f5;
+//         // @media (max-width: 380px) {
+//         // width: 160px;
+//         // }
+//     }
+//     th:first-child {
+//         position: relative !important;
+//         left: 0;
+//         // z-index: 2;
+//         background: #f5f5f5;
+//     }
+//     thead th:first-child,
+//     tfoot th:first-child {
+//         z-index: 8 !important;
+//         // width: 185px;
+//         // border-right: none;
+//     }
+// }
 
 tr.price-discount {
     td {
@@ -65,4 +65,112 @@ tr.price-discount {
         // width: 160px;
         // }
     }
-}
+ }
+ @media (min-width: 768px) {
+    .table-scroll th,
+    .table-scroll td {
+        padding: 5px 10px;
+        // border: 1px solid #000;
+        // background: #fff;
+        vertical-align: middle;
+    }
+    .table-scroll thead th {
+        background: #f5f5f5;
+        color: #fff;
+        position: relative;
+        top: 0;
+    }
+    .sub-head td {
+        position: relative;
+        top: 0px;
+        z-index: 8;
+        background-color: #f5f5f5;
+    }
+    .sub-head-health td {
+        position: relative;
+        top: 0px !important;
+        z-index: 8;
+        background-color: #f5f5f5;
+    }
+    .sub-head td.th-2 {
+        position: relative;
+        top: 0px;
+        z-index: 8;
+    }
+    .sub-head-health td.th-2 {
+        position: relative;
+        top: 0px !important;
+        z-index: 8;
+    }
+    .sub-ctn2 td {
+        position: relative;
+        top: 0px;
+        z-index: 8 !important;
+        background-color: #f5f5f5;
+    }
+    .sub-ctn3 td {
+ 
+        position: relative;
+        top: 0px;
+        z-index: 8 !important;
+    }
+    .sub-ctn4 td {
+        position: relative;
+        top: 0px;
+        z-index: 0 !important;
+        @media (min-width: 1024px) {
+            top: 0px;
+        }
+        @media (max-width: 1024px) {
+            top: 0px;
+        }
+        @media (max-width: 991px) {
+            top: 0px;
+        }
+        @media (max-width: 768px) {
+            top: 0px;
+        }
+    }
+    .sub-ctn5 td {
+        position: relative;
+        top: 0px;
+        z-index: 0 !important;
+        @media (max-width: 1024px) {
+            top: 266px;
+        }
+        @media (max-width: 991px) {
+            top: 264px;
+        }
+        @media (max-width: 768px) {
+            top: 359px;
+        }
+    }
+    .green1 {
+        background-color: #0d723b;
+        color: #fff;
+        height: 40px;
+        font-family: UTM_Helve;
+        text-transform: uppercase;
+        td.green_header {
+            position: relative;
+        }
+    }
+    thead {
+        .top-head {
+            position: relative;
+            top: 0;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+            // border-top: 1px solid #000;
+            height: 100px;
+            th {
+                z-index: 30;
+            }
+            
+        }
+    }
+    thead th:first-child, tfoot th:first-child{
+        z-index: 30 !important;
+    }
+ }
+ 
+ 
