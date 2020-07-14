@@ -15,11 +15,12 @@
                             font-family: UTM_Helve;
                             line-height: 28px;
                             background: #fff;
-                            border: 1px solid #0d723b;">
+                            border: 1px solid #0d723b;
+                            width: 300px;">
 
             <option selected disabled>--Chọn--</option>
             @foreach($name['product_more'] as $value)
-            <option value="{{$value['product_more_name']}}" >{{$value['product_more_name']}}</option>
+            <option value="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],7)}}</option>
             @endforeach
         </select>
       </th>
@@ -44,7 +45,6 @@ $(document).ready(function(){
            $('.spbt').on('change', function() {
               var indexCol = ($(this).parent().index());
               var value    = $(this).val();
-              console.log(value);
               var url = '{{route('showProduct')}}';
               var product_id = $(this).parent().find('label')[0].getAttribute("value");
               $.post(url,
@@ -80,7 +80,7 @@ $(function() {
         var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
         var length = <?php echo sizeof($result['product_name'])?>;
         for (var h = 0; h < length; h++) {
-          if (tableLength < 5) {
+          if (tableLength < 6) {
             
               var tblBodyObj = document.getElementById('main-tbl-popup').tBodies[0];
               for (var i = 0; i < tblBodyObj.rows.length; i++) {
