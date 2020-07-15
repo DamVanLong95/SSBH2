@@ -76,6 +76,7 @@ $(document).ready(function(){
 });
 $(function() {
   var myTable = document.getElementById('main-tbl-popup');
+        document.getElementById("main-tbl-nt").style.tableLayout = "fixed";
         var tblHeadObj = document.getElementById('main-tbl-popup').tHead;
         var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
         var length = <?php echo sizeof($result['product_name'])?>;

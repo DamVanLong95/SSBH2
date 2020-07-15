@@ -16,7 +16,7 @@ use DB,File;
 
 class PostController extends Controller
 {
-    public function index(Request $request){
+    public function index(){
         return view('admin.posts.list');
     }
     public function getData( Request $request){

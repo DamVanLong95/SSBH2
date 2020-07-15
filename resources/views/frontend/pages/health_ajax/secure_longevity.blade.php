@@ -527,7 +527,7 @@
                             var tblBodyObj  = myTable.tBodies[0];
                             var tblHeadObj  = myTable.tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 1;
-          
+                           
             $.post(url,
             {
                 "_token": "{{ csrf_token() }}",
@@ -536,6 +536,7 @@
             }
             ).done( function(data, status, xhr) {
                 // console.log(data);
+                // document.getElementById("main-tbl-nt").style.tableLayout = "fixed";
                 if(data.success  ){
                     var longevities = data.longevities;
                     var indexCol = data.indexCol;
@@ -678,6 +679,7 @@
             var tblBodyObj = document.getElementById(tblId).tBodies[0];
             for (var i = 0; i < tblBodyObj.rows.length; i++) {
                 var newCell = tblBodyObj.rows[i].insertCell(-1);
+                newCell.setAttribute('class', "auto")
                 // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
                 var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
             }
@@ -698,6 +700,8 @@
 
     }
     function deleteColumn(idImg,clicked){
+        var myTable = document.getElementById('main-tbl-nt');
+       
         $('span.remove').on('click', function (e ) {
             var index = ($(this).parent().index()+1);
             if( index ==2 ){
@@ -705,8 +709,11 @@
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
+                // addColumn('main-tbl-nt');
+                // dropImage();
                 $('#'+idImg+'').draggable({ disabled: false });
                 globalId.pop(idImg);
+                // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
             }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -732,6 +739,8 @@
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
                 globalId.pop(idImg);
+                
+                console.log(111);
             }else if(index == 5 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -754,7 +763,9 @@
                 $('#'+idImg+'').draggable({ disabled: false });
                 globalId.pop(idImg);
             }
+           
         });
+       
     }
 </script>
 <script>

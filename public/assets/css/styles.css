@@ -5844,6 +5844,7 @@ span.tel {
   border-bottom: 0px solid #0d723b;
   border-right: 1px solid #0d723b;
   z-index: 8;
+  width: 400px;
 }
 
 .table-section-nt #layout-area .table thead .top-head th.th-1 {
@@ -6680,5 +6681,9 @@ span.tel {
     z-index: 8 !important;
     width: 100px;
   }
+}
+
+tr.data-detail td {
+  max-width: 300px;
 }
 /*# sourceMappingURL=styles.css.map */
