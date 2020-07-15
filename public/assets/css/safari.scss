@@ -66,7 +66,7 @@ tr.price-discount {
         // }
     }
  }
- @media (min-width: 768px) {
+ @media (min-width: 320px) {
     .table-scroll th,
     .table-scroll td {
         padding: 5px 10px;
@@ -165,7 +165,6 @@ tr.price-discount {
             th {
                 z-index: 30;
             }
-            
         }
     }
     thead th:first-child, tfoot th:first-child{
