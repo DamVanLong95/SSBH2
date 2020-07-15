@@ -13,16 +13,37 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> -->
-
+<style>
+    .wait{
+        display: block;
+        position: absolute;
+        background-color: rgba(0,0,0,0.5);
+        width: 100%;
+        height: 100vh;
+        z-index: 30;
+    }
+    .wait img{
+        display: block;
+        position: absolute;
+        transform: translate(50%, 50%);
+        top: 5%;
+        z-index: 50;
+        left: 50%;
+        bottom: 0;
+        margin: auto;
+    }
+</style>
 @stop
 
 @section('content')
 
-<div id="app">
+<div id="app" style="position:relative;">
+<div id="wait" class="wait" style="display:none;"><img src="{{asset('assets/images/25.gif')}}" width="64" height="64" /><br>Loading..</div>
     <div class="compare-section">
     <div class="contact-floating">
         <a class="btn-call-now" href="tel:1900988965" title="Gọi ngay"><span class="icon-tel"></span> <span class="tel">1900 9889 65</span></a>
     </div>
+  
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -120,6 +141,7 @@
             </div>
         </div>
     </div>
+    
         <div class="pack-section" >
             <div class="container" id="saving">
                 
@@ -401,6 +423,8 @@
         $(".checkedbox").removeAttr('checked');
         $(".checkedCompanies").removeAttr('checked');
     }
+   
+   
     function searchProduct(){
         var params =[];
         var param_companies=[];
@@ -414,6 +438,7 @@
         });
         // console.log(param_companies);
         var url = `{{route('filterLongevity')}}`;
+     
         $.ajax({
             type: 'POST',
             url: url,
@@ -424,6 +449,16 @@
             },
             dataType: 'json',
             success: function(data) {
+                // $(document).ajaxStart(function(){
+                //     setTimeout(function(){
+                //         var el = document.getElementById('wait');
+                //         el.style.cssText += 'display: block;';                   
+                //     }, 100);
+                // });
+                // $(document).ajaxComplete(function(){
+                //     var el = document.getElementById('wait');
+                //     el.style.cssText += 'display: none;';
+                // });
                 if(data.product_saving!='')
                     $('#saving').html(data.html_saving);
                     else  $('#saving').html(''); 
@@ -478,32 +513,32 @@
                 };
 
             // finally, what happens when we are actually scrolling the brand
-            $('.section-list2').on('scroll', function() {
+                $('.section-list2').on('scroll', function() {
 
-                // get how much of brand is invisible
-                brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
-                // get how much have we scrolled so far
-                var brandPosition2 = getBrandPosition2();
-                // get some relevant size for the paddle triggering point
-                var paddleMargin2 = 20;
-                // console.log("brandPosition", brandPosition);
-                var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
-                // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
-                // show & hide the paddles 
-                // depending on scroll position
-                if (brandPosition2 <= paddleMargin2) {
-                    $(leftPaddle2).addClass('hidden');
-                    $(rightPaddle2).removeClass('hidden');
-                } else if (brandPosition2 < brandEndOffset2) {
-                    // show both paddles in the middle
-                    $(leftPaddle2).removeClass('hidden');
-                    $(rightPaddle2).removeClass('hidden');
-                } else if (brandPosition2 >= brandEndOffset2) {
-                    $(leftPaddle2).removeClass('hidden');
-                    $(rightPaddle2).addClass('hidden');
-                }
+                    // get how much of brand is invisible
+                    brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+                    // get how much have we scrolled so far
+                    var brandPosition2 = getBrandPosition2();
+                    // get some relevant size for the paddle triggering point
+                    var paddleMargin2 = 20;
+                    // console.log("brandPosition", brandPosition);
+                    var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
+                    // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
+                    // show & hide the paddles 
+                    // depending on scroll position
+                    if (brandPosition2 <= paddleMargin2) {
+                        $(leftPaddle2).addClass('hidden');
+                        $(rightPaddle2).removeClass('hidden');
+                    } else if (brandPosition2 < brandEndOffset2) {
+                        // show both paddles in the middle
+                        $(leftPaddle2).removeClass('hidden');
+                        $(rightPaddle2).removeClass('hidden');
+                    } else if (brandPosition2 >= brandEndOffset2) {
+                        $(leftPaddle2).removeClass('hidden');
+                        $(rightPaddle2).addClass('hidden');
+                    }
 
-            });
+                });
 
                 // scroll to left
                 $(rightPaddle2).on('click', function() {
@@ -565,6 +600,7 @@
                 });
             },
         });
+          
     }
 
     $('.open').click(function(){
@@ -583,5 +619,4 @@
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     @include('layouts.longevity_script')
-  
 @stop

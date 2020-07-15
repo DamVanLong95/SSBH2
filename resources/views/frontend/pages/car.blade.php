@@ -554,7 +554,7 @@ $('.close').click(function(){
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     @include('layouts.default_script')
-    @if($agent->isMobile() && $agent->isAndroidOS() && $agent->is('iPhone'))
+    @if($agent->isMobile())
          @include('layouts.car_mobile')
     @else
         @include('layouts.car_click')

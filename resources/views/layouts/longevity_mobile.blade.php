@@ -1,263 +1,5 @@
-@if(!empty($product_saving))
-<div class="row">
-    <div class="col-lg-12" >
-        <div class="pack-title">
-        <h4>Tích lũy, tiết kiệm <span>({{count($product_saving)}})</span></h4>
-        </div>
-        <div  class="section-wrapper2">
-            <ul id="thumbs_saving" class="section-list2">
-                @foreach($product_saving as $value)
-                    <li class="item2">
-                        <div class="thumb-t">
-                            <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                        
-                            <div class="brand-thumb">
-                                <label for="1">
-                                    <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                </label>
-                                <div class="input-pack">
-                                    <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_tl{{$value['id']}}" onclick="checkImg(this)"/>
-                                    <label class="toggle" for="checkbox_tl{{$value['id']}}"></label>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="paddles">
-    <button class="left-paddle2 paddle hidden" value="1">
-        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-    </button>
-    <button class="right-paddle2 paddle" value="1">
-    <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-    </button>
-</div>
-@endif
-@if(!empty($product_secure))
-    <div class="row">
-        <div class="col-lg-12" >
-            <div class="pack-title">
-            <h4>Bảo vệ <span>({{count($product_secure)}})</span></h4>
-            </div>
-            <div  class="section-wrapper2">
-                <ul id="thumbs_secure" class="section-list2">
-                @foreach($product_secure as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                            
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_bv{{$value['id']}}" onclick="checkImg(this)"/>
-                                        <label class="toggle" for="checkbox_bv{{$value['id']}}"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="2">
-            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-        <button class="right-paddle2 paddle" value="2">
-        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-    </div>
-@endif
-@if(isset($product_invest))
-    <div class="row">
-        <div class="col-lg-12" >
-            <div class="pack-title">
-                <h4>Đầu tư <span>({{count($product_invest)}})</span></h4>
-            </div>
-            <div  class="section-wrapper2">
-                <ul id="thumbs_invest" class="section-list2">
-                    @foreach($product_invest as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                            
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_dt{{$value['id']}}" onclick="checkImg(this)"/>
-                                        <label class="toggle" for="checkbox_dt{{$value['id']}}"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="3">
-            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-        <button class="right-paddle2 paddle" value="3">
-        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-    </div> 
-@endif
-@if(isset($product_retire))
-    <div class="row">
-        <div class="col-lg-12" >
-            <div class="pack-title">
-                <h4>Hưu trí <span>({{count($product_retire)}})</span></h4>
-            </div>
-            <div  class="section-wrapper2">
-                <ul id="thumbs_retire" class="section-list2">
-                    @foreach($product_retire as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                            
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_ht{{$value['id']}}" onclick="checkImg(this)"/>
-                                        <label class="toggle" for="checkbox_ht{{$value['id']}}"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="paddles">
-        <button class="left-paddle2 paddle hidden" value="4">
-            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-        <button class="right-paddle2 paddle" value="4">
-        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-    </div>
-
-@endif
-@if(isset($product_edu))
-    <div class="row">
-        <div class="col-lg-12" >
-            <div class="pack-title">
-                <h4>Giáo dục<span>({{count($product_edu)}})</span></h4>
-            </div>
-            <div  class="section-wrapper2">
-                <ul id="thumbs_edu" class="section-list2">
-                    @foreach($product_edu as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                            
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_gd{{$value['id']}}" onclick="checkImg(this)"/>
-                                        <label class="toggle" for="checkbox_gd{{$value['id']}}"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="5">
-            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-        <button class="right-paddle2 paddle" value="5">
-        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-    </div>
-
-@endif
-@if(!empty($product_concern))
-    <div class="row">
-        <div class="col-lg-12" >
-            <div class="pack-title">
-                <h4>Doanh nghiệp <span>({{count($product_concern)}})</span></h4>
-            </div>
-            <div  class="section-wrapper2">
-                <ul id="thumbs_concern" class="section-list2">
-                @foreach($product_concern as $value)
-                        <li class="item2">
-                            <div class="thumb-t">
-                                <p class="break-txt ">{{str_limit($value['name'],40)}}</p>
-                            
-                                <div class="brand-thumb">
-                                    <label for="1">
-                                        <img class="thumb" src="{{ asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
-                                    </label>
-                                    <div class="input-pack">
-                                        <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_dn{{$value['id']}}" onclick="checkImg(this)"/>
-                                        <label class="toggle" for="checkbox_dn{{$value['id']}}"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="6">
-            <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-        <button class="right-paddle2 paddle" value="6">
-        <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
-        </button>
-    </div>
-
-@endif
-<div id="detail-comparison" class="modal"  style="height: auto">
-    <h1 style="text-align: center">SO SÁNH QUYỀN LỢI BỔ TRỢ</h1>
-    <div class="content-ctn" >
-        <div id="comparison"></div>
-    </div>
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-        <a href="javascript:void(0)">Liên hệ tư vấn</a>
-    </button>
-</div>
-<div id="detail-insurance" class="modal" data-toggle="modal" style="height: auto">
-    <h1 style="text-align: center">Danh sách</h1>
-    <div class="content-ctn"  >
-        <div id="insurance"></div>
-    </div>
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-        <a href="javascript:void(0)">Liên hệ tư vấn</a>
-    </button>
-</div>
-@if($agent->isMobile())
-    @include('layouts.longevity_mobile')
-@else
 <script>
-    function closeModal() {
-       $('#detail-comparison').modal('hide');
-    }
-    var globalId=[];
-    dropImage();
-    
-    function dropImage(){
+     function dropImage(){
         $('img.thumb').draggable({
             containment: '#layout-area',
             revert: 'invalid',
@@ -466,26 +208,6 @@
         });
         
     }
-   
-    
-    function validURL(str) {
-        //   console.log(str);
-        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-        return !!pattern.test(str);
-    }
-
-    function clickLink(id) { 
-        var url= document.getElementById("link").getAttribute("href");
-        window.open(url, "_blank"); 
-    }
-
-</script>
-<script>
    function handleOncick(el){
        if($(el)[0].checked == true){
             var url = '{{route('popupLongevity')}}';
@@ -521,7 +243,7 @@
         var clicked = $(el);
         // console.log(clicked);
         if(clicked.is(':checked')){
-           
+           console.log(1);
             clicked[0].setAttribute('disabled',true);
             var idImg = clicked.val();
             globalId.push(idImg);
@@ -663,7 +385,7 @@
         var tblHeadObj = document.getElementById(tblId).tHead;
         var tableLength = document.getElementById('main-tbl-nt').rows[0].cells.length
         for (var h = 0; h < tblHeadObj.rows.length; h++) {
-        if (tableLength < 5) {
+        if (tableLength < 3) {
             var creatediv = document.createElement('div');
             var newTH = document.createElement('th');
             $('#select_box').attr("colspan", tableLength +1)
@@ -800,5 +522,3 @@
        
     }
 </script>
-
-@endif
