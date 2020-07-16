@@ -104,13 +104,13 @@
                                     for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
                                         
-                                        tdss.innerHTML =  `<p>`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                        tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     
                                     }
                                     //========================THOI GIAN================================
                                     for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p>`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                        tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     }
 
                                     var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;

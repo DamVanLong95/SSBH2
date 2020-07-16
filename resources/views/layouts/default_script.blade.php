@@ -238,10 +238,8 @@
                                             id: ref_rates_id,
                                             year_sx:year_sx
                                             }).done(function(data){
-                                                console.log(data);
                                                 var ratte = data.rate;
-                                                rate = ratte + rate;
-                                                // console.log(rate);
+                                                rate = ratte;
                                                 var price_old = (price * rate)/100;	
                                                 $('#price_'+indexCol+'').html((formatMoney(price_old)));
 

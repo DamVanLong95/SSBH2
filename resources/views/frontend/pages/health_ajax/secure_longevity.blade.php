@@ -331,7 +331,7 @@
                          //===========Pham vi bao hiem=====================
                         for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                            tds.innerHTML = `<p class="">`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
                         }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
@@ -342,7 +342,7 @@
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-8]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-8]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="">`+longevities[i-8]['content']+`</p>`;
                             }
                           
                          }
@@ -368,7 +368,7 @@
                          for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-10]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="">`+longevities[i-10]['content']+`</p>`;
                             }
                             if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -485,52 +485,25 @@
     }
 
 </script>
-<script>
-   function handleOncick(el){
-       if($(el)[0].checked == true){
-            var url = '{{route('popupLongevity')}}';
-            $(this).prop("checked", true);
-            
-            $.ajax({
-                type: "POST",
-                url : url,
-                data:{
-                    "_token": "{{ csrf_token() }}",
-                    "product_group_id":el.value,
-                    "product_longevity_id":globalId
-                },
-            }).done(function(data){
-                $('#comparison').html(data.html);
-                $('#detail-comparison').modal();
-                if($('#detail-comparison').is(':visible') === false)
-                    $('.selectedId').prop("checked", false);
-            });
-       }
-       
-    }
-   
-        $('.close').click(function(){
-        $('.content').toggleClass("show hide");
-        $('.open').toggleClass("show hide");
-    });
 
-</script>
 <script>
-     var globalId=[];
+     var count=0;
     function checkImg(el){
         var clicked = $(el);
         // console.log(clicked);
-        if(clicked.is(':checked')){
+        var myTable = document.getElementById('main-tbl-nt');
+                            var tblBodyObj  = myTable.tBodies[0];
+                            var tblHeadObj  = myTable.tHead;
+                            var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+        if(indexCol==4)count++;
+        if(clicked.is(':checked')&& count <=1){
            
             clicked[0].setAttribute('disabled',true);
             var idImg = clicked.val();
             globalId.push(idImg);
             var url   = "{{route('checkLongevity')}}";
-            var myTable = document.getElementById('main-tbl-nt');
-                            var tblBodyObj  = myTable.tBodies[0];
-                            var tblHeadObj  = myTable.tHead;
-                            var indexCol    = tblHeadObj.rows[0].cells.length - 1;
-                           
+           
+                         
             $.post(url,
             {
                 "_token": "{{ csrf_token() }}",
@@ -539,7 +512,6 @@
             }
             ).done( function(data, status, xhr) {
                 // console.log(data);
-                // document.getElementById("main-tbl-nt").style.tableLayout = "fixed";
                 if(data.success  ){
                     var longevities = data.longevities;
                     var indexCol = data.indexCol;
@@ -579,7 +551,7 @@
                             //===========Pham vi bao hiem=====================
                             for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                            tds.innerHTML = `<p class="">`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
                         }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
@@ -590,7 +562,7 @@
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-8]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-8]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="">`+longevities[i-8]['content']+`</p>`;
                             }
                           
                          }
@@ -648,12 +620,12 @@
                 }
                 addColumn('main-tbl-nt');
                 dropImage();
-                deleteColumn('main-tbl-nt',clicked);
+                deleteColumn(idImg,clicked);
              });
             $(this).disabled = true;
            
         }
-          
+        if(count==4) return;
         
     }
     
@@ -708,14 +680,14 @@
         $('span.remove').on('click', function (e ) {
             var index = ($(this).parent().index()+1);
             if( index ==2 ){
+                console.log(idImg);
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
-                // addColumn('main-tbl-nt');
-                // dropImage();
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
+                count=0;
                 // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
             }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
@@ -725,7 +697,9 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
+                count=0;
+
             }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -734,16 +708,17 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
+                count=0;
             }else if(index == 4){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
+                count=0;
                 
-                console.log(111);
             }else if(index == 5 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
@@ -752,23 +727,29 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
+                count=0;
             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 // addColumn('main-tbl-nt');
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
             }else if(index == 3 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
+                count=0;
             }
            
         });
        
+    }
+    function removeItem(idImg,global){
+        const index = global.indexOf(idImg);
+        if(index > -1 ) { global.splice(index , 1)}
     }
 </script>
 <script>
@@ -800,5 +781,34 @@
        
     }
 </script>
+<script>
+   function handleOncick(el){
+       if($(el)[0].checked == true){
+            var url = '{{route('popupLongevity')}}';
+            $(this).prop("checked", true);
+            // console.log(globalId);
+            $.ajax({
+                type: "POST",
+                url : url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "product_group_id":el.value,
+                    "product_longevity_id":globalId
+                },
+            }).done(function(data){
+                $('#comparison').html(data.html);
+                $('#detail-comparison').modal();
+                if($('#detail-comparison').is(':visible') === false)
+                    $('.selectedId').prop("checked", false);
+            });
+       }
+       
+    }
+   
+        $('.close').click(function(){
+        $('.content').toggleClass("show hide");
+        $('.open').toggleClass("show hide");
+    });
 
+</script>
 @endif

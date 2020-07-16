@@ -1,7 +1,7 @@
 @if(count($result['spbt_more'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
-<table class="table" id="main-tbl-popup" style="background: none; color: #212529;table-layout:fixed;">
+<table class="table" id="main-tbl-popup" style="background: none; color: #212529;table-layout:auto;">
   <thead>
     <tr>
    
@@ -39,10 +39,21 @@
 <script >
 $(document).ready(function(){
   var myTable = document.getElementById('main-tbl-popup');
+  function isEmpty(td) {
+        if ( td.text() == '') {
+            return true;
+        }            
+
+        return false;
+  }
   if(myTable){
     $(".selectedId:checked").each(function(){
         if($(this)[0].checked === true){
            $('.spbt').on('change', function() {
+              for(var j =1; j< myTable.rows.length; j ++){
+                myTable.rows[j].removeAttribute('style');
+              }
+              // return;
               var indexCol = ($(this).parent().index());
               var value    = $(this).val();
               var url = '{{route('showProduct')}}';
@@ -56,16 +67,34 @@ $(document).ready(function(){
               ,function(data,status){
                 if(data.status == 'success'){
                   var benifits = data.benifits;
-                  // console.log(data.benifits);
                   for(var i =1; i < myTable.rows.length ; i ++ ){
                     var tds =  myTable.rows[i].cells[indexCol];
-                    if(benifits[i-1]){
+                    if(benifits[i-1]!=null){
                       tds.innerHTML = '<p class="">'+ benifits[i-1]['content']+'</p>';
                     }
+                    
                   }
+               
+                 
                 }
               }).done(function(){
+                $("#main-tbl-popup tr:not(:first)").each(function(){
+                    var trIsEmpty = true;
+                    var tr = $(this);
+                  //  console.log(tr);
+                    tr.find("td:not(:first)").each(function() {
+                      td = $(this);
+                        // console.log(td.text());
+                        
+                        if (isEmpty(td) === false)  {
+                          trIsEmpty = false;   
+                        }
+                    });
+                    if (trIsEmpty == true) {
+                         tr.hide();
 
+                    }
+                });
               })
           });
         }
@@ -76,29 +105,29 @@ $(document).ready(function(){
 });
 $(function() {
   var myTable = document.getElementById('main-tbl-popup');
-        document.getElementById("main-tbl-nt").style.tableLayout = "fixed";
-        var tblHeadObj = document.getElementById('main-tbl-popup').tHead;
-        var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
-        var length = <?php echo sizeof($result['product_name'])?>;
-        for (var h = 0; h < length; h++) {
-          if (tableLength < 6) {
-            
-              var tblBodyObj = document.getElementById('main-tbl-popup').tBodies[0];
-              for (var i = 0; i < tblBodyObj.rows.length; i++) {
-                  var newCell = tblBodyObj.rows[i].insertCell(-1);
-                  var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
-              }
-              $('#green_header').next("td").remove()
-              $('#select_box').next("td").remove()
-              $('#rank_box').next("td").remove()
-              $('.green_header').next("td").remove()
-              $('.hospital_header').next("td").remove()
-              $('#select_box_longevity').next("td").remove()
-              $('.spbt').next("td").remove()
+      var tblHeadObj = document.getElementById('main-tbl-popup').tHead;
+      var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
+      var length = <?php echo sizeof($result['product_name'])?>;
+      for (var h = 0; h < length; h++) {
+        if (tableLength < 6) {
+          
+            var tblBodyObj = document.getElementById('main-tbl-popup').tBodies[0];
+            for (var i = 0; i < tblBodyObj.rows.length; i++) {
+                var newCell = tblBodyObj.rows[i].insertCell(-1);
+                var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
+            }
+            $('#green_header').next("td").remove()
+            $('#select_box').next("td").remove()
+            $('#rank_box').next("td").remove()
+            $('.green_header').next("td").remove()
+            $('.hospital_header').next("td").remove()
+            $('#select_box_longevity').next("td").remove()
+            $('.spbt').next("td").remove()
 
-          }
         }
-});
+      }
+  });
+ 
 </script>
 @endif
 

@@ -164,7 +164,7 @@ $(function() {
                                             year_sx:year_sx
                                             }).done(function(data){
                                                 var ratte = data.rate;
-                                                rate = ratte + rate;
+                                                rate = ratte;
                                                 var price_old = (price * rate)/100;	
                                                 $('#price_'+indexCol+'').html((formatMoney(price_old)));
 

@@ -73,7 +73,7 @@
                          //===========Pham vi bao hiem=====================
                         for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                            tds.innerHTML = `<p class="">`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
                         }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
@@ -84,7 +84,7 @@
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-8]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-8]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="">`+longevities[i-8]['content']+`</p>`;
                             }
                           
                          }
@@ -437,7 +437,7 @@
                 // addColumn('main-tbl-nt');
                 // dropImage();
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
                 // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
             }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
@@ -447,50 +447,27 @@
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
-            }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
-                $('th:nth-child('+index+')').remove()
-                $('td:nth-child('+index+')').remove()
-                addColumn('main-tbl-nt');
-                dropImage();
-                $(clicked[0]).attr("checked", false);;
-                clicked[0].disabled = false;
-                $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
-            }else if(index == 4){
-                $('th:nth-child('+index+')').remove()
-                $('td:nth-child('+index+')').remove()
-                $(clicked[0]).attr("checked", false);;
-                clicked[0].disabled = false;
-                $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
-                
-                console.log(111);
-            }else if(index == 5 ){
-                $('th:nth-child('+index+')').remove()
-                $('td:nth-child('+index+')').remove()
-                addColumn('main-tbl-nt');
-                dropImage();
-                $(clicked[0]).attr("checked", false);;
-                clicked[0].disabled = false;
-                $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 // addColumn('main-tbl-nt');
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
             }else if(index == 3 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
-                globalId.pop(idImg);
+                removeItem(idImg,globalId);
             }
            
         });
        
+    }
+    function removeItem(idImg,global){
+        const index = global.indexOf(idImg);
+        if(index > -1 ) { global.splice(index , 1)}
     }
 </script>
 <script>
