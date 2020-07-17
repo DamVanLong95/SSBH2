@@ -80,7 +80,7 @@
                         <li @if(request()->is('/')) class="active" @endif >
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                         </li>
-                        <li @if(request()->is('/intro')) class="active" @endif>
+                        <li @if(request()->is('intro') || request()->is('detail')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
                         </li>
                         <!-- <li >

@@ -50,9 +50,7 @@ $(document).ready(function(){
     $(".selectedId:checked").each(function(){
         if($(this)[0].checked === true){
            $('.spbt').on('change', function() {
-              for(var j =1; j< myTable.rows.length; j ++){
-                myTable.rows[j].removeAttribute('style');
-              }
+            $("#main-tbl-popup tr:not(:first)").show();
               // return;
               var indexCol = ($(this).parent().index());
               var value    = $(this).val();
@@ -71,11 +69,10 @@ $(document).ready(function(){
                     var tds =  myTable.rows[i].cells[indexCol];
                     if(benifits[i-1]!=null){
                       tds.innerHTML = '<p class="">'+ benifits[i-1]['content']+'</p>';
+                    }else{
+                      tds.innerHTML = '<p class=""></p>';
                     }
-                    
                   }
-               
-                 
                 }
               }).done(function(){
                 $("#main-tbl-popup tr:not(:first)").each(function(){
