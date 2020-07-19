@@ -1,15 +1,15 @@
 <script>
+   
 $(function() {  
     var count =0;
        $('.checkId').click(function(){
             var clicked = $(this);
-            // console.log(clicked);
             var myTable = document.getElementById('main-tbl');
                     var tblBodyObj  = myTable.tBodies[0];
                     var tblHeadObj  = myTable.tHead;
                     var indexCol    = tblHeadObj.rows[0].cells.length - 1;
 
-           if(indexCol==2)  count++;
+           if(indexCol==2)count++;
            
            if(clicked.is(':checked')&& count <=1){
             clicked[0].setAttribute('disabled',true);
@@ -69,7 +69,7 @@ $(function() {
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
                         tds.innerHTML = `
                             <div class="count-rank-ctn" >
-                                <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                                <div class="mark-num"><p><span class="first-span" id="point_`+indexCol+`" value="0" >`+10+`</span>/<span>10</span></p></div>
                                 <div class="service">
                                     <img src="`+path_camera+`"alt="">
                                     <img src="`+path_phone+`"alt="">
@@ -78,46 +78,99 @@ $(function() {
                             </div>
                         `;
                        
-                        //calculate star
-                        var count_star_green = 0;
-                        var count_star_orange = 0;
-                        var count_star_gray = 0;
-                     
-                            for(var j=0;j<terms_data.length;j++){
-                                if(terms_data[j]['rate_star_dkbs'] == 5){
-                                    count_star_green++;
-                                }else if(terms_data[j]['rate_star_dkbs'] == 3){
-                                    count_star_orange++;
-                                }else if(terms_data[j]['rate_star_dkbs'] == 2){
-                                    count_star_gray++;
-                                }
-                            }
-                            for(var k=0;k < exception.length;k++){
-                                if(exception[k]['rate_star_dklt'] == 5){
-                                    count_star_green++;
-                                }else if(exception[k]['rate_star_dklt'] == 3){
-                                    count_star_orange++;
-                                }else if(exception[k]['rate_star_dklt'] == 2){
-                                    count_star_gray++;
-                                }
-                            }
-                            var total_star = count_star_gray + count_star_green +count_star_orange;
-                            var point = 1/(total_star)*(count_star_green + 3/4*count_star_orange + 1/2*count_star_gray)*10;
-                            var tdsss =  myTable.rows[1].cells[indexCol];
-                            var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
-                            var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
-                            var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
-                            tdsss.innerHTML = `
-                                <div class="count-rank-ctn" >
-                                    <div class="mark-num"><p><span class="first-span" >`+Math.round(point)+`</span>/<span>10</span></p></div>
-                                    <div class="service">
-                                        <img src="`+path_camera+`"alt="">
-                                        <img src="`+path_phone+`"alt="">
-                                        <img src="`+path_mess+`"alt="">
-                                    </div>
-                                </div>
-                            `;
+                         //===========calulate point================================
+                      //==================
+                      var countCheck = 0;
+                                var count_star;
+                                var count_star_orange = 0;
+                                var count_star_green = 0;
+                                var count_star_gray = 0;
+                               
+                                //====check All======================================
+                                var el = '.selectedAll';
+                                $(''+el+'').click(function(){
+                                // console.log(this);
+                                    var type_term = $(this).data("id");
+                                    if($(this).is(':checked')== true && type_term == 1){
+                                        for(const i in terms_data){
+                                            // console.log(terms_data[i]);
+                                            if(terms_data[i]['rate_star_dkbs']==3)      count_star_orange++;
+                                            else if(terms_data[i]['rate_star_dkbs']==5) count_star_green++;
+                                            else if(terms_data[i]['rate_star_dkbs']==2) count_star_gray++;
+                                        }
+                                        // console.log(count_star_orange);
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                        var countCheck = 2;
+                                        checkCalulate('.selectedId',countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
+                                    }else if($(this).is(':checked')== false && type_term == 1){
+                                        for(const i in terms_data){
+                                            if(terms_data[i]['rate_star_dkbs']==3)      count_star_orange--;
+                                            else if(terms_data[i]['rate_star_dkbs']==5) count_star_green--;
+                                            else if(terms_data[i]['rate_star_dkbs']==2) count_star_gray--;
+                                        }
+                                        // console.log(count_star_orange);
+                                    
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                    }
+                                    if($(this).is(':checked')== true && type_term == 2){
+                                        // console.log(exception);
+                                        for(const i in exception){
+                                            if(exception[i]['rate_star_dklt']==3)      count_star_orange++;
+                                            else if(exception[i]['rate_star_dklt']==5) count_star_green++;
+                                            else if(exception[i]['rate_star_dklt']==2) count_star_gray++;
+                                        }
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                        var countCheck = 2;
+                                        checkCalulate('.selectedId',countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol)
+                                    }else if($(this).is(':checked')== false && type_term == 2){
+                                        for(const i in exception){
+                                            if(exception[i]['rate_star_dklt']==3)      count_star_orange--;
+                                            else if(exception[i]['rate_star_dklt']==5) count_star_green--;
+                                            else if(exception[i]['rate_star_dklt']==2) count_star_gray--;
+                                        }
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                    }
+                                    if($(this).is(':checked')== true && type_term == 3){
+                                        // console.log(punishment);
+                                        for(const i in punishment){
+                                            if(punishment[i]['rate_star_ct']==3)      count_star_orange++;
+                                            else if(punishment[i]['rate_star_ct']==5) count_star_green++;
+                                            else if(punishment[i]['rate_star_ct']==2) count_star_gray++;
+                                        }
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                        var countCheck = 2;
+                                        checkCalulate('.selectedId',countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol)
+                                    }else if($(this).is(':checked')== false && type_term == 3){
+                                        for(const i in punishment){
+                                            if(punishment[i]['rate_star_ct']==3)      count_star_orange--;
+                                            else if(punishment[i]['rate_star_ct']==5) count_star_green--;
+                                            else if(punishment[i]['rate_star_ct']==2) count_star_gray--;
+                                        }
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                    }
+                                    if($(this).is(':checked')== true && type_term == 4){
+                                        for(const i in permissions){
+                                            if(permissions[i]['rate_star_nv']==3)      count_star_orange++;
+                                            else if(permissions[i]['rate_star_nv']==5) count_star_green++;
+                                            else if(permissions[i]['rate_star_nv']==2) count_star_gray++;
+                                        }
+                                        calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                        var countCheck = 2;
+                                        checkCalulate('.selectedId',countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol)
+                                    }else if($(this).is(':checked')== false && type_term == 4){
+                                        for(const i in permissions){
+                                            if(permissions[i]['rate_star_nv']==3)      count_star_orange--;
+                                            else if(permissions[i]['rate_star_nv']==5) count_star_green--;
+                                            else if(permissions[i]['rate_star_nv']==2) count_star_gray--;
+                                        }
+                                         calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                    }
+                                   
+                                });
+                              //===========calulate point================================
                                 
+                                var selector = ".selectedId";
+                                checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
                                 //set id for column have price car
                                 var tds         =  tblBodyObj.rows[3].cells[indexCol];
                                 var tdss        =  tblBodyObj.rows[4].cells[indexCol];
@@ -212,10 +265,10 @@ $(function() {
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                     if(terms_data[i-7]['note_more']==="-----") {
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                        tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -223,7 +276,7 @@ $(function() {
 
                                         `;
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
@@ -231,7 +284,7 @@ $(function() {
 
                                         `;
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
@@ -252,13 +305,13 @@ $(function() {
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
                                         `;
                                     }else{
-                                        tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                        tds.innerHTML =`<p class="ellipsis" value="2">`+deductible[0]['note_dkkt']+`</p>
                                         <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -274,14 +327,14 @@ $(function() {
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                     {
                                     tds.innerHTML = 
-                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
                                         `;
                                 
                                     }else if(exception[j-36]['rate_star_dklt']=== 5){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="5">`+exception[j-36]['note_dklt']+`</p>`+`
                                         <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                         <img class="img-fluid" src="`+imgGreen+`" alt="">
@@ -290,13 +343,13 @@ $(function() {
                                     }else if(exception[j-36]['rate_star_dklt']=== 2){
                                         if(exception[j-36]['note_dklt']=== "x"){
                                                 tds.innerHTML = 
-                                            `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            `<p class="ellipsis" value="2"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                             <div class="star-td">
                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                             </div>
                                             `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+exception[j-36]['note_dklt']+`</p>`+`
                                             <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                             <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -312,25 +365,25 @@ $(function() {
                                    if(punishment.length >0){
                                         if(punishment[i-69]['rate_star_ct']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(punishment[i-69]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="5">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(punishment[i-69]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
-                                        else{
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
-                                        }
+                                        // else{
+                                        //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
+                                        // }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
@@ -339,18 +392,18 @@ $(function() {
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
-                                            tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                            tds.innerHTML =`<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="5">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
@@ -445,9 +498,10 @@ $(function() {
                }).done(function() {
                 deleteColumn(idImg,clicked);
                });
-               if(count==2) return;
+               if(count==4) return;
             //    $(this).disabled = true;
            }
+           if(count==2) return;
        });
       
        function deleteColumn(idImg,clicked){
@@ -466,14 +520,21 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl');
                     count=0;
+                    $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     count=0;
-                    addColumn('main-tbl');
-                    clicked[0].disabled = false;
+                    // addColumn('main-tbl');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    count=0;
+                    $('#'+idImg+'').draggable({ disabled: false });
                 }
             });
        }
@@ -517,6 +578,83 @@ $(function() {
                 }
             }
         }
+        function calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol){
+            var count_star = count_star_orange + count_star_green + count_star_gray;
+            if(count_star !=0)
+                var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            else result = 10;
+            result = Math.round(result * 100) / 100;
+            $('#point_'+indexCol+'').text(result);
+            $('#point_'+indexCol+'')[0].setAttribute("value",result);
+        }
+        function checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol){
+            $(''+selector+'').click(function(){
+                var clicked = $(this);
+                // console.log(clicked);
+                var checkIndex  = clicked.parent().parent()[0].rowIndex;
+                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                    countCheck++;
+                    if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                    else star = 0;
+                        var point;
+                        
+                        if(countCheck==1){
+                            if(star == 3){
+                                point= 7.5;
+                                if(clicked.is(':checked') == true){
+                                    count_star_orange++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            }else if(star == 5){
+                                point = 10;
+                                if(clicked.is(':checked') == true){
+                                    count_star_green++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            }else if(star == 2){
+                                point = 5;
+                                if(clicked.is(':checked') == true){
+                                    count_star_gray++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            };
+                        }else if(countCheck > 1){
+                            if(star == 5){
+                                if(clicked.is(':checked') == true){
+                                    count_star_green++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_green--;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                            }else if(star == 3){
+                                if(clicked.is(':checked') == true){
+                                    count_star_orange++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_orange--;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                                
+                            }else if(star == 2){
+                                if(clicked.is(':checked') == true){
+                                    count_star_gray ++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_gray --;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                            }else if(star == 0) {
+                                var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                                $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                            };
+                        }
+            });
+        }
           
-});
+    });
 </script>
+   

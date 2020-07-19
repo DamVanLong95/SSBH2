@@ -89,7 +89,6 @@ $(document).ready(function(){
                     });
                     if (trIsEmpty == true) {
                          tr.hide();
-
                     }
                 });
               })

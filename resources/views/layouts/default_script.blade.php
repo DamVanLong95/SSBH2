@@ -85,7 +85,11 @@
 
 </script>
     <script>
-        dropImage();
+    
+     dropImage();
+     var myTable = document.getElementById('main-tbl');
+     var terms_data,exception,punishment,exception;
+     var star_orange=0,star_gray=0,star_green=0;
      function dropImage(){
             $('img.thumb').draggable({
                 containment: '#layout-area',
@@ -139,41 +143,30 @@
                                 var rating_and_model = data.data['rating_and_model'];
                                 var notes       = data.summaries;
                                 var deductible  = data.deductible;           
-                                var exception   = data.exception;  
-                                var punishment  = data.punishment;
+                                 exception   = data.exception;  
+                                 punishment  = data.punishment;
                                 var promotion   = data.promotion;
 
-                                var terms_data  = data.terms;
-                                var permissions = data.permissions;
+                                 terms_data  = data.terms;
+                                 permissions = data.permissions;
                                 var finances    = data.finances;
                                 var data_activities = data.data;
                                 $("#net-address").html(data.html);
                                 var myTable = document.getElementById('main-tbl');
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
-                                //====check All======================================
-                                $('.selectedAll').click(function(){
-                                    // console.log(terms_data);
-                                    console.log(this);
-                                    if(this.checked == true){
-                                        var green = 0,orange = 0, gray = 0;
-                                        for(const i in terms_data){
-                                            // console.log(terms_data[i]);
-                                            if(terms_data[i]['rate_star_dkbs']==3) orange++;
-                                            else if(terms_data[i]['rate_star_dkbs']==5) green++;
-                                            else if(terms_data[i]['rate_star_dkbs']==2) gray++;
-                                        }
-                                        calculatePoint(orange,green,gray,indexCol);
-                                    }
-                                });
-                                var checked = document.getElementsByClassName('selectedId');
-                                // console.log(checked);
-                              //===========calulate point================================
+                                //==================
                                 var countCheck = 0;
                                 var count_star;
                                 var count_star_orange = 0;
                                 var count_star_green = 0;
                                 var count_star_gray = 0;
+                               
+                                //====check All======================================
+                                var el = '.selectedAll';
+                                checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions);
+                              //===========calulate point================================
+                                
                                 var selector = ".selectedId";
                                 checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
 
@@ -254,23 +247,6 @@
                                                 $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
                                             })
                                         }
-                                       
-                                        // var price_old = (price * rate)/100;	
-                                        // $('#price_'+indexCol+'').html((formatMoney(price_old)));
-
-                                        // var rate_promotion      = promotion['promotion'];	
-                                        // var price_new = price_old * (1-rate_promotion/100);
-                                        // price_new = Math.round(price_new * 100) / 100 ;	
-                                        
-                                        
-                                        // $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
-                                    
-                                        // var rate = total + rate;
-                                        // var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
-                                        // var price_discount =  Number(price_old)+ Number(price_old*rate/100);
-                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
-                                       
                                     }else{
                                         alert("Vui long nhap gia tri xe");
                                     }
@@ -314,8 +290,6 @@
 
                                         `;
                                     }
-                                    
-                                    
                                 }
                                 //===============MUC KHAU TRU===============================
 
@@ -437,7 +411,7 @@
                                                             </div> `;
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis" value="2>`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
@@ -626,20 +600,206 @@
         }
         function calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol){
             var count_star = count_star_orange + count_star_green + count_star_gray;
-            var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            if(count_star !=0)
+                var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            else result = 10;
             result = Math.round(result * 100) / 100;
             $('#point_'+indexCol+'').text(result);
             $('#point_'+indexCol+'')[0].setAttribute("value",result);
         }
+       var  new_orange =0;
+        function checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions){
+            // var orange=0 , green=0 , gray=0;
+            // var v=0 , x=0 , d=0;
+            // var org=0 , gre=0 , gra=0;
+            
+            $('.selectedAll').click(function(){
+                var type_term = $(this).data("id");
+                var countCheck = 2;
+                if($(this).is(':checked')== true && type_term == 1){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                            count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                   
+                    
+                }else if($(this).is(':checked')== false && type_term == 1){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                            count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                }
+                if($(this).is(':checked')== true && type_term == 2){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                       
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                            var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                            if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                            else star = 0;
+                            if(star ==3)
+                            count_star_orange ++;
+                            else if(star == 2) count_star_gray++;
+                            else if(star == 5) count_star_green++;
+                        });
+                }else if($(this).is(':checked')== false && type_term == 2){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                }
+                if($(this).is(':checked')== true && type_term == 3){
+                    // console.log(punishment);
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });      
+                   
+                }else if($(this).is(':checked')== false && type_term == 3){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });              
+
+                }
+                if($(this).is(':checked')== true && type_term == 4){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });        
+                    
+                }else if($(this).is(':checked')== false && type_term == 4){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });           
+                }
+               
+                    star_orange   = count_star_orange ;
+                    star_green    = count_star_green ;
+                    star_gray     = count_star_gray ;
+               
+                clickCheckbox(star_orange,star_green,star_gray,indexCol);
+                calculatePoint(star_orange,star_green,star_gray,indexCol);
+            });
+        }
+        function clickCheckbox(star_orange,star_green,star_gray,indexCol){
+            $('.selectedId').click(function(){
+                var clicked = $(this);
+                var checkIndex  = clicked.parent().parent()[0].rowIndex;
+                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+               
+                if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                else star = 0;
+                if(star == 5){
+                    if(clicked.is(':checked') == true){
+                        star_green++;
+
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_green--;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 3){
+                    if(clicked.is(':checked') == true){
+                        star_orange++;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_orange--;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 2){
+                    if(clicked.is(':checked') == true){
+                        star_gray ++;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_gray --;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 0) {
+                    var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                    $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                };
+            });
+          
+        }
         function checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol){
             $(''+selector+'').click(function(){
                 var clicked = $(this);
-                // console.log(clicked);
+                // console.log($('.selectedId'));
+                
                 var checkIndex  = clicked.parent().parent()[0].rowIndex;
                 var tds         =  myTable.rows[checkIndex].cells[indexCol];
+               
                     countCheck++;
                     if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
                     else star = 0;
+                    // console.log(star);
                         var point;
                         if(countCheck==1){
                             if(star == 3){
@@ -679,8 +839,11 @@
                                     calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
                                 }else{
                                     count_star_orange--;
+                                    count_star_orange = count_star_orange;
                                     calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
                                 }
+                              
+                               
                                 
                             }else if(star == 2){
                                 if(clicked.is(':checked') == true){
@@ -743,11 +906,15 @@
     <script>
         function handleAll(el,length){
             // console.log(el);
-            var terms_data = <?php echo $terms_data?>;
-            var length_terms = terms_data.length;
-            var exception_data  = <?php echo $exception_data?>;
-            var length_exception = exception_data.length;
-            // console.log(terms_data);
+            var terms_data          = <?php echo $terms_data?>;
+            var punishment          = <?php echo $punishment?>;
+            var exception_data      = <?php echo $exception_data?>;
+            var permission          = <?php echo $permission?>;
+            var length_terms        = terms_data.length;
+            var length_exception    = exception_data.length;
+            var length_punishment   = punishment.length;
+            var length_permission   = permission.length+1;
+           
         
         if(el.checked == true){
             if(length==length_terms){
@@ -764,7 +931,25 @@
                 for(var i=0; i< length ;i++){
                     var label_dklt= document.getElementById('dklt'+exception_data[i]['id']+'');
                     // label_dklt.style.display = "inline-flex";
-                    $('#checkbox2_'+exception_data[i]['id']+'').prop('checked', el.checked);
+                    $('#checkbox_lt'+exception_data[i]['id']+'').prop('checked', el.checked);
+                }
+                
+            }
+            if(length == length_punishment){
+                length = length_punishment;
+                for(var i=0; i< length ;i++){
+                    var label_ct= document.getElementById('ct'+punishment[i]['id']+'');
+                    // label_dklt.style.display = "inline-flex";
+                    $('#checkbox_ct'+punishment[i]['id']+'').prop('checked', el.checked);
+                }
+                
+            }
+            if(length == length_permission){
+                length = length_permission;
+                console.log(length);
+                for(var i=0; i< length-1 ;i++){
+                  
+                    $('#checkbox_nv'+permission[i]['id']+'').prop('checked', el.checked);
                 }
                 
             }
@@ -773,11 +958,25 @@
             if(length==length_terms){
                 for(var i=0; i< length ;i++){
                     var text= document.getElementById('dkbs'+terms_data[i]['id']+'');
+                    // console.log(text);
                     text.style.display = "none";
+                      $('#checkbox_bs'+terms_data[i]['id']+'').prop('checked', false);
                 }
-                $('.selectedId').prop('checked', false);
+              
             }
-            if(length==length_exception)  $('.selectedId').prop('checked', false);
+            if(length==length_exception) {
+                for(var i=0; i< length ;i++){
+                    $('#checkbox_lt'+exception_data[i]['id']+'').prop('checked', false);
+                }
+               
+            } 
+            if(length==length_punishment){
+                for(var i=0; i< length ;i++)  $('#checkbox_ct'+punishment[i]['id']+'').prop('checked', false);
+            }
+            if(length==length_permission){
+                for(var i=0; i< length-1 ;i++)  $('#checkbox_nv'+permission[i]['id']+'').prop('checked', false);
+            }
+           
         }
     }
     $(document).ready(function () {

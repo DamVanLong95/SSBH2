@@ -1,5 +1,7 @@
 <script>
-   
+ var myTable = document.getElementById('main-tbl');
+var terms_data,exception,punishment,exception;
+var count_star_orange,count_star_gray,count_star_green;  
 $(function() {  
     var count =0;
        $('.checkId').click(function(){
@@ -79,13 +81,19 @@ $(function() {
                         `;
                        
                          //===========calulate point================================
-                        var countCheck = 0;
-                        var count_star;
-                        var count_star_orange = 0;
-                        var count_star_green = 0;
-                        var count_star_gray = 0;
-                        var selector = ".selectedId";
-                        checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
+                                var countCheck = 0;
+                                var count_star;
+                                var count_star_orange = 0;
+                                var count_star_green = 0;
+                                var count_star_gray = 0;
+                               
+                                    //====check All======================================
+                                var el = '.selectedAll';
+                                checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions);
+                              //===========calulate point================================
+                                
+                                var selector = ".selectedId";
+                                checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
                                 //set id for column have price car
                                 var tds         =  tblBodyObj.rows[3].cells[indexCol];
                                 var tdss        =  tblBodyObj.rows[4].cells[indexCol];
@@ -416,6 +424,7 @@ $(function() {
                if(count==4) return;
             //    $(this).disabled = true;
            }
+           if(count==4) return;
        });
       
        function deleteColumn(idImg,clicked){
@@ -517,22 +526,203 @@ $(function() {
         }
         function calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol){
             var count_star = count_star_orange + count_star_green + count_star_gray;
-            var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            if(count_star !=0)
+                var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            else result = 10;
             result = Math.round(result * 100) / 100;
             $('#point_'+indexCol+'').text(result);
             $('#point_'+indexCol+'')[0].setAttribute("value",result);
         }
+      
+        function checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions){
+            $('.selectedAll').click(function(){
+                var type_term = $(this).data("id");
+                var countCheck = 2;
+                if($(this).is(':checked')== true && type_term == 1){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                            count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                   
+                    
+                }else if($(this).is(':checked')== false && type_term == 1){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                            count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                }
+                if($(this).is(':checked')== true && type_term == 2){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                       
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                            var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                            if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                            else star = 0;
+                            if(star ==3)
+                            count_star_orange ++;
+                            else if(star == 2) count_star_gray++;
+                            else if(star == 5) count_star_green++;
+                        });
+                }else if($(this).is(':checked')== false && type_term == 2){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                }
+                if($(this).is(':checked')== true && type_term == 3){
+                    // console.log(punishment);
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });      
+                   
+                }else if($(this).is(':checked')== false && type_term == 3){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });              
+
+                }
+                if($(this).is(':checked')== true && type_term == 4){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });        
+                    
+                }else if($(this).is(':checked')== false && type_term == 4){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });           
+                }
+               
+                    star_orange   = count_star_orange ;
+                    star_green    = count_star_green ;
+                    star_gray     = count_star_gray ;
+               
+                clickCheckbox(star_orange,star_green,star_gray,indexCol);
+                calculatePoint(star_orange,star_green,star_gray,indexCol);
+            });
+        }
+        function clickCheckbox(star_orange,star_green,star_gray,indexCol){
+            $('.selectedId').click(function(){
+                var clicked = $(this);
+                var checkIndex  = clicked.parent().parent()[0].rowIndex;
+                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+               
+                if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                else star = 0;
+                if(star == 5){
+                    if(clicked.is(':checked') == true){
+                        star_green++;
+
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_green--;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 3){
+                    if(clicked.is(':checked') == true){
+                        star_orange++;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_orange--;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 2){
+                    if(clicked.is(':checked') == true){
+                        star_gray ++;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_gray --;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 0) {
+                    var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                    $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                };
+            });
+          
+        }
         function checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol){
             $(''+selector+'').click(function(){
                 var clicked = $(this);
-                // console.log(clicked);
+                // console.log($('.selectedId'));
+                
                 var checkIndex  = clicked.parent().parent()[0].rowIndex;
                 var tds         =  myTable.rows[checkIndex].cells[indexCol];
+               
                     countCheck++;
                     if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
                     else star = 0;
+                    // console.log(star);
                         var point;
-                        
                         if(countCheck==1){
                             if(star == 3){
                                 point= 7.5;
@@ -571,8 +761,11 @@ $(function() {
                                     calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
                                 }else{
                                     count_star_orange--;
+                                    count_star_orange = count_star_orange;
                                     calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
                                 }
+                              
+                               
                                 
                             }else if(star == 2){
                                 if(clicked.is(':checked') == true){
@@ -589,7 +782,6 @@ $(function() {
                         }
             });
         }
-          
     });
 </script>
    
