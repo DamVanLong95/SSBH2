@@ -1,5 +1,5 @@
 <script>
- var myTable = document.getElementById('main-tbl');
+var myTable = document.getElementById('main-tbl');
 var terms_data,exception,punishment,exception;
 var count_star_orange,count_star_gray,count_star_green;  
 $(function() {  
@@ -109,31 +109,42 @@ $(function() {
                                 // console.log(tdss);
                                 $('#calculate').click(function(){
                                     var price = $('#price_car').val();
+                                    // console.log(price);
                                     var rate = 1.5;
                                     var checked =0;
                                     var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
-                                    for(var i=2; i<=25; i++){
-                                        // console.log(chks[i]);
+                                    for(var i=4; i<=27; i++){
                                         if (chks[i].checked) {
                                             checked++;
-                                            total =(Number(total) + Number(chks[i].value));
+                                            total += parseFloat(chks[i].value);
                                         }
                                     }
-                                    for(var i=27; i<chks.length; i++){
-                                        if (chks[i].checked) {
-                                            checked++;
-                                            total =(Number(total) + Number(chks[i].value));
-                                        }
+                                   
+                                    var total_rate = Math.round(total * 100) /100;
+                                    function calCost(price, rate,total_rate, indexCol){
+                                        var price_old = (price * rate)/100;	
+                                        $('#price_'+indexCol+'').html((formatMoney(price_old)));
+                                        var rate_promotion      = promotion['promotion'];
+                                        var price_new           = price_old * (1-rate_promotion/100);
+                                        // $('#price_'+indexCol+'').html((formatMoney(price_new)));
+                                        if(total_rate > 0) 
+                                            price_new  = Number(price_new)+ Number(price_new*total_rate/100);
+                                        price_new = Math.round(price_new * 100) / 100 
+                                        $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                        $('#price_after_'+indexCol+'').html((formatMoney(price_new)));
                                     }
+                                    // console.log(total_rate);
                                     if(price !=''){	
-                                            //===================muc dich su dung=============================
+                                        calCost(price, 1.5,total_rate, indexCol);
+                                     //===================muc dich su dung=============================
                                         var purpose = document.getElementById('purpose');
-                                        var ref_rates_id = purpose.value;
                                         var year_sx = document.getElementById('prd_date').value;
+                                        var ref_rates_id = purpose.value;
+                                        console.log(year_sx);
                                         var url = '{{route('purpose')}}';
-                                        if(year_sx){
+                                        if(year_sx!='' && ref_rates_id!=0){
                                             $.post(url,{
                                             "_token": "{{ csrf_token() }}",
                                             id: ref_rates_id,
@@ -141,37 +152,9 @@ $(function() {
                                             }).done(function(data){
                                                 var ratte = data.rate;
                                                 rate = ratte;
-                                                var price_old = (price * rate)/100;	
-                                                $('#price_'+indexCol+'').html((formatMoney(price_old)));
-
-                                                var rate_promotion      = promotion['promotion'];
-                                                var price_new           = price_old * (1-rate_promotion/100);
-                                            
-                                                if(total > 0) 
-                                                price_new = Number(price_new)+ Number(price_new*total/100);
-
-                                                price_new               = Math.round(price_new * 100) / 100 
-                                                $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                                $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                                calCost(price, rate, total_rate,indexCol);
                                             })
                                         }
-                                       
-                                        // var price_old = (price * rate)/100;	
-                                        // $('#price_'+indexCol+'').html((formatMoney(price_old)));
-
-                                        // var rate_promotion      = promotion['promotion'];	
-                                        // var price_new = price_old * (1-rate_promotion/100);
-                                        // price_new = Math.round(price_new * 100) / 100 ;	
-                                        
-                                        
-                                        // $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
-                                    
-                                        // var rate = total + rate;
-                                        // var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
-                                        // var price_discount =  Number(price_old)+ Number(price_old*rate/100);
-                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
-                                       
                                     }else{
                                         alert("Vui long nhap gia tri xe");
                                     }

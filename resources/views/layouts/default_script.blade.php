@@ -90,7 +90,7 @@
      var myTable = document.getElementById('main-tbl');
      var terms_data,exception,punishment,exception;
      var star_orange=0,star_gray=0,star_green=0;
-     function dropImage(){
+        function dropImage(){
             $('img.thumb').draggable({
                 containment: '#layout-area',
                 revert: 'invalid',
@@ -200,53 +200,55 @@
                                 // console.log(tdss);
                                 $('#calculate').click(function(){
                                     var price = $('#price_car').val();
+                                    // console.log(price);
                                     var rate = 1.5;
                                     var checked =0;
                                     var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
-                                    for(var i=2; i<=25; i++){
-                                        // console.log(chks[i]);
+                                    for(var i=4; i<=27; i++){
                                         if (chks[i].checked) {
                                             checked++;
-                                            total =(Number(total) + Number(chks[i].value));
+                                            total += parseFloat(chks[i].value);
                                         }
                                     }
-                                    for(var i=27; i<chks.length; i++){
-                                        if (chks[i].checked) {
-                                            checked++;
-                                            total =(Number(total) + Number(chks[i].value));
-                                        }
+                                   
+                                    var total_rate = Math.round(total * 100) /100;
+                                    function calCost(price, rate,total_rate, indexCol){
+                                        var price_old = (price * rate)/100;	
+                                        $('#price_'+indexCol+'').html((formatMoney(price_old)));
+                                        var rate_promotion      = promotion['promotion'];
+                                        var price_new           = price_old * (1-rate_promotion/100);
+                                        // $('#price_'+indexCol+'').html((formatMoney(price_new)));
+                                        if(total_rate > 0) 
+                                            price_new  = Number(price_new)+ Number(price_new*total_rate/100);
+                                        price_new               = Math.round(price_new * 100) / 100 
+                                        $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                        $('#price_after_'+indexCol+'').html((formatMoney(price_new)));
                                     }
-                                  
+                                    // console.log(total_rate);
                                     if(price !=''){	
-                                            //===================muc dich su dung=============================
+                                        calCost(price, 1.5,total_rate, indexCol);
+                                     //===================muc dich su dung=============================
                                         var purpose = document.getElementById('purpose');
-                                        var ref_rates_id = purpose.value;
                                         var year_sx = document.getElementById('prd_date').value;
+                                        var ref_rates_id = purpose.value;
+                                        
                                         var url = '{{route('purpose')}}';
-                                        if(year_sx){
-                                            $.post(url,{
-                                            "_token": "{{ csrf_token() }}",
-                                            id: ref_rates_id,
-                                            year_sx:year_sx
-                                            }).done(function(data){
-                                                var ratte = data.rate;
-                                                rate = ratte;
-                                                var price_old = (price * rate)/100;	
-                                                $('#price_'+indexCol+'').html((formatMoney(price_old)));
-
-                                                var rate_promotion      = promotion['promotion'];
-                                                var price_new           = price_old * (1-rate_promotion/100);
-                                            
-                                                if(total > 0) 
-                                                price_new = Number(price_new)+ Number(price_new*total/100);
-
-                                                price_new               = Math.round(price_new * 100) / 100 
-                                                $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                                $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
-                                            })
+                                        if( ref_rates_id!=0){
+                                            if(year_sx !=0){
+                                                $.post(url,{
+                                                "_token": "{{ csrf_token() }}",
+                                                id: ref_rates_id,
+                                                year_sx:year_sx
+                                                }).done(function(data){
+                                                    var ratte = data.rate;
+                                                    rate = ratte;
+                                                    calCost(price, rate, total_rate,indexCol);
+                                                })
+                                            }
                                         }
+                                        
                                     }else{
                                         alert("Vui long nhap gia tri xe");
                                     }
@@ -557,7 +559,7 @@
                 }
             });
         }
-
+       
         function addColumn(tblId) {
             var myTable = document.getElementById('main-tbl');
             var tblHeadObj = document.getElementById(tblId).tHead;
@@ -793,73 +795,74 @@
                 var clicked = $(this);
                 // console.log($('.selectedId'));
                 
-                var checkIndex  = clicked.parent().parent()[0].rowIndex;
-                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+            var checkIndex  = clicked.parent().parent()[0].rowIndex;
+            var tds         =  myTable.rows[checkIndex].cells[indexCol];
                
-                    countCheck++;
-                    if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
-                    else star = 0;
-                    // console.log(star);
-                        var point;
-                        if(countCheck==1){
-                            if(star == 3){
-                                point= 7.5;
-                                if(clicked.is(':checked') == true){
-                                    count_star_orange++;
-                                    $('#point_'+indexCol+'').text(point);
-                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
-                                }
-                            }else if(star == 5){
-                                point = 10;
-                                if(clicked.is(':checked') == true){
-                                    count_star_green++;
-                                    $('#point_'+indexCol+'').text(point);
-                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
-                                }
-                            }else if(star == 2){
-                                point = 5;
-                                if(clicked.is(':checked') == true){
-                                    count_star_gray++;
-                                    $('#point_'+indexCol+'').text(point);
-                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
-                                }
-                            };
-                        }else if(countCheck > 1){
-                            if(star == 5){
-                                if(clicked.is(':checked') == true){
-                                    count_star_green++;
-                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
-                                }else{
-                                    count_star_green--;
-                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
-                                }
-                            }else if(star == 3){
-                                if(clicked.is(':checked') == true){
-                                    count_star_orange++;
-                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
-                                }else{
-                                    count_star_orange--;
-                                    count_star_orange = count_star_orange;
-                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
-                                }
-                              
-                               
-                                
-                            }else if(star == 2){
-                                if(clicked.is(':checked') == true){
-                                    count_star_gray ++;
-                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
-                                }else{
-                                    count_star_gray --;
-                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
-                                }
-                            }else if(star == 0) {
-                                var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
-                                $('#point_'+indexCol+'')[0].setAttribute("value",temp);
-                            };
+            countCheck++;
+            if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+            else star = 0;
+            // console.log(star);
+                var point;
+                if(countCheck==1){
+                    if(star == 3){
+                        point= 7.5;
+                        if(clicked.is(':checked') == true){
+                            count_star_orange++;
+                            $('#point_'+indexCol+'').text(point);
+                            $('#point_'+indexCol+'')[0].setAttribute("value",point);
                         }
+                    }else if(star == 5){
+                        point = 10;
+                        if(clicked.is(':checked') == true){
+                            count_star_green++;
+                            $('#point_'+indexCol+'').text(point);
+                            $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                        }
+                    }else if(star == 2){
+                        point = 5;
+                        if(clicked.is(':checked') == true){
+                            count_star_gray++;
+                            $('#point_'+indexCol+'').text(point);
+                            $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                        }
+                    };
+                }else if(countCheck > 1){
+                    if(star == 5){
+                        if(clicked.is(':checked') == true){
+                            count_star_green++;
+                            calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                        }else{
+                            count_star_green--;
+                            calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                        }
+                    }else if(star == 3){
+                        if(clicked.is(':checked') == true){
+                            count_star_orange++;
+                            calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                        }else{
+                            count_star_orange--;
+                            count_star_orange = count_star_orange;
+                            calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                        }
+                        
+                        
+                        
+                    }else if(star == 2){
+                        if(clicked.is(':checked') == true){
+                            count_star_gray ++;
+                            calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                        }else{
+                            count_star_gray --;
+                            calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                        }
+                    }else if(star == 0) {
+                        var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                        $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                    };
+                }
             });
         }
+        
     </script>
     <script>
     function showNote(val){

@@ -187,7 +187,7 @@
                                                 <div class="selection-box">
                                                     <div class=" item select">
                                                         <select aria-label="Select menu example" id="purpose">
-                                                            <option selected hidden>---Mục đích sử dụng--</option>
+                                                            <option selected hidden value="0">---Mục đích sử dụng--</option>
                                                             @foreach($data['uses'] as $value)
                                                             <option value="{{$value['id']}}">{{$value['type_car']}}</option>
                                                             @endforeach
@@ -255,7 +255,7 @@
                                 @foreach($terms_data as $key=>$value)  
                                     <tr class="data-detail term">
                                         <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
+                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{isset($value['rate_fee'])? $value['rate_fee']:0}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
                                             <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
                                             
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
