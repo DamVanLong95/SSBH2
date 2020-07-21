@@ -83,7 +83,6 @@
     </script>
 
 
-</script>
     <script>
     
      dropImage();
@@ -500,7 +499,36 @@
                                     })
                             }
                         }).done(function() {
-                            // alert('Request done!');
+                            function isEmpty(td) {
+                                if ( td.text() == '') {
+                                    return true;
+                                }            
+
+                                return false;
+                            }
+                            var selOne = '.header';
+                            var selTwo = '.sub-head';
+                            var selThree = '.green1';
+                            var selFour = '.sub-ctn2';
+                            var selFive = '.sub-ctn3';
+                            var selSix = '.sub-ctn4';
+                            var selSeven = '.sub-ctn5';
+                            var selEight = '.more';
+                            var selNight = '.network';
+                            $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+")").each(function(){
+                                var trIsEmpty = true;
+                                var tr = $(this);
+                                // console.log(this);
+                                tr.find("td:not(:first)").each(function() {
+                                    td = $(this);
+                                    if (isEmpty(td) === false)  {
+                                        trIsEmpty = false;   
+                                    }
+                                });
+                                if (trIsEmpty == true) {
+                                    tr.addClass("data-empty");;
+                                }
+                            });
                         });
                     $('span.remove').on('click', function (e ) {
                         var index = ($(this).parent().parent().index()+1);
@@ -866,19 +894,19 @@
     </script>
     <script>
     function showNote(val){
-            $.ajax({
-                url: "{{route('show_info')}}",
-                type: 'post',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    note: val
-                },
-                success: function(data) {
-                    // Add response in Modal body
-                    $('#note').html(data.note);
-                    $('#detail-td').modal('show');
-                }
-            });
+        $.ajax({
+            url: "{{route('show_info')}}",
+            type: 'post',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                note: val
+            },
+            success: function(data) {
+                // Add response in Modal body
+                $('#note').html(data.note);
+                $('#detail-td').modal('show');
+            }
+        });
         }
         $(function(){
         

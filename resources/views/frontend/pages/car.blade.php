@@ -369,24 +369,20 @@
                                     <tr class="header green1 bg-head-4">
                                         <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                     </tr>
-                                    <tr class="data-detail ">
+                                    <tr class="data-detail network">
                                         <td class="text-center empty-first-car2 "><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                         <td class="car-td active-car-td">
                                             <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
                                             <p class="toggle"><span>(0)</span> Chi nhánh</p>
                                             
                                         </td>
-                                        <tr class="data-detail" id="car-tr"><td class="empty-first-car text-center"></td>
-                                            <td class="car_header" colspan="1">
-                                                <div id="net-address">
-                                                
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- <tr >
-                                            <div id="hospital-address">
+                                    </tr>
+                                    <tr class="data-detail network" id="car-tr"><td class="empty-first-car text-center"></td>
+                                        <td class="car_header" colspan="1">
+                                            <div id="net-address">
+                                            
                                             </div>
-                                        </tr> -->
+                                        </td>
                                     </tr>
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Đánh giá uy tín</td>

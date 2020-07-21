@@ -413,167 +413,216 @@ $(function() {
                     });
                     $(".custom-option").on("click", function() {
                             // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
-                            $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
-                            $(this).addClass("selection");
-                            $(this).parents(".custom-select-fix").removeClass("opened");
-                            $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
-                            var program_id = $(this).data("value");
-                            var url ='{{route('selectProgram')}}';
-                            $.post(url,{
-                                "_token": "{{ csrf_token() }}", 
-                                product_id: idImg,
-                                program_id:program_id
-                            },function(data, status){
-                                var program  = data.program;
-                                var healths = data.healths;
-                                var scope   = data.scope;
-                                var obj_bhs= data.obj_bhs;
-                                var exclusions = data.exclusions;
-                                var myTable = document.getElementById('main-tbl-sk');
-                                // console.log(myTable.rows);
-                                var row   = document.getElementById('dtbh');
-                                var qlbh  = document.getElementById('qlbh');
-                                var pending   = document.getElementById('pending');
-                                var pbh   = document.getElementById('pbh');
-                                
-                                var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
-                                    (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                    :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
-                                    //=====================pham vi lanh tho===========================
-                                    var pvlt   = document.getElementById('pvlt');
-                        
-                                    var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
-                                    (!scope)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                    :tds.innerHTML = `<p class="">`+scope['content']+`</p>`;
-                                
-                                    //========================quyen loi bao hiem========================
-                                    for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
-                                        var tdss = myTable.rows[i].cells[indexCol];
-                                        
-                                        tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
-                                    
-                                    }
-                                    //========================THOI GIAN================================
-                                    for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
-                                        var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
-                                    }
+                        $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+                        $(this).addClass("selection");
+                        $(this).parents(".custom-select-fix").removeClass("opened");
+                        $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
+                        var program_id = $(this).data("value");
+                        var url ='{{route('selectProgram')}}';
+                        $.post(url,{
+                            "_token": "{{ csrf_token() }}", 
+                            product_id: idImg,
+                            program_id:program_id
+                        },function(data, status){
+                            var program  = data.program;
+                            var healths = data.healths;
+                            var scope   = data.scope;
+                            var obj_bhs= data.obj_bhs;
+                            var exclusions = data.exclusions;
+                            var myTable = document.getElementById('main-tbl-sk');
+                            // console.log(myTable.rows);
+                            var row   = document.getElementById('dtbh');
+                            var qlbh  = document.getElementById('qlbh');
+                            var pending   = document.getElementById('pending');
+                            var pbh   = document.getElementById('pbh');
+                            
+                            var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
+                                (obj_bhs===null)? tds.innerHTML = `<p class=""></p>`
+                                                :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
+                                //=====================pham vi lanh tho===========================
+                                var pvlt   = document.getElementById('pvlt');
+                    
+                                var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
+                                (!scope)? tds.innerHTML = `<p class=""></p>`
+                                                :tds.innerHTML = `<p class="">`+scope['content']+`</p>`;
+                            
+                                //========================quyen loi bao hiem========================
+                                for(var i=7 ; i< pending.rowIndex ; i++){
+                                    var tdss = myTable.rows[i].cells[indexCol];
+                                    tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`;
+                                }
+                                //========================THOI GIAN================================
+                                for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
+                                    var tdss = myTable.rows[i].cells[indexCol];
+                                    tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                }
 
-                                    var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
-                                  
-                                      //========================phi bao hiem= =================================
-                                     var img     = 'storage/'+ program.img_cost;
-                                    tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
-                                    $('.fancybox').fancybox();
-                                //BENH VIEN LIEN KET
-                                var tdsss =myTable.rows[92].cells[indexCol];
-                                tdsss.setAttribute('id','td'+indexCol+''); 
-                                tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
-                                $('#td'+indexCol+'').click(function(){
-                                    var tdnet ;
-                                    for(var i =1;i<4;i++){
-                                        if(indexCol==1){
-                                            tdnet = tdsss;
-                                            tdnet.setAttribute('class','active-td');
-                                            myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
-                                            break;
-                                        }
-                                        if(indexCol==i){
-                                            tdnet = tdsss;
-                                            tdnet.setAttribute('class','active-td');
-                                        
-                                        }else {
-                                            tdnet= myTable.rows[92].cells[i];
-                                            tdnet.removeAttribute('class','active-td');
-                                        }
-                                    }
-                                    var provinceID = $('#province').val();
-                                    if(provinceID){
-                                        var url = '{{route('filterProvince')}}';
-                                            $.post(url ,
-                                            {
-                                                "_token": "{{ csrf_token() }}", 
-                                                location_id: provinceID,
-                                                product_id :idImg,
-                                            }
-                                            ,function(data){
-                                                $('#info_address').html(data.html_hospital);
-                                                $('#district').html(data.html_district);
-                                            
-                                            });
-                                    }else{
-                                        $('select[name="province"]').on('change', function(){
-                                            var provinceID = $(this).val();
-                                        // alert(provinceID);
-                                            var url = '{{route('filterProvince')}}';
-                                            $.post(url ,
-                                            {
-                                                "_token": "{{ csrf_token() }}", 
-                                                location_id: provinceID,
-                                                product_id :idImg,
-                                            }
-                                            ,function(data){
-                                                $('#info_address').html(data.html_hospital);
-                                                $('#district').html(data.html_district);
-                                            
-                                            });
-                                        });
-                                    }
-                                    var provinceID ;
-                                    $('select[name="province"]').on('change', function(){
-                                             provinceID = $(this).val();
-                                        // alert(provinceID);
-                                            var url = '{{route('filterProvince')}}';
-                                            $.post(url ,
-                                            {
-                                                "_token": "{{ csrf_token() }}", 
-                                                location_id: provinceID,
-                                                product_id :idImg,
-                                            }
-                                            ,function(data){
-                                                $('#info_address').html(data.html_hospital);
-                                                $('#district').html(data.html_district);
-                                            
-                                            });
-                                        });
-                                    $('select[name="district"]').on('change', function(){
-                                        var districtID = $(this).val();
-                                    
-                                        if(districtID){
-                                            var url = '{{route('filterDistrict')}}';
-                                            $.post(url ,
-                                            {
-                                                "_token": "{{ csrf_token() }}", 
-                                                district_id: districtID,
-                                                product_id :idImg,
-                                                location_id: provinceID,
-                                            }
-                                            ,function(data){
-                                                $('#info_address').html(data.html_hospital);
-                                            });
-
-                                        }
-                                    });
-                                });
+                                var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
                                 
-                                var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
-                                var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                                for(var i=96;i < 95 + exclusions.length;i++){
-                                    var tds = myTable.rows[i].cells[indexCol];
-                                    // console.log(tds);
-                                    if(exclusions[i-96]['content']==='x'){
-                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                    `;
-                                    }else if(exclusions[i-96]['content']==null){
-                                        tds.innerHTML = `<p class=""></p>`;
-                                    }else{
-                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                    <p class="">`+exclusions[i-96]['note']+`</p>
-                                        `;
+                                    //========================phi bao hiem= =================================
+                                    var img     = 'storage/'+ program.img_cost;
+                                tdss.innerHTML = '<a href="'+img+'" class="fancybox" style="color:#f36f21">...</a>' ; 
+                                $('.fancybox').fancybox();
+                            //BENH VIEN LIEN KET
+                            var tdsss =myTable.rows[92].cells[indexCol];
+                            tdsss.setAttribute('id','td'+indexCol+''); 
+                            tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
+                            $('#td'+indexCol+'').click(function(){
+                                var tdnet ;
+                                for(var i =1;i<4;i++){
+                                    if(indexCol==1){
+                                        tdnet = tdsss;
+                                        tdnet.setAttribute('class','active-td');
+                                        myTable.rows[92].cells[i+1].removeAttribute('class','active-td');
+                                        break;
+                                    }
+                                    if(indexCol==i){
+                                        tdnet = tdsss;
+                                        tdnet.setAttribute('class','active-td');
+                                    
+                                    }else {
+                                        tdnet= myTable.rows[92].cells[i];
+                                        tdnet.removeAttribute('class','active-td');
                                     }
                                 }
+                                var provinceID = $('#province').val();
+                                if(provinceID){
+                                    var url = '{{route('filterProvince')}}';
+                                        $.post(url ,
+                                        {
+                                            "_token": "{{ csrf_token() }}", 
+                                            location_id: provinceID,
+                                            product_id :idImg,
+                                        }
+                                        ,function(data){
+                                            $('#info_address').html(data.html_hospital);
+                                            $('#district').html(data.html_district);
+                                        
+                                        });
+                                }else{
+                                    $('select[name="province"]').on('change', function(){
+                                        var provinceID = $(this).val();
+                                    // alert(provinceID);
+                                        var url = '{{route('filterProvince')}}';
+                                        $.post(url ,
+                                        {
+                                            "_token": "{{ csrf_token() }}", 
+                                            location_id: provinceID,
+                                            product_id :idImg,
+                                        }
+                                        ,function(data){
+                                            $('#info_address').html(data.html_hospital);
+                                            $('#district').html(data.html_district);
+                                        
+                                        });
+                                    });
+                                }
+                                var provinceID ;
+                                $('select[name="province"]').on('change', function(){
+                                            provinceID = $(this).val();
+                                    // alert(provinceID);
+                                        var url = '{{route('filterProvince')}}';
+                                        $.post(url ,
+                                        {
+                                            "_token": "{{ csrf_token() }}", 
+                                            location_id: provinceID,
+                                            product_id :idImg,
+                                        }
+                                        ,function(data){
+                                            $('#info_address').html(data.html_hospital);
+                                            $('#district').html(data.html_district);
+                                        
+                                        });
+                                    });
+                                $('select[name="district"]').on('change', function(){
+                                    var districtID = $(this).val();
+                                
+                                    if(districtID){
+                                        var url = '{{route('filterDistrict')}}';
+                                        $.post(url ,
+                                        {
+                                            "_token": "{{ csrf_token() }}", 
+                                            district_id: districtID,
+                                            product_id :idImg,
+                                            location_id: provinceID,
+                                        }
+                                        ,function(data){
+                                            $('#info_address').html(data.html_hospital);
+                                        });
+
+                                    }
+                                });
                             });
-                        });
+                            
+                            var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
+                            var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
+                            for(var i=96;i < 95 + exclusions.length;i++){
+                                var tds = myTable.rows[i].cells[indexCol];
+                                // console.log(tds);
+                                if(exclusions[i-96]['content']==='x'){
+                                    tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                `;
+                                }else if(exclusions[i-96]['content']==null){
+                                    tds.innerHTML = `<p class=""></p>`;
+                                }else{
+                                    tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                <p class="">`+exclusions[i-96]['note']+`</p>
+                                    `;
+                                }
+                            }
+                        }).done(function(){
+                            function isEmpty(td) {
+                                if ( td.text() == '') {
+                                    return true;
+                                }            
+
+                                return false;
+                            }
+                            $("#main-tbl-sk tr.data-detail:not(.parent) ").each(function(){
+                                var trIsEmpty = true;
+                                var tr = $(this);
+                                // $('tr.data-detail').hide();
+                                tr.find("td:not(:first)").each(function() {
+                                    td = $(this);
+                                    if (isEmpty(td) === false)  {
+                                        trIsEmpty = false;   
+                                    }
+                                });
+                                // console.log(tr.next());
+                                if (trIsEmpty == true) {
+                                    tr.addClass("data-empty");
+                                }
+                            });
+                            
+                            function hasClass(element, cls) {
+                                return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+                            }
+                            var $elements = $("#main-tbl-sk tr.data-detail");
+                            var elements =  Array.prototype.slice.apply($elements);
+                            // console.log(elements);
+                            var $check =false;
+                            var $status = false;
+                            for(var k=58 ; k < 63 ;k++){
+                                if(hasClass(elements[k], 'data-empty') == true){
+                                    $check = true;
+                                }
+                            }
+                            if($check == true){
+                                var el = elements[57];
+                                $(el).addClass("data-empty");
+                            }
+                            for(var k=64 ; k < 74 ;k++){
+                                if(hasClass(elements[k], 'data-empty') == true){
+                                    $status = true;
+                                }
+                            }
+                            if($status == true){
+                                var el = elements[63];
+                                $(el).addClass("data-empty");
+                            }
+                        })
+                    });
+                   
                     addColumn('main-tbl-sk');
                     dropImage();
                     deleteColumn(idImg,clicked);
@@ -582,6 +631,7 @@ $(function() {
            }
            if(count==4) return;
        });
+       
        function deleteColumn(idImg,clicked){
 
             $('span.remove').on('click', function (e ) {

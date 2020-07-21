@@ -3345,6 +3345,10 @@ span.tel {
   display: none;
 }
 
+.table-section #layout-area .table tr.data-empty:not(.header) {
+  display: none !important;
+}
+
 .table-section #layout-area .table tr.select-all:not(.header) {
   display: none;
 }
@@ -5143,6 +5147,14 @@ span.tel {
 
 .table-section-sk #layout-area .table tr.data-detail:not(.header) {
   display: none;
+}
+
+.table-section-sk #layout-area .table tr.data-empty:not(.header) {
+  display: none !important;
+}
+
+.table-section-sk #layout-area .table tr.parent.parent-empty {
+  display: none !important;
 }
 
 .table-section-sk #layout-area .table tr.select-all:not(.header) {

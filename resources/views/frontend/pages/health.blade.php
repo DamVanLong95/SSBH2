@@ -300,7 +300,7 @@
                                 </tr>
                                 @for($i=4;$i< count($data['benifits']);$i++)
                                     @if($data['benifits'][$i]['level']==1)
-                                    <tr class="data-detail ">
+                                    <tr class="data-detail parent">
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" data-id="id"  onclick='handleAll(this);' />
                                         <label for="checkbox_one_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
@@ -360,7 +360,7 @@
                             
                                 @for($i=76;$i< 86;$i++)
                                     @if($data['healths'][$i]['level']== 1)
-                                    <tr class="data-detail  ">
+                                    <tr class="data-detail">
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['healths'][$i]['id']}}" name="checkbox_one" value="{{$data['healths'][$i]['id']}}" onclick='handleCheckbox(this);'  />
                                         <label for="checkbox_one_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
@@ -375,7 +375,7 @@
                                         <td></td>
                                     </tr>
                                     @elseif($data['healths'][$i]['level'] == 2)
-                                    <tr class="data-detail  ">
+                                    <tr class="data-detail">
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['healths'][$i]['id']}}" name="checkbox_two" value="{{$data['healths'][$i]['id']}}"    />
                                         <label for="checkbox_two_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
