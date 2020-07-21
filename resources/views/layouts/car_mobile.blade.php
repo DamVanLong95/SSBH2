@@ -1,15 +1,17 @@
 <script>
+var myTable = document.getElementById('main-tbl');
+var terms_data,exception,punishment,exception;
+var count_star_orange,count_star_gray,count_star_green;  
 $(function() {  
     var count =0;
        $('.checkId').click(function(){
             var clicked = $(this);
-            // console.log(clicked);
             var myTable = document.getElementById('main-tbl');
                     var tblBodyObj  = myTable.tBodies[0];
                     var tblHeadObj  = myTable.tHead;
                     var indexCol    = tblHeadObj.rows[0].cells.length - 1;
 
-           if(indexCol==2)  count++;
+           if(indexCol==2)count++;
            
            if(clicked.is(':checked')&& count <=1){
             clicked[0].setAttribute('disabled',true);
@@ -69,7 +71,7 @@ $(function() {
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
                         tds.innerHTML = `
                             <div class="count-rank-ctn" >
-                                <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                                <div class="mark-num"><p><span class="first-span" id="point_`+indexCol+`" value="0" >`+10+`</span>/<span>10</span></p></div>
                                 <div class="service">
                                     <img src="`+path_camera+`"alt="">
                                     <img src="`+path_phone+`"alt="">
@@ -78,46 +80,20 @@ $(function() {
                             </div>
                         `;
                        
-                        //calculate star
-                        var count_star_green = 0;
-                        var count_star_orange = 0;
-                        var count_star_gray = 0;
-                     
-                            for(var j=0;j<terms_data.length;j++){
-                                if(terms_data[j]['rate_star_dkbs'] == 5){
-                                    count_star_green++;
-                                }else if(terms_data[j]['rate_star_dkbs'] == 3){
-                                    count_star_orange++;
-                                }else if(terms_data[j]['rate_star_dkbs'] == 2){
-                                    count_star_gray++;
-                                }
-                            }
-                            for(var k=0;k < exception.length;k++){
-                                if(exception[k]['rate_star_dklt'] == 5){
-                                    count_star_green++;
-                                }else if(exception[k]['rate_star_dklt'] == 3){
-                                    count_star_orange++;
-                                }else if(exception[k]['rate_star_dklt'] == 2){
-                                    count_star_gray++;
-                                }
-                            }
-                            var total_star = count_star_gray + count_star_green +count_star_orange;
-                            var point = 1/(total_star)*(count_star_green + 3/4*count_star_orange + 1/2*count_star_gray)*10;
-                            var tdsss =  myTable.rows[1].cells[indexCol];
-                            var path_camera = `{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}`;
-                            var path_phone = `{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}`;
-                            var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
-                            tdsss.innerHTML = `
-                                <div class="count-rank-ctn" >
-                                    <div class="mark-num"><p><span class="first-span" >`+Math.round(point)+`</span>/<span>10</span></p></div>
-                                    <div class="service">
-                                        <img src="`+path_camera+`"alt="">
-                                        <img src="`+path_phone+`"alt="">
-                                        <img src="`+path_mess+`"alt="">
-                                    </div>
-                                </div>
-                            `;
+                         //===========calulate point================================
+                                var countCheck = 0;
+                                var count_star;
+                                var count_star_orange = 0;
+                                var count_star_green = 0;
+                                var count_star_gray = 0;
+                               
+                                    //====check All======================================
+                                var el = '.selectedAll';
+                                checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions);
+                              //===========calulate point================================
                                 
+                                var selector = ".selectedId";
+                                checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol);
                                 //set id for column have price car
                                 var tds         =  tblBodyObj.rows[3].cells[indexCol];
                                 var tdss        =  tblBodyObj.rows[4].cells[indexCol];
@@ -133,69 +109,51 @@ $(function() {
                                 // console.log(tdss);
                                 $('#calculate').click(function(){
                                     var price = $('#price_car').val();
+                                    // console.log(price);
                                     var rate = 1.5;
                                     var checked =0;
                                     var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
-                                    for(var i=2; i<=25; i++){
-                                        // console.log(chks[i]);
+                                    for(var i=4; i<=27; i++){
                                         if (chks[i].checked) {
                                             checked++;
-                                            total =(Number(total) + Number(chks[i].value));
+                                            total += parseFloat(chks[i].value);
                                         }
                                     }
-                                    for(var i=27; i<chks.length; i++){
-                                        if (chks[i].checked) {
-                                            checked++;
-                                            total =(Number(total) + Number(chks[i].value));
-                                        }
+                                   
+                                    var total_rate = Math.round(total * 100) /100;
+                                    function calCost(price, rate,total_rate, indexCol){
+                                        var price_old = (price * rate)/100;	
+                                        $('#price_'+indexCol+'').html((formatMoney(price_old)));
+                                        var rate_promotion      = promotion['promotion'];
+                                        var price_new           = price_old * (1-rate_promotion/100);
+                                        // $('#price_'+indexCol+'').html((formatMoney(price_new)));
+                                        if(total_rate > 0) 
+                                            price_new  = Number(price_new)+ Number(price_new*total_rate/100);
+                                        price_new = Math.round(price_new * 100) / 100 
+                                        $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
+                                        $('#price_after_'+indexCol+'').html((formatMoney(price_new)));
                                     }
+                                    // console.log(total_rate);
                                     if(price !=''){	
-                                            //===================muc dich su dung=============================
+                                        calCost(price, 1.5,total_rate, indexCol);
+                                     //===================muc dich su dung=============================
                                         var purpose = document.getElementById('purpose');
-                                        var ref_rates_id = purpose.value;
                                         var year_sx = document.getElementById('prd_date').value;
+                                        var ref_rates_id = purpose.value;
                                         var url = '{{route('purpose')}}';
-                                        if(year_sx){
+                                        if(year_sx!='' && ref_rates_id!=0){
                                             $.post(url,{
                                             "_token": "{{ csrf_token() }}",
                                             id: ref_rates_id,
                                             year_sx:year_sx
                                             }).done(function(data){
                                                 var ratte = data.rate;
-                                                rate = ratte + rate;
-                                                var price_old = (price * rate)/100;	
-                                                $('#price_'+indexCol+'').html((formatMoney(price_old)));
-
-                                                var rate_promotion      = promotion['promotion'];
-                                                var price_new           = price_old * (1-rate_promotion/100);
-                                            
-                                                if(total > 0) 
-                                                price_new = Number(price_new)+ Number(price_new*total/100);
-
-                                                price_new               = Math.round(price_new * 100) / 100 
-                                                $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                                $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
+                                                rate = ratte;
+                                                calCost(price, rate, total_rate,indexCol);
                                             })
                                         }
-                                       
-                                        // var price_old = (price * rate)/100;	
-                                        // $('#price_'+indexCol+'').html((formatMoney(price_old)));
-
-                                        // var rate_promotion      = promotion['promotion'];	
-                                        // var price_new = price_old * (1-rate_promotion/100);
-                                        // price_new = Math.round(price_new * 100) / 100 ;	
-                                        
-                                        
-                                        // $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
-                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_new)));	
-                                    
-                                        // var rate = total + rate;
-                                        // var price_old = document.getElementById('price_after_'+indexCol+'').getAttribute('value');
-                                        // var price_discount =  Number(price_old)+ Number(price_old*rate/100);
-                                        // $('#price_after_'+indexCol+'').html((formatMoney(price_discount)));	
-                                       
                                     }else{
                                         alert("Vui long nhap gia tri xe");
                                     }
@@ -212,10 +170,10 @@ $(function() {
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                     if(terms_data[i-7]['note_more']==="-----") {
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                        tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -223,7 +181,7 @@ $(function() {
 
                                         `;
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
@@ -231,7 +189,7 @@ $(function() {
 
                                         `;
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
-                                        tds.innerHTML =`<p class="ellipsis">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
@@ -252,13 +210,13 @@ $(function() {
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
                                         `;
                                     }else{
-                                        tds.innerHTML =`<p>`+deductible[0]['note_dkkt']+`</p>
+                                        tds.innerHTML =`<p class="ellipsis" value="2">`+deductible[0]['note_dkkt']+`</p>
                                         <span><button value="`+deductible[0]['note_dkkt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -274,14 +232,14 @@ $(function() {
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                     {
                                     tds.innerHTML = 
-                                        `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
                                         `;
                                 
                                     }else if(exception[j-36]['rate_star_dklt']=== 5){
-                                        tds.innerHTML =`<p>`+exception[j-36]['note_dklt']+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" value="5">`+exception[j-36]['note_dklt']+`</p>`+`
                                         <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                         <div class="star-td">
                                         <img class="img-fluid" src="`+imgGreen+`" alt="">
@@ -290,13 +248,13 @@ $(function() {
                                     }else if(exception[j-36]['rate_star_dklt']=== 2){
                                         if(exception[j-36]['note_dklt']=== "x"){
                                                 tds.innerHTML = 
-                                            `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            `<p class="ellipsis" value="2"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                             <div class="star-td">
                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                             </div>
                                             `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis">`+exception[j-36]['note_dklt']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+exception[j-36]['note_dklt']+`</p>`+`
                                             <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
                                             <div class="star-td">
                                             <img class="img-fluid" src="`+imgGray+`" alt="">
@@ -312,25 +270,25 @@ $(function() {
                                    if(punishment.length >0){
                                         if(punishment[i-69]['rate_star_ct']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(punishment[i-69]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="5">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(punishment[i-69]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+punishment[i-69]['content']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
-                                        else{
-                                            tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
-                                        }
+                                        // else{
+                                        //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
+                                        // }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
@@ -339,18 +297,18 @@ $(function() {
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
-                                            tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                            tds.innerHTML =`<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="5">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            tds.innerHTML =`<p class="ellipsis" value="2">`+permissions[i-91]['note_rule']+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
@@ -445,9 +403,10 @@ $(function() {
                }).done(function() {
                 deleteColumn(idImg,clicked);
                });
-               if(count==2) return;
+               if(count==4) return;
             //    $(this).disabled = true;
            }
+           if(count==2) return;
        });
       
        function deleteColumn(idImg,clicked){
@@ -466,14 +425,21 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl');
                     count=0;
+                    $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     count=0;
-                    addColumn('main-tbl');
-                    clicked[0].disabled = false;
+                    // addColumn('main-tbl');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    count=0;
+                    $('#'+idImg+'').draggable({ disabled: false });
                 }
             });
        }
@@ -517,6 +483,264 @@ $(function() {
                 }
             }
         }
+        function calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol){
+            var count_star = count_star_orange + count_star_green + count_star_gray;
+            if(count_star !=0)
+                var result   = 1/(count_star)*(count_star_orange * 3/4 + count_star_green + count_star_gray * 1/2)* 10;
+            else result = 10;
+            result = Math.round(result * 100) / 100;
+            $('#point_'+indexCol+'').text(result);
+            $('#point_'+indexCol+'')[0].setAttribute("value",result);
+        }
+      
+        function checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions){
+            $('.selectedAll').click(function(){
+                var type_term = $(this).data("id");
+                var countCheck = 2;
+                if($(this).is(':checked')== true && type_term == 1){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                            count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                   
+                    
+                }else if($(this).is(':checked')== false && type_term == 1){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                            count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                }
+                if($(this).is(':checked')== true && type_term == 2){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                       
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                            var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                            if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                            else star = 0;
+                            if(star ==3)
+                            count_star_orange ++;
+                            else if(star == 2) count_star_gray++;
+                            else if(star == 5) count_star_green++;
+                        });
+                }else if($(this).is(':checked')== false && type_term == 2){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });
+                }
+                if($(this).is(':checked')== true && type_term == 3){
+                    // console.log(punishment);
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });      
+                   
+                }else if($(this).is(':checked')== false && type_term == 3){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });              
+
+                }
+                if($(this).is(':checked')== true && type_term == 4){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });        
+                    
+                }else if($(this).is(':checked')== false && type_term == 4){
+                    count_star_orange =0;
+                    count_star_green =0;
+                    count_star_gray =0;
+                    $(".selectedId:checked").each(function(index, element) {
+                        var checkIndex  = $(element).parent().parent()[0].rowIndex;
+                        var tds         =  myTable.rows[checkIndex].cells[indexCol];
+                        if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                        else star = 0;
+                        if(star ==3)
+                        count_star_orange ++;
+                        else if(star == 2) count_star_gray++;
+                        else if(star == 5) count_star_green++;
+                    });           
+                }
+               
+                    star_orange   = count_star_orange ;
+                    star_green    = count_star_green ;
+                    star_gray     = count_star_gray ;
+               
+                clickCheckbox(star_orange,star_green,star_gray,indexCol);
+                calculatePoint(star_orange,star_green,star_gray,indexCol);
+            });
+        }
+        function clickCheckbox(star_orange,star_green,star_gray,indexCol){
+            $('.selectedId').click(function(){
+                var clicked = $(this);
+                var checkIndex  = clicked.parent().parent()[0].rowIndex;
+                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+               
+                if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                else star = 0;
+                if(star == 5){
+                    if(clicked.is(':checked') == true){
+                        star_green++;
+
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_green--;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 3){
+                    if(clicked.is(':checked') == true){
+                        star_orange++;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_orange--;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 2){
+                    if(clicked.is(':checked') == true){
+                        star_gray ++;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }else{
+                        star_gray --;
+                        calculatePoint(star_orange,star_green,star_gray,indexCol);
+                    }
+                }else if(star == 0) {
+                    var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                    $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                };
+            });
           
-});
+        }
+        function checkCalulate(selector,countCheck,count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol){
+            $(''+selector+'').click(function(){
+                var clicked = $(this);
+                // console.log($('.selectedId'));
+                
+                var checkIndex  = clicked.parent().parent()[0].rowIndex;
+                var tds         =  myTable.rows[checkIndex].cells[indexCol];
+               
+                    countCheck++;
+                    if($(tds)[0].childNodes.length >1)  var star =  tds.firstChild.getAttribute("value");
+                    else star = 0;
+                    // console.log(star);
+                        var point;
+                        if(countCheck==1){
+                            if(star == 3){
+                                point= 7.5;
+                                if(clicked.is(':checked') == true){
+                                    count_star_orange++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            }else if(star == 5){
+                                point = 10;
+                                if(clicked.is(':checked') == true){
+                                    count_star_green++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            }else if(star == 2){
+                                point = 5;
+                                if(clicked.is(':checked') == true){
+                                    count_star_gray++;
+                                    $('#point_'+indexCol+'').text(point);
+                                    $('#point_'+indexCol+'')[0].setAttribute("value",point);
+                                }
+                            };
+                        }else if(countCheck > 1){
+                            if(star == 5){
+                                if(clicked.is(':checked') == true){
+                                    count_star_green++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_green--;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                            }else if(star == 3){
+                                if(clicked.is(':checked') == true){
+                                    count_star_orange++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_orange--;
+                                    count_star_orange = count_star_orange;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                              
+                               
+                                
+                            }else if(star == 2){
+                                if(clicked.is(':checked') == true){
+                                    count_star_gray ++;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }else{
+                                    count_star_gray --;
+                                    calculatePoint(count_star_orange,count_star_green,count_star_gray,indexCol);
+                                }
+                            }else if(star == 0) {
+                                var temp    = $('#point_'+indexCol+'')[0].getAttribute("value");
+                                $('#point_'+indexCol+'')[0].setAttribute("value",temp);
+                            };
+                        }
+            });
+        }
+    });
 </script>
+   

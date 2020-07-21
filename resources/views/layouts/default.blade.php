@@ -80,7 +80,7 @@
                         <li @if(request()->is('/')) class="active" @endif >
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                         </li>
-                        <li @if(request()->is('/intro')) class="active" @endif>
+                        <li @if(request()->is('intro') || request()->is('detail')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
                         </li>
                         <!-- <li >
@@ -261,6 +261,19 @@
             });
         });
         
+    </script>
+   <script>
+        function killCopy(e){
+            return false
+        }
+        function reEnable(){
+            return true
+        }
+        document.onselectstart = new Function ("return false")
+        if (window.sidebar){
+            document.onmousedown=killCopy
+            document.onclick=reEnable
+        }
     </script>
     <script src="{{ url('assets/js/custom.js?'.config('custom.version')) }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

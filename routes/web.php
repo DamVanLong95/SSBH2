@@ -33,12 +33,12 @@ Route::get('/test', function () {
 });
 // =============================introduction============================
 
-Route::get('/detail', function () {
-    return view('frontend.pages.intro_detail');
-});
-Route::get('/intro', function () {
-    return view('frontend.pages.intro');
-});
+// Route::get('/detail', function () {
+//     return view('frontend.pages.intro_detail');
+// });
+Route::view('/detail','frontend.pages.intro_detail');
+
+Route::view('/intro','frontend.pages.intro');
 // =====================================blog=================================
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
