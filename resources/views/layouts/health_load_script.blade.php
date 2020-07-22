@@ -578,48 +578,26 @@ $(function() {
 
                                 return false;
                             }
-                            $("#main-tbl-sk tr.data-detail:not(.parent) ").each(function(){
-                                var trIsEmpty = true;
-                                var tr = $(this);
-                                // $('tr.data-detail').hide();
-                                tr.find("td:not(:first)").each(function() {
-                                    td = $(this);
-                                    if (isEmpty(td) === false)  {
-                                        trIsEmpty = false;   
+                            if(indexCol == 4 || indexCol==2 || indexCol==3){
+                                $("#main-tbl-sk tr.data-detail:not(.parent) ").each(function(){
+                                    var trIsEmpty = true;
+                                    var tr = $(this);
+                                    tr.find("td:not(:first)").each(function() {
+                                        td = $(this);
+                                        if (isEmpty(td) === false)  {
+                                            trIsEmpty = false;   
+                                        }
+                                    });
+                                    if (trIsEmpty == true) {
+                                        tr.addClass('data-empty');
                                     }
-                                });
-                                // console.log(tr.next());
-                                if (trIsEmpty == true) {
-                                    tr.addClass("data-empty");
-                                }
-                            });
+                                 });
+                            }
                             
                             function hasClass(element, cls) {
                                 return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
                             }
-                            var $elements = $("#main-tbl-sk tr.data-detail");
-                            var elements =  Array.prototype.slice.apply($elements);
-                            // console.log(elements);
-                            var $check =false;
-                            var $status = false;
-                            for(var k=58 ; k < 63 ;k++){
-                                if(hasClass(elements[k], 'data-empty') == true){
-                                    $check = true;
-                                }
-                            }
-                            if($check == true){
-                                var el = elements[57];
-                                $(el).addClass("data-empty");
-                            }
-                            for(var k=64 ; k < 74 ;k++){
-                                if(hasClass(elements[k], 'data-empty') == true){
-                                    $status = true;
-                                }
-                            }
-                            if($status == true){
-                                var el = elements[63];
-                                $(el).addClass("data-empty");
-                            }
+                           
                         })
                     });
                    
