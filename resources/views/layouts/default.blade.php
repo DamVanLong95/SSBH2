@@ -92,7 +92,7 @@
                             
                             </ul>
                         </li> -->
-                        <li class=" dropdown">
+                        <li class=" dropdown"  @if(request()->is('pages/car') || request()->is('pages/health')) class="active" @endif>
                             <a href="javascript:void(0)" class="nav-link has-subnav dropdown-toggle" data-toggle="dropdown">SO SÁNH </a>
                             <ul class="menu-hover dropdown-menu">
                                 <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
@@ -112,7 +112,7 @@
                 </div>
                 <div class=" d-flex w-100 dual-collapse2 order-2 order-md-2">
                     <ul class="right-nav navbar-nav mr-auto text-center">
-                        <li class="nav-item">
+                        <li @if(request()->is('pages/car')) class="active" @endif class="nav-item">
                             <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
                         </li>
                         <li class="nav-item">
