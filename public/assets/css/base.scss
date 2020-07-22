@@ -77,9 +77,10 @@ option{
 .open {
     cursor: pointer;
 }
-
-.hide {
-    display: none;
+@media (max-width: 768px) {
+    .hide {
+        display: none;
+    }
 }
 
 .accordeon {

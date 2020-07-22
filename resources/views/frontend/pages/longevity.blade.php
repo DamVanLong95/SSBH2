@@ -221,10 +221,10 @@
 
                                         </td>
                                     </tr>
-                                    <tr class="header green1 bg-head-1 sub-ctn2">
+                                    <tr class="header green1 bg-head-1 sub-ctn2 hide">
                                         <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                     </tr>
-                                    <tr class="container-selection sub-ctn3">
+                                    <tr class="container-selection sub-ctn3 hide">
                                         <td colspan="2" class="select_box_longevity" id="select_box_longevity">
                                             <div class="select-ctn-nt">
                                                 <div class="selection-box">
