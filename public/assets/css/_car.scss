@@ -500,6 +500,7 @@
                         .service {}
                         p {
                             margin-bottom: 0;
+                            font-size: 18px;
                         }
                     }
                 }
@@ -864,6 +865,9 @@
             }
             tr.data-detail:not(.header) {
                 display: none;
+            }
+            tr.data-empty:not(.header) {
+                display: none !important ;
             }
             tr.select-all:not(.header) {
                 display: none;

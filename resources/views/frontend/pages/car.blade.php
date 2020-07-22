@@ -187,7 +187,7 @@
                                                 <div class="selection-box">
                                                     <div class=" item select">
                                                         <select aria-label="Select menu example" id="purpose">
-                                                            <option selected hidden>---Mục đích sử dụng--</option>
+                                                            <option selected hidden value="0">---Mục đích sử dụng--</option>
                                                             @foreach($data['uses'] as $value)
                                                             <option value="{{$value['id']}}">{{$value['type_car']}}</option>
                                                             @endforeach
@@ -246,7 +246,7 @@
                                         <td class="td-all" >
                                             <div class="choose-all">
                                           {{-- onclick="handleAll(this,{{count($terms_data)}})" --}}
-                                                <input type="checkbox" id="selectall_bs" class="selectedAll" onclick="handleAll(this,{{count($terms_data)}})"  >
+                                                <input type="checkbox" id="selectall_bs" name="selectall_bs" data-id ="1" class="selectedAll" onclick="handleAll(this,{{count($terms_data)}})"  >
                                                 <label class="toggle" for="selectall_bs">Chọn tất cả</label>
                                             </div>
                                         </td>
@@ -255,7 +255,7 @@
                                 @foreach($terms_data as $key=>$value)  
                                     <tr class="data-detail term">
                                         <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{$value['rate_fee']}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
+                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{isset($value['rate_fee'])? $value['rate_fee']:0}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
                                             <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
                                             
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
@@ -286,7 +286,7 @@
                                         <tr class="select-all">
                                         <td class="td-all" >
                                             <div class="choose-all">
-                                                <input type="checkbox" id="selectall_lt" name="selectall_lt" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
+                                                <input type="checkbox" id="selectall_lt" name="selectall_lt" data-id="2" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
                                                 <label class="toggle" for="selectall_lt">Chọn tất cả</label>
                                             </div>
                                         </td>
@@ -296,9 +296,9 @@
                                     @foreach($exception_data as $value)
                                     <tr class="data-detail dklt">
                                         <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox2_{{$value['id']}}" 
-                                                    name="checkbox2_{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  />
-                                            <label for="checkbox2_{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
+                                            <input class="selectedId" type="checkbox" id="checkbox_lt{{$value['id']}}" 
+                                                    name="checkbox_lt{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  />
+                                            <label for="checkbox_lt{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
                                             <span class="show-detail"><button value="{{$value['exception']}}" onclick="show(this.value)">...</button></span></span>
                                             <label class="drop" for="" style="display:none" id="dklt{{$value['id']}}">{{isset($value['rate_fee_dklt'])?$value['rate_fee_dklt']:0}}% phí</label>
                                         </td>
@@ -313,7 +313,7 @@
                                         <tr class="select-all">
                                             <td class="td-all" >
                                                 <div class="choose-all">
-                                                    <input type="checkbox" id="selectall_ct" name="selectall_ct" class="selectedAll" >
+                                                    <input type="checkbox" id="selectall_ct" name="selectall_ct" data-id="3" class="selectedAll" onclick="handleAll(this,{{count($punishment)}})" >
                                                     <label class="toggle" for="selectall_ct">Chọn tất cả</label>
                                                 </div>
                                             </td>
@@ -335,8 +335,8 @@
                                         <tr class="select-all">
                                             <td class="td-all" >
                                                 <div class="choose-all">
-                                                    <input type="checkbox" id="selectall_qnv" name="selectall_qnv" class="selectedAll" >
-                                                    <label class="toggle" for="selectall_qnv">Chọn tất cả</label>
+                                                    <input type="checkbox" id="selectall_nv" name="selectall_nv" class="selectedAll" data-id="4" onclick="handleAll(this,25)">
+                                                    <label class="toggle" for="selectall_nv">Chọn tất cả</label>
                                                 </div>
                                             </td>
                                             <td class="td-all"></td>
@@ -346,7 +346,7 @@
                                     <tr class="data-detail nv ">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_nv{{$value['id']}}" 
-                                                    name="checkbox" value="" data-id=""  />
+                                                    name="checkbox_nv{{$value['id']}}" value="" data-id="{{$value['id']}}"  />
                                             <label for="checkbox_nv{{$value['id']}}"> </label> </label><span class="first-td">  <p class="ellipsis">{{$value['rules_owner']}}</p>
                                         </td>
                                         <td></td>
@@ -369,35 +369,21 @@
                                     <tr class="header green1 bg-head-4">
                                         <td  colspan="2" class="green_header">Mạng lưới hoạt động</td>
                                     </tr>
-                                    <tr class="data-detail ">
+                                    <tr class="data-detail network">
                                         <td class="text-center empty-first-car2 "><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
                                         <td class="car-td active-car-td">
                                             <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
                                             <p class="toggle"><span>(0)</span> Chi nhánh</p>
                                             
                                         </td>
-                                        <tr class="data-detail" id="car-tr"><td class="empty-first-car text-center"></td>
-                                            <td class="car_header" colspan="1">
-                                                <div id="net-address">
-                                                
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- <tr >
-                                            <div id="hospital-address">
-                                            </div>
-                                        </tr> -->
                                     </tr>
-                                    <!-- <tr class="data-detail ">
-                                        <td class="text-center"><img class="img-fluid net-img" src="{{ url('/') }}/assets/images/car/network1.png?{{ config('custom.version') }}" alt=""></td>
-                                        <td>
-                                            <img class="img-fluid toggle" src="{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}" alt="">
-                                            <p class="toggle"><span>(0)</span> Chi nhánh</p>
-                                        </td>
-                                        <div id="net-address">
+                                    <tr class="data-detail network" id="car-tr"><td class="empty-first-car text-center"></td>
+                                        <td class="car_header" colspan="1">
+                                            <div id="net-address">
                                             
-                                        </div>
-                                    </tr> -->
+                                            </div>
+                                        </td>
+                                    </tr>
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Đánh giá uy tín</td>
                                     </tr>

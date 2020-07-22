@@ -110,7 +110,7 @@
                          for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-10]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="">`+longevities[i-10]['content']+`</p>`;
                             }
                             if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -301,7 +301,7 @@
                             //===========Pham vi bao hiem=====================
                             for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            tds.innerHTML = `<p>`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                            tds.innerHTML = `<p class="">`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
                         }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
@@ -312,7 +312,7 @@
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-8]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-8]['content']+`</p>`;
+                                tds.innerHTML =  `<p class="">`+longevities[i-8]['content']+`</p>`;
                             }
                           
                          }

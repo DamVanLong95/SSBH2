@@ -2932,6 +2932,7 @@ span.tel {
 
 .table-section #layout-area .table tbody .sub-head .count-rank-ctn p {
   margin-bottom: 0;
+  font-size: 18px;
 }
 
 .table-section #layout-area .table tbody tr.header {
@@ -3343,6 +3344,10 @@ span.tel {
 
 .table-section #layout-area .table tr.data-detail:not(.header) {
   display: none;
+}
+
+.table-section #layout-area .table tr.data-empty:not(.header) {
+  display: none !important;
 }
 
 .table-section #layout-area .table tr.select-all:not(.header) {
@@ -5143,6 +5148,14 @@ span.tel {
 
 .table-section-sk #layout-area .table tr.data-detail:not(.header) {
   display: none;
+}
+
+.table-section-sk #layout-area .table tr.data-empty:not(.header) {
+  display: none !important;
+}
+
+.table-section-sk #layout-area .table tr.parent.parent-empty {
+  display: none !important;
 }
 
 .table-section-sk #layout-area .table tr.select-all:not(.header) {

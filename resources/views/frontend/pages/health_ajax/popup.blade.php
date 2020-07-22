@@ -40,11 +40,11 @@
 $(document).ready(function(){
   var myTable = document.getElementById('main-tbl-popup');
   function isEmpty(td) {
-        if ( td.text() == '') {
-            return true;
-        }            
+      if ( td.text() == '') {
+          return true;
+      }            
 
-        return false;
+      return false;
   }
   if(myTable){
     $(".selectedId:checked").each(function(){
@@ -88,8 +88,7 @@ $(document).ready(function(){
                         }
                     });
                     if (trIsEmpty == true) {
-                         tr.hide();
-
+                      tr.addClass("data-empty");
                     }
                 });
               })

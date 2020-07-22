@@ -628,7 +628,13 @@
                 }
             }
             tr.data-detail:not(.header) {
-                display: none;
+                display: none ;
+            }
+            tr.data-empty:not(.header) {
+                display: none !important ;
+            }
+            tr.parent.parent-empty {
+                display: none !important ;
             }
             tr.select-all:not(.header) {
                 display: none;
