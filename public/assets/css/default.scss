@@ -1014,3 +1014,44 @@ span.tel {
     background-size: cover;
     background-position: center;
 }
+
+// detail comparison modal 
+#detail-comparison {
+    h1 {
+        @media (max-width: 767px) {
+            font-size: 25px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    }
+    table {
+        thead {
+            th {
+                select.spbt {
+                    width: 120px;
+                }
+                @media (max-width: 768px) {
+                    width: 115px;
+                    select.spbt {
+                        width: 202px;
+                    }
+                }
+                @media (max-width: 767px) {
+                    width: 115px;
+                    select.spbt {
+                        width: 170px;
+                    }
+                }
+                @media (max-width: 600px) {
+                    max-width: 80px;
+                    select.spbt {
+                        max-width: 60px;
+                    }
+                }
+            }
+        }
+    }
+}

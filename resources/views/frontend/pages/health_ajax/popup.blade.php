@@ -5,9 +5,9 @@
   <thead>
     <tr>
    
-      <th style="background: none;">Chỉ tiêu</th>
+      <th style="">Chỉ tiêu</th>
       @foreach($result['product_name'] as $name)
-      <th style="background: none;text-align:center;">
+      <th style="text-align:center;">
       
         <label value="{{$name['product_longevity_id']}}">{{$name->product_longevity_name}}</label><br>
 
@@ -16,7 +16,7 @@
                             line-height: 28px;
                             background: #fff;
                             border: 1px solid #0d723b;
-                            width: 300px;">
+                            ">
 
             <option selected disabled>--Chọn--</option>
             @foreach($name['product_more'] as $value)
