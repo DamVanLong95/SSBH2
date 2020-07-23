@@ -12,7 +12,7 @@
                         </div>
                         <div class="brand-thumb">
                             <label for="1">
-                            <a href="#" target="_blank"><img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt=""></a>
+                            <img class="thumb" src="{{asset('storage').'/'.$value['url']}}" id="{{$value['id']}}" alt="">
                             </label>
                             <div class="input-pack">
                                 <input name="type" value="{{$value['id']}}" type="checkbox" id="checkbox_{{$value['id']}}" class="checkId"/>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="brand-thumb">
                             <label for="1">
-                            <a href="#" target="_blank"><img class="thumb" src="" id="" alt=""></a>
+                            <img class="thumb" src="" id="" alt="">
                             </label>
                         </div>
                     </li>
