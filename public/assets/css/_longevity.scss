@@ -232,7 +232,6 @@
                     position: -webkit-ms-sticky;
                     position: sticky;
                     top: 0;
-
                     // box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
                     // border-top: 1px solid #000;
                     height: 100px;
@@ -241,7 +240,8 @@
                         border-bottom: 0px solid $main-color;
                         border-right: 1px solid $main-color;
                         z-index: 8;
-                        width: 400px;;
+                        width: 400px;
+                        ;
                     }
                     th:last-child {
                         // border-right: 0px;
@@ -307,6 +307,9 @@
                             display: flex;
                             justify-content: space-around;
                             flex-direction: row;
+                            @media (max-width: 600px) {
+                                display: block;
+                            }
                         }
                         .item {
                             p {
@@ -332,6 +335,9 @@
                         display: flex;
                         justify-content: space-between;
                         flex-direction: row;
+                        @media (max-width: 375px) {
+                            display: block;
+                        }
                         .mark-num {
                             p {
                                 span.first-span {
@@ -842,6 +848,10 @@
         top: 0;
         bottom: 0;
         margin: auto;
+        @media (max-width: 375px) {
+            width: 80px;
+            height: 60px;
+        }
     }
     .remove {
         width: 26px;
