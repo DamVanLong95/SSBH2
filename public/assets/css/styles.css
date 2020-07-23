@@ -1308,7 +1308,7 @@ span.tel {
       font-size: 18px;
       margin: 20px 0; } }
 #detail-comparison table thead th {
-  max-width: 165px; }
+  width: 165px; }
   #detail-comparison table thead th select.spbt {
     width: 220px; }
   @media (max-width: 1024px) {
