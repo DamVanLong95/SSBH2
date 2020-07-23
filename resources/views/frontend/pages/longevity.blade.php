@@ -301,7 +301,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="container-download">
+                                    <tr class="container-download hide">
                                         <td></td>
                                         <td class="data-detail download-td">
                                             <button type="button" id="download-pru">Minh họa Pru

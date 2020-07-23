@@ -315,7 +315,7 @@
                                     }
                                 }
                                  //===============DIEU KHOAN LOAI TRU===============================
-                                var max_rows_exception = (i+3) + exception.length;
+                                var max_rows_exception =  exception.length;
                                 for(var j=i+3 ;j<max_rows_exception;j++){
 
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
@@ -397,6 +397,7 @@
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=91; i<115 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                    console.log(tds);
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
@@ -505,8 +506,8 @@
 
                                 return false;
                             }
-                            console.log(indexCol);
-                            if(indexCol==4 || indexCol == 3 || indexCol==2){
+                            // console.log(indexCol);
+                            if(indexCol==4 || indexCol ==3){
                                 var selOne = '.header';
                                 var selTwo = '.sub-head';
                                 var selThree = '.green1';
