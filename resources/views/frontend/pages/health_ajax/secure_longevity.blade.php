@@ -498,7 +498,7 @@
         if(indexCol==4)count++;
         if(clicked.is(':checked')&& count <=1){
            
-            clicked[0].setAttribute('disabled',true);
+            // clicked[0].setAttribute('disabled',true);
             var idImg = clicked.val();
             globalId.push(idImg);
             var url   = "{{route('checkLongevity')}}";
@@ -624,6 +624,72 @@
              });
             $(this).disabled = true;
            
+        }else{
+            // console.log(globalId);
+            // if( indexCol ==2 ){
+            //     console.log(idImg);
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     $(clicked[0]).attr("checked", false);;
+            //     clicked[0].disabled = false;
+            //     $('#'+idImg+'').draggable({ disabled: false });
+            //     removeItem(idImg,globalId);
+            //     count=0;
+            //     // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
+            // }else if(indexCol== 2 || indexCol == 0 && !$('div.img-container').is(":not(.dropped)")){
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     addColumn('main-tbl-nt');
+            //     dropImage();
+            //     $(clicked[0]).attr("checked", false);;
+            //     clicked[0].disabled = false;
+            //     $('#'+idImg+'').draggable({ disabled: false });
+            //     removeItem(idImg,globalId);
+            //     count=0;
+
+            // }else if(indexCol==4 && !$('div.img-container').is(":not(.dropped)")){
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     addColumn('main-tbl-nt');
+            //     dropImage();
+            //     $(clicked[0]).attr("checked", false);;
+            //     clicked[0].disabled = false;
+            //     $('#'+idImg+'').draggable({ disabled: false });
+            //     removeItem(idImg,globalId);
+            //     count=0;
+            // }else if(indexCol == 4){
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     $(clicked[0]).attr("checked", false);;
+            //     clicked[0].disabled = false;
+            //     $('#'+idImg+'').draggable({ disabled: false });
+            //     removeItem(idImg,globalId);
+            //     count=0;
+                
+            // }else if(indexCol == 5 ){
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     addColumn('main-tbl-nt');
+            //     dropImage();
+            //     $(clicked[0]).attr("checked", false);;
+            //     clicked[0].disabled = false;
+            //     $('#'+idImg+'').draggable({ disabled: false });
+            //     removeItem(idImg,globalId);
+            //     count=0;
+            // }else if(indexCol == 3 && !$('div.img-container').is(":not(.dropped)")){
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     // addColumn('main-tbl-nt');
+            //     removeItem(idImg,globalId);
+            // }else if(indexCol == 3 ){
+            //     $('th:nth-child('+indexCol+')').remove()
+            //     $('td:nth-child('+indexCol+')').remove()
+            //     $(clicked[0]).attr("checked", false);;
+            //     clicked[0].disabled = false;
+            //     $('#'+idImg+'').draggable({ disabled: false });
+            //     removeItem(idImg,globalId);
+            //     count=0;
+            // }
         }
         if(count==4) return;
         

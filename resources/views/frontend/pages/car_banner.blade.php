@@ -424,7 +424,42 @@
                                     })
                             }
                         }).done(function() {
-                            // alert('Request done!');
+                            function isEmpty(td) {
+                                if ( td.text() == '') {
+                                    return true;
+                                }            
+
+                                return false;
+                            }
+                            if(indexCol==4 || indexCol == 3 ){
+                                
+                                var selOne = '.header';
+                                var selTwo = '.sub-head';
+                                var selThree = '.green1';
+                                var selFour = '.sub-ctn2';
+                                var selFive = '.sub-ctn3';
+                                var selSix = '.sub-ctn4';
+                                var selSeven = '.sub-ctn5';
+                                var selEight = '.more';
+                                var selNight = '.network';
+                                var selTen = '.selectedAll';
+                                var selEl = '.select-all';
+                                $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+","+selTen+","+selEl+")").each(function(){
+                                    var trIsEmpty = true;
+                                    var tr = $(this);
+                                    // console.log(this);
+                                    tr.find("td:not(:first)").each(function() {
+                                        td = $(this);
+                                        if (isEmpty(td) === false)  {
+                                            trIsEmpty = false;   
+                                        }
+                                    });
+                                    if (trIsEmpty == true) {
+                                        // console.log(this);
+                                        tr.addClass("data-empty");
+                                    }
+                                });
+                            }
                         });
                     $('span.remove').on('click', function (e ) {
                         var index = ($(this).parent().parent().index()+1);
@@ -1014,7 +1049,7 @@ $(function() {
                                     }
                                 }
                                
-                                var max_rows_exception = (i+3) + exception.length;
+                                var max_rows_exception =  exception.length;
                                 for(var j=i+3 ;j<max_rows_exception;j++){
 
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
@@ -1192,8 +1227,6 @@ $(function() {
                }).done(function() {
                 deleteColumn(idImg,clicked);
                });
-               if(count==4) return;
-            //    $(this).disabled = true;
            }
            if(count==4) return;
        });

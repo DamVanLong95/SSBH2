@@ -239,19 +239,21 @@
 </script>
 <script>
      var globalId=[];
+     var count=0;
     function checkImg(el){
         var clicked = $(el);
         // console.log(clicked);
-        if(clicked.is(':checked')){
-           console.log(1);
+        var myTable = document.getElementById('main-tbl-nt');
+                var tblBodyObj  = myTable.tBodies[0];
+                var tblHeadObj  = myTable.tHead;
+                var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+        if(indexCol==2) count++;
+        if(clicked.is(':checked') && count < 2){
             clicked[0].setAttribute('disabled',true);
             var idImg = clicked.val();
             globalId.push(idImg);
             var url   = "{{route('checkLongevity')}}";
-            var myTable = document.getElementById('main-tbl-nt');
-                            var tblBodyObj  = myTable.tBodies[0];
-                            var tblHeadObj  = myTable.tHead;
-                            var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+          
                            
             $.post(url,
             {
@@ -375,7 +377,7 @@
             $(this).disabled = true;
            
         }
-          
+        if(count==2) return;
         
     }
     
@@ -432,34 +434,36 @@
             if( index ==2 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
-                $(clicked[0]).attr("checked", false);;
+                $(clicked[0]).prop("checked", false);;
                 clicked[0].disabled = false;
                 // addColumn('main-tbl-nt');
                 // dropImage();
                 $('#'+idImg+'').draggable({ disabled: false });
                 removeItem(idImg,globalId);
-                // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
+                count=0;
             }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 addColumn('main-tbl-nt');
-                dropImage();
-                $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
                 removeItem(idImg,globalId);
             }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
-                // addColumn('main-tbl-nt');
+                count=0;
+                addColumn('main-tbl-nt');
+                $(clicked[0]).prop("checked", false);;
+                clicked[0].disabled = false;
                 removeItem(idImg,globalId);
             }else if(index == 3 ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
-                $(clicked[0]).attr("checked", false);;
+                $(clicked[0]).prop("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
                 removeItem(idImg,globalId);
+                count=0;
             }
            
         });

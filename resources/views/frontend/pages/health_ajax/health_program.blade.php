@@ -2,7 +2,7 @@
 <form action="">
      <div class="custom-select-fix-wrapper">
         <div class="custom-select-fix sources" id="selected">
-            <span class="custom-select-fix-trigger" id="select{{$indexCol}}">Tương Lai Vững Vàng</span>
+            <span class="custom-select-fix-trigger" id="select{{$indexCol}}" value="" >--- Chọn chương trình ---</span>
             <div class="custom-options longevity-option">
                 @forelse($programs as $key=>$value)
                 <span class="custom-option undefined" data-value="{{$value['id']}}" {{($key==0)? 'selected':''}}>{{$value['name']}}</span>

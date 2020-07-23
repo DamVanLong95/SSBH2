@@ -1,3 +1,6 @@
+<style>
+  td.{max-width:400px}
+</style>
 @if(count($result['spbt_more'])== 0)
 <p class="">Mục này không có hoặc chưa cập nhật dữ liệu</p>
 @else
@@ -31,7 +34,7 @@
   <tbody>
   @foreach($result['group_child'] as $child)
     <tr>
-      <td scope="row" style="background: none;">{{$child['group_child']}}</td>
+      <td scope="row" style="max-width:300px">{{$child['group_child']}}</td>
     </tr>
     @endforeach
   </tbody>
@@ -49,9 +52,10 @@ $(document).ready(function(){
   if(myTable){
     $(".selectedId:checked").each(function(){
         if($(this)[0].checked === true){
+          var selector;
+            selector = $("#main-tbl-popup tr:not(:first)");
+            selector.show();
            $('.spbt').on('change', function() {
-            $("#main-tbl-popup tr:not(:first)").show();
-              // return;
               var indexCol = ($(this).parent().index());
               var value    = $(this).val();
               var url = '{{route('showProduct')}}';
@@ -70,19 +74,17 @@ $(document).ready(function(){
                     if(benifits[i-1]!=null){
                       tds.innerHTML = '<p class="">'+ benifits[i-1]['content']+'</p>';
                     }else{
-                      tds.innerHTML = '<p class=""></p>';
+                      if(tds)
+                        tds.innerHTML = '<p class=""></p>';
                     }
                   }
                 }
               }).done(function(){
-                $("#main-tbl-popup tr:not(:first)").each(function(){
+               selector.each(function(){
                     var trIsEmpty = true;
                     var tr = $(this);
-                  //  console.log(tr);
                     tr.find("td:not(:first)").each(function() {
                       td = $(this);
-                        // console.log(td.text());
-                        
                         if (isEmpty(td) === false)  {
                           trIsEmpty = false;   
                         }
@@ -110,6 +112,7 @@ $(function() {
             var tblBodyObj = document.getElementById('main-tbl-popup').tBodies[0];
             for (var i = 0; i < tblBodyObj.rows.length; i++) {
                 var newCell = tblBodyObj.rows[i].insertCell(-1);
+                newCell.setAttribute("class","td");
                 var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
             }
             $('#green_header').next("td").remove()

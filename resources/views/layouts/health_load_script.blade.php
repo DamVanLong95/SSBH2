@@ -90,7 +90,7 @@
                                 event.stopPropagation();
                             });
                             $(".custom-option").on("click", function() {
-                                // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+                                // console.log($(this).text());
                                 $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                                 $(this).addClass("selection");
                                 $(this).parents(".custom-select-fix").removeClass("opened");
@@ -403,7 +403,7 @@ $(function() {
                            
                     var div = document.createElement('div');
                     div.setAttribute('class','health-select-cf');
-                    div.innerHTML =data.html;
+                    div.innerHTML = data.html;
 
                     ths.appendChild(div);
                     $('#hospital').html(data.html_hospital);
@@ -412,6 +412,7 @@ $(function() {
                         event.stopPropagation();
                     });
                     $(".custom-option").on("click", function() {
+                        // console.log($(this).text());
                             // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                         $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                         $(this).addClass("selection");
