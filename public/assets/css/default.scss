@@ -1030,8 +1030,15 @@ span.tel {
     table {
         thead {
             th {
+                width: 220px;
                 select.spbt {
-                    width: 120px;
+                    width: 220px;
+                }
+                @media (max-width: 1024px) {
+                    width: 115px;
+                    select.spbt {
+                        width: 290px;
+                    }
                 }
                 @media (max-width: 768px) {
                     width: 115px;
