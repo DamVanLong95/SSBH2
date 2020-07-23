@@ -34,7 +34,7 @@
   <tbody>
   @foreach($result['group_child'] as $child)
     <tr>
-      <td scope="row" >{{$child['group_child']}}</td>
+      <td scope="row">{{$child['group_child']}}</td>
     </tr>
     @endforeach
   </tbody>
