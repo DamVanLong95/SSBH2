@@ -84,8 +84,7 @@
 
 
     <script>
-    
-     dropImage();
+    dropImage();
      var myTable = document.getElementById('main-tbl');
      var terms_data,exception,punishment,exception;
      var star_orange=0,star_gray=0,star_green=0;
@@ -506,29 +505,35 @@
 
                                 return false;
                             }
-                            var selOne = '.header';
-                            var selTwo = '.sub-head';
-                            var selThree = '.green1';
-                            var selFour = '.sub-ctn2';
-                            var selFive = '.sub-ctn3';
-                            var selSix = '.sub-ctn4';
-                            var selSeven = '.sub-ctn5';
-                            var selEight = '.more';
-                            var selNight = '.network';
-                            $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+")").each(function(){
-                                var trIsEmpty = true;
-                                var tr = $(this);
-                                // console.log(this);
-                                tr.find("td:not(:first)").each(function() {
-                                    td = $(this);
-                                    if (isEmpty(td) === false)  {
-                                        trIsEmpty = false;   
+                            console.log(indexCol);
+                            if(indexCol==4 || indexCol == 3 || indexCol==2){
+                                var selOne = '.header';
+                                var selTwo = '.sub-head';
+                                var selThree = '.green1';
+                                var selFour = '.sub-ctn2';
+                                var selFive = '.sub-ctn3';
+                                var selSix = '.sub-ctn4';
+                                var selSeven = '.sub-ctn5';
+                                var selEight = '.more';
+                                var selNight = '.network';
+                                var selTen = '.selectedAll';
+                                var selEl = '.select-all';
+                                $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+","+selTen+","+selEl+")").each(function(){
+                                    var trIsEmpty = true;
+                                    var tr = $(this);
+                                    // console.log(this);
+                                    tr.find("td:not(:first)").each(function() {
+                                        td = $(this);
+                                        if (isEmpty(td) === false)  {
+                                            trIsEmpty = false;   
+                                        }
+                                    });
+                                    if (trIsEmpty == true) {
+                                        // console.log(this);
+                                        tr.addClass("data-empty");
                                     }
                                 });
-                                if (trIsEmpty == true) {
-                                    tr.addClass("data-empty");;
-                                }
-                            });
+                            }
                         });
                     $('span.remove').on('click', function (e ) {
                         var index = ($(this).parent().parent().index()+1);
@@ -587,7 +592,8 @@
                 }
             });
         }
-       
+        
+        
         function addColumn(tblId) {
             var myTable = document.getElementById('main-tbl');
             var tblHeadObj = document.getElementById(tblId).tHead;
@@ -637,7 +643,6 @@
             $('#point_'+indexCol+'').text(result);
             $('#point_'+indexCol+'')[0].setAttribute("value",result);
         }
-       var  new_orange =0;
         function checkAllCalculate(count_star,count_star_orange,count_star_green,count_star_gray,myTable,indexCol,terms_data,exception,punishment,permissions){
             // var orange=0 , green=0 , gray=0;
             // var v=0 , x=0 , d=0;
@@ -890,6 +895,9 @@
                 }
             });
         }
+    </script>
+    <script>
+        
         
     </script>
     <script>
@@ -970,14 +978,13 @@
                 length = length_punishment;
                 for(var i=0; i< length ;i++){
                     var label_ct= document.getElementById('ct'+punishment[i]['id']+'');
-                    // label_dklt.style.display = "inline-flex";
                     $('#checkbox_ct'+punishment[i]['id']+'').prop('checked', el.checked);
                 }
                 
             }
             if(length == length_permission){
                 length = length_permission;
-                console.log(length);
+                // console.log(length);
                 for(var i=0; i< length-1 ;i++){
                   
                     $('#checkbox_nv'+permission[i]['id']+'').prop('checked', el.checked);

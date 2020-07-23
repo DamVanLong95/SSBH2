@@ -88,7 +88,7 @@ $(document).ready(function(){
                         }
                     });
                     if (trIsEmpty == true) {
-                      tr.addClass("data-empty");
+                      tr.hide();
                     }
                 });
               })
