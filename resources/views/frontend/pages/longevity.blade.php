@@ -303,7 +303,7 @@
                                     </tr>
                                     <tr class="container-download">
                                         <td></td>
-                                        <td class="data-detail download-td">
+                                        <td class="data-detail download-td hide">
                                             <button type="button" id="download-pru">Minh họa Pru
                                                 <span><p><i class="fa fa-download" aria-hidden="true"></i></p></span>
                                             </button>
