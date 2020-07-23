@@ -1296,16 +1296,19 @@ span.tel {
   background-size: cover;
   background-position: center; }
 
-@media (max-width: 767px) {
-  #detail-comparison h1 {
-    font-size: 25px;
-    margin: 20px 0; } }
-@media (max-width: 600px) {
-  #detail-comparison h1 {
-    font-size: 18px;
-    margin: 20px 0; } }
+#detail-comparison h1 {
+  font-size: 35px;
+  margin: 20px 0; }
+  @media (max-width: 767px) {
+    #detail-comparison h1 {
+      font-size: 25px;
+      margin: 20px 0; } }
+  @media (max-width: 600px) {
+    #detail-comparison h1 {
+      font-size: 18px;
+      margin: 20px 0; } }
 #detail-comparison table thead th {
-  width: 220px; }
+  max-width: 165px; }
   #detail-comparison table thead th select.spbt {
     width: 220px; }
   @media (max-width: 1024px) {
