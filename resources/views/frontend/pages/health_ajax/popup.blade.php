@@ -54,8 +54,9 @@ $(document).ready(function(){
         if($(this)[0].checked === true){
           var selector;
             selector = $("#main-tbl-popup tr:not(:first)");
-            selector.show();
+           
            $('.spbt').on('change', function() {
+            selector.show();
               var indexCol = ($(this).parent().index());
               var value    = $(this).val();
               var url = '{{route('showProduct')}}';
