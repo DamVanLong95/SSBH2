@@ -1764,6 +1764,69 @@ span.tel {
   background-position: center;
 }
 
+#detail-comparison h1 {
+  font-size: 35px;
+  margin: 20px 0;
+}
+
+@media (max-width: 767px) {
+  #detail-comparison h1 {
+    font-size: 25px;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  #detail-comparison h1 {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+}
+
+#detail-comparison table thead th {
+  width: 165px;
+}
+
+#detail-comparison table thead th select.spbt {
+  width: 220px;
+}
+
+@media (max-width: 1024px) {
+  #detail-comparison table thead th {
+    width: 115px;
+  }
+  #detail-comparison table thead th select.spbt {
+    width: 290px;
+  }
+}
+
+@media (max-width: 768px) {
+  #detail-comparison table thead th {
+    width: 115px;
+  }
+  #detail-comparison table thead th select.spbt {
+    width: 202px;
+  }
+}
+
+@media (max-width: 767px) {
+  #detail-comparison table thead th {
+    width: 115px;
+  }
+  #detail-comparison table thead th select.spbt {
+    width: 170px;
+  }
+}
+
+@media (max-width: 600px) {
+  #detail-comparison table thead th {
+    max-width: 80px;
+  }
+  #detail-comparison table thead th select.spbt {
+    max-width: 60px;
+  }
+}
+
 @media (max-width: 992px) {
   .section1 {
     margin-top: 70px;
@@ -2982,7 +3045,6 @@ span.tel {
 
 .table-section #layout-area .table tbody tr.header.colapse-head {
   background: #0d723b;
-  color: white;
 }
 
 .table-section #layout-area .table tbody tr.header.colapse-head td:after {

@@ -8,9 +8,9 @@
   <thead>
     <tr>
    
-      <th style="background: none;">Chỉ tiêu</th>
+      <th style="">Chỉ tiêu</th>
       @foreach($result['product_name'] as $name)
-      <th style="background: none;text-align:center;max-width:300px">
+      <th style="text-align:center;">
       
         <label value="{{$name['product_longevity_id']}}">{{$name->product_longevity_name}}</label><br>
 
@@ -19,11 +19,11 @@
                             line-height: 28px;
                             background: #fff;
                             border: 1px solid #0d723b;
-                            width: 300px;">
+                            ">
 
             <option selected disabled>--Chọn--</option>
             @foreach($name['product_more'] as $value)
-            <option value="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],7)}}</option>
+            <option value="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],5)}}</option>
             @endforeach
         </select>
       </th>
@@ -34,7 +34,7 @@
   <tbody>
   @foreach($result['group_child'] as $child)
     <tr>
-      <td scope="row" style="max-width:300px">{{$child['group_child']}}</td>
+      <td scope="row">{{$child['group_child']}}</td>
     </tr>
     @endforeach
   </tbody>
