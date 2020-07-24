@@ -241,8 +241,8 @@
                                     }
                                 }
                                  //===============DIEU KHOAN LOAI TRU===============================
-                                var max_rows_exception = (i+3) + exception.length;
-                                for(var j=i+3 ;j<max_rows_exception;j++){
+                                var max_rows_exception = exception.length;
+                                for(var j=i+3 ;j < i+max_rows_exception;j++){
 
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
                                     // console.log(tds);
@@ -1050,7 +1050,7 @@ $(function() {
                                 }
                                
                                 var max_rows_exception =  exception.length;
-                                for(var j=i+3 ;j<max_rows_exception;j++){
+                                for(var j=i+3 ;j< i+max_rows_exception;j++){
 
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)

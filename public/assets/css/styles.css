@@ -756,6 +756,15 @@ table thead th {
   background-color: #edecec;
 }
 
+td a.text-more {
+  color: #0d723b !important;
+}
+
+td a.text-more:hover {
+  color: #dd2626 !important;
+  cursor: pointer;
+}
+
 .disable-scroll {
   overflow: hidden;
 }

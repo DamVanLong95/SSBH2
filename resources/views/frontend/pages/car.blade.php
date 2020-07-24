@@ -461,16 +461,16 @@
         // console.log(rows);
         var length = <?php echo count($terms_data)?>;
         var length_permission = <?php echo count($permission)?>;
-        $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-               '</span></div</td></tr>');
-        $(rows[65]).after('<tr class="more" id="more_exc"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-            '</span></div</td></tr>');
+        $(rows[length+6]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><a class="text-more">Các điều khoản khác <span>' +
+               '</span></a></td></tr>');
+        $(rows[65]).after('<tr class="more" id="more_exc"><td class="green_header" colspan="2"><a class="text-more">Các điều khoản khác <span>' +
+            '</span></a></td></tr>');
         
-        $(rows[87]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-        '</span></div</td></tr>');
-        $(rows[114]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-        '</span></div</td></tr>');
-        // $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
+        $(rows[87]).after('<tr class="more" id="more_punish"><td class="green_header" colspan="2"><a class="text-more">Các điều khoản khác <span>' +
+        '</span></a></td></tr>');
+        $(rows[114]).after('<tr class="more" id="more_permiss"><td class="green_header" colspan="2"><a class="text-more">Các điều khoản khác <span>' +
+        '</span></a></td></tr>');
+        // $(rows[132]).after('<tr class="more" id="more_finance"><td class="green_header" colspan="2"><a> style="color:#0d723b">Các điều khoản khác <span>' +
         // '</span></div</td></tr>');
     });
     $(function(){

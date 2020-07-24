@@ -38,7 +38,7 @@ class LongevityController extends Controller
                     // dd($benifits_group);
         $group_sicks = SickGroup::all();
         
-        $companies          = Company::all();
+        $companies          = Company::where('classify',4)->get();
         $data['companies']  = $companies;
         $data['products']   = $products;
         $data['scope_secure']    = $scope_secure;
@@ -127,17 +127,18 @@ class LongevityController extends Controller
         // {
         //     return $item['name'] ;
         // });
-        
+        // dd($products);
         $product_saving =[];
         $product_secure =[];
         $product_invest =[];
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
-        // dd($products);
+       
         foreach($products as $key=>$value){
             $check = [];
-            // Log::debug($value);
+            Log::debug("Product_type".$value->type);
+            Log::debug("Product".$value);
             foreach($value->type as $val){
               
                 if($params!=null){
@@ -158,7 +159,7 @@ class LongevityController extends Controller
                    
             }
         }
-        // dd($product_saving);
+        dd($product_saving);
         $html_saving = view('frontend.pages.health_ajax.secure_longevity')
                     ->with(['product_saving'=> $product_saving])
                     ->render();
