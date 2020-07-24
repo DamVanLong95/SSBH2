@@ -108,6 +108,7 @@
                 },
 
                 drop: function( event, ui ) {
+                    
                     var idImg = ui.draggable.attr('id');
                     var th = $(this);
                     var img = ui.draggable;
@@ -137,12 +138,13 @@
                         },
                         function(data, status, xhr) {
                             // console.log(data.data);
+                        
                             if(data.success == true) {
                                 var rating_and_model = data.data['rating_and_model'];
                                 var notes       = data.summaries;
                                 var deductible  = data.deductible;           
-                                 exception   = data.exception;  
-                                 punishment  = data.punishment;
+                                 exception      = data.exception;  
+                                 punishment     = data.punishment;
                                 var promotion   = data.promotion;
 
                                  terms_data  = data.terms;
@@ -315,9 +317,10 @@
                                     }
                                 }
                                  //===============DIEU KHOAN LOAI TRU===============================
+                                 
                                 var max_rows_exception =  exception.length;
-                                for(var j=i+3 ;j<max_rows_exception;j++){
-
+                                var i= max_rows_terms+2;
+                                for(var j=i+3 ;j<i+max_rows_exception;j++){
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
                                     // console.log(tds);
 
@@ -332,11 +335,11 @@
                                 
                                     }else if(exception[j-36]['rate_star_dklt']=== 5){
                                         tds.innerHTML =`<p class="ellipsis" value="5" > `+exception[j-36]['note_dklt']+`</p>`+`
-                                        <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
-                                        <div class="star-td">
-                                        <img class="img-fluid" src="`+imgGreen+`" alt="">
-                                    </div>
-                                        `;
+                                            <span><button value="`+exception[j-36]['note_dklt']+`" onclick="showNote(this.value)" >...</button></span>
+                                            <div class="star-td">
+                                            <img class="img-fluid" src="`+imgGreen+`" alt="">
+                                        </div>
+                                            `;
                                     }else if(exception[j-36]['rate_star_dklt'] === 2 ){
                                         if(exception[j-36]['note_dklt']=== "x"){
                                                 tds.innerHTML = 
@@ -397,7 +400,7 @@
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=91; i<115 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    console.log(tds);
+                                    // console.log(tds);
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
@@ -407,13 +410,13 @@
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
                                             tds.innerHTML =`<p class="ellipsis" value="5">`+permissions[i-91]['note_rule']+`</p>`+`
-                                                        <div class="star-td">
+                                                             <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
                                             tds.innerHTML =`<p class="ellipsis" value="2">`+permissions[i-91]['note_rule']+`</p>`+`
-                                                        <div class="star-td">
+                                                            <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
                                         }
@@ -896,10 +899,6 @@
                 }
             });
         }
-    </script>
-    <script>
-        
-        
     </script>
     <script>
     function showNote(val){
