@@ -23,7 +23,7 @@
 
             <option selected disabled>--Chọn--</option>
             @foreach($name['product_more'] as $value)
-            <option value="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],7)}}</option>
+            <option value="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],5)}}</option>
             @endforeach
         </select>
       </th>
