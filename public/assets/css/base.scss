@@ -747,3 +747,12 @@ table {
     top: 0;
     background-color: #edecec;
   }
+  td{
+      a.text-more{
+          color: #0d723b !important;
+          &:hover{
+              color: #0d3972!important;
+              cursor: pointer;
+          }
+      }
+  }

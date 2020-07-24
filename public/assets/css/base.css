@@ -754,4 +754,13 @@ table thead th {
   top: 0;
   background-color: #edecec;
 }
+
+td a.text-more {
+  color: #0d723b !important;
+}
+
+td a.text-more:hover {
+  color: #0d3972 !important;
+  cursor: pointer;
+}
 /*# sourceMappingURL=base.css.map */
