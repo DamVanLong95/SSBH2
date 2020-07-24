@@ -761,7 +761,7 @@ td a.text-more {
 }
 
 td a.text-more:hover {
-  color: #dd2626 !important;
+  color: #0d3972 !important;
   cursor: pointer;
 }
 
@@ -3234,6 +3234,25 @@ span.tel {
   }
 }
 
+.table-section #layout-area .table tr.data-detail td:first-child p.ellipsis {
+  text-align: left;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 80%;
+}
+
+.table-section #layout-area .table tr.data-detail td:first-child label {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
 .table-section #layout-area .table tr.data-detail td {
   border-right: 1px solid #ccc;
   text-align: center;
@@ -3351,8 +3370,8 @@ span.tel {
 .table-section #layout-area .table tr.data-detail td span.first-td {
   position: relative;
   display: inline-block;
-  -webkit-transform: translate(0px, -27px);
-          transform: translate(0px, -27px);
+  -webkit-transform: translate(10px, -27px);
+          transform: translate(10px, -27px);
   width: 90%;
 }
 
@@ -3382,7 +3401,7 @@ span.tel {
 }
 
 .table-section #layout-area .table tr.data-detail td span.show-detail button {
-  right: -18px;
+  right: -12px;
   float: right;
   position: absolute;
   top: 10px;
