@@ -570,7 +570,7 @@ $(function() {
                                     tds.innerHTML = `<p class=""></p>`;
                                 }else{
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                <p class="">`+exclusions[i-96]['note']+`</p>
+                                                <p class="ellipsis">`+exclusions[i-96]['note']+`</p>
                                     `;
                                 }
                             }
