@@ -302,7 +302,7 @@
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<p class="ellipsis" value="3" ><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" style="display:none;" value="3" ><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
@@ -327,7 +327,7 @@
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                     {
                                     tds.innerHTML = 
-                                        `<p class="ellipsis" value="3" ></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" style="display:none;" value="3" ></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
@@ -343,7 +343,7 @@
                                     }else if(exception[j-36]['rate_star_dklt'] === 2 ){
                                         if(exception[j-36]['note_dklt']=== "x"){
                                                 tds.innerHTML = 
-                                            `<p class="ellipsis" value="2" ></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            `<p class="ellipsis" style="display:none;" value="2" ></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                             <div class="star-td">
                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                             </div>
@@ -368,7 +368,7 @@
                                         {
                                             if(punishment[i-69]['content']=== "x"){
                                                 tds.innerHTML = 
-                                                    `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    `<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                                     <div class="star-td">
                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                     </div>
@@ -404,7 +404,7 @@
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis" value="3"><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                            tds.innerHTML =`<p class="ellipsis" style="display:none;" value="3"><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;

@@ -5082,11 +5082,34 @@ span.tel {
   color: #000;
 }
 
+.table-section-sk #layout-area .table tr.data-detail td:first-child p.ellipsis {
+  text-align: left;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 80%;
+}
+
+.table-section-sk #layout-area .table tr.data-detail td:first-child label {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
 .table-section-sk #layout-area .table tr.data-detail td {
   border-right: 1px solid #ccc;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.table-section-sk #layout-area .table tr.data-detail td p.ellipsis {
+  text-align: center;
 }
 
 .table-section-sk #layout-area .table tr.data-detail td span a {
