@@ -87,7 +87,10 @@
                         //===========Pham vi bao hiem=====================
                         for(var i =6; i<10;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
-                            tds.innerHTML = '<p class="text">'+longevities[i-6]['content']+'</p>';
+                            tds.innerHTML = `
+                                                <p class="ellipsis">`+longevities[i-6]['content']+`</p>
+                                    `;
+                            // tds.innerHTML = '<p class="text">'+longevities[i-6]['content']+'</p>';
                         }
 
                         //============Quyen loi san pham================
