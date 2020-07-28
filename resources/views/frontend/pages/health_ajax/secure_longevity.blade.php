@@ -496,9 +496,8 @@
                             var tblHeadObj  = myTable.tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 1;
         if(indexCol==4)count++;
-        if(clicked.is(':checked')&& count <=1){
+        if(clicked.is(':checked')&& $('div.img-container').is(":not(.dropped)")){
            
-            // clicked[0].setAttribute('disabled',true);
             var idImg = clicked.val();
             globalId.push(idImg);
             var url   = "{{route('checkLongevity')}}";
@@ -521,6 +520,7 @@
                     $('span.remove', thlast).show();
                     var divImg = $(thlast).children()[0];
                     $(divImg).addClass('dropped');
+                    divImg.setAttribute('id',"img_"+idImg);
                     divImg.innerHTML ='<img class="img-responsive sized" src="'+image+'">' ; 
                     $('.sized').draggable({ disabled: true });
                     var th =  myTable.rows[0].cells[indexCol];
@@ -622,72 +622,58 @@
              });
             $(this).disabled = true;
            
-        }else{
-            // console.log(globalId);
-            // if( indexCol ==2 ){
-            //     console.log(idImg);
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            //     // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
-            // }else if(indexCol== 2 || indexCol == 0 && !$('div.img-container').is(":not(.dropped)")){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     addColumn('main-tbl-nt');
-            //     dropImage();
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-
-            // }else if(indexCol==4 && !$('div.img-container').is(":not(.dropped)")){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     addColumn('main-tbl-nt');
-            //     dropImage();
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            // }else if(indexCol == 4){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-                
-            // }else if(indexCol == 5 ){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     addColumn('main-tbl-nt');
-            //     dropImage();
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            // }else if(indexCol == 3 && !$('div.img-container').is(":not(.dropped)")){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     // addColumn('main-tbl-nt');
-            //     removeItem(idImg,globalId);
-            // }else if(indexCol == 3 ){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            // }
+        }
+        if(clicked.is(':checked') === false ){
+            var id = clicked.val();
+            var imgId = clicked.parents().find('#img_'+id+'');
+            var index = imgId.parent().index() +1;
+                if( index ==2 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    // addColumn('main-tbl');
+                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-nt');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-nt');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 4){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 5 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-nt');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    // count=0;
+                    addColumn('main-tbl-nt');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    
+                }
         }
         if(count==4) return;
         

@@ -2,10 +2,10 @@
 <form action="">
      <div class="custom-select-fix-wrapper">
         <div class="custom-select-fix sources" id="selected">
-            <span class="custom-select-fix-trigger" id="select{{$indexCol}}" value="" >--- Chọn chương trình ---</span>
-            <div class="custom-options longevity-option">
+            <span class="custom-select-fix-trigger" id="select{{$indexCol}}" value="" class="active">--- Chọn chương trình ---</span>
+            <div class="custom-options longevity-option" >
                 @forelse($programs as $key=>$value)
-                <span class="custom-option undefined" data-value="{{$value['id']}}" {{($key==0)? 'selected':''}}>{{$value['name']}}</span>
+                <span class="custom-option undefined" title="{{$value['name']}}" data-value="{{$value['id']}}">{{\Illuminate\Support\Str::words($value['name'],4)}}</span>
                 @empty
                     <span class=""style="color:#fff;">data not update</span>
                 @endforelse
@@ -23,4 +23,3 @@
         </div>
     </div>
 </div>
- 

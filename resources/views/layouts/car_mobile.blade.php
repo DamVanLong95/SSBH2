@@ -7,15 +7,14 @@ $(function() {
        $('.checkId').click(function(){
             var clicked = $(this);
             var myTable = document.getElementById('main-tbl');
-                    var tblBodyObj  = myTable.tBodies[0];
-                    var tblHeadObj  = myTable.tHead;
-                    var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+            var tblBodyObj  = myTable.tBodies[0];
+            var tblHeadObj  = myTable.tHead;
+            var indexCol    = tblHeadObj.rows[0].cells.length - 1;
 
-           if(indexCol==2)count++;
            
-           if(clicked.is(':checked')&& count <=1){
-            clicked[0].setAttribute('disabled',true);
-                var idImg = clicked.val();
+            if(indexCol==3)count++;
+           if(clicked.is(':checked') && $('div.img-container').is(":not(.dropped)")){
+               var idImg = clicked.val();
                var url   = "{{route('checkImage')}}";
              
                 addColumn('main-tbl');
@@ -60,6 +59,7 @@ $(function() {
                         divImg.appendChild(img); 
                         $(img).addClass('sized');
                         $(divImg).addClass('dropped');
+                        divImg.setAttribute('id',"img_"+idImg);
                         // if($('#checkbox_'+idImg+'').prop("checked") == true){
                         //     $('#'+idImg+'').draggable({ disabled: true });
                         // }
@@ -142,6 +142,7 @@ $(function() {
                                         var purpose = document.getElementById('purpose');
                                         var year_sx = document.getElementById('prd_date').value;
                                         var ref_rates_id = purpose.value;
+                                        console.log(year_sx);
                                         var url = '{{route('purpose')}}';
                                         if(year_sx!='' && ref_rates_id!=0){
                                             $.post(url,{
@@ -210,7 +211,7 @@ $(function() {
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
@@ -224,15 +225,15 @@ $(function() {
                                         `;
                                     }
                                 }
-                               
-                                var max_rows_exception = (i+3) + exception.length;
-                                for(var j=i+3 ;j<max_rows_exception;j++){
+                               //==================điều khoan loai tru===========================
+                                var max_rows_exception =  exception.length;
+                                for(var j=i+3 ;j<i+max_rows_exception;j++){
 
                                     var tds =  tblBodyObj.rows[j].cells[indexCol];
                                     if(exception[j-36]['note_dklt']=== "x" && exception[j-36]['rate_star_dklt']==3)
                                     {
                                     tds.innerHTML = 
-                                        `<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
@@ -248,7 +249,7 @@ $(function() {
                                     }else if(exception[j-36]['rate_star_dklt']=== 2){
                                         if(exception[j-36]['note_dklt']=== "x"){
                                                 tds.innerHTML = 
-                                            `<p class="ellipsis" value="2"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                            `<p class="ellipsis" style="display:none;" value="2"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                             <div class="star-td">
                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                             </div>
@@ -297,7 +298,7 @@ $(function() {
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                            tds.innerHTML =`<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
@@ -401,12 +402,80 @@ $(function() {
                    }
                
                }).done(function() {
-                deleteColumn(idImg,clicked);
+                    deleteColumn(idImg,clicked);
+                    function isEmpty(td) {
+                        if ( td.text() == '') {
+                            return true;
+                        }            
+
+                        return false;
+                    }
+                    if(indexCol==4 || indexCol == 3 ){
+                        
+                        var selOne = '.header';
+                        var selTwo = '.sub-head';
+                        var selThree = '.green1';
+                        var selFour = '.sub-ctn2';
+                        var selFive = '.sub-ctn3';
+                        var selSix = '.sub-ctn4';
+                        var selSeven = '.sub-ctn5';
+                        var selEight = '.more';
+                        var selNight = '.network';
+                        var selTen = '.selectedAll';
+                        var selEl = '.select-all';
+                        $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+","+selTen+","+selEl+")").each(function(){
+                            var trIsEmpty = true;
+                            var tr = $(this);
+                            // console.log(this);
+                            tr.find("td:not(:first)").each(function() {
+                                td = $(this);
+                                if (isEmpty(td) === false)  {
+                                    trIsEmpty = false;   
+                                }
+                            });
+                            if (trIsEmpty == true) {
+                                // console.log(this);
+                                tr.addClass("data-empty");
+                            }
+                        });
+                    }
+
                });
-               if(count==4) return;
-            //    $(this).disabled = true;
+            
            }
-           if(count==2) return;
+           if($(this).is(':checked')== false ){
+                var id = $(this).val();
+                var imgId = $(this).parents().find('#img_'+id+'');
+                var index = imgId.parent().index() +1;
+                if( index ==2 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    // addColumn('main-tbl');
+                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    // count=0;
+                    addColumn('main-tbl');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    
+                }
+           }
+           if(count == 3 ) return;
        });
       
        function deleteColumn(idImg,clicked){
@@ -418,27 +487,29 @@ $(function() {
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
-                    count=0;
+                    // count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     addColumn('main-tbl');
-                    count=0;
+                    // count=0;
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
-                    count=0;
-                    // addColumn('main-tbl');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    // count=0;
+                    addColumn('main-tbl');
                 }else if(index == 3 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
-                    count=0;
+                    // count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
                 }
             });
