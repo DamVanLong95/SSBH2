@@ -610,7 +610,6 @@ $(function() {
                     dropImage();
                     deleteColumn(idImg,clicked);
                });
-              
            }
            if($(this).is(':checked')== false ){
                 var id = $(this).val();

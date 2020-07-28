@@ -248,8 +248,7 @@
                 var tblHeadObj  = myTable.tHead;
                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
         if(indexCol==2) count++;
-        if(clicked.is(':checked') && count < 2){
-            clicked[0].setAttribute('disabled',true);
+        if(clicked.is(':checked') && $('div.img-container').is(":not(.dropped)")){
             var idImg = clicked.val();
             globalId.push(idImg);
             var url   = "{{route('checkLongevity')}}";
@@ -273,6 +272,7 @@
                     $('span.remove', thlast).show();
                     var divImg = $(thlast).children()[0];
                     $(divImg).addClass('dropped');
+                    divImg.setAttribute('id',"img_"+idImg);
                     divImg.innerHTML ='<img class="img-responsive sized" src="'+image+'">' ; 
                     $('.sized').draggable({ disabled: true });
                     var th =  myTable.rows[0].cells[indexCol];
@@ -377,6 +377,40 @@
             $(this).disabled = true;
            
         }
+        if(clicked.is(':checked') === false ){
+                var id = clicked.val();
+                var imgId = clicked.parents().find('#img_'+id+'');
+                var index = imgId.parent().index() +1;
+                if( index ==2 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $(clicked[0]).prop("checked", false);;
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    removeItem(idImg,globalId);
+                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                        $('th:nth-child('+index+')').remove()
+                        $('td:nth-child('+index+')').remove()
+                        addColumn('main-tbl-nt');
+                        clicked[0].disabled = false;
+                        $('#'+idImg+'').draggable({ disabled: false });
+                        removeItem(idImg,globalId);
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                        $('th:nth-child('+index+')').remove()
+                        $('td:nth-child('+index+')').remove()
+                        addColumn('main-tbl-nt');
+                        $(clicked[0]).prop("checked", false);;
+                        clicked[0].disabled = false;
+                        removeItem(idImg,globalId);
+                }else if(index == 3 ){
+                        $('th:nth-child('+index+')').remove()
+                        $('td:nth-child('+index+')').remove()
+                        $(clicked[0]).prop("checked", false);;
+                        clicked[0].disabled = false;
+                        $('#'+idImg+'').draggable({ disabled: false });
+                        removeItem(idImg,globalId);
+                }
+            }
         if(count==2) return;
         
     }

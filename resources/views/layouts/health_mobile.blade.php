@@ -21,8 +21,8 @@
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
            if(indexCol==2)count++;
-           if(clicked.is(':checked') && count <=1){
-            clicked[0].setAttribute('disabled',true);
+           if(clicked.is(':checked') && $('div.img-container').is(":not(.dropped)")){
+            // clicked[0].setAttribute('disabled',true);
                var idImg = clicked.val();
                var url   = "{{route('checkHealth')}}";
               
@@ -48,7 +48,7 @@
                     $(img).addClass('sized');
                     $(divImg).addClass('dropped');
                     divImg.appendChild(img); 
-                    
+                    divImg.setAttribute('id',"img_"+idImg);
                     // if($('#checkbox_'+idImg+'').prop("checked") == true){
                     //     $('#'+idImg+'').draggable({ disabled: true });
                     // }
@@ -231,6 +231,38 @@
                });
               
            }
+           if(clicked.is(':checked') === false ){
+            var id = clicked.val();
+            var imgId = clicked.parents().find('#img_'+id+'');
+            var index = imgId.parent().index() +1;
+                if( index ==2 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    // addColumn('main-tbl');
+                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    add('main-tbl-sk');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    // count=0;
+                    add('main-tbl-sk');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    
+                }
+        }
            if(count==2) return;
        });
        function deleteColumn(idImg,clicked){
