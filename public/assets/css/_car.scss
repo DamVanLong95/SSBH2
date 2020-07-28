@@ -186,6 +186,15 @@
         // border: 1px solid black;
         overflow-x: hidden;
         overflow-y: hidden;
+        @media (max-width: 1360px) {
+            max-width: 1107px;
+        }
+        @media (max-width: 1200px) {
+            max-width: 980px;
+        }
+        @media (max-width: 991px) {
+            max-width: 790px;
+        }
         .section-list {
             height: 140px; // hide the scroll bar
             // background: #f3f3f3;
@@ -609,7 +618,7 @@
                         // width: 100%;
                         select {
                             font-size: 14px;
-                            width: 100%;
+                            width: 170px;
                             border-bottom: none;
                             border-left: none;
                             border-top: none;
@@ -617,6 +626,9 @@
                             border-right: 1px solid #58595b;
                             background-color: #f1f2f2;
                             color: #58595b;
+                            @media (max-width: 768px) {
+                                width: 100%;
+                            }
                             @media (max-width: 375px) {
                                 margin: 5% 0;
                                 border: 1px solid #ccc;
@@ -654,6 +666,12 @@
                         float: right;
                         width: 45%;
                     }
+                    @media (max-width: 1024px) {
+                        display: block;
+                    }
+                    @media (max-width: 768px) {
+                        display: flex;
+                    }
                     @media (max-width: 767px) {
                         button {
                             width: 100%;
@@ -670,14 +688,27 @@
             tr.data-detail {
                 td:first-child {
                     // width: 50%;
+                    p.ellipsis{
+                        text-align: left;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        position: absolute;
+                        transform: translateY(10px);
+                        width: 80%;
+                    }
+                    label{
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        transform: translateY(50%);
+                    }
                 }
                 td {
                     border-right: 1px solid #ccc;
                     text-align: center;
-                    p {
-                        // overflow: hidden;
-                        // white-space: nowrap;
-                        // width: 135px;
+                    p.ellipsis {
+                        text-align: center;
                     }
                     span {
                         a {
@@ -778,7 +809,7 @@
                     span.first-td {
                         position: relative;
                         display: inline-block;
-                        transform: translate(0px, -27px);
+                        transform: translate(10px, -27px);
                         width: 90%;
                         @media(max-width: 1024px) {
                             transform: translate(0px, -27px);
@@ -799,7 +830,7 @@
                         right: 0;
                         float: right;
                         button {
-                            right: -18px;
+                            right: -12px;
                             float: right;
                             position: absolute;
                             top: 10px;

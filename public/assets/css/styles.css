@@ -761,7 +761,7 @@ td a.text-more {
 }
 
 td a.text-more:hover {
-  color: #dd2626 !important;
+  color: #0d3972 !important;
   cursor: pointer;
 }
 
@@ -2654,6 +2654,24 @@ span.tel {
   overflow-y: hidden;
 }
 
+@media (max-width: 1360px) {
+  .brand-section .section-wrapper {
+    max-width: 1107px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .brand-section .section-wrapper {
+    max-width: 980px;
+  }
+}
+
+@media (max-width: 991px) {
+  .brand-section .section-wrapper {
+    max-width: 790px;
+  }
+}
+
 .brand-section .section-wrapper .section-list {
   height: 140px;
   -webkit-box-sizing: border-box;
@@ -3129,7 +3147,7 @@ span.tel {
 
 .table-section #layout-area .table tr.tool-ctn .select-ctn .item select {
   font-size: 14px;
-  width: 100%;
+  width: 170px;
   border-bottom: none;
   border-left: none;
   border-top: none;
@@ -3137,6 +3155,12 @@ span.tel {
   border-right: 1px solid #58595b;
   background-color: #f1f2f2;
   color: #58595b;
+}
+
+@media (max-width: 768px) {
+  .table-section #layout-area .table tr.tool-ctn .select-ctn .item select {
+    width: 100%;
+  }
 }
 
 @media (max-width: 375px) {
@@ -3181,6 +3205,20 @@ span.tel {
   width: 45%;
 }
 
+@media (max-width: 1024px) {
+  .table-section #layout-area .table tr.tool-ctn .select-ctn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-section #layout-area .table tr.tool-ctn .select-ctn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 @media (max-width: 767px) {
   .table-section #layout-area .table tr.tool-ctn .select-ctn button {
     width: 100%;
@@ -3196,11 +3234,34 @@ span.tel {
   }
 }
 
+.table-section #layout-area .table tr.data-detail td:first-child p.ellipsis {
+  text-align: left;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 80%;
+}
+
+.table-section #layout-area .table tr.data-detail td:first-child label {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
 .table-section #layout-area .table tr.data-detail td {
   border-right: 1px solid #ccc;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.table-section #layout-area .table tr.data-detail td p.ellipsis {
+  text-align: center;
 }
 
 .table-section #layout-area .table tr.data-detail td span a {
@@ -3309,8 +3370,8 @@ span.tel {
 .table-section #layout-area .table tr.data-detail td span.first-td {
   position: relative;
   display: inline-block;
-  -webkit-transform: translate(0px, -27px);
-          transform: translate(0px, -27px);
+  -webkit-transform: translate(10px, -27px);
+          transform: translate(10px, -27px);
   width: 90%;
 }
 
@@ -3340,7 +3401,7 @@ span.tel {
 }
 
 .table-section #layout-area .table tr.data-detail td span.show-detail button {
-  right: -18px;
+  right: -12px;
   float: right;
   position: absolute;
   top: 10px;
@@ -5021,11 +5082,34 @@ span.tel {
   color: #000;
 }
 
+.table-section-sk #layout-area .table tr.data-detail td:first-child p.ellipsis {
+  text-align: left;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 80%;
+}
+
+.table-section-sk #layout-area .table tr.data-detail td:first-child label {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
 .table-section-sk #layout-area .table tr.data-detail td {
   border-right: 1px solid #ccc;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.table-section-sk #layout-area .table tr.data-detail td p.ellipsis {
+  text-align: center;
 }
 
 .table-section-sk #layout-area .table tr.data-detail td span a {

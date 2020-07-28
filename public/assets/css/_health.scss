@@ -446,15 +446,27 @@
             }
             tr.data-detail {
                 td:first-child {
-                    // width: 50%;
+                    p.ellipsis {
+                        text-align: left;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        position: absolute;
+                        transform: translateY(10px);
+                        width: 80%;
+                    }
+                    label {
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        transform: translateY(50%);
+                    }
                 }
                 td {
                     border-right: 1px solid #ccc;
                     text-align: center;
-                    p {
-                        // overflow: hidden;
-                        // white-space: nowrap;
-                        // width: 135px;
+                    p.ellipsis {
+                        text-align: center;
                     }
                     span {
                         a {

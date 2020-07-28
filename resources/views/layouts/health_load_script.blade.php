@@ -116,25 +116,25 @@
                                   
                                     var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
                                     (obj_bhs===null)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                    :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
+                                                    :tds.innerHTML = `<p class="ellipsis">`+obj_bhs['content']+`</p>`;
                                     //=====================pham vi lanh tho===========================
                                     var pvlt   = document.getElementById('pvlt');
                         
                                     var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
-                                    (!scope)? tds.innerHTML = `<p class="">Data not update</p>`
-                                                    :tds.innerHTML = `<p class="">`+scope['content']+`</p>`;
+                                    (!scope)? tds.innerHTML = `<p class="ellipsis">Data not update</p>`
+                                                    :tds.innerHTML = `<p class="ellipsis">`+scope['content']+`</p>`;
                                 
                                     //========================quyen loi bao hiem========================
                                     for(var i=qlbh.rowIndex+1 ; i< pending.rowIndex ; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
                                         
-                                        tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                        tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     
                                     }
                                     //========================THOI GIAN================================
                                     for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                         var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                        tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
                                     }
 
                                     var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
@@ -438,24 +438,27 @@ $(function() {
                             var pbh   = document.getElementById('pbh');
                             
                             var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
-                                (obj_bhs===null)? tds.innerHTML = `<p class=""></p>`
-                                                :tds.innerHTML = `<p class="">`+obj_bhs['content']+`</p>`;
+                                (obj_bhs===null)? tds.innerHTML = `<p class="ellipsis"></p>`
+                                                :tds.innerHTML = `<p class="ellipsis">`+obj_bhs['content']+`</p>`;
                                 //=====================pham vi lanh tho===========================
                                 var pvlt   = document.getElementById('pvlt');
                     
                                 var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
-                                (!scope)? tds.innerHTML = `<p class=""></p>`
-                                                :tds.innerHTML = `<p class="">`+scope['content']+`</p>`;
+                                (!scope)? tds.innerHTML = `<p class="ellipsis"></p>`
+                                                :tds.innerHTML = `<p class="ellipsis">`+scope['content']+`</p>`;
                             
                                 //========================quyen loi bao hiem========================
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`;
+                                    (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
+                                                     tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                   
                                 }
                                 //========================THOI GIAN================================
                                 for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    tdss.innerHTML =  `<p class="">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                    (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
+                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
                                 }
 
                                 var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
@@ -567,7 +570,7 @@ $(function() {
                                     tds.innerHTML = `<p class=""></p>`;
                                 }else{
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                <p class="">`+exclusions[i-96]['note']+`</p>
+                                                <p class="ellipsis">`+exclusions[i-96]['note']+`</p>
                                     `;
                                 }
                             }
