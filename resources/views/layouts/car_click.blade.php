@@ -454,7 +454,7 @@ $(function() {
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
-                    addColumn('main-tbl');
+                    // addColumn('main-tbl');
                 }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
@@ -486,13 +486,14 @@ $(function() {
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     // count=0;
+                    addColumn('main-tbl');
                 }else if(index == 3 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
-                    addColumn('main-tbl');
+                    
                 }
            }
            if(count == 4 ) return;
