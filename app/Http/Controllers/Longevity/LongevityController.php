@@ -137,8 +137,8 @@ class LongevityController extends Controller
        
         foreach($products as $key=>$value){
             $check = [];
-            Log::debug("Product_type".$value->type);
-            Log::debug("Product".$value);
+            // Log::debug("Product_type".$value->type);
+            // Log::debug("Product".$value);
             foreach($value->type as $val){
               
                 if($params!=null){
@@ -159,7 +159,7 @@ class LongevityController extends Controller
                    
             }
         }
-        dd($product_saving);
+        // dd($product_saving);
         $html_saving = view('frontend.pages.health_ajax.secure_longevity')
                     ->with(['product_saving'=> $product_saving])
                     ->render();

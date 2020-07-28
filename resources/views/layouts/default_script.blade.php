@@ -526,6 +526,7 @@
                                     var trIsEmpty = true;
                                     var tr = $(this);
                                     // console.log(this);
+                                    tr.removeClass('data-empty');
                                     tr.find("td:not(:first)").each(function() {
                                         td = $(this);
                                         if (isEmpty(td) === false)  {

@@ -67,7 +67,7 @@ class CarController extends Controller
                     ->take(19)
                     ->get();
         $brands      = Brand::select('id','name','status')
-                    ->get();
+                    ->orderBy('name')->get();
         $permission  = Permission::select('company_id','note_rule','rules_owner','id')
                     ->take(24)
                     ->get();

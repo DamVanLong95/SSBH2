@@ -1225,7 +1225,44 @@ $(function() {
                    }
                
                }).done(function() {
-                deleteColumn(idImg,clicked);
+                    deleteColumn(idImg,clicked);
+                    function isEmpty(td) {
+                        if ( td.text() == '') {
+                            return true;
+                        }            
+
+                        return false;
+                    }
+                    if(indexCol==4 || indexCol == 3 ||indexCol == 2 ){
+                        
+                        var selOne = '.header';
+                        var selTwo = '.sub-head';
+                        var selThree = '.green1';
+                        var selFour = '.sub-ctn2';
+                        var selFive = '.sub-ctn3';
+                        var selSix = '.sub-ctn4';
+                        var selSeven = '.sub-ctn5';
+                        var selEight = '.more';
+                        var selNight = '.network';
+                        var selTen = '.selectedAll';
+                        var selEl = '.select-all';
+                        $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+","+selTen+","+selEl+")").each(function(){
+                            var trIsEmpty = true;
+                            var tr = $(this);
+                            // console.log(this);
+                            tr.removeClass('data-empty');
+                            tr.find("td:not(:first)").each(function() {
+                                td = $(this);
+                                if (isEmpty(td) === false)  {
+                                    trIsEmpty = false;   
+                                }
+                            });
+                            if (trIsEmpty == true) {
+                                // console.log(this);
+                                tr.addClass("data-empty");
+                            }
+                        });
+                    }
                });
            }
            if(count==4) return;

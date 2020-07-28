@@ -108,7 +108,7 @@ $(function() {
       var tableLength = document.getElementById('main-tbl-popup').rows[0].cells.length
       var length = <?php echo sizeof($result['product_name'])?>;
       for (var h = 0; h < length; h++) {
-        if (tableLength < 6) {
+        if (tableLength < 7) {
           
             var tblBodyObj = document.getElementById('main-tbl-popup').tBodies[0];
             for (var i = 0; i < tblBodyObj.rows.length; i++) {

@@ -562,8 +562,11 @@
             if( $(el).val() == 40) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
-        for(var i = 42; i < 62; i ++)
+        for(var i = 42; i < 56; i ++)
             if( $(el).val() == 45) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        for(var i = 56; i < 62; i ++)
+            if( $(el).val() == 60) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+
         for(var i = 62; i <73; i ++){
             if( $(el).val() == 66) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            

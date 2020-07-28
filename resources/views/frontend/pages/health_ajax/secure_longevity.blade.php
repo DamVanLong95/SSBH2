@@ -551,20 +551,18 @@
                             //===========Pham vi bao hiem=====================
                             for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            tds.innerHTML = `<p class="">`+longevities[i-6]['content']!=null?longevities[i-6]['content']:''+`</p>`;
+                            (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
+                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                         }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
                         var index = row.rowIndex;
                         var row_bt   = document.getElementById('product_bt');
                         var indexRow = row_bt.rowIndex;
-                        // console.log(longevities);
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-8]['content']!=null){
-                                tds.innerHTML =  `<p class="">`+longevities[i-8]['content']+`</p>`;
-                            }
-                          
+                            (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
+                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                          }
                         //  ===========San Pham bo tro==================
                       

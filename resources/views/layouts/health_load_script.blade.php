@@ -579,10 +579,11 @@ $(function() {
 
                                 return false;
                             }
-                            if(indexCol == 4 || indexCol==2 || indexCol==3){
+                            if(indexCol == 4 || indexCol==3 || indexCol==2){
                                 $("#main-tbl-sk tr.data-detail:not(.parent) ").each(function(){
                                     var trIsEmpty = true;
                                     var tr = $(this);
+                                    tr.removeClass('data-empty');
                                     tr.find("td:not(:first)").each(function() {
                                         td = $(this);
                                         if (isEmpty(td) === false)  {
