@@ -247,6 +247,13 @@
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
 </div>
+<div id="detail-td" class="modal">
+    <div class="content-ctn">
+        <div id="note"></div>
+    </div>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
+
+</div>
 @if($agent->isMobile())
     @include('layouts.longevity_mobile')
 @else
@@ -587,7 +594,13 @@
                         for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-10]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
+                                var str = longevities[i-10]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
                             }
                             if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -860,5 +873,11 @@
         $('.open').toggleClass("show hide");
     });
 
+</script>
+<script>
+    function show(val){
+        $('#note').html(val);
+        $('#detail-td').modal('show');
+    }
 </script>
 @endif

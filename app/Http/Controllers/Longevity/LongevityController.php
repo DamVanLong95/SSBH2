@@ -14,7 +14,7 @@ use App\Model\Benifit, App\Model\SickGroup;
 use App\Model\SickLongevity;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
-use App\Model\ClassifyLongevity;
+use App\Model\ClassifyLongevity,App\Model\TypeLongevity;
 class LongevityController extends Controller
 {
     //
@@ -65,14 +65,17 @@ class LongevityController extends Controller
         $params = $request->get('params');
       
         $param_companies = $request->get('param_companies');
+        $params_fillter =  collect($params)->filter(function($value, $index){
+            return $value > 6;
+        })->values()->toArray();
+        $params =  collect($params)->filter(function($value, $index){
+            return $value <=6 ;
+        });
+        $params = $params->toArray();
+
+
         $products =[];
         $references = [
-            1=>'saving',
-            2=>'invest',
-            3=>'secure',
-            4=> 'edu',
-            5=> 'retire',
-            6=> 'concern',
             7=> 'age_to_eightten',
             8=> 'eightten_to_sixtyfive',
             9=> 'over_sixtyfive',
@@ -83,78 +86,65 @@ class LongevityController extends Controller
         ];
         $fields = [];
 
-        if(!empty($params)){
-            for($i=0; $i < sizeof($params); $i++){
-                $fields [] = $references[$params[$i]];
+        if(sizeof($params_fillter) > 0){
+            for($i=0; $i < sizeof($params_fillter); $i++){
+                $fields [] = $references[$params_fillter[$i]];
             }
-            $products_id = FilterBanner::select('id','company_id','product_longevity_id')->where(function ($query) use($fields){
+           
+            $products_id = FilterBanner::where(function ($query) use($fields){
               
                 for($i=0; $i< sizeof($fields) ;$i++){
                    
-                    $query->orwhere($fields[$i],'=',1);
+                    $query->where($fields[$i],'=',1);
                    
                 }
             })->get(); 
-           
+            $ids = [];
+            foreach($products_id as $v){
+                array_push($ids, $v['product_longevity_id']);
+            } 
             if(sizeof ($products_id) > 0 ){
-                $products = ProductLongevity::select('id','name','url','classify_id')
-                    ->where(function($query) use ($products_id){
-                        for($i=0; $i< sizeof($products_id) ;$i++){
-                            $query->orwhere('id','=',$products_id[$i]['product_longevity_id']);
-                        }
-                    })->get();
-            }else{
-                $products = new Collection();
+                $product_second = ProductLongevity::whereIn('id',$ids)->get();
             }
         }else{
-            $products = new Collection();
+            $product_second = new Collection();
         }
        
-        if(!empty($param_companies)){
+        if(!collect($param_companies)->isEmpty()){
            
-            $product_filter_companies = ProductLongevity::select('id','name','url','classify_id')
-                        ->where(function($query) use ($param_companies){
-                            foreach($param_companies as $id){
-                                $query->orwhere('company_id','=',$id);
-                            }
-                        })->get();
-        }else{
-            $product_filter_companies = new Collection();
+            $product_filter_companies = ProductLongevity::whereIn('company_id',$param_companies)->get();
         }
-       
-        $products = $products->merge($product_filter_companies);
-        // $products = $products->unique(function ($item)
-        // {
-        //     return $item['name'] ;
-        // });
-        // dd($products);
         $product_saving =[];
         $product_secure =[];
         $product_invest =[];
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
-       
+        $products = ProductLongevity::all();
+        
+        if(sizeof($product_second) > 0 ){
+            $products = $product_second->intersect($products);
+            if(isset($product_filter_companies)){
+                $products = $product_filter_companies->intersect($products);
+            }
+        } else{
+            if(isset($product_filter_companies)){
+                $products = $product_filter_companies->intersect($products);
+            }
+        }
+        
+        // dd($products);
         foreach($products as $key=>$value){
-            $check = [];
-            // Log::debug("Product_type".$value->type);
-            // Log::debug("Product".$value);
+            
             foreach($value->type as $val){
               
-                if($params!=null){
+                if(sizeof($params) > 0){
                     if($val->type == 1 && in_array($val->type,$params))  array_push($product_saving,$value);
                     if($val->type == 2 && in_array($val->type,$params))  array_push($product_invest,$value);
                     if($val->type == 3 && in_array($val->type,$params))  array_push($product_secure,$value);
                     if($val->type == 4 && in_array($val->type,$params))  array_push($product_edu,$value);;
                     if($val->type == 5 && in_array($val->type,$params))  array_push($product_retire,$value);
                     if($val->type == 6 && in_array($val->type,$params))  array_push($product_concern,$value);
-                }else{
-                    if($val->type == 1)  array_push($product_saving,$value);
-                    if($val->type == 2)  array_push($product_invest,$value);
-                    if($val->type == 3)  array_push($product_secure,$value);
-                    if($val->type == 4)  array_push($product_edu,$value);;
-                    if($val->type == 5)  array_push($product_retire,$value);
-                    if($val->type == 6)  array_push($product_concern,$value);
                 }
                    
             }

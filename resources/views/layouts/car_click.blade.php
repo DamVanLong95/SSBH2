@@ -331,6 +331,7 @@ $(function() {
                                 //==============DANH GIA UY TIN===============
                                 // console.log(rating_and_model);
                                 var tds = tblBodyObj.rows[139].cells[indexCol];
+                                // console.log(tds);
                                 if(rating_and_model.rating_agency === 'x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                 //============= MO HINH ============
@@ -352,7 +353,7 @@ $(function() {
                                     
                                     $('#map'+idImg+'').click(function(){
                                         var tdnet ;
-                                        for(var i =1;i<4;i++){
+                                        for(var i =1;i< 5;i++){
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
@@ -405,7 +406,7 @@ $(function() {
                }).done(function() {
                     deleteColumn(idImg,clicked);
                     function isEmpty(td) {
-                        if ( td.text() == '') {
+                        if ( td.innerHTML == '') {
                             return true;
                         }            
 
@@ -429,7 +430,7 @@ $(function() {
                             var tr = $(this);
                             // console.log(this);
                             tr.find("td:not(:first)").each(function() {
-                                td = $(this);
+                                td = this;
                                 if (isEmpty(td) === false)  {
                                     trIsEmpty = false;   
                                 }

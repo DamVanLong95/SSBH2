@@ -437,9 +437,11 @@ $(function() {
                             var pending   = document.getElementById('pending');
                             var pbh   = document.getElementById('pbh');
                             
-                            var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
-                                (obj_bhs===null)? tds.innerHTML = `<p class="ellipsis"></p>`
+                            var tds =  myTable.rows[row.rowIndex+1].cells[indexCol];
+                            if(obj_bhs){
+                                (!obj_bhs['content']) ? tds.innerHTML = `<p class="ellipsis"></p>`
                                                 :tds.innerHTML = `<p class="ellipsis">`+obj_bhs['content']+`</p>`;
+                            }
                                 //=====================pham vi lanh tho===========================
                                 var pvlt   = document.getElementById('pvlt');
                     
@@ -450,15 +452,18 @@ $(function() {
                                 //========================quyen loi bao hiem========================
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
+                                    if(healths[i-3]){
+                                        (healths[i-3]['content']) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
                                                      tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
-                                   
+                                    }
                                 }
                                 //========================THOI GIAN================================
                                 for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
-                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                    if(healths[i-3]){
+                                        (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
+                                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                    }
                                 }
 
                                 var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
@@ -473,7 +478,7 @@ $(function() {
                             tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                             $('#td'+indexCol+'').click(function(){
                                 var tdnet ;
-                                for(var i =1;i<4;i++){
+                                for(var i =1;i<5;i++){
                                     if(indexCol==1){
                                         tdnet = tdsss;
                                         tdnet.setAttribute('class','active-td');

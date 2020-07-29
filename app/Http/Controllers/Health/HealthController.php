@@ -228,9 +228,10 @@ class HealthController extends Controller
                             ->where(function ($query) use ($fields){
                                 foreach($fields as $key=>$value)
                                 {
-                                    $query->orWhere($value,'x');
+                                    $query->Where($value,'x');
                                 }
                             })->get();
+            // dd($products_id);
             $ids = [];
             for ($i=0; $i < sizeof($products_id); $i++) { 
                 array_push($ids, $products_id[$i]['product_id']);
@@ -254,7 +255,7 @@ class HealthController extends Controller
                     ->where(function ($query) use ($cols){
                     foreach($cols as $key=>$value)
                     {
-                        $query->orWhere($value,'x');
+                        $query->Where($value,'x');
                     }
         
                     })->get();
