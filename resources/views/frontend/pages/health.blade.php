@@ -535,17 +535,6 @@
 </div>
 
 <script>
-     $(function(){
-        var numShown = 5;
-        var numMore = 5;  
-        var table  = document.getElementById('main-tbl-sk');
-        var rows   = table.tBodies[0].rows;
-        // console.log(rows);
-        // $(rows[78]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-        //     '</span></div</td></tr>');
-      
-      
-    });
     function handleAll(el){
         var selector = $('.selectedId');
         console.log(el);

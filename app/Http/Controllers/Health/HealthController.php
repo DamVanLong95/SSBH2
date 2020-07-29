@@ -151,8 +151,7 @@ class HealthController extends Controller
         $costs      = $request->get('cost');
         $scopes     = $request->get('scope');
         $companies_id  = $request->get('companies');
-        // dd($programs);
-        // Company::where()
+       
         $obj_program = [
             1 => 'program_one',
             2 => 'program_two',
@@ -194,10 +193,7 @@ class HealthController extends Controller
                     $items->push($item);
                 }
             }
-        }else{
-            $items = new Collection();
         }
-        // dd($array_4);
         if(!empty($scopes)){
             $fields = [];
             for($i =0; $i< sizeof($scopes); $i++){
@@ -211,8 +207,7 @@ class HealthController extends Controller
                                 }
                         
                             })->get();
-            $array_3 = Product::select('company_id','name','url','cate','id')
-                    ->where(function ($query) use ($products_id){
+            $array_3 = Product::where(function ($query) use ($products_id){
                                 foreach($products_id as $value){
                                     $id = $value['product_id'];
                                     $query->orwhere('id','=',$id);
@@ -224,25 +219,24 @@ class HealthController extends Controller
         //filter program
         if(!empty($programs)){
             $fields = [];
+          
             for($i =0; $i< sizeof($programs); $i++){
                $fields [] = $obj_program[$programs[$i]];
             }  
+            
             $products_id = FilterProgram::select('product_id')
                             ->where(function ($query) use ($fields){
                                 foreach($fields as $key=>$value)
                                 {
                                     $query->orWhere($value,'x');
                                 }
-                        
                             })->get();
-         
-            $array_1 = Product::select('company_id','name','url','cate','id')
-                        ->where(function ($query) use ($products_id){
-                        foreach($products_id as $value){
-                            $id = $value['product_id'];
-                            $query->orwhere('id','=',$id);
-                        }
-                        })->get();
+            $ids = [];
+            for ($i=0; $i < sizeof($products_id); $i++) { 
+                array_push($ids, $products_id[$i]['product_id']);
+            }               
+            $array_1 = Product::whereIn('id',$ids)->get();
+                       
         }else{
             $array_1 = new Collection();
         }
@@ -255,6 +249,7 @@ class HealthController extends Controller
             
                 $cols [] = $obj_cost[$costs[$i]];
             }  
+           
             $products_id = FilterCost::select('product_id')
                     ->where(function ($query) use ($cols){
                     foreach($cols as $key=>$value)
@@ -263,8 +258,7 @@ class HealthController extends Controller
                     }
         
                     })->get();
-            $array_2 = Product::select('url','id','name','cate')
-                    ->where(function ($query) use ($products_id){
+            $array_2 = Product::where(function ($query) use ($products_id){
                     foreach($products_id as $value){
                         $id = $value['product_id'];
                         $query->orwhere('id','=',$id);
@@ -273,14 +267,22 @@ class HealthController extends Controller
         }else{
             $array_2 = new Collection();
         }
-        
-        $products = $items  ->merge($array_1)
-                            ->merge($array_2)
-                            ->merge($array_3);
+        if(!isset($items)){
+            $products =  $array_1 ->merge($array_2)
+                                  ->merge($array_3);
+        }else {
+            $products = $items;
+            if(sizeof($array_1) > 0  || sizeof($array_2) > 0  || sizeof($array_3) > 0 ) {
+                $collection =  $array_1 ->merge($array_2)
+                                        ->merge($array_3);
+                $intersect = $collection->intersect($items);
+                $products = $intersect ;
+            }
+        }
+        //  dd($products);
         // $products = $products->unique('company_id');
         $products = $products->unique('name');
         // dd( $products);
-        // dd($products);
         $html = view('frontend.pages.health_ajax.banner_health')
                         ->with(['products'=> $products])
                         ->render();

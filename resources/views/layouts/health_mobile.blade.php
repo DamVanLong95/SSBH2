@@ -232,9 +232,9 @@
               
            }
            if(clicked.is(':checked') === false ){
-            var id = clicked.val();
-            var imgId = clicked.parents().find('#img_'+id+'');
-            var index = imgId.parent().index() +1;
+                var id = clicked.val();
+                var imgId = clicked.parents().find('#img_'+id+'');
+                var index = imgId.parent().index() +1;
                 if( index ==2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
@@ -262,7 +262,7 @@
                     $('#'+idImg+'').draggable({ disabled: false });
                     
                 }
-        }
+            }
            if(count==2) return;
        });
        function deleteColumn(idImg,clicked){
