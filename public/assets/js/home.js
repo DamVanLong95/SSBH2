@@ -350,7 +350,7 @@
                 this.$label = this.$el.find('.dropdown-label');
                 this.$label.html(this.$textHead);
                 this.areAllChecked = true;
-                this.$checkAll.html('Uncheck All');
+                this.$checkAll.html('Bỏ chọn');
             } else {
                 // this.$label.html(checked.length + ' Selected');
                 this.$label = this.$el.find('.dropdown-label');
@@ -361,11 +361,11 @@
         CheckboxDropdown.prototype.onCheckAll = function(checkAll) {
             if (!this.areAllChecked || checkAll) {
                 this.areAllChecked = true;
-                this.$checkAll.html('Uncheck All');
+                this.$checkAll.html('Bỏ chọn tất cả');
                 this.$inputs.prop('checked', true);
             } else {
                 this.areAllChecked = false;
-                this.$checkAll.html('Check All');
+                this.$checkAll.html('Chọn tất cả');
                 this.$inputs.prop('checked', false);
             }
 
