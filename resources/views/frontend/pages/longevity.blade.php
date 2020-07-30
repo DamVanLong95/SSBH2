@@ -346,7 +346,7 @@
                                         <td  colspan="2" class="green_header">Sản phẩm bổ trợ</td>
                                     </tr>
                                     @foreach($data['benifits_group'] as $value)
-                                    <tr class="data-detail "  style="color:gray">
+                                    <tr class="data-detail detail-bt"  style="color:gray">
                                         <td colspan="2" class="spbt">
                                         <input class="selectedId" type="checkbox" id="checkbox_bt{{$value['id']}}" name="checkbox_bt{{$value['id']}}" value="{{$value['id']}}" data-options=''  onclick='handleOncick(this);' />
                                             <label for="checkbox_bt{{$value['id']}}" class=""> </label> </label><span class="first-td"><p class="ellipsis">{{$value['name']}}</p>

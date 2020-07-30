@@ -902,20 +902,20 @@
         }
     </script>
     <script>
-    function showNote(val){
-        $.ajax({
-            url: "{{route('show_info')}}",
-            type: 'post',
-            data: {
-                "_token": "{{ csrf_token() }}",
-                note: val
-            },
-            success: function(data) {
-                // Add response in Modal body
-                $('#note').html(data.note);
-                $('#detail-td').modal('show');
-            }
-        });
+        function showNote(val){
+            $.ajax({
+                url: "{{route('show_info')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    note: val
+                },
+                success: function(data) {
+                    // Add response in Modal body
+                    $('#note').html(formattedText(data.note));
+                    $('#detail-td').modal('show');
+                }
+            });
         }
         $(function(){
         

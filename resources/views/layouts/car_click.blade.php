@@ -175,7 +175,7 @@ $(function() {
                                         tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
+                                        tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -212,7 +212,7 @@ $(function() {
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis"  style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
@@ -412,7 +412,7 @@ $(function() {
 
                         return false;
                     }
-                    if(indexCol==4 || indexCol == 3 ){
+                    if(indexCol==4 || indexCol == 3 || indexCol == 2){
                         
                         var selOne = '.header';
                         var selTwo = '.sub-head';
@@ -429,6 +429,7 @@ $(function() {
                             var trIsEmpty = true;
                             var tr = $(this);
                             // console.log(this);
+                            tr.removeClass('data-empty');
                             tr.find("td:not(:first)").each(function() {
                                 td = this;
                                 if (isEmpty(td) === false)  {
@@ -860,4 +861,4 @@ $(function() {
         }
     });
 </script>
-   
+ 

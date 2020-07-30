@@ -219,9 +219,16 @@
                                     }else if(exclusions[i-96]['content']==null){
                                         tds.innerHTML = `<p class=""></p>`;
                                     }else{
-                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                    <p class="">`+exclusions[i-96]['note']+`</p>
-                                        `;
+                                        var str = exclusions[i-96]['note'];
+                                        if(str.length > 45){
+                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                        <p class="ellipsis">`+str+`</p>`+
+                                                        `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                        }else{
+                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                            <p class="ellipsis">`+str+`</p>
+                                            `;
+                                        }
                                     }
                                 }
                             });

@@ -242,9 +242,16 @@
                                         }else if(exclusions[i-96]['content']==null){
                                             tds.innerHTML = `<p class=""></p>`;
                                         }else{
-                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                        <p class="">`+exclusions[i-96]['note']+`</p>
-                                            `;
+                                            var str = exclusions[i-96]['note'];
+                                            if(str.length > 45){
+                                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                            <p class="">`+str+`</p>`+
+                                                         `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                            }else{
+                                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                                <p class="">`+str+`</p>
+                                                `;
+                                            }
                                         }
                                     }
                                 });
@@ -253,6 +260,7 @@
                         } 
                     }).done(function() {
                         // alert('Request done!');
+                        
                     });;
                     
                     $('span.remove').on('click', function (e ) {
@@ -567,16 +575,22 @@ $(function() {
                             var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                             for(var i=96;i < 95 + exclusions.length;i++){
                                 var tds = myTable.rows[i].cells[indexCol];
-                                // console.log(tds);
                                 if(exclusions[i-96]['content']==='x'){
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                 `;
                                 }else if(exclusions[i-96]['content']==null){
                                     tds.innerHTML = `<p class=""></p>`;
                                 }else{
-                                    tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                <p class="ellipsis">`+exclusions[i-96]['note']+`</p>
-                                    `;
+                                    var str = exclusions[i-96]['note'];
+                                    if(str.length > 45){
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <p class="ellipsis">`+str+`</p>`+
+                                                    `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                        <p class="ellipsis">`+str+`</p>
+                                        `;
+                                    }
                                 }
                             }
                         }).done(function(){
@@ -741,4 +755,10 @@ $(function() {
             });
        }
     });
+</script>
+<script>
+     function show(val){
+        $('#note').html('<p class="ellipsis">'+val+'</p>');
+        $('#detail-td').modal('show');
+    }
 </script>

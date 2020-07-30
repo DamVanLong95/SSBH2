@@ -21,7 +21,7 @@
                             border: 1px solid #0d723b;
                             ">
 
-            <!-- <option selected disabled class="active" title="Chon chuong trinh">--Chọn--</option> -->
+            <option selected disabled class="active" title="Chon chuong trinh">--Chọn--</option>
             @foreach($name['product_more'] as $value)
             <option value="{{$value['product_more_name']}}" title="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],5)}}</option>
             @endforeach
@@ -130,23 +130,23 @@ $(function() {
  
 </script>
 <script>
-    $("#dropdown-popup").change(function(event) {
-      $.each($(this).find('option'), function(key, value) {
-        $(value).removeClass('active');
-      })
-      $('option:selected').addClass('active');
-      // console.log($('option:selected'));
+    // $("#dropdown-popup").change(function(event) {
+    //   $.each($(this).find('option'), function(key, value) {
+    //     $(value).removeClass('active');
+    //   })
+    //   $('option:selected').addClass('active');
+    //   // console.log($('option:selected'));
 
-    });
-    $("#dropdown-popup").tooltip({
-      placement: 'left',
-      trigger   : 'hover',
-      container: 'body',
-      title: function(e) {
-        console.log($(this));
-        return $(this).find('.active').attr('title');
-      }
-    });
+    // });
+    // $("#dropdown-popup").tooltip({
+    //   placement: 'left',
+    //   trigger   : 'hover',
+    //   container: 'body',
+    //   title: function(e) {
+    //     console.log($(this));
+    //     return $(this).find('.active').attr('title');
+    //   }
+    // });
 
 </script>
 @endif

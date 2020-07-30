@@ -1174,7 +1174,7 @@ $(function() {
                                     
                                     $('#map'+idImg+'').click(function(){
                                         var tdnet ;
-                                        for(var i =1;i<4;i++){
+                                        for(var i =1;i<5;i++){
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');

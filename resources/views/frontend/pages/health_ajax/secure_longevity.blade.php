@@ -248,8 +248,8 @@
     </button>
 </div>
 <div id="detail-td" class="modal">
-    <div class="content-ctn">
-        <div id="note"></div>
+    <div class="content-ctn" id="note">
+        <!-- <pre id="note" style="color:black;font-weight:bold; font-family: UTM_Helve"></pre> -->
     </div>
   <a href="javascript:void(0)">Liên hệ ngay</a>
 
@@ -568,8 +568,15 @@
                         var indexRow = row_bt.rowIndex;
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
-                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                            if(longevities[i-6]['content']!=null){
+                                var str = longevities[i-6]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
+                            }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                          }
                         //  ===========San Pham bo tro==================
                       
@@ -632,8 +639,38 @@
                 addColumn('main-tbl-nt');
                 dropImage();
                 deleteColumn(idImg,clicked);
+                function isEmpty(td) {
+                    if ( td.text() == '') {
+                        return true;
+                    }            
+
+                    return false;
+                }
+                if(indexCol == 4 || indexCol == 3 || indexCol == 2){
+                        var selOne = '.header';
+                        var selTwo = '.container-selection';
+                        var selThree = '.container-download';
+                        var selFour = '.detail-bt';
+                        var selFive = '.sub-head';
+
+                        $("#main-tbl-nt tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+")").each(function(){
+                            var trIsEmpty = true;
+                            var tr = $(this);
+                            tr.removeClass('data-empty');
+                            tr.find("td:not(:first)").each(function() {
+                                td = $(this);
+                                if (isEmpty(td) === false)  {
+                                    trIsEmpty = false;   
+                                }
+                            });
+                            if (trIsEmpty == true) {
+                                tr.addClass("data-empty");
+                            }
+                        });
+                }
              });
             $(this).disabled = true;
+
            
         }
         if(clicked.is(':checked') === false ){
@@ -717,7 +754,6 @@
             var tblBodyObj = document.getElementById(tblId).tBodies[0];
             for (var i = 0; i < tblBodyObj.rows.length; i++) {
                 var newCell = tblBodyObj.rows[i].insertCell(-1);
-                newCell.setAttribute('class', "auto")
                 // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
                 var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
             }
@@ -876,7 +912,7 @@
 </script>
 <script>
     function show(val){
-        $('#note').html(val);
+        $('#note').html(formattedText(val));
         $('#detail-td').modal('show');
     }
 </script>
