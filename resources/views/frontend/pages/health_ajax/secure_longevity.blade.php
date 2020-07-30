@@ -637,7 +637,7 @@
                                     
                 }
                 addColumn('main-tbl-nt');
-                dropImage();
+                // dropImage();
                 deleteColumn(idImg,clicked);
                 function isEmpty(td) {
                     if ( td.text() == '') {
@@ -677,17 +677,17 @@
             var id = clicked.val();
             var imgId = clicked.parents().find('#img_'+id+'');
             var index = imgId.parent().index() +1;
-                if( index ==2 ){
+                if( index ==2  && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
+                    addColumn('main-tbl-nt');
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
                     // addColumn('main-tbl');
-                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                }else if(index== 2){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
-                    addColumn('main-tbl-nt');
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
@@ -778,21 +778,20 @@
        
         $('span.remove').on('click', function (e ) {
             var index = ($(this).parent().index()+1);
-            if( index ==2 ){
-                console.log(idImg);
+            if( index ==2 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
                 removeItem(idImg,globalId);
+                dropImage();
+                addColumn('main-tbl-nt');
                 count=0;
-                // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
-            }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+            }else if(index== 2  ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
-                addColumn('main-tbl-nt');
-                dropImage();
+                // dropImage();
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
