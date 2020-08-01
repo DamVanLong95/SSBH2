@@ -1,4 +1,10 @@
 <script>
+    function show(val){
+        $('#note').html(formattedText(val));
+        $('#detail-td').modal('show');
+    }
+</script>
+<script>
      function dropImage(){
         $('img.thumb').draggable({
             containment: '#layout-area',
@@ -84,8 +90,15 @@
                         // console.log(longevities);
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
-                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                            if(longevities[i-6]['content']!=null){
+                                var str = longevities[i-6]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
+                            }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                           
                          }
                         //  ===========San Pham bo tro==================
@@ -110,7 +123,13 @@
                          for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-10]['content']!=null){
-                                tds.innerHTML =  `<p class="">`+longevities[i-10]['content']+`</p>`;
+                                var str = longevities[i-10]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
                             }
                             if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -119,7 +138,7 @@
                          }
                     }
                 }).done(function() {
-                    // alert('Request done!');
+                   
                 });;
                 $('span.remove').on('click', function (e ) {
                     var index = ($(this).parent().parent().index()+1);
@@ -230,7 +249,6 @@
        }
        
     }
-   
         $('.close').click(function(){
         $('.content').toggleClass("show hide");
         $('.open').toggleClass("show hide");
@@ -313,9 +331,15 @@
                         // console.log(longevities);
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-8]['content']!=null){
-                                tds.innerHTML =  `<p class="">`+longevities[i-8]['content']+`</p>`;
-                            }
+                            if(longevities[i-6]['content']!=null){
+                                var str = longevities[i-6]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
+                            }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                           
                          }
                         //  ===========San Pham bo tro==================
@@ -341,7 +365,13 @@
                         for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-10]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
+                                var str = longevities[i-10]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
                             }
                             if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -373,6 +403,35 @@
                 addColumn('main-tbl-nt');
                 dropImage();
                 deleteColumn('main-tbl-nt',clicked);
+                function isEmpty(td) {
+                    if ( td.text() == '') {
+                        return true;
+                    }            
+
+                    return false;
+                }
+                if( indexCol == 3 || indexCol == 2){
+                    var selOne = '.header';
+                    var selTwo = '.container-selection';
+                    var selThree = '.container-download';
+                    var selFour = '.detail-bt';
+                    var selFive = '.sub-head';
+
+                    $("#main-tbl-nt tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+")").each(function(){
+                        var trIsEmpty = true;
+                        var tr = $(this);
+                        tr.removeClass('data-empty');
+                        tr.find("td:not(:first)").each(function() {
+                            td = $(this);
+                            if (isEmpty(td) === false)  {
+                                trIsEmpty = false;   
+                            }
+                        });
+                        if (trIsEmpty == true) {
+                            tr.addClass("data-empty");
+                        }
+                    });
+                }
              });
             $(this).disabled = true;
            
@@ -381,17 +440,18 @@
                 var id = clicked.val();
                 var imgId = clicked.parents().find('#img_'+id+'');
                 var index = imgId.parent().index() +1;
-                if( index ==2 ){
+                if( index ==2 && $('div.img-container').is(".dropped") ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $(clicked[0]).prop("checked", false);;
+                    addColumn('main-tbl-nt');
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
                     removeItem(idImg,globalId);
-                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                }else if(index== 2 ){
                         $('th:nth-child('+index+')').remove()
                         $('td:nth-child('+index+')').remove()
-                        addColumn('main-tbl-nt');
+                       
                         clicked[0].disabled = false;
                         $('#'+idImg+'').draggable({ disabled: false });
                         removeItem(idImg,globalId);

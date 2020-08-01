@@ -228,7 +228,7 @@ class HealthController extends Controller
                             ->where(function ($query) use ($fields){
                                 foreach($fields as $key=>$value)
                                 {
-                                    $query->Where($value,'x');
+                                    $query->orWhere($value,'x');
                                 }
                             })->get();
             // dd($products_id);
@@ -281,7 +281,6 @@ class HealthController extends Controller
             }
         }
         //  dd($products);
-        // $products = $products->unique('company_id');
         $products = $products->unique('name');
         // dd( $products);
         $html = view('frontend.pages.health_ajax.banner_health')

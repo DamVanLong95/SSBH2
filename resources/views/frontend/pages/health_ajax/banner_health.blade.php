@@ -44,11 +44,17 @@
     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
     </button>
 </div>
+<div id="detail-td" class="modal">
+    <div class="content-ctn" id="note">
+    </div>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
+</div>
     @if($agent->isMobile())
          @include('layouts.health_mobile')
     @else
         @include('layouts.health_load_script')
     @endif
+
 <script>
      var scrollDuration = 300;
         // paddles

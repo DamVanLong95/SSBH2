@@ -349,7 +349,7 @@ option {
 .custom-select-fix-trigger {
   position: relative;
   display: block;
-  width: 250px;
+  width: 200px;
   padding: 5px 25px;
   font-size: 13px;
   font-weight: 300;
@@ -1217,7 +1217,7 @@ footer .footer-ctn .footer-nav li a {
 }
 
 .modal {
-  max-height: 700px;
+  height: auto;
   max-width: initial;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#fcfeff), to(#f5f5f5));
   background-image: linear-gradient(#fcfeff, #f5f5f5);
@@ -1254,7 +1254,7 @@ footer .footer-ctn .footer-nav li a {
 
 .modal #note {
   overflow: auto;
-  height: 580px;
+  height: auto;
   margin: 20px 10px;
   text-align: justify;
 }
@@ -3363,7 +3363,7 @@ span.tel {
   margin-top: 0px;
   width: 64px;
   font-size: 13px;
-  top: 40px;
+  top: 28px;
   color: #0d723b;
 }
 
@@ -6590,6 +6590,10 @@ span.tel {
 
 .table-section-nt #layout-area .table tr.select-all:not(.header) {
   display: none;
+}
+
+.table-section-nt #layout-area .table tr.data-empty:not(.header) {
+  display: none !important;
 }
 
 .table-section-nt #layout-area .table tr.price-discount td {

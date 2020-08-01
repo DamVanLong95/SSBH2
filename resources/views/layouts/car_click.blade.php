@@ -175,33 +175,42 @@ $(function() {
                                         tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div>
-
-                                        `;
+                                                        </div> `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                        </div> `;
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-
-                                        `;
+                                            `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                    <div class="star-td">
+                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                        </div>
+                                            `;
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                         </div>
-
                                         `;
-                                     }//else{
-                                    //     tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>
-                                    //     `;
-                                    // }
+                                     }
                                     
                                 }
                                 //===============MUC KHAU TRU===============================
@@ -212,7 +221,7 @@ $(function() {
                                     if(deductible[0]['note_dkkt']=== "x")
                                     {
                                     tds.innerHTML = 
-                                        `<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                        `<p class="ellipsis"  style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                         <div class="star-td">
                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                         </div>
@@ -412,7 +421,7 @@ $(function() {
 
                         return false;
                     }
-                    if(indexCol==4 || indexCol == 3 ){
+                    if(indexCol==4 || indexCol == 3 || indexCol == 2){
                         
                         var selOne = '.header';
                         var selTwo = '.sub-head';
@@ -429,6 +438,7 @@ $(function() {
                             var trIsEmpty = true;
                             var tr = $(this);
                             // console.log(this);
+                            tr.removeClass('data-empty');
                             tr.find("td:not(:first)").each(function() {
                                 td = this;
                                 if (isEmpty(td) === false)  {
@@ -449,17 +459,19 @@ $(function() {
                 var id = $(this).val();
                 var imgId = $(this).parents().find('#img_'+id+'');
                 var index = imgId.parent().index() +1;
-                if( index ==2 ){
+                if( index ==2  && !$('div.img-container').is(":not(.dropped)") ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
+                    addColumn('main-tbl');
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
                     // addColumn('main-tbl');
-                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                }else if(index== 2 ){
+                    console.log(index);
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
-                    addColumn('main-tbl');
+                   
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
@@ -504,17 +516,18 @@ $(function() {
 
             $('span.remove').on('click', function (e ) {
                 var index = ($(this).parent().index()+1);
-                if( index ==2 ){
+                if( index ==2 && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
+                    addColumn('main-tbl');
+
                     // count=0;
                     $('#'+idImg+'').draggable({ disabled: false });
-                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                }else if(index== 2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
-                    addColumn('main-tbl');
                     // count=0;
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
@@ -860,4 +873,4 @@ $(function() {
         }
     });
 </script>
-   
+ 

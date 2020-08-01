@@ -414,15 +414,15 @@
 </div>
 
 <div id="detail-td" class="modal">
-    <div class="content-ctn">
-        <div id="note"></div>
+    <div class="content-ctn" id="note">
     </div>
   <a href="javascript:void(0)">Liên hệ ngay</a>
 
 </div>
 <script>
     function show(val){
-        $('#note').html(val);
+        var content = formattedText(val);
+        $('#note').html(content);
         $('#detail-td').modal('show');
     }
 </script>
@@ -439,14 +439,7 @@
         ,function(data,status){
             $('#banner-logo').html(data.html);
         });
-        // console.log(checkedID);
     }
-    // function handleCheck(el){
-    //     var index = $(el).data("id");
-    //     var checkBox_lt = document.getElementById('checkbox2_'+index+'');
-    //     var label_lt = document.getElementById('dklt'+index+'');
-    //     (checkBox_lt.checked==true)  ?  label_lt.style.display = "inline-flex":  label_lt.style.display = "none";;
-    // }
     function handleOnclick(cb){
         var index = $(cb).data("id");
         var checkBox_bs = document.getElementById('checkbox_bs'+index+'');

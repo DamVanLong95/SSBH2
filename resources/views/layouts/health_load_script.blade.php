@@ -242,9 +242,16 @@
                                         }else if(exclusions[i-96]['content']==null){
                                             tds.innerHTML = `<p class=""></p>`;
                                         }else{
-                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                        <p class="">`+exclusions[i-96]['note']+`</p>
-                                            `;
+                                            var str = exclusions[i-96]['note'];
+                                            if(str.length > 45){
+                                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                            <p class="">`+str+`</p>`+
+                                                         `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                            }else{
+                                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                                <p class="">`+str+`</p>
+                                                `;
+                                            }
                                         }
                                     }
                                 });
@@ -253,6 +260,7 @@
                         } 
                     }).done(function() {
                         // alert('Request done!');
+                        
                     });;
                     
                     $('span.remove').on('click', function (e ) {
@@ -567,16 +575,22 @@ $(function() {
                             var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                             for(var i=96;i < 95 + exclusions.length;i++){
                                 var tds = myTable.rows[i].cells[indexCol];
-                                // console.log(tds);
                                 if(exclusions[i-96]['content']==='x'){
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                 `;
                                 }else if(exclusions[i-96]['content']==null){
                                     tds.innerHTML = `<p class=""></p>`;
                                 }else{
-                                    tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                <p class="ellipsis">`+exclusions[i-96]['note']+`</p>
-                                    `;
+                                    var str = exclusions[i-96]['note'];
+                                    if(str.length > 45){
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <p class="ellipsis">`+str+`</p>`+
+                                                    `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                        <p class="ellipsis">`+str+`</p>
+                                        `;
+                                    }
                                 }
                             }
                         }).done(function(){
@@ -620,17 +634,18 @@ $(function() {
                 var id = $(this).val();
                 var imgId = $(this).parents().find('#img_'+id+'');
                 var index = imgId.parent().index() +1;
-                if( index ==2 ){
+                if( index ==2  && !$('div.img-container').is(":not(.dropped)")){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
                     // addColumn('main-tbl');
-                }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+                    addColumn('main-tbl-sk');
+                }else if(index == 2){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
-                    addColumn('main-tbl-sk');
+                   
                     $('#checkbox_'+idImg+'').prop("checked", false);
                     clicked[0].disabled = false;
                     $('#'+idImg+'').draggable({ disabled: false });
@@ -741,4 +756,10 @@ $(function() {
             });
        }
     });
+</script>
+<script>
+     function show(val){
+        $('#note').html('<p class="ellipsis">'+val+'</p>');
+        $('#detail-td').modal('show');
+    }
 </script>
