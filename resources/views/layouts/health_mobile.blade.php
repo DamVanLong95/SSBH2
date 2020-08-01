@@ -65,6 +65,9 @@
                         $(this).parents(".custom-select-fix").toggleClass("opened");
                         event.stopPropagation();
                     });
+                    $('.sources').tooltip({
+                        placement: 'right',
+                    });
                     $(".custom-option").on("click", function() {
                             // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                             $(this).parents(".custom-options").find(".custom-option").removeClass("selection");

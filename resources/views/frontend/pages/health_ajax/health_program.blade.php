@@ -1,11 +1,11 @@
 <div class="select2-ctn">
 <form action="">
      <div class="custom-select-fix-wrapper">
-        <div class="custom-select-fix sources" id="selected">
+        <div class="custom-select-fix sources" id="selected" data-placement="bottom">
             <span class="custom-select-fix-trigger" id="select{{$indexCol}}" value="" class="active">--- Chọn chương trình ---</span>
             <div class="custom-options longevity-option" >
                 @forelse($programs as $key=>$value)
-                <span class="custom-option undefined" title="{{$value['name']}}" data-value="{{$value['id']}}">{{\Illuminate\Support\Str::words($value['name'],4)}}</span>
+                <span class="custom-option undefined" title="{{$value['name']}}" data-value="{{$value['id']}}" value="{{$value['name']}}">{{(str_limit($value['name'],15))}}</span>
                 @empty
                     <span class=""style="color:#fff;">data not update</span>
                 @endforelse

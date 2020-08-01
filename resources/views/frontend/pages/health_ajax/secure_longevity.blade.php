@@ -884,14 +884,14 @@
        if($(el)[0].checked == true){
             var url = '{{route('popupLongevity')}}';
             $(this).prop("checked", true);
-            // console.log(globalId);
+            // console.log(indexCol);
             $.ajax({
                 type: "POST",
                 url : url,
                 data:{
                     "_token": "{{ csrf_token() }}",
                     "product_group_id":el.value,
-                    "product_longevity_id":globalId
+                    "product_longevity_id":globalId,
                 },
             }).done(function(data){
                 $('#comparison').html(data.html);

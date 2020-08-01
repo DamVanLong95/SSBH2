@@ -221,10 +221,10 @@
 
                                         </td>
                                     </tr>
-                                    <tr class="header green1 bg-head-1 sub-ctn2 hide">
+                                    <tr class="header green1 bg-head-1 sub-ctn2 d-none">
                                         <td  colspan="2" class="green_header">Minh họa quyền lợi</td>
                                     </tr>
-                                    <tr class="container-selection sub-ctn3 hide">
+                                    <tr class="container-selection sub-ctn3 d-none">
                                         <td colspan="2" class="select_box_longevity" id="select_box_longevity">
                                             <div class="select-ctn-nt">
                                                 <div class="selection-box">
@@ -303,7 +303,7 @@
                                     </tr>
                                     <tr class="container-download hide">
                                         <td></td>
-                                        <td class="data-detail download-td hide">
+                                        <td class="data-detail download-td d-none">
                                             <button type="button" id="download-pru">Minh họa Pru
                                                 <span><p><i class="fa fa-download" aria-hidden="true"></i></p></span>
                                             </button>

@@ -89,8 +89,14 @@
                                 $(this).parents(".custom-select-fix").toggleClass("opened");
                                 event.stopPropagation();
                             });
+                            $('.sources').tooltip({
+                                placement: 'right',
+                            });
                             $(".custom-option").on("click", function() {
-                                // console.log($(this).text());
+                                // $(this).parent().parent().first().attr("title", this.title);
+                                // $(this).parent().parent().first().tooltip({
+                                //     placement: 'right',
+                                // });
                                 $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                                 $(this).addClass("selection");
                                 $(this).parents(".custom-select-fix").removeClass("opened");
@@ -417,11 +423,16 @@ $(function() {
                     $('#hospital').html(data.html_hospital);
                     $('#select'+indexCol+'').on("click", function() {
                         $(this).parents(".custom-select-fix").toggleClass("opened");
+                      
                         event.stopPropagation();
                     });
                     $(".custom-option").on("click", function() {
-                        // console.log($(this).text());
-                            // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+                        $(this).parent().parent().first().attr("title", this.title);
+                        $(this).parent().parent().first().tooltip({
+                            placement: 'right',
+                        });
+                       
+                        // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                         $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                         $(this).addClass("selection");
                         $(this).parents(".custom-select-fix").removeClass("opened");
