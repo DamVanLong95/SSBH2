@@ -124,15 +124,10 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item active">
-                                    Jonh Doe
-                                </div>
-                            </div>
-                            <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item">
                                     Phạm Thị Hồng Diệp
                                 </div>
                             </div>
-                            @for($i=1;$i < 11;$i++)
+                            @for($i=1; $i < 12; $i++)
                                 <div class=" col-sm-12 col-md-4 col-lg-4">
                                     <div class="name-item">
                                         nguyen hoan van anh
@@ -151,12 +146,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="detail-ctn">
-                            <div class="ava-ctn">
+                            <div class="ava-ctn" style="width: 320px">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/diep.jpg?{{ config('custom.version') }}" alt="">
                             </div>
                             <div class="detail-contact">
                                 <div class="name">
-                                    John Doe
+                                    Phạm Thị Hồng Diệp
                                 </div>
                                 <div class="time-work">
                                     <p class="job-title"><strong>Quá trình công tác</strong></p>
