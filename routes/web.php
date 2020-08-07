@@ -54,9 +54,7 @@ Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
 // =====================================ưu đãi preferential treatment=================================
-Route::get('/treatment', function () {
-    return view('frontend.pages.treatment');
-});
+Route::get('/treatment', 'HController@treatments');
 // =====================================Question=================================
 Route::get('/question', function () {
     return view('frontend.pages.question');

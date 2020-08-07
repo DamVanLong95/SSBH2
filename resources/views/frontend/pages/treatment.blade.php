@@ -15,7 +15,9 @@
 
 @stop
 
+
 @section('content')
+
 <div class="treatment-container">
 <div class="contact-floating">
     <div class="contact-phone"><a href="tel:0906060784" target="_blank">0906060784</a></div>
@@ -35,21 +37,21 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                                @for($i=1;$i<=6;$i++)
+                                          
                                                     <div class="swiper-slide slide-item parent">
                                                         <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                    Manulife
+                                                                  {{$treatments->'xe'}}
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife.jpg?{{ config('custom.version') }}" alt=""></div>
                                                                 <div class="description">
                                                                     <p>Bảo hiểm bệnh hiểm nghèo</p>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                @endfor
+                                               
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -64,7 +66,7 @@
                                 <div class="child">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife1.jpg?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
@@ -87,21 +89,22 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                                @for($i=1;$i<=6;$i++)
+                                                    @for($i=1;$i<=6;$i++)
                                                     <div class="swiper-slide slide-item parent2">
                                                         <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                    Manulife
+                                                                    Bảo hiểm An tâm gia đình
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam.jpg?{{ config('custom.version') }}" alt=""></div>
                                                                 <div class="description">
-                                                                    <p>Bảo hiểm bệnh hiểm nghèo</p>
+                                                                    <p>Bảo hiểm gia đình</p>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                @endfor
+                                                    @endfor 
+                                                    
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -116,7 +119,7 @@
                                 <div class="child2">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam1.jpg?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
@@ -144,11 +147,11 @@
                                                         <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                    Manulife
+                                                                    MB Ageas Life 
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao.jpg?{{ config('custom.version') }}" alt=""></div>
                                                                 <div class="description">
-                                                                    <p>Bảo hiểm bệnh hiểm nghèo</p>
+                                                                    <p>Tiếp nối ước mơ</p>
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -168,7 +171,7 @@
                                 <div class="child3">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao1.jpg?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>

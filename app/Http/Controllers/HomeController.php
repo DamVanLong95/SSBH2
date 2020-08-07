@@ -25,4 +25,21 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function treatments(){
+
+
+        $car = array();
+        $nhantho = array();
+        $suckhoe = array();
+        $data = array(
+           'xe' => $car,
+           'nhantho' => $nhantho,
+           'suckhoe' => $suckhoe
+        );
+
+        return view('frontend.pages.treatment');
+    
+    }
+
 }
