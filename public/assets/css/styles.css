@@ -1750,7 +1750,7 @@ span.tel {
 }
 
 .swiper-banner {
-  height: calc(70vh - 120px);
+  height: calc(90vh - 120px);
 }
 
 @media (max-width: 375px) {
@@ -3961,6 +3961,8 @@ span.tel {
 }
 
 .sec-contact-detail .section-wrapper .detail-ctn .ava-ctn img {
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

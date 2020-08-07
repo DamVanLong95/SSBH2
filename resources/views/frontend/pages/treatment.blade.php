@@ -15,11 +15,7 @@
 
 @stop
 
-
-
-
 @section('content')
-
 <div class="treatment-container">
 <div class="contact-floating">
     <div class="contact-phone"><a href="tel:0906060784" target="_blank">0906060784</a></div>
@@ -39,21 +35,21 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                                @foreach($treatments["xe"][0] as $xe)
+                                                @for($i=1;$i<=6;$i++)
                                                     <div class="swiper-slide slide-item parent">
                                                         <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                    {{$xe['title']}}
+                                                                    Kiến tạo
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}{{$xe['img1']}}?{{ config('custom.version') }}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao.jpg?{{ config('custom.version') }}" alt=""></div>
                                                                 <div class="description">
-                                                                    <p>{{$xe['description']}}</p>
+                                                                    <p>MB Ageas cùng bạn tiếp nối giấc mơ</p>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                @endforeach
+                                                @endfor
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -68,7 +64,7 @@
                                 <div class="child">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife1.jpg?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
@@ -91,22 +87,19 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                                    @for($i=1;$i<=6;$i++)
                                                     <div class="swiper-slide slide-item parent2">
-                                                        <a href="javascript:void(0)">
-                                                            <div class="treatment-item item">
-                                                                <div class="title">
-                                                                    Bảo hiểm An tâm gia đình
-                                                                </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam.jpg?{{ config('custom.version') }}" alt=""></div>
-                                                                <div class="description">
-                                                                    <p>Bảo hiểm gia đình</p>
-                                                                </div>
+                                                      <a class="showSingle" target="3">
+                                                        <div class="treatment-item item">
+                                                            <div class="title">
+                                                                Sunlife
                                                             </div>
-                                                        </a>
+                                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai.jpg?{{ config('custom.version') }}" alt="">
+                                                            <div class="description">
+                                                                <p>Ưu thế so với thị trường</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                     </div>
-                                                    @endfor
-
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -118,17 +111,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="child2">
+                                <!-- <div class="child2">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam1.jpg?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
                                             <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -144,21 +137,45 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                                @for($i=1;$i<=6;$i++)
-                                                    <div class="swiper-slide slide-item parent3">
-                                                        <a href="javascript:void(0)">
-                                                            <div class="treatment-item item">
-                                                                <div class="title">
-                                                                    MB Ageas Life
-                                                                </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao.jpg?{{ config('custom.version') }}" alt=""></div>
-                                                                <div class="description">
-                                                                    <p>Tiếp nối ước mơ</p>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                @endfor
+                                              <div class="swiper-slide slide-item parent3">
+                                                  <a class="showSingle" target="3">
+                                                      <div class="treatment-item item">
+                                                          <div class="title">
+                                                              FWD
+                                                          </div>
+                                                          <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai.jpg?{{ config('custom.version') }}" alt="">
+                                                          <div class="description">
+                                                              <p>Tương lai trong tầm tay</p>
+                                                          </div>
+                                                      </div>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-slide slide-item parent3">
+                                                  <a class="showSingle" target="2">
+                                                      <div class="treatment-item item">
+                                                          <div class="title">
+                                                              An Tâm gia đình
+                                                          </div>
+                                                          <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam.jpg?{{ config('custom.version') }}" alt="">
+                                                          <div class="description">
+                                                              <p>Bảo hiểm an tâm gia đình</p>
+                                                          </div>
+                                                      </div>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-slide slide-item parent3">
+                                                  <a class="showSingle" target="5">
+                                                      <div class="treatment-item item">
+                                                          <div class="title">
+                                                              Manulife
+                                                          </div>
+                                                          <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife.jpg?{{ config('custom.version') }}" alt="">
+                                                          <div class="description">
+                                                              <p>Bảo hiểm bệnh hiểm nghèo</p>
+                                                          </div>
+                                                      </div>
+                                                  </a>
+                                              </div>
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -170,10 +187,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <section class="cnt">
+                                  <div id="div1" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao1.jpg?{{ config('custom.version') }}" alt=""></div></div>
+                                  <div id="div2" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam1.jpg?{{ config('custom.version') }}" alt=""></div></div>
+                                  <div id="div3" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai1.jpg?{{ config('custom.version') }}" alt=""></div></div>
+                                  <div id="div4" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Sunlife1.jpg?{{ config('custom.version') }}" alt=""></div></div>
+                                  <div id="div5" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife1.jpg?{{ config('custom.version') }}" alt=""></div></div>
+                                </section>
                                 <div class="child3">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao1.jpg?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
@@ -191,13 +215,7 @@
 </div>
 
 @stop
-@php
 
-    foreach ($treatments['xe'] as $a){
-        var_dump($a);
-    }
-
-@endphp
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
 @stop

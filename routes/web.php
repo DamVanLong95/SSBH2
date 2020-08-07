@@ -49,6 +49,9 @@ Route::get('/blog2', function () {
 Route::get('/blog3', function () {
     return view('frontend.pages.blog3');
 });
+Route::get('/blog4', function () {
+    return view('frontend.pages.blog4');
+});
 // =====================================contact=================================
 Route::get('/contact', function () {
     return view('frontend.pages.contact');

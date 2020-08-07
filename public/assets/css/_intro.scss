@@ -157,9 +157,8 @@
         align-items: center;
         flex-direction: row;
         @media screen and (max-width: 480px) {
-           display: grid;
-           grid-template-columns: auto;
-
+            display: grid;
+            grid-template-columns: auto;
         }
         .selection-box {
             width: 100%;
@@ -268,6 +267,8 @@
             .ava-ctn {
                 margin-right: 5%;
                 img {
+                    width: 320px;
+                    height: 320px;
                     border-radius: 50%;
                     -webkit-border-radius: 50%;
                     -moz-border-radius: 50%;
@@ -426,8 +427,8 @@
                 }
             }
         }
-        .term-ctn{
-            .searchinput{
+        .term-ctn {
+            .searchinput {
                 position: relative;
                 line-height: 100%;
                 display: table;
@@ -437,14 +438,13 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                button{
+                button {
                     font-family: UTM_Helve;
                     font-size: 16px;
                     text-transform: uppercase;
                 }
             }
-            
-            .text{
+            .text {
                 width: 60%;
                 height: 35px;
                 padding: 9px;
@@ -456,24 +456,19 @@
                 text-transform: capitalize;
                 outline: none;
             }
-            
-            ::-webkit-input-placeholder{
-                   color: $main-color;
-            }
-            
-            ::-moz-input-placeholder{
+             ::-webkit-input-placeholder {
                 color: $main-color;
             }
-            
-            ::-ms-input-placeholder{
+             ::-moz-input-placeholder {
                 color: $main-color;
             }
-            
-            .text:focus{
+             ::-ms-input-placeholder {
+                color: $main-color;
+            }
+            .text:focus {
                 box-shadow: 1px 1px 8px $main-color;
             }
-            
-            .submit{
+            .submit {
                 padding: 10px;
                 height: 40px;
                 width: 80px;
@@ -486,23 +481,22 @@
                 box-shadow: 0px 0px 10px $main-color;
                 outline: none;
             }
-            
-            .submit:active{
+            .submit:active {
                 box-shadow: 0px 0px 7px $main-color;
             }
-            .alpha-ctn{
-                .alpha-left{
-                    .alpha-index{
+            .alpha-ctn {
+                .alpha-left {
+                    .alpha-index {
                         display: grid;
                         grid-template-columns: 20% 75%;
                         border-bottom: 1px solid $main-color;
-                        .alpha-left{
-                            a{
+                        .alpha-left {
+                            a {
                                 text-transform: uppercase;
                                 font-family: UTM_HelveBold;
                                 color: #58595b;
                             }
-                            a.disable{
+                            a.disable {
                                 // background-image: linear-gradient(to top, #d8dde0 1px, transparent 1px, transparent 100%);
                                 color: #d8dde0;
                                 pointer-events: none;
@@ -595,23 +589,22 @@
                 }
             }
         }
-        .knowledge-ctn{
+        .knowledge-ctn {
             padding: 2%;
-            .knowledge-wrapper{
-                .item-knowledge{
+            .knowledge-wrapper {
+                .item-knowledge {
                     -webkit-box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.28);
                     -moz-box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.28);
                     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.28);
                     margin-bottom: 12%;
-                    
-                    img{
+                    img {
                         width: 100%;
                     }
-                    .description-ctn{
+                    .description-ctn {
                         padding: 10px;
-                        a{
+                        a {
                             color: #000;
-                            &:hover{
+                            &:hover {
                                 color: $main-color;
                             }
                         }

@@ -1,0 +1,21 @@
+Options -Indexes
+RemoveHandler .php .phtml .php3 .php4 .html
+RemoveType .php .phtml .php3 .php4 .html
+#php_flag engine off
+<Files .htaccess>
+    Require all denied
+</Files>
+
+AddType video/mp4 mp4 m4v
+AddType audio/mp4 m4a
+AddType video/ogg ogv
+AddType audio/ogg ogg oga
+AddType video/webm webm
+
+<FilesMatch "\.(gif|jpe?g|png|svg|css|js|swf|pdf|doc|docx|xls|xlsx|ppt|pptx|xml|ico|woff|mp4)$">
+	#Require all granted
+</FilesMatch>
+
+<FilesMatch .*>
+    #Require all denied
+</FilesMatch>

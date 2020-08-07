@@ -47,7 +47,14 @@
                                 <div class="knowledge-ctn">
                                     <div class="knowledge-wrapper">
                                         <div class="row">
-                                            
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="item-knowledge ">
+                                                        <a href="{{ url('/blog4') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/guide1.png?{{ config('custom.version') }}" alt=""></a>
+                                                        <div class="description-ctn">
+                                                            <a href="{{ url('/blog') }}">Hướng dẫn sử dụng website Vbaohiem.</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-sm-6 col-md-4">
                                                     <div class="item-knowledge ">
                                                         <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>

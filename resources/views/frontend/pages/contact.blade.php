@@ -146,7 +146,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="detail-ctn">
-                            <div class="ava-ctn" style="width: 320px">
+                            <div class="ava-ctn">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/diep.jpg?{{ config('custom.version') }}" alt="">
                             </div>
                             <div class="detail-contact">
