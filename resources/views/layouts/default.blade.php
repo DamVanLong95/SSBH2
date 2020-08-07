@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="vi-VN" dir="LTR" xmlns:fb="http://www.facebook.com/2008/fbml">
 
@@ -10,10 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    
+
     <!-- Link bootstrap -->
     <!-- jhgjhgjhgjhg -->
-    <link rel="stylesheet"   
+    <link rel="stylesheet"
           href="{{ url('assets/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css?'.config('custom.version')) }}">
     <!-- Link font-awesome -->
     <!-- jhgjhgjhgjhg -->
@@ -30,11 +31,11 @@
     <link type="text/css" href="{{ url('assets/css/styles.css?'.config('custom.version')) }}" rel="stylesheet" />
 
 
-   
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script>
-    var ua = navigator.userAgent.toLowerCase(); 
-    if (ua.indexOf('safari') != -1) { 
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf('safari') != -1) {
         var url = `{{ url('assets/css/safari.css') }}`;
         if (ua.indexOf('chrome') > -1) {
         } else {
@@ -89,7 +90,7 @@
                                 <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
                                 <li @if(request()->is('pages/health')) class="active" @endif><a class="nav-link" href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
                                 <li @if(request()->is('pages/longevity')) class="active" @endif><a class="nav-link" href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
-                            
+
                             </ul>
                         </li> -->
                         <li class=" dropdown"  @if(request()->is('pages/car') || request()->is('pages/health')) class="active" @endif>
@@ -137,7 +138,7 @@
             <div class="icon-bar"></div>
         </div>
         <!-- /.icon bar -->
-    
+
 </div>
 <!-- Menu -->
 <div class="body-page">
@@ -194,7 +195,7 @@
                     <div class="footer-content">
                         <ul class="footer-nav">
                             <li>
-                                <a href="{{ url('/question') }}">Tin tức</a>   
+                                <a href="{{ url('/question') }}">Tin tức</a>
                             </li>
                             <!-- <li>
                                 Phản hồi khách hàng
@@ -225,10 +226,10 @@
             $(window).scroll(function () {
             if ($(this).scrollTop() > 100) {
                 $('.scrollup').fadeIn();
-               
+
             } else {
                 $('.scrollup').fadeOut();
-                
+
             }
             });
             $(window).scroll(function () {
@@ -260,7 +261,7 @@
                 });
             });
         });
-        
+
     </script>
    <script>
         function killCopy(e){

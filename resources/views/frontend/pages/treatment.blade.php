@@ -15,6 +15,14 @@
 
 @stop
 
+@php
+
+foreach ($treatments['xe'] as $a){
+    var_dump($a);
+}
+
+@endphp
+
 
 @section('content')
 
@@ -37,21 +45,21 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                          
+                                                @foreach($treatments["xe"][0] as $xe)
                                                     <div class="swiper-slide slide-item parent">
                                                         <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                  {{$treatments->'xe'}}
+                                                                    {{$xe['title']}}
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife.jpg?{{ config('custom.version') }}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}{{$xe['img1']}}?{{ config('custom.version') }}" alt=""></div>
                                                                 <div class="description">
-                                                                    <p>Bảo hiểm bệnh hiểm nghèo</p>
+                                                                    <p>{{$xe['description']}}</p>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
-                                               
+                                                @endforeach
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -103,8 +111,8 @@
                                                             </div>
                                                         </a>
                                                     </div>
-                                                    @endfor 
-                                                    
+                                                    @endfor
+
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -147,7 +155,7 @@
                                                         <a href="javascript:void(0)">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                    MB Ageas Life 
+                                                                    MB Ageas Life
                                                                 </div>
                                                                 <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao.jpg?{{ config('custom.version') }}" alt=""></div>
                                                                 <div class="description">
