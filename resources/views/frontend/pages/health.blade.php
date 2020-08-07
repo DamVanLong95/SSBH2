@@ -535,23 +535,13 @@
 </div>
 
 <script>
-     $(function(){
-        var numShown = 5;
-        var numMore = 5;  
-        var table  = document.getElementById('main-tbl-sk');
-        var rows   = table.tBodies[0].rows;
-        // console.log(rows);
-        // $(rows[78]).after('<tr class="more" id="more"><td class="green_header" colspan="2"><div style="color:#0d723b">Các điều khoản khác <span>' +
-        //     '</span></div</td></tr>');
-      
-      
-    });
     function handleAll(el){
         var selector = $('.selectedId');
         console.log(el);
         for(var i = 2; i <= 25; i ++){
             if( $(el).val() == 5) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
+       
         for(var i = 27; i < 32; i ++){
             if( $(el).val() == 30) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
@@ -578,6 +568,9 @@
         var selector = $('.selectedId');
         for(var i = 3; i <= 8; i ++){
             if( $(el).val() == 4) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        }
+        for(var i = 2; i <= 8; i ++){
+            if( $(el).val() == 6) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
         for(var i = 76; i < 79; i ++){
             if( $(el).val() == 80) el.checked ==true?selector[i].checked = true:selector[i].checked = false;

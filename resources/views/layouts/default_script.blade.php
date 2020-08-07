@@ -457,7 +457,7 @@
                                     
                                     $('#map'+idImg+'').click(function(){
                                         var tdnet ;
-                                        for(var i =1;i<4;i++){
+                                        for(var i =1;i< 5;i++){
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
@@ -902,20 +902,20 @@
         }
     </script>
     <script>
-    function showNote(val){
-        $.ajax({
-            url: "{{route('show_info')}}",
-            type: 'post',
-            data: {
-                "_token": "{{ csrf_token() }}",
-                note: val
-            },
-            success: function(data) {
-                // Add response in Modal body
-                $('#note').html(data.note);
-                $('#detail-td').modal('show');
-            }
-        });
+        function showNote(val){
+            $.ajax({
+                url: "{{route('show_info')}}",
+                type: 'post',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    note: val
+                },
+                success: function(data) {
+                    // Add response in Modal body
+                    $('#note').html(formattedText(data.note));
+                    $('#detail-td').modal('show');
+                }
+            });
         }
         $(function(){
         

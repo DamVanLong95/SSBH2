@@ -282,5 +282,15 @@
   <script>
     AOS.init();
   </script>
+  <script>
+    function formattedText (text) {
+        return text
+        .replace(new RegExp('\r\n', 'g'), '\n')
+        .split('\n\n')
+        .map(p => `<p>${p}</p>`)
+        .join('')
+        .replace(new RegExp('\n', 'g'), '<br>')
+    }
+</script>
 </body>
 </html>

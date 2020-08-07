@@ -60,7 +60,7 @@
                             // console.log(data.html);
                             var div = document.createElement('div');
                             div.setAttribute('class','health-select-cf');
-                            div.innerHTML =data.html;
+                            div.innerHTML = data.html;
                             // console.log(div);
 
                             ths.appendChild(div);
@@ -89,8 +89,14 @@
                                 $(this).parents(".custom-select-fix").toggleClass("opened");
                                 event.stopPropagation();
                             });
+                            $('.sources').tooltip({
+                                placement: 'right',
+                            });
                             $(".custom-option").on("click", function() {
-                                // console.log($(this).text());
+                                // $(this).parent().parent().first().attr("title", this.title);
+                                // $(this).parent().parent().first().tooltip({
+                                //     placement: 'right',
+                                // });
                                 $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                                 $(this).addClass("selection");
                                 $(this).parents(".custom-select-fix").removeClass("opened");
@@ -242,9 +248,16 @@
                                         }else if(exclusions[i-96]['content']==null){
                                             tds.innerHTML = `<p class=""></p>`;
                                         }else{
-                                            tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                        <p class="">`+exclusions[i-96]['note']+`</p>
-                                            `;
+                                            var str = exclusions[i-96]['note'];
+                                            if(str.length > 45){
+                                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                            <p class="">`+str+`</p>`+
+                                                         `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                            }else{
+                                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                                <p class="">`+str+`</p>
+                                                `;
+                                            }
                                         }
                                     }
                                 });
@@ -253,6 +266,7 @@
                         } 
                     }).done(function() {
                         // alert('Request done!');
+                        
                     });;
                     
                     $('span.remove').on('click', function (e ) {
@@ -367,8 +381,8 @@ $(function() {
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
            if(indexCol==4)count++;
-           if(clicked.is(':checked') && count <=1){
-            clicked[0].setAttribute('disabled',true);
+           if(clicked.is(':checked') && $('div.img-container').is(":not(.dropped)")){
+            // clicked[0].setAttribute('disabled',true);
                var idImg = clicked.val();
                var url   = "{{route('checkHealth')}}";
               
@@ -394,7 +408,7 @@ $(function() {
                     $(img).addClass('sized');
                     $(divImg).addClass('dropped');
                     divImg.appendChild(img); 
-                    
+                    divImg.setAttribute('id',"img_"+idImg);
                     if($('#checkbox_'+idImg+'').prop("checked") == true){
                         $('#'+idImg+'').draggable({ disabled: true });
                     }
@@ -409,11 +423,16 @@ $(function() {
                     $('#hospital').html(data.html_hospital);
                     $('#select'+indexCol+'').on("click", function() {
                         $(this).parents(".custom-select-fix").toggleClass("opened");
+                      
                         event.stopPropagation();
                     });
                     $(".custom-option").on("click", function() {
-                        // console.log($(this).text());
-                            // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
+                        $(this).parent().parent().first().attr("title", this.title);
+                        $(this).parent().parent().first().tooltip({
+                            placement: 'right',
+                        });
+                       
+                        // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                         $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                         $(this).addClass("selection");
                         $(this).parents(".custom-select-fix").removeClass("opened");
@@ -437,9 +456,11 @@ $(function() {
                             var pending   = document.getElementById('pending');
                             var pbh   = document.getElementById('pbh');
                             
-                            var tds =  myTable.rows[row.rowIndex+1].cells[indexCol]; 
-                                (obj_bhs===null)? tds.innerHTML = `<p class="ellipsis"></p>`
+                            var tds =  myTable.rows[row.rowIndex+1].cells[indexCol];
+                            if(obj_bhs){
+                                (!obj_bhs['content']) ? tds.innerHTML = `<p class="ellipsis"></p>`
                                                 :tds.innerHTML = `<p class="ellipsis">`+obj_bhs['content']+`</p>`;
+                            }
                                 //=====================pham vi lanh tho===========================
                                 var pvlt   = document.getElementById('pvlt');
                     
@@ -450,15 +471,18 @@ $(function() {
                                 //========================quyen loi bao hiem========================
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
+                                    if(healths[i-3]){
+                                        (healths[i-3]['content']) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
                                                      tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
-                                   
+                                    }
                                 }
                                 //========================THOI GIAN================================
                                 for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
-                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                    if(healths[i-3]){
+                                        (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
+                                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                    }
                                 }
 
                                 var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
@@ -473,7 +497,7 @@ $(function() {
                             tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                             $('#td'+indexCol+'').click(function(){
                                 var tdnet ;
-                                for(var i =1;i<4;i++){
+                                for(var i =1;i<5;i++){
                                     if(indexCol==1){
                                         tdnet = tdsss;
                                         tdnet.setAttribute('class','active-td');
@@ -562,16 +586,22 @@ $(function() {
                             var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                             for(var i=96;i < 95 + exclusions.length;i++){
                                 var tds = myTable.rows[i].cells[indexCol];
-                                // console.log(tds);
                                 if(exclusions[i-96]['content']==='x'){
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                 `;
                                 }else if(exclusions[i-96]['content']==null){
                                     tds.innerHTML = `<p class=""></p>`;
                                 }else{
-                                    tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                <p class="ellipsis">`+exclusions[i-96]['note']+`</p>
-                                    `;
+                                    var str = exclusions[i-96]['note'];
+                                    if(str.length > 45){
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <p class="ellipsis">`+str+`</p>`+
+                                                    `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                        <p class="ellipsis">`+str+`</p>
+                                        `;
+                                    }
                                 }
                             }
                         }).done(function(){
@@ -610,7 +640,59 @@ $(function() {
                     dropImage();
                     deleteColumn(idImg,clicked);
                });
-              
+           }
+           if($(this).is(':checked')== false ){
+                var id = $(this).val();
+                var imgId = $(this).parents().find('#img_'+id+'');
+                var index = imgId.parent().index() +1;
+                if( index ==2  && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    // addColumn('main-tbl');
+                    addColumn('main-tbl-sk');
+                }else if(index == 2){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                   
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-sk');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 4){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 5 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-sk');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    // count=0;
+                    addColumn('main-tbl-sk');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    
+                }
            }
            if(count==4) return;
        });
@@ -685,4 +767,10 @@ $(function() {
             });
        }
     });
+</script>
+<script>
+     function show(val){
+        $('#note').html('<p class="ellipsis">'+val+'</p>');
+        $('#detail-td').modal('show');
+    }
 </script>

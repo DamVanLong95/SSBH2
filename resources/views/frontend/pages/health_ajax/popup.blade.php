@@ -13,17 +13,16 @@
       <th style="text-align:center;">
       
         <label value="{{$name['product_longevity_id']}}">{{$name->product_longevity_name}}</label><br>
-
-        <select class="spbt" name="select"  style="color: #0d723b;
+        <select class="spbt" id="dropdown-popup" style="color: #0d723b;
                             font-family: UTM_Helve;
                             line-height: 28px;
                             background: #fff;
                             border: 1px solid #0d723b;
-                            ">
+                            " data-placement="bottom">
 
-            <option selected disabled>--Chọn--</option>
+            <option selected  class="active" title="Chon chuong trinh">--Chọn--</option>
             @foreach($name['product_more'] as $value)
-            <option value="{{$value['product_more_name']}}" >{{\Illuminate\Support\Str::words($value['product_more_name'],5)}}</option>
+            <option value="{{$value['product_more_name']}}" title="{{$value['product_more_name']}}">{{\Illuminate\Support\Str::words($value['product_more_name'],5)}}</option>
             @endforeach
         </select>
       </th>
@@ -128,6 +127,14 @@ $(function() {
       }
   });
  
+</script>
+<script>
+    $(".spbt").change(function(event) {
+      $(this).attr("title", $(this).val());
+      $('.spbt').tooltip({
+        placement: 'right',
+      });
+    });
 </script>
 @endif
 

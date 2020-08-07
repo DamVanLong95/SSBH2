@@ -837,9 +837,8 @@ $(function() {
 
            if(indexCol==4)count++;
            
-           if(clicked.is(':checked')&& count <=1){
-            clicked[0].setAttribute('disabled',true);
-                var idImg = clicked.val();
+           if(clicked.is(':checked')&& $('div.img-container').is(":not(.dropped)")){
+               var idImg = clicked.val();
                var url   = "{{route('checkImage')}}";
              
                 addColumn('main-tbl');
@@ -884,6 +883,7 @@ $(function() {
                         divImg.appendChild(img); 
                         $(img).addClass('sized');
                         $(divImg).addClass('dropped');
+                        divImg.setAttribute('id',"img_"+idImg);
                         // if($('#checkbox_'+idImg+'').prop("checked") == true){
                         //     $('#'+idImg+'').draggable({ disabled: true });
                         // }
@@ -1174,7 +1174,7 @@ $(function() {
                                     
                                     $('#map'+idImg+'').click(function(){
                                         var tdnet ;
-                                        for(var i =1;i<4;i++){
+                                        for(var i =1;i<5;i++){
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');
@@ -1265,7 +1265,58 @@ $(function() {
                     }
                });
            }
-           if(count==4) return;
+           if($(this).is(':checked')== false ){
+                var id = $(this).val();
+                var imgId = $(this).parents().find('#img_'+id+'');
+                var index = imgId.parent().index() +1;
+                if( index ==2 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    addColumn('main-tbl');
+                }else if(index== 2 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 4){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 5 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    // count=0;
+                    addColumn('main-tbl');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    
+                }
+           }
+           if(count == 4 ) return;
        });
       
        function deleteColumn(idImg,clicked){

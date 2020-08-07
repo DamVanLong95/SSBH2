@@ -247,6 +247,13 @@
         <a href="javascript:void(0)">Liên hệ tư vấn</a>
     </button>
 </div>
+<div id="detail-td" class="modal">
+    <div class="content-ctn" id="note">
+        <!-- <pre id="note" style="color:black;font-weight:bold; font-family: UTM_Helve"></pre> -->
+    </div>
+  <a href="javascript:void(0)">Liên hệ ngay</a>
+
+</div>
 @if($agent->isMobile())
     @include('layouts.longevity_mobile')
 @else
@@ -496,9 +503,8 @@
                             var tblHeadObj  = myTable.tHead;
                             var indexCol    = tblHeadObj.rows[0].cells.length - 1;
         if(indexCol==4)count++;
-        if(clicked.is(':checked')&& count <=1){
+        if(clicked.is(':checked')&& $('div.img-container').is(":not(.dropped)")){
            
-            // clicked[0].setAttribute('disabled',true);
             var idImg = clicked.val();
             globalId.push(idImg);
             var url   = "{{route('checkLongevity')}}";
@@ -521,6 +527,7 @@
                     $('span.remove', thlast).show();
                     var divImg = $(thlast).children()[0];
                     $(divImg).addClass('dropped');
+                    divImg.setAttribute('id',"img_"+idImg);
                     divImg.innerHTML ='<img class="img-responsive sized" src="'+image+'">' ; 
                     $('.sized').draggable({ disabled: true });
                     var th =  myTable.rows[0].cells[indexCol];
@@ -561,8 +568,15 @@
                         var indexRow = row_bt.rowIndex;
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
-                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                            if(longevities[i-6]['content']!=null){
+                                var str = longevities[i-6]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
+                            }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                          }
                         //  ===========San Pham bo tro==================
                       
@@ -587,7 +601,13 @@
                         for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-10]['content']!=null){
-                                tds.innerHTML =  `<p>`+longevities[i-10]['content']+`</p>`;
+                                var str = longevities[i-10]['content'];
+                                if(str.length > 75){
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                }else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                }
                             }
                             if(longevities[i-10]['content']==="x"){
                                 tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
@@ -617,77 +637,93 @@
                                     
                 }
                 addColumn('main-tbl-nt');
-                dropImage();
+                // dropImage();
                 deleteColumn(idImg,clicked);
+                function isEmpty(td) {
+                    if ( td.text() == '') {
+                        return true;
+                    }            
+
+                    return false;
+                }
+                if(indexCol == 4 || indexCol == 3 || indexCol == 2){
+                        var selOne = '.header';
+                        var selTwo = '.container-selection';
+                        var selThree = '.container-download';
+                        var selFour = '.detail-bt';
+                        var selFive = '.sub-head';
+
+                        $("#main-tbl-nt tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+")").each(function(){
+                            var trIsEmpty = true;
+                            var tr = $(this);
+                            tr.removeClass('data-empty');
+                            tr.find("td:not(:first)").each(function() {
+                                td = $(this);
+                                if (isEmpty(td) === false)  {
+                                    trIsEmpty = false;   
+                                }
+                            });
+                            if (trIsEmpty == true) {
+                                tr.addClass("data-empty");
+                            }
+                        });
+                }
              });
             $(this).disabled = true;
-           
-        }else{
-            // console.log(globalId);
-            // if( indexCol ==2 ){
-            //     console.log(idImg);
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            //     // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
-            // }else if(indexCol== 2 || indexCol == 0 && !$('div.img-container').is(":not(.dropped)")){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     addColumn('main-tbl-nt');
-            //     dropImage();
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
 
-            // }else if(indexCol==4 && !$('div.img-container').is(":not(.dropped)")){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     addColumn('main-tbl-nt');
-            //     dropImage();
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            // }else if(indexCol == 4){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-                
-            // }else if(indexCol == 5 ){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     addColumn('main-tbl-nt');
-            //     dropImage();
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            // }else if(indexCol == 3 && !$('div.img-container').is(":not(.dropped)")){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     // addColumn('main-tbl-nt');
-            //     removeItem(idImg,globalId);
-            // }else if(indexCol == 3 ){
-            //     $('th:nth-child('+indexCol+')').remove()
-            //     $('td:nth-child('+indexCol+')').remove()
-            //     $(clicked[0]).attr("checked", false);;
-            //     clicked[0].disabled = false;
-            //     $('#'+idImg+'').draggable({ disabled: false });
-            //     removeItem(idImg,globalId);
-            //     count=0;
-            // }
+           
+        }
+        if(clicked.is(':checked') === false ){
+            var id = clicked.val();
+            var imgId = clicked.parents().find('#img_'+id+'');
+            var index = imgId.parent().index() +1;
+                if( index ==2  && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    addColumn('main-tbl-nt');
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    // addColumn('main-tbl');
+                }else if(index== 2){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index==4 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-nt');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 4){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 5 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    addColumn('main-tbl-nt');
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                }else if(index == 3 && !$('div.img-container').is(":not(.dropped)")){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    // count=0;
+                    addColumn('main-tbl-nt');
+                }else if(index == 3 ){
+                    $('th:nth-child('+index+')').remove()
+                    $('td:nth-child('+index+')').remove()
+                    $('#checkbox_'+idImg+'').prop("checked", false);
+                    clicked[0].disabled = false;
+                    $('#'+idImg+'').draggable({ disabled: false });
+                    
+                }
         }
         if(count==4) return;
         
@@ -718,7 +754,6 @@
             var tblBodyObj = document.getElementById(tblId).tBodies[0];
             for (var i = 0; i < tblBodyObj.rows.length; i++) {
                 var newCell = tblBodyObj.rows[i].insertCell(-1);
-                newCell.setAttribute('class', "auto")
                 // newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
                 var divs =  myTable.rows[1].cells[tblBodyObj.rows[i].cells.length-1];
             }
@@ -743,21 +778,20 @@
        
         $('span.remove').on('click', function (e ) {
             var index = ($(this).parent().index()+1);
-            if( index ==2 ){
-                console.log(idImg);
+            if( index ==2 && !$('div.img-container').is(":not(.dropped)")){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
                 removeItem(idImg,globalId);
+                dropImage();
+                addColumn('main-tbl-nt');
                 count=0;
-                // document.getElementById("main-tbl-nt").style.tableLayout = "auto";
-            }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
+            }else if(index== 2  ){
                 $('th:nth-child('+index+')').remove()
                 $('td:nth-child('+index+')').remove()
-                addColumn('main-tbl-nt');
-                dropImage();
+                // dropImage();
                 $(clicked[0]).attr("checked", false);;
                 clicked[0].disabled = false;
                 $('#'+idImg+'').draggable({ disabled: false });
@@ -850,14 +884,14 @@
        if($(el)[0].checked == true){
             var url = '{{route('popupLongevity')}}';
             $(this).prop("checked", true);
-            // console.log(globalId);
+            // console.log(indexCol);
             $.ajax({
                 type: "POST",
                 url : url,
                 data:{
                     "_token": "{{ csrf_token() }}",
                     "product_group_id":el.value,
-                    "product_longevity_id":globalId
+                    "product_longevity_id":globalId,
                 },
             }).done(function(data){
                 $('#comparison').html(data.html);
@@ -874,5 +908,11 @@
         $('.open').toggleClass("show hide");
     });
 
+</script>
+<script>
+    function show(val){
+        $('#note').html(formattedText(val));
+        $('#detail-td').modal('show');
+    }
 </script>
 @endif
