@@ -15,13 +15,7 @@
 
 @stop
 
-@php
 
-foreach ($treatments['xe'] as $a){
-    var_dump($a);
-}
-
-@endphp
 
 
 @section('content')
@@ -197,7 +191,13 @@ foreach ($treatments['xe'] as $a){
 </div>
 
 @stop
+@php
 
+    foreach ($treatments['xe'] as $a){
+        var_dump($a);
+    }
+
+@endphp
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
 @stop
