@@ -183,8 +183,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /diep.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/diep.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -223,8 +222,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /avtanhSam.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/avtanhSam.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -264,8 +262,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /profile.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/profile.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -305,8 +302,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /profile.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/profile.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -345,8 +341,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /avtchiHa.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/avtchiHa.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -385,8 +380,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /avtchiLe.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/avtchiLe.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -425,8 +419,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /avtanhPhuong.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/avtanhPhuong.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -465,8 +458,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /avtanhSang.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/avtanhSang.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
