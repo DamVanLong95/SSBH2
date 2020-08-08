@@ -123,62 +123,433 @@
                     <div class="name-list">
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item active">
-                                    Phạm Thị Hồng Diệp
+                                <div class="name-item showSingle " target="1">
+                                    <a href="javascript:void(0)" class="active">Phạm Thị Hồng Diệp</a>
+                                </div>
+                            </div> 
+                            
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="2">
+                                    <a href="javascript:void(0)" class="">Đinh Quang Sâm</a>
                                 </div>
                             </div>
-                            @for($i=1; $i < 12; $i++)
-                                <div class=" col-sm-12 col-md-4 col-lg-4">
-                                    <div class="name-item">
-                                        nguyen hoan van anh
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="3">
+                                    <a href="javascript:void(0)" class="">Nguyễn Hoàng Giang</a>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-4 col-lg-4" target="4">
+                                <div class="name-item showSingle">
+                                    <a href="javascript:void(0)" class="">Vũ Thị Lĩnh</a>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="5">
+                                    <a href="javascript:void(0)" class="">Lê Thị Hà</a>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="6">
+                                    <a href="javascript:void(0)" class="">Trịnh Thị Lệ</a>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="7">
+                                    <a href="javascript:void(0)"class="" >Nguyễn Đình Phượng</a>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="8">
+                                    <a href="javascript:void(0)" class="">Vũ Sang</a>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-4 col-lg-4">
+                                <div class="name-item showSingle" target="9">
+                                    <a href="javascript:void(0)" class="">Nguyễn Thế Kiên</a>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div1" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /diep.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                        Phạm Thị Hồng Diệp
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>Công ty Cổ phần tư vấn dịch vụ bảo hiểm Việt Nam	</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm phi nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Đống Đa, Hà Nội</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:0963711375">0963711375</a><span> | <a href="mailto:dieppth@vics-corp.com"> dieppth@vics-corp.com</a></span></p>
                                     </div>
                                 </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="sec-contact-detail" class="sec-contact-detail">
-        <div class="section-wrapper ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="detail-ctn">
-                            <div class="ava-ctn">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/diep.jpg?{{ config('custom.version') }}" alt="">
-                            </div>
-                            <div class="detail-contact">
-                                <div class="name">
-                                    Phạm Thị Hồng Diệp
-                                </div>
-                                <div class="time-work">
-                                    <p class="job-title"><strong>Quá trình công tác</strong></p>
-                                    <p>Công ty Cổ phần tư vấn dịch vụ bảo hiểm Việt Nam	</p>
-                                    <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
-                                    <p>Bảo hiểm phi nhân thọ</p>
-                                    <p class="job-title"><strong>Khu vực</strong></p>
-                                    <p>Đống Đa, Hà Nội</p>
-                                    <p class="job-title"><strong>Liên hệ</strong></p>
-                                    <p><a href="tel:0906060784">0963711375</a><span> | <a href="mailto:dieppth@vics-corp.com"> dieppth@vics-corp.com</a></span></p>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container-fluid p-0">
-        <div class="map-ctn">
-            <div class=" contact-map mb-5 pb-4">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div id="div2" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /avtanhSam.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                        Đinh Quang Sâm
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>MB ageas	</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm phi nhân thọ</p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Bắc Ninh</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:0988636594">0988636594</a><span> | <a href="mailto:quangsambn@gmail.com"> quangsambn@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div3" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /profile.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Nguyễn Hoàng Giang
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>	</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm phi nhân thọ</p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Cầu giấy, Hà Nội</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:0886976777">0886976777</a><span> | <a href="mailto:giang.hfs@gmail.com"> giang.hfs@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div4" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /profile.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Vũ Thị Lĩnh
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>Moncover</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm sức khỏe</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Đống Đa, Hà Nội</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:"></a><span> | <a href="mailto:"> </a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div5" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /avtchiHa.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Lê Thị Hà
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>Manulife</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Vinh, Nghệ An</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:0933297555">0933297555</a><span> | <a href="mailto:ha.manulife.mdrt@gmail.com"> ha.manulife.mdrt@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div6" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /avtchiLe.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Trịnh Thị Lệ
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>Bảo Việt</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Yên Định, Thanh Hóa</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:0987683453">0987683453/0948101928</a><span> | <a href="mailto:trinhle.yd@gmail.com"> trinhle.yd@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div7" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /avtanhPhuong.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Nguyễn Đình Phượng
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>Daiichi	</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Bắc Từ Liêm, Hà Nội</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:"></a><span> | <a href="mailto:phuong.daichi68@gmail.com"> phuong.daichi68@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div8" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /avtanhSang.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Vũ Sang
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>GĐKD công ty TCA	</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm phi nhân thọ</p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Hà Nội và Bắc Ninh </p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:988006997">988006997</a><span> | <a href="mailto:vusang99bn@gmail.com"> vusang99bn@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div9" class=" detail-ctv targetDiv">
+        <div id="sec-contact-detail" class="sec-contact-detail">
+            <div class="section-wrapper ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="detail-ctn">
+                                <div class="ava-ctn">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
+                                    /avtanhKien.jpg?{{ config('custom.version') }}" alt="">
+                                </div>
+                                <div class="detail-contact">
+                                    <div class="name">
+                                    Nguyễn Thế Kiên
+                                    </div>
+                                    <div class="time-work">
+                                        <p class="job-title"><strong>Quá trình công tác</strong></p>
+                                        <p>TCA Thanh Hóa	</p>
+                                        <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
+                                        <p>Bảo hiểm nhân thọ</p>
+                                        <p class="job-title"><strong>Khu vực</strong></p>
+                                        <p>Thanh Hóa</p>
+                                        <p class="job-title"><strong>Liên hệ</strong></p>
+                                        <p><a href="tel:944374347">944374347</a><span> | <a href="mailto:tcathanhhoa368@gmail.com"> tcathanhhoa368@gmail.com</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="map-ctn">
+                <div class=" contact-map mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    $(document).ready(function(){
+        $('.name-item a').click(function(){
+            $('.name-item a').removeClass("active");
+            $(this).addClass("active");
+            // if ('.name-item a').hasClass('active')) {
+            //         $('.targetDiv').show();
+            //     }
+        });
+    });
+</script>
 @stop
 
 @section('footer')

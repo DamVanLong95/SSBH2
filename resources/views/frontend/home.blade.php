@@ -182,6 +182,14 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-item ">
                                 <div class="item">
+                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/guide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <div class="description-ctn">
+                                        <a href="{{ url('/question') }}">Hướng dẫn sử dụng website Vbaohiem.</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-item ">
+                                <div class="item">
                                     <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
                                     <div class="description-ctn">
                                         <a href="{{ url('/question') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
@@ -204,14 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide slide-item ">
-                                <div class="item">
-                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
-                                    <div class="description-ctn">
-                                        <a href="{{ url('/question') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="arrow-ctn ">
                             <div class="swiper-button-prev">
