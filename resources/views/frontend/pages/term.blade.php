@@ -1,4 +1,4 @@
-n@extends('layouts.default')
+@extends('layouts.default')
 @section('header')
     <title>{{ config('custom.seo_title') }}</title>
     <meta name="description" content="{{ config('custom.seo_description') }}">

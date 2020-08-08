@@ -3798,6 +3798,7 @@ span.tel {
 
 .contact-ctn {
   margin: 5% 0;
+  color: #000;
 }
 
 .contact-ctn .select-ctn {
@@ -3922,8 +3923,17 @@ span.tel {
   }
 }
 
-.contact-ctn .active {
+.contact-ctn .name-list .name-item a {
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-ctn .name-list .name-item a:hover {
   color: #0d723b;
+}
+
+.contact-ctn .active {
+  color: #0d723b !important;
 }
 
 .sec-contact-detail {

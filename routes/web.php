@@ -39,7 +39,7 @@ Route::get('/test', function () {
 Route::view('/intro','frontend.pages.intro');
 Route::view('/detail','frontend.pages.intro_detail');
 Route::view('/reason','frontend.pages.reason');
-Route::view('/principle','frontend.pages.principle');
+Route::view('/principle','frontend.pages.principal');
 Route::view('/term','frontend.pages.term');
 // =====================================blog=================================
 Route::get('/blog', function () {
