@@ -37,7 +37,7 @@
                                             <div class="swiper-wrapper uudai-slide">
                                                 @for($i=1;$i<=6;$i++)
                                                     <div class="swiper-slide slide-item parent">
-                                                        <a href="javascript:void(0)">
+                                                        <a class="showSingle" target="1">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
                                                                     Kiến tạo
@@ -61,10 +61,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="child">
+                                <div id="div1" class=" child3 targetDiv">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao1.jpg?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
@@ -87,19 +87,21 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
+                                              @for($i=1;$i<=6;$i++)
                                                     <div class="swiper-slide slide-item parent2">
-                                                      <a class="showSingle" target="3">
+                                                      <a class="showSingle" target="4">
                                                         <div class="treatment-item item">
                                                             <div class="title">
                                                                 Sunlife
                                                             </div>
-                                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai.jpg?{{ config('custom.version') }}" alt="">
+                                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Sunlife.jpg?{{ config('custom.version') }}" alt="">
                                                             <div class="description">
                                                                 <p>Ưu thế so với thị trường</p>
                                                             </div>
                                                         </div>
                                                     </a>
                                                     </div>
+                                                @endfor
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
@@ -111,17 +113,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="child2">
+                                <div id="div4" class=" child3 targetDiv">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Sunlife1.jpg?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
                                             <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -187,17 +189,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <section class="cnt">
+                                <!-- <section class="cnt">
                                   <div id="div1" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao1.jpg?{{ config('custom.version') }}" alt=""></div></div>
                                   <div id="div2" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam1.jpg?{{ config('custom.version') }}" alt=""></div></div>
                                   <div id="div3" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai1.jpg?{{ config('custom.version') }}" alt=""></div></div>
                                   <div id="div4" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Sunlife1.jpg?{{ config('custom.version') }}" alt=""></div></div>
                                   <div id="div5" class="targetDiv"><div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife1.jpg?{{ config('custom.version') }}" alt=""></div></div>
-                                </section>
-                                <div class="child3">
+                                </section> -->
+                                <div id="div3" class=" child3 targetDiv">
                                     <div class="detail-content ">
                                         <div class="child-content">
-                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/logo/demo.png?{{ config('custom.version') }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai1.jpg?{{ config('custom.version') }}" alt="">
+                                        </div>
+                                        <div class="contact-btn-ctn">
+                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
+                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="div2" class=" child3 targetDiv">
+                                    <div class="detail-content ">
+                                        <div class="child-content">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam1.jpg?{{ config('custom.version') }}" alt="">
+                                        </div>
+                                        <div class="contact-btn-ctn">
+                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
+                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="div5" class=" child3 targetDiv">
+                                    <div class="detail-content ">
+                                        <div class="child-content">
+                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife1.jpg?{{ config('custom.version') }}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
                                             <button type="button" onclick="">Liên hệ tư vấn viên</button>
