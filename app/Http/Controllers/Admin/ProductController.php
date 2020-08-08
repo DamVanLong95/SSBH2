@@ -74,7 +74,7 @@ class ProductController extends Controller
             $product->cate          = $data['cate'];
             $product->url           = isset($path)? $path:null;
             $product->save();
-
+            Session::flash('message', 'Tạo mới thành công!');
         $notification = array(
             'message' => 'add new post successfully!',
             'alert-type' => 'success'

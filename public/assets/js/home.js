@@ -16,12 +16,9 @@
         this.init = function() {
             vars.id = 0;
             ele.timeStartEvent = "Sep 16, 2019 00:00:00";
-            ele.slideCustomer = '.swiper-customer';
-            ele.slidePartner = '.swiper-partner';
             ele.slideKnowledge = '.swiper-knowledge';
             ele.slideTreatment = '.swiper-treatment';
-            ele.slideBanner = '.swiper-banner';
-            ele.slideKnow = '.swiper-know';
+            ele.slideTreatments = '.swiper-treatments';
             ele.slideSk = '.swiper-sk';
         };
 
@@ -34,187 +31,6 @@
         };
         var slideHome = function() {
             $(function() {
-                var swiper = new Swiper(ele.slideCustomer, {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    autoplay: {
-                        delay: 3000,
-                    },
-                    // navigation: {
-                    //     nextEl: '.swiper-button-next',
-                    //     prevEl: '.swiper-button-prev',
-                    // },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
-                var swiper2 = new Swiper(ele.slidePartner, {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                    autoplay: {
-                        delay: 3000,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
-                // ===========swiper banner===========
-                var interleaveOffset = 0.5;
-
-                var swiperOptions = {
-                    loop: true,
-                    speed: 1000,
-                    grabCursor: true,
-                    watchSlidesProgress: true,
-                    mousewheelControl: true,
-                    keyboardControl: true,
-                    // navigation: {
-                    //     nextEl: ".swiper-button-next",
-                    //     prevEl: ".swiper-button-prev"
-                    // },
-                    autoplay: {
-                        delay: 3000,
-                    },
-                    on: {
-                        progress: function() {
-                            var swiper = this;
-                            for (var i = 0; i < swiper.slides.length; i++) {
-                                var slideProgress = swiper.slides[i].progress;
-                                var innerOffset = swiper.width * interleaveOffset;
-                                var innerTranslate = slideProgress * innerOffset;
-                                swiper.slides[i].querySelector(".slide-inner").style.transform =
-                                    "translate3d(" + innerTranslate + "px, 0, 0)";
-                            }
-                        },
-                        touchStart: function() {
-                            var swiper = this;
-                            for (var i = 0; i < swiper.slides.length; i++) {
-                                swiper.slides[i].style.transition = "";
-                            }
-                        },
-                        setTransition: function(speed) {
-                            var swiper = this;
-                            for (var i = 0; i < swiper.slides.length; i++) {
-                                swiper.slides[i].style.transition = speed + "ms";
-                                swiper.slides[i].querySelector(".slide-inner").style.transition =
-                                    speed + "ms";
-                            }
-                        }
-                    }
-                };
-                var swiper3 = new Swiper(ele.slideBanner, swiperOptions);
-                var swiper4 = new Swiper(ele.slideKnow, {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
-                var swiper5 = new Swiper(ele.slideKnowledge, {
-                    slidesPerView: 3,
-                    // spaceBetween: 30,
-                    autoplay: {
-                        delay: 6000,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
                 var swiper6 = new Swiper(ele.slideTreatment, {
                     slidesPerView: 3,
                     spaceBetween: 100,
@@ -231,8 +47,8 @@
                     //     delay: 3000,
                     // },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.sk-next1',
+                        prevEl: '.sk-pre1',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
@@ -258,15 +74,58 @@
                         }
                     }
                 });
-                var swiper7 = new Swiper(ele.slideSk, {
+                var swiper7 = new Swiper(ele.slideTreatments, {
+                    slidesPerView: 3,
+                    spaceBetween: 100,
+                    effect: 'coverflow',
+                    Centeredslides: true, // set the slide to center
+                    coverflowEffect: {
+                        rotate: 0, // Slide rotate in degrees
+                        stretch: 0, // Stretch space between slides (in px)
+                        depth: 100, // Depth offset in px (slides translate in Z axis)
+                        modifier: 1, // Effect multipler
+                        slideShadows: false, // Enables slides shadows
+                    },
+                    // autoplay: {
+                    //     delay: 3000,
+                    // },
+                    navigation: {
+                        nextEl: '.nt-next',
+                        prevEl: '.nt-prev',
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    //     clickable: true,
+                    // },
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        991: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+
+                        },
+                        767: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        }
+                    }
+                });
+                var swiper8 = new Swiper(ele.slideSk, {
                     slidesPerView: 3,
                     spaceBetween: 30,
                     // autoplay: {
                     //     delay: 3000,
                     // },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.sk-next',
+                        prevEl: '.sk-next',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',

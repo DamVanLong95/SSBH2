@@ -84,6 +84,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
+
+    //==========================Treatment=============================================
+    Route::get('treatment','Admin\TreatmentController@create')->name('treatment.create');
+    Route::post('treatment/post','Admin\TreatmentController@store')->name('treatment.store');
     Route::resource('posts','Admin\PostController',['except'=>'show']);
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
     Route::resource('product','Admin\ProductController',['except' =>'show']);
@@ -171,7 +175,4 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
 
     Route::get('longevity/export','Admin\LongevityExcelController@exportLongevity')->name('longevity.export');
 
-});
-Route::get('test',function(){
-    return view('layouts.test');
 });

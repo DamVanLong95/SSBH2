@@ -35,28 +35,28 @@
                                     <div class="col-lg-12">
                                         <div id="slideTreatment" class="swiper-container swiper-treatment">
                                             <div class="swiper-wrapper uudai-slide">
-                                                @for($i=1;$i<=6;$i++)
+                                                @foreach($data['xe'] as $value)
                                                     <div class="swiper-slide slide-item parent">
                                                         <a class="showSingle" target="1">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
-                                                                    Kiến tạo
+                                                                    {{$value['title']}}
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/kientao.jpg?{{ config('custom.version') }}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{asset('storage/'.$value->slide)}}" alt=""></div>
                                                                 <div class="description">
-                                                                    <p>MB Ageas cùng bạn tiếp nối giấc mơ</p>
+                                                                    <p>{{$value['description']}}</p>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                @endfor
+                                                @endforeach
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev">
+                                            <div class="swiper-button-prev sk-pre1">
                                             </div>
-                                            <div class="swiper-button-next">
+                                            <div class="swiper-button-next sk-next1">
                                             </div>
                                         </div>
                                     </div>
@@ -85,30 +85,30 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div id="slideTreatment" class="swiper-container swiper-treatment">
+                                        <div id="" class="swiper-container swiper-treatments">
                                             <div class="swiper-wrapper uudai-slide">
-                                              @for($i=1;$i<=6;$i++)
+                                              @foreach($data['nhantho'] as $value)
                                                     <div class="swiper-slide slide-item parent2">
                                                       <a class="showSingle" target="4">
                                                         <div class="treatment-item item">
                                                             <div class="title">
-                                                                Sunlife
+                                                                {{$value['title']}}
                                                             </div>
-                                                            <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Sunlife.jpg?{{ config('custom.version') }}" alt="">
+                                                            <img class="img-fluid" src="{{asset('storage/'.$value->slide)}}" alt="">
                                                             <div class="description">
-                                                                <p>Ưu thế so với thị trường</p>
+                                                                <p>{{$value['description']}}</p>
                                                             </div>
                                                         </div>
                                                     </a>
                                                     </div>
-                                                @endfor
+                                                @endforeach
                                             </div>
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev">
+                                            <div class="swiper-button-prev nt-prev ">
                                             </div>
-                                            <div class="swiper-button-next">
+                                            <div class="swiper-button-next nt-next">
                                             </div>
                                         </div>
                                     </div>
@@ -137,54 +137,30 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div id="slideTreatment" class="swiper-container swiper-treatment">
+                                        <div id="" class="swiper-container swiper-sk ">
                                             <div class="swiper-wrapper uudai-slide">
+                                                @foreach($data['suckhoe'] as $value)
                                               <div class="swiper-slide slide-item parent3">
                                                   <a class="showSingle" target="3">
                                                       <div class="treatment-item item">
                                                           <div class="title">
-                                                              FWD
+                                                              {{$value['title']}}
                                                           </div>
-                                                          <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/tuonglai.jpg?{{ config('custom.version') }}" alt="">
+                                                          <img class="img-fluid" src="{{asset('storage/'.$value->slide)}}" alt="">
                                                           <div class="description">
-                                                              <p>Tương lai trong tầm tay</p>
+                                                              <p>{{$value['description']}}</p>
                                                           </div>
                                                       </div>
                                                   </a>
                                               </div>
-                                              <div class="swiper-slide slide-item parent3">
-                                                  <a class="showSingle" target="2">
-                                                      <div class="treatment-item item">
-                                                          <div class="title">
-                                                              An Tâm gia đình
-                                                          </div>
-                                                          <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/antam.jpg?{{ config('custom.version') }}" alt="">
-                                                          <div class="description">
-                                                              <p>Bảo hiểm an tâm gia đình</p>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                              </div>
-                                              <div class="swiper-slide slide-item parent3">
-                                                  <a class="showSingle" target="5">
-                                                      <div class="treatment-item item">
-                                                          <div class="title">
-                                                              Manulife
-                                                          </div>
-                                                          <img class="img-fluid" src="{{ url('/') }}/assets/images/treatment/Manulife.jpg?{{ config('custom.version') }}" alt="">
-                                                          <div class="description">
-                                                              <p>Bảo hiểm bệnh hiểm nghèo</p>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                              </div>
-                                            </div>
+                                              @endforeach
+                                            
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev">
+                                            <div class="swiper-button-prev sk-prev">
                                             </div>
-                                            <div class="swiper-button-next">
+                                            <div class="swiper-button-next sk-next">
                                             </div>
                                         </div>
                                     </div>
