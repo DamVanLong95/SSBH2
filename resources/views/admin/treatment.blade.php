@@ -43,6 +43,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="title" class="col-md-3 text-right ">Thêm ảnh khác </label>
+                        <div class="col-sm-9">
+                            <input type="file" name="img_detail" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="title" class="col-md-3 text-right ">Mô tả </label>
                         <div class="col-sm-9">
                         <textarea id="description" name="description" rows="4" cols="50" class="form-control"></textarea>

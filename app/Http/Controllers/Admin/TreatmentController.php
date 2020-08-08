@@ -26,8 +26,19 @@ class TreatmentController extends Controller
             $data['slide'] = $path;
             unset($data['file']);
         }
+        if($request->hasFile('img_detail')){
+            $file = $request->file('img_detail');
+            $ext = $file->getClientOriginalExtension();
+            $filename  =  time().'.'.$ext;
+            $path_more = $file->storeAs(
+                'treatment_more', Str::random(10).'_'.$filename,'public'
+            );
+            $data['img_detail'] = $path_more;
+            unset($data['img_detail']);
+        }
 
             $data['slide'] =  isset($path)? $path:null;
+            $data['img_detail'] =  isset($path_more)? $path_more:null;
             $product = new Treatment;
             // dd($data);
             $save = $product::create($data);

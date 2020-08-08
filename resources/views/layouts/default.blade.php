@@ -278,9 +278,16 @@
     <script>
         $(function(){
             $('.targetDiv').hide();
+            var count =0;
             $('.showSingle').click(function(){
+                count++;
                 $('.targetDiv').hide();
-                $('#div'+$(this).attr('target')).show();
+                if(count==1){
+                    $('#'+$(this).attr('value')+'').show();
+                }else{
+                    $('#'+$(this).attr('value')+'').hide();
+                    count=0;
+                }
             });
         });
     </script>
