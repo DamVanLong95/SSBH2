@@ -36,9 +36,11 @@ Route::get('/test', function () {
 // Route::get('/detail', function () {
 //     return view('frontend.pages.intro_detail');
 // });
-Route::view('/detail','frontend.pages.intro_detail');
-
 Route::view('/intro','frontend.pages.intro');
+Route::view('/detail','frontend.pages.intro_detail');
+Route::view('/reason','frontend.pages.reason');
+Route::view('/principle','frontend.pages.principle');
+Route::view('/term','frontend.pages.term');
 // =====================================blog=================================
 Route::get('/blog', function () {
     return view('frontend.pages.blog');

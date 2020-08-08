@@ -42,43 +42,43 @@
             <div class="intro-ctn box-2">
                 <div class="right-ctn">
                     <div class="title">
-                    <a href="{{ url('/detail') }}"><h4>Lợi ích của Web</h4></a>
+                    <a href="{{ url('/reason') }}"><h4>Lợi ích của Web</h4></a>
                     </div>
                     <p class="ellipsis">Web so sánh bảo hiểm V-Bảo hiểm ra đời với mục đích đem đến cho người  cái nhìn tổng quan nhất về các sản phẩm bảo hiểm xe ô tô hiện nay tại Việt Nam. Với mục tiêu giúp người dùng trở thành những người mua bảo hiểm thông thái nhất. Với mục tiêu đưa web so sánh bảo hiểm xe ô tô trở thành nền tảng so sánh bảo hiểm xe ô tô bảo hiểm hàng đầu tại Việt Nam. Chúng tôi đem tới người dùng nền tảng so sánh bảo hiểm xe ô tô đầy đủ nhất hiện nay để mọi người có thể dễ dàng hiểu và chọn được sản phẩm phù hợp với mong muốn, nhu cầu của mình. Từ đó, giúp khách hàng tiết kiệm thời gian tìm hiểu để so sánh và lựa chọn sản phẩm bảo hiểm xe ô tô phù hợp nhất; nâng cao sự hiểu biết về các sản phẩm bảo hiểm xe ô tô hiện nay trên thị trường Việt nam.</p>
                     <div class="watch-more">
-                        <a href="{{ url('/detail') }}">Xem chi tiết</a>
+                        <a href="{{ url('/reason') }}">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="left-ctn">
-                    <a href="{{ url('/detail') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro3.png?{{ config('custom.version') }}" width="100%" alt=""></a>
+                    <a href="{{ url('/reason') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro3.png?{{ config('custom.version') }}" width="100%" alt=""></a>
                 </div>
             </div>
             <div class="intro-ctn box-3">
                 <div class="left-ctn">
-                    <a href="{{ url('/detail') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro4.png?{{ config('custom.version') }}" width="100%" alt=""></a>
+                    <a href="{{ url('/principle') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro4.png?{{ config('custom.version') }}" width="100%" alt=""></a>
                 </div>
                 <div class="right-ctn">
                     <div class="title">
-                        <a href="{{ url('/detail') }}"><h4>Nguyên tắc hoạt động của Web</h4></a>
+                        <a href="{{ url('/principle') }}"><h4>Nguyên tắc hoạt động của Web</h4></a>
                     </div>
                     <p class="ellipsis">Web so sánh bảo hiểm V-Bảo hiểm ra đời với mục đích đem đến cho người  cái nhìn tổng quan nhất về các sản phẩm bảo hiểm xe ô tô hiện nay tại Việt Nam. Với mục tiêu giúp người dùng trở thành những người mua bảo hiểm thông thái nhất. Với mục tiêu đưa web so sánh bảo hiểm xe ô tô trở thành nền tảng so sánh bảo hiểm xe ô tô bảo hiểm hàng đầu tại Việt Nam. Chúng tôi đem tới người dùng nền tảng so sánh bảo hiểm xe ô tô đầy đủ nhất hiện nay để mọi người có thể dễ dàng hiểu và chọn được sản phẩm phù hợp với mong muốn, nhu cầu của mình. Từ đó, giúp khách hàng tiết kiệm thời gian tìm hiểu để so sánh và lựa chọn sản phẩm bảo hiểm xe ô tô phù hợp nhất; nâng cao sự hiểu biết về các sản phẩm bảo hiểm xe ô tô hiện nay trên thị trường Việt nam.</p>
                     <div class="watch-more">
-                        <a href="{{ url('/detail') }}">Xem chi tiết</a>
+                        <a href="{{ url('/principle') }}">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
             <div class="intro-ctn box-4">
                 <div class="right-ctn">
                     <div class="title">
-                        <a href="{{ url('/detail') }}"><h4>Điều kiện, điều khoản Web</h4></a>
+                        <a href="{{ url('/term') }}"><h4>Điều kiện, điều khoản Web</h4></a>
                     </div>
                     <p class="ellipsis">Web so sánh bảo hiểm V-Bảo hiểm ra đời với mục đích đem đến cho người  cái nhìn tổng quan nhất về các sản phẩm bảo hiểm xe ô tô hiện nay tại Việt Nam. Với mục tiêu giúp người dùng trở thành những người mua bảo hiểm thông thái nhất. Với mục tiêu đưa web so sánh bảo hiểm xe ô tô trở thành nền tảng so sánh bảo hiểm xe ô tô bảo hiểm hàng đầu tại Việt Nam. Chúng tôi đem tới người dùng nền tảng so sánh bảo hiểm xe ô tô đầy đủ nhất hiện nay để mọi người có thể dễ dàng hiểu và chọn được sản phẩm phù hợp với mong muốn, nhu cầu của mình. Từ đó, giúp khách hàng tiết kiệm thời gian tìm hiểu để so sánh và lựa chọn sản phẩm bảo hiểm xe ô tô phù hợp nhất; nâng cao sự hiểu biết về các sản phẩm bảo hiểm xe ô tô hiện nay trên thị trường Việt nam.</p>
                     <div class="watch-more">
-                        <a href="{{ url('/detail') }}">Xem chi tiết</a>
+                        <a href="{{ url('/term') }}">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="left-ctn">
-                    <a href="{{ url('/detail') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro5.png?{{ config('custom.version') }}" width="100%" alt=""></a>
+                    <a href="{{ url('/term') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro5.png?{{ config('custom.version') }}" width="100%" alt=""></a>
                 </div>
             </div>
         </div>

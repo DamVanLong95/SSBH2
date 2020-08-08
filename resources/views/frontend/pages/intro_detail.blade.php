@@ -33,8 +33,15 @@
           </div>
           <div class="content">
             <p>
-            Web so sánh bảo hiểm V-Bảo hiểm ra đời với mục đích đem đến cho người  cái nhìn tổng quan nhất về các sản phẩm bảo hiểm xe ô tô hiện nay tại Việt Nam. Với mục tiêu giúp người dùng trở thành những người mua bảo hiểm thông thái nhất. Với mục tiêu đưa web so sánh bảo hiểm xe ô tô trở thành nền tảng so sánh bảo hiểm xe ô tô bảo hiểm hàng đầu tại Việt Nam. Chúng tôi đem tới người dùng nền tảng so sánh bảo hiểm xe ô tô đầy đủ nhất hiện nay để mọi người có thể dễ dàng hiểu và chọn được sản phẩm phù hợp với mong muốn, nhu cầu của mình. Từ đó, giúp khách hàng tiết kiệm thời gian tìm hiểu để so sánh và lựa chọn sản phẩm bảo hiểm xe ô tô phù hợp nhất; nâng cao sự hiểu biết về các sản phẩm bảo hiểm xe ô tô hiện nay trên thị trường Việt nam.
+            Web so sánh bảo hiểm V-Bảo hiểm ra đời với mục đích đem đến cho người dùng cái nhìn tổng quan nhất về các sản phẩm bảo hiểm trên thị trường hiện nay tại Việt Nam như bảo hiểm vật chất xe cơ giới, bảo hiểm sức khỏe,  bảo hiểm nhân thọ. Với mục tiêu giúp người dùng trở thành những người mua bảo hiểm thông thái nhất, nhà tư vấn bảo hiểm uy tín hay những cá nhân tổ chức có mong muốn tìm hiểu kiến thức bảo hiểm. Chúng tôi đem tới người dùng nền tảng so sánh bảo hiểm với đầy đủ các tính năng vượt trội giúp người dùng có thể dễ dàng hiểu và chọn được sản phẩm phù hợp với mong muốn, nhu cầu của mình. 
             </p>
+            <p>Giúp khách hàng tiết kiệm thời gian tìm hiểu, so sánh và lựa chọn sản phẩm bảo hiểm phù hợp; nâng cao sự hiểu biết về các sản phẩm bảo hiểm hiện nay trên thị trường Việt nam. </p>
+            <p>V- Bảo hiểm: website so sánh bảo hiểm đầy đủ, toàn diện trên các lĩnh vực bảo hiểm: nhân thọ, vật chất xe cơ giới, sức khỏe… của tất cả 18 công ty bảo hiểm nhân thọ và 30 công ty bảo hiểm phi nhân thọ. </p>
+            <p>V-Bảo hiểm xây dựng trên nền tảng công nghệ hiện đại bậc nhất hiện nay với các tính năng ưu việt, luôn hướng đến sự tiện ích nhất cho người dùng.</p>
+            <p>Bên cạnh đó, những thông tin chúng tôi cung cấp luôn được cập nhật đầy đủ, chính xác, đã qua kiểm chứng bởi các chuyên gia bảo hiểm hàng đầu Việt Nam.
+            Hãy cùng trải nghiệm những điều tuyệt vời nhất tại V-Bảo hiểm!
+            </p>
+
           </div>
         </div>
         <div class="second-wrapper">
@@ -47,9 +54,16 @@
             </div>
             <div class="content">
               <p>
-                Web so sánh bảo hiểm xe ô tô được tạo nên bởi <a href="https://vics-corp.com/" target="_blank"> Công ty Cổ phần Tư vấn Dịch vụ Bảo hiểm Việt Nam <br>(VICS-CORP)</a>. 
+                Web so sánh V-Bảo hiểm thuộc sở hữu của <a href="https://vics-corp.com/" target="_blank"> Công ty Cổ phần Tư vấn Dịch vụ Bảo hiểm Việt Nam <br>(VICS-CORP)</a>. 
               </p>
-              <p><a href="https://vics-corp.com/" target="_blank"> VICS-CORP</a> là đơn vị kinh doanh chủ yếu trong các lĩnh vực: Tư vấn về bảo hiểm; Dịch vụ giải quyết bồi thường Bảo hiểm; Tranh tụng Bảo hiểm; Đào tạo về Bảo hiểm…</p>
+              <p><a href="https://vics-corp.com/" target="_blank"> VICS-CORP</a> là đơn vị kinh doanh chủ yếu trong các lĩnh vực: 
+                <ul>
+                  <li>Tư vấn về bảo hiểm;</li>
+                  <li>Dịch vụ giải quyết bồi thường Bảo hiểm;</li>
+                  <li>Tranh tụng Bảo hiểm;</li>
+                  <li>Đào tạo về Bảo hiểm…</li>
+                </ul>
+              </p>
             </div>
             
           </div>
