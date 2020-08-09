@@ -124,48 +124,48 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1 " target="1">
-                                    <a href="javascript:void(0)" class="active">Phạm Thị Hồng Diệp</a>
+                                    <a href="javascript:void(0)" class="active" value="adiv1">Phạm Thị Hồng Diệp</a>
                                 </div>
                             </div> 
                             
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle1" target="2">
-                                    <a href="javascript:void(0)" class="">Đinh Quang Sâm</a>
+                                <div class="name-item showSingle1" target="2" >
+                                    <a href="javascript:void(0)" class="" value="adiv2">Đinh Quang Sâm</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1" target="3">
-                                    <a href="javascript:void(0)" class="">Nguyễn Hoàng Giang</a>
+                                    <a href="javascript:void(0)" class="" value="adiv3">Nguyễn Hoàng Giang</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4" target="4">
                                 <div class="name-item showSingle1">
-                                    <a href="javascript:void(0)" class="">Vũ Thị Lĩnh</a>
+                                    <a href="javascript:void(0)" class="" value="adiv4">Vũ Thị Lĩnh</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1" target="5">
-                                    <a href="javascript:void(0)" class="">Lê Thị Hà</a>
+                                    <a href="javascript:void(0)" class="" value="adiv5">Lê Thị Hà</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1" target="6">
-                                    <a href="javascript:void(0)" class="">Trịnh Thị Lệ</a>
+                                    <a href="javascript:void(0)" class="" value="adiv6">Trịnh Thị Lệ</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1" target="7">
-                                    <a href="javascript:void(0)"class="" >Nguyễn Đình Phượng</a>
+                                    <a href="javascript:void(0)"class="" value="adiv7">Nguyễn Đình Phượng</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1" target="8">
-                                    <a href="javascript:void(0)" class="">Vũ Sang</a>
+                                    <a href="javascript:void(0)" class="" value="adiv8">Vũ Sang</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1" target="9">
-                                    <a href="javascript:void(0)" class="">Nguyễn Thế Kiên</a>
+                                    <a href="javascript:void(0)" class="" value="adiv9">Nguyễn Thế Kiên</a>
                                 </div>
                             </div>
                            
@@ -533,6 +533,22 @@
 </div>
 <script>
     $(document).ready(function(){
+        //  if ('.name-item a').hasClass('active')==true) {
+            // $('#adiv1').style.display = "block";
+        // }
+       
+        $('.name-item a').each(function(index,value){
+            if ($(this).hasClass('active')==true) {
+                var id = $($(this)[index]).attr("value");
+                // console.log(id);
+               $('#'+id+'').show();
+            }else{
+                // console.log();
+                $('#'+value.getAttribute("value")+'').hide();
+            }
+                
+            
+        });
         $('.name-item a').click(function(){
             $('.name-item a').removeClass("active");
             $(this).addClass("active");

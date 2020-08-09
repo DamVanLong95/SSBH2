@@ -250,13 +250,13 @@
     </script>
     <!-- script contact collaspse -->
     <script>
-        $(function(){
-            $('.targetDiv1').hide();
-            $('.showSingle1').click(function(){
-                $('.targetDiv1').hide();
-                $('#adiv'+$(this).attr('target')).show();
-            });
-        });
+        // $(function(){
+        //     $('.targetDiv1').hide();
+        //     $('.showSingle1').click(function(){
+        //         $('.targetDiv1').hide();
+        //         $('#adiv'+$(this).attr('target')).show();
+        //     });
+        // });
     </script>
    <script>
         function killCopy(e){
