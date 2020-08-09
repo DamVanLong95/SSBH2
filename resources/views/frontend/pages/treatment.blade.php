@@ -101,6 +101,7 @@
                                                                 <p>{{$value['description']}}</p>
                                                             </div>
                                                         </div>
+                                                        </a>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -154,7 +155,7 @@
                                                               <p>{{$value['description']}}</p>
                                                           </div>
                                                       </div>
-                                                  </a>
+                                                     </a>
                                               </div>
                                               @endforeach
                                             
@@ -213,7 +214,7 @@
                
                divs.push('nt_'+ nt[i]['id']);
            }
-            console.log(divs);
+            // console.log(divs);
 
             function hideNonVisibleDivs() {
              var i, div;
@@ -232,6 +233,7 @@
             var visibleDivId = null;
             $('.showSingle').click(function(){
                 var divId = $(this).attr('value');
+                console.log(divId);
                 if(visibleDivId === divId) {
                     visibleDivId = null;
                 } else {
