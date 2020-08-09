@@ -123,48 +123,48 @@
                     <div class="name-list">
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle " target="1">
+                                <div class="name-item showSingle1 " target="1">
                                     <a href="javascript:void(0)" class="active">Phạm Thị Hồng Diệp</a>
                                 </div>
                             </div> 
                             
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="2">
+                                <div class="name-item showSingle1" target="2">
                                     <a href="javascript:void(0)" class="">Đinh Quang Sâm</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="3">
+                                <div class="name-item showSingle1" target="3">
                                     <a href="javascript:void(0)" class="">Nguyễn Hoàng Giang</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4" target="4">
-                                <div class="name-item showSingle">
+                                <div class="name-item showSingle1">
                                     <a href="javascript:void(0)" class="">Vũ Thị Lĩnh</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="5">
+                                <div class="name-item showSingle1" target="5">
                                     <a href="javascript:void(0)" class="">Lê Thị Hà</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="6">
+                                <div class="name-item showSingle1" target="6">
                                     <a href="javascript:void(0)" class="">Trịnh Thị Lệ</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="7">
+                                <div class="name-item showSingle1" target="7">
                                     <a href="javascript:void(0)"class="" >Nguyễn Đình Phượng</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="8">
+                                <div class="name-item showSingle1" target="8">
                                     <a href="javascript:void(0)" class="">Vũ Sang</a>
                                 </div>
                             </div>
                             <div class=" col-sm-12 col-md-4 col-lg-4">
-                                <div class="name-item showSingle" target="9">
+                                <div class="name-item showSingle1" target="9">
                                     <a href="javascript:void(0)" class="">Nguyễn Thế Kiên</a>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
             </div>
         </div>
     </div>
-    <div id="div1" class=" detail-ctv targetDiv">
+    <div id="adiv1" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -214,7 +214,7 @@
             </div>
         </div>
     </div>
-    <div id="div2" class=" detail-ctv targetDiv">
+    <div id="adiv2" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -254,7 +254,7 @@
             </div>
         </div>
     </div>
-    <div id="div3" class=" detail-ctv targetDiv">
+    <div id="adiv3" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -294,7 +294,7 @@
             </div>
         </div>
     </div>
-    <div id="div4" class=" detail-ctv targetDiv">
+    <div id="adiv4" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -333,7 +333,7 @@
             </div>
         </div>
     </div>
-    <div id="div5" class=" detail-ctv targetDiv">
+    <div id="adiv5" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -372,7 +372,7 @@
             </div>
         </div>
     </div>
-    <div id="div6" class=" detail-ctv targetDiv">
+    <div id="adiv6" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -411,7 +411,7 @@
             </div>
         </div>
     </div>
-    <div id="div7" class=" detail-ctv targetDiv">
+    <div id="adiv7" class=" detail-ctv targetDiv">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -450,7 +450,7 @@
             </div>
         </div>
     </div>
-    <div id="div8" class=" detail-ctv targetDiv">
+    <div id="adiv8" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -490,7 +490,7 @@
             </div>
         </div>
     </div>
-    <div id="div9" class=" detail-ctv targetDiv">
+    <div id="adiv9" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
