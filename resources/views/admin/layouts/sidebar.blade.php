@@ -45,7 +45,7 @@
                         <li class="sidebar-item"><a href="{{route('indexExclusion.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Điều khoản loại trừ</span></a></li>
                     </ul>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('treatment.create')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Treatment</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('treatment.index')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Treatment</span></a></li>
                 </li>
             </ul>
         </nav>

@@ -275,36 +275,6 @@
         });
 
     </script>
-    <script>
-        $(function(){
-            $('.targetDiv').hide();
-            var divs = ["1", "2", "3", "4","5","6","7","8","9"];
-            function hideNonVisibleDivs() {
-             var i, divId, div;
-                for(i = 0; i < divs.length; i++) {
-                    divId = divs[i];
-                    div = document.getElementById(divId);
-                    if(visibleDivId === divId) {
-                        div.style.display = "block";
-                        // console.log(div);
-                    } else {
-                        if(div)
-                         div.style.display = "none";
-                    }
-                }
-            }
-            var visibleDivId = null;
-            $('.showSingle').click(function(){
-                var divId = $(this).attr('value');
-                if(visibleDivId === divId) {
-                    visibleDivId = null;
-                } else {
-                    visibleDivId = divId;
-                }
-                hideNonVisibleDivs();
-            });
-        });
-    </script>
    <script>
         function killCopy(e){
             return false

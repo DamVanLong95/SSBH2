@@ -37,7 +37,7 @@
                                             <div class="swiper-wrapper uudai-slide">
                                                 @foreach($data['xe'] as $value)
                                                     <div class="swiper-slide slide-item parent">
-                                                        <a class="showSingle" value="{{$value['id']}}">
+                                                        <a class="showSingle" value="xe_{{$value['id']}}">
                                                             <div class="treatment-item item">
                                                                 <div class="title">
                                                                     {{$value['title']}}
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 @foreach($data['xe'] as $v)
-                                <div id="{{$v['id']}}" class=" child3 targetDiv">
+                                <div id="xe_{{$v['id']}}" class=" child3 targetDiv">
                                     <div class="detail-content ">
                                         <div class="child-content">
                                         <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
@@ -91,7 +91,7 @@
                                             <div class="swiper-wrapper uudai-slide">
                                               @foreach($data['nhantho'] as $value)
                                                     <div class="swiper-slide slide-item parent2">
-                                                      <a class="showSingle" value="{{$value['id']}}">
+                                                      <a class="showSingle" value="nt_{{$value['id']}}">
                                                         <div class="treatment-item item">
                                                             <div class="title">
                                                                 {{$value['title']}}
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 @foreach($data['nhantho'] as $v)
-                                <div id="{{$v['id']}}" class=" child3 targetDiv">
+                                <div id="nt_{{$v['id']}}" class=" child3 targetDiv">
                                     <div class="detail-content ">
                                         <div class="child-content">
                                             <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
@@ -144,7 +144,7 @@
                                             <div class="swiper-wrapper uudai-slide">
                                             @foreach($data['suckhoe'] as $value)
                                               <div class="swiper-slide slide-item parent3">
-                                                  <a class="showSingle" value="{{$value['id']}}">
+                                                  <a class="showSingle" value="sk_{{$value['id']}}">
                                                       <div class="treatment-item item">
                                                           <div class="title">
                                                               {{$value['title']}}
@@ -169,7 +169,7 @@
                                     </div>
                                 </div>
                                 @foreach($data['suckhoe'] as $v)
-                                <div id="{{$v['id']}}" class=" child3 targetDiv">
+                                <div id="sk_{{$v['id']}}" class=" child3 targetDiv">
                                     <div class="detail-content ">
                                         <div class="child-content">
                                             <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
@@ -194,4 +194,51 @@
 
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
+     <script>
+        $(function(){
+            var xes = <?php echo $data['xe'] ?>;
+            var sk = <?php echo $data['suckhoe'] ?>;
+          
+            var nt = <?php echo $data['nhantho'] ?>;
+            var divs = [];
+            for(let i =0; i < xes.length;i++){
+               
+                divs.push('xe_'+ xes[i]['id']);
+            }
+            for(let i =0; i < sk.length;i++){
+               
+               divs.push('sk_'+ sk[i]['id']);
+           }
+           for(let i =0; i < nt.length;i++){
+               
+               divs.push('nt_'+ nt[i]['id']);
+           }
+            console.log(divs);
+
+            function hideNonVisibleDivs() {
+             var i, div;
+                for(i = 0; i < divs.length; i++) {
+                    divId = divs[i];
+                    div = document.getElementById(divId);
+                    if(visibleDivId === divId) {
+                        div.style.display = "block";
+                        // console.log(div);
+                    } else {
+                        if(div)
+                         div.style.display = "none";
+                    }
+                }
+            }
+            var visibleDivId = null;
+            $('.showSingle').click(function(){
+                var divId = $(this).attr('value');
+                if(visibleDivId === divId) {
+                    visibleDivId = null;
+                } else {
+                    visibleDivId = divId;
+                }
+                hideNonVisibleDivs();
+            });
+        });
+    </script>
 @stop

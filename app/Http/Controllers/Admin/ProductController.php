@@ -41,9 +41,7 @@ class ProductController extends Controller
             ->addColumn('path',function($product){
                 return $product->url ;
             })
-            // ->editColumn('cate',function($product){
-            //     return ($product->cate==1)?"Tich luy":"Bao ve" ;
-            // })
+          
             ->addColumn('action', function ($product) {
                 return '<a href="'.route('product.edit', $product->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                         <a href="javascript:void(0)" data-id="' . $product->id . '" class="delete btn btn btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
