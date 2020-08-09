@@ -411,7 +411,7 @@
             </div>
         </div>
     </div>
-    <div id="adiv7" class=" detail-ctv targetDiv">
+    <div id="adiv7" class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">

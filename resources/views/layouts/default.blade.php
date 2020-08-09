@@ -245,35 +245,18 @@
                 }, 600);
                 return false;
             });
-            // $('.parent .item').on("click", function() {
-            //     $('.child').slideToggle( 500, function() {
-            //         $('.child .detail-content').show( 100 );
-            //     });
-            // });
-            // $('.parent2 .item').on("click", function() {
-            //     $('.child2').slideToggle( 500, function() {
-            //         $('.child2 .detail-content').show( 100 );
-            //     });
-            // });
-            // $('.parent3 .item').on("click", function() {
-            //     $('#div'+$(this).attr('target')).slideToggle( 500, function() {
-            //         $('.child3 .detail-content').show( 100 );
-            //     });
-            // });
-            // $(".top-thumb").click (function(){
-            // // Close all open windows
-            // $(".content").stop().slideUp(300); 
-            // // Toggle this window open/close
-            // $(this).next(".content").stop().slideToggle(300);
-            
-            // });
-            // $('.parent3 .item').on("click", function() {
-            //     $('.child2').slideToggle( 500, function() {
-            //         $('#div'+$(this).attr('target')).show( 100 );
-            //     });
-            // });
         });
 
+    </script>
+    <!-- script contact collaspse -->
+    <script>
+        $(function(){
+            $('.targetDiv1').hide();
+            $('.showSingle1').click(function(){
+                $('.targetDiv1').hide();
+                $('#adiv'+$(this).attr('target')).show();
+            });
+        });
     </script>
    <script>
         function killCopy(e){
