@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="title" class="col-md-3 text-right ">Thêm ảnh khác </label>
+                        <label for="title" class="col-md-3 text-right ">Thêm ảnh cover </label>
                         <div class="col-sm-9">
                             <input type="file" name="img_detail" class="form-control">
                         </div>

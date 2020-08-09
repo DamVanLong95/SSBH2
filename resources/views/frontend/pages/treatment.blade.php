@@ -42,7 +42,7 @@
                                                                 <div class="title">
                                                                     {{$value['title']}}
                                                                 </div>
-                                                                <div class="image-ctn"><img class="img-fluid" src="{{asset('storage/'.$value->slide)}}" alt=""></div>
+                                                                <div class="image-ctn"><img class="img-fluid" src="{{asset('storage/'.$value->slide)}}" alt="" value="{{$value['id']}}"></div>
                                                                 <div class="description">
                                                                     <p>{{$value['description']}}</p>
                                                                 </div>
