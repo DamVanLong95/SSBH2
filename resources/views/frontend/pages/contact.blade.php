@@ -537,6 +537,14 @@
             // $('#adiv1').style.display = "block";
         // }
        
+       
+        $('.name-item a').click(function(){
+            $('.name-item a').removeClass("active");
+            $(this).addClass("active");
+            // if ('.name-item a').hasClass('active')) {
+            //         $('.targetDiv').show();
+            //     }
+        });
         $('.name-item a').each(function(index,value){
             if ($(this).hasClass('active')==true) {
                 var id = $($(this)[index]).attr("value");
@@ -548,13 +556,6 @@
             }
                 
             
-        });
-        $('.name-item a').click(function(){
-            $('.name-item a').removeClass("active");
-            $(this).addClass("active");
-            // if ('.name-item a').hasClass('active')) {
-            //         $('.targetDiv').show();
-            //     }
         });
     });
 </script>

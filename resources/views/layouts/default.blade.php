@@ -250,13 +250,20 @@
     </script>
     <!-- script contact collaspse -->
     <script>
-        // $(function(){
-        //     $('.targetDiv1').hide();
-        //     $('.showSingle1').click(function(){
-        //         $('.targetDiv1').hide();
-        //         $('#adiv'+$(this).attr('target')).show();
-        //     });
-        // });
+        $(function(){
+            $('.showSingle1').click(function(){
+                $('#adiv'+$(this).attr('target')).show();
+                    $('.name-item a').each(function(index,value){
+
+                    if ($(this).hasClass('active')==true) {
+                        var id = $($(this)[index]).attr("value");
+                        $('#'+id+'').show();
+                    }else{
+                        $('#'+value.getAttribute("value")+'').hide();
+                    }
+                });
+            });
+        });
     </script>
    <script>
         function killCopy(e){
