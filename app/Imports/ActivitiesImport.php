@@ -19,15 +19,15 @@ class ActivitiesImport implements ToModel,WithHeadingRow
         DB::beginTransaction();
         try {
             Activity::create([
-                'company_id' => $row['id_cong_ty'],
+                'company_id'    => $row['id_cong_ty'],
                 'location_id'   => $row['id_khu_vuc'],
-                'amount'     => $row['so_luong'],
+                'amount'        => $row['so_luong'],
             ]);
 
             DB::commit();
         } catch (Exceptions $e) {
             DB::rollBack();
-            Log::debug($e);
+            throw new Exception($e->getMessage());
         }
     }
     public function headingRow(): int

@@ -39,6 +39,7 @@ class ExcelController extends Controller
         return view('admin.excel.locations_import');
     }
     public function indexActivity(){
+
         return view('admin.excel.activities_import');
     }
     public function indexBrandCate()
@@ -61,96 +62,95 @@ class ExcelController extends Controller
         return view('admin.excel.punishment_import');
     }
     public function importDetail(Request $request){
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new DetailsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+        } catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     public function importLocation(Request $request){
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new LocationsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+        } catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     public function importBrand(Request $request){
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new BrandsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+        } catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        
+           
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     public function importBrandCate(Request $request){
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new SummationsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+        } catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     public function importPermission(Request $request){
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new PermissionsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+        } catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     public function importFinance(Request $request)
     {
-        if ($request->hasFile('import_file'))
-        {
-            Excel::import(new FinancesImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
+       try{
+         Excel::import(new FinancesImport, $request->file('import_file'));
+       } catch( \Exception $e){
+            return back()->withErrors($e->getMessage());
+       }
+            
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
 
-        }
-        return redirect()->back()->with($notification);
-        
         return redirect()->back()->with($notification);
     }
     public function importPunishment(Request $request){
 
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new PunishmentsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+            
+        } catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
+
+       
         return redirect()->back()->with($notification);
     }
     public function exportCompany(){
@@ -158,10 +158,11 @@ class ExcelController extends Controller
     }
     public function importExcel(ExcelRequest $request)
     {
-        if ($request->hasFile('import_file'))
-        {
-            Excel::import(new UsersImport, $request->file('import_file'));
-        }
+       try{
+         Excel::import(new UsersImport, $request->file('import_file'));
+       }catch(\Exception $e){
+         return back()->withErrors($e->getMessage());
+       }
         $notification = array(
             'message' => 'add new post successfully!',
             'alert-type' => 'success'
@@ -173,15 +174,17 @@ class ExcelController extends Controller
         return view('admin.excel.users_import',compact('users','table'));
     }
     public function importActivity(Request $request){
-        if ($request->hasFile('import_file'))
-        {
-            Excel::import(new ActivitiesImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
 
-        }
+       try{
+             Excel::import(new ActivitiesImport, $request->file('import_file'));
+       }catch (\Exception $e){
+        //    dd($e);
+            return back()->withErrors($e->getMessage());
+       }
+        $notification = array(
+            'message' => 'add successfully!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
     public function exportExcel(){

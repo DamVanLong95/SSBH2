@@ -498,8 +498,7 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact
-                                    /avtanhKien.jpg?{{ config('custom.version') }}" alt="">
+                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/contact/avtanhKien.jpg?{{ config('custom.version') }}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
@@ -531,34 +530,6 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        //  if ('.name-item a').hasClass('active')==true) {
-            // $('#adiv1').style.display = "block";
-        // }
-       
-       
-        $('.name-item a').click(function(){
-            $('.name-item a').removeClass("active");
-            $(this).addClass("active");
-            // if ('.name-item a').hasClass('active')) {
-            //         $('.targetDiv').show();
-            //     }
-        });
-        $('.name-item a').each(function(index,value){
-            if ($(this).hasClass('active')==true) {
-                var id = $($(this)[index]).attr("value");
-                // console.log(id);
-               $('#'+id+'').show();
-            }else{
-                // console.log();
-                $('#'+value.getAttribute("value")+'').hide();
-            }
-                
-            
-        });
-    });
-</script>
 @stop
 
 @section('footer')
