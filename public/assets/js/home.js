@@ -122,6 +122,7 @@
                 var swiper8 = new Swiper(ele.slideSk, {
                     slidesPerView: 3,
                     spaceBetween: 30,
+                    loop: true,
                     // autoplay: {
                     //     delay: 3000,
                     // },
