@@ -36,6 +36,7 @@
                     spaceBetween: 100,
                     effect: 'coverflow',
                     Centeredslides: true, // set the slide to center
+                    loop: true,
                     coverflowEffect: {
                         rotate: 0, // Slide rotate in degrees
                         stretch: 0, // Stretch space between slides (in px)
@@ -79,6 +80,7 @@
                     spaceBetween: 100,
                     effect: 'coverflow',
                     Centeredslides: true, // set the slide to center
+                    loop: true,
                     coverflowEffect: {
                         rotate: 0, // Slide rotate in degrees
                         stretch: 0, // Stretch space between slides (in px)
@@ -120,6 +122,7 @@
                 var swiper8 = new Swiper(ele.slideSk, {
                     slidesPerView: 3,
                     spaceBetween: 30,
+                    loop: true,
                     // autoplay: {
                     //     delay: 3000,
                     // },
