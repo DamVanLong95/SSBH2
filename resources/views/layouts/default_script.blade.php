@@ -130,6 +130,7 @@
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                var tableLength = document.getElementById('main-tbl').rows[0].cells.length
                     var url = '{{route('droppImage')}}';
                     $.post(url,
                         {
@@ -265,33 +266,46 @@
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                     if(terms_data[i-7]['note_more']==="-----") {
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                        tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div>
-
-                                        `;
+                                                        </div> `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                        </div> `;
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-
-                                        `;
+                                            `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                    <div class="star-td">
+                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                        </div>
+                                            `;
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                         </div>
-
                                         `;
-                                    }
+                                     }
+                                    
                                 }
                                 //===============MUC KHAU TRU===============================
 
@@ -409,16 +423,35 @@
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis" value="5">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            var str = permissions[i-91]['note_rule'];
+                                            if(str.length > 75){
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
                                                              <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
+                                            }
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis" value="2">`+permissions[i-91]['note_rule']+`</p>`+`
+                                            var str = permissions[i-91]['note_rule'];
+                                            if(str.length > 75 ){
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                             <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                            }
                                         }
                                         else{
                                             if(permissions[i-91]['note_rule']=== 'x')
@@ -457,7 +490,7 @@
                                     
                                     $('#map'+idImg+'').click(function(){
                                         var tdnet ;
-                                        for(var i =1;i< 5;i++){
+                                        for(var i =1;i< tableLength;i++){
                                             if(indexCol==1){
                                                 tdnet = tds;
                                                 tdnet.setAttribute('class','active-car-td');

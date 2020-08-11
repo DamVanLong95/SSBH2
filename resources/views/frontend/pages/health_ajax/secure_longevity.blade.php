@@ -558,8 +558,11 @@
                             //===========Pham vi bao hiem=====================
                             for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
+                            if(longevities[i-6]){
+                                (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
                                                             :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                            }
+                           
                         }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
@@ -568,7 +571,8 @@
                         var indexRow = row_bt.rowIndex;
                         for(var i=index+1; i<indexRow ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-6]['content']!=null){
+                            if(longevities[i-6]){
+                                if(longevities[i-6]['content']!=null){
                                 var str = longevities[i-6]['content'];
                                 if(str.length > 75){
                                     tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
@@ -576,7 +580,9 @@
                                 }else{
                                     tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
                                 }
-                            }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                            }
+                            
                          }
                         //  ===========San Pham bo tro==================
                       
@@ -586,13 +592,14 @@
                         var row_lphi = lphi.rowIndex;
                          for(var i=row_lphi+1; i<ltbh.rowIndex ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-10]['content']!=null){
-                                if(validURL(longevities[i-10]['content'])==true){
+                            if(longevities[i-10]){
+                                if(longevities[i-10]['content']!=null){
+                                    if(validURL(longevities[i-10]['content'])==true){
                                     tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-5]['content']+`" target="_blank" hidden></a>`;
-                                }else
-                                tds.innerHTML =  '<p class="text" >'+longevities[i-10]['content']+'</p>';
+                                    }else
+                                    tds.innerHTML =  '<p class="ellipsis" >'+longevities[i-10]['content']+'</p>';
+                                }
                             }
-                          
                          }
                          //====================LOAI TRU BAO HIEM============================
                           
@@ -600,19 +607,22 @@
                         //  console.log(longevities);
                         for(var i=ltbh.rowIndex+1; i<58;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-10]['content']!=null){
-                                var str = longevities[i-10]['content'];
-                                if(str.length > 75){
-                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
-                                            <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
-                                }else{
-                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                            if(longevities[i-10]){
+                                if(longevities[i-10]['content']!=null){
+                                    var str = longevities[i-10]['content'];
+                                    if(str.length > 75){
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                                <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                    }
+                                }
+                                if(longevities[i-10]['content']==="x"){
+                                    tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                `;
                                 }
                             }
-                            if(longevities[i-10]['content']==="x"){
-                                tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                            `;
-                            }
+                           
                          }
                          //==================== Danh sach benh==================================
                          var dsb   = document.getElementById('dsb');
