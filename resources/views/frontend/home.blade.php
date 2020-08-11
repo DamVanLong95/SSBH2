@@ -49,7 +49,7 @@
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
                                     </div>
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="{{ url('/car') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-item ">
