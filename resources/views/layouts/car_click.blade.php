@@ -1,4 +1,5 @@
 <script>
+
 var myTable = document.getElementById('main-tbl');
 var terms_data,exception,punishment,exception;
 var count_star_orange,count_star_gray,count_star_green;  
@@ -279,33 +280,60 @@ $(function() {
                                    for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     var str = punishment[i-69]['content'];
+                                    // var limit_str = ;
                                     if(punishment.length >0){
                                             if(punishment[i-69]['rate_star_ct']== 3)
                                             {
-                                                if(str.length > 120){
-                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                if(str.length > 100){
+                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+cutString(str,20)+`</p>`+`
                                                     <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                             <div class="star-td">
                                                                     <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                                 </div> `;
                                                 }else{
-                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                    if(str === "x"){
+                                                        tds.innerHTML = `<p class="ellipsis"  style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                                            `<div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                                </div> `;
+                                                    }else{
+                                                        tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
                                                             <div class="star-td">
                                                                     <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                                 </div> `;
+                                                    }
                                                 }
                                                
                                             }else if(punishment[i-69]['rate_star_ct']== 5){
-                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
-                                                            <div class="star-td">
+                                                if(str.length > 100){
+                                                    tds.innerHTML =`<p class="ellipsis" value="5">`+cutString(str,20)+`</p>`+`
+                                                            <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                                <div class="star-td">
                                                                     <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                                 </div> `;
+                                                }else{
+                                                    tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                                <div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                                </div> `;
+                                                }
+                                               
                                             
                                             }else if(punishment[i-69]['rate_star_ct']== 2){
-                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                if(str.length > 100){
+                                                    tds.innerHTML =`<p class="ellipsis" value="2">`+cutString(str,20)+`</p>`+`
+                                                    <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                                <div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                                </div> `;
+
+                                                }else{
+                                                    tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
                                                             <div class="star-td">
                                                                     <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                                 </div> `;
+                                                }
+                                               
                                             }
                                             // else{
                                             //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
@@ -315,7 +343,7 @@ $(function() {
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=91; i<115 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                    // console.log(tds);
+                                    var str = permissions[i-91]['note_rule'];
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
@@ -324,9 +352,9 @@ $(function() {
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
-                                            var str = permissions[i-91]['note_rule'];
-                                            if(str.length > 120){
-                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                           
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+cutString(str,20)+`</p>`+`
                                                 <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                             <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
@@ -341,8 +369,8 @@ $(function() {
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
                                             var str = permissions[i-91]['note_rule'];
-                                            if(str.length > 120 ){
-                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                            if(str.length > 100 ){
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+cutString(str,20)+`</p>`+`
                                                         <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                             <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
@@ -902,5 +930,18 @@ $(function() {
             });
         }
     });
+
+
+
+
+
+
+
+function cutString(s, n){
+    var cut= s.indexOf(' ', n);
+    if(cut== -1) return s;
+    return s.substring(0, cut)
+}
+
 </script>
  

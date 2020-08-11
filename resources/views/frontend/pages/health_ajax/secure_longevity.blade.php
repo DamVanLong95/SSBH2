@@ -559,8 +559,19 @@
                             for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-6]){
-                                (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
-                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                if(longevities[i-6]['content']!=null){
+                                    var str = longevities[i-6]['content'];
+                                    if(str.length > 75){
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                    }
+                                    
+                                } else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                }
+                                                            
                             }
                            
                         }
