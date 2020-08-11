@@ -304,24 +304,44 @@ $(function() {
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=91; i<115 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
+                                    // console.log(tds);
                                     if(permissions.length > 0){
                                         if(permissions[i-91]['rate_star_nv']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis" style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                            tds.innerHTML =`<p class="ellipsis" style="display:none;" value="3"><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
                                                         `<div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
                                         }else if(permissions[i-91]['rate_star_nv']== 5){
-                                            tds.innerHTML =`<p class="ellipsis" value="5">`+permissions[i-91]['note_rule']+`</p>`+`
-                                                        <div class="star-td">
+                                            var str = permissions[i-91]['note_rule'];
+                                            if(str.length > 120){
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
+
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                             <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                            }
                                         
                                         }else if(permissions[i-91]['rate_star_nv']== 2){
-                                            tds.innerHTML =`<p class="ellipsis" value="2">`+permissions[i-91]['note_rule']+`</p>`+`
-                                                        <div class="star-td">
+                                            var str = permissions[i-91]['note_rule'];
+                                            if(str.length > 120 ){
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                            }
                                         }
                                         else{
                                             if(permissions[i-91]['note_rule']=== 'x')

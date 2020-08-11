@@ -39,6 +39,7 @@
                                     tblBodyObj  = myTable.tBodies[0]
                                     tblHeadObj  = myTable.tHead
                                     indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                    var tableLength = document.getElementById('main-tbl').rows[0].cells.length;
                                     // console.log(tblBodyObj.rows);
                     var url = '{{route('droppHealth')}}';
                     $.post(url, 
@@ -139,8 +140,13 @@
                                     }
                                     //========================THOI GIAN================================
                                     for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
-                                        var tdss = myTable.rows[i].cells[indexCol];
-                                        tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`
+                                    var tdss = myTable.rows[i].cells[indexCol];
+                                        if(healths[i-3]){
+                                            
+                                            if(healths[i-3]['content']!=null) {
+                                                tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                            } else tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                        }
                                     }
 
                                     var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
@@ -155,7 +161,7 @@
                                     tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                                     $('#td'+indexCol+'').click(function(){
                                         var tdnet ;
-                                        for(var i =1;i<4;i++){
+                                        for(var i =1;i<tableLength;i++){
                                             if(indexCol==1){
                                                 tdnet = tdsss;
                                                 tdnet.setAttribute('class','active-td');
@@ -380,6 +386,7 @@ $(function() {
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                var tableLength = document.getElementById('main-tbl-sk').rows[0].cells.length;
            if(indexCol==4)count++;
            if(clicked.is(':checked') && $('div.img-container').is(":not(.dropped)")){
             // clicked[0].setAttribute('disabled',true);
@@ -471,6 +478,7 @@ $(function() {
                                 //========================quyen loi bao hiem========================
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
+                                    
                                     if(healths[i-3]){
                                         (healths[i-3]['content']) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
                                                      tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
@@ -480,8 +488,10 @@ $(function() {
                                 for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
                                     if(healths[i-3]){
-                                        (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
-                                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                        
+                                        if(healths[i-3]['content']!=null) {
+                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                        } else tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                                     }
                                 }
 
@@ -497,7 +507,7 @@ $(function() {
                             tdsss.innerHTML =  `<p class="toggle active" ><span>(`+count+`)</span> Bệnh viện</p>`;
                             $('#td'+indexCol+'').click(function(){
                                 var tdnet ;
-                                for(var i =1;i<5;i++){
+                                for(var i =1;i<tableLength;i++){
                                     if(indexCol==1){
                                         tdnet = tdsss;
                                         tdnet.setAttribute('class','active-td');

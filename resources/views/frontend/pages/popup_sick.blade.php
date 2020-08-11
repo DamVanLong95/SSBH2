@@ -5,7 +5,7 @@
 <table class="table" id="main-popup" style="background: none; color: black">
   <thead>
     <tr>
-      <th style="background-color:#d8dad9">Nhóm bệnh</th>
+      <th style="background-color:#d8dad9">Doanh nghiệp/Bảo hiểm</th>
       <th style="background-color:#d8dad9">Nội dung</th>
     </tr>
   </thead>  

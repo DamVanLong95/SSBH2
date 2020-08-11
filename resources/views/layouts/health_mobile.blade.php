@@ -117,11 +117,12 @@
                                 for(var i =pending.rowIndex +1; i< pbh.rowIndex; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
                                     if(healths[i-3]){
-                                        (healths[i-3]['content']!= null) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']!=null?healths[i-3]['content']:''+`</p>`:
-                                                    tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                        
+                                        if(healths[i-3]['content']!=null) {
+                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                        } else tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                                     }
                                 }
-
                                 var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
                                 
                                     //========================phi bao hiem= =================================
