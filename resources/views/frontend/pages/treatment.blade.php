@@ -56,9 +56,9 @@
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev ">
+                                            <div class="swiper-button-prev xe-prev">
                                             </div>
-                                            <div class="swiper-button-next ">
+                                            <div class="swiper-button-next xe-next">
                                             </div>
                                         </div>
                                     </div>
@@ -110,9 +110,9 @@
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev">
+                                            <div class="swiper-button-prev nt-prev">
                                             </div>
-                                            <div class="swiper-button-next">
+                                            <div class="swiper-button-next nt-next">
                                             </div>
                                         </div>
                                     </div>
@@ -164,9 +164,9 @@
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev">
+                                            <div class="swiper-button-prev sk-prev">
                                             </div>
-                                            <div class="swiper-button-next">
+                                            <div class="swiper-button-next sk-next">
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +216,148 @@
                
                divs.push('nt_'+ nt[i]['id']);
            }
-            // console.log(divs);
+           var swipertreat1 = new Swiper('.swiper-treatment1', {
+                slidesPerView: 3,
+                spaceBetween: 100,
+                effect: 'coverflow',
+                loop: true,
+                Centeredslides: true, // set the slide to center
+                coverflowEffect: {
+                    rotate: 0, // Slide rotate in degrees
+                    stretch: 0, // Stretch space between slides (in px)
+                    depth: 100, // Depth offset in px (slides translate in Z axis)
+                    modifier: 1, // Effect multipler
+                    slideShadows: false, // Enables slides shadows
+                },
+                // autoplay: {
+                //     delay: 3000,
+                // },
+                navigation: {
+                    nextEl: '.xe-next',
+                    prevEl: '.xe-prev',
+                },
+                // pagination: {
+                //     el: '.swiper-pagination',
+                //     clickable: true,
+                // },
+                breakpoints: {
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    991: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+
+                    },
+                    767: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    }
+                },
+                // onClick: (swiper, event) => {
+                //     let div = swiper.clickedSlide; //slide that was clicked
+                // }
+            });
+            var swipertreat2 = new Swiper(".swiper-treatment2", {
+                    slidesPerView: 3,
+                    spaceBetween: 100,
+                    effect: 'coverflow',
+                    Centeredslides: true, // set the slide to center
+                    loop: true,
+                    coverflowEffect: {
+                        rotate: 0, // Slide rotate in degrees
+                        stretch: 0, // Stretch space between slides (in px)
+                        depth: 100, // Depth offset in px (slides translate in Z axis)
+                        modifier: 1, // Effect multipler
+                        slideShadows: false, // Enables slides shadows
+                    },
+                    // autoplay: {
+                    //     delay: 3000,
+                    // },
+                    navigation: {
+                        nextEl: '.nt-next',
+                        prevEl: '.nt-prev',
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    //     clickable: true,
+                    // },
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        991: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+
+                        },
+                        767: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        }
+                    },
+                    onClick: (swiper, event) => {
+                        let div = swiper.clickedSlide; //slide that was clicked
+                        console.log(div);
+                    }
+                });
+                var swipertreat3 = new Swiper(".swiper-treatment3", {
+                    slidesPerView: 3,
+                    spaceBetween: 100,
+                    effect: 'coverflow',
+                    loop: true,
+                    Centeredslides: true, // set the slide to center
+                    coverflowEffect: {
+                        rotate: 0, // Slide rotate in degrees
+                        stretch: 0, // Stretch space between slides (in px)
+                        depth: 100, // Depth offset in px (slides translate in Z axis)
+                        modifier: 1, // Effect multipler
+                        slideShadows: false, // Enables slides shadows
+                    },
+                    // autoplay: {
+                    //     delay: 3000,
+                    // },
+                    navigation: {
+                        nextEl: '.sk-next',
+                        prevEl: '.sk-prev',
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    //     clickable: true,
+                    // },
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        991: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+
+                        },
+                        767: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        }
+                    },
+                    onClick: (swiper, event) => {
+                        let div = swiper.clickedSlide; //slide that was clicked
+                    }
+                });
 
             function hideNonVisibleDivs() {
              var i, div;

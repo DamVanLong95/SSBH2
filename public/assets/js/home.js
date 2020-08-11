@@ -19,7 +19,6 @@
             ele.slideCustomer = '.swiper-customer';
             ele.slidePartner = '.swiper-partner';
             ele.slideKnowledge = '.swiper-knowledge';
-            ele.slideTreatment1 = '.swiper-treatment1';
             ele.slideTreatment2 = '.swiper-treatment2';
             ele.slideTreatment3 = '.swiper-treatment3';
             ele.slideBanner = '.swiper-banner';
@@ -219,138 +218,8 @@
                         }
                     }
                 });
-                var swipertreat1 = new Swiper(ele.slideTreatment1, {
-                    slidesPerView: 3,
-                    spaceBetween: 100,
-                    effect: 'coverflow',
-                    loop: true,
-                    Centeredslides: true, // set the slide to center
-                    coverflowEffect: {
-                        rotate: 0, // Slide rotate in degrees
-                        stretch: 0, // Stretch space between slides (in px)
-                        depth: 100, // Depth offset in px (slides translate in Z axis)
-                        modifier: 1, // Effect multipler
-                        slideShadows: false, // Enables slides shadows
-                    },
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
-                var swipertreat2 = new Swiper(ele.slideTreatment2, {
-                    slidesPerView: 3,
-                    spaceBetween: 100,
-                    effect: 'coverflow',
-                    Centeredslides: true, // set the slide to center
-                    loop: true,
-                    coverflowEffect: {
-                        rotate: 0, // Slide rotate in degrees
-                        stretch: 0, // Stretch space between slides (in px)
-                        depth: 100, // Depth offset in px (slides translate in Z axis)
-                        modifier: 1, // Effect multipler
-                        slideShadows: false, // Enables slides shadows
-                    },
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
-                var swipertreat3 = new Swiper(ele.slideTreatment3, {
-                    slidesPerView: 3,
-                    spaceBetween: 100,
-                    effect: 'coverflow',
-                    loop: true,
-                    Centeredslides: true, // set the slide to center
-                    coverflowEffect: {
-                        rotate: 0, // Slide rotate in degrees
-                        stretch: 0, // Stretch space between slides (in px)
-                        depth: 100, // Depth offset in px (slides translate in Z axis)
-                        modifier: 1, // Effect multipler
-                        slideShadows: false, // Enables slides shadows
-                    },
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    }
-                });
+               
+              
                 var swiper7 = new Swiper(ele.slideSk, {
                     slidesPerView: 3,
                     spaceBetween: 30,
@@ -358,8 +227,8 @@
                     //     delay: 3000,
                     // },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.sk-next',
+                        prevEl: '.sk-prev',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
