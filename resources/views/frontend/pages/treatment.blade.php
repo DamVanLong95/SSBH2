@@ -35,7 +35,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div id="slideTreatment" class="swiper-container swiper-treatment">
+                                        <div id="slideTreatment" class="swiper-container swiper-treatment1">
                                             <div class="swiper-wrapper uudai-slide">
                                                 @foreach($data['xe'] as $value)
                                                     <div class="swiper-slide slide-item parent">
@@ -56,9 +56,9 @@
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev sk-pre1">
+                                            <div class="swiper-button-prev ">
                                             </div>
-                                            <div class="swiper-button-next sk-next1">
+                                            <div class="swiper-button-next ">
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div id="" class="swiper-container swiper-treatments">
+                                        <div id="" class="swiper-container swiper-treatment2">
                                             <div class="swiper-wrapper uudai-slide">
                                               @foreach($data['nhantho'] as $value)
                                                     <div class="swiper-slide slide-item parent2">
@@ -110,9 +110,9 @@
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev nt-prev ">
+                                            <div class="swiper-button-prev">
                                             </div>
-                                            <div class="swiper-button-next nt-next">
+                                            <div class="swiper-button-next">
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div id="" class="swiper-container swiper-sk ">
+                                        <div id="" class="swiper-container swiper-treatment3 ">
                                             <div class="swiper-wrapper uudai-slide">
                                             @foreach($data['suckhoe'] as $value)
                                               <div class="swiper-slide slide-item parent3">
@@ -164,9 +164,9 @@
                                             <!-- Add Arrows -->
                                         </div>
                                         <div class="arrow-ctn ">
-                                            <div class="swiper-button-prev sk-prev">
+                                            <div class="swiper-button-prev">
                                             </div>
-                                            <div class="swiper-button-next sk-next">
+                                            <div class="swiper-button-next">
                                             </div>
                                         </div>
                                     </div>
