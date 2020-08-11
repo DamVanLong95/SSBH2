@@ -367,7 +367,11 @@
                                     </tr>
                                     @for($i =36; $i < 48 ; $i++)
                                     <tr class="data-detail">
-                                        <td><p class="ellipsis">{{$products[$i]['comparison']}}</p></td>
+                                        <td>
+                                            <span class="show-detail"><button value="{{$products[$i]['comparison']}}" onclick="showMore(this.value)">...</button></span></span>
+                                            <p class="ellipsis">{{Str::words($products[$i]['comparison'],15)}}</p>
+                                        
+                                        </td>
                                         <td></td>
                                     </tr>
                                     @endfor

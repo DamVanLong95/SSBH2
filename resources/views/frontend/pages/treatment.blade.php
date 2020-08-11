@@ -234,8 +234,9 @@
             }
             var visibleDivId = null;
             $('.showSingle').click(function(){
+                // console.log(this);
                 var divId = $(this).attr('value');
-                console.log(divId);
+                // console.log(divId);
                 if(visibleDivId === divId) {
                     visibleDivId = null;
                 } else {

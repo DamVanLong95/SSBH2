@@ -278,29 +278,39 @@ $(function() {
                                
                                    for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                   if(punishment.length >0){
-                                        if(punishment[i-69]['rate_star_ct']== 3)
-                                        {
-                                            tds.innerHTML =`<p class="ellipsis" value="3">`+punishment[i-69]['content']+`</p>`+`
-                                                        <div class="star-td">
-                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                            </div> `;
-                                        }else if(punishment[i-69]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis" value="5">`+punishment[i-69]['content']+`</p>`+`
-                                                        <div class="star-td">
-                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                            </div> `;
-                                        
-                                        }else if(punishment[i-69]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis" value="2">`+punishment[i-69]['content']+`</p>`+`
-                                                        <div class="star-td">
-                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                            </div> `;
+                                    var str = punishment[i-69]['content'];
+                                    if(punishment.length >0){
+                                            if(punishment[i-69]['rate_star_ct']== 3)
+                                            {
+                                                if(str.length > 120){
+                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                    <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                                </div> `;
+                                                }else{
+                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                                </div> `;
+                                                }
+                                               
+                                            }else if(punishment[i-69]['rate_star_ct']== 5){
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                                </div> `;
+                                            
+                                            }else if(punishment[i-69]['rate_star_ct']== 2){
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                    <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                                </div> `;
+                                            }
+                                            // else{
+                                            //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
+                                            // }
                                         }
-                                        // else{
-                                        //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
-                                        // }
-                                    }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=91; i<115 ;i++){

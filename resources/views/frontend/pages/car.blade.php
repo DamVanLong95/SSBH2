@@ -324,8 +324,9 @@
                                     <tr class="data-detail ctai">
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_ct{{$value['id']}}"
-                                        name="checkbox_ct{{$value['id']}}" value="" data-id="{{$value['id']}}"   />
-                                            <label for="checkbox_ct{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['sanction']}}</p>
+                                        name="checkbox_ct{{$value['id']}}" value="" data-id="{{$value['id']}}"/>
+                                        <label for="checkbox2"> </label><span class="first-td"><p class="ellipsis">{{Str::words($value['sanction'],15)}}</p>
+                                            <span class="show-detail"><button value="{{$value['sanction']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -347,7 +348,8 @@
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_nv{{$value['id']}}" 
                                                     name="checkbox_nv{{$value['id']}}" value="" data-id="{{$value['id']}}"  />
-                                            <label for="checkbox_nv{{$value['id']}}"> </label> </label><span class="first-td">  <p class="ellipsis">{{$value['rules_owner']}}</p>
+                                            <label for="checkbox_nv{{$value['id']}}"> </label> </label><span class="first-td">  <p class="ellipsis">{{Str::words($value['rules_owner'],15)}}</p>
+                                            <span class="show-detail"><button value="{{$value['rules_owner']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
                                         <td></td>
                                     </tr>
