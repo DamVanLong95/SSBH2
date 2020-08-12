@@ -322,11 +322,20 @@
                           for(var i =6; i<10;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-6]){
-                                (longevities[i-6]['content']!=null)?  tds.innerHTML =  `<p class="ellipsis">`+longevities[i-6]['content']+`</p>`
-                                                            :tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                if(longevities[i-6]['content']!=null){
+                                    var str = longevities[i-6]['content'];
+                                    if(str.length > 75){
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                    }
+                                    
+                                } else{
+                                    tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                }
+                                                            
                             }
-                           
-                        }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
                         var index = row.rowIndex;
@@ -336,13 +345,13 @@
                             var tds =  myTable.rows[i].cells[indexCol];
                             if(longevities[i-6]){
                                 if(longevities[i-6]['content']!=null){
-                                var str = longevities[i-6]['content'];
-                                if(str.length > 75){
-                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
-                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
-                                }else{
-                                    tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
-                                }
+                                    var str = longevities[i-6]['content'];
+                                    if(str.length > 65){
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                                <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                    }else{
+                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                    }
                                 }else tds.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
                             }
                             
@@ -355,12 +364,20 @@
                         var row_lphi = lphi.rowIndex;
                          for(var i=row_lphi+1; i<ltbh.rowIndex ;i++){
                             var tds =  myTable.rows[i].cells[indexCol];
-                            if(longevities[i-10]){
-                                if(longevities[i-10]['content']!=null){
-                                    if(validURL(longevities[i-10]['content'])==true){
+                            if(longevities[i-9]){
+                                if(longevities[i-9]['content']!=null){
+                                    if(validURL(longevities[i-9]['content'])==true){
                                     tds.innerHTML = `<button onClick="clickLink()">Open Tab</button> <a id="link" href="`+longevities[i-5]['content']+`" target="_blank" hidden></a>`;
-                                    }else
-                                    tds.innerHTML =  '<p class="ellipsis" >'+longevities[i-10]['content']+'</p>';
+                                    }else{
+                                        var str = longevities[i-9]['content'];
+                                        if(str.length > 75 ){
+                                            tds.innerHTML =  '<p class="ellipsis" >'+str+'</p>'+`
+                                            <br><span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                        }else{
+                                            tds.innerHTML =  '<p class="ellipsis" >'+str+'</p>';
+                                        }
+                                    }
+                                    
                                 }
                             }
                          }
@@ -374,7 +391,7 @@
                                 if(longevities[i-10]['content']!=null){
                                     var str = longevities[i-10]['content'];
                                     if(str.length > 75){
-                                        tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`+`
+                                        tds.innerHTML =  `<p class="ellipsis">`+cutString(str,20)+`</p>`+`
                                                 <span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
                                     }else{
                                         tds.innerHTML =  `<p class="ellipsis">`+str+`</p>`;

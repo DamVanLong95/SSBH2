@@ -12,7 +12,7 @@
       @foreach($result['product_name'] as $name)
       <th style="text-align:center;">
       
-        <label value="{{$name['product_longevity_id']}}">{{$name->product_longevity_name}}</label><br>
+        <label value="{{$name['product_longevity_id']}}" data-title ="{{$name->product_longevity_name}}">{{$name->product_longevity_name}}</label><br>
         <select class="spbt" id="dropdown-popup" style="color: #0d723b;
                             font-family: UTM_Helve;
                             line-height: 28px;
@@ -58,13 +58,16 @@ $(document).ready(function(){
             selector.show();
               var indexCol = ($(this).parent().index());
               var value    = $(this).val();
+              var title    = $(this).parent().find('label').data('title');
+              // console.log(title);
               var url = '{{route('showProduct')}}';
               var product_id = $(this).parent().find('label')[0].getAttribute("value");
               $.post(url,
               {
                 "_token": "{{ csrf_token() }}", 
                   product_name:value,
-                  product_id:product_id
+                  product_id:product_id,
+                  title:title
               }
               ,function(data,status){
                 if(data.status == 'success'){

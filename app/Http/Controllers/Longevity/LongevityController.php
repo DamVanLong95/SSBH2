@@ -241,12 +241,18 @@ class LongevityController extends Controller
         ]);
     }
     public function showProduct(Request $request){
+
         $product_name = $request->get('product_name');
         $product_id   = $request->get('product_id');
-        $benifits  = Benifit::where('product_more_name','LIKE', "%$product_name%")
+        $title        = $request->get('title');
+
+        $benifits  = Benifit::where('product_more_name','=', $product_name)
                     ->where('product_longevity_id',$product_id)
                     ->get();
-        // dd($benifits);
+
+        $benifits = $benifits->filter(function($value, $key) use ($title){
+            return strcmp($value['product_longevity_name'],$title)== 0;
+        })->values();
         return response()->json([
             'status' => 'success',
             'benifits' => $benifits
@@ -295,6 +301,7 @@ class LongevityController extends Controller
             'html' => $html
         ]);
     }
+    // acction for list sick
     public function sickShow(Request $request){
         // dd($request->all());
         $group_sick_id          = $request->get('group_sick');
