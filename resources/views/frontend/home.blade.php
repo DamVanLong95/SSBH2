@@ -215,9 +215,9 @@
                             
                         </div>
                         <div class="arrow-ctn ">
-                            <div class="swiper-button-prev">
+                            <div class="swiper-button-next know-next">
                             </div>
-                            <div class="swiper-button-next">
+                            <div class="swiper-button-prev know-prev">
                             </div>
                         </div>
                     </div>
@@ -257,9 +257,9 @@
                         <!-- Add Arrows -->
                     </div>
                     <div class="arrow-ctn ">
-                        <div class="swiper-button-prev">
+                        <div class="swiper-button-next partner-next">
                         </div>
-                        <div class="swiper-button-next">
+                        <div class="swiper-button-prev partner-prev">
                         </div>
                     </div>
                 </div>

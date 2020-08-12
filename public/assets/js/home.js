@@ -76,8 +76,8 @@
                         delay: 3000,
                     },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.partner-next',
+                        prevEl: '.partner-prev',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
@@ -156,8 +156,8 @@
                     //     delay: 3000,
                     // },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.know-next ',
+                        prevEl: '.know-prev',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
@@ -191,8 +191,8 @@
                         delay: 6000,
                     },
                     navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        nextEl: '.swiper-button-next know-next',
+                        prevEl: '.swiper-button-prev know-prev',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
@@ -218,8 +218,8 @@
                         }
                     }
                 });
-               
-              
+
+
                 var swiper7 = new Swiper(ele.slideSk, {
                     slidesPerView: 3,
                     spaceBetween: 30,

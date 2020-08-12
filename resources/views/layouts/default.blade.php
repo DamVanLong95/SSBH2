@@ -90,7 +90,7 @@
                         <li @if(request()->is('/')) class="active" @endif >
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                         </li>
-                        <li @if(request()->is('intro') || request()->is('detail')) class="active" @endif>
+                        <li @if(request()->is('intro') || request()->is('detail')|| request()->is('reason')|| request()->is('principal')|| request()->is('term')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
                         </li>
                         <!-- <li >
@@ -122,13 +122,13 @@
                 </div>
                 <div class=" d-flex w-100 dual-collapse2 order-2 order-md-2">
                     <ul class="right-nav navbar-nav mr-auto text-center">
-                        <li @if(request()->is('pages/car')) class="active" @endif class="nav-item">
+                        <li @if(request()->is('treatment')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
                         </li>
-                        <li class="nav-item">
+                        <li  @if(request()->is('question')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/question') }}">KIẾN THỨC</a>
                         </li>
-                        <li class="nav-item">
+                        <li @if(request()->is('contact')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/contact') }}">KẾT NỐI TƯ VẤN VIÊN</a>
                         </li>
                     </ul>

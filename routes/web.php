@@ -55,15 +55,11 @@ Route::get('/blog4', function () {
     return view('frontend.pages.blog4');
 });
 // =====================================contact=================================
-Route::get('/contact', function () {
-    return view('frontend.pages.contact');
-});
+Route::view('/contact','frontend.pages.contact');
 // =====================================ưu đãi preferential treatment=================================
 Route::get('/treatment', 'HController@treatments');
 // =====================================Question=================================
-Route::get('/question', function () {
-    return view('frontend.pages.question');
-});
+Route::view('/question','frontend.pages.question');
 // =====================================Health=================================
 Route::get('/health','Health\HealthController@index')->name('health.index');
 Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');
