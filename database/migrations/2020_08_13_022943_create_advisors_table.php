@@ -20,10 +20,11 @@ class CreateAdvisorsTable extends Migration
             $table->string('address')->nullable();
             $table->string('working_process')->nullable();
             $table->string('work')->nullable();
-            $table->string('major')->nullable();
+            $table->tinyInteger('major')->default(0);
             $table->string('area')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->text('note')->nullable();
             $table->timestamps();
         });

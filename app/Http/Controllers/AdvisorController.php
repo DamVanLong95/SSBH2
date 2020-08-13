@@ -64,7 +64,9 @@ class AdvisorController extends Controller
             unset($data['file']);
         }
             $data['avatar'] =  isset($path)? $path:null;
+            $data['status'] =  isset($data['status']) ? 1: 0;
             DB::beginTransaction();
+            // dd($data);
             try{
                 $tvv = new Advisor;
                 $save = $tvv::create($data);
@@ -116,6 +118,11 @@ class AdvisorController extends Controller
             unset($data['file']);
         }
             $data['avatar'] =  isset($path)? $path:$tvv->avatar;
+            if(isset($data['status'])){
+                $data['status'] = ($data['status']== "on" ) ? 1 : 0;
+            }else{
+                $data['status'] = 0;
+            }
             DB::beginTransaction();
             try{
                 unset($data['_method']);
