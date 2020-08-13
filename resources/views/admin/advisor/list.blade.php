@@ -1,35 +1,19 @@
 @extends('admin.layouts.master')
-@section('styles')
-<style>
-#loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 200px;
-    height: 200px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-    margin-left: 250px;
-    margin-top: 250px;
-}
-
-</style>
-
-@endsection
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Basic Datatable</h5>
-            <a type="button" href="{{route('treatment.create')}}" class="btn btn-success btn-lg" >Add new</a>
+            <h5 class="card-title">Quản lý tư vấn viên</h5>
+            <a type="button" href="{{route('advisor.create')}}" class="btn btn-success btn-lg" >Thêm mới</a>
             <div class="table-responsive">
-                <table  class="table table-striped table-bordered" id="treatment_table">
+                <table  class="display table  " cellspacing="0" width="100%" id="advisor">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th><h4>Tiêu đề</h4></th>
+                        <th><h4>Họ và tên</h4></th>
                         <th><h4>Avatar</h4></th>
-                        <th><h4>Avatar cover</h4></th>
-                        <th><h4>Loai bảo hiểm</h4></th>
+                        <th><h4>Email</h4></th>
+                        <th><h4>Công việc</h4></th>
+                        <th><h4>Quá trình công tác</h4></th>
                         <th><h4>Action</h4></th>
                     </tr>
                     </thead>
@@ -62,49 +46,50 @@
 @push('scripts')
     <script type="text/javascript">
         $( document ).ready(function() {
-            $('#treatment_table').dataTable({
-                processing: true,
-                language: {
-                    processing: "<div id='loader'>Nghẽn mạng!</div>"
-                },
-                serverSide: true,
+            $('#advisor').dataTable({
+                "processing": true,
+                "serverSide": true,
+                "searching": true, 
                     ajax      :{
-                        url:"{{route('treatment.datatable')}}",
+                        url:"{{route('advisors.datatable')}}",
                     },
                     columns: [
                         {data: 'id', name: 'id'},
-                        {data: 'title', name: 'title'},
-                        {data:'slide',name:'slide'},
-                        {data: 'img_detail', name: 'img_detail'},
-                        {data: 'type', name: 'type'},
+                        {data: 'fullname', name: 'fullname'},
+                        {data: 'avatar', name: 'avatar'},
+                        {data:'email',name:'email'},
+                        {data: 'work', name: 'work'},
+                        {data: 'working_process', name: 'working_process'},
                         {data:'action', name:'action',orderable: false, searchable: false},
                     ],
                     "order": [[1, 'asc']]
-                });
             });
-             ///XOA RECORD
+        });
+        ///XOA RECORD
         $(document).on('click','.delete',function(){
             var emp_id = $(this).data('id');
           
             $('#formModal').modal('show');
             $('#ok_button').on('click',function(){
+                var url = "{{route('advisor.destroy', ['id' => ''])}}/"+emp_id;
                 $.ajax({
                     headers: {
                         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url:"{{route('treatment.destroy')}}/ "+emp_id ,
-                    method: 'POST', 
+                    url:url ,
+                    method: 'DELETE', 
                     success:function(data)
                     {
                         setTimeout(function(){
                             $('#formModal').modal('hide');
-                            $('#treatment_table').DataTable().ajax.reload();
+                            $('#advisor').DataTable().ajax.reload();
                         }, 100);
                     }
 
                 });
             });
         });
+
     </script>
 
 @endpush

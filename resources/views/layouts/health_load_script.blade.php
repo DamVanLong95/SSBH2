@@ -472,9 +472,13 @@ $(function() {
                                 var pvlt   = document.getElementById('pvlt');
                     
                                 var tds =  myTable.rows[pvlt.rowIndex+1].cells[indexCol]; 
-                                (!scope)? tds.innerHTML = `<p class="ellipsis"></p>`
-                                                :tds.innerHTML = `<p class="ellipsis">`+scope['content']+`</p>`;
-                            
+                                if(scope){
+                                    if(scope['content']!=null){
+                                        tds.innerHTML = `<p class="ellipsis">`+scope['content']+`</p>`;
+                                    }else{
+                                        tds.innerHTML = `<p class="ellipsis"></p>`
+                                    }
+                                }
                                 //========================quyen loi bao hiem========================
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];

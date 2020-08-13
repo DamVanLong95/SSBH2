@@ -82,6 +82,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
+    //==========================Advisor==============================================
+    Route::resource('advisor','AdvisorController',['except' => 'show']);
+    Route::get('getAdvisor','AdvisorController@getData')->name('advisors.datatable');
 
     //==========================Treatment=============================================
 
@@ -90,6 +93,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::get('treatment','Admin\TreatmentController@create')->name('treatment.create');
     Route::get('treatment/edit/{id?}','Admin\TreatmentController@edit')->name('treatment.edit');
     Route::post('treatment/update/{id?}','Admin\TreatmentController@update')->name('treatment.update');
+    Route::post('treatment/destroy/{id?}','Admin\TreatmentController@destroy')->name('treatment.destroy');
     Route::post('treatment/post','Admin\TreatmentController@store')->name('treatment.store');
     Route::resource('posts','Admin\PostController',['except'=>'show']);
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');

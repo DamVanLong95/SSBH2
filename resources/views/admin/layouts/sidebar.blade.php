@@ -5,17 +5,9 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Posts </span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="{{route('posts.index')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Danh sach </span></a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Company </span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="{{route('excel.company')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Company Table </span></a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Car </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('posts.index')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Posts</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('excel.company')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Doanh nghiệp</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Trang xe </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="{{route('indexBrand.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Brand(hang xe) </span></a></li>
                         <li class="sidebar-item"><a href="{{route('indexBrandCate.import')}}" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu">Brand Cate </span></a></li>
@@ -45,7 +37,8 @@
                         <li class="sidebar-item"><a href="{{route('indexExclusion.import')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Điều khoản loại trừ</span></a></li>
                     </ul>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('treatment.index')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Treatment</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('treatment.index')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Ưu đãi</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('advisor.index')}}" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Trang tư vấn viên</span></a></li>
                 </li>
             </ul>
         </nav>

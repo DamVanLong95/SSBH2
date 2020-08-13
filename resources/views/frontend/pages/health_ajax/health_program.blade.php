@@ -15,7 +15,7 @@
  </form>
 </div>
 <div class="count-rank-ctn">
-    <div class="mark-num"><p><span class="first-span" >8</span>/<span>10</span></p></div>
+    <div class="mark-num"><p><span class="first-span" >10</span>/<span>10</span></p></div>
         <div class="service">
             <img src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}"alt="">
             <img src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}"alt="">

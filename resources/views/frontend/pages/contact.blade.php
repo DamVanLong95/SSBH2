@@ -30,7 +30,7 @@
                     <div class="select-ctn">
                         <div class="selection-box">
                             <div class=" item select">
-                                <select aria-label="Select menu example">
+                                <select aria-label="Select menu example" class="congviec">
                                     <option selected>Công việc</option>
                                     <option value="1">Đại lý</option>
                                     <option value="2">Tư vấn viên</option>
@@ -38,7 +38,7 @@
                                 </select>
                             </div>
                             <div class="item select">
-                                <select aria-label="Select menu example">
+                                <select aria-label="Select menu example" class="hoatdong">
                                     <option selected>Lĩnh vực hoạt động</option>
                                     <option value="1">Nhân thọ</option>
                                     <option value="2">Phi nhân thọ</option>
@@ -46,7 +46,7 @@
                                 </select>
                             </div>
                             <div class="item select">
-                                <select aria-label="Select menu example">
+                                <select aria-label="Select menu example" class="browser-default custom-select khuvuc">
                                     <option selected>Khu vực</option>
                                     <option value="An Giang">An Giang
                                     <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
@@ -534,4 +534,17 @@
 
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".khuvuc").select2({
+
+            });
+            $(".hoatdong").select2({
+
+            });
+            $(".congviec").select2({
+
+            })
+        })
+    </script>
 @stop

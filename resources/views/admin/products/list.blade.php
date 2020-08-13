@@ -6,7 +6,7 @@
             <a type="button" href="{{route('product.create')}}" class="btn btn-success btn-lg" >Add new</a>
            {{--<a class="btn btn-warning" href="{{ route('product.export') }}">Export data</a> --}}  
             <div class="table-responsive">
-                <table  class="table table-striped table-bordered" id="product_table">
+                <table  class="table " id="product_table">
                     <thead>
                     <tr>
                         <th>#</th>

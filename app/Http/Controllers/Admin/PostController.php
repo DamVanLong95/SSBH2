@@ -117,6 +117,7 @@ class PostController extends Controller
         $post->posted_at    = now();
         $post->avatar       = isset($path) ? $path: $post->avatar;;
         $post->save();
+        
         $notification = array(
             'message' => 'update successfully!',
             'alert-type' => 'success'

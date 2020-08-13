@@ -42,7 +42,7 @@ class TreatmentController extends Controller
             })
             ->addColumn('action', function ($treatment) {
                 return '<a href="'.route('treatment.edit', $treatment->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                        ';
+                <a href="javascript:void(0)" data-id="' . $treatment->id . '" class="delete btn btn btn-orange btn-delete"><i class="fa fa-times"></i> Delete</a>';
 
             })
            
@@ -79,7 +79,6 @@ class TreatmentController extends Controller
             // dd($data);
             $save = $product::create($data);
             if(!$save){
-                // $save = $product::create($data);
                 Storage::delete($path);
             }
         $notification = array(
@@ -128,6 +127,18 @@ class TreatmentController extends Controller
         );
         return redirect()->route('treatment.index')->with($notification);
 
+    }
+    public function destroy($id)
+    {
+        $treatment = Treatment::findorFail($id);
+        if($treatment){
+            $treatment->delete();
+            Storage::delete('public/'.$treatment->slide);
+            Storage::delete('public/'.$treatment->img_detail);
+        } else{
+            return response()->json(error);
+        }
+        return response()->json(['message'=>'deleted','alert-type'=>'success']);
     }
     
 }
