@@ -55,7 +55,11 @@ Route::get('/blog4', function () {
     return view('frontend.pages.blog4');
 });
 // =====================================contact=================================
-Route::view('/contact','frontend.pages.contact');
+// Route::view('/contact','frontend.pages.contact');
+Route::get('/contact','ContactController@index');
+Route::post('/search/working','ContactController@searchWorking')->name('search.working');
+Route::post('/search/major','ContactController@searchMajor')->name('search.major');
+Route::post('/search/area','ContactController@searchArea')->name('search.area');
 // =====================================ưu đãi preferential treatment=================================
 Route::get('/treatment', 'HController@treatments');
 // =====================================Question=================================
