@@ -688,7 +688,7 @@
             tr.data-detail {
                 td:first-child {
                     // width: 50%;
-                    p.ellipsis{
+                    p.ellipsis {
                         text-align: left;
                         top: 0;
                         bottom: 0;
@@ -697,7 +697,7 @@
                         transform: translateY(10px);
                         width: 80%;
                     }
-                    label{
+                    label {
                         top: 0;
                         bottom: 0;
                         margin: auto;
@@ -721,7 +721,7 @@
                         }
                     }
                     // white-space: nowrap;
-                    overflow: hidden;
+                    // overflow: hidden;
                     text-overflow: ellipsis;
                     .tick-td {
                         text-align: center;
@@ -828,9 +828,10 @@
                     }
                     span.show-detail {
                         right: 0;
+                        // position: relative;
                         float: right;
                         button {
-                            right: -12px;
+                            right: 0px;
                             float: right;
                             position: absolute;
                             top: 10px;

@@ -31,7 +31,6 @@
 //         // border-right: none;
 //     }
 // }
-
 tr.price-discount {
     td {
         background-color: #fff;
@@ -65,8 +64,9 @@ tr.price-discount {
         // width: 160px;
         // }
     }
- }
- @media (min-width: 320px) {
+}
+
+@media (min-width: 320px) {
     .table-scroll th,
     .table-scroll td {
         padding: 5px 10px;
@@ -109,7 +109,6 @@ tr.price-discount {
         background-color: #f5f5f5;
     }
     .sub-ctn3 td {
- 
         position: relative;
         top: 0px;
         z-index: 8 !important;
@@ -136,13 +135,16 @@ tr.price-discount {
         top: 0px;
         z-index: 0 !important;
         @media (max-width: 1024px) {
-            top: 266px;
+            top: 0px;
         }
         @media (max-width: 991px) {
             top: 264px;
         }
         @media (max-width: 768px) {
-            top: 359px;
+            top: 0px;
+        }
+        @media (max-width: 601px) {
+            top: 0px;
         }
     }
     .green1 {
@@ -167,9 +169,8 @@ tr.price-discount {
             }
         }
     }
-    thead th:first-child, tfoot th:first-child{
+    thead th:first-child,
+    tfoot th:first-child {
         z-index: 30 !important;
     }
- }
- 
- 
+}
