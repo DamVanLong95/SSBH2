@@ -120,7 +120,7 @@ tr.price-discount td:first-child {
 
 @media (min-width: 320px) and (max-width: 1024px) {
   .sub-ctn5 td {
-    top: 266px;
+    top: 0px;
   }
 }
 
@@ -132,7 +132,13 @@ tr.price-discount td:first-child {
 
 @media (min-width: 320px) and (max-width: 768px) {
   .sub-ctn5 td {
-    top: 359px;
+    top: 0px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 601px) {
+  .sub-ctn5 td {
+    top: 0px;
   }
 }
 
@@ -157,7 +163,8 @@ tr.price-discount td:first-child {
   thead .top-head th {
     z-index: 30;
   }
-  thead th:first-child, tfoot th:first-child {
+  thead th:first-child,
+  tfoot th:first-child {
     z-index: 30 !important;
   }
 }

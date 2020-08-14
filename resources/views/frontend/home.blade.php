@@ -73,10 +73,10 @@
                         </div>
                         <!-- Add Arrows -->
                         <div class="arrow-ctn ">
-                            <div class="swiper-button-prev">
+                            <div class="swiper-button-prev swip-prev">
                                
                             </div>
-                            <div class="swiper-button-next">
+                            <div class="swiper-button-next swip-next">
                                
                             </div>
                         </div>

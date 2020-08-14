@@ -156,8 +156,8 @@
                     //     delay: 3000,
                     // },
                     navigation: {
-                        nextEl: '.know-next ',
-                        prevEl: '.know-prev',
+                        nextEl: '.swip-next ',
+                        prevEl: '.swip-prev',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
@@ -191,8 +191,8 @@
                         delay: 6000,
                     },
                     navigation: {
-                        nextEl: '.swiper-button-next know-next',
-                        prevEl: '.swiper-button-prev know-prev',
+                        nextEl: '.know-next',
+                        prevEl: '.know-prev',
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
