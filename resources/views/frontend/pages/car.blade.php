@@ -256,7 +256,7 @@
                                     <tr class="data-detail term">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{isset($value['rate_fee'])? $value['rate_fee']:0}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
-                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
+                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p  >{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
                                             
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                         </td>
@@ -272,7 +272,7 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox2" 
                                                     name="checkbox2" value="" data-id=""   />
-                                        <label for="checkbox2"> </label> </label><span class="first-td"><p class="ellipsis">{{$dedutible_data[0]['deductible']??""}}</p>
+                                        <label for="checkbox2"> </label> </label><span class="first-td"><p  >{{$dedutible_data[0]['deductible']??""}}</p>
                                             <span class="show-detail"><button value="{{$dedutible_data[0]['deductible']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
                                         <td></td>
@@ -298,7 +298,7 @@
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_lt{{$value['id']}}" 
                                                     name="checkbox_lt{{$value['id']}}" value="{{$value['rate_fee_dklt']}}" data-id="{{$value['id']}}"  />
-                                            <label for="checkbox_lt{{$value['id']}}"> </label> </label><span class="first-td"><p class="ellipsis">{{$value['exception']}}</p>
+                                            <label for="checkbox_lt{{$value['id']}}"> </label> </label><span class="first-td"><p  >{{$value['exception']}}</p>
                                             <span class="show-detail"><button value="{{$value['exception']}}" onclick="show(this.value)">...</button></span></span>
                                             <label class="drop" for="" style="display:none" id="dklt{{$value['id']}}">{{isset($value['rate_fee_dklt'])?$value['rate_fee_dklt']:0}}% phí</label>
                                         </td>
@@ -325,7 +325,7 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_ct{{$value['id']}}"
                                         name="checkbox_ct{{$value['id']}}" value="" data-id="{{$value['id']}}"/>
-                                        <label for="checkbox2"> </label><span class="first-td"><p class="ellipsis">{{Str::words($value['sanction'],15)}}</p>
+                                        <label for="checkbox2"> </label><span class="first-td"><p  >{{Str::words($value['sanction'],15)}}</p>
                                             <span class="show-detail"><button value="{{$value['sanction']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
                                         <td></td>
@@ -348,7 +348,7 @@
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_nv{{$value['id']}}" 
                                                     name="checkbox_nv{{$value['id']}}" value="" data-id="{{$value['id']}}"  />
-                                            <label for="checkbox_nv{{$value['id']}}"> </label> </label><span class="first-td">  <p class="ellipsis">{{Str::words($value['rules_owner'],15)}}</p>
+                                            <label for="checkbox_nv{{$value['id']}}"> </label> </label><span class="first-td">  <p  >{{Str::words($value['rules_owner'],15)}}</p>
                                             <span class="show-detail"><button value="{{$value['rules_owner']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
                                         <td></td>
@@ -364,7 +364,7 @@
                                     </tr>
                                     @foreach($finances as $value)
                                     <tr class="data-detail nltc" >
-                                        <td><p class="ellipsis">{{$value['finance']}}</p></td>
+                                        <td><p  >{{$value['finance']}}</p></td>
                                         <td></td>
                                     </tr>
                                     @endforeach
@@ -397,11 +397,11 @@
                                         <td  colspan="2" class="green_header">Mô hình GQBT</td>
                                     </tr>
                                     <tr class="data-detail">
-                                        <td><p class="ellipsis">Tập trung</p></td>
+                                        <td><p  >Tập trung</p></td>
                                         <td></td>
                                     </tr>
                                     <tr class="data-detail">
-                                        <td><p class="ellipsis">Không tập trung</p></td>
+                                        <td><p  >Không tập trung</p></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
