@@ -73,7 +73,7 @@ class AdvisorController extends Controller
                 DB::commit();
             }catch (\Exception $e){
                 DB::rollback();
-                throw $e;
+                throw new Exception($e->getMessage());
             }
         $notification = array(
             'message' => 'add new successfully!',

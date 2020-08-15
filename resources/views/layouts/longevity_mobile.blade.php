@@ -308,7 +308,7 @@
                         var path_mess = `{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}`;
                         tds.innerHTML = `
                             <div class="count-rank-ctn" >
-                                <div class="mark-num"><p><span class="first-span" >`+8+`</span>/<span>10</span></p></div>
+                                <div class="mark-num"><p><span class="first-span" >`+10+`</span>/<span>10</span></p></div>
                                 <div class="service">
                                     <img src="`+path_camera+`"alt="">
                                     <img src="`+path_phone+`"alt="">

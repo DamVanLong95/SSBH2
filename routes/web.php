@@ -45,15 +45,7 @@ Route::view('/term','frontend.pages.term');
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
-Route::get('/blog2', function () {
-    return view('frontend.pages.blog2');
-});
-Route::get('/blog3', function () {
-    return view('frontend.pages.blog3');
-});
-Route::get('/blog4', function () {
-    return view('frontend.pages.blog4');
-});
+Route::get('/blog/{id}/{slug}','QuestionController@showBlog')->name('blog.show');
 // =====================================contact=================================
 // Route::view('/contact','frontend.pages.contact');
 Route::get('/contact','ContactController@index');
@@ -63,7 +55,8 @@ Route::post('/search/area','ContactController@searchArea')->name('search.area');
 // =====================================ưu đãi preferential treatment=================================
 Route::get('/treatment', 'HController@treatments');
 // =====================================Question=================================
-Route::view('/question','frontend.pages.question');
+// Route::view('/kien-thuc','frontend.pages.question');
+Route::get('/kien-thuc','QuestionController@index')->name('question.index');
 // =====================================Health=================================
 Route::get('/health','Health\HealthController@index')->name('health.index');
 Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');
@@ -99,7 +92,8 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('treatment/update/{id?}','Admin\TreatmentController@update')->name('treatment.update');
     Route::post('treatment/destroy/{id?}','Admin\TreatmentController@destroy')->name('treatment.destroy');
     Route::post('treatment/post','Admin\TreatmentController@store')->name('treatment.store');
-    Route::resource('posts','Admin\PostController',['except'=>'show']);
+    Route::resource('posts','Admin\PostController',['except' =>'show']);
+    Route::get('posts/{id}/{slug}','Admin\PostController@show')->name('posts.show');
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
     Route::resource('product','Admin\ProductController',['except' =>'show']);
     Route::get('getIndex','Admin\ProductController@getIndex')->name('products.datatable');

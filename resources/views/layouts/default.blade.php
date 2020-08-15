@@ -127,8 +127,8 @@
                         <li @if(request()->is('treatment')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
                         </li>
-                        <li  @if(request()->is('question')) class="active" @endif>
-                            <a class="nav-link" href="{{ url('/question') }}">KIẾN THỨC</a>
+                        <li  @if(request()->is('cau-hoi')) class="active" @endif>
+                            <a class="nav-link" href="{{ url('/kien-thuc') }}">KIẾN THỨC</a>
                         </li>
                         <li @if(request()->is('contact')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/contact') }}">KẾT NỐI TƯ VẤN VIÊN</a>
@@ -285,17 +285,17 @@
              });
     </script>
    <script>
-        function killCopy(e){
-            return false
-        }
-        function reEnable(){
-            return true
-        }
-        document.onselectstart = new Function ("return false")
-        if (window.sidebar){
-            document.onmousedown=killCopy
-            document.onclick=reEnable
-        }
+        // function killCopy(e){
+        //     return false
+        // }
+        // function reEnable(){
+        //     return true
+        // }
+        // document.onselectstart = new Function ("return false")
+        // if (window.sidebar){
+        //     document.onmousedown=killCopy
+        //     document.onclick=reEnable
+        // }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="{{ url('assets/js/custom.js?'.config('custom.version')) }}"></script>

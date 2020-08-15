@@ -19,14 +19,19 @@ class PostController extends Controller
     public function index(){
         return view('admin.posts.list');
     }
+    public function show($id){
+       $post =Post::find($id);
+    //    dd($post);
+        return view('admin.posts.show',compact('post'));
+    }
     public function getData( Request $request){
        
-        $posts = DB::table('posts')->select([ 'id','title', 'content', 'created_at','is_published','author_id','avatar']);
+        $posts = DB::table('posts')->select([ 'id','title', 'slug','content', 'created_at','is_published','author_id','avatar']);
         
         return Datatables::of($posts)
             ->editColumn('avatar', function ($post) {
                 $path = asset('storage/'.$post->avatar);
-                return '<img src="' .$path . '" alt="" class="img-circle ">';
+                return '<img src="' .$path . '" alt="" class="img-circle " style="width:150px">';
             })
             ->editColumn('author_id', function($post){
                 $post = Post::find($post->id);
@@ -36,8 +41,9 @@ class PostController extends Controller
                 return '<a href="">'.$post->title.'</a>';
             })
             ->addColumn('action', function ($post) {
-                return '<a href="'.route('posts.edit', $post->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                        <a href="javascript:void(0)" data-id="' . $post->id . '" class="delete btn btn btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
+                return '<a href="'.route('posts.edit', $post->id).'" class="edit btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                <a href="'.route('posts.show', ['id'=>$post->id,'slug'=>$post->slug]).'" class="edit btn btn-sm btn-orange"><i class="glyphicon glyphicon-show"></i> Show</a>
+                        <a href="javascript:void(0)" data-id="' . $post->id . '" class="delete btn btn-sm btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
 
             })
             ->editColumn('id', 'ID: {{$id}}')
@@ -51,7 +57,7 @@ class PostController extends Controller
                 return Carbon::parse($post->created_at)->diffForHumans();
             })
             ->editColumn('content',function($post){
-                return Str::words($post->content, 10, '...');
+                return \Str::limit(strip_tags($post->content), 50, '...') ;
             })
             ->rawColumns(['action', 'is_published','title','avatar','checkbox'])
             ->make(true);
@@ -61,25 +67,31 @@ class PostController extends Controller
         return view('admin.posts.create',compact('users'));
     }
     public function store(PostRequest $request){
+        $data = $request->all();
+        unset($data['_token']);
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $ext = $file->getClientOriginalExtension();
             $filename  =  time().'.'.$ext;
             $path = $file->storeAs(
-                'avatar', Str::random(10).'_'.$filename,'public'
+                'post', Str::random(10).'_'.$filename,'public'
             );
         }
-            $data = $request->all();
-            $post = new Post;
-            $post->title        = $data['title'];
-            $post->author_id    = $data['author_id'];
-            $post->slug         = preg_replace('/\s+/', '-', $data['title']);
-            $post->description  = $data['description'];
-            $post->content      = $data['content'];
-            $post->is_published = $data['is_published'] == 'on' ? true: false;
-            $post->avatar       = isset($path)? $path:null;
-            $post->posted_at    = now();
-            $post->save();
+            $data['slug']   = preg_replace('/\s+/', '-', $data['title']);
+            $data['avatar'] = isset($path)? $path:null;
+            $data['is_published'] = 1;
+            $data['posted_at'] = now();
+            $data['author_id'] = \Auth::user()['id'];
+            // dd($data);
+            DB::beginTransaction();
+            try{
+                $post= Post::create($data);
+                DB::commit();
+            }catch(\Exception $ex){
+                DB::rollback();
+                throw new Exception($ex->getMessage());
+            }
+           
 
         $notification = array(
             'message' => 'add new post successfully!',
@@ -94,30 +106,36 @@ class PostController extends Controller
         return view('admin.posts.edit',compact(['users','post']));
     }
     public function update(Request $request,$id){
+        $data = $request->all();
+        unset($data['_token']);
+        $post = Post::find($request->input('id'));
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $ext = $file->getClientOriginalExtension();
             $filename  =  time().'.'.$ext;
             $path = $file->storeAs(
-                'avatar', Str::random(10).'_'.$filename,'public'
+                'post', Str::random(10).'_'.$filename,'public'
             );
+            $file_old ="public/". $post->avatar;
+            if(Storage::exists($file_old)) {
+                Storage::delete($file_old);
+            }
         }
-        $post = Post::find($request->get('id'));
-
-        $file_old ="public/". $post->avatar;
-        if(Storage::exists($file_old)) {
-            Storage::delete($file_old);
+        unset($data['_method']);
+        $data['slug']   = preg_replace('/\s+/', '-', $data['title']);
+        $data['is_published'] = 1;
+        $data['posted_at'] = now();
+        $data['author_id'] = \Auth::user()['id'];
+        $data['avatar']       = isset($path) ? $path: $post->avatar;;
+        DB::beginTransaction();
+        try{
+            $post->update($data);
+            DB::commit();
+        }catch(\Exception $ex){
+            DB::rollback();
+            throw new Exception($ex->getMessage());
         }
-        $post->author_id    = $request->get('author_id');
-        $post->title        = $request->get('title');
-        $post->description  = $request->get('description');
-        $post->content      = $request->get('content');
-        $post->slug         = preg_replace('/\s+/', '-', $request->get('title'));
-        $post->is_published = $request->get('is_published') == 'on' ? true: false;
-        $post->posted_at    = now();
-        $post->avatar       = isset($path) ? $path: $post->avatar;;
-        $post->save();
-        
+       
         $notification = array(
             'message' => 'update successfully!',
             'alert-type' => 'success'

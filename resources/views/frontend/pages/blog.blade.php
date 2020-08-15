@@ -25,22 +25,11 @@
     <div class="col-lg-8 offset-lg-2 col-xl-10 offset-xl-1">
         <div class="blog-ctn">
             <div class="title">
-                <h4>Top 10 Công ty bảo hiểm uy tín năm 2019</h4>
+                <h4>{{$blog->title}}</h4>
+                <p><b>Posted:</b> {!!  Carbon\Carbon::parse($blog->created_at)->diffForHumans() !!}</p>
             </div>
             <div class="blog-content">
-                <p>
-                    Bảo hiểm luôn quan trọng và cần thiết trong cuộc sống của con người, bởi vì nó đem đến rất nhiều quyền lợi cho những người tham gia. Với sự ra đời của Luật kinh doanh bảo hiểm và các văn bản pháp lý làm cơ sở cho các tập đoàn tài chính, công ty bảo hiểm nhân thọ sớm nhảy vào Việt Nam tạo nên nền thị trường bảo hiểm đầy sôi động. Đứng giữa nền thị trường bảo hiểm Việt Nam ngày càng hội nhập, ngày 28/6/2019, Công ty cổ phần Báo cáo Đánh giá Việt Nam (Vietnam Report) chính thức công bố danh sách Top 10 Công ty bảo hiểm uy tín năm 2019.
-                </p>
-                <p>
-                    Căn cứ theo kết quả đánh giá tài chính doanh nghiệp; đánh giá uy tín doanh nghiệp trên truyền thông bằng phương pháp Media coding; và khảo sát khách hàng, các doanh nghiệp bảo hiểm và chuyên gia ngành tài chính – bảo hiểm được thực hiện trong tháng 5 – 6/2019, và công bố theo 02 danh sách: Top 10 Công ty bảo hiểm nhân thọ uy tín, và Top 10 Công ty bảo hiểm phi nhân thọ uy tín năm 2019.
-                </p>
-                <p>
-                    Danh sách top 10 Công ty bảo hiểm nhân thọ uy tín năm 2019.
-                </p>
-                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/blog/blog1.jpg?{{ config('custom.version') }}" alt=""></div>
-                <p>Danh sách top 10 Công ty bảo hiểm phi nhân thọ uy tín năm 2019.</p>
-                <div class="image-ctn"><img class="img-fluid" src="{{ url('/') }}/assets/images/blog/blog2.jpg?{{ config('custom.version') }}" alt=""></div>
-                <p>Ngoài ra, chúng tôi sẽ cố gắng đưa ra các tiêu chí xếp hạng phù hợp nhất trên thế giới áp dụng tại Việt Nam, nhằm mục tiêu giúp khách hàng có cái nhìn khách quan khi so sánh và lựa chọn.</p>
+                <p>{!! nl2br($blog->content)!!}</p>
             </div>
         </div>
     </div>

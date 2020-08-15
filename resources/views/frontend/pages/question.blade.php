@@ -47,15 +47,17 @@
                                 <div class="knowledge-ctn">
                                     <div class="knowledge-wrapper">
                                         <div class="row">
+                                            @foreach($blogs as $value)
                                                 <div class="col-sm-6 col-md-4">
                                                     <div class="item-knowledge ">
-                                                        <a href="{{ url('/blog4') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/guide1.png?{{ config('custom.version') }}" alt=""></a>
+                                                        <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}" target="_blank"><img src="storage/{{$value['avatar'] }}" alt=""></a>
                                                         <div class="description-ctn">
-                                                            <a href="{{ url('/blog') }}">Hướng dẫn sử dụng website Vbaohiem.</a>
+                                                            <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}">{{$value['title']}}</a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 col-md-4">
+                                            @endforeach
+                                                <!-- <div class="col-sm-6 col-md-4">
                                                     <div class="item-knowledge ">
                                                         <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
                                                         <div class="description-ctn">
@@ -78,7 +80,7 @@
                                                             <a href="{{ url('/blog3') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                         </div>
                                     </div>
                                 </div>

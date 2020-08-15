@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Basic Datatable</h5>
-{{--            <button type="button" class="btn btn-success btn-lg" >Add new</button>--}}
+          <a type="button" href="{{route('posts.create')}}" class="btn btn-success btn-lg" >Add new</a>
             <div class="table-responsive">
                 <table  class="table table-striped table-bordered" id="posts_table">
                     <thead>

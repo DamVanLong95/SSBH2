@@ -6,23 +6,11 @@
                 @csrf
                 {{ method_field('PUT') }}
                 <div class="card-body">
-                    <h4 class="card-title">Edit posts</h4>
+                    <h4 class="card-title">Sửa </h4>
                     <input type="hidden" name="id" value="{{$post->id}}">
-                    <div class="form-group row">
-                        <label for="title" class="col-md-3 text-right control-label col-form-label">Author</label>
-                        <div class="col-md-9">
-                            <select class="custom-select " name="author_id" >
-                                @foreach($users as $key=>$user)
-                                    <option value="{{ $user->id }}" {{ $user->id == $post->author_id ? 'selected' : '' }}>{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('author_id'))
-                                <div class="error" style="color: red">{{ $errors->first('author_id') }}</div>
-                            @endif
-                        </div>
-                    </div>
+                  
                     <div class="form-group row ">
-                        <label for="title" class="col-md-3 text-right control-label col-form-label">Title</label>
+                        <label for="title" class="col-md-3 text-right control-label col-form-label">Tiêu đề</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" id="title" name="title"  value="{{$post->title}}">
                             </input>
@@ -32,21 +20,21 @@
                         </div>
 
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="title" class="col-md-3 text-right control-label col-form-label">Status </label>
                         <div class="col-sm-9">
                             &nbsp; <input type="checkbox" class="checkmark" id="is_published" name="is_published"
                                           {{($post->is_published==1)?'checked': 'uncheck'}}>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
-                        <label for="cono1" class="col-md-3 text-right control-label col-form-label">Description</label>
+                        <label for="cono1" class="col-md-3 text-right control-label col-form-label">Mô tả</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" name="description" placeholder="short description">{{$post->description}}</textarea>
+                            <textarea class="form-control" name="description" placeholder="có thể có hoặc không">{{$post->description}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="content" class="col-md-3 text-right control-label col-form-label">Content</label>
+                        <label for="content" class="col-md-3 text-right control-label col-form-label">Nội dung</label>
                         <div class="col-sm-9">
                             <textarea id="content_post" class="form-control" name="content" rows="20"> {{$post->content}}</textarea>
                             @if($errors->has('content'))
@@ -55,9 +43,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-md-3 text-right control-label col-form-label">Select Profile avatar : </label>
+                        <label class="control-label col-md-3 text-right control-label col-form-label">Thay ảnh đại diện : </label>
                         <div class="col-md-8">
-                            <img src="{{asset('storage/'.$post->avatar)}}" alt="">
+                            <img src="{{asset('storage/'.$post->avatar)}}" alt="" style="width:150px">
                             <input type="file" name="avatar" id="avatar" class="form-control" />
                         </div>
                     </div>
