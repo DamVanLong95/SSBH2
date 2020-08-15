@@ -145,7 +145,6 @@
             }).done(function(data){
                 $('#showName').html(data);
             });
-
         });
         $('.major').change(function(){
             lv = $(this).val();

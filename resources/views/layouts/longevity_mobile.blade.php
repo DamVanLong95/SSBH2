@@ -336,6 +336,7 @@
                                 }
                                                             
                             }
+                          }
                            //============Quyen loi san pham================
                         var row   = document.getElementById('benifit');
                         var index = row.rowIndex;
