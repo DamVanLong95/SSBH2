@@ -60,11 +60,13 @@ class ContactController extends Controller
     public function searchMajor(Request $request){
         $data = $request->all();
 
-        unset($data['_token']);
-
+        // dd($data);
         $result =[];
         $advisor_by_major = Advisor::where('major','=',$data['major'])->get();
+        
         $result = $advisor_by_major;
+
+      
         if($data['work'] != null){
             $advisor_by_work = Advisor::where('work','LIKE','%'.$data['work'].'%')
                         ->where('major' ,$data['major'])
@@ -87,7 +89,6 @@ class ContactController extends Controller
                 $result = $advisor_by_work;
             }
         }
-        // dd($result);
         $html = view('frontend.pages.advisor_name')->with(['result' => $result,'locations' => $this->locations])->render();
         return response()->json($html);
     }

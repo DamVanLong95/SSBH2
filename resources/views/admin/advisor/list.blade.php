@@ -13,6 +13,7 @@
                         <th><h4>Avatar</h4></th>
                         <th><h4>Email</h4></th>
                         <th><h4>Công việc</h4></th>
+                        <th><h4>Lĩnh vực</h4></th>
                         <th><h4>Quá trình công tác</h4></th>
                         <th><h4>Action</h4></th>
                     </tr>
@@ -49,7 +50,7 @@
             $('#advisor').dataTable({
                 "processing": true,
                 "serverSide": true,
-                "searching": true, 
+                "searching" : true, 
                     ajax      :{
                         url:"{{route('advisors.datatable')}}",
                     },
@@ -59,6 +60,7 @@
                         {data: 'avatar', name: 'avatar'},
                         {data:'email',name:'email'},
                         {data: 'work', name: 'work'},
+                        {data: 'major', name: 'major'},
                         {data: 'working_process', name: 'working_process'},
                         {data:'action', name:'action',orderable: false, searchable: false},
                     ],

@@ -28,14 +28,21 @@ class AdvisorController extends Controller
                 $path = asset('storage/'.$advisor->avatar);
                 return '<img src="' .$path . '" alt="" class="img-circle " style="width:100px">';
             })
+            ->editColumn('major', function ($advisor) {
+                $path = asset('storage/'.$advisor->avatar);
+                return '<img src="' .$path . '" alt="" class="img-circle " style="width:100px">';
+            })
+            ->editColumn('major', function($advisor){
+                if($advisor->major == 1) return "Bảo hiểm Phi nhân thọ";
+                if($advisor->major == 2) return "Bảo hiểm Nhân thọ";
+                if($advisor->major == 3) return "Cả hai loại";
+            })
             ->addColumn('action', function ($advisor) {
                 return '<a href="'.route('advisor.edit', $advisor->id).'" class="edit btn btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sửa</a>
                         <a href="javascript:void(0)" data-id="' . $advisor->id . '" class="delete btn btn btn-danger btn-delete"><i class="fa fa-times"></i> Xóa</a>';
-
-
             })
            
-            ->rawColumns(['avatar','action'])
+            ->rawColumns(['avatar','action','major'])
             ->make(true);
     }
     public function create()

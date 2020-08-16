@@ -169,11 +169,11 @@ input:checked + .slider:before {
                         <label for="title" class="col-md-3 text-right ">Lĩnh vực </label>
                         <div class="col-sm-3">
                             <label for="" style="margin-left:15px" >Bảo hiểm phi nhân thọ</label>
-                            <input type="radio" class="checkmark" value="1" name="major" checked>
+                            <input type="radio" class="checkmark" value="2" name="major" checked>
                         </div>
                         <div class="col-sm-3">
                             <label for="" style="margin-left:15px">Bảo hiểm nhân thọ </label>  
-                            <input type="radio" class="checkmark" value="2" name="major">
+                            <input type="radio" class="checkmark" value="1" name="major">
                         </div>
                         <div class="col-sm-3">
                             <label for="" style="margin-left:15px">Cả hai loại bảo hiểm</label>  
