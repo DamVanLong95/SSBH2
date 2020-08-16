@@ -21,7 +21,7 @@ class ProductController extends Controller
     }
     public function getIndex(){
        
-        $products = DB::table('products')->select([ 'id','name', 'company_id','url','cate']);
+        $products = Product::orderBy('updated_at','desc')->get();
         return Datatables::of($products)
 
             ->editColumn('id', 'ID: {{$id}}')
@@ -56,7 +56,7 @@ class ProductController extends Controller
         return view('admin.products.create',compact('companies'));
     }
     public function store(ProductRequest $request){
-
+        $data = $request->all();
         if($request->hasFile('file')){
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
@@ -65,14 +65,17 @@ class ProductController extends Controller
                 'health', Str::random(10).'_'.$filename,'public'
             );
         }
-            $data = $request->all();
-            $product = new Product;
-            $product->name          = $data['name'];
-            $product->company_id    = $data['company_id'];
-            $product->cate          = $data['cate'];
-            $product->url           = isset($path)? $path:null;
-            $product->save();
-            Session::flash('message', 'Tạo mới thành công!');
+        $data['url'] = isset($path)? $path:null;
+        unset($data['_token']);
+         try{
+            Product::create($data);
+            DB::commit();
+         }catch(\Exception $e){
+             DB::rollback();
+             throw $e;
+         }
+           
+            \Session::flash('message', 'Tạo mới thành công!');
         $notification = array(
             'message' => 'add new post successfully!',
             'alert-type' => 'success'
@@ -86,6 +89,8 @@ class ProductController extends Controller
 
     }
     public function update(Request $request,$id){
+        $data = $request->all();
+        $product = Product::find($id);
         if($request->hasFile('file')){
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
@@ -98,14 +103,18 @@ class ProductController extends Controller
             if(Storage::exists($file_old)) {
                 Storage::delete($file_old);
             }
+            unset($data['file']);
         }
-      
-        $product = Product::find($id);
-        $product->name    = $request->get('name');
-        $product->company_id        = $request->get('company_id');
-        $product->cate      = $request->get('cate');
-        $product->url       = isset($path) ? $path: $product->url;;
-        $product->save();
+        
+        unset($data['_token']);
+        $data['url'] = isset($path)? $path: $product->url;
+        try{
+            $product->update($data);
+            DB::commit();
+         }catch(\Exception $e){
+             DB::rollback();
+             throw $e;
+         }
         $notification = array(
             'message' => 'update successfully!',
             'alert-type' => 'success'

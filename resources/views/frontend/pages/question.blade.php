@@ -57,30 +57,6 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-                                                <!-- <div class="col-sm-6 col-md-4">
-                                                    <div class="item-knowledge ">
-                                                        <a href="{{ url('/blog') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
-                                                        <div class="description-ctn">
-                                                            <a href="{{ url('/blog') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-md-4">
-                                                    <div class="item-knowledge">
-                                                        <a href="{{ url('/blog2') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
-                                                        <div class="description-ctn">
-                                                            <a href="{{ url('/blog2') }}">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh.</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-md-4">
-                                                    <div class="item-knowledge">
-                                                        <a href="{{ url('/blog3') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
-                                                        <div class="description-ctn">
-                                                            <a href="{{ url('/blog3') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                         </div>
                                     </div>
                                 </div>

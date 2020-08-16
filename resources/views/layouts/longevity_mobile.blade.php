@@ -467,7 +467,8 @@
                 var id = clicked.val();
                 var imgId = clicked.parents().find('#img_'+id+'');
                 var index = imgId.parent().index() +1;
-                if( index ==2 && $('div.img-container').is(".dropped") ){
+               
+                if( index ==2 && !$('div.img-container').is(":not(.dropped)") ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
                     $(clicked[0]).prop("checked", false);;
@@ -478,7 +479,6 @@
                 }else if(index== 2 ){
                         $('th:nth-child('+index+')').remove()
                         $('td:nth-child('+index+')').remove()
-                       
                         clicked[0].disabled = false;
                         $('#'+idImg+'').draggable({ disabled: false });
                         removeItem(idImg,globalId);
