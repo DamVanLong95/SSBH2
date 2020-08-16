@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 @stop
 
 @section('content')
@@ -116,10 +115,10 @@
         </div>
         <div class="container-fluid p-0">
             <div class="map-ctn">
-                <div class=" contact-map mb-5 pb-4">
-               
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
-                    </iframe>
+                <div class=" contact-map mb-5 pb-4" >
+                    <div id="map"></div>
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                    </iframe> 
                 </div>
             </div>
         </div>
@@ -129,6 +128,19 @@
 @stop
 
 @section('footer')
+    
+    <script>
+    var map;
+        function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: { lat: 21.018810, lng: 105.841370 },
+                
+            });
+        }
+    </script> 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkOPv4tkRXJavi6etVh7HSt-Sp-k-m5Fs&callback=initMap" ></script>    
+   
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     <script type="text/javascript">
         var wk, lv, kv;

@@ -33,8 +33,8 @@ class AdvisorController extends Controller
                 return '<img src="' .$path . '" alt="" class="img-circle " style="width:100px">';
             })
             ->editColumn('major', function($advisor){
-                if($advisor->major == 1) return "Bảo hiểm Phi nhân thọ";
-                if($advisor->major == 2) return "Bảo hiểm Nhân thọ";
+                if($advisor->major == 2) return "Bảo hiểm Phi nhân thọ";
+                if($advisor->major == 1) return "Bảo hiểm Nhân thọ";
                 if($advisor->major == 3) return "Cả hai loại";
             })
             ->addColumn('action', function ($advisor) {
