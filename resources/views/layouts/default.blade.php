@@ -35,7 +35,7 @@
 
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script>
+    <!-- <script>
     var ua = navigator.userAgent.toLowerCase();
     if (ua.indexOf('safari') != -1) {
         var url = `{{ url('assets/css/safari.css') }}`;
@@ -48,7 +48,7 @@
             document.head.appendChild(link);
         }
     }
-</script>
+</script> -->
     <script src="{{ url('/') }}/assets/js/jquery-3.3.1.js"></script>
     <script src="{{ url('assets/lib/popper/js/popper.min.js?'.config('custom.version')) }}"></script>
     <script src="{{ url('assets/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js') }}"></script>
