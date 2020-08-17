@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 @stop
 
 @section('content')
@@ -88,11 +87,11 @@
                             <div class="tab-pane fade" id="nav-term" role="tabpanel" aria-labelledby="nav-term-tab">
                                 <div class="term-ctn">
                                     <div class="searchinput">
-                                        <input type="text" name="q" placeholder=" search..." class="text" required>
+                                        <input type="text" id="keyword" name="keyword" placeholder=" search..." class="text" required>
                                         <button type="submit" class="submit">Tìm</button>
                                     </div>
                                     <div class="alpha-ctn">
-                                        <div class="alpha-left">
+                                        <div class="alpha-left" id="content">
                                             @foreach($libraries as $value)
                                             <div class="alpha-index">
                                                 <div class="alpha-left">
@@ -133,5 +132,47 @@
 @stop
 
 @section('footer')
+            
+
+<script>
+    $(function () {
+        $("#keyword").autocomplete({
+            source:function(request,response){
+                var url = "{{route('search.question')}}";
+                $.post({
+                    url :url,
+                    data:{
+                        "_token": "{{ csrf_token() }}",
+                        keyword: request.term,
+                    },
+                    success: function( data ) {
+                        response(data);
+                    }
+                });
+              
+            },
+            select: function(event,ui) {
+                $('#keyword').val(ui.item.label); // display the selected text
+                $('.submit').val(ui.item.label);                
+                return false;
+            },
+        });
+        $('.submit').click(function(){
+            var param = $(this).val();;
+            $.post({
+                url:"{{route('search.button')}}",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    param :param, 
+                },
+                success: function( data ) {
+                    $('#content').html(data)
+                }
+            });
+        })
+    })
+</script>
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
+   
+
 @stop

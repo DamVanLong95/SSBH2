@@ -55,8 +55,9 @@ Route::post('/search/area','ContactController@searchArea')->name('search.area');
 // =====================================ưu đãi preferential treatment=================================
 Route::get('/uu-dai', 'HController@treatments');
 // =====================================Question=================================
-// Route::view('/kien-thuc','frontend.pages.question');
 Route::get('/kien-thuc','QuestionController@index')->name('question.index');
+Route::post('/autosearch','QuestionController@searchByName')->name('search.question');
+Route::post('/search','QuestionController@searchByButton')->name('search.button');
 // =====================================Health=================================
 Route::get('/so-sanh-suc-khoe','Health\HealthController@index')->name('health.index');
 Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');

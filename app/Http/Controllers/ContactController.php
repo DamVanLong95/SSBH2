@@ -57,8 +57,6 @@ class ContactController extends Controller
     }
     public function searchMajor(Request $request){
         $data = $request->all();
-
-        // dd($data);
         $result =[];
         $advisor_by_major = Advisor::where('major','=',$data['major'])->get();
         

@@ -11,7 +11,7 @@ class QuestionController extends Controller
 {
     //
     public function index(){
-        $blogs = Post::all();
+        $blogs     = Post::all();
         $questions = Question::all();
         $libraries = Library::all();
 
@@ -20,6 +20,38 @@ class QuestionController extends Controller
     public function showBlog($id){
         $blog = Post::find($id);
         return view('frontend.pages.blog',compact('blog'));
+    }
+    public function searchByName(Request $request){
+        $keyword = $request->input('keyword');
+        $result = Library::where('terms','like','%'.$keyword.'%')->get();
+        // $search_explode = explode(" ",$keyword);//mang chu
+
+        // $condition_arr = array();
+
+        // foreach($search_explode as $value){
+        //     $condition_arr[] = "WHERE"." terms LIKE '%".$value."%'";
+        // }
+
+        // $condition = " ";
+        // if(count($condition_arr) > 0){
+        //     $condition = implode(" or ",$condition_arr);
+        // }
+        // $query = "SELECT * FROM libraries ".$condition;
+        // $result= \DB::select( \DB::raw($query));
+        return $result->map(function ($item) {
+                return [
+                    'value' => $item->id,
+                    'label' => $item->terms
+                ];
+         });
+        
+       
+    }
+    public function searchByButton(Request $request){
+        $param = $request->input('param');
+        $result = Library::where('terms','LIKE','%'.$param.'%')->get();
+        $html   = view('frontend.pages.filter_phrase')->with(['result' => $result])->render();
+        return response()->json($html);
     }
     
 }
