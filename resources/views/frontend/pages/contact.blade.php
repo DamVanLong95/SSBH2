@@ -96,9 +96,9 @@
                                         <p class="job-title"><strong>Quá trình hoạt động</strong></p>
                                         <p>{{$value['working_process']}}	</p>
                                         <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
-                                        @if($value['major']==1)
+                                        @if($value['major']==2)
                                             <p>Phi nhân thọ</p>
-                                        @elseif($value['major'] ==2)
+                                        @elseif($value['major'] ==1)
                                             <p> Nhân thọ</p>
                                         @elseif($value['major'] ==3)
                                             <p>Phi nhân thọ, nhân thọ</p>
