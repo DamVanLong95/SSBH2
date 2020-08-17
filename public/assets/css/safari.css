@@ -1,5 +1,6 @@
 table {
-  overflow-y: scroll;
+  white-space: nowrap;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 

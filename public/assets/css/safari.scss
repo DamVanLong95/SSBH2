@@ -32,8 +32,9 @@
 //     }
 // }
 table {
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch
 }
 
 tr.price-discount {
