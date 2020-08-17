@@ -6910,12 +6910,10 @@ span.tel {
 }
 
 @media (max-width: 425px) {
-  th:first-child {
-    width: 100px;
+  table {
+    max-width: 375px;
   }
-  thead th:first-child,
-  tfoot th:first-child {
-    z-index: 8 !important;
+  td:first-child {
     width: 100px;
   }
 }
