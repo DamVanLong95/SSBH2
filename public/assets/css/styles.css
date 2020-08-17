@@ -4582,4 +4582,12 @@ span.tel {
     -ms-border-radius: 22px;
     -o-border-radius: 22px; }
 
+.table-scroll {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  max-height: 100vh; }
+
 /*# sourceMappingURL=styles.css.map */
