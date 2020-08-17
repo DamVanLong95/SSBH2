@@ -64,6 +64,7 @@ class ProductController extends Controller
             $path = $file->storeAs(
                 'health', Str::random(10).'_'.$filename,'public'
             );
+            unset($data['file']);
         }
         $data['url'] = isset($path)? $path:null;
         unset($data['_token']);

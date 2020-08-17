@@ -24,8 +24,6 @@ class ContactController extends Controller
     }
     public function searchWorking(Request $request)
     {
-        // dd($request->all());
-        
         $data = $request->all();
         unset($data['_token']);
         $result =[];

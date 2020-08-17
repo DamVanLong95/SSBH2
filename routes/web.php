@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/car1', function () {
     return view('frontend.pages.test');
 });
-Route::get('/car','Car\CarController@index');
+Route::get('/so-sanh-oto','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
 Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
 Route::post('onchange','Car\CarController@onChange')->name('onchange');
@@ -36,7 +36,7 @@ Route::get('/test', function () {
 // Route::get('/detail', function () {
 //     return view('frontend.pages.intro_detail');
 // });
-Route::view('/intro','frontend.pages.intro');
+Route::view('/gioi-thieu','frontend.pages.intro');
 Route::view('/detail','frontend.pages.intro_detail');
 Route::view('/reason','frontend.pages.reason');
 Route::view('/principle','frontend.pages.principal');
@@ -45,20 +45,20 @@ Route::view('/term','frontend.pages.term');
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
-Route::get('/blog/{id}/{slug}','QuestionController@showBlog')->name('blog.show');
+Route::get('/blog/{id}-{slug}','QuestionController@showBlog')->name('blog.show');
 // =====================================contact=================================
 // Route::view('/contact','frontend.pages.contact');
-Route::get('/contact','ContactController@index');
+Route::get('/lien-he','ContactController@index');
 Route::post('/search/working','ContactController@searchWorking')->name('search.working');
 Route::post('/search/major','ContactController@searchMajor')->name('search.major');
 Route::post('/search/area','ContactController@searchArea')->name('search.area');
 // =====================================ưu đãi preferential treatment=================================
-Route::get('/treatment', 'HController@treatments');
+Route::get('/uu-dai', 'HController@treatments');
 // =====================================Question=================================
 // Route::view('/kien-thuc','frontend.pages.question');
 Route::get('/kien-thuc','QuestionController@index')->name('question.index');
 // =====================================Health=================================
-Route::get('/health','Health\HealthController@index')->name('health.index');
+Route::get('/so-sanh-suc-khoe','Health\HealthController@index')->name('health.index');
 Route::post('health/droppImage','Health\HealthController@droppImage')->name('droppHealth');
 Route::post('health/selectProgram','Health\HealthController@selectProgram')->name('selectProgram');
 Route::post('health/filterProvince','Health\HealthController@filterProvince')->name('filterProvince');
@@ -66,7 +66,7 @@ Route::post('health/filterDistrict','Health\HealthController@filterDistrict')->n
 Route::post('health/filter','Health\HealthController@filterHealth')->name('filterHealth');
 Route::post('health/checkImage','Health\HealthController@checkImage')->name('checkHealth');
 // =====================================nhân thọ Longevity=================================
-Route::get('/longevity','Longevity\LongevityController@index')->name('longevity.index');
+Route::get('/so-sanh-nhan-tho','Longevity\LongevityController@index')->name('longevity.index');
 Route::post('longevity/droppImage','Longevity\LongevityController@droppImage')->name('droppLongevity');
 Route::post('longevity/filter','Longevity\LongevityController@filterBanner')->name('filterLongevity');
 Route::post('longevity/popup','Longevity\LongevityController@displayPopup')->name('popupLongevity');
@@ -93,7 +93,7 @@ Route::group(['prefix' =>'admin','middleware' => 'auth'],function(){
     Route::post('treatment/destroy/{id?}','Admin\TreatmentController@destroy')->name('treatment.destroy');
     Route::post('treatment/post','Admin\TreatmentController@store')->name('treatment.store');
     Route::resource('posts','Admin\PostController',['except' =>'show']);
-    Route::get('posts/{id}/{slug}','Admin\PostController@show')->name('posts.show');
+    Route::get('posts/{post}-{slug}','Admin\PostController@show')->name('posts.show');
     Route::get('datatable','Admin\PostController@getData')->name('posts.getData');
     Route::resource('product','Admin\ProductController',['except' =>'show']);
     Route::get('getIndex','Admin\ProductController@getIndex')->name('products.datatable');

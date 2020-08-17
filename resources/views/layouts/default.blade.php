@@ -93,7 +93,7 @@
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                         </li>
                         <li @if(request()->is('intro') || request()->is('detail')|| request()->is('reason')|| request()->is('principal')|| request()->is('term')) class="active" @endif>
-                            <a class="nav-link" href="{{ url('/intro') }}">GIỚI THIỆU</a>
+                            <a class="nav-link" href="{{ url('/gioi-thieu') }}">GIỚI THIỆU</a>
                         </li>
                         <!-- <li >
                             <a class="nav-link has-subnav" href="#">SO SÁNH</a>
@@ -107,9 +107,9 @@
                         <li class=" dropdown"  @if(request()->is('pages/car') || request()->is('pages/health')) class="active" @endif>
                             <a href="javascript:void(0)" class="nav-link has-subnav dropdown-toggle" data-toggle="dropdown">SO SÁNH </a>
                             <ul class="menu-hover dropdown-menu">
-                                <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/car') }}">So sánh bảo hiểm vật chất ô tô</a></li>
-                                <li @if(request()->is('pages/health')) class="active" @endif><a class="nav-link" href="{{ url('/health') }}">So sánh bảo hiểm sức khỏe</a></li>
-                                <li @if(request()->is('pages/longevity')) class="active" @endif><a class="nav-link" href="{{ url('/longevity') }}">So sánh bảo hiểm nhân thọ</a></li>
+                                <li @if(request()->is('pages/car')) class="active" @endif><a class="nav-link" href="{{ url('/so-sanh-oto') }}">So sánh bảo hiểm vật chất ô tô</a></li>
+                                <li @if(request()->is('pages/health')) class="active" @endif><a class="nav-link" href="{{ url('/so-sanh-suc-khoe') }}">So sánh bảo hiểm sức khỏe</a></li>
+                                <li @if(request()->is('pages/longevity')) class="active" @endif><a class="nav-link" href="{{ url('/so-sanh-nhan-tho') }}">So sánh bảo hiểm nhân thọ</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -125,13 +125,13 @@
                 <div class=" d-flex w-100 dual-collapse2 order-2 order-md-2">
                     <ul class="right-nav navbar-nav mr-auto text-center">
                         <li @if(request()->is('treatment')) class="active" @endif>
-                            <a class="nav-link" href="{{ url('/treatment') }}">ƯU ĐÃI</a>
+                            <a class="nav-link" href="{{ url('/uu-dai') }}">ƯU ĐÃI</a>
                         </li>
                         <li  @if(request()->is('cau-hoi')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/kien-thuc') }}">KIẾN THỨC</a>
                         </li>
                         <li @if(request()->is('contact')) class="active" @endif>
-                            <a class="nav-link" href="{{ url('/contact') }}">KẾT NỐI TƯ VẤN VIÊN</a>
+                            <a class="nav-link" href="{{ url('/lien-he') }}">KẾT NỐI TƯ VẤN VIÊN</a>
                         </li>
                     </ul>
                 </div>
