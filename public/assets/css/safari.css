@@ -1,4 +1,4 @@
-.table-scroll {
+table {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
