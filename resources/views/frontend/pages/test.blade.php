@@ -16,15 +16,16 @@
 
 .fix-width {
 	width: 400px;
-	overflow-y: hidden;
+	overflow-y: auto;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 }
 
 .table {
-	width: 700px;
+	height: 500px;
 	margin-bottom: 0;
-	max-width: none;
+  max-width: none;
+  overflow: auto;
 }
 
 .panel {
@@ -74,40 +75,80 @@ body {
 						<th>Description</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<th>1</th>
-						<th>The sentance starts here</th>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-						<th>2</th>
-						<th>The sentance starts here</th>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td>@twitter</td>
-						<th>3</th>
-						<th>The sentance starts here</th>
-					</tr>
-					<tr>
-						<th scope="row">4</th>
-						<td>David</td>
-						<td>Bullock</td>
-						<td>@serkai</td>
-						<th>4</th>
-						<th>The sentance starts here</th>
-					</tr>
-				</tbody>
+				<tbody style="text-align: center; font-size: 19px; color: #3d4b63; border: 1px solid #caad50;">
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;" width="50%"><strong>1st Year</strong></td>
+<td style="border: 1px solid #caad59;" width="50%">Paper</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>2nd Year</strong></td>
+<td style="border: 1px solid #caad59;">Cotton</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>3rd Year</strong></td>
+<td style="border: 1px solid #caad59;">Leather</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>4th Year</strong></td>
+<td style="border: 1px solid #caad59;">Fruit and Flowers</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>5th Year</strong></td>
+<td style="border: 1px solid #caad59;">Wood</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>6th Year</strong></td>
+<td style="border: 1px solid #caad59;">Iron</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>7th Year</strong></td>
+<td style="border: 1px solid #caad59;">Wool and Copper</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>8th Year</strong></td>
+<td style="border: 1px solid #caad59;">Bronze</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>9th Year</strong></td>
+<td style="border: 1px solid #caad59;">Pottery</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>10th Year</strong></td>
+<td style="border: 1px solid #caad59;">Tin</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>15th Year</strong></td>
+<td style="border: 1px solid #caad59;">Crystal</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>20th Year</strong></td>
+<td style="border: 1px solid #caad59;">Porcelain</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>25th Year</strong></td>
+<td style="border: 1px solid #caad59;">Silver</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>30th Year</strong></td>
+<td style="border: 1px solid #caad59;">Pearl</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>35th Year</strong></td>
+<td style="border: 1px solid #caad59;">Coral</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>40th Year</strong></td>
+<td style="border: 1px solid #caad59;">Ruby</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>50th Year</strong></td>
+<td style="border: 1px solid #caad59;">Gold</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>60th Year</strong></td>
+<td style="border: 1px solid #caad59;">Diamond</td>
+</tr>
+</tbody>
 			</table>
 		</div>
 	</div>
