@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/car1', function () {
     return view('frontend.pages.test');
 });
+Route::get('/car2', function () {
+    return view('frontend.pages.car1');
+});
 Route::get('/so-sanh-oto','Car\CarController@index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
 Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
