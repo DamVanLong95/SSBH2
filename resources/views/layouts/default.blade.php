@@ -270,19 +270,19 @@
                 $('#'+value.getAttribute("value")+'').hide();
             }
         });
-            $('.showSingle1').click(function(){
-                    $('.name-item a').removeClass("active");
-                    $(this).find('a').addClass("active");
-                    $('.name-item a').each(function(index,value){
-                        if ($(this).hasClass('active')==true) {
-                            var id = $(this).attr("value");
-                            $('#'+id+'').show();
-                        }else{
-                            $('#'+value.getAttribute("value")+'').hide();
-                        }
-                    });
+        $('.showSingle1').click(function(){
+                $('.name-item a').removeClass("active");
+                $(this).find('a').addClass("active");
+                $('.name-item a').each(function(index,value){
+                    if ($(this).hasClass('active')==true) {
+                        var id = $(this).attr("value");
+                        $('#'+id+'').show();
+                    }else{
+                        $('#'+value.getAttribute("value")+'').hide();
+                    }
                 });
-             });
+            });
+            });
     </script>
    <script>
         // function killCopy(e){
