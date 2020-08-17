@@ -6909,15 +6909,6 @@ span.tel {
   }
 }
 
-@media (max-width: 425px) {
-  table {
-    max-width: 375px;
-  }
-  td:first-child {
-    width: 100px;
-  }
-}
-
 tr.data-detail td {
   max-width: 300px;
   font-size: 14px;
