@@ -4710,7 +4710,7 @@ span.tel {
       top: 359px; } }
   @media (min-width: 768px) and (max-width: 601px) {
     .sub-ctn5 td {
-      top: 0px; } }
+      top: 359px; } }
 
 /* safari and ios need the tfoot itself to be position:sticky also */
 @media (min-width: 768px) {
@@ -4727,7 +4727,7 @@ span.tel {
     z-index: 4; }
 
   /* testing links*/
-  td:first-c ld {
+  td:first-child {
     position: -webkit-sticky;
     position: -webkit-o-sticky;
     position: -webkit-ms-sticky;

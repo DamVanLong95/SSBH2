@@ -132,7 +132,7 @@
             top: 359px;
         }
         @media (max-width: 601px) {
-            top: 0px;
+            top: 359px;
         }
     }
 }
@@ -154,7 +154,7 @@
         z-index: 4;
     }
     /* testing links*/
-    td:first-c ld {
+    td:first-child {
         position: -webkit-sticky;
         position: -webkit-o-sticky;
         position: -webkit-ms-sticky;
