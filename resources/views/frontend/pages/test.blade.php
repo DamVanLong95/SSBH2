@@ -17,12 +17,13 @@
 .fix-width {
 	width: 400px;
 	overflow-y: auto;
-	overflow-x: auto;
+  overflow-x: auto;
+  height: 500px;
 	-webkit-overflow-scrolling: touch;
 }
 
 .table {
-	height: 500px;
+
 	margin-bottom: 0;
   max-width: none;
   overflow: auto;
