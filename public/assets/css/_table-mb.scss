@@ -4,7 +4,9 @@
     width: 100%;
     z-index: 1;
     margin: auto;
-    overflow: auto;
+    // overflow: auto;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     // height: 950px;
     max-height: 100vh;
 }
@@ -132,7 +134,7 @@
             top: 359px;
         }
         @media (max-width: 601px) {
-            top: 0px;
+            top: 359px;
         }
     }
 }
@@ -154,7 +156,7 @@
         z-index: 4;
     }
     /* testing links*/
-    td:first-c ld {
+    td:first-child {
         position: -webkit-sticky;
         position: -webkit-o-sticky;
         position: -webkit-ms-sticky;
