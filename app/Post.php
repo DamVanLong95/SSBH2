@@ -11,4 +11,7 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\User','author_id');
     }
+    public function path(){
+        return url("/posts/{$this->id}-". $this->slug);
+    }
 }

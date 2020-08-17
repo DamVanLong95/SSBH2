@@ -19,14 +19,12 @@ class PostController extends Controller
     public function index(){
         return view('admin.posts.list');
     }
-    public function show($id){
-       $post =Post::find($id);
-    //    dd($post);
+    public function show(Post $post, $slug){
         return view('admin.posts.show',compact('post'));
     }
     public function getData( Request $request){
        
-        $posts = DB::table('posts')->select([ 'id','title', 'slug','content', 'created_at','is_published','author_id','avatar']);
+        $posts = Post::select('*');
         
         return Datatables::of($posts)
             ->editColumn('avatar', function ($post) {
@@ -42,7 +40,7 @@ class PostController extends Controller
             })
             ->addColumn('action', function ($post) {
                 return '<a href="'.route('posts.edit', $post->id).'" class="edit btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                <a href="'.route('posts.show', ['id'=>$post->id,'slug'=>$post->slug]).'" class="edit btn btn-sm btn-orange"><i class="glyphicon glyphicon-show"></i> Show</a>
+                <a href="'.route('posts.show',[$post->id,$post->slug]).'" class="edit btn btn-sm btn-orange"><i class="glyphicon glyphicon-show"></i> Show</a>
                         <a href="javascript:void(0)" data-id="' . $post->id . '" class="delete btn btn-sm btn-danger btn-delete"><i class="fa fa-times"></i> Delete</a>';
 
             })
