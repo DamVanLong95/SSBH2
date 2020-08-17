@@ -1,3 +1,8 @@
+.table-scroll {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 tr.price-discount td {
   background-color: #fff;
   padding: 0;
