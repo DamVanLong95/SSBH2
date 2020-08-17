@@ -31,6 +31,14 @@
 //         // border-right: none;
 //     }
 // }
+@media (max-width: 601px) {
+    .table-scroll {
+        height: 700px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
 tr.price-discount {
     td {
         background-color: #fff;
