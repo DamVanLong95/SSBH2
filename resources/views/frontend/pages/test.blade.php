@@ -14,121 +14,45 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
 
-body{
-  background-color: rgb(63,72,83);
-  font-family: sans-serif;
-  color: rgb(220,220,220);
-  padding: 50px;
-  width: 100vw;
-  overflow-x: hidden;
+.fix-width {
+	width: 400px;
+	overflow-y: auto;
+  overflow-x: auto;
+  height: 500px;
+	-webkit-overflow-scrolling: touch;
 }
-h1{
-  font-weight: 400;
-}
-a{
-  color: inherit;
-}
-p{
-  margin-top: .7em;
-}
-.warning{
-  color: rgb(62,148,236);
-}
-.st_viewport{
-  max-height: 500px;
+
+.table {
+
+	margin-bottom: 0;
+  max-width: none;
   overflow: auto;
 }
 
-[data-table_id="1"]{
-  background-color: rgb(255,115,0);
-}
-[data-table_id="2"]{
-  background-color: rgb(61,53,39);
-  color: rgb(220,220,220);
-}
-[data-table_id="3"]{
-  background-color: rgba(168,189,4, .8);
+.panel {
+	padding: 15px;
 }
 
-._rank{
-  min-width: 80px;
-}
-._id{
-  min-width: 60px;
-}
-._name{
-  min-width: 130px;
-}
-._surname{
-  min-width: 130px;
-}
-._year{
-  min-width: 80px;
-}
-._section{
-  min-width: 130px;
-}
-
-pre{
-  overflow: auto;
+// Scrollbar Override
+.scroll-inner {
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar:horizontal {
+		height: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: transparentize(#ccc, 0.7);
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background: transparentize(#ccc, 0.5);
+		box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
 }
 
-/** Sticky table styles **/
-.st_viewport{
-  background-color: rgb(62,148,236);
-  color: rgb(27,30,36);
-  margin: 20px 0;
-}
-/* ###  Table wrap */
-.st_wrap_table{
-  
-}
-/* ##   header */
-.st_table_header{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  z-index: 1;
-  background-color: rgb(27,30,36);
-  color: rgb(220,220,220);
-}
-.st_table_header h2{
-  font-weight: 400;
-  margin: 0 20px;
-  padding: 20px 0 0;
-}
-.st_table_header .st_row{
-  color: rgba(220,220,220, .7);
-}
-.st_table_header .st_column{
-  
-}
-/* ##  table */
-.st_table{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-/* #   row */
-.st_row{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-}
-.st_table .st_row:nth-child(even){
-  background-color: rgba(0,0,0, .1)
-}
-/* #   column */
-.st_column{
-  padding: 10px 20px;
+body {
+	background-color: tint(cornflowerblue, 60%); // because fight club
 }
 
 
@@ -137,46 +61,100 @@ pre{
 
 @section('content')
 
-<div id="app">
-   <div class="container">
-       <div class="row">
-           <div class="col-lg-12">
-           
-<div class="gallery">
-	<a href="https://home.ctw.utwente.nl/slootenvanf/div/fancybox_images/Chrysanthemum.jpg"><img src="https://home.ctw.utwente.nl/slootenvanf/div/fancybox_images/tn/Chrysanthemum.jpg" ></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Desert.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Desert.jpg" alt="Desert mountains"></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Hydrangeas.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Hydrangeas.jpg" width="100" height="75" alt="Hydrangeas, called 'Hortensia' in Dutch"></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Jellyfish.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Jellyfish.jpg" title="Jellyfish"></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Koala.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Koala.jpg" alt="Koala"></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Lighthouse.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Lighthouse.jpg" alt="Lighthouse"></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Penguins.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Penguins.jpg" alt="Penguins"></a>
-	<a href="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/Tulips.jpg"><img src="https://home.et.utwente.nl/slootenvanf/div/fancybox_images/tn/Tulips.jpg" alt="Yellow tulips"></a>
+<div class="container">
+	<h1 class="text-center">Table Overflow-X Scroll</h1>
+	<div class="panel panel-default">
+		<div class="center-block fix-width scroll-inner">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>#</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody style="text-align: center; font-size: 19px; color: #3d4b63; border: 1px solid #caad50;">
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;" width="50%"><strong>1st Year</strong></td>
+<td style="border: 1px solid #caad59;" width="50%">Paper</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>2nd Year</strong></td>
+<td style="border: 1px solid #caad59;">Cotton</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>3rd Year</strong></td>
+<td style="border: 1px solid #caad59;">Leather</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>4th Year</strong></td>
+<td style="border: 1px solid #caad59;">Fruit and Flowers</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>5th Year</strong></td>
+<td style="border: 1px solid #caad59;">Wood</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>6th Year</strong></td>
+<td style="border: 1px solid #caad59;">Iron</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>7th Year</strong></td>
+<td style="border: 1px solid #caad59;">Wool and Copper</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>8th Year</strong></td>
+<td style="border: 1px solid #caad59;">Bronze</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>9th Year</strong></td>
+<td style="border: 1px solid #caad59;">Pottery</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>10th Year</strong></td>
+<td style="border: 1px solid #caad59;">Tin</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>15th Year</strong></td>
+<td style="border: 1px solid #caad59;">Crystal</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>20th Year</strong></td>
+<td style="border: 1px solid #caad59;">Porcelain</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>25th Year</strong></td>
+<td style="border: 1px solid #caad59;">Silver</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>30th Year</strong></td>
+<td style="border: 1px solid #caad59;">Pearl</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>35th Year</strong></td>
+<td style="border: 1px solid #caad59;">Coral</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>40th Year</strong></td>
+<td style="border: 1px solid #caad59;">Ruby</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>50th Year</strong></td>
+<td style="border: 1px solid #caad59;">Gold</td>
+</tr>
+<tr style="border: 1px solid #caad59; height: 75px;">
+<td style="border: 1px solid #caad59;"><strong>60th Year</strong></td>
+<td style="border: 1px solid #caad59;">Diamond</td>
+</tr>
+</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
-           </div>
-       </div>
-   </div>
-</div>
-
-<div id="detail-td" class="modal">
-    <div class="content-ctn">
-        <p>Thanks for clicking. That felt good.</p>
-    </div>
-  <a href="#">Mua ngay</a>
- 
-</div>
-<script>
-$(document).ready(function() {
-  //   $(".gallery a").attr("data-fancybox","mygallery");
-  // // assign captions and title from alt-attributes of images:
-  // $(".gallery a").each(function(){
-  //   // $(this).attr("data-caption", $(this).find("img").attr("alt"));
-  //   // $(this).attr("title", $(this).find("img").attr("alt"));
-  // });
-  // start fancybox:
-	$(".gallery a").fancybox();
-});
-</script>
 @stop
 
 @section('footer')
