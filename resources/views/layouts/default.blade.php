@@ -4,20 +4,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Hỏi đáp - {{ config('custom.seo_title') }}</title>
+    <meta name="description" content="Hỏi đáp - {{ config('custom.seo_description') }}">
     <meta name="author" content="{{ config('custom.seo_author') }}">
     <meta property="fb:app_id" content="{{ config('custom.facebook_appid') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" href="{{ url('uploads/others/favicon.png?'.config('custom.version')) }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="{{ url('media/system/fbimage.jpg?'.config('version.version'))  }}" />
+    <meta property="og:title" content="Hỏi đáp - {{ config('custom.seo_title') }}" />
+    <meta property="og:description" content="Hỏi đáp - {{ config('custom.seo_description') }}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Link bootstrap -->
-    <!-- jhgjhgjhgjhg -->
+    
     <link rel="stylesheet"
           href="{{ url('assets/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css?'.config('custom.version')) }}">
     <!-- Link font-awesome -->
-    <!-- jhgjhgjhgjhg -->
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css" />
     <!-- Link CSS default -->

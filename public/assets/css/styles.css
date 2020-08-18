@@ -4314,6 +4314,7 @@ span.tel {
 
 .question-container .question-term-ctn .knowledge-ctn .knowledge-wrapper .item-knowledge img {
   width: 100%;
+  height: 225px;
 }
 
 .question-container .question-term-ctn .knowledge-ctn .knowledge-wrapper .item-knowledge .description-ctn {
@@ -6922,6 +6923,10 @@ span.tel {
   tfoot th:first-child {
     z-index: 8 !important;
     width: 100px;
+  }
+  .table-section-nt .sized {
+    width: 60px;
+    height: 60px;
   }
 }
 
