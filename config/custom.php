@@ -11,8 +11,8 @@
     'seo_author' => 'Akitec',
     'seo_title' => "Vbaohiem - So sánh bảo hiểm, đánh giá, lựa chọn sản phẩm bảo hiểm, kết nối tư vấn viên bảo hiểm, đại lý bảo hiểm, DNBH",
     'seo_description' => "So sánh các sản phẩm bảo hiểm, kết nối tư vấn viên bảo hiểm trực tuyến",
-    'facebook_appid' => '351423978786028',
-    'facebook_appsecret' => '2e86d1b43e89fcad91013de7e826164a',
+    'facebook_appid' => '597513741155978',
+    'facebook_appsecret' => '7601291e91dc506c5dc350bb199b5e9c',
     'embed_header' => '',
     'embed_footer' => '',
     
