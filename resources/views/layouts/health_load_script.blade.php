@@ -476,7 +476,7 @@ $(function() {
                                     if(scope['content']!=null){
                                         tds.innerHTML = `<p class="ellipsis">`+scope['content']+`</p>`;
                                     }else{
-                                        tds.innerHTML = `<p class="ellipsis"></p>`
+                                        tds.innerHTML = '';
                                     }
                                 }
                                 //========================quyen loi bao hiem========================
@@ -485,7 +485,7 @@ $(function() {
                                     
                                     if(healths[i-3]){
                                         (healths[i-3]['content']) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
-                                                     tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                                     tdss.innerHTML = '';
                                     }
                                 }
                                 //========================THOI GIAN================================
@@ -495,7 +495,7 @@ $(function() {
                                         
                                         if(healths[i-3]['content']!=null) {
                                             tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
-                                        } else tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                        } else tdss.innerHTML =  '';
                                     }
                                 }
 
@@ -598,13 +598,13 @@ $(function() {
                             
                             var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                             var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                            for(var i=96;i < 95 + exclusions.length;i++){
+                            for(var i=96;i <= 95+ exclusions.length;i++){
                                 var tds = myTable.rows[i].cells[indexCol];
                                 if(exclusions[i-96]['content']==='x'){
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                 `;
                                 }else if(exclusions[i-96]['content']==null){
-                                    tds.innerHTML = `<p class=""></p>`;
+                                    tds.innerHTML = '';
                                 }else{
                                     var str = exclusions[i-96]['note'];
                                     if(str.length > 45){
@@ -620,7 +620,7 @@ $(function() {
                             }
                         }).done(function(){
                             function isEmpty(td) {
-                                if ( td.text() == '') {
+                                if ( td.innerHTML == '') {
                                     return true;
                                 }            
 
@@ -632,7 +632,7 @@ $(function() {
                                     var tr = $(this);
                                     tr.removeClass('data-empty');
                                     tr.find("td:not(:first)").each(function() {
-                                        td = $(this);
+                                        td = this;
                                         if (isEmpty(td) === false)  {
                                             trIsEmpty = false;   
                                         }
