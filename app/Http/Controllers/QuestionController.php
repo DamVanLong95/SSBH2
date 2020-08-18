@@ -13,8 +13,7 @@ class QuestionController extends Controller
     public function index(){
         $blogs     = Post::all();
         $questions = Question::all();
-        $libraries = Library::all();
-
+        $libraries = Library::select('*')->get()->groupBy('character');
         return view('frontend.pages.question',compact('blogs','questions','libraries'));
     }
     public function showBlog($id){
