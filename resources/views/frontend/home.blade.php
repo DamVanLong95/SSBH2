@@ -24,7 +24,7 @@
             <div class="col-lg-9 offset-lg-3">
                 <div class="right-ctn">
                     <div class="content">
-                        <h5>Với VICS CORP, mọi sự so sánh trở nên dễ dàng</h5>
+                        <h5>Với Vbaohiem, mọi sự so sánh trở nên dễ dàng</h5>
                         <p>Tìm kiếm. So sánh. Chọn lựa! Cách so sánh công bằng nhất</p>
                     </div>
                     <div class="detail">
