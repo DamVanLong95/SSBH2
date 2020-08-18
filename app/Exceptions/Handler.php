@@ -46,24 +46,27 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if($this->isHttpException($exception))
-        {
-            switch (intval($exception->getStatusCode())) {
-                // not found
-                case 500:
-                case 404:
-                    return \Response::view('frontend.home');
-                    break;
-                // internal error
+        // if($this->isHttpException($exception))
+        // {
+        //     switch (intval($exception->getStatusCode())) {
+        //         // not found
+        //         case 500:
+        //         case 404:
+        //             return response()->view('error.404', ['message'=> $exception->getMessage()], 404);
+        //             break;
+        //         // internal error
 
-                default:
-                    return $this->renderHttpException($exception);
-                    break;
-            }
+        //         default:
+        //             return $this->renderHttpException($exception);
+        //             break;
+        //     }
+        // }
+        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+            \Log::warning('404: ' . $request->url());
+            return response()->view('error.404', [], 404);
         }
-        else
-        {
+       
             return parent::render($request, $exception);
-        }
+        
     }
 }
