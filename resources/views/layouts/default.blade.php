@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" href="{{ url('uploads/others/favicon.png?'.config('custom.version')) }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="{{ url('media/upload/fbimage.jpg?'.config('version.version'))  }}" />
+    <meta property="og:image" content="{{ url('media/uploads/others/fbimage.jpg?'.config('version.version'))  }}" />
     <meta property="og:title" content="{{ config('custom.seo_title') }}" />
     <meta property="og:description" content="{{ config('custom.seo_description') }}" />
     <meta property="og:image:width" content="1200" />
