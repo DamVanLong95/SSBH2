@@ -3227,10 +3227,8 @@ span.tel {
   top: 0;
   bottom: 0;
   margin: auto;
-  position: absolute;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
-  width: 80%;
 }
 
 .table-section #layout-area .table tr.data-detail td:first-child label {
@@ -5097,10 +5095,8 @@ span.tel {
   top: 0;
   bottom: 0;
   margin: auto;
-  position: absolute;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
-  width: 80%;
 }
 
 .table-section-sk #layout-area .table tr.data-detail td:first-child label {

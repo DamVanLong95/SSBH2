@@ -5,13 +5,13 @@ namespace App\Imports;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use DB;
 use App\Model\Exclusion;
-class ExclusionsImport implements ToModel,WithHeadingRow
+class ExclusionsImport implements ToModel,WithHeadingRow,WithChunkReading
 {
     public function model(array $row)
     {
-        // dd($row);
         DB::beginTransaction();
         try {
             Exclusion::create([
@@ -31,5 +31,9 @@ class ExclusionsImport implements ToModel,WithHeadingRow
 
     {
         return 1;
+    }
+    public function chunkSize(): int
+    {
+        return 1000;
     }
 }

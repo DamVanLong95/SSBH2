@@ -11,8 +11,9 @@
 |
 */
 // Route::view('/test','layouts.test');
-Route::get('/', function () {
-    return view('frontend.home');
+Route::get('/', function (App\Post $post) {
+    $posts = $post->all();
+    return view('frontend.home',compact('posts'));
 });
 Route::get('/car1', function () {
     return view('frontend.pages.test');

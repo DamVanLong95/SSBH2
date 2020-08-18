@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Imports\HealthsImport;
 use Maatwebsite\Excel\Facades\Excel;
+
 class HealthExcelController extends Controller
 {
     //
@@ -14,17 +15,15 @@ class HealthExcelController extends Controller
     }
     public function import(Request $request)
     {
-        
-        if ($request->hasFile('import_file'))
-        {
+        try{
             Excel::import(new HealthsImport, $request->file('import_file'));
-            $notification = array(
-                'message' => 'add successfully!',
-                'alert-type' => 'success'
-            );
-
+        }catch(\Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        
+        $notification = array(
+            'message'       => 'add successfully!',
+            'alert-type'    => 'success'
+        );
         return redirect()->back()->with($notification);
     }
 }

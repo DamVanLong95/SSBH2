@@ -222,7 +222,7 @@
                             
                             var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                             var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                            for(var i=96;i < 95 + exclusions.length;i++){
+                            for(var i=96;i <= 95 + exclusions.length;i++){
                                 var tds = myTable.rows[i].cells[indexCol];
                                 if(exclusions[i-96]['content']==='x'){
                                     tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>

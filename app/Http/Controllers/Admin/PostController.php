@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 use DB,File;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -69,8 +70,12 @@ class PostController extends Controller
         unset($data['_token']);
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
+
             $ext = $file->getClientOriginalExtension();
             $filename  =  time().'.'.$ext;
+            Image::make($request->file('avatar'))
+                ->fit(200, 200)
+                ->save($filename, 80);
             $path = $file->storeAs(
                 'post', Str::random(10).'_'.$filename,'public'
             );

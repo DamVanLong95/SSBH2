@@ -180,39 +180,16 @@
                     <div class="blog-ctn">
                     <div id="slideKnowledge" class="swiper-container swiper-knowledge">
                         <div class="swiper-wrapper">
+                        @foreach($posts as $value)
                             <div class="swiper-slide slide-item ">
                                 <div class="item">
-                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/guide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}" target="_blank"><img src="storage/{{$value['avatar']}}" alt=""></a>
                                     <div class="description-ctn">
-                                        <a href="{{ url('/question') }}">Hướng dẫn sử dụng website Vbaohiem.</a>
+                                        <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}">{{$value['title']}}</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide slide-item ">
-                                <div class="item">
-                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai1.png?{{ config('custom.version') }}" alt=""></a>
-                                    <div class="description-ctn">
-                                        <a href="{{ url('/question') }}">Top 10 công ty bảo hiểm uy tín năm 2019.</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-item ">
-                                <div class="item">
-                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai2.png?{{ config('custom.version') }}" alt=""></a>
-                                    <div class="description-ctn">
-                                        <a href="{{ url('/question') }}">Tư vấn bảo hiểm chuyên nghiệp, ưu điểm của web so sánh</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-item ">
-                                <div class="item">
-                                    <a href="{{ url('/question') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/bai3.png?{{ config('custom.version') }}" alt=""></a>
-                                    <div class="description-ctn">
-                                        <a href="{{ url('/question') }}">Phân biệt Bảo hiểm nhân thọ và bảo hiểm sức khỏe</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                        @endforeach
                         </div>
                         <div class="arrow-ctn ">
                             <div class="swiper-button-next know-next">
