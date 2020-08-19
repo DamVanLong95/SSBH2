@@ -256,8 +256,8 @@
                                     <tr class="data-detail term">
                                         <td>
                                             <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{isset($value['rate_fee'])? $value['rate_fee']:0}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
-                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span></span></p>
-                                            
+                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} </span></p>
+                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span>
                                             <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
                                         </td>
                                         <td>
