@@ -73,9 +73,6 @@ class PostController extends Controller
 
             $ext = $file->getClientOriginalExtension();
             $filename  =  time().'.'.$ext;
-            Image::make($request->file('avatar'))
-                ->fit(200, 200)
-                ->save($filename, 80);
             $path = $file->storeAs(
                 'post', Str::random(10).'_'.$filename,'public'
             );
@@ -125,7 +122,7 @@ class PostController extends Controller
             }
         }
         unset($data['_method']);
-        $data['slug']   = preg_replace('/\s+/', '-', $data['title']);
+        $data['slug']   = Str::slug($data['title'],'-');
         $data['is_published'] = 1;
         $data['posted_at'] = now();
         $data['author_id'] = \Auth::user()['id'];
