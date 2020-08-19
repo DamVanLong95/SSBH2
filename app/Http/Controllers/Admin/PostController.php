@@ -80,7 +80,7 @@ class PostController extends Controller
                 'post', Str::random(10).'_'.$filename,'public'
             );
         }
-            $data['slug']   = preg_replace('/\s+/', '-', $data['title']);
+            $data['slug']   = Str::slug($data['title'],'-');
             $data['avatar'] = isset($path)? $path:null;
             $data['is_published'] = 1;
             $data['posted_at'] = now();

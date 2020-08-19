@@ -480,12 +480,17 @@ $(function() {
                                     }
                                 }
                                 //========================quyen loi bao hiem========================
+                                var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
-                                    
                                     if(healths[i-3]){
-                                        (healths[i-3]['content']) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
-                                                     tdss.innerHTML = '';
+                                        if(healths[i-3]['content']=== 'x'){
+                                        tdss.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                        }else if(healths[i-3]['content'] != null){
+                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                        }else{
+                                            tds.innerHTML = '';
+                                        }
                                     }
                                 }
                                 //========================THOI GIAN================================
@@ -597,7 +602,7 @@ $(function() {
                             });
                             
                             var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
-                            var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
+                          
                             for(var i=96;i <= 95+ exclusions.length;i++){
                                 var tds = myTable.rows[i].cells[indexCol];
                                 if(exclusions[i-96]['content']==='x'){

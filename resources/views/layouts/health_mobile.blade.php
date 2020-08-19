@@ -106,11 +106,18 @@
                                                 :tds.innerHTML = `<p class="ellipsis">`+scope['content']+`</p>`;
                             
                                 //========================quyen loi bao hiem========================
+                                   //========================quyen loi bao hiem========================
+                                var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
                                     if(healths[i-3]){
-                                        (healths[i-3]['content']) ?  tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`:
-                                                     tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`
+                                        if(healths[i-3]['content']=== 'x'){
+                                        tdss.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                        }else if(healths[i-3]['content'] != null){
+                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                        }else{
+                                            tds.innerHTML = '';
+                                        }
                                     }
                                 }
                                 //========================THOI GIAN================================
@@ -120,7 +127,7 @@
                                         
                                         if(healths[i-3]['content']!=null) {
                                             tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
-                                        } else tdss.innerHTML =  `<p class="ellipsis">`+''+`</p>`;
+                                        } else tdss.innerHTML = '';
                                     }
                                 }
                                 var tdss    = myTable.rows[pbh.rowIndex+1].cells[indexCol] ;
