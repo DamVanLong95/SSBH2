@@ -1492,8 +1492,8 @@ footer .footer-ctn .footer-nav li a {
   position: initial;
   top: -20px;
   left: 100%;
-  width: 3em;
-  margin-left: -3em;
+  width: 5em;
+  margin-left: -5em;
   padding-right: 5px;
   text-align: right;
   background: white;
@@ -3229,6 +3229,16 @@ span.tel {
   margin: auto;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 375px) {
+  .table-section #layout-area .table tr.data-detail td:first-child p.ellipsis {
+    width: 100px;
+  }
 }
 
 .table-section #layout-area .table tr.data-detail td:first-child label {
@@ -3372,11 +3382,11 @@ span.tel {
 
 @media (max-width: 767px) {
   .table-section #layout-area .table tr.data-detail td span.first-td {
-    transform: translate(13px, -27px);
-    -webkit-transform: translate(13px, -27px);
-    -moz-transform: translate(13px, -27px);
-    -ms-transform: translate(13px, -27px);
-    -o-transform: translate(13px, -27px);
+    width: 100%;
+    -webkit-transform: translate(-10px, 0px);
+    -moz-transform: translate(-10px, 0px);
+    -ms-transform: translate(-10px, 0px);
+    -o-transform: translate(-10px, 0px);
   }
 }
 
@@ -3390,6 +3400,12 @@ span.tel {
   float: right;
   position: absolute;
   top: 10px;
+}
+
+@media (max-width: 375px) {
+  .table-section #layout-area .table tr.data-detail td span.show-detail button {
+    right: -20px;
+  }
 }
 
 .table-section #layout-area .table tr.data-detail td img.net-img {
@@ -3443,7 +3459,7 @@ span.tel {
 
 @media (max-width: 375px) {
   .table-section #layout-area .table tr.data-detail .toggle {
-    width: 90px;
+    width: 65px;
   }
 }
 
@@ -5099,6 +5115,12 @@ span.tel {
           transform: translateY(10px);
 }
 
+@media (max-width: 375px) {
+  .table-section-sk #layout-area .table tr.data-detail td:first-child p.ellipsis {
+    width: 85px;
+  }
+}
+
 .table-section-sk #layout-area .table tr.data-detail td:first-child label {
   top: 0;
   bottom: 0;
@@ -5116,7 +5138,7 @@ span.tel {
 
 .table-section-sk #layout-area .table tr.data-detail td p.ellipsis {
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .table-section-sk #layout-area .table tr.data-detail td span a {
@@ -5216,7 +5238,7 @@ span.tel {
 
 .table-section-sk #layout-area .table tr.data-detail td span.first-td {
   position: relative;
-  display: inline-block;
+  display: initial;
   transform: translate(32px, -27px);
   width: 90%;
   -webkit-transform: translate(32px, -27px);
@@ -6929,5 +6951,10 @@ span.tel {
 tr.data-detail td {
   max-width: 300px;
   font-size: 14px;
+}
+
+.item-kienthuc img {
+  width: 100%;
+  height: 225px;
 }
 /*# sourceMappingURL=styles.css.map */

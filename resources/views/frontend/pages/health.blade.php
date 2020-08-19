@@ -319,7 +319,7 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" onclick='handleCheckbox(this);'   />
                                         <label for="checkbox_two_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
                                         @if($agent->isMobile())
-                                            <p class="ellipsis" style="color: #125732">{{Str::words($data['benifits'][$i]['comparison'],3)}}</p>
+                                            <p class="ellipsis" style="color: #125732">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
                                             <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
                                         @else
                                             <p class="ellipsis" style="color: #125732">{{$data['benifits'][$i]['comparison']}}</p>
@@ -335,7 +335,7 @@
                                         <label for="checkbox_three_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
                                           
                                             @if($agent->isMobile())
-                                                <p class="ellipsis" style="color: #000">{{Str::words($data['benifits'][$i]['comparison'],3)}}</p>
+                                                <p class="ellipsis" style="color: #000">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
                                                 <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
                                             @else
                                                 <p class="ellipsis" style="color: #000">{{$data['benifits'][$i]['comparison']}}</p>

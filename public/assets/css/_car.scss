@@ -696,6 +696,14 @@
                         // position: absolute;
                         transform: translateY(10px);
                         // width: 80%;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        @media (max-width: 375px) {
+                            width: 100px;
+                            // padding: .5rem !important;
+                        }
                     }
                     label {
                         top: 0;
@@ -819,11 +827,17 @@
                             -o-transform: translate(0px, -27px);
                         }
                         @media(max-width: 767px) {
-                            transform: translate(13px, -27px);
-                            -webkit-transform: translate(13px, -27px);
-                            -moz-transform: translate(13px, -27px);
-                            -ms-transform: translate(13px, -27px);
-                            -o-transform: translate(13px, -27px);
+                            //transform: translate(13px, -27px);
+                            //-webkit-transform: translate(13px, -27px);
+                            //-moz-transform: translate(13px, -27px);
+                            //-ms-transform: translate(13px, -27px);
+                            //-o-transform: translate(13px, -27px);
+                            width: 100%;
+                            // transform: translate(-10px, 0px);
+                            -webkit-transform: translate(-10px, 0px);
+                            -moz-transform: translate(-10px, 0px);
+                            -ms-transform: translate(-10px, 0px);
+                            -o-transform: translate(-10px, 0px);
                         }
                     }
                     span.show-detail {
@@ -835,6 +849,9 @@
                             float: right;
                             position: absolute;
                             top: 10px;
+                            @media(max-width: 375px) {
+                                right: -20px;
+                            }
                         }
                     }
                     img.net-img {
@@ -880,7 +897,7 @@
                     cursor: pointer;
                     width: 200px;
                     @media (max-width: 375px) {
-                        width: 90px;
+                        width: 65px;
                     }
                     span {
                         color: $main-color;

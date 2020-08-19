@@ -182,8 +182,8 @@
                         <div class="swiper-wrapper">
                         @foreach($posts as $value)
                             <div class="swiper-slide slide-item ">
-                                <div class="item">
-                                    <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}" target="_blank"><img src="storage/{{$value['avatar']}}" alt=""></a>
+                                <div class="item item-kienthuc">
+                                    <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}" target="_blank"><img src="storage/{{$value['avatar']}}" alt="" ></a>
                                     <div class="description-ctn">
                                         <a href="{{route('blog.show',['id'=>$value->id,'slug'=>$value->slug])}}">{{$value['title']}}</a>
                                     </div>

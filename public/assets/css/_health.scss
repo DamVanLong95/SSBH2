@@ -454,6 +454,10 @@
                         // position: absolute;
                         transform: translateY(10px);
                         // width: 80%;
+                        @media (max-width: 375px) {
+                            width: 85px;
+                            // padding: .5rem !important;
+                        }
                     }
                     label {
                         top: 0;
@@ -467,7 +471,7 @@
                     text-align: center;
                     p.ellipsis {
                         text-align: center;
-                        font-size: 14px;
+                        font-size: 13px;
                     }
                     span {
                         a {
@@ -559,7 +563,7 @@
                     }
                     span.first-td {
                         position: relative;
-                        display: inline-block;
+                        display: initial;
                         transform: translate(32px, -27px);
                         width: 90%;
                         -webkit-transform: translate(32px, -27px);
