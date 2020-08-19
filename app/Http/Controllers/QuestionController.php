@@ -22,7 +22,7 @@ class QuestionController extends Controller
     }
     public function searchByName(Request $request){
         $keyword = $request->input('keyword');
-        $result = Library::where('terms','like','%'.$keyword.'%')->get();
+        $result = Library::where('terms','like','%'.$keyword.'%')->limit(10)->get();
         // $search_explode = explode(" ",$keyword);//mang chu
 
         // $condition_arr = array();

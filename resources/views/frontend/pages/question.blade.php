@@ -96,7 +96,7 @@
                                                 @foreach($group_libra as $value)
                                                 <div class="alpha-index">
                                                     <div class="alpha-left">
-                                                        <a href="#C" class="{{$value['content']!='' ? '' : disable }}">{{$value['character']}}</a>
+                                                        <a href="#C" class="{{$value['content']!='' ? '' : 'disable' }}">{{$value['character']}}</a>
                                                     </div>
                                                     <div class="index-content">
                                                         <div class="panel panel-default">

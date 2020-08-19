@@ -85,7 +85,7 @@ class HealthController extends Controller
                     ->where('product_id','=',$product_id)
                     ->where('program_id','=',$program_id)
                     ->get();
-        $exclusions = Exclusion::where('product_id','=',$product_id)->get();
+        $exclusions = Exclusion::where('product_id','=',$product_id)->take(56)->get();
 
         $program   = Program::where('id',$program_id)->first();
 
