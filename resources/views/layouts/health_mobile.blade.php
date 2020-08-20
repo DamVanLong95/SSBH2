@@ -20,6 +20,7 @@
                                 var tblBodyObj  = myTable.tBodies[0];
                                 var tblHeadObj  = myTable.tHead;
                                 var indexCol    = tblHeadObj.rows[0].cells.length - 1;
+                                var tableLength = document.getElementById('main-tbl-sk').rows[0].cells.length;
            if(indexCol==2)count++;
            if(clicked.is(':checked') && $('div.img-container').is(":not(.dropped)")){
             // clicked[0].setAttribute('disabled',true);
@@ -93,8 +94,8 @@
                             var pending   = document.getElementById('pending');
                             var pbh   = document.getElementById('pbh');
                             
-                            var tds =  myTable.rows[row.rowIndex+1].cells[indexCol];
                             if(obj_bhs){
+                                const tds =  myTable.rows[row.rowIndex+1].cells[indexCol];
                                 (!obj_bhs['content']) ? tds.innerHTML = `<p class="ellipsis"></p>`
                                                 :tds.innerHTML = `<p class="ellipsis">`+obj_bhs['content']+`</p>`;
                             }
@@ -112,16 +113,23 @@
                                 }
                             
                                    //========================quyen loi bao hiem========================
-                                var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
+                                   var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                 for(var i=7 ; i< pending.rowIndex ; i++){
                                     var tdss = myTable.rows[i].cells[indexCol];
                                     if(healths[i-3]){
                                         if(healths[i-3]['content']=== 'x'){
                                         tdss.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                         }else if(healths[i-3]['content'] != null){
-                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                            const str = healths[i-3]['content'];
+                                            if(str.length > 45){
+                                                tdss.innerHTML =  `<p class="ellipsis">`+cutString(str,10)+`</p>`+
+                                            `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                            }else{
+                                                tdss.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                            }
+                                           
                                         }else{
-                                            tds.innerHTML = '';
+                                            tdss.innerHTML = '';
                                         }
                                     }
                                 }
@@ -249,7 +257,7 @@
                                     var str = exclusions[i-90]['note'];
                                     if(str.length > 45){
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                    <p class="ellipsis">`+str+`</p>`+
+                                                    <p class="ellipsis">`+cutString(str,15)+`</p>`+
                                                     `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
                                     }else{
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
