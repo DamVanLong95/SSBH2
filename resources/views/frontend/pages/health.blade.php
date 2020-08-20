@@ -298,7 +298,7 @@
                                 <tr class="header green1 bg-head-2" id="qlbh">
                                     <td  colspan="2" class="green_header">Quyền lợi bảo hiểm</td>
                                 </tr>
-                                @for($i=4;$i< count($data['benifits']);$i++)
+                                @for ($i = 4; $i < 72; $i++)
                                     @if($data['benifits'][$i]['level']==1)
                                     <tr class="data-detail parent">
                                         <td>
@@ -358,7 +358,7 @@
                                     <td  colspan="2" class="green_header">Thời gian chờ</td>
                                 </tr>
                             
-                                @for($i=76;$i< 86;$i++)
+                                @for($i=73;$i< 81;$i++)
                                     @if($data['healths'][$i]['level']== 1)
                                     <tr class="data-detail">
                                         <td>

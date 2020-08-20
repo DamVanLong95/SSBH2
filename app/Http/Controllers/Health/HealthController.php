@@ -26,7 +26,6 @@ class HealthController extends Controller
         $scope      = Health::select('comparison')->skip(2)->first();
         $benifits   = Health::select('id','comparison','level')->take(76)->get();
         $healths    = Health::select('id','comparison','level')->get();
-        // dd($healths);
         $exclusions = Exclusion::select('rules','product_id')->take(56)->get();
         // dd($exclusions );
 
