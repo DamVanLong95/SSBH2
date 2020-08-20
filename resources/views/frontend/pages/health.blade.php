@@ -275,8 +275,9 @@
                                 </tr>
                                 <tr class="data-detail ">
                                     <td class="1st-td">
-                                        <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' />
-                                        <label for="checkbox_sk"> </label><span class="first-td"><p class="ellipsis">{{$data['object_bh']['comparison']}}</p>
+                                        <!-- <input class="selectedId" type="checkbox" id="checkbox_sk" name="checkbox_sk" value="" data-id="id"  onclick='handleOncick(this);' /> -->
+                                        <!-- <label for="checkbox_sk"> </label><span class="first-td"> -->
+                                        <p class="ellipsis">{{$data['object_bh']['comparison']}}</p>
                                         <!-- <span class="show-detail"><button type="button" class="btn btn-primary" value="" onclick="showMore(this.value)"  >...</button></span></span> -->
                                     </td>
                                     <td>
@@ -505,10 +506,10 @@
                             </div>
                             <!-- Add Arrows -->
                             <div class="arrow-ctn ">
-                                <div class="swiper-button-prev">
+                                <div class="swiper-button-prev sk-prev">
                                 
                                 </div>
-                                <div class="swiper-button-next">
+                                <div class="swiper-button-next sk-next">
                                 
                                 </div>
                             </div>

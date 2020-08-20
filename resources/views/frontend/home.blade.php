@@ -92,7 +92,7 @@
             <div class="col-lg-12">
                 <div class="section4-ctn">
                     <div class="title-ctn">
-                        <h4>Bạn đã biết sử dụng Web <span>V-Bảo hiểm</span> chưa?</h4>
+                        <h4>Bạn đã biết sử dụng Web <span>Vbaohiem</span> chưa?</h4>
                         <p>Rất đơn giản. Hãy làm như sau</p>
                     </div>
                     <div class="sec4-container">
@@ -135,26 +135,26 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-ctn">
-                        <h4>Truyền thông nói về <span>V-Bảo hiểm</span></h4>
+                        <h4>Truyền thông nói về chúng tôi</h4>
                     </div>
                     <div id="slideCus" class="swiper-container swiper-customer">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-item">
                                 <p>
-                                "VICS CORP tiên phong cung cấp giải pháp cho nhu cầu quan trọng nhất của người dùng khi họ đang phân vân giữa quá nhiều lựa chọn: sự đơn giản. Trang web này mang đến cho người dùng những công cụ hữu ích như so sánh thẻ tín dụng, tham khảo đánh giá từ người dùng khác, và bảng xếp hạng các sản phẩm tài chính cá nhân."
-                                    <br><i>Báo tuổi trẻ</i>
+                                "VICS-CORP tiên phong trong lĩnh vực phụ trợ bảo hiểm, đặt mục tiêu tham vọng với định hướng trở thành nhà tư vấn dịch vụ bảo hiểm hàng đầu Việt Nam"
+                                    <br><i><a href="https://tinnhanhchungkhoan.vn/chuyen-dong-doanh-nghiep/vics-corp-tien-phong-trong-linh-vuc-phu-tro-bao-hiem-307535.html" target="_blank">  tinnhanhchungkhoan.vn</a> </i>
                                 </p>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, temporibus minus. Mollitia quidem amet voluptatum veniam doloremque labore harum illum quaerat asperiores omnis ut a, magnam unde dolorem tempora ullam!
-                                    <br><i>John Doe</i>
+                                Vbaohiem là website so sánh sản phẩm bảo hiểm đầy đủ, toàn diện trên các lĩnh vực bảo hiểm: nhân thọ, vật chất xe cơ giới, sức khỏe… của tất cả 18 công ty bảo hiểm nhân thọ và 30 công ty bảo hiểm phi nhân thọ tại Việt Nam.
+                                    <br><i> cty Akitec</i>
                                 </p>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla perferendis nemo amet optio quidem, quam exercitationem? Excepturi sapiente, omnis voluptatum at nemo ex laboriosam repellendus non enim voluptate iusto ipsa.
-                                    <br><i>Quincy</i>
+                                "Kênh kết nối khách hàng đến tư vấn viên bảo hiểm chuyên nghiệp nhất  thông qua nền tảng công nghệ trực tuyến đơn giản, hiện đại."
+                                    <br><i>cty Gỗ Châu Á</i>
                                 </p>
                             </div>
                         </div>

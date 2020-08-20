@@ -223,9 +223,10 @@
                 var swiper7 = new Swiper(ele.slideSk, {
                     slidesPerView: 3,
                     spaceBetween: 30,
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
+                    autoplay: {
+                        delay: 3000,
+                    },
+                    loop: true,
                     navigation: {
                         nextEl: '.sk-next',
                         prevEl: '.sk-prev',
