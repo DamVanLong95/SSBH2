@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hỏi đáp - {{ config('custom.seo_title') }}</title>
+    <title>{{ config('custom.seo_title') }}</title>
     <meta name="description" content="{{ config('custom.seo_description') }}">
     <meta name="author" content="{{ config('custom.seo_author') }}">
     <meta property="fb:app_id" content="{{ config('custom.facebook_appid') }}" />
