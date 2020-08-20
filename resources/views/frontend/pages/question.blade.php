@@ -68,12 +68,12 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse0" class="collapsed" aria-expanded="false">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$value['id']}}" class="collapsed" aria-expanded="false">
                                                             {{$value['content']}}
                                                         </a>
                                                     </h4>
                                                 </div>
-                                                <div id="collapse0" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                <div id="collapse{{$value['id']}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                                     <div class="panel-body">
                                                         {{strip_tags($value['explain'])}}
                                                    </div>

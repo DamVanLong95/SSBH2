@@ -3396,7 +3396,7 @@ span.tel {
 }
 
 .table-section #layout-area .table tr.data-detail td span.show-detail button {
-  right: 0px;
+  right: -20px;
   float: right;
   position: absolute;
   top: 10px;
@@ -5238,7 +5238,7 @@ span.tel {
 
 .table-section-sk #layout-area .table tr.data-detail td span.first-td {
   position: relative;
-  display: initial;
+  display: block;
   transform: translate(32px, -27px);
   width: 90%;
   -webkit-transform: translate(32px, -27px);
@@ -5261,6 +5261,7 @@ span.tel {
   .table-section-sk #layout-area .table tr.data-detail td span.first-td {
     -webkit-transform: translate(15px, -27px);
             transform: translate(15px, -27px);
+    display: initial;
   }
 }
 
