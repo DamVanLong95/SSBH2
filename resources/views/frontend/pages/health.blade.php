@@ -440,8 +440,14 @@
                                 @foreach($data['exclusions'] as $value)
                                 <tr class="data-detail">
                                     <td>
+                                        @if($agent->isMobile())
+                                        <span class="show-detail"><button value="{{$value['rules']}}" onclick="detail(this.value)">...</button></span></span>
+                                        <p class="ellipsis">{{Str::words($value['rules'],3)}}</p>
+                                        @else
                                         <span class="show-detail"><button value="{{$value['rules']}}" onclick="detail(this.value)">...</button></span></span>
                                         <p class="ellipsis">{{Str::words($value['rules'],15)}}</p>
+                                        @endif
+                                       
                                     </td>
                                     <td></td>
                                 </tr>
@@ -537,27 +543,32 @@
     function handleAll(el){
         var selector = $('.selectedId');
         console.log(el);
-        for(var i = 2; i <= 25; i ++){
+        for(var i = 1; i <= 22; i ++){
             if( $(el).val() == 5) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
        
-        for(var i = 27; i < 32; i ++){
-            if( $(el).val() == 30) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        for(var i = 24; i < 28; i ++){
+            if( $(el).val() == 28) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        }
+        for(var i = 29; i < 32; i ++){
+            if( $(el).val() == 33) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
         for(var i = 33; i < 36; i ++){
-            if( $(el).val() == 36) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-        }
-        for(var i = 37; i < 41; i ++){
-            if( $(el).val() == 40) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+            if( $(el).val() == 37) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
-        for(var i = 42; i < 56; i ++)
-            if( $(el).val() == 45) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-        for(var i = 56; i < 62; i ++)
-            if( $(el).val() == 60) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        for(var i = 37; i < 51; i ++)
+            if( $(el).val() == 41) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        for(var i = 52; i < 56; i ++)
+            if( $(el).val() == 56) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
 
-        for(var i = 62; i <73; i ++){
-            if( $(el).val() == 66) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        for(var i = 57; i <62; i ++){
+            if( $(el).val() == 61) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+           
+        }
+
+        for(var i = 62; i < 68; i ++){
+            if( $(el).val() == 67) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
            
         }
        
@@ -565,15 +576,16 @@
     function handleCheckbox(el){
         
         var selector = $('.selectedId');
-        for(var i = 3; i <= 8; i ++){
-            if( $(el).val() == 4) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-        }
-        for(var i = 2; i <= 8; i ++){
+
+        for(var i = 2; i < 8; i ++){
             if( $(el).val() == 6) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
-        for(var i = 76; i < 79; i ++){
-            if( $(el).val() == 80) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
-        }
+        // for(var i = 2; i <= 8; i ++){
+        //     if( $(el).val() == 6) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        // }
+        // for(var i = 76; i < 79; i ++){
+        //     if( $(el).val() == 80) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
+        // }
     }
     function resetChecked(){
         $('input:checkbox').removeAttr('checked');

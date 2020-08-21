@@ -36,7 +36,7 @@ $(function() {
                        var rating_and_model = data.data['rating_and_model'];
                         var notes       = data.summaries;
                         var deductible  = data.deductible;  
-                                 
+                        var detail      = data.data.detail;
                         var exception   = data.exception;  
                         var punishment  = data.punishment;
                         var promotion   = data.promotion;
@@ -414,7 +414,7 @@ $(function() {
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
                                 
                                 tds.innerHTML =`<img class="img-fluid toggle" src="`+imgNet+`"  id="map`+idImg+`" alt="">
-                                            <p class="toggle"><span>`+data_activities['total']+`</span> Chi nhánh</p>
+                                            <p class="toggle"><span>`+detail.length+`</span> Chi nhánh</p>
                                         
                                             `;
                                     

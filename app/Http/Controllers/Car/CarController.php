@@ -86,9 +86,11 @@ class CarController extends Controller
         }
         $companies_cheap = Company::where('classify','=', 3)
                         ->whereIn('id',$condition_1)
+                        ->orderBy('name')
                         ->get();
         $companies_recoup= Company::where('classify','=',3)
                         ->whereIn('id',$condition_2)
+                        ->orderBy('name')
                         ->get();
 
         $uses = RefRate::orderBy('sort')->get();

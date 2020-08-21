@@ -38,7 +38,7 @@ class LongevityController extends Controller
                     // dd($benifits_group);
         $group_sicks = SickGroup::all();
         
-        $companies          = Company::where('classify',4)->get();
+        $companies          = Company::where('classify',4)->orderBy('name')->get();
         $data['companies']  = $companies;
         $data['products']   = $products;
         $data['scope_secure']    = $scope_secure;

@@ -19,10 +19,10 @@ class HealthController extends Controller
     public function index()
     {
 
-        $products  = Product::orderBy('created_at','desc')->get();
-        $saving    = Product::where('cate','=',1)->get();
-        $secure    = Product::where('cate','=',2)->get();
-        $object_bh = Health::select('comparison')->skip(1)->first();
+        $products   = Product::orderBy('created_at','desc')->get();
+        $saving     = Product::where('cate','=',1)->get();
+        $secure     = Product::where('cate','=',2)->get();
+        $object_bh  = Health::select('comparison')->skip(1)->first();
         $scope      = Health::select('comparison')->skip(2)->first();
         $benifits   = Health::select('id','comparison','level')->take(76)->get();
         $healths    = Health::select('id','comparison','level')->get();
