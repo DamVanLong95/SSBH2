@@ -6724,7 +6724,7 @@ span.tel {
 
 @media (min-width: 601px) {
   .table-scroll {
-    height: auto;
+    height: 950px;
   }
 }
 
