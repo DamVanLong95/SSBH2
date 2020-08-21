@@ -19,8 +19,11 @@ class ContactController extends Controller
 
     public function index(){
         $advisors   = $this->advisors;
+        $advisor    = $advisors->filter(function($value){
+            return $value['status'] == 1;
+        })->first();
         $locations  = $this->locations;
-        return view('frontend.pages.contact',compact('advisors','locations'));
+        return view('frontend.pages.contact',compact('advisor','locations','advisors'));
     }
     public function searchWorking(Request $request)
     {
@@ -119,5 +122,14 @@ class ContactController extends Controller
         //    dd($result);
         $html = view('frontend.pages.advisor_name')->with(['result' => $result,'locations' => $this->locations])->render();
         return response()->json($html);
+    }
+    public function displayMap(Request $request){
+        $id      = $request->input('advisor_id');
+        $advisor = Advisor::find($id);
+        // dd($advisor);
+        $html = view('frontend.pages.health_ajax.profile')->with(['advisor' => $advisor])->render();
+        // dd($html);
+        return response()->json($html);
+
     }
 }

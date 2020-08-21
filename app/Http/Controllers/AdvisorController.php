@@ -106,7 +106,6 @@ class AdvisorController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-       
         unset($data['_token']);
         $tvv = Advisor::find($id);
 

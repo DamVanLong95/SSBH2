@@ -126,7 +126,6 @@
                          }
                            //  ===========Loai tru bao hiem========================
                          var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
-                         console.log(longevities);
                          for(var i=47; i<=57 ;i++){
                             var tds =  tblBodyObj.rows[i].cells[indexCol];
                             // tds.style = "p-wrap";
