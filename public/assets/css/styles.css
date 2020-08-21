@@ -1476,7 +1476,6 @@ footer .footer-ctn .footer-nav li a {
   content: "";
   float: left;
   width: 5px;
-  height: 40px;
 }
 
 .ellipsis > *:first-child {
@@ -6720,6 +6719,7 @@ span.tel {
   z-index: 1;
   margin: auto;
   overflow: auto;
+  height: 100vh;
 }
 
 .table-scroll::-webkit-scrollbar-track {
