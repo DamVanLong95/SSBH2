@@ -6722,10 +6722,9 @@ span.tel {
   height: 100vh;
 }
 
-@media (min-width: 601px) {
-  .table-scroll {
-    height: 1100px;
-  }
+.table-scroll tbody {
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 
 .table-scroll::-webkit-scrollbar-track {
