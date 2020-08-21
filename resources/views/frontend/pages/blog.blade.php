@@ -26,7 +26,7 @@
         <div class="blog-ctn">
             <div class="title">
                 <h4>{{$blog->title}}</h4>
-                <p><b>Posted:</b> {!!  Carbon\Carbon::parse($blog->created_at)->diffForHumans() !!}</p>
+                <p><b>Posted:</b> {{ $blog->created_at->format('d/m/Y') }}</p>
             </div>
             <div class="blog-content">
                 <p>{!! nl2br($blog->content)!!}</p>

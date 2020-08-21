@@ -29,7 +29,7 @@ class HealthController extends Controller
         $exclusions = Exclusion::select('rules','product_id')->take(56)->get();
         // dd($exclusions );
 
-        $companies = Company::all();
+        $companies = Company::orderBy('name')->get();
        
 
         $data['companies']  = $companies;

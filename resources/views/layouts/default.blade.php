@@ -267,15 +267,15 @@
     <!-- script contact collaspse -->
     <script>
         $(function(){
-        $('.name-item a').each(function(index,value){
-            if ($(this).hasClass('active')==true) {
-                var id = $($(this)[index]).attr("value");
-                $('#'+id+'').show();
-            }else{
-                $('#'+value.getAttribute("value")+'').hide();
-            }
-        });
-        $('.showSingle1').click(function(){
+            $('.name-item a').each(function(index,value){
+                if ($(this).hasClass('active')==true) {
+                    var id = $($(this)[index]).attr("value");
+                    $('#'+id+'').show();
+                }else{
+                    $('#'+value.getAttribute("value")+'').hide();
+                }
+            });
+            $('.showSingle1').click(function(){
                 $('.name-item a').removeClass("active");
                 $(this).find('a').addClass("active");
                 $('.name-item a').each(function(index,value){
@@ -286,21 +286,31 @@
                         $('#'+value.getAttribute("value")+'').hide();
                     }
                 });
+                var url = "{{route('contact.googleMap')}}";
+                var advisor_id = $(this).find('a').data('id');
+                $.post(url,{
+                    "_token": "{{ csrf_token() }}",
+                    advisor_id: advisor_id
+
+                }).done(function(data){
+                    $('#profile').html(data);
+                    $('iframe').css('width','100%');
+                })
             });
-            });
+        });
     </script>
    <script>
-        // function killCopy(e){
-        //     return false
-        // }
-        // function reEnable(){
-        //     return true
-        // }
-        // document.onselectstart = new Function ("return false")
-        // if (window.sidebar){
-        //     document.onmousedown=killCopy
-        //     document.onclick=reEnable
-        // }
+        function killCopy(e){
+            return false
+        }
+        function reEnable(){
+            return true
+        }
+        document.onselectstart = new Function ("return false")
+        if (window.sidebar){
+            document.onmousedown=killCopy
+            document.onclick=reEnable
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="{{ url('assets/js/custom.js?'.config('custom.version')) }}"></script>

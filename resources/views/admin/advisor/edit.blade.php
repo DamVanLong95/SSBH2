@@ -155,12 +155,7 @@ input:checked + .slider:before {
                             <input type="text" class="form-control" id="phone" name="phone" value= "{{$advisor['phone']}}" placeholder="Số điện thoại">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="title" class="col-md-3 text-right control-label col-form-label">Ghi chú</label>
-                        <div class="col-md-9">
-                                <textarea class="form-control" rows="3" placeholder="Enter ..." name="note" value="{{$advisor['note']}}"></textarea>
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label for="title" class="col-md-3 text-right ">Lĩnh vực </label>
                         <div class="col-sm-3">
@@ -182,6 +177,12 @@ input:checked + .slider:before {
                         <label class="switch ">
                             <input type="checkbox" class="primary" name="status" {{ ($advisor->status == 1) ?  'checked' : ''}}>
                         <span class="slider roundSwitch"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label for="title" class="col-md-3 text-right control-label col-form-label">Link map</label>
+                        <div class="col-md-9">
+                                <textarea class="form-control" rows="3" placeholder="Enter ..." name="link_map" value="" >{{$advisor['link_map']}}</textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="border-top">

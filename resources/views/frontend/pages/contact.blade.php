@@ -53,21 +53,22 @@
                                 <select aria-label="Select menu example" class="area">
                                     <option selected style="display:none">Khu vực</option>
                                     @foreach($locations as $value)
-                                        <option value="{{$value['name']}}">{{$value['name']}}</option>
+                                        <option value="{{$value['name']}}" >{{$value['name']}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <!-- <div class="item button-filter">
-                           <button type="button" class="reset" >Chọn lại</button>
-                       </div> -->
+                        <div class="item button-filter">
+                            <button type="button" class="reset" >Chọn lại</button>
+                        </div>
+                       
                     </div>
                     <div class="name-list">
                         <div class="row" id="showName">
                         @foreach($advisors as $value)
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <div class="name-item showSingle1 " target="1">
-                                    <a href="javascript:void(0)"  class="{{$value['status'] ==1 ? 'active' :''}}" value="adiv{{$value['id']}}">{{$value['fullname']}}</a>
+                                    <a href="javascript:void(0)"  class="{{$value['status'] ==1 ? 'active' :''}}" value="adiv{{$value['id']}}" data-id="{{$value['id']}}">{{$value['fullname']}}</a>
                                 </div>
                             </div> 
                         @endforeach
@@ -77,8 +78,8 @@
             </div>
         </div>
     </div>
-    @foreach($advisors as $value)
-    <div id="adiv{{$value['id']}}" class=" detail-ctv targetDiv1">
+    <div id="profile">
+    <div id="adiv{{$advisor['id']}}"  class=" detail-ctv targetDiv1">
         <div id="sec-contact-detail" class="sec-contact-detail">
             <div class="section-wrapper ">
                 <div class="container">
@@ -86,30 +87,31 @@
                         <div class="col-lg-12">
                             <div class="detail-ctn">
                                 <div class="ava-ctn">
-                                    <img class="img-fluid" src="storage/{{$value['avatar']}}" alt="">
+                                    <img class="img-fluid" src="storage/{{$advisor['avatar']}}" alt="">
                                 </div>
                                 <div class="detail-contact">
                                     <div class="name">
-                                        {{$value['fullname']}}
+                                        {{$advisor['fullname']}}
+                                       
                                     </div>
                                     <div class="time-work">
                                         <p class="job-title"><strong>Quá trình hoạt động</strong></p>
-                                        <p>{{$value['working_process']}}	</p>
+                                        <p>{{$advisor['working_process']}}	</p>
                                         <p class="job-title"><strong>Lĩnh vực hoạt động</strong></p>
-                                        @if($value['major']==2)
+                                        @if($advisor['major']==2)
                                             <p>Phi nhân thọ</p>
-                                        @elseif($value['major'] ==1)
+                                        @elseif($advisor['major'] ==1)
                                             <p> Nhân thọ</p>
-                                        @elseif($value['major'] ==3)
+                                        @elseif($advisor['major'] ==3)
                                             <p>Phi nhân thọ, nhân thọ</p>
                                         @endif
 
                                         <p class="job-title"><strong>Công việc</strong></p>
-                                        <p class="">{{$value['work']}}</p>
+                                        <p class="">{{$advisor['work']}}</p>
                                         <p class="job-title"><strong>Khu vực</strong></p>
-                                        <p>{{$value['area']}}</p>
+                                        <p>{{$advisor['area']}}</p>
                                         <p class="job-title"><strong>Liên hệ</strong></p>
-                                        <p><a href="tel:{{$value['phone']}}">{{$value['phone']}}</a><span                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    > | <a href="mailto:dieppth@vics-corp.com"> {{$value['email']}}</a></span></p>
+                                        <p><a href="tel:{{$advisor['phone']}}">{{$advisor['phone']}}</a><span                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    > | <a href="mailto:dieppth@vics-corp.com"> {{$value['email']}}</a></span></p>
                                     </div>
                                 </div>
                             </div>
@@ -120,70 +122,27 @@
         </div>
         <div class="container-fluid p-0">
             <div class="map-ctn">
-                <div class=" contact-map mb-5 pb-4"  >
-                    <div id="map"></div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.356021421427!2d105.83889371533193!3d21.01843609350559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abdc0c1b029f%3A0xfd35e2f85578d97e!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMawIHbhuqVuIEThu4tjaCB24bulIELhuqNvIGhp4buDbSBWaeG7h3QgTmFt!5e0!3m2!1sen!2s!4v1593676651971!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
-                    </iframe> 
+                <div class=" contact-map mb-5 pb-4"   >
+                   {!!$advisor['link_map']!!}
                 </div>
             </div>
         </div>
     </div>
-    @endforeach
+    
+    </div>
+    
+   
 </div>
 @stop
 
 @section('footer')
-    <!-- <script>
-        var geocoder;
-        var map;
 
-        function initialize() {
-
-            geocoder = new google.maps.Geocoder();
-
-            var latlng = new google.maps.LatLng(0, 0);
-            var mapOptions = {
-                zoom: 8,
-                center: latlng
-            };
-
-            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-            // Call the codeAddress function (once) when the map is idle (ready)
-            google.maps.event.addListenerOnce(map, 'idle', codeAddress);
-         }
-
-        function codeAddress() {
-
-            // Define address to center map to
-            var address = 'Paris, France';
-
-            geocoder.geocode({
-                'address': address
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-
-                    // Center map on location
-                    map.setCenter(results[0].geometry.location);
-
-                    // Add marker on location
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    alert("Geocode was not successful for the following reason: " + status);
-                }
-            });
-        }
-        initialize();
-    </script> 
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD7Kay6D-n3yl8GNzzF5ZllpfLAR1FjwpAAIzaSyCkOPv4tkRXJavi6etVh7HSt-Sp-k-m5Fs"></script> -->
    
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     
     
     <script type="text/javascript">
+        $('iframe').css('width','100%');
         var wk, lv, kv;
         $('.work').change(function(){
              wk = $(this).val();
@@ -235,7 +194,9 @@
 
             $('select option').prop('selected', function() {
                 return this.defaultSelected;
+
             });
+            document.location.reload(true);
         });
     </script>
    
