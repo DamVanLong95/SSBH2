@@ -176,10 +176,10 @@
 
                     <div class="footer-content">
                         <ul class="footer-nav">
-                            <a href="{{ url('/intro') }}"><li>Giới thiệu về VICS-CORP</li></a>
-                            <a href="{{ url('/treatment') }}"><li>Ưu đãi</li></a>
-                            <a href="{{ url('/question') }}"><li>Câu hỏi thường gặp</li></a>
-                            <a href="{{ url('/contact') }}"><li>Liên hệ</li></a>
+                            <a href="{{ url('/gioi-thieu') }}"><li>Giới thiệu về VICS-CORP</li></a>
+                            <a href="{{ url('/uu-dai') }}"><li>Ưu đãi</li></a>
+                            <a href="{{ url('/kien-thuc') }}"><li>Câu hỏi thường gặp</li></a>
+                            <a href="{{ url('/lien-he') }}"><li>Liên hệ</li></a>
                         </ul>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                             </li>
                             <li>
                                 <img src="{{ url('assets/images/default/mail.png?'.config('custom.version')) }}" alt="">
-                                <a href="mailto:contact@vics-corp.com">contact@vics-corp.com</a>
+                                <a href="mailto:lienhe@vbaohem.vn">lienhe@vbaohem.vn</a>
                             </li>
                         </ul>
                     </div>
@@ -211,7 +211,7 @@
                     <div class="footer-content">
                         <ul class="footer-nav">
                             <li>
-                                <a href="{{ url('/question') }}">Tin tức</a>
+                                <a href="{{ url('/kien-thuc') }}">Tin tức</a>
                             </li>
                             <!-- <li>
                                 Phản hồi khách hàng
