@@ -616,9 +616,9 @@ $(function() {
                                     tds.innerHTML = '';
                                 }else{
                                     var str = exclusions[i-90]['note'];
-                                    if(str.length > 45){
+                                    if(str.length > 75){
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
-                                                    <p class="ellipsis">`+str+`</p>`+
+                                                    <p class="ellipsis">`+cutString(str,40)+`</p>`+
                                                     `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
                                     }else{
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
