@@ -6719,7 +6719,12 @@ span.tel {
   z-index: 1;
   margin: auto;
   overflow: auto;
-  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .table-scroll {
+    height: 100vh;
+  }
 }
 
 .table-scroll tbody {
