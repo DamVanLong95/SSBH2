@@ -5,6 +5,9 @@
     margin: auto;
     overflow: auto;
     height: 100vh;
+    @media (min-width: 601px) {
+        height: auto;
+    }
 }
 
 .table-scroll::-webkit-scrollbar-track {
