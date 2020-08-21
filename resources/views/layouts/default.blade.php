@@ -199,7 +199,7 @@
                             </li>
                             <li>
                                 <img src="{{ url('assets/images/default/mail.png?'.config('custom.version')) }}" alt="">
-                                <a href="mailto:contact@vics-corp.com">contact@vics-corp.com</a>
+                                <a href="mailto:lienhe@vbaohem.vn">lienhe@vbaohem.vn</a>
                             </li>
                         </ul>
                     </div>
