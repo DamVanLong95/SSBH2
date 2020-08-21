@@ -30,7 +30,7 @@
                                         <p class="job-title"><strong>Khu vực</strong></p>
                                         <p>{{$advisor['area']}}</p>
                                         <p class="job-title"><strong>Liên hệ</strong></p>
-                                        <p><a href="tel:{{$advisor['phone']}}">{{$advisor['phone']}}</a><span   > | <a href="mailto:dieppth@vics-corp.com"> {{$advisor['email']}}</a></span></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                        <p><a href="tel:{{$advisor['phone']}}">{{$advisor['phone']}}</a><span> | <a href="mailto:dieppth@vics-corp.com"> {{$advisor['email']}}</a></span></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,6 @@
             <div class="map-ctn">
                 <div class="contact-map mb-5 pb-4"  >
                 {!!$advisor['link_map']!!}
-                  
                 </div>
             </div>
         </div>
