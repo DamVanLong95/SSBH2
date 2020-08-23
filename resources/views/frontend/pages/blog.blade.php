@@ -1,4 +1,4 @@
-@extends('layouts.default')
+﻿@extends('layouts.default')
 @section('header')
     <title>{{ config('custom.seo_title') }}</title>
     <meta name="description" content="{{ config('custom.seo_description') }}">
@@ -31,7 +31,17 @@
             <div class="blog-content">
                 <p>{!! nl2br($blog->content)!!}</p>
             </div>
-        </div>
+         </div>
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+
+		<div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" 
+                src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=333825553700604&autoLogAppEvents=1" 
+                nonce="ePUkQYzc">
+            </script>
+            <div class="fb-comments" data-href="{{(url('/blog/'.$blog->slug))}}" 
+                data-numposts="5" data-width="" data-share="true" >
+            </div>
     </div>
 </div>
 
