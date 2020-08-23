@@ -627,7 +627,7 @@ footer {
     font-size: 14px;
     overflow: hidden;
     text-align: left;
-    // height: $height;
+    height: $height;
     line-height: $lineheight;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -639,7 +639,7 @@ footer {
     content: "";
     float: left;
     width: 5px;
-    // height: $height;
+    height: $height;
 }
 
 .ellipsis>*:first-child {

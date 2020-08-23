@@ -4,7 +4,15 @@
     z-index: 1;
     margin: auto;
     overflow: auto;
-    // height: 950px;
+    // height: 100vh;
+    @media (min-width: 768px) {
+        height: 100vh;
+    }
+}
+
+.table-scroll tbody {
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 
 .table-scroll::-webkit-scrollbar-track {
