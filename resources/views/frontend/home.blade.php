@@ -45,29 +45,29 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <h4> <a href="{{ url('/car') }}">  So sánh bảo hiểm vật chất xe ô tô</a></h4>
+                                    <h4> <a href="{{ url('/so-sanh-oto') }}">  So sánh bảo hiểm vật chất xe ô tô</a></h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm phi nhân thọ cung cấp bảo hiểm vật chất xe ô tô uy tín trên thị trường.</p>
                                     </div>
-                                    <a href="{{ url('/car') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="{{ url('/so-sanh-oto') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-item ">
                                 <div class="item center-item">
-                                    <h4> <a href="{{ url('/longevity') }}"> So sánh bảo hiểm Nhân thọ</a></h4>
+                                    <h4> <a href="{{ url('/so-sanh-nhan-tho') }}"> So sánh bảo hiểm Nhân thọ</a></h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm nhân thọ, cung cấp bảo hiểm nhân thọ uy tín trên thị trường.</p>
                                     </div>
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="so-sanh-nhan-tho" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="swiper-slide slide-item">
                                 <div class="item">
-                                    <h4> <a href="{{ url('/health') }}"> So sánh Bảo hiểm sức khoẻ </a></h4>
+                                    <h4> <a href="{{ url('/so-sanh-suc-khoe') }}"> So sánh Bảo hiểm sức khoẻ </a></h4>
                                     <div class="description-ctn">
                                         <p>So sánh các công ty bảo hiểm cung cấp bảo hiểm sức khoẻ uy tín trên thị trường.</p>
                                     </div>
-                                    <a href="#" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
+                                    <a href="{{ url('/so-sanh-suc-khoe') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
                                 </div>
                             </div>
                         </div>
