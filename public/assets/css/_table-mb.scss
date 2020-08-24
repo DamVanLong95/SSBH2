@@ -4,10 +4,10 @@
     z-index: 1;
     margin: auto;
     overflow: auto;
-    // height: 100vh;
-    @media (min-width: 768px) {
-        height: 100vh;
-    }
+    height: 100vh;
+    // @media (min-width: 768px) {
+    //     height: 100vh;
+    // }
 }
 
 .table-scroll tbody {
