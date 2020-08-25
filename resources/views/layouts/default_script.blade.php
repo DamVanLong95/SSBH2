@@ -207,7 +207,7 @@
                                     var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
-                                    for(var i=4; i<=27; i++){
+                                    for(var i=2; i< 26; i++){
                                         if (chks[i].checked) {
                                             checked++;
                                             total += parseFloat(chks[i].value);
@@ -216,40 +216,43 @@
                                    
                                     var total_rate = Math.round(total * 100) /100;
                                     function calCost(price, rate,total_rate, indexCol){
-                                        var price_old = (price * rate)/100;	
+                                        // Giá phí trước khuyến mại
+                                        var price_old = price * (rate+total_rate)/100;	
+                                        price_old = Math.round(price_old * 100) / 100 ;
                                         $('#price_'+indexCol+'').html((formatMoney(price_old)));
+
                                         var rate_promotion      = promotion['promotion'];
-                                        var price_new           = price_old * (1-rate_promotion/100);
-                                        // $('#price_'+indexCol+'').html((formatMoney(price_new)));
-                                        if(total_rate > 0) 
-                                            price_new  = Number(price_new)+ Number(price_new*total_rate/100);
-                                        price_new               = Math.round(price_new * 100) / 100 
+                                        var price_new           = price * (rate_promotion+total_rate)/100;
+
+                                        price_new = Math.round(price_new * 100) / 100 ;
+                                        // Giá phí sau khuyến mại
                                         $('#price_after_'+indexCol+'')[0].setAttribute('value',price_new);
                                         $('#price_after_'+indexCol+'').html((formatMoney(price_new)));
                                     }
                                     // console.log(total_rate);
                                     if(price !=''){	
-                                        calCost(price, 1.5,total_rate, indexCol);
-                                     //===================muc dich su dung=============================
+                                        //TH chọn luộn giá trị xe
+                                     //===================thop muc dich su dung=============================
                                         var purpose = document.getElementById('purpose');
                                         var year_sx = document.getElementById('prd_date').value;
                                         var ref_rates_id = purpose.value;
-                                        
+                                        // console.log(year_sx);
                                         var url = '{{route('purpose')}}';
-                                        if( ref_rates_id!=0){
-                                            if(year_sx !=0){
+                                        if(year_sx!=''){
+                                            if( ref_rates_id!=0){
                                                 $.post(url,{
                                                 "_token": "{{ csrf_token() }}",
                                                 id: ref_rates_id,
                                                 year_sx:year_sx
                                                 }).done(function(data){
                                                     var ratte = data.rate;
-                                                    rate = ratte;
+                                                        rate = ratte;
                                                     calCost(price, rate, total_rate,indexCol);
                                                 })
+                                            }else{
+                                                calCost(price, 1.5,total_rate, indexCol);
                                             }
                                         }
-                                        
                                     }else{
                                         alert("Vui long nhap gia tri xe");
                                     }
@@ -466,19 +469,20 @@
                                     if(finances.length > 0)
                                     tds.innerHTML =`<p class="ellipsis">`+formatMoney(finances[i-118]['money'],0)+`</p>`
                                 }
-                                //==============DANH GIA UY TIN===============
-                                // console.log(rating_and_model);
-                                var tds = tblBodyObj.rows[139].cells[indexCol];
-                                if(rating_and_model.rating_agency === 'x')
+                                 //==============DANH GIA UY TIN===============
+                                 var tds = tblBodyObj.rows[139].cells[indexCol];
+                                if(rating_and_model){
+                                    if(rating_and_model.rating_agency === 'x')
+                                        tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                    //============= MO HINH ============
+                                    var tds = tblBodyObj.rows[141].cells[indexCol];
+                                    var tdss = tblBodyObj.rows[142].cells[indexCol];
+
+                                    if(rating_and_model.business_focused ==='x')
                                     tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                //============= MO HINH ============
-                                var tds = tblBodyObj.rows[141].cells[indexCol];
-                                var tdss = tblBodyObj.rows[142].cells[indexCol];
-                                //console.log(tds);
-                                if(rating_and_model.business_focused ==='x')
-                                    tds.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
-                                if(rating_and_model.business_unfocused === 'x')
-                                tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                    if(rating_and_model.business_unfocused === 'x')
+                                    tdss.innerHTML =`<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
+                                }
                                 //===============MANG LUOI HOAT DONG==========
                                 tds = tblBodyObj.rows[136].cells[indexCol]; 
                                 var imgNet = `{{ url('/') }}/assets/images/car/network2.png?{{ config('custom.version') }}`;
