@@ -72,6 +72,7 @@ class AdvisorController extends Controller
         }
             $data['avatar'] =  isset($path)? $path:null;
             $data['status'] =  isset($data['status']) ? 1: 0;
+            $data['slug']   = \Str::slug($data['fullname']);
             DB::beginTransaction();
             // dd($data);
             try{
@@ -129,6 +130,7 @@ class AdvisorController extends Controller
             }else{
                 $data['status'] = 0;
             }
+            $data['slug']   = \Str::slug($data['fullname']);
             DB::beginTransaction();
             try{
                 unset($data['_method']);

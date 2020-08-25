@@ -51,12 +51,14 @@ Route::get('/blog', function () {
 });
 Route::get('/blog/{id}-{slug}','QuestionController@showBlog')->name('blog.show');
 // =====================================contact=================================
-// Route::view('/contact','frontend.pages.contact');
+
 Route::get('/lien-he','ContactController@index');
 Route::post('/search/working','ContactController@searchWorking')->name('search.working');
 Route::post('/search/major','ContactController@searchMajor')->name('search.major');
 Route::post('/search/area','ContactController@searchArea')->name('search.area');
 Route::post('/google/map','ContactController@displayMap')->name('contact.googleMap');
+Route::get('/lien-he/{slug}','ContactController@detailInfo')->name('contact.detail');
+
 // =====================================ưu đãi preferential treatment=================================
 Route::get('/uu-dai', 'HController@treatments');
 // =====================================Question=================================

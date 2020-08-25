@@ -49,7 +49,7 @@ class CarController extends Controller
         return response()->json( $data );
     }
     public function index(){
-        $companies  = Company::orderBy('created_at','asc')
+        $companies  = Company::orderBy('name')
                     ->where('classify','=',3)
                     ->orwhere('classify',1)
                     ->orwhere('classify',2)

@@ -120,7 +120,7 @@ class LongevityController extends Controller
         $product_edu =[];
         $product_retire =[];
         $product_concern =[];
-        $products = ProductLongevity::all();
+        $products = ProductLongevity::all()->sortBy('name');
         
         if(sizeof($product_second) > 0 ){
             $products = $product_second->intersect($products);
@@ -133,7 +133,6 @@ class LongevityController extends Controller
             }
         }
         
-        // dd($products);
         foreach($products as $key=>$value){
             
             foreach($value->type as $val){
