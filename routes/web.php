@@ -21,7 +21,7 @@ Route::get('/car1', function () {
 Route::get('/car2', function () {
     return view('frontend.pages.car1');
 });
-Route::get('/so-sanh-oto','Car\CarController@index');
+Route::get('/so-sanh-oto','Car\CarController@index')->name('car.index');
 Route::post('car/droppImage','Car\CarController@droppImage')->name('droppImage');
 Route::post('car/detail','Car\CarController@showInfo')->name('show_info');
 Route::post('onchange','Car\CarController@onChange')->name('onchange');
@@ -40,8 +40,8 @@ Route::get('/test', function () {
 // Route::get('/detail', function () {
 //     return view('frontend.pages.intro_detail');
 // });
-Route::view('/gioi-thieu','frontend.pages.intro');
-Route::view('/detail','frontend.pages.intro_detail');
+Route::view('/gioi-thieu','frontend.pages.intro')->name('intro');
+Route::view('/detail','frontend.pages.intro_detail')->name('detail');
 Route::view('/reason','frontend.pages.reason');
 Route::view('/principle','frontend.pages.principal');
 Route::view('/term','frontend.pages.term');
@@ -52,7 +52,7 @@ Route::get('/blog', function () {
 Route::get('/blog/{id}-{slug}','QuestionController@showBlog')->name('blog.show');
 // =====================================contact=================================
 
-Route::get('/lien-he','ContactController@index');
+Route::get('/lien-he','ContactController@index')->name('contact');
 Route::post('/search/working','ContactController@searchWorking')->name('search.working');
 Route::post('/search/major','ContactController@searchMajor')->name('search.major');
 Route::post('/search/area','ContactController@searchArea')->name('search.area');
@@ -60,7 +60,7 @@ Route::post('/google/map','ContactController@displayMap')->name('contact.googleM
 Route::get('/lien-he/{slug}','ContactController@detailInfo')->name('contact.detail');
 
 // =====================================ưu đãi preferential treatment=================================
-Route::get('/uu-dai', 'HController@treatments');
+Route::get('/uu-dai', 'HController@treatments')->name('treatment');
 // =====================================Question=================================
 Route::get('/kien-thuc','QuestionController@index')->name('question.index');
 Route::post('/autosearch','QuestionController@searchByName')->name('search.question');
