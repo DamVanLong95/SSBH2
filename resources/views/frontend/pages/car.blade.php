@@ -137,48 +137,41 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="layout-area" class="table-ctn ">
-                        <div id="table-scroll" class="center-block fix-width scroll-inner">
-                            <table id="main-tbl" class="table sticky-header">
-                                <div class="add-del-ctn d-none ">
-                                    <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
-                                    <input type="button" value="add column" onclick="addColumn('main-tbl')" />
-                                </div>
-                                <thead>
-                                    <tr class="top-head" >
-                                        <th class='th-1'>
-                                            
-                                        </th>
-                                        <th class="col2">
-                                            <div class="img-container"></div>
-                                        </th>
+                  	<div class="center-block fix-width scroll-inner">
+                        <table id="main-tbl"class="table ">
+                            <thead>
+                                <tr class="top-head" >
+                                    <th class='th-1'>
+                                        
+                                    </th>
+                                    <th class="col2">
+                                        <div class="img-container"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <div class="sub-ctn">
+                                    <tr class="sub-head">
+                                        <td class="th-2">
+                                            <div class="star-ctn">
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
+                                                <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="count-rank-ctn">
+                                                <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
+                                                <div class="service">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
+                                                <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
-                                </thead>
-                                
-                                <tbody>
-                                    <div class="sub-ctn">
-                                        <tr class="sub-head">
-                                            <td class="th-2">
-                                                <div class="star-ctn">
-                                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}" alt=""></span>Tốt</p></div>
-                                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/orange-star.png?{{ config('custom.version') }}" alt=""></span>Khá</p></div>
-                                                    <div class="item"><p><span><img class="img-fluid" src="{{ url('/') }}/assets/images/car/gray-star.png?{{ config('custom.version') }}" alt=""></span>Trung bình</p></div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="count-rank-ctn">
-                                                    <div class="mark-num"><p><span class="first-span">8</span>/<span>10</span></p></div>
-                                                    <div class="service">
-                                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/camera.png?{{ config('custom.version') }}" alt="">
-                                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/mess.png?{{ config('custom.version') }}" alt="">
-                                                    <img class="img-fluid" src="{{ url('/') }}/assets/images/car/phone.png?{{ config('custom.version') }}" alt="">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </div>
-                                    
-                                    <tr class="green1 sub-ctn2" style="height: 0;background: none;color: transparent;">
+                                </div>
+                                <tr class="green1 sub-ctn2" style="height: 0;background: none;color: transparent;">
                                         <td  colspan="2" class="green_header" style="height: 0;padding: 0;"></td>
                                     </tr>
                                     <tr class="tool-ctn sub-ctn3">
@@ -252,19 +245,18 @@
                                         </td>
                                         <td class="td-all"></td>
                                     </tr>
-                                @foreach($terms_data as $key=>$value)  
-                                    <tr class="data-detail term">
-                                        <td>
-                                            <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{isset($value['rate_fee'])? $value['rate_fee']:0}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
-                                            <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} </span></p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span>
-                                            <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                 @endforeach  
-                                    </div>
+                                    @foreach($terms_data as $key=>$value)  
+                                        <tr class="data-detail term">
+                                            <td>
+                                                <input class="selectedId" type="checkbox" id="checkbox_bs{{$value['id']}}" name="checkbox_bs{{$value['id']}}" value="{{isset($value['rate_fee'])? $value['rate_fee']:0}}" data-id="{{$value['id']}}"  onclick='handleOnclick(this);' />
+                                                <label for="checkbox_bs{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{$value['terms']}} </span></p>
+                                                <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$value['terms']}}" onclick="show(this.value)"  >...</button></span>
+                                                <label class="drop" for="" style="display:none" id="dkbs{{$value['id']}}" >{{isset($value['rate_fee'])? $value['rate_fee']:0}}% phí</label>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     <tr class="header">
                                         <td  colspan="2" class="green_header">Mức khấu trừ</td>
                                     </tr>
@@ -284,14 +276,14 @@
                                     <tr class="header green1 bg-head-2">
                                         <td  colspan="2" class="green_header exception">Điều khoản loại trừ</td>
                                         <tr class="select-all">
-                                        <td class="td-all" >
-                                            <div class="choose-all">
-                                                <input type="checkbox" id="selectall_lt" name="selectall_lt" data-id="2" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
-                                                <label class="toggle" for="selectall_lt">Chọn tất cả</label>
-                                            </div>
-                                        </td>
-                                        <td class="td-all"></td>
-                                    </tr>
+                                            <td class="td-all" >
+                                                <div class="choose-all">
+                                                    <input type="checkbox" id="selectall_lt" name="selectall_lt" data-id="2" class="selectedAll" onclick="handleAll(this,{{count($exception_data)}})" >
+                                                    <label class="toggle" for="selectall_lt">Chọn tất cả</label>
+                                                </div>
+                                            </td>
+                                            <td class="td-all"></td>
+                                        </tr>
                                     </tr>
                                     @foreach($exception_data as $value)
                                     <tr class="data-detail dklt">
@@ -305,9 +297,6 @@
                                         <td></td>
                                     </tr>
                                     @endforeach
-                                    <!-- <tr class="header">
-                                        <td  colspan="2" class="green_header punishment">Chế tài trong các trường hợp</td>
-                                    </tr> -->
                                     <tr class="header ">
                                         <td  colspan="2" class="green_header punishment">Chế tài trong các trường hợp</td>
                                         <tr class="select-all">
@@ -404,9 +393,8 @@
                                         <td><p class="ellipsis">Không tập trung</p></td>
                                         <td></td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                     
                 </div>
