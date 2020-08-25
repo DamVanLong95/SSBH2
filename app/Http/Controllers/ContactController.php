@@ -25,6 +25,10 @@ class ContactController extends Controller
         $locations  = $this->locations;
         return view('frontend.pages.contact',compact('advisor','locations','advisors'));
     }
+    public function detailInfo($slug){
+        $advisor = Advisor::where('slug',$slug)->first();
+        return view('frontend.pages.profile_detail',compact('advisor'));
+    }
     public function searchWorking(Request $request)
     {
         $data = $request->all();
@@ -88,12 +92,15 @@ class ContactController extends Controller
                 $result = $advisor_by_work;
             }
         }
-        $html = view('frontend.pages.advisor_name')->with(['result' => $result,'locations' => $this->locations])->render();
+        $html = view('frontend.pages.advisor_name')
+                        ->with(['result' => $result,'locations' => $this->locations])
+                        ->render();
         return response()->json($html);
     }
     public function searchArea(Request $request ){
         $data = $request->all();
         unset($data['_token']);
+
         $result =[];
         $advisor_by_area = Advisor::where('area','LIKE','%'.$data['area'].'%')->get();
         $result = $advisor_by_area;
@@ -120,14 +127,19 @@ class ContactController extends Controller
             }
         }
         //    dd($result);
-        $html = view('frontend.pages.advisor_name')->with(['result' => $result,'locations' => $this->locations])->render();
+        $html = view('frontend.pages.advisor_name')
+                        ->with(['result' => $result,'locations' => $this->locations])
+                        ->render();
+
         return response()->json($html);
     }
     public function displayMap(Request $request){
         $id      = $request->input('advisor_id');
         $advisor = Advisor::find($id);
         // dd($advisor);
-        $html = view('frontend.pages.health_ajax.profile')->with(['advisor' => $advisor])->render();
+        $html = view('frontend.pages.health_ajax.profile')
+                    ->with(['advisor' => $advisor])
+                    ->render();
         // dd($html);
         return response()->json($html);
 

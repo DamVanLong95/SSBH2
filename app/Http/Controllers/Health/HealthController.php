@@ -281,7 +281,7 @@ class HealthController extends Controller
             }
         }
         //  dd($products);
-        $products = $products->unique('name');
+        $products = $products->unique('name')->sortBy('name');
         // dd( $products);
         $html = view('frontend.pages.health_ajax.banner_health')
                         ->with(['products'=> $products])

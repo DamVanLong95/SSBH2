@@ -105,13 +105,13 @@
                                             @elseif($advisor['major'] ==3)
                                                 <p>Phi nhân thọ, nhân thọ</p>
                                             @endif
-
                                             <p class="job-title"><strong>Công việc</strong></p>
                                             <p class="">{{$advisor['work']}}</p>
                                             <p class="job-title"><strong>Khu vực</strong></p>
                                             <p>{{$advisor['area']}}</p>
                                             <p class="job-title"><strong>Liên hệ</strong></p>
-                                            <p><a href="tel:{{$advisor['phone']}}">{{$advisor['phone']}}</a><span                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    > | <a href="mailto:dieppth@vics-corp.com"> {{$value['email']}}</a></span></p>
+                                            <p><a href="tel:{{$advisor['phone']}}">{{$advisor['phone']}}</a><span> | <a href="mailto:{{$advisor['email']}}"> {{$advisor['email']}}</a></span></p>
+                                            <p class=""><a href="{{route('contact.detail',$advisor->slug)}}" style="color:green">Xem chi tiết</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +187,6 @@
             });
         });
         $(".reset").on("click", function () {
-
             $('select option').prop('selected', function() {
                 return this.defaultSelected;
 
