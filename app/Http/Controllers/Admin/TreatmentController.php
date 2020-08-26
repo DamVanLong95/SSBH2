@@ -6,21 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \Str;
 use App\Model\Treatment;
+use App\Model\Advisor;
 use Yajra\DataTables\Facades\DataTables;
 use \Storage;
 class TreatmentController extends Controller
 {
    
     public function create(){
-        return view('admin.treatment');
+        
+        $advisors = Advisor::orderBy('fullname')->get();
+
+        return view('admin.treatment',compact('advisors'));
     }
     public function index(){
         return view('admin.treatment_list');
     }
     public function edit($id){
         $treatment = Treatment::find($id);
+        $advisors = Advisor::orderBy('fullname')->get();
         // dd($treatment);
-        return view('admin.treatment_edit',compact('treatment'));
+        return view('admin.treatment_edit',compact('treatment','advisors'));
 
     }
     public function listData(){
@@ -103,6 +108,7 @@ class TreatmentController extends Controller
             if(Storage::exists($file_old)) {
                 Storage::delete($file_old);
             }
+            unset($data['file']);
         }
         if($request->hasFile('img_detail')){
             $file = $request->file('img_detail');

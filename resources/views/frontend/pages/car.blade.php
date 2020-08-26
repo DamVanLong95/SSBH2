@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="dropdown" data-control="checkbox-dropdown">
-                            <label class="dropdown-label">Bồi thường tốt</label>
+                            <label class="dropdown-label">Top DNBH uy tín</label>
                             <div class="dropdown-list">
                                 <a href="#" data-toggle="check-all" class="dropdown-option">
                                 Check All
