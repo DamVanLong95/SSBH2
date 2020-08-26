@@ -470,12 +470,13 @@
                         </div>
                         <div id="slideKnow" class="swiper-container swiper-sk">
                             <div class="swiper-wrapper">
+                                @forelse($products as $value)
                                 <div class="swiper-slide slide-item">
                                     <div class="item">
                                         <div class="description-ctn">
-                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
+                                            <p>{{$value['name']}}</p>
                                         </div>
-                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide1.png?{{ config('custom.version') }}" alt=""></a>
+                                        <a href="javascript:void(0)" target="_blank"><img src=" storage/{{$value['url']}}" alt=""></a>
                                         <div class="modal-popup-ctn">
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
                                             <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
@@ -483,41 +484,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide slide-item ">
-                                    <div class="item center-item">
-                                        <div class="description-ctn">
-                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
-                                        </div>
-                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide2.png?{{ config('custom.version') }}" alt=""></a>
-                                        <div class="modal-popup-ctn">
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide slide-item">
+                               @empty
+                               <div class="swiper-slide slide-item">
                                     <div class="item">
                                         <div class="description-ctn">
-                                            <p>Pru - An tâm trọn đời kế hoạch học vấn</p>
-                                        </div>
-                                        <a href="javascript:void(0)" target="_blank"><img src="{{ url('/') }}/assets/images/home/slide3.png?{{ config('custom.version') }}" alt=""></a>
-                                        <div class="modal-popup-ctn">
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                            <p>Dữ liệu chưa cập nhật</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                               @endforelse
                             <!-- Add Arrows -->
-                            <div class="arrow-ctn ">
-                                <div class="swiper-button-prev sk-prev">
-                                
-                                </div>
-                                <div class="swiper-button-next sk-next">
-                                
-                                </div>
+                        </div>
+                        <div class="arrow-ctn ">
+                            <div class="swiper-button-prev sk-prev">
+                            
+                            </div>
+                            <div class="swiper-button-next sk-next">
+                            
                             </div>
                         </div>
                     </div>

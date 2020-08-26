@@ -19,7 +19,7 @@ class HealthController extends Controller
     public function index()
     {
 
-        $products   = Product::orderBy('created_at','desc')->get();
+        $products   = Product::latest('created_at')->limit(5)->get();
         $saving     = Product::where('cate','=',1)->get();
         $secure     = Product::where('cate','=',2)->get();
         $object_bh  = Health::select('comparison')->skip(1)->first();
@@ -40,7 +40,7 @@ class HealthController extends Controller
         $data['benifits']   = $benifits;
         $data['healths']    = $healths;
         $data['exclusions'] = $exclusions;
-        return view('frontend.pages.health',compact('data'));
+        return view('frontend.pages.health',compact('data','products'));
 
     }
     public function checkImage(Request $request){
