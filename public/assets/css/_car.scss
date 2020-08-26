@@ -50,7 +50,7 @@
                 transform-origin: 50% 0;
                 transform: scale(1, 0);
                 transition: transform .15s ease-in-out .15s;
-                // max-height: 46vh;
+                // height: 500px;
                 overflow-y: scroll;
                 @media (max-width: 991px) {
                     top: 70px;
@@ -383,10 +383,10 @@
             }
             thead {
                 .top-head {
-                    position: -webkit-sticky;
-                    position: -webkit-o-sticky;
-                    position: -webkit-ms-sticky;
-                    position: sticky;
+                    // position: -webkit-sticky;
+                    // position: -webkit-o-sticky;
+                    // position: -webkit-ms-sticky;
+                    // position: sticky;
                     top: 0;
                     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
                     // border-top: 1px solid #000;
