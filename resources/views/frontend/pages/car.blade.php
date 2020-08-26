@@ -139,11 +139,7 @@
                 <div class="col-lg-12">
                     <div id="layout-area" class="table-ctn ">
                         <div id="table-scroll" class="table-scroll ">
-                            <table id="main-tbl" class="table sticky-header">
-                                <div class="add-del-ctn d-none ">
-                                    <input type="button" value="delete column" onclick="deleteColumn('main-tbl')" />
-                                    <input type="button" value="add column" onclick="addColumn('main-tbl')" />
-                                </div>
+                            <table id="main-tbl" class="table">
                                 <thead>
                                     <tr class="top-head" >
                                         <th class='th-1'>
@@ -154,7 +150,6 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                
                                 <tbody>
                                     <div class="sub-ctn">
                                         <tr class="sub-head">
