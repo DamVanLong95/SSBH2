@@ -4561,7 +4561,7 @@ span.tel {
   }
 }
 
-.section-treatment-slide .section-wrapper .detail-content .contact-btn-ctn button {
+.section-treatment-slide .section-wrapper .detail-content .contact-btn-ctn a.treat-btn {
   background-color: #0d723b;
   font-family: UTM_Helve;
   color: #fff;
@@ -6712,6 +6712,21 @@ span.tel {
   -moz-border-radius: 22px;
   -ms-border-radius: 22px;
   -o-border-radius: 22px;
+}
+
+.table-scroll {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  height: 900px;
+}
+
+@media (min-width: 768px) {
+  .table-scroll {
+    height: 100vh;
+  }
 }
 
 .fix-width {
