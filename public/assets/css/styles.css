@@ -4562,7 +4562,7 @@ span.tel {
   }
 }
 
-.section-treatment-slide .section-wrapper .detail-content .contact-btn-ctn button {
+.section-treatment-slide .section-wrapper .detail-content .contact-btn-ctn a.treat-btn {
   background-color: #0d723b;
   font-family: UTM_Helve;
   color: #fff;
@@ -6715,30 +6715,31 @@ span.tel {
   -o-border-radius: 22px;
 }
 
-.table-scroll {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin: auto;
-  overflow: auto;
-  height: 100vh;
-}
 .fix-width {
   overflow-y: auto;
   overflow-x: auto;
   height: 500px;
-  -webkit-overflow-scrolling: touch; }
+  -webkit-overflow-scrolling: touch;
+}
 
 .scroll-inner::-webkit-scrollbar {
-  width: 10px; }
+  width: 10px;
+}
+
 .scroll-inner::-webkit-scrollbar:horizontal {
-  height: 10px; }
+  height: 10px;
+}
+
 .scroll-inner::-webkit-scrollbar-track {
-  background-color: rgba(204, 204, 204, 0.3); }
+  background-color: rgba(204, 204, 204, 0.3);
+}
+
 .scroll-inner::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: rgba(204, 204, 204, 0.5);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
 
 .table-scroll tbody {
   max-height: 100vh;

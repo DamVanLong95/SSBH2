@@ -207,7 +207,7 @@ class HealthController extends Controller
                                 }
                         
                             })->get();
-            $array_3 = Product::where(function ($query) use ($products_id){
+            $array_3    = Product::where(function ($query) use ($products_id){
                                 foreach($products_id as $value){
                                     $id = $value['product_id'];
                                     $query->orwhere('id','=',$id);

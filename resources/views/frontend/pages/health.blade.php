@@ -589,6 +589,7 @@
     }
     function resetChecked(){
         $('input:checkbox').removeAttr('checked');
+        window.location.reload();
     }
     function searchProduct(){
         var checkedID   = []; 

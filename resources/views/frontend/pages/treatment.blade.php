@@ -70,8 +70,8 @@
                                         <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
-                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
-                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
+                                            <a type="button" class="treat-btn" href= "{{route('contact.detail',[$v->slug])}}">Liên hệ tư vấn viên</a>
+                                            <a type="button " class="treat-btn" href="tel:{{$v['phone']}}"><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -124,8 +124,8 @@
                                             <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
-                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
-                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
+                                            <a type="button" class="treat-btn" href= "{{route('contact.detail',[$v->slug])}}">Liên hệ tư vấn viên</a>
+                                            <a type="button " class="treat-btn" href="tel:{{$v['phone']}}"><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                                               <p>{{$value['description']}}</p>
                                                           </div>
                                                       </div>
-                                                     </a>
+                                                  </a>
                                               </div>
                                               @endforeach
                                             
@@ -178,8 +178,8 @@
                                             <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
                                         </div>
                                         <div class="contact-btn-ctn">
-                                            <button type="button" onclick="">Liên hệ tư vấn viên</button>
-                                            <button type="button" onclick=""><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></button>
+                                        <a type="button" class="treat-btn" href= "{{route('contact.detail',[$v->slug])}}">Liên hệ tư vấn viên</a>
+                                        <a type="button " class="treat-btn" href="tel:{{$v['phone']}}"><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -192,9 +192,7 @@
         </div>
     </div>
 </div>
-
 @stop
-
 @section('footer')
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
      <script>
@@ -308,7 +306,6 @@
                     },
                     onClick: (swiper, event) => {
                         let div = swiper.clickedSlide; //slide that was clicked
-                        console.log(div);
                     }
                 });
                 var swipertreat3 = new Swiper(".swiper-treatment3", {
