@@ -489,7 +489,14 @@ $(function() {
                                         if(healths[i-3]['content']=== 'x'){
                                         tdss.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                         }else if(healths[i-3]['content'] != null){
-                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-3]['content']+`</p>`;
+                                            const str = healths[i-3]['content'];
+                                            if(str.length > 75){
+                                                tdss.innerHTML =  `<p class="ellipsis">`+cutString(str,65)+`</p>`+
+                                            `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                            }else{
+                                                tdss.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                            }
+                                           
                                         }else{
                                             tdss.innerHTML = '';
                                         }

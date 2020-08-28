@@ -121,7 +121,7 @@
                                         tdss.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`;
                                         }else if(healths[i-3]['content'] != null){
                                             const str = healths[i-3]['content'];
-                                            if(str.length > 45){
+                                            if(str.length > 20){
                                                 tdss.innerHTML =  `<p class="ellipsis">`+cutString(str,10)+`</p>`+
                                             `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
                                             }else{
@@ -139,7 +139,13 @@
                                     if(healths[i-7]){
                                         
                                         if(healths[i-7]['content']!=null) {
-                                            tdss.innerHTML =  `<p class="ellipsis">`+healths[i-7]['content']+`</p>`;
+                                            const str = healths[i-7]['content'];
+                                            if(str.length > 20 ){
+                                                tdss.innerHTML =  `<p class="ellipsis">`+str+`</p>`+
+                                                    `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
+                                            }else{
+                                                tdss.innerHTML =  `<p class="ellipsis">`+str+`</p>`;
+                                            }
                                         } else tdss.innerHTML =  '';
                                     }
                                 }
@@ -255,7 +261,7 @@
                                     tds.innerHTML = '';
                                 }else{
                                     var str = exclusions[i-90]['note'];
-                                    if(str.length > 45){
+                                    if(str.length > 10){
                                         tds.innerHTML = `<div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
                                                     <p class="ellipsis">`+cutString(str,15)+`</p>`+
                                                     `<span><button value="`+str+`" onclick="show(this.value)" >...</button></span>`;
