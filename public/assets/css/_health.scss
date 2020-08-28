@@ -547,7 +547,7 @@
                         border: 1px solid #ccc;
                         border-radius: 20px;
                         position: absolute;
-                        top: 3px;
+                        top: 1px;
                         left: -2px;
                         margin: 0 5px;
                         -webkit-box-shadow: 0 1px 1px #dfecf4;
@@ -813,7 +813,7 @@
                         }
                     }
                     &:hover {
-                        box-shadow: -4px 3px 50px 0px rgba(0, 0, 0, 0.5);
+                        border: 1px solid #ccc;
                         .description-ctn {
                             p {
                                 color: $main-color;
@@ -857,7 +857,7 @@
             }
             .swiper-button-prev {
                 transform: translate(-46%, 10px);
-                top: 20%;
+                top: 0;
                 bottom: 0;
                 margin: auto;
                 background-image: url('../images/home/arrow-left-active.png') !important;
@@ -869,7 +869,7 @@
                 background-size: contain;
                 background-repeat: no-repeat;
                 transform: translate(48%, 10px);
-                top: 20%;
+                top: 0;
                 bottom: 0;
                 margin: auto;
             }
