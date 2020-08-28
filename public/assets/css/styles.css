@@ -6739,7 +6739,10 @@ span.tel {
 }
 
 .table-scroll {
-  z-index: 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
 }
 
 .fix-width {

@@ -1,18 +1,18 @@
-// .table-scroll {
-//     position: relative;
-//     width: 100%;
-//     z-index: 1;
-//     margin: auto;
-//     // overflow: auto;
-//     height: 900px;
-//     @media (min-width: 768px) {
-//         height: 100vh;
-//     }
-// }
 .table-scroll {
-    z-index: 0;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin: auto;
+    // overflow: auto;
+    // height: 900px;
+    @media (min-width: 768px) {
+        // height: 100vh;
+    }
 }
 
+// .table-scroll {
+//     z-index: 0;
+// }
 .fix-width {
     overflow-y: auto;
     overflow-x: auto;
