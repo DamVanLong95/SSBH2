@@ -320,7 +320,7 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_ct{{$value['id']}}"
                                         name="checkbox_ct{{$value['id']}}" value="" data-id="{{$value['id']}}"/>
-                                        <label for="checkbox2"> </label><span class="first-td"><p class="ellipsis">{{Str::words($value['sanction'],15)}}</p>
+                                        <label for="checkbox_ct{{$value['id']}}"> </label><span class="first-td"><p class="ellipsis">{{Str::words($value['sanction'],15)}}</p>
                                             <span class="show-detail"><button value="{{$value['sanction']}}" onclick="show(this.value)">...</button></span></span>
                                         </td>
                                         <td></td>
@@ -422,6 +422,9 @@
         $('#note').html(content);
         $('#detail-td').modal('show');
     }
+    function closeModal() {
+       $('#detail-td').modal('hide');
+    }
 </script>
 <script>
     function handleFilter(){
@@ -431,6 +434,7 @@
             if($(this).is(":checked"))
             checkedID.push($(this).val());
         });
+        // console.log(checkedID);
         var url = `{{route('filterCompanies')}}`;
         $.post(url,{ "_token": "{{ csrf_token() }}",checkedID:checkedID}
         ,function(data,status){

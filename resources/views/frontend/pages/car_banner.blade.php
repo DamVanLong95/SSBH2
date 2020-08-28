@@ -1,5 +1,4 @@
 <ul id="thumbs" class="section-list">
-
     @foreach($logos as $key => $logo)
     <li class="item">
         <div class="brand-thumb">
@@ -12,7 +11,14 @@
     </li>
     @endforeach
 </ul>
-
+<script>
+    function closeModal() {
+       $('#detail-td').modal('hide');
+    }
+</script>
+@if($agent->isMobile())
+     @include('layouts.car_mobile')
+@else
 <script>
    dropImage();
      var myTable = document.getElementById('main-tbl');
@@ -186,8 +192,8 @@
                                 });
                                   //==============DIEU KHOAN BO SUNG============================
                               
-                                  var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
-                                    max_rows_terms  =terms_data.length+7;
+                                var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
+                                max_rows_terms  =terms_data.length+7;
                                 for (var i = 7; i < max_rows_terms; i++) {
                                     // tblBodyObj.rows[i].setAttribute('data-rows','togglerow');
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
@@ -196,33 +202,56 @@
                                     var imgGreen = ` {{ url('/') }}/assets/images/car/green-star.png?{{ config('custom.version') }}`;
                                     var tink    =`{{ url('/') }}/assets/images/car/tick.png?{{ config('custom.version') }}`;
                                     if(terms_data[i-7]['note_more']==="-----") {
-                                        tds.innerHTML = `<p>`+terms_data[i-7]['note_more']+`</p>`;
+                                        tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div>
-
-                                        `;
+                                                        </div> `;
+                                        }else{
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                    <div class="star-td"><img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                        </div> `;
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-
-                                        `;
+                                            `;
+                                        }else{
+                                            if(str == 'x'){
+                                                tds.innerHTML = `<p class="ellipsis" style="display:none;" value="3"></p>
+                                                    <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <div class="star-td">
+                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+                                                `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                    <div class="star-td">
+                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                        </div>
+                                                `;
+                                            }
+                                         
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                         </div>
-
                                         `;
-                                    }
+                                     }
+                                    
                                 }
                                 //===============MUC KHAU TRU===============================
 
@@ -438,7 +467,7 @@
 
                                 return false;
                             }
-                            if(indexCol==4 || indexCol == 3 ){
+                            if(indexCol==3 || indexCol == 2 ){
                                 
                                 var selOne = '.header';
                                 var selTwo = '.sub-head';
@@ -937,8 +966,8 @@ $(function() {
                                 tds.appendChild(creatediv);
                                 div_discount.setAttribute('id',name_after );
                                 tdss.appendChild(div_discount);
-                                // console.log(tdss);
-                                $('#calculate').click(function(){
+                                  // console.log(tdss);
+                                  $('#calculate').click(function(){
                                     var price = $('#price_car').val();
                                     // console.log(price);
                                     var rate = 1.5;
@@ -946,7 +975,7 @@ $(function() {
                                     var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
-                                    for(var i=4; i<=27; i++){
+                                    for(var i=2; i<26; i++){
                                         if (chks[i].checked) {
                                             checked++;
                                             total += parseFloat(chks[i].value);
@@ -986,7 +1015,6 @@ $(function() {
                                                 }).done(function(data){
                                                     var ratte = data.rate;
                                                         rate = ratte;
-                                                         console.log(rate);
                                                     calCost(price, rate, total_rate,indexCol);
                                                 })
                                             }else{
@@ -1012,21 +1040,51 @@ $(function() {
                                         tds.innerHTML = `<p class="ellipsis">`+terms_data[i-7]['note_more']+`</p>`;
                                     }
                                     if(terms_data[i-7]['rate_star_dkbs'] == 5){
-                                        tds.innerHTML =`<p class="ellipsis" value="5">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                        </div>
-
-                                        `;
+                                                        </div> `;
+                                        }else{
+                                            if(str == 'x'){
+                                                tds.innerHTML =`<p class="ellipsis" style="display:none;" value="5"></p>
+                                                <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                <div class="star-td"> <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                        </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                <div class="star-td"><img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                        </div> `;
+                                            }
+                                            
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
-                                        tds.innerHTML =`<p class="ellipsis" value="3">`+terms_data[i-7].note_more+`</p>`+`
-                                                        <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
+                                        var str = terms_data[i-7].note_more;
+                                        if(str.length > 75){
+                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-
-                                        `;
+                                            `;
+                                        }else{
+                                            if(str == 'x'){
+                                                tds.innerHTML = `<p class="ellipsis" style="display:none;" value="3"></p>
+                                                    <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <div class="star-td">
+                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+                                                `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                    <div class="star-td">
+                                                            <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                        </div>
+                                                `;
+                                            }
+                                        }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
                                                         <span><button value="`+terms_data[i-7]['note_more']+`" onclick="showNote(this.value)" >...</button></span>
@@ -1692,4 +1750,4 @@ $(function() {
         }
     });
 </script>
-   
+@endif
