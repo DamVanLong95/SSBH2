@@ -2483,7 +2483,7 @@ span.tel {
   transition: -webkit-transform .15s ease-in-out .15s;
   transition: transform .15s ease-in-out .15s;
   transition: transform .15s ease-in-out .15s, -webkit-transform .15s ease-in-out .15s;
-  height: 500px;
+  height: 300px;
   overflow-y: scroll;
 }
 
