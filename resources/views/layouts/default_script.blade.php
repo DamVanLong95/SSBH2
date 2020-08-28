@@ -294,11 +294,21 @@
                                                         </div>
                                             `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                            if(str == 'x'){
+                                                tds.innerHTML = `<p class="ellipsis" style="display:none;" value="3"></p>
+                                                    <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <div class="star-td">
+                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+                                                `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-                                            `;
+                                                `;
+                                            }
+                                         
                                         }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`

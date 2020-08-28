@@ -117,14 +117,12 @@ $(function() {
                                     var tblBodyObj  = document.getElementById('main-tbl').tBodies[0];
                                     var chks = tblBodyObj.getElementsByTagName("INPUT");
                                     var total =0;
-                                    console.log(chks);
                                     for(var i=2; i<26; i++){
                                         if (chks[i].checked) {
                                             checked++;
                                             total += parseFloat(chks[i].value);
                                         }
                                     }
-                                   
                                     var total_rate = Math.round(total * 100) /100;
                                     function calCost(price, rate,total_rate, indexCol){
                                         // Giá phí trước khuyến mại
@@ -158,7 +156,7 @@ $(function() {
                                                 }).done(function(data){
                                                     var ratte = data.rate;
                                                         rate = ratte;
-                                                         console.log(rate);
+                                                        //  console.log(rate);
                                                     calCost(price, rate, total_rate,indexCol);
                                                 })
                                             }else{
@@ -192,9 +190,17 @@ $(function() {
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                         </div> `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
-                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                            if(str == 'x'){
+                                                tds.innerHTML =`<p class="ellipsis" style="display:none;" value="5"></p>
+                                                <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                <div class="star-td"> <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                         </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                <div class="star-td"> <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                        </div> `;
+                                            }
+                                            
                                         }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
                                         var str = terms_data[i-7].note_more;
@@ -206,11 +212,21 @@ $(function() {
                                                         </div>
                                             `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                            if(str == 'x'){
+                                                tds.innerHTML = `<p class="ellipsis" style="display:none;" value="3"></p>
+                                                    <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <div class="star-td">
+                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+                                                `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-                                            `;
+                                                `;
+                                            }
+                                         
                                         }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
@@ -285,68 +301,68 @@ $(function() {
                                 }
                                    //===============CHE TAI===============================
                                
-                                   for(var i=69;i < 88 ;i++){
+                                for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
                                     var str = punishment[i-69]['content'];
                                     // var limit_str = ;
                                     if(punishment.length >0){
-                                            if(punishment[i-69]['rate_star_ct']== 3)
-                                            {
-                                                if(str.length > 100){
-                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+cutString(str,20)+`</p>`+`
-                                                    <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
-                                                            <div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                                </div> `;
+                                        if(punishment[i-69]['rate_star_ct']== 3)
+                                        {
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+cutString(str,20)+`</p>`+`
+                                                <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                            }else{
+                                                if(str === "x"){
+                                                    tds.innerHTML = `<p class="ellipsis"  style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                                        `<div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
                                                 }else{
-                                                    if(str === "x"){
-                                                        tds.innerHTML = `<p class="ellipsis"  style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
-                                                            `<div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                                </div> `;
-                                                    }else{
-                                                        tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
-                                                            <div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgOrange+`"  alt="">
-                                                                </div> `;
-                                                    }
+                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
                                                 }
-                                               
-                                            }else if(punishment[i-69]['rate_star_ct']== 5){
-                                                if(str.length > 100){
-                                                    tds.innerHTML =`<p class="ellipsis" value="5">`+cutString(str,20)+`</p>`+`
-                                                            <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
-                                                                <div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                                </div> `;
-                                                }else{
-                                                    tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
-                                                                <div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgGreen+`"  alt="">
-                                                                </div> `;
-                                                }
-                                               
-                                            
-                                            }else if(punishment[i-69]['rate_star_ct']== 2){
-                                                if(str.length > 100){
-                                                    tds.innerHTML =`<p class="ellipsis" value="2">`+cutString(str,20)+`</p>`+`
-                                                    <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
-                                                                <div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                                </div> `;
-
-                                                }else{
-                                                    tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
-                                                            <div class="star-td">
-                                                                    <img class="img-fluid"   src="`+imgGray+`"  alt="">
-                                                                </div> `;
-                                                }
-                                               
                                             }
+                                            
+                                        }else if(punishment[i-69]['rate_star_ct']== 5){
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+cutString(str,20)+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                            }
+                                            
+                                        
+                                        }else if(punishment[i-69]['rate_star_ct']== 2){
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+cutString(str,20)+`</p>`+`
+                                                <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
+                                                        <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+                                            }
+                                            
+                                        }
                                             // else{
                                             //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
                                             // }
-                                        }
+                                    }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
                                 for(var i=91; i<115 ;i++){

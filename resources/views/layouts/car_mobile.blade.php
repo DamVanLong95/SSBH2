@@ -184,13 +184,22 @@ $(function() {
                                         if(str.length > 75){
                                             tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
                                                         <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
-                                                    <div class="star-td">
+                                                        <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                         </div> `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
-                                                            <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                            if(str == 'x'){
+                                                tds.innerHTML =`<p class="ellipsis" style="display:none;" value="5"></p>
+                                                <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                <div class="star-td"> <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                         </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" dir=auto value="5">`+str+`</p>`+`
+                                                    <div class="star-td">
+                                                      <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                    </div> `;
+                                            }
+                                            
                                         }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==3){
                                         var str = terms_data[i-7].note_more;
@@ -202,11 +211,20 @@ $(function() {
                                                         </div>
                                             `;
                                         }else{
-                                            tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
+                                            if(str == 'x'){
+                                                tds.innerHTML = `<p class="ellipsis" style="display:none;" value="3"></p>
+                                                    <div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>
+                                                    <div class="star-td">
+                                                         <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                    </div>
+                                                `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
                                                     <div class="star-td">
                                                             <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                         </div>
-                                            `;
+                                                `;
+                                            }
                                         }
                                     }else if(terms_data[i-7]['rate_star_dkbs']==2){
                                         tds.innerHTML =`<p class="ellipsis" value="2">`+terms_data[i-7].note_more+`</p>`+`
@@ -283,28 +301,65 @@ $(function() {
                                
                                    for(var i=69;i < 88 ;i++){
                                     var tds =  tblBodyObj.rows[i].cells[indexCol];
-                                   if(punishment.length >0){
+                                    var str = punishment[i-69]['content'];
+                                    // var limit_str = ;
+                                    if(punishment.length >0){
                                         if(punishment[i-69]['rate_star_ct']== 3)
                                         {
-                                            tds.innerHTML =`<p class="ellipsis" value="3">`+punishment[i-69]['content']+`</p>`+`
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="3">`+cutString(str,20)+`</p>`+`
+                                                <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgOrange+`"  alt="">
                                                             </div> `;
-                                        }else if(punishment[i-69]['rate_star_ct']== 5){
-                                            tds.innerHTML =`<p class="ellipsis" value="5">`+punishment[i-69]['content']+`</p>`+`
+                                            }else{
+                                                if(str === "x"){
+                                                    tds.innerHTML = `<p class="ellipsis"  style="display:none;" value="3"></p><div class="tick-td"><img class="img-fluid" src="`+tink+`" alt=""></div>`+
+                                                        `<div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                                }else{
+                                                    tds.innerHTML =`<p class="ellipsis" value="3">`+str+`</p>`+`
                                                         <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgOrange+`"  alt="">
+                                                            </div> `;
+                                                }
+                                            }
+                                            
+                                        }else if(punishment[i-69]['rate_star_ct']== 5){
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+cutString(str,20)+`</p>`+`
+                                                        <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGreen+`"  alt="">
                                                             </div> `;
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="5">`+str+`</p>`+`
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGreen+`"  alt="">
+                                                            </div> `;
+                                            }
+                                            
                                         
                                         }else if(punishment[i-69]['rate_star_ct']== 2){
-                                            tds.innerHTML =`<p class="ellipsis" value="2">`+punishment[i-69]['content']+`</p>`+`
+                                            if(str.length > 100){
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+cutString(str,20)+`</p>`+`
+                                                <span><button value="`+str+`" onclick="showNote(this.value)" >...</button></span>
+                                                            <div class="star-td">
+                                                                <img class="img-fluid"   src="`+imgGray+`"  alt="">
+                                                            </div> `;
+
+                                            }else{
+                                                tds.innerHTML =`<p class="ellipsis" value="2">`+str+`</p>`+`
                                                         <div class="star-td">
                                                                 <img class="img-fluid"   src="`+imgGray+`"  alt="">
                                                             </div> `;
+                                            }
+                                            
                                         }
-                                        // else{
-                                        //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
-                                        // }
+                                            // else{
+                                            //     tds.innerHTML =`<p class="ellipsis">`+punishment[i-69]['content']+`</p>`;
+                                            // }
                                     }
                                 }
                                 //============================Quyền và nghĩa vụ của xe==============================
@@ -446,7 +501,7 @@ $(function() {
 
                         return false;
                     }
-                    if(indexCol==4 || indexCol == 3 ){
+                    if(indexCol== 2 ){
                         
                         var selOne = '.header';
                         var selTwo = '.sub-head';
@@ -462,7 +517,6 @@ $(function() {
                         $("#main-tbl tbody tr:not("+selOne+","+selTwo+","+selThree+","+selFour+","+selFive+","+selSix+","+selSeven+","+selEight+","+selNight+","+selTen+","+selEl+")").each(function(){
                             var trIsEmpty = true;
                             var tr = $(this);
-                            // console.log(this);
                             tr.find("td:not(:first)").each(function() {
                                 td = $(this);
                                 if (isEmpty(td) === false)  {
@@ -470,7 +524,6 @@ $(function() {
                                 }
                             });
                             if (trIsEmpty == true) {
-                                // console.log(this);
                                 tr.addClass("data-empty");
                             }
                         });
@@ -651,8 +704,8 @@ $(function() {
                         });
                 }else if($(this).is(':checked')== false && type_term == 2){
                     count_star_orange =0;
-                    count_star_green =0;
-                    count_star_gray =0;
+                    count_star_green  =0;
+                    count_star_gray   =0;
                     $(".selectedId:checked").each(function(index, element) {
                         var checkIndex  = $(element).parent().parent()[0].rowIndex;
                         var tds         =  myTable.rows[checkIndex].cells[indexCol];
