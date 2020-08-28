@@ -274,7 +274,7 @@
                             }
                         }).done(function(){
                             function isEmpty(td) {
-                                if ( td.text() == '') {
+                                if ( td.innerHTML == '') {
                                     return true;
                                 }            
 
@@ -286,7 +286,7 @@
                                     var tr = $(this);
                                     tr.removeClass('data-empty');
                                     tr.find("td:not(:first)").each(function() {
-                                        td = $(this);
+                                        td = this;
                                         if (isEmpty(td) === false)  {
                                             trIsEmpty = false;   
                                         }
