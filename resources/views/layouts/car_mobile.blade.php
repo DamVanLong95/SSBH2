@@ -495,13 +495,13 @@ $(function() {
                }).done(function() {
                     deleteColumn(idImg,clicked);
                     function isEmpty(td) {
-                        if ( td.text() == '') {
+                        if ( td.innerHTML == '') {
                             return true;
                         }            
 
                         return false;
                     }
-                    if(indexCol== 2 ){
+                    if( indexCol== 2 || indexCol==3){
                         
                         var selOne = '.header';
                         var selTwo = '.sub-head';
@@ -518,7 +518,7 @@ $(function() {
                             var trIsEmpty = true;
                             var tr = $(this);
                             tr.find("td:not(:first)").each(function() {
-                                td = $(this);
+                                td = this;
                                 if (isEmpty(td) === false)  {
                                     trIsEmpty = false;   
                                 }

@@ -438,7 +438,6 @@
                             $('#checkbox_dn'+idImg+'').prop("checked", false);
                             $('#'+idImg+'').draggable({ disabled: false });
                         }else if(index== 2 || index == 0 && !$('div.img-container').is(":not(.dropped)")){
-                            console.log("hi");
                             $('th:nth-child('+index+')').remove()
                             $('td:nth-child('+index+')').remove()
                             addColumn('main-tbl-nt');
