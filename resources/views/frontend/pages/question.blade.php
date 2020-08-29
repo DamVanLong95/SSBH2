@@ -92,10 +92,10 @@
                                     </div>
                                     <div class="alpha-ctn">
                                         <div class="alpha-left" id="content">
-                                            @foreach($libraries as $group_libra)
+                                            @foreach($libraries as $key=>$group_libra)
                                                 <div class="sign-ctn">
                                                     <div class="sign-index">
-                                                    <h3>A</h3>
+                                                    <h3>{{$key}}</h3>
                                                     </div>
                                                     <div class="sign-content">
                                                         @foreach($group_libra as $value)

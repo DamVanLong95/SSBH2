@@ -111,7 +111,13 @@
                                             <p>{{$advisor['area']}}</p>
                                             <p class="job-title"><strong>Liên hệ</strong></p>
                                             <p><a href="tel:{{$advisor['phone']}}">{{$advisor['phone']}}</a><span> | <a href="mailto:{{$advisor['email']}}"> {{$advisor['email']}}</a></span></p>
-                                          
+                                            <p class="">
+                                                @if($advisor->slug)
+                                                <a href="{{route('contact.detail',$advisor->slug)}}" style="color:green">Xem chi tiết</a>
+                                                @else
+                                                <a href="javascript:void(0)" style="color:green">Xem chi tiết</a>
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -137,9 +143,14 @@
 @stop
 
 @section('footer')
+
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     <script type="text/javascript">
         $('iframe').css('width','100%');
+        $(document).ready(function() {
+            $(".area").select2({
+            });
+        })
         var wk, lv, kv;
         $('.work').change(function(){
              wk = $(this).val();
