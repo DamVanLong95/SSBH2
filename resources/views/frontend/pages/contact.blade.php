@@ -143,9 +143,14 @@
 @stop
 
 @section('footer')
+
     <script src="{{ url('assets/js/home.js?'.config('custom.version')) }}"></script>
     <script type="text/javascript">
         $('iframe').css('width','100%');
+        $(document).ready(function() {
+            $(".area").select2({
+            });
+        })
         var wk, lv, kv;
         $('.work').change(function(){
              wk = $(this).val();

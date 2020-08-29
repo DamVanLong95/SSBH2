@@ -312,7 +312,6 @@
                                             <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
                                             <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
                                             @endif
-                                           
                                         @else
                                             <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['benifits'][$i]['comparison']}}</p>
                                         @endif
@@ -325,8 +324,12 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" onclick='handleCheckbox(this);'   />
                                         <label for="checkbox_two_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
                                         @if($agent->isMobile())
-                                            <p class="ellipsis" style="color: #125732">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
-                                            <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                            @if(strlen($data['benifits'][$i]['comparison'] )< 20)
+                                                <p class="ellipsis" style="color: #125732">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
+                                            @else
+                                                <p class="ellipsis" style="color: #125732">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
+                                                <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                            @endif
                                         @else
                                             <p class="ellipsis" style="color: #125732">{{$data['benifits'][$i]['comparison']}}</p>
                                         @endif
@@ -339,14 +342,12 @@
                                         <td>
                                         <input class="selectedId" type="checkbox" id="checkbox_three_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="" data-id="id"   />
                                         <label for="checkbox_three_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
-                                          
                                             @if($agent->isMobile())
                                                 <p class="ellipsis" style="color: #000">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
                                                 <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['benifits'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
                                             @else
                                                 <p class="ellipsis" style="color: #000">{{$data['benifits'][$i]['comparison']}}</p>
                                             @endif
-                                            
                                         </td>
                                         <td></td>
                                     </tr>
@@ -543,7 +544,6 @@
      }
     function handleAll(el){
         var selector = $('.selectedId');
-        console.log(el);
         for(var i = 1; i <= 22; i ++){
             if( $(el).val() == 5) el.checked ==true?selector[i].checked = true:selector[i].checked = false;
         }
@@ -640,6 +640,12 @@ $('.close').click(function(){
   $('.content').toggleClass("show hide");
   $('.open').toggleClass("show hide");
 });
+</script>
+<script>
+    function show(val){
+        $('#note').html(val);
+        $('#detail-td').modal('show');
+    }
 </script>
 @stop
 

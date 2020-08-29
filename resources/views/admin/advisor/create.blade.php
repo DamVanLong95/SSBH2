@@ -188,6 +188,12 @@ input:checked + .slider:before {
                         <span class="slider roundSwitch"></span>
                       
                     </div>
+                    <div class="form-group row">
+                        <label for="title" class="col-md-3 text-right control-label col-form-label">Link map</label>
+                        <div class="col-md-9">
+                                <textarea class="form-control" rows="3" placeholder="Enter ..." name="link_map" value="" ></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="border-top">
                     <div class="card-body">
