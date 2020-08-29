@@ -306,8 +306,13 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['benifits'][$i]['id']}}" name="checkbox_one" value="{{$data['benifits'][$i]['id']}}" data-id="id"  onclick='handleAll(this);' />
                                         <label for="checkbox_one_{{$data['benifits'][$i]['id']}}"> </label><span class="first-td">
                                         @if($agent->isMobile())
+                                            @if(strlen($data['benifits'][$i]['comparison']) < 20)
+                                            <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['benifits'][$i]['comparison']}}</p>
+                                            @else
                                             <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{Str::words($data['benifits'][$i]['comparison'],4)}}</p>
                                             <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                            @endif
+                                           
                                         @else
                                             <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['benifits'][$i]['comparison']}}</p>
                                         @endif
@@ -366,8 +371,12 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_one_{{$data['healths'][$i]['id']}}" name="checkbox_one" value="{{$data['healths'][$i]['id']}}" onclick='handleCheckbox(this);'  />
                                         <label for="checkbox_one_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
                                         @if($agent->isMobile())
+                                            @if(strlen($data['healths'][$i]['comparison']) < 25)
+                                            <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['healths'][$i]['comparison']}}</p>
+                                            @else
                                             <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{Str::words($data['healths'][$i]['comparison'],4)}}</p>
                                             <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                            @endif
                                         @else
                                         <p class="ellipsis" style="color: #009f49;font-weight: bold;">{{$data['healths'][$i]['comparison']}}</p>
                                         @endif
@@ -381,8 +390,13 @@
                                         <input class="selectedId" type="checkbox" id="checkbox_two_{{$data['healths'][$i]['id']}}" name="checkbox_two" value="{{$data['healths'][$i]['id']}}"    />
                                         <label for="checkbox_two_{{$data['healths'][$i]['id']}}"> </label><span class="first-td">
                                         @if($agent->isMobile())
+                                            @if(strlen($data['healths'][$i]['comparison']) < 20)
+                                                <p class="ellipsis" style="color: #125732">{{$data['healths'][$i]['comparison']}}</p>
+                                            @else
                                             <p class="ellipsis" style="color: #125732">{{Str::words($data['healths'][$i]['comparison'],4)}}</p>
                                             <span class="show-detail"><button type="button" class="btn btn-primary" value="{{$data['healths'][$i]['comparison']}}" onclick="show(this.value)"  >...</button></span>
+                                            @endif
+                                          
                                         @else
                                         <p class="ellipsis" style="color: #125732">{{$data['healths'][$i]['comparison']}}</p>
                                         @endif
@@ -441,8 +455,12 @@
                                 <tr class="data-detail">
                                     <td>
                                         @if($agent->isMobile())
-                                        <span class="show-detail"><button value="{{$value['rules']}}" onclick="detail(this.value)">...</button></span></span>
-                                        <p class="ellipsis">{{Str::words($value['rules'],3)}}</p>
+                                            @if(strlen($value['rules']) < 15)
+                                            <p class="ellipsis">{{Str::words($value['rules'],4)}}</p>
+                                            @else
+                                            <span class="show-detail"><button value="{{$value['rules']}}" onclick="detail(this.value)">...</button></span></span>
+                                            <p class="ellipsis">{{Str::words($value['rules'],4)}}</p>
+                                            @endif
                                         @else
                                         <span class="show-detail"><button value="{{$value['rules']}}" onclick="detail(this.value)">...</button></span></span>
                                         <p class="ellipsis">{{Str::words($value['rules'],15)}}</p>
