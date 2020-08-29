@@ -227,10 +227,10 @@
             }
             thead {
                 .top-head {
-                    position: -webkit-sticky;
-                    position: -webkit-o-sticky;
-                    position: -webkit-ms-sticky;
-                    position: sticky;
+                    // position: -webkit-sticky;
+                    // position: -webkit-o-sticky;
+                    // position: -webkit-ms-sticky;
+                    // position: sticky;
                     top: 0;
                     // box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
                     // border-top: 1px solid #000;
@@ -779,7 +779,7 @@
                 }
             }
             tr.data-detail:not(.header) {
-                display: none ;
+                display: none;
             }
             tr.select-all:not(.header) {
                 display: none;
