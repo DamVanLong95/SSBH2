@@ -4340,6 +4340,16 @@ span.tel {
   color: #58595b;
 }
 
+.question-container .question-term-ctn .term-ctn .alpha-ctn .alpha-left .sign-ctn .sign-index {
+  background-color: #d6e8df;
+  text-align: center;
+  margin: 3%;
+}
+
+.question-container .question-term-ctn .term-ctn .alpha-ctn .alpha-left .sign-ctn .sign-index h3 {
+  padding: 10px;
+}
+
 .question-container .question-term-ctn .knowledge-ctn {
   padding: 2%;
 }
@@ -4947,10 +4957,6 @@ span.tel {
 }
 
 .table-section-sk #layout-area .table thead .top-head {
-  position: -webkit-sticky;
-  position: -webkit-o-sticky;
-  position: -webkit-ms-sticky;
-  position: sticky;
   top: 0;
   height: 100px;
 }
@@ -6088,10 +6094,6 @@ span.tel {
 }
 
 .table-section-nt #layout-area .table thead .top-head {
-  position: -webkit-sticky;
-  position: -webkit-o-sticky;
-  position: -webkit-ms-sticky;
-  position: sticky;
   top: 0;
   height: 100px;
 }
