@@ -5485,7 +5485,6 @@ span.tel {
 
 @media (max-width: 600px) {
   .table-section-sk .img-container img {
-    width: 100%;
     transform: translateY(13%);
     -webkit-transform: translateY(13%);
     -moz-transform: translateY(13%);
@@ -5554,6 +5553,11 @@ span.tel {
 
 .sk-section3 .sec3-wrapper .swiper-sk .swiper-slide .item:hover {
   border: 1px solid #ccc;
+  transition: all 3a;
+  -webkit-transition: all 3a;
+  -moz-transition: all 3a;
+  -ms-transition: all 3a;
+  -o-transition: all 3a;
 }
 
 .sk-section3 .sec3-wrapper .swiper-sk .swiper-slide .item:hover .description-ctn p {
