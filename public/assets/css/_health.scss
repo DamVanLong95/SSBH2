@@ -800,6 +800,7 @@
                     }
                     img {
                         width: 100%;
+                        height: 265px;
                     }
                     .description-ctn {}
                     .modal-popup-ctn {
@@ -814,6 +815,11 @@
                     }
                     &:hover {
                         border: 1px solid #ccc;
+                        transition: all 3a;
+                        -webkit-transition: all 3a;
+                        -moz-transition: all 3a;
+                        -ms-transition: all 3a;
+                        -o-transition: all 3a;
                         .description-ctn {
                             p {
                                 color: $main-color;

@@ -3,6 +3,7 @@
     width: 100%;
     z-index: 1;
     margin: auto;
+    overflow-x: hidden;
     // overflow: auto;
     // height: 900px;
     @media (min-width: 768px) {
@@ -252,7 +253,7 @@
 
 @media (max-width: 425px) {
     table {
-        max-width: 375px;
+        // width: 375px;
     }
     td:first-child {
         width: 100px;

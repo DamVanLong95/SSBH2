@@ -25,7 +25,7 @@
     'offline_title' => 'Welcome',
     'offline_description' => 'Website đang trong quá trình xây dựng<br/>Bạn vui lòng quay lại sau',
     
-    'version' => 94,
+    'version' => 95,
     'total_kit' => 10000,
     'wait_time' => 20
 );
