@@ -700,6 +700,7 @@
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                         text-overflow: ellipsis;
+                        min-width: 180px;
                         @media (max-width: 375px) {
                             width: 100px;
                             //padding: .5rem !important;

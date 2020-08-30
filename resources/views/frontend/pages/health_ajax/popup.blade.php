@@ -20,7 +20,7 @@
                             border: 1px solid #0d723b;
                             " data-placement="bottom">
 
-            <option selected  class="active" title="Chon chuong trinh">--Chọn--</option>
+            <option selected  class="active" title="Chon chuong trinh">Chọn</option>
             @foreach($name['product_more'] as $value)
             <option value="{{$value['product_more_name']}}" title="{{$value['product_more_name']}}">{{\Illuminate\Support\Str::words($value['product_more_name'],5)}}</option>
             @endforeach

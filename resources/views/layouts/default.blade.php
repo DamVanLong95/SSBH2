@@ -176,10 +176,10 @@
 
                     <div class="footer-content">
                         <ul class="footer-nav">
-                            <a href="{{ url('/gioi-thieu') }}"><li>Giới thiệu về VICS-CORP</li></a>
-                            <a href="{{ url('/uu-dai') }}"><li>Ưu đãi</li></a>
-                            <a href="{{ url('/kien-thuc') }}"><li>Câu hỏi thường gặp</li></a>
-                            <a href="{{ url('/lien-he') }}"><li>Liên hệ</li></a>
+                            <li><a href="{{ url('/gioi-thieu') }}">Giới thiệu về VICS-CORP</a></li>
+                            <li><a href="{{ url('/uu-dai') }}">Ưu đãi</a></li>
+                            <li><a href="{{ url('/kien-thuc') }}">Câu hỏi thường gặp</a></li>
+                            <li><a href="{{ url('/lien-he') }}">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>

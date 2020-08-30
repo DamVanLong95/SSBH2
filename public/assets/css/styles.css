@@ -3229,6 +3229,7 @@ span.tel {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 180px;
 }
 
 @media (max-width: 375px) {
@@ -3934,6 +3935,33 @@ span.tel {
   }
 }
 
+.contact-ctn .select-ctn .select2-selection--single .select2-selection__rendered {
+  padding: 0 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #58595b;
+  line-height: 22px;
+}
+
+.contact-ctn .select-ctn .select2-container--default .select2-selection--single {
+  background-color: transparent !important;
+  height: 22px !important;
+  border-left: 0px !important;
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+  border-right: 1px solid #858c99 !important;
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+
+.contact-ctn .select-ctn .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 11px !important;
+  height: 3px !important;
+}
+
 .contact-ctn .name-list {
   margin: 5% 0;
   color: #58595b;
@@ -3991,8 +4019,20 @@ span.tel {
       justify-content: space-around;
 }
 
+@media screen and (max-width: 601px) {
+  .sec-contact-detail .section-wrapper .detail-ctn {
+    display: block;
+  }
+}
+
 .sec-contact-detail .section-wrapper .detail-ctn .ava-ctn {
   margin-right: 5%;
+}
+
+@media screen and (max-width: 601px) {
+  .sec-contact-detail .section-wrapper .detail-ctn .ava-ctn {
+    margin-right: 0;
+  }
 }
 
 .sec-contact-detail .section-wrapper .detail-ctn .ava-ctn img {
@@ -4033,6 +4073,28 @@ span.tel {
 
 .contact-map {
   border-top: 2px solid #0d723b;
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ccc;
+  height: 8px;
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #0d723b;
 }
 
 .question-container .nav-tabs .nav-item.show .nav-link,
@@ -4375,10 +4437,6 @@ span.tel {
 
 .question-container .question-term-ctn .knowledge-ctn .knowledge-wrapper .item-knowledge .description-ctn a:hover {
   color: #0d723b;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow {
-  top: 23px !important;
 }
 
 .blog-container {
