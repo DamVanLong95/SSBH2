@@ -37,6 +37,13 @@ class ProductController extends Controller
                 $record = Product::find($product->company_id);
                 return $product->company_id;
             })
+            ->editColumn('newest', function($product){
+                $param = $product->newest;
+                if($param == 1) return "mới nhất";              
+                if($param == 0) return "thường";              
+                if(!$param) return "thường";              
+            })
+            
             
             ->addColumn('path',function($product){
                 return $product->url ;
@@ -56,7 +63,9 @@ class ProductController extends Controller
         return view('admin.products.create',compact('companies'));
     }
     public function store(ProductRequest $request){
+
         $data = $request->all();
+
         if($request->hasFile('file')){
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
@@ -66,8 +75,11 @@ class ProductController extends Controller
             );
             unset($data['file']);
         }
+
         $data['url'] = isset($path)? $path:null;
+        $data['newest'] =  isset($data['newest']) ? 1: 0;
         unset($data['_token']);
+
          try{
             Product::create($data);
             DB::commit();
@@ -85,13 +97,17 @@ class ProductController extends Controller
     }
     public function edit($id){
         $companies = Company::orderBy('created_at')->get();
-        $product  = Product::find($id);
+        $product   = Product::find($id);
+        // dd($product);
         return view('admin.products.edit',compact(['companies','product']));
 
     }
     public function update(Request $request,$id){
+
         $data = $request->all();
+
         $product = Product::find($id);
+
         if($request->hasFile('file')){
             $file = $request->file('file');
             $ext = $file->getClientOriginalExtension();
@@ -108,7 +124,9 @@ class ProductController extends Controller
         }
         
         unset($data['_token']);
+        
         $data['url'] = isset($path)? $path: $product->url;
+        $data['newest'] =  isset($data['newest']) ? 1: 0;
         try{
             $product->update($data);
             DB::commit();

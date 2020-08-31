@@ -214,7 +214,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="item input-filter">
-                                                    <span> Giá trị: </span> <input type="text" placeholder="VND"id="price_car" name="price_car" value="">
+                                                    <span> Giá trị: </span> <input type="text" placeholder="VND"id="price_car" name="price_car" value="" required>
                                                     </div>
                                                 </div>
                                                 <div class="item button-filter" >

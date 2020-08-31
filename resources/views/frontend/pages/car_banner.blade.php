@@ -15,6 +15,80 @@
     function closeModal() {
        $('#detail-td').modal('hide');
     }
+      // =====================scroll brand car page==================
+        var scrollDuration = 300;
+        // paddles
+        var leftPaddle = document.getElementsByClassName('left-paddle');
+        var rightPaddle = document.getElementsByClassName('right-paddle');
+        // get items dimensions
+        var itemsLength = $('.item').length;
+        var itemSize = $('.item').outerWidth(true);
+
+
+        // get wrapper width
+        var getBrandWrapperSize = function() {
+            return $('.section-wrapper').outerWidth();
+        }
+        var brandWrapperSize = getBrandWrapperSize();
+        // the wrapper is responsive
+        $(window).on('resize', function() {
+            brandWrapperSize = getBrandWrapperSize();
+        });
+        // size of the visible part of the brand is equal as the wrapper size 
+        var brandVisibleSize = brandWrapperSize;
+
+        // get total width of all brand items
+        var getBrandSize = function() {
+            return itemsLength * itemSize;
+        };
+        var brandSize = getBrandSize();
+        // get how much of brand is invisible
+        var brandInvisibleSize = brandSize - brandWrapperSize;
+
+        // get how much have we scrolled to the left
+        var getBrandPosition = function() {
+            return $('.section-list').scrollLeft();
+        };
+
+        // finally, what happens when we are actually scrolling the brand
+        $('.section-list').on('scroll', function() {
+            // get how much of brand is invisible
+            brandInvisibleSize = brandSize - brandWrapperSize;
+            // get how much have we scrolled so far
+            var brandPosition = getBrandPosition();
+            // get some relevant size for the paddle triggering point
+            var paddleMargin = 20;
+            // console.log("brandPosition", brandPosition);
+            var brandEndOffset = brandInvisibleSize ;
+            if (brandPosition <= paddleMargin) {
+                $(leftPaddle).addClass('hidden');
+                $(rightPaddle).removeClass('hidden');
+                // console.log(1);
+            } else if (brandPosition < brandEndOffset) {
+                // show both paddles in the middle
+                $(leftPaddle).removeClass('hidden');
+                $(rightPaddle).removeClass('hidden');
+                // console.log(2);
+            } else if (brandPosition >= brandSize) {
+                $(leftPaddle).removeClass('hidden');
+                $(rightPaddle).addClass('hidden');
+            }
+
+        });
+
+        // scroll to left
+        $(rightPaddle).on('click', function() {
+            $('.section-list').animate({
+                scrollLeft: "+=300px"
+            }, "slow");
+        });
+
+        // scroll to right
+        $(leftPaddle).on('click', function() {
+            $('.section-list').animate({
+                scrollLeft: "-=300px"
+            }, "slow");
+        });
 </script>
 @if($agent->isMobile())
      @include('layouts.car_mobile')

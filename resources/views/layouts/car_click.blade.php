@@ -139,9 +139,11 @@ $(function() {
                                         $('#price_after_'+indexCol+'').html((formatMoney(price_new)));
                                     }
                                     // console.log(total_rate);
+
                                     if(price !=''){	
                                         //TH chọn luộn giá trị xe
                                      //===================thop muc dich su dung=============================
+                                        status = true;
                                         var purpose = document.getElementById('purpose');
                                         var year_sx = document.getElementById('prd_date').value;
                                         var ref_rates_id = purpose.value;
@@ -164,9 +166,11 @@ $(function() {
                                             }
                                         }
                                     }else{
-                                        alert("Vui long nhap gia tri xe");
+                                        // alert("Vui long nhap gia tri xe");
                                     }
+                                    
                                 });
+                              
                                 //==============DIEU KHOAN BO SUNG============================
                               
                                 var tblBodyObj      = document.getElementById('main-tbl').tBodies[0],
@@ -593,7 +597,7 @@ $(function() {
            }
            if(count == 4 ) return;
        });
-      
+     
        function deleteColumn(idImg,clicked){
 
             $('span.remove').on('click', function (e ) {

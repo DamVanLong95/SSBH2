@@ -7,19 +7,23 @@
                 @csrf
                 <div class="card-body">
                     <h4 class="card-title">Thông tin</h4>
-                    <div class="form-group row">
-                        <label for="title" class="col-md-3 text-right ">Loại sản phẩm</label>
-                        <div class="col-sm-3">
+                    <div class="form-group">
+                    <label for="title" class="col-md-3 text-right ">Loại sản phẩm </label>
+                        <div class="col-sm-3 offset-3">
                             <label for="" style="margin-left:15px" >Xe</label>
                             <input type="radio" class="checkmark" value="1" name="type" @if($treatment['type'] == 1)? checked : ''; @endif>
                         </div>  
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 offset-3">
                             <label for="" style="margin-left:15px">Sức khỏe </label>  
                             <input type="radio" class="checkmark" value="2" name="type" @if($treatment['type'] == 2)? checked : ''; @endif>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 offset-3">
                             <label for="" style="margin-left:15px">Nhân thọ</label>  
                             <input type="radio" class="checkmark" value="3" name="type" @if($treatment['type'] == 3)? checked : ''; @endif>
+                        </div>
+                        <div class="col-sm-3 offset-3">
+                            <label for="" style="margin-left:15px">Sản phẩm khác</label>  
+                            <input type="radio" class="checkmark" value="3" name="type" @if($treatment['type'] == 4)? checked : ''; @endif>
                         </div>
 
                     </div>

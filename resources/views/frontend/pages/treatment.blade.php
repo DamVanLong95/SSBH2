@@ -188,6 +188,60 @@
                         </div>
                     </div>
                 </div>
+                <div class="bh-other">
+                    <div class="title">
+                        <h4>Sản phẩm Bảo hiểm Khác</h4>
+                    </div>
+                    <div id="section-treatment" class="section-treatment-slide">
+                        <div class="section-wrapper ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div id="" class="swiper-container swiper-treatment4 ">
+                                            <div class="swiper-wrapper uudai-slide">
+                                            @foreach($data['khac'] as $value)
+                                              <div class="swiper-slide slide-item parent3">
+                                                  <a class="showSingle" value="kh_{{$value['id']}}">
+                                                      <div class="treatment-item item">
+                                                          <div class="title">
+                                                              {{$value['title']}}
+                                                          </div>
+                                                          <img class="img-fluid" src="{{asset('storage/'.$value->slide)}}" alt="">
+                                                          <div class="description">
+                                                              <p>{{$value['description']}}</p>
+                                                          </div>
+                                                      </div>
+                                                  </a>
+                                              </div>
+                                              @endforeach
+                                            
+                                            <!-- Add Arrows -->
+                                        </div>
+                                        <div class="arrow-ctn ">
+                                            <div class="swiper-button-prev kh-prev">
+                                            </div>
+                                            <div class="swiper-button-next kh-next">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @foreach($data['khac'] as $v)
+                                <div id="kh_{{$v['id']}}" class=" child3 targetDiv">
+                                    <div class="detail-content ">
+                                        <div class="child-content">
+                                            <img class="img-fluid" src="{{asset('storage/'.$v->img_detail)}}" alt="">
+                                        </div>
+                                        <div class="contact-btn-ctn">
+                                        <a type="button" class="treat-btn" href= "{{route('contact.detail',[$v->slug])}}">Liên hệ tư vấn viên</a>
+                                        <a type="button " class="treat-btn" href="tel:{{$v['phone']}}"><img class="img-fluid" src="{{ url('/') }}/assets/images/logo/call.png?{{ config('custom.version') }}" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                               @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -201,6 +255,7 @@
             var sk = <?php echo $data['suckhoe'] ?>;
           
             var nt = <?php echo $data['nhantho'] ?>;
+            var kh = <?php echo $data['khac']?>;
             var divs = [];
             for(let i =0; i < xes.length;i++){
                
@@ -214,54 +269,12 @@
                
                divs.push('nt_'+ nt[i]['id']);
            }
-           var swipertreat1 = new Swiper('.swiper-treatment1', {
-                slidesPerView: 3,
-                spaceBetween: 100,
-                effect: 'coverflow',
-                loop: true,
-                Centeredslides: true, // set the slide to center
-                coverflowEffect: {
-                    rotate: 0, // Slide rotate in degrees
-                    stretch: 0, // Stretch space between slides (in px)
-                    depth: 100, // Depth offset in px (slides translate in Z axis)
-                    modifier: 1, // Effect multipler
-                    slideShadows: false, // Enables slides shadows
-                },
-                autoplay: {
-                    delay: 3000,
-                },
-                navigation: {
-                    nextEl: '.xe-next',
-                    prevEl: '.xe-prev',
-                },
-                // pagination: {
-                //     el: '.swiper-pagination',
-                //     clickable: true,
-                // },
-                breakpoints: {
-                    1200: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
-                    991: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-
-                    },
-                    767: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                    },
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    }
-                },
-                // onClick: (swiper, event) => {
-                //     let div = swiper.clickedSlide; //slide that was clicked
-                // }
-            });
-            var swipertreat2 = new Swiper(".swiper-treatment2", {
+           for(let i =0; i < kh.length;i++){
+               
+               divs.push('kh_'+ kh[i]['id']);
+           }
+           function swiperSlide(el,next, prev){
+                var swipertreat2 = new Swiper(el, {
                     slidesPerView: 3,
                     spaceBetween: 100,
                     effect: 'coverflow',
@@ -278,8 +291,8 @@
                         delay: 5000,
                     },
                     navigation: {
-                        nextEl: '.nt-next',
-                        prevEl: '.nt-prev',
+                        nextEl: next,
+                        prevEl: prev,
                     },
                     // pagination: {
                     //     el: '.swiper-pagination',
@@ -308,53 +321,11 @@
                         let div = swiper.clickedSlide; //slide that was clicked
                     }
                 });
-                var swipertreat3 = new Swiper(".swiper-treatment3", {
-                    slidesPerView: 3,
-                    spaceBetween: 100,
-                    effect: 'coverflow',
-                    loop: true,
-                    Centeredslides: true, // set the slide to center
-                    coverflowEffect: {
-                        rotate: 0, // Slide rotate in degrees
-                        stretch: 0, // Stretch space between slides (in px)
-                        depth: 100, // Depth offset in px (slides translate in Z axis)
-                        modifier: 1, // Effect multipler
-                        slideShadows: false, // Enables slides shadows
-                    },
-                    autoplay: {
-                        delay: 4000,
-                    },
-                    navigation: {
-                        nextEl: '.sk-next',
-                        prevEl: '.sk-prev',
-                    },
-                    // pagination: {
-                    //     el: '.swiper-pagination',
-                    //     clickable: true,
-                    // },
-                    breakpoints: {
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        991: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-
-                        },
-                        767: {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        }
-                    },
-                    onClick: (swiper, event) => {
-                        let div = swiper.clickedSlide; //slide that was clicked
-                    }
-                });
+           }
+           swiperSlide(".swiper-treatment1",'.xe-next','.xe-prev');
+           swiperSlide(".swiper-treatment2",'.nt-next','.nt-prev');
+           swiperSlide(".swiper-treatment3",'.sk-next','.sk-prev');
+           swiperSlide(".swiper-treatment4",'.kh-next','.kh-prev');
 
             function hideNonVisibleDivs() {
              var i, div;

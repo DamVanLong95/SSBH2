@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/style.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/libs/toastr/build/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/switch.css')}}">
     @yield('styles')
 
     <![endif]-->
@@ -112,5 +113,31 @@
     }
     @endif
 </script>
+<script>
+        tinymce.init({
+
+            selector: '#content_post',
+            mages_upload_credentials: true,
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons paste textcolor responsivefilemanager code"
+
+            ],
+            toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+            toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+            relative_urls: false,
+            external_filemanager_path:"{{asset('/')}}filemanager/",
+
+            filemanager_title:"Responsive Filemanager" ,
+            external_plugins: {
+
+                "filemanager": "{{asset('filemanager/plugin.min.js')}}",
+                "responsivefilemanager": "{{asset('tinymce/plugins/responsivefilemanager/plugin.min.js')}}",
+            },
+
+
+        });
+    </script>
 </html>
 

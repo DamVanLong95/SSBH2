@@ -418,19 +418,26 @@
             // get some relevant size for the paddle triggering point
             var paddleMargin = 20;
             // console.log("brandPosition", brandPosition);
-            var brandEndOffset = brandInvisibleSize - paddleMargin;
+            var brandEndOffset = brandInvisibleSize ;
             // show & hide the paddles 
             // depending on scroll position
+            // console.log(brandPosition);
+            // console.log(brandEndOffset);
+            // console.log(brandSize);
+
             if (brandPosition <= paddleMargin) {
                 $(leftPaddle).addClass('hidden');
                 $(rightPaddle).removeClass('hidden');
+                // console.log(1);
             } else if (brandPosition < brandEndOffset) {
                 // show both paddles in the middle
                 $(leftPaddle).removeClass('hidden');
                 $(rightPaddle).removeClass('hidden');
-            } else if (brandPosition >= brandEndOffset) {
+                // console.log(2);
+            } else if (brandPosition >= brandSize) {
                 $(leftPaddle).removeClass('hidden');
                 $(rightPaddle).addClass('hidden');
+                console.log(3);
             }
 
         });
@@ -499,17 +506,17 @@
             // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
             // show & hide the paddles 
             // depending on scroll position
-            if (brandPosition2 <= paddleMargin2) {
-                $(leftPaddle2).addClass('hidden');
-                $(rightPaddle2).removeClass('hidden');
-            } else if (brandPosition2 < brandEndOffset2) {
-                // show both paddles in the middle
-                $(leftPaddle2).removeClass('hidden');
-                $(rightPaddle2).removeClass('hidden');
-            } else if (brandPosition2 >= brandEndOffset2) {
-                $(leftPaddle2).removeClass('hidden');
-                $(rightPaddle2).addClass('hidden');
-            }
+            // if (brandPosition2 <= paddleMargin2) {
+            //     $(leftPaddle2).addClass('hidden');
+            //     $(rightPaddle2).removeClass('hidden');
+            // } else if (brandPosition2 < brandEndOffset2) {
+            //     // show both paddles in the middle
+            //     $(leftPaddle2).removeClass('hidden');
+            //     $(rightPaddle2).removeClass('hidden');
+            // } else if (brandPosition2 >= brandEndOffset2) {
+            //     $(leftPaddle2).removeClass('hidden');
+            //     $(rightPaddle2).addClass('hidden');
+            // }
 
         });
 
