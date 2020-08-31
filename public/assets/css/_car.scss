@@ -612,6 +612,8 @@
                         }
                         @media (max-width: 375px) {
                             width: 55%;
+                            padding-top: 20px;
+                            margin: auto;
                         }
                     }
                     .item {
@@ -702,7 +704,7 @@
                         text-overflow: ellipsis;
                         min-width: 180px;
                         @media (max-width: 375px) {
-                            width: 100px;
+                            min-width: 108px;
                             //padding: .5rem !important;
                             transform: translateY(12px);
                             -webkit-transform: translateY(12px);
