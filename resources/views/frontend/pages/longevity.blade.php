@@ -476,64 +476,64 @@
 
                 // if(data.product_concern!='')
                 $('#concern').html(data.html_concern);
-                var scrollDuration = 300;
-                // paddles
-                var leftPaddle2 = document.getElementsByClassName('left-paddle2');
-            
-                var rightPaddle2 = document.getElementsByClassName('right-paddle2');
-                //get items dimensions
-                var itemsLength2 = $('.item2').length;
-                var itemSize2 = $('.item2').outerWidth(true);
+                function swiperButton(left, right ,section){
+                    var scrollDuration = 300;
+                    // paddles
+                    var leftPaddle2 = document.getElementsByClassName(left);
+                
+                    var rightPaddle2 = document.getElementsByClassName(right);
+                    //get items dimensions
+                    var itemsLength2 = $('.item2').length;
+                    var itemSize2 = $('.item2').outerWidth(true);
 
-                var getBrandWrapperSize = function() {
-                    return $('.section-wrapper2').outerWidth();
-                }
-                var brandWrapperSize2 = getBrandWrapperSize();
-                $(window).on('resize', function() {
-                    brandWrapperSize2 = getBrandWrapperSize();
-                });
-                var brandVisibleSize2 = brandWrapperSize2;
-
-            // get total width of all brand items
-                var getBrandSize = function() {
-                    return itemsLength2 * itemSize2;
-                };
-                var brandSize2 = getBrandSize();
-                // get how much of brand is invisible
-                var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
-
-            // get how much have we scrolled to the left
-                var getBrandPosition2 = function() {
-                    return $('.section-list2').scrollLeft();
-                };
-
-            // finally, what happens when we are actually scrolling the brand
-                $('.section-list2').on('scroll', function() {
-                    // get how much of brand is invisible
-                    brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
-                    // get how much have we scrolled so far
-                    var brandPosition2 = getBrandPosition2();
-                    // get some relevant size for the paddle triggering point
-                    var paddleMargin2 = 20;
-                    // console.log("brandPosition", brandPosition);
-                    var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
-                   
-                   
-                    if (brandPosition2 <= paddleMargin2) {
-                        $(leftPaddle2).addClass('hidden');
-                        $(rightPaddle2).removeClass('hidden');
-                    } else if (brandPosition2 < brandEndOffset2) {
-                        // show both paddles in the middle
-                        $(leftPaddle2).removeClass('hidden');
-                        $(rightPaddle2).removeClass('hidden');
-                    } else  {
-                        $(leftPaddle2).removeClass('hidden');
-                        $(rightPaddle2).addClass('hidden');
+                    var getBrandWrapperSize = function() {
+                        return $('.section-wrapper2').outerWidth();
                     }
+                    var brandWrapperSize2 = getBrandWrapperSize();
+                    $(window).on('resize', function() {
+                        brandWrapperSize2 = getBrandWrapperSize();
+                    });
+                    var brandVisibleSize2 = brandWrapperSize2;
 
-                });
+                // get total width of all brand items
+                    var getBrandSize = function() {
+                        return itemsLength2 * itemSize2;
+                    };
+                    var brandSize2 = getBrandSize();
+                    // get how much of brand is invisible
+                    var brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
 
-                // scroll to left
+                // get how much have we scrolled to the left
+                    var getBrandPosition2 = function() {
+                        return $(section).scrollLeft();
+                    };
+
+                // finally, what happens when we are actually scrolling the brand
+                    $(section).on('scroll', function() {
+                        // get how much of brand is invisible
+                        brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
+                        // get how much have we scrolled so far
+                        var brandPosition2 = getBrandPosition2();
+                        // get some relevant size for the paddle triggering point
+                        var paddleMargin2 = 20;
+                        // console.log("brandPosition", brandPosition);
+                        var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
+                    
+                    
+                        if (brandPosition2 <= paddleMargin2) {
+                            $(leftPaddle2).addClass('hidden');
+                            $(rightPaddle2).removeClass('hidden');
+                        } else if (brandPosition2 < brandEndOffset2) {
+                            // show both paddles in the middle
+                            $(leftPaddle2).removeClass('hidden');
+                            $(rightPaddle2).removeClass('hidden');
+                        } else  {
+                            $(leftPaddle2).removeClass('hidden');
+                            $(rightPaddle2).addClass('hidden');
+                        }
+
+                    });
+                     // scroll to left
                 $(rightPaddle2).on('click', function() {
                     if(this.value == 1){
                         $('#thumbs_saving').animate({
@@ -591,6 +591,15 @@
                         }, "slow");
                     }
                 });
+                }
+                swiperButton('left-saving','right-saving','.saving-list');
+                swiperButton('left-secure','right-secure','.secure-list');
+                swiperButton('left-invest','right-invest','.invest-list');
+                swiperButton('left-edu','right-edu','.edu-list');
+                swiperButton('left-retire','right-retire','.retire-list');
+                swiperButton('left-concern','right-concern','.concern-list');
+
+               
             },
         });
           
