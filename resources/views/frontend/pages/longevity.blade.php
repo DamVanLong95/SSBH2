@@ -453,16 +453,7 @@
             },
             dataType: 'json',
             success: function(data) {
-                // $(document).ajaxStart(function(){
-                //     setTimeout(function(){
-                //         var el = document.getElementById('wait');
-                //         el.style.cssText += 'display: block;';                   
-                //     }, 100);
-                // });
-                // $(document).ajaxComplete(function(){
-                //     var el = document.getElementById('wait');
-                //     el.style.cssText += 'display: none;';
-                // });
+                
                 if(data.product_saving!='')
                     $('#saving').html(data.html_saving);
                     else  $('#saving').html(''); 
@@ -518,7 +509,6 @@
 
             // finally, what happens when we are actually scrolling the brand
                 $('.section-list2').on('scroll', function() {
-
                     // get how much of brand is invisible
                     brandInvisibleSize2 = brandSize2 - brandWrapperSize2;
                     // get how much have we scrolled so far
@@ -527,9 +517,8 @@
                     var paddleMargin2 = 20;
                     // console.log("brandPosition", brandPosition);
                     var brandEndOffset2 = brandInvisibleSize2 - paddleMargin2;
-                    // console.log("brandPositiontrtsrtsrtwr", brandEndOffset);
-                    // show & hide the paddles 
-                    // depending on scroll position
+                   
+                   
                     if (brandPosition2 <= paddleMargin2) {
                         $(leftPaddle2).addClass('hidden');
                         $(rightPaddle2).removeClass('hidden');
@@ -537,7 +526,7 @@
                         // show both paddles in the middle
                         $(leftPaddle2).removeClass('hidden');
                         $(rightPaddle2).removeClass('hidden');
-                    } else if (brandPosition2 >= brandEndOffset2) {
+                    } else  {
                         $(leftPaddle2).removeClass('hidden');
                         $(rightPaddle2).addClass('hidden');
                     }
@@ -558,11 +547,11 @@
                         $('#thumbs_invest').animate({
                         scrollLeft: "+=301px"
                         }, "slow");
-                    }else if(this.value == 4){
+                    }else if(this.value == 5){
                         $('#thumbs_edu').animate({
                         scrollLeft: "+=301px"
                         }, "slow");
-                    }else if(this.value == 5){
+                    }else if(this.value == 4){
                         $('#thumbs_retire').animate({
                         scrollLeft: "+=301px"
                         }, "slow");
@@ -588,11 +577,11 @@
                         $('#thumbs_invest').animate({
                         scrollLeft: "-=301px"
                         }, "slow");
-                    }else if(this.value == 4){
+                    }else if(this.value == 5){
                         $('#thumbs_edu').animate({
                         scrollLeft: "-=301px"
                         }, "slow");
-                    }else if(this.value == 5){
+                    }else if(this.value == 4){
                         $('#thumbs_retire').animate({
                         scrollLeft: "-=301px"
                         }, "slow");

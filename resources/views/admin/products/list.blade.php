@@ -14,6 +14,7 @@
                         <th><h4>Company</h4></th>
                         <th><h4>Product Name</h4></th>
                         <th><h4>Url</h4></th>
+                        <th><h4>Trạng thái</h4></th>
                         <th><h4>Action</h4></th>
                     </tr>
                     </thead>
@@ -58,6 +59,7 @@
                         {data:'company_id',name:'company_id'},
                         {data: 'name', name: 'name'},
                         {data: 'path', name: 'path'},
+                        {data: 'newest', name: 'newest'},
                         {data:'action', name:'action',orderable: false, searchable: false},
                     ],
                     "order": [[1, 'asc']]

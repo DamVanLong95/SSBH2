@@ -8,19 +8,23 @@
                 @csrf
                 <div class="card-body">
                     <h4 class="card-title"><strong>Thông tin trang ưu đãi</strong> </h4>
-                    <div class="form-group row">
+                    <div class="form-group ">
                         <label for="title" class="col-md-3 text-right ">Loại sản phẩm </label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2 offset-3">
                             <label for="" style="margin-left:15px" >Xe</label>
                             <input type="radio" class="checkmark" value="1" name="type" checked>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2 offset-3">
                             <label for="" style="margin-left:15px">Sức khỏe </label>  
                             <input type="radio" class="checkmark" value="2" name="type">
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2 offset-3">
                             <label for="" style="margin-left:15px">Nhân thọ</label>  
                             <input type="radio" class="checkmark" value="3" name="type">
+                        </div>
+                        <div class="col-sm-2 offset-3">
+                            <label for="" style="margin-left:15px">Sản phẩm Khác</label>  
+                            <input type="radio" class="checkmark" value="4" name="type">
                         </div>
 
                     </div>

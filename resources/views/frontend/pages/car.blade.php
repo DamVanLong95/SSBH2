@@ -182,7 +182,11 @@
                                                 <div class="selection-box">
                                                     <div class=" item select">
                                                         <select aria-label="Select menu example" id="purpose">
+<<<<<<< Updated upstream
                                                             <option selected hidden value="0">Mục đích sử dụng</option>
+=======
+                                                            <option selected hidden value="0">---Mục đích sử dụng---</option>
+>>>>>>> Stashed changes
                                                             @foreach($data['uses'] as $value)
                                                             <option value="{{$value['id']}}">{{$value['type_car']}}</option>
                                                             @endforeach

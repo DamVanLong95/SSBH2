@@ -21,6 +21,7 @@ class HController extends Controller
         $xe      = Treatment::where('type',1)->get();
         $nhantho = Treatment::where('type',3)->get();
         $suckhoe = Treatment::where('type',2)->get();
+        $khac    = Treatment::where('type',4)->get();
         foreach($xe as $key =>$x){
             $x['tvv']   = $x->advisor['fullname'];
             $x['slug']  = $x->advisor['slug'];
@@ -36,10 +37,17 @@ class HController extends Controller
             $sk['slug']  = $sk->advisor['slug'];
             $sk['phone'] = $sk->advisor['phone'];
         }
+        foreach($khac as $key =>$kh){
+            $kh['tvv']   = $kh->advisor['fullname'];
+            $kh['slug']  = $kh->advisor['slug'];
+            $kh['phone'] = $kh->advisor['phone'];
+        }
+        // dd($khac);
         $data = [
            'xe' => $xe,
            'nhantho' => $nhantho,
-           'suckhoe' => $suckhoe
+           'suckhoe' => $suckhoe,
+           'khac'    => $khac
         ];
 
         return view('frontend.pages.treatment', ['data' => $data] );

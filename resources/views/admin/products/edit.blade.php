@@ -41,18 +41,18 @@
                             @endif
                         </div>
                     </div>
-                    <!-- <div class="form-group row">
-                        <label for="title" class="col-md-3 text-right ">Loại </label>
-                        <div class="col-sm-3">
-                            <label for="" style="margin-left:15px" >Tích lũy</label>
-                            <input type="radio" class="checkmark" value="1" name="cate" {{$product->cate == 1? 'checked':''}} >
+                    <div class="form-group row">
+                        <label for="content" class="col-md-3 text-right control-label col-form-label">Mô tả</label>
+                        <div class="col-sm-9">
+                            <textarea id="content_post" class="form-control" name="describe" rows="10">{!!$product['describe']!!}</textarea>
                         </div>
-                        <div class="col-sm-3">
-                            <label for="" style="margin-left:15px"> Bảo vệ</label>  
-                            <input type="radio" class="checkmark" value="2" name="cate" {{$product->cate == 2? 'checked':''}}>
-                        </div>
-
-                    </div> -->
+                    </div>
+                    <div class="form-group row">
+                        <label for="title" class="col-md-3 text-right control-label col-form-label">Sản phẩm mới</label>
+                        <label class="switch ">
+                            <input type="checkbox" class="primary" name="newest" {{ ($product->newest == 1) ?  'checked' : ''}}>
+                        <span class="slider roundSwitch"></span>
+                    </div>
                 </div>
                 <div class="border-top">
                     <div class="card-body">
@@ -61,8 +61,5 @@
                 </div>
             </form>
         </div>
-    </div>
-    <div class="col-lg-3">
-
     </div>
 @stop
