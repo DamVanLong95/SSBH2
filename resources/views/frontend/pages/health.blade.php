@@ -497,9 +497,7 @@
                                         </div>
                                         <a href="javascript:void(0)" target="_blank"><img src=" storage/{{$value['url']}}" alt=""></a>
                                         <div class="modal-popup-ctn">
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Điều kiện tha gia bảo hiểm</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rel="modal:open">Thời gian chờ</a></p>
-                                            <p><a href="javascript:void(0)" href="#detail-td" rsel="modal:open">Quyền lợi bảo hiểm</a></p>
+                                           {!!$value['describe']!!}
                                         </div>
                                     </div>
                                 </div>

@@ -5,7 +5,7 @@
         <h4>Tích lũy, tiết kiệm <span>({{count($product_saving)}})</span></h4>
         </div>
         <div  class="section-wrapper2">
-            <ul id="thumbs_saving" class="section-list2">
+            <ul id="thumbs_saving" class="section-list2 saving-list">
                 @foreach($product_saving as $value)
                     <li class="item2">
                         <div class="thumb-t">
@@ -28,10 +28,10 @@
     </div>
 </div>
 <div class="paddles">
-    <button class="left-paddle2 paddle hidden" value="1">
+    <button class="left-paddle2 paddle hidden left-saving" value="1">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
     </button>
-    <button class="right-paddle2 paddle" value="1">
+    <button class="right-paddle2 paddle right-saving" value="1">
     <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
     </button>
 </div>
@@ -43,7 +43,7 @@
             <h4>Bảo vệ <span>({{count($product_secure)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs_secure" class="section-list2">
+                <ul id="thumbs_secure" class="section-list2 secure-list">
                 @foreach($product_secure as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -66,10 +66,10 @@
         </div>
     </div>
     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="2">
+        <button class="left-paddle2 paddle hidden left-secure" value="2">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle" value="2">
+        <button class="right-paddle2 paddle right-secure" value="2">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -81,7 +81,7 @@
                 <h4>Đầu tư <span>({{count($product_invest)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs_invest" class="section-list2">
+                <ul id="thumbs_invest" class="section-list2 invest-list">
                     @foreach($product_invest as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -104,10 +104,10 @@
         </div>
     </div>
      <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="3">
+        <button class="left-paddle2 paddle hidden left-invest" value="3">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle" value="3">
+        <button class="right-paddle2 paddle right-invest" value="3">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div> 
@@ -119,7 +119,7 @@
                 <h4>Hưu trí <span>({{count($product_retire)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs_retire" class="section-list2">
+                <ul id="thumbs_retire" class="section-list2 retire-list">
                     @foreach($product_retire as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -142,10 +142,10 @@
         </div>
     </div>
     <div class="paddles">
-        <button class="left-paddle2 paddle hidden" value="4">
+        <button class="left-paddle2 paddle hidden left-retire" value="4">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle" value="4">
+        <button class="right-paddle2 paddle right-retire" value="4">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -158,7 +158,7 @@
                 <h4>Giáo dục<span>({{count($product_edu)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs_edu" class="section-list2">
+                <ul id="thumbs_edu" class="section-list2 edu-list">
                     @foreach($product_edu as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -181,10 +181,10 @@
         </div>
     </div>
     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="5">
+        <button class="left-paddle2 paddle hidden left-edu" value="5">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle" value="5">
+        <button class="right-paddle2 paddle right-edu" value="5">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
@@ -197,7 +197,7 @@
                 <h4>Doanh nghiệp <span>({{count($product_concern)}})</span></h4>
             </div>
             <div  class="section-wrapper2">
-                <ul id="thumbs_concern" class="section-list2">
+                <ul id="thumbs_concern" class="section-list2 concern-list">
                 @foreach($product_concern as $value)
                         <li class="item2">
                             <div class="thumb-t">
@@ -220,10 +220,10 @@
         </div>
     </div>
     <div class="paddles2">
-        <button class="left-paddle2 paddle hidden" value="6">
+        <button class="left-paddle2 paddle hidden left-concern" value="6">
             <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-left-active.png?{{ config('custom.version') }}" alt="">
         </button>
-        <button class="right-paddle2 paddle" value="6">
+        <button class="right-paddle2 paddle right-concern" value="6">
         <img class="img-fluid" src="{{ url('/') }}/assets/images/home/arrow-right-active.png?{{ config('custom.version') }}" alt="">
         </button>
     </div>
