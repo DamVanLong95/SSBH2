@@ -6846,7 +6846,6 @@ span.tel {
   width: 100%;
   z-index: 1;
   margin: auto;
-  overflow-x: hidden;
 }
 
 .fix-width {
@@ -7091,6 +7090,9 @@ span.tel {
 }
 
 @media (max-width: 425px) {
+  table {
+    max-width: 375px;
+  }
   td:first-child {
     width: 100px;
   }

@@ -27,7 +27,7 @@
         <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
             <div class="intro-ctn box-1">
                 <div class="left-ctn">
-                    <a href="{{ route('intro') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro0.png?{{ config('custom.version') }}" width="100%" alt=""></a>
+                    <a href="{{ route('detail') }}" target="_blank"><img src="{{ url('/') }}/assets/images/home/intro0.png?{{ config('custom.version') }}" width="100%" alt=""></a>
                 </div>
                 <div class="right-ctn">
                     <div class="title">
