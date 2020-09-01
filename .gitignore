@@ -40,5 +40,5 @@ local.properties
 *.iml
 .idea
 .vscode
-upload/
+uploads/
 
