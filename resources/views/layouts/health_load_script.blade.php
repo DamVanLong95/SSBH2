@@ -103,6 +103,7 @@
                                 $(this).parents(".custom-select-fix").removeClass("opened");
                                 $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
                                 var program_id = $(this).data("value");
+                                var indexCol = $(this).closest("td").index();
                                 var url ='{{route('selectProgram')}}';
                                 $.post(url,{
                                     "_token": "{{ csrf_token() }}", 
@@ -438,7 +439,7 @@ $(function() {
                         $(this).parent().parent().first().tooltip({
                             placement: 'right',
                         });
-                       
+                        var indexCol = $(this).closest("td").index();
                         // $(this).parents(".custom-select-fix-wrapper").find("select").val($(this).data("value"));
                         $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
                         $(this).addClass("selection");
@@ -731,6 +732,7 @@ $(function() {
 
             $('span.remove').on('click', function (e ) {
                 var index = ($(this).parent().index()+1);
+                
                 if( index ==2 ){
                     $('th:nth-child('+index+')').remove()
                     $('td:nth-child('+index+')').remove()
