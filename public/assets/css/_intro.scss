@@ -158,8 +158,11 @@
         align-items: center;
         flex-direction: row;
         @media screen and (max-width: 480px) {
-            display: grid;
-            grid-template-columns: auto;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            position: relative;
+            display: block;
         }
         .selection-box {
             width: 100%;
@@ -173,6 +176,9 @@
             background-color: #f1f2f2;
             // color: #bdbebf;
             font-family: UTM_Helve;
+            @media screen and (max-width: 480px) {
+                display: block;
+            }
         }
         .button-filter {
             width: 35%;
@@ -199,6 +205,9 @@
         span {
             margin-left: 20px;
             color: #58595b;
+            @media screen and (max-width: 480px) {
+                margin-left: 0;
+            }
         }
         input {
             width: 60%;
@@ -228,12 +237,16 @@
                 margin-top: 5%;
             }
         }
-        .select2-selection--single .select2-selection__rendered{
+        .select2-selection--single .select2-selection__rendered {
             padding: 0 20px;
             text-align: center;
             font-size: 14px;
             color: #58595b;
             line-height: 22px;
+            @media screen and (max-width: 480px) {
+                text-align: left;
+                padding: 0 0 0 5px;
+            }
         }
         .select2-container--default .select2-selection--single {
             background-color: transparent !important;
@@ -249,9 +262,9 @@
             -o-border-radius: 0 !important;
         }
         .select2-container--default .select2-selection--single .select2-selection__arrow {
-            top: 31px !important;
-            height:3px !important;
-        } 
+            top: 11px !important;
+            height: 3px !important;
+        }
     }
     .name-list {
         margin: 5% 0;
@@ -340,7 +353,8 @@
 .contact-map {
     border-top: 2px solid $main-color;
 }
-.select2-container--default .select2-results>.select2-results__options{
+
+.select2-container--default .select2-results>.select2-results__options {
     &::-webkit-scrollbar {
         width: 5px;
         background-color: #ccc;
@@ -360,6 +374,7 @@
         background-color: #0d723b;
     }
 }
+
 // ======================question page=======================
 .question-container {
     .nav-tabs .nav-item.show .nav-link,
@@ -673,6 +688,7 @@
                     }
                     .description-ctn {
                         padding: 10px;
+                        height: 100px;
                         a {
                             color: #000;
                             &:hover {
@@ -685,4 +701,3 @@
         }
     }
 }
-

@@ -287,9 +287,9 @@
                         modifier: 1, // Effect multipler
                         slideShadows: false, // Enables slides shadows
                     },
-                    // autoplay: {
-                    //     delay: 3000,
-                    // },
+                    autoplay: {
+                        delay: 5000,
+                    },
                     navigation: {
                         nextEl: next,
                         prevEl: prev,
