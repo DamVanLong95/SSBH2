@@ -4,7 +4,7 @@
         .title {
             text-align: center;
             margin-bottom: 4%;
-            h4 {
+            h1 {
                 text-transform: uppercase;
                 font-family: UTM_Helve;
                 color: $main-color;
@@ -12,10 +12,39 @@
             }
         }
         .blog-content {
+            ul {
+                li {
+                    span {
+                        font-family: UTM_Helve !important;
+                        font-size: 14px !important;
+                        line-height: 26px !important;
+                        color: #58595b !important;
+                    }
+                }
+            }
+            .text_exposed_show span {
+                font-family: UTM_Helve !important;
+                font-size: 14px !important;
+                line-height: 26px !important;
+                color: #58595b !important;
+            }
+            span .text_exposed_show {
+                font-family: UTM_Helve !important;
+                font-size: 14px !important;
+                line-height: 26px !important;
+                color: #58595b !important;
+            }
             p {
-                font-family: UTM_Helve;
-                line-height: 26px;
-                color: #58595b;
+                font-family: UTM_Helve !important;
+                font-size: 14px !important;
+                line-height: 26px !important;
+                color: #58595b !important;
+                span {
+                    font-family: UTM_Helve !important;
+                    font-size: 14px !important;
+                    line-height: 26px !important;
+                    color: #58595b !important;
+                }
             }
             ul {
                 font-family: UTM_Helve;
@@ -209,7 +238,7 @@
                     width: 30%;
                     display: contents;
                 }
-                a.treat-btn{
+                a.treat-btn {
                     background-color: $main-color;
                     font-family: UTM_Helve;
                     color: #fff;
