@@ -5,9 +5,9 @@
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="{{ url('/')  }}" />
     <meta property="og:url" content="{{ Request::url()  }}" />
-    <meta property="og:image" content="{{ url('uploads/others/fbimage.jpg?'.config('custom.version'))  }}" />
-    <meta property="og:title" content="{{ config('custom.seo_title') }}" />
-    <meta property="og:description" content="{{ config('custom.seo_description') }}" />
+    <meta property="og:image" content="storage/{{$blog->avatar}}" />
+    <meta property="og:title" content="{{$blog->title}}" />
+    <meta property="og:description" content="{{$blog->desciption}}" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

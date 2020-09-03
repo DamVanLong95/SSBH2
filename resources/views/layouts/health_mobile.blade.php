@@ -77,6 +77,7 @@
                             $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
                             var program_id = $(this).data("value");
                             var url ='{{route('selectProgram')}}';
+                            var indexCol = $(this).closest("td").index();
                             $.post(url,{
                                 "_token": "{{ csrf_token() }}", 
                                 product_id: idImg,

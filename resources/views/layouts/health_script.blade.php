@@ -127,6 +127,7 @@
                                 $(this).parents(".custom-select-fix").removeClass("opened");
                                 $(this).parents(".custom-select-fix").find(".custom-select-fix-trigger").text($(this).text());
                                 var program_id = $(this).data("value");
+                                var indexCol = $(this).closest("td").index();
                                 var url ='{{route('selectProgram')}}';
                                 $.post(url,{
                                     "_token": "{{ csrf_token() }}", 
