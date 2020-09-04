@@ -73,7 +73,6 @@ class LongevityController extends Controller
         });
         $params = $params->toArray();
 
-
         $products =[];
         $references = [
             7=> 'age_to_eightten',
@@ -84,8 +83,7 @@ class LongevityController extends Controller
             12=> 'benifit_free',
             13=> 'benifit_medical'
         ];
-        $fields = [];
-
+        $product_second = new Collection();
         if(sizeof($params_fillter) > 0){
             for($i=0; $i < sizeof($params_fillter); $i++){
                 $fields [] = $references[$params_fillter[$i]];
@@ -106,6 +104,7 @@ class LongevityController extends Controller
             if(sizeof ($products_id) > 0 ){
                 $product_second = ProductLongevity::whereIn('id',$ids)->get();
             }
+            // dd($product_second);
         }else{
             $product_second = new Collection();
         }
@@ -114,6 +113,7 @@ class LongevityController extends Controller
            
             $product_filter_companies = ProductLongevity::whereIn('company_id',$param_companies)->get();
         }
+        // dd($product_filter_companies);
         $product_saving =[];
         $product_secure =[];
         $product_invest =[];
@@ -121,16 +121,18 @@ class LongevityController extends Controller
         $product_retire =[];
         $product_concern =[];
         $products = ProductLongevity::all()->sortBy('name');
-        
         if(sizeof($product_second) > 0 ){
             $products = $product_second->intersect($products);
             if(isset($product_filter_companies)){
                 $products = $product_filter_companies->intersect($products);
             }
         } else{
+           
             if(isset($product_filter_companies)){
-                $products = $product_filter_companies->intersect($products);
+                $products_companies = $product_filter_companies->intersect($products);
+                $products = $products_companies;
             }
+            
         }
         
         foreach($products as $key=>$value){
@@ -144,6 +146,14 @@ class LongevityController extends Controller
                     if($val->type == 4 && in_array($val->type,$params))  array_push($product_edu,$value);;
                     if($val->type == 5 && in_array($val->type,$params))  array_push($product_retire,$value);
                     if($val->type == 6 && in_array($val->type,$params))  array_push($product_concern,$value);
+                }else if(sizeof($params) == 0){
+                    // dd($val);
+                    if($val->type == 1 )  array_push($product_saving,$value);
+                    if($val->type == 2 )  array_push($product_invest,$value);
+                    if($val->type == 3 )  array_push($product_secure,$value);
+                    if($val->type == 4 )  array_push($product_edu,$value);;
+                    if($val->type == 5 )  array_push($product_retire,$value);
+                    if($val->type == 6 )  array_push($product_concern,$value);
                 }
                    
             }
