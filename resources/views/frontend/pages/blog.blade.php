@@ -22,10 +22,10 @@
             <span>1900988965</span>
         </a>
     </div>
-    <div class="col-lg-8 offset-lg-2 col-xl-10 offset-xl-1">
+    <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
         <div class="blog-ctn">
             <div class="title">
-                <h4>{{$blog->title}}</h4>
+                <h1>{{$blog->title}}</h1>
                 <p><b>Posted:</b> {{ $blog->created_at->format('d/m/Y') }}</p>
             </div>
             <div class="blog-content">

@@ -132,7 +132,7 @@
                         <li @if(\Request::route()->getName()=='treatment') class="active" @endif>
                             <a class="nav-link" href="{{ url('/uu-dai') }}">ƯU ĐÃI</a>
                         </li>
-                        <li  @if(Request::route()->getName()== 'question.index') class="active" @endif>
+                        <li  @if(Request::route()->getName()== 'question.index' || request()->is('blog/*')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/kien-thuc') }}">KIẾN THỨC</a>
                         </li>
                         <li @if(Request::route()->getName()=='contact') class="active" @endif>
