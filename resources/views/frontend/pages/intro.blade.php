@@ -31,7 +31,7 @@
                 </div>
                 <div class="right-ctn">
                     <div class="title">
-                        <a href="{{route('intro')}}"><h4>Giới thiệu về Web: V-Bảo hiểm</h4></a>
+                        <a href="{{route('detail')}}"><h4>Giới thiệu về Web: V-Bảo hiểm</h4></a>
                     </div>
                     <p class="ellipsis">Web so sánh bảo hiểm V-Bảo hiểm ra đời với mục đích đem đến cho người  cái nhìn tổng quan nhất về các sản phẩm bảo hiểm xe ô tô hiện nay tại Việt Nam. Với mục tiêu giúp người dùng trở thành những người mua bảo hiểm thông thái nhất. Với mục tiêu đưa web so sánh bảo hiểm xe ô tô trở thành nền tảng so sánh bảo hiểm xe ô tô bảo hiểm hàng đầu tại Việt Nam. Chúng tôi đem tới người dùng nền tảng so sánh bảo hiểm xe ô tô đầy đủ nhất hiện nay để mọi người có thể dễ dàng hiểu và chọn được sản phẩm phù hợp với mong muốn, nhu cầu của mình. Từ đó, giúp khách hàng tiết kiệm thời gian tìm hiểu để so sánh và lựa chọn sản phẩm bảo hiểm xe ô tô phù hợp nhất; nâng cao sự hiểu biết về các sản phẩm bảo hiểm xe ô tô hiện nay trên thị trường Việt nam.</p>
                     <div class="watch-more">

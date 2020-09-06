@@ -97,7 +97,7 @@
                         <li @if(request()->is('/')) class="active" @endif >
                             <a class="nav-link" href="{{ url('/') }}">TRANG CHỦ </a>
                         </li>
-                        <li @if(\Request::route()->getName() == 'intro') class="active" @endif>
+                        <li @if(\Request::route()->getName() == 'intro'|| request()->is('gioi-thieu/*')) class="active" @endif>
                             <a class="nav-link" href="{{route('intro')}}">GIỚI THIỆU</a>
                         </li>
                         <!-- <li >
@@ -135,7 +135,7 @@
                         <li  @if(Request::route()->getName()== 'question.index' || request()->is('blog/*')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/kien-thuc') }}">KIẾN THỨC</a>
                         </li>
-                        <li @if(Request::route()->getName()=='contact') class="active" @endif>
+                        <li @if(Request::route()->getName()=='contact'|| request()->is('lien-he/*')) class="active" @endif>
                             <a class="nav-link" href="{{ url('/lien-he') }}">KẾT NỐI TƯ VẤN VIÊN</a>
                         </li>
                     </ul>
