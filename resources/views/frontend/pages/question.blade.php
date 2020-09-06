@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+          #ui-id-1 {
+            position: absolute;
+            width: 100%;
+            max-width:870px;
+            /* cursor: pointer; */
+            overflow-y: auto;
+            max-height: 400px;
+            box-sizing: border-box;
+            z-index: 1001;
+        }
+    </style>
 @stop
 
 @section('content')
