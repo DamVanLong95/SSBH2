@@ -22,26 +22,28 @@
             <span>1900988965</span>
         </a>
     </div>
-    <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
-        <div class="blog-ctn">
-            <div class="title">
-                <h1>{{$blog->title}}</h1>
-                <p><b>Posted:</b> {{ $blog->created_at->format('d/m/Y') }}</p>
+    <div class="container">
+        <div class="col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
+            <div class="blog-ctn">
+                <div class="title">
+                    <h1>{{$blog->title}}</h1>
+                    <p><b>Posted:</b> {{ $blog->created_at->format('d/m/Y') }}</p>
+                </div>
+                <div class="blog-content">
+                    <p>{!! nl2br($blog->content)!!}</p>
+                </div>
             </div>
-            <div class="blog-content">
-                <p>{!! nl2br($blog->content)!!}</p>
-            </div>
-         </div>
-        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
 
-		<div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" 
-                src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=333825553700604&autoLogAppEvents=1" 
-                nonce="ePUkQYzc">
-            </script>
-            <div class="fb-comments" data-href="{{(url('/blog/'.$blog->slug))}}" 
-                data-numposts="5" data-width="" data-share="true" >
-            </div>
+            <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" 
+                    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=333825553700604&autoLogAppEvents=1" 
+                    nonce="ePUkQYzc">
+                </script>
+                <div class="fb-comments" data-href="{{(url('/blog/'.$blog->slug))}}" 
+                    data-numposts="5" data-width="" data-share="true" >
+                </div>
+        </div>
     </div>
 </div>
 @stop
