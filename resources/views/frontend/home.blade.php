@@ -215,9 +215,9 @@
                             <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
                             </div>
-                            <div class="swiper-slide slide-item">
+                            <!-- <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
-                            </div>
+                            </div> -->
                             <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
                             </div>
