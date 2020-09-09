@@ -41,10 +41,10 @@ Route::get('/test', function () {
 //     return view('frontend.pages.intro_detail');
 // });
 Route::view('/gioi-thieu','frontend.pages.intro')->name('intro');
-Route::view('/gioi-thieu-chung','frontend.pages.intro_detail')->name('detail');
-Route::view('/loi-ich','frontend.pages.reason')->name('reason');
-Route::view('/nguyen-tac-hoat-dong','frontend.pages.principal')->name('principle');
-Route::view('/dieu-khoan','frontend.pages.term')->name('term');
+Route::view('gioi-thieu/gioi-thieu-chung','frontend.pages.intro_detail')->name('detail');
+Route::view('gioi-thieu/loi-ich','frontend.pages.reason')->name('reason');
+Route::view('gioi-thieu/nguyen-tac-hoat-dong','frontend.pages.principal')->name('principle');
+Route::view('gioi-thieu/dieu-khoan','frontend.pages.term')->name('term');
 // =====================================blog=================================
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
