@@ -213,23 +213,23 @@
                     <div id="slidePartner" class="swiper-container swiper-partner">
                         <div class="swiper-wrapper parner-slide">
                             <div class="swiper-slide slide-item">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner.png?{{ config('custom.version') }}" alt="">
+                                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/tila.png?{{ config('custom.version') }}" alt="">
                             </div>
                             <!-- <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner1.png?{{ config('custom.version') }}" alt="">
                             </div> -->
                             <div class="swiper-slide slide-item">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner2.png?{{ config('custom.version') }}" alt="">
+                                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/infair.png?{{ config('custom.version') }}" alt="">
                             </div>
                             <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner3.png?{{ config('custom.version') }}" alt="">
                             </div>
                             <div class="swiper-slide slide-item">
-                                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner4.png?{{ config('custom.version') }}" alt="">
+                                <img class="img-fluid" src="{{ url('/') }}/assets/images/home/mooncover.jpg?{{ config('custom.version') }}" alt="">
                             </div>
-                            <div class="swiper-slide slide-item">
+                            <!-- <div class="swiper-slide slide-item">
                                 <img class="img-fluid" src="{{ url('/') }}/assets/images/home/partner5.png?{{ config('custom.version') }}" alt="">
-                            </div>
+                            </div> -->
                         </div>
                         <!-- Add Arrows -->
                     </div>
