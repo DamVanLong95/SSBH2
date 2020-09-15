@@ -195,11 +195,11 @@
                             </li>
                             <li>
                                 <img src="{{ url('assets/images/default/address.png?'.config('custom.version')) }}" alt="">
-                                Phòng 520, toà nhà 142 Lê Duẩn, Khâm Thiên, Đống Đa, Hà Nội
+                                Số 5A/579 đường Lạc Long Quân, P. Xuân La, Q. Tây Hồ, TP. Hà Nội
                             </li>
                             <li>
                                 <img src="{{ url('assets/images/default/mail.png?'.config('custom.version')) }}" alt="">
-                                <a href="mailto:lienhe@vbaohem.vn">lienhe@vbaohem.vn</a>
+                                <a href="mailto:contact@vics-corp.com">contact@vics-corp.com</a>
                             </li>
                         </ul>
                     </div>
